@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -32,8 +32,19 @@ class AcceptedAudiencesArgs:
         Represents an accepted audience trusted by the cluster.
         :param pulumi.Input[str] value: GUID or valid URL representing an accepted audience.
         """
+        AcceptedAudiencesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -60,10 +71,25 @@ class AzureSkuArgs:
         :param pulumi.Input[Union[str, 'AzureSkuTier']] tier: SKU tier.
         :param pulumi.Input[int] capacity: The number of instances of the cluster.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        AzureSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'AzureSkuName']],
+             tier: pulumi.Input[Union[str, 'AzureSkuTier']],
+             capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("tier", tier)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -112,9 +138,24 @@ class IdentityArgs:
         :param pulumi.Input[Union[str, 'IdentityType']] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "type", type)
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'IdentityType']],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -155,14 +196,39 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] key_version: The version of the key vault key.
         :param pulumi.Input[str] user_identity: The user assigned identity (ARM resource id) that has access to the key.
         """
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            key_version=key_version,
+            user_identity=user_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_vault_uri: Optional[pulumi.Input[str]] = None,
+             key_version: Optional[pulumi.Input[str]] = None,
+             user_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+        if 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+        if 'userIdentity' in kwargs:
+            user_identity = kwargs['userIdentity']
+
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+            _setter("key_vault_uri", key_vault_uri)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
         if user_identity is not None:
-            pulumi.set(__self__, "user_identity", user_identity)
+            _setter("user_identity", user_identity)
 
     @property
     @pulumi.getter(name="keyName")
@@ -221,8 +287,19 @@ class LanguageExtensionsListArgs:
         The list of language extension objects.
         :param pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]] value: The list of language extensions.
         """
+        LanguageExtensionsListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -249,12 +326,33 @@ class LanguageExtensionArgs:
         :param pulumi.Input[Union[str, 'LanguageExtensionImageName']] language_extension_image_name: The language extension image name.
         :param pulumi.Input[Union[str, 'LanguageExtensionName']] language_extension_name: The language extension name.
         """
+        LanguageExtensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            language_extension_custom_image_name=language_extension_custom_image_name,
+            language_extension_image_name=language_extension_image_name,
+            language_extension_name=language_extension_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             language_extension_custom_image_name: Optional[pulumi.Input[str]] = None,
+             language_extension_image_name: Optional[pulumi.Input[Union[str, 'LanguageExtensionImageName']]] = None,
+             language_extension_name: Optional[pulumi.Input[Union[str, 'LanguageExtensionName']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'languageExtensionCustomImageName' in kwargs:
+            language_extension_custom_image_name = kwargs['languageExtensionCustomImageName']
+        if 'languageExtensionImageName' in kwargs:
+            language_extension_image_name = kwargs['languageExtensionImageName']
+        if 'languageExtensionName' in kwargs:
+            language_extension_name = kwargs['languageExtensionName']
+
         if language_extension_custom_image_name is not None:
-            pulumi.set(__self__, "language_extension_custom_image_name", language_extension_custom_image_name)
+            _setter("language_extension_custom_image_name", language_extension_custom_image_name)
         if language_extension_image_name is not None:
-            pulumi.set(__self__, "language_extension_image_name", language_extension_image_name)
+            _setter("language_extension_image_name", language_extension_image_name)
         if language_extension_name is not None:
-            pulumi.set(__self__, "language_extension_name", language_extension_name)
+            _setter("language_extension_name", language_extension_name)
 
     @property
     @pulumi.getter(name="languageExtensionCustomImageName")
@@ -307,10 +405,29 @@ class OptimizedAutoscaleArgs:
         :param pulumi.Input[int] minimum: Minimum allowed instances count.
         :param pulumi.Input[int] version: The version of the template defined, for instance 1.
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "maximum", maximum)
-        pulumi.set(__self__, "minimum", minimum)
-        pulumi.set(__self__, "version", version)
+        OptimizedAutoscaleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            maximum=maximum,
+            minimum=minimum,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: pulumi.Input[bool],
+             maximum: pulumi.Input[int],
+             minimum: pulumi.Input[int],
+             version: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
+        _setter("is_enabled", is_enabled)
+        _setter("maximum", maximum)
+        _setter("minimum", minimum)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -371,10 +488,23 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
         :param pulumi.Input[str] description: The private link service connection description.
         :param pulumi.Input[str] status: The private link service connection status.
         """
+        PrivateLinkServiceConnectionStatePropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -423,22 +553,63 @@ class TableLevelSharingPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tables_to_exclude: List of tables to exclude from the follower database
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tables_to_include: List of tables to include in the follower database
         """
+        TableLevelSharingPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            external_tables_to_exclude=external_tables_to_exclude,
+            external_tables_to_include=external_tables_to_include,
+            functions_to_exclude=functions_to_exclude,
+            functions_to_include=functions_to_include,
+            materialized_views_to_exclude=materialized_views_to_exclude,
+            materialized_views_to_include=materialized_views_to_include,
+            tables_to_exclude=tables_to_exclude,
+            tables_to_include=tables_to_include,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             external_tables_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             external_tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             functions_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             functions_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             materialized_views_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             materialized_views_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tables_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalTablesToExclude' in kwargs:
+            external_tables_to_exclude = kwargs['externalTablesToExclude']
+        if 'externalTablesToInclude' in kwargs:
+            external_tables_to_include = kwargs['externalTablesToInclude']
+        if 'functionsToExclude' in kwargs:
+            functions_to_exclude = kwargs['functionsToExclude']
+        if 'functionsToInclude' in kwargs:
+            functions_to_include = kwargs['functionsToInclude']
+        if 'materializedViewsToExclude' in kwargs:
+            materialized_views_to_exclude = kwargs['materializedViewsToExclude']
+        if 'materializedViewsToInclude' in kwargs:
+            materialized_views_to_include = kwargs['materializedViewsToInclude']
+        if 'tablesToExclude' in kwargs:
+            tables_to_exclude = kwargs['tablesToExclude']
+        if 'tablesToInclude' in kwargs:
+            tables_to_include = kwargs['tablesToInclude']
+
         if external_tables_to_exclude is not None:
-            pulumi.set(__self__, "external_tables_to_exclude", external_tables_to_exclude)
+            _setter("external_tables_to_exclude", external_tables_to_exclude)
         if external_tables_to_include is not None:
-            pulumi.set(__self__, "external_tables_to_include", external_tables_to_include)
+            _setter("external_tables_to_include", external_tables_to_include)
         if functions_to_exclude is not None:
-            pulumi.set(__self__, "functions_to_exclude", functions_to_exclude)
+            _setter("functions_to_exclude", functions_to_exclude)
         if functions_to_include is not None:
-            pulumi.set(__self__, "functions_to_include", functions_to_include)
+            _setter("functions_to_include", functions_to_include)
         if materialized_views_to_exclude is not None:
-            pulumi.set(__self__, "materialized_views_to_exclude", materialized_views_to_exclude)
+            _setter("materialized_views_to_exclude", materialized_views_to_exclude)
         if materialized_views_to_include is not None:
-            pulumi.set(__self__, "materialized_views_to_include", materialized_views_to_include)
+            _setter("materialized_views_to_include", materialized_views_to_include)
         if tables_to_exclude is not None:
-            pulumi.set(__self__, "tables_to_exclude", tables_to_exclude)
+            _setter("tables_to_exclude", tables_to_exclude)
         if tables_to_include is not None:
-            pulumi.set(__self__, "tables_to_include", tables_to_include)
+            _setter("tables_to_include", tables_to_include)
 
     @property
     @pulumi.getter(name="externalTablesToExclude")
@@ -545,8 +716,19 @@ class TrustedExternalTenantArgs:
         Represents a tenant ID that is trusted by the cluster.
         :param pulumi.Input[str] value: GUID representing an external tenant.
         """
+        TrustedExternalTenantArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -575,13 +757,36 @@ class VirtualNetworkConfigurationArgs:
         :param pulumi.Input[str] subnet_id: The subnet resource id.
         :param pulumi.Input[Union[str, 'VnetState']] state: When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet.
         """
-        pulumi.set(__self__, "data_management_public_ip_id", data_management_public_ip_id)
-        pulumi.set(__self__, "engine_public_ip_id", engine_public_ip_id)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        VirtualNetworkConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_management_public_ip_id=data_management_public_ip_id,
+            engine_public_ip_id=engine_public_ip_id,
+            subnet_id=subnet_id,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_management_public_ip_id: pulumi.Input[str],
+             engine_public_ip_id: pulumi.Input[str],
+             subnet_id: pulumi.Input[str],
+             state: Optional[pulumi.Input[Union[str, 'VnetState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataManagementPublicIpId' in kwargs:
+            data_management_public_ip_id = kwargs['dataManagementPublicIpId']
+        if 'enginePublicIpId' in kwargs:
+            engine_public_ip_id = kwargs['enginePublicIpId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
+        _setter("data_management_public_ip_id", data_management_public_ip_id)
+        _setter("engine_public_ip_id", engine_public_ip_id)
+        _setter("subnet_id", subnet_id)
         if state is None:
             state = 'Enabled'
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="dataManagementPublicIpId")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -30,13 +30,40 @@ class FederatedIdentityCredentialArgs:
         :param pulumi.Input[str] subject: The identifier of the external identity.
         :param pulumi.Input[str] federated_identity_credential_resource_name: The name of the federated identity credential resource.
         """
-        pulumi.set(__self__, "audiences", audiences)
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "subject", subject)
+        FederatedIdentityCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audiences=audiences,
+            issuer=issuer,
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            subject=subject,
+            federated_identity_credential_resource_name=federated_identity_credential_resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audiences: pulumi.Input[Sequence[pulumi.Input[str]]],
+             issuer: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             resource_name: pulumi.Input[str],
+             subject: pulumi.Input[str],
+             federated_identity_credential_resource_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if 'federatedIdentityCredentialResourceName' in kwargs:
+            federated_identity_credential_resource_name = kwargs['federatedIdentityCredentialResourceName']
+
+        _setter("audiences", audiences)
+        _setter("issuer", issuer)
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
+        _setter("subject", subject)
         if federated_identity_credential_resource_name is not None:
-            pulumi.set(__self__, "federated_identity_credential_resource_name", federated_identity_credential_resource_name)
+            _setter("federated_identity_credential_resource_name", federated_identity_credential_resource_name)
 
     @property
     @pulumi.getter
@@ -154,6 +181,10 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FederatedIdentityCredentialArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

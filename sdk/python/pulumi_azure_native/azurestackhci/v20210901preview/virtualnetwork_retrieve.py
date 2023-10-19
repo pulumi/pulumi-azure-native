@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -35,21 +35,56 @@ class VirtualnetworkRetrieveArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VirtualnetworksPropertiesSubnetsArgs']]] subnets: Subnet - list of subnets under the virtual network
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualnetworkRetrieveArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            extended_location=extended_location,
+            location=location,
+            network_type=network_type,
+            resource_name=resource_name,
+            subnets=subnets,
+            tags=tags,
+            virtualnetworks_name=virtualnetworks_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_type: Optional[pulumi.Input[Union[str, 'NetworkTypeEnum']]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualnetworksPropertiesSubnetsArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtualnetworks_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if 'networkType' in kwargs:
+            network_type = kwargs['networkType']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if 'virtualnetworksName' in kwargs:
+            virtualnetworks_name = kwargs['virtualnetworksName']
+
+        _setter("resource_group_name", resource_group_name)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_type is not None:
-            pulumi.set(__self__, "network_type", network_type)
+            _setter("network_type", network_type)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtualnetworks_name is not None:
-            pulumi.set(__self__, "virtualnetworks_name", virtualnetworks_name)
+            _setter("virtualnetworks_name", virtualnetworks_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -191,6 +226,10 @@ class VirtualnetworkRetrieve(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualnetworkRetrieveArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -213,6 +252,11 @@ class VirtualnetworkRetrieve(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualnetworkRetrieveArgs.__new__(VirtualnetworkRetrieveArgs)
 
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
             __props__.__dict__["network_type"] = network_type

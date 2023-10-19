@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,35 @@ class ContainerRegistryArgs:
         :param pulumi.Input[str] container_registry_name: The name of the container registry.
         :param pulumi.Input['ContainerRegistryPropertiesArgs'] properties: Properties of the container registry resource payload.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        ContainerRegistryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            container_registry_name=container_registry_name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             container_registry_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['ContainerRegistryPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'containerRegistryName' in kwargs:
+            container_registry_name = kwargs['containerRegistryName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if container_registry_name is not None:
-            pulumi.set(__self__, "container_registry_name", container_registry_name)
+            _setter("container_registry_name", container_registry_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -124,6 +147,10 @@ class ContainerRegistry(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContainerRegistryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -143,6 +170,11 @@ class ContainerRegistry(pulumi.CustomResource):
             __props__ = ContainerRegistryArgs.__new__(ContainerRegistryArgs)
 
             __props__.__dict__["container_registry_name"] = container_registry_name
+            if properties is not None and not isinstance(properties, ContainerRegistryPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                ContainerRegistryPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

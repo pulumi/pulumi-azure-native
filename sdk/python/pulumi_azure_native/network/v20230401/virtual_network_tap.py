@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,21 +36,56 @@ class VirtualNetworkTapInitArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] tap_name: The name of the virtual network tap.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualNetworkTapInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            destination_load_balancer_front_end_ip_configuration=destination_load_balancer_front_end_ip_configuration,
+            destination_network_interface_ip_configuration=destination_network_interface_ip_configuration,
+            destination_port=destination_port,
+            id=id,
+            location=location,
+            tags=tags,
+            tap_name=tap_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             destination_load_balancer_front_end_ip_configuration: Optional[pulumi.Input['FrontendIPConfigurationArgs']] = None,
+             destination_network_interface_ip_configuration: Optional[pulumi.Input['NetworkInterfaceIPConfigurationArgs']] = None,
+             destination_port: Optional[pulumi.Input[int]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tap_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'destinationLoadBalancerFrontEndIPConfiguration' in kwargs:
+            destination_load_balancer_front_end_ip_configuration = kwargs['destinationLoadBalancerFrontEndIPConfiguration']
+        if 'destinationNetworkInterfaceIPConfiguration' in kwargs:
+            destination_network_interface_ip_configuration = kwargs['destinationNetworkInterfaceIPConfiguration']
+        if 'destinationPort' in kwargs:
+            destination_port = kwargs['destinationPort']
+        if 'tapName' in kwargs:
+            tap_name = kwargs['tapName']
+
+        _setter("resource_group_name", resource_group_name)
         if destination_load_balancer_front_end_ip_configuration is not None:
-            pulumi.set(__self__, "destination_load_balancer_front_end_ip_configuration", destination_load_balancer_front_end_ip_configuration)
+            _setter("destination_load_balancer_front_end_ip_configuration", destination_load_balancer_front_end_ip_configuration)
         if destination_network_interface_ip_configuration is not None:
-            pulumi.set(__self__, "destination_network_interface_ip_configuration", destination_network_interface_ip_configuration)
+            _setter("destination_network_interface_ip_configuration", destination_network_interface_ip_configuration)
         if destination_port is not None:
-            pulumi.set(__self__, "destination_port", destination_port)
+            _setter("destination_port", destination_port)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tap_name is not None:
-            pulumi.set(__self__, "tap_name", tap_name)
+            _setter("tap_name", tap_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -196,6 +231,10 @@ class VirtualNetworkTap(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualNetworkTapInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -218,7 +257,17 @@ class VirtualNetworkTap(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualNetworkTapInitArgs.__new__(VirtualNetworkTapInitArgs)
 
+            if destination_load_balancer_front_end_ip_configuration is not None and not isinstance(destination_load_balancer_front_end_ip_configuration, FrontendIPConfigurationArgs):
+                destination_load_balancer_front_end_ip_configuration = destination_load_balancer_front_end_ip_configuration or {}
+                def _setter(key, value):
+                    destination_load_balancer_front_end_ip_configuration[key] = value
+                FrontendIPConfigurationArgs._configure(_setter, **destination_load_balancer_front_end_ip_configuration)
             __props__.__dict__["destination_load_balancer_front_end_ip_configuration"] = destination_load_balancer_front_end_ip_configuration
+            if destination_network_interface_ip_configuration is not None and not isinstance(destination_network_interface_ip_configuration, NetworkInterfaceIPConfigurationArgs):
+                destination_network_interface_ip_configuration = destination_network_interface_ip_configuration or {}
+                def _setter(key, value):
+                    destination_network_interface_ip_configuration[key] = value
+                NetworkInterfaceIPConfigurationArgs._configure(_setter, **destination_network_interface_ip_configuration)
             __props__.__dict__["destination_network_interface_ip_configuration"] = destination_network_interface_ip_configuration
             __props__.__dict__["destination_port"] = destination_port
             __props__.__dict__["id"] = id

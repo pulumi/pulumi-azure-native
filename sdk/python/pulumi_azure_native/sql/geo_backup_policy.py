@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -28,12 +28,39 @@ class GeoBackupPolicyArgs:
         :param pulumi.Input['GeoBackupPolicyState'] state: The state of the geo backup policy.
         :param pulumi.Input[str] geo_backup_policy_name: The name of the Geo backup policy. This should always be 'Default'.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "state", state)
+        GeoBackupPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            state=state,
+            geo_backup_policy_name=geo_backup_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             state: pulumi.Input['GeoBackupPolicyState'],
+             geo_backup_policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'geoBackupPolicyName' in kwargs:
+            geo_backup_policy_name = kwargs['geoBackupPolicyName']
+
+        _setter("database_name", database_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
+        _setter("state", state)
         if geo_backup_policy_name is not None:
-            pulumi.set(__self__, "geo_backup_policy_name", geo_backup_policy_name)
+            _setter("geo_backup_policy_name", geo_backup_policy_name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -139,6 +166,10 @@ class GeoBackupPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GeoBackupPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

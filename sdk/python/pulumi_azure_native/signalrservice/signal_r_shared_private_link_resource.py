@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -30,14 +30,47 @@ class SignalRSharedPrivateLinkResourceArgs:
         :param pulumi.Input[str] request_message: The request message for requesting approval of the shared private link resource
         :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource
         """
-        pulumi.set(__self__, "group_id", group_id)
-        pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        SignalRSharedPrivateLinkResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            private_link_resource_id=private_link_resource_id,
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            request_message=request_message,
+            shared_private_link_resource_name=shared_private_link_resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: pulumi.Input[str],
+             private_link_resource_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             resource_name: pulumi.Input[str],
+             request_message: Optional[pulumi.Input[str]] = None,
+             shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'privateLinkResourceId' in kwargs:
+            private_link_resource_id = kwargs['privateLinkResourceId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+        if 'sharedPrivateLinkResourceName' in kwargs:
+            shared_private_link_resource_name = kwargs['sharedPrivateLinkResourceName']
+
+        _setter("group_id", group_id)
+        _setter("private_link_resource_id", private_link_resource_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
+            _setter("request_message", request_message)
         if shared_private_link_resource_name is not None:
-            pulumi.set(__self__, "shared_private_link_resource_name", shared_private_link_resource_name)
+            _setter("shared_private_link_resource_name", shared_private_link_resource_name)
 
     @property
     @pulumi.getter(name="groupId")
@@ -157,6 +190,10 @@ class SignalRSharedPrivateLinkResource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SignalRSharedPrivateLinkResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

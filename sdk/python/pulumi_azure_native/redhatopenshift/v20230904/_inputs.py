@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -33,12 +33,27 @@ class APIServerProfileArgs:
         :param pulumi.Input[str] url: The URL to access the cluster API server.
         :param pulumi.Input[Union[str, 'Visibility']] visibility: API server visibility.
         """
+        APIServerProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+            url=url,
+            visibility=visibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             visibility: Optional[pulumi.Input[Union[str, 'Visibility']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
 
     @property
     @pulumi.getter
@@ -93,16 +108,41 @@ class ClusterProfileArgs:
         :param pulumi.Input[str] resource_group_id: The ID of the cluster resource group.
         :param pulumi.Input[str] version: The version of the cluster.
         """
+        ClusterProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            fips_validated_modules=fips_validated_modules,
+            pull_secret=pull_secret,
+            resource_group_id=resource_group_id,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: Optional[pulumi.Input[str]] = None,
+             fips_validated_modules: Optional[pulumi.Input[Union[str, 'FipsValidatedModules']]] = None,
+             pull_secret: Optional[pulumi.Input[str]] = None,
+             resource_group_id: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fipsValidatedModules' in kwargs:
+            fips_validated_modules = kwargs['fipsValidatedModules']
+        if 'pullSecret' in kwargs:
+            pull_secret = kwargs['pullSecret']
+        if 'resourceGroupId' in kwargs:
+            resource_group_id = kwargs['resourceGroupId']
+
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if fips_validated_modules is not None:
-            pulumi.set(__self__, "fips_validated_modules", fips_validated_modules)
+            _setter("fips_validated_modules", fips_validated_modules)
         if pull_secret is not None:
-            pulumi.set(__self__, "pull_secret", pull_secret)
+            _setter("pull_secret", pull_secret)
         if resource_group_id is not None:
-            pulumi.set(__self__, "resource_group_id", resource_group_id)
+            _setter("resource_group_id", resource_group_id)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -173,8 +213,19 @@ class ConsoleProfileArgs:
         ConsoleProfile represents a console profile.
         :param pulumi.Input[str] url: The URL to access the cluster console.
         """
+        ConsoleProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -201,12 +252,27 @@ class IngressProfileArgs:
         :param pulumi.Input[str] name: The ingress profile name.
         :param pulumi.Input[Union[str, 'Visibility']] visibility: Ingress visibility.
         """
+        IngressProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+            name=name,
+            visibility=visibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             visibility: Optional[pulumi.Input[Union[str, 'Visibility']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
 
     @property
     @pulumi.getter
@@ -259,14 +325,39 @@ class MasterProfileArgs:
         :param pulumi.Input[str] subnet_id: The Azure resource ID of the master subnet.
         :param pulumi.Input[str] vm_size: The size of the master VMs.
         """
+        MasterProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_set_id=disk_encryption_set_id,
+            encryption_at_host=encryption_at_host,
+            subnet_id=subnet_id,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+             encryption_at_host: Optional[pulumi.Input[Union[str, 'EncryptionAtHost']]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'encryptionAtHost' in kwargs:
+            encryption_at_host = kwargs['encryptionAtHost']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if encryption_at_host is not None:
-            pulumi.set(__self__, "encryption_at_host", encryption_at_host)
+            _setter("encryption_at_host", encryption_at_host)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -331,14 +422,39 @@ class NetworkProfileArgs:
         :param pulumi.Input[Union[str, 'PreconfiguredNSG']] preconfigured_nsg: Specifies whether subnets are pre-attached with an NSG
         :param pulumi.Input[str] service_cidr: The CIDR used for OpenShift/Kubernetes Services.
         """
+        NetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            outbound_type=outbound_type,
+            pod_cidr=pod_cidr,
+            preconfigured_nsg=preconfigured_nsg,
+            service_cidr=service_cidr,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             outbound_type: Optional[pulumi.Input[Union[str, 'OutboundType']]] = None,
+             pod_cidr: Optional[pulumi.Input[str]] = None,
+             preconfigured_nsg: Optional[pulumi.Input[Union[str, 'PreconfiguredNSG']]] = None,
+             service_cidr: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'outboundType' in kwargs:
+            outbound_type = kwargs['outboundType']
+        if 'podCidr' in kwargs:
+            pod_cidr = kwargs['podCidr']
+        if 'preconfiguredNSG' in kwargs:
+            preconfigured_nsg = kwargs['preconfiguredNSG']
+        if 'serviceCidr' in kwargs:
+            service_cidr = kwargs['serviceCidr']
+
         if outbound_type is not None:
-            pulumi.set(__self__, "outbound_type", outbound_type)
+            _setter("outbound_type", outbound_type)
         if pod_cidr is not None:
-            pulumi.set(__self__, "pod_cidr", pod_cidr)
+            _setter("pod_cidr", pod_cidr)
         if preconfigured_nsg is not None:
-            pulumi.set(__self__, "preconfigured_nsg", preconfigured_nsg)
+            _setter("preconfigured_nsg", preconfigured_nsg)
         if service_cidr is not None:
-            pulumi.set(__self__, "service_cidr", service_cidr)
+            _setter("service_cidr", service_cidr)
 
     @property
     @pulumi.getter(name="outboundType")
@@ -399,10 +515,27 @@ class ServicePrincipalProfileArgs:
         :param pulumi.Input[str] client_id: The client ID used for the cluster.
         :param pulumi.Input[str] client_secret: The client secret used for the cluster.
         """
+        ServicePrincipalProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
 
     @property
     @pulumi.getter(name="clientId")
@@ -449,20 +582,53 @@ class WorkerProfileArgs:
         :param pulumi.Input[str] subnet_id: The Azure resource ID of the worker subnet.
         :param pulumi.Input[str] vm_size: The size of the worker VMs.
         """
+        WorkerProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_size_gb=disk_size_gb,
+            encryption_at_host=encryption_at_host,
+            name=name,
+            subnet_id=subnet_id,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional[pulumi.Input[int]] = None,
+             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+             disk_size_gb: Optional[pulumi.Input[int]] = None,
+             encryption_at_host: Optional[pulumi.Input[Union[str, 'EncryptionAtHost']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+        if 'encryptionAtHost' in kwargs:
+            encryption_at_host = kwargs['encryptionAtHost']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if disk_size_gb is not None:
-            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+            _setter("disk_size_gb", disk_size_gb)
         if encryption_at_host is not None:
-            pulumi.set(__self__, "encryption_at_host", encryption_at_host)
+            _setter("encryption_at_host", encryption_at_host)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter

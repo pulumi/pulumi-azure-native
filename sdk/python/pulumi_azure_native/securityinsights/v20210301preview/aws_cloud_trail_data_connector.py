@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -35,15 +35,50 @@ class AwsCloudTrailDataConnectorArgs:
         :param pulumi.Input[str] aws_role_arn: The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
         :param pulumi.Input[str] data_connector_id: Connector ID
         """
-        pulumi.set(__self__, "data_types", data_types)
-        pulumi.set(__self__, "kind", 'AmazonWebServicesCloudTrail')
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        AwsCloudTrailDataConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_types=data_types,
+            kind=kind,
+            operational_insights_resource_provider=operational_insights_resource_provider,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            aws_role_arn=aws_role_arn,
+            data_connector_id=data_connector_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_types: pulumi.Input['AwsCloudTrailDataConnectorDataTypesArgs'],
+             kind: pulumi.Input[str],
+             operational_insights_resource_provider: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             aws_role_arn: Optional[pulumi.Input[str]] = None,
+             data_connector_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataTypes' in kwargs:
+            data_types = kwargs['dataTypes']
+        if 'operationalInsightsResourceProvider' in kwargs:
+            operational_insights_resource_provider = kwargs['operationalInsightsResourceProvider']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'awsRoleArn' in kwargs:
+            aws_role_arn = kwargs['awsRoleArn']
+        if 'dataConnectorId' in kwargs:
+            data_connector_id = kwargs['dataConnectorId']
+
+        _setter("data_types", data_types)
+        _setter("kind", 'AmazonWebServicesCloudTrail')
+        _setter("operational_insights_resource_provider", operational_insights_resource_provider)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if aws_role_arn is not None:
-            pulumi.set(__self__, "aws_role_arn", aws_role_arn)
+            _setter("aws_role_arn", aws_role_arn)
         if data_connector_id is not None:
-            pulumi.set(__self__, "data_connector_id", data_connector_id)
+            _setter("data_connector_id", data_connector_id)
 
     @property
     @pulumi.getter(name="dataTypes")
@@ -177,6 +212,10 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AwsCloudTrailDataConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -200,6 +239,11 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
 
             __props__.__dict__["aws_role_arn"] = aws_role_arn
             __props__.__dict__["data_connector_id"] = data_connector_id
+            if data_types is not None and not isinstance(data_types, AwsCloudTrailDataConnectorDataTypesArgs):
+                data_types = data_types or {}
+                def _setter(key, value):
+                    data_types[key] = value
+                AwsCloudTrailDataConnectorDataTypesArgs._configure(_setter, **data_types)
             if data_types is None and not opts.urn:
                 raise TypeError("Missing required property 'data_types'")
             __props__.__dict__["data_types"] = data_types

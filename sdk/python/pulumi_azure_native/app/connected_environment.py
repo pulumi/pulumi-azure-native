@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,21 +36,58 @@ class ConnectedEnvironmentArgs:
         :param pulumi.Input[str] static_ip: Static IP of the connectedEnvironment
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConnectedEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            connected_environment_name=connected_environment_name,
+            custom_domain_configuration=custom_domain_configuration,
+            dapr_ai_connection_string=dapr_ai_connection_string,
+            extended_location=extended_location,
+            location=location,
+            static_ip=static_ip,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             connected_environment_name: Optional[pulumi.Input[str]] = None,
+             custom_domain_configuration: Optional[pulumi.Input['CustomDomainConfigurationArgs']] = None,
+             dapr_ai_connection_string: Optional[pulumi.Input[str]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             static_ip: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'connectedEnvironmentName' in kwargs:
+            connected_environment_name = kwargs['connectedEnvironmentName']
+        if 'customDomainConfiguration' in kwargs:
+            custom_domain_configuration = kwargs['customDomainConfiguration']
+        if 'daprAIConnectionString' in kwargs:
+            dapr_ai_connection_string = kwargs['daprAIConnectionString']
+        if 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if 'staticIp' in kwargs:
+            static_ip = kwargs['staticIp']
+
+        _setter("resource_group_name", resource_group_name)
         if connected_environment_name is not None:
-            pulumi.set(__self__, "connected_environment_name", connected_environment_name)
+            _setter("connected_environment_name", connected_environment_name)
         if custom_domain_configuration is not None:
-            pulumi.set(__self__, "custom_domain_configuration", custom_domain_configuration)
+            _setter("custom_domain_configuration", custom_domain_configuration)
         if dapr_ai_connection_string is not None:
-            pulumi.set(__self__, "dapr_ai_connection_string", dapr_ai_connection_string)
+            _setter("dapr_ai_connection_string", dapr_ai_connection_string)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if static_ip is not None:
-            pulumi.set(__self__, "static_ip", static_ip)
+            _setter("static_ip", static_ip)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -198,6 +235,10 @@ class ConnectedEnvironment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectedEnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -221,8 +262,18 @@ class ConnectedEnvironment(pulumi.CustomResource):
             __props__ = ConnectedEnvironmentArgs.__new__(ConnectedEnvironmentArgs)
 
             __props__.__dict__["connected_environment_name"] = connected_environment_name
+            if custom_domain_configuration is not None and not isinstance(custom_domain_configuration, CustomDomainConfigurationArgs):
+                custom_domain_configuration = custom_domain_configuration or {}
+                def _setter(key, value):
+                    custom_domain_configuration[key] = value
+                CustomDomainConfigurationArgs._configure(_setter, **custom_domain_configuration)
             __props__.__dict__["custom_domain_configuration"] = custom_domain_configuration
             __props__.__dict__["dapr_ai_connection_string"] = dapr_ai_connection_string
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

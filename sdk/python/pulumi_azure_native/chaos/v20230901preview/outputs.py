@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -43,8 +43,21 @@ class BranchResponse(dict):
         :param Sequence[Union['ContinuousActionResponse', 'DelayActionResponse', 'DiscreteActionResponse']] actions: List of actions.
         :param str name: String of the branch name.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "name", name)
+        BranchResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence[Any],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("actions", actions)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -101,11 +114,34 @@ class CapabilityPropertiesResponse(dict):
         :param str target_type: String of the Target Type that this Capability extends.
         :param str urn: String of the URN for this Capability Type.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "parameters_schema", parameters_schema)
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "target_type", target_type)
-        pulumi.set(__self__, "urn", urn)
+        CapabilityPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            parameters_schema=parameters_schema,
+            publisher=publisher,
+            target_type=target_type,
+            urn=urn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: str,
+             parameters_schema: str,
+             publisher: str,
+             target_type: str,
+             urn: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parametersSchema' in kwargs:
+            parameters_schema = kwargs['parametersSchema']
+        if 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+
+        _setter("description", description)
+        _setter("parameters_schema", parameters_schema)
+        _setter("publisher", publisher)
+        _setter("target_type", target_type)
+        _setter("urn", urn)
 
     @property
     @pulumi.getter
@@ -185,11 +221,32 @@ class ContinuousActionResponse(dict):
         :param str type: Enum that discriminates between action models.
                Expected value is 'continuous'.
         """
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "selector_id", selector_id)
-        pulumi.set(__self__, "type", 'continuous')
+        ContinuousActionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+            name=name,
+            parameters=parameters,
+            selector_id=selector_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: str,
+             name: str,
+             parameters: Sequence['outputs.KeyValuePairResponse'],
+             selector_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'selectorId' in kwargs:
+            selector_id = kwargs['selectorId']
+
+        _setter("duration", duration)
+        _setter("name", name)
+        _setter("parameters", parameters)
+        _setter("selector_id", selector_id)
+        _setter("type", 'continuous')
 
     @property
     @pulumi.getter
@@ -249,9 +306,24 @@ class DelayActionResponse(dict):
         :param str type: Enum that discriminates between action models.
                Expected value is 'delay'.
         """
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'delay')
+        DelayActionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: str,
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("duration", duration)
+        _setter("name", name)
+        _setter("type", 'delay')
 
     @property
     @pulumi.getter
@@ -314,10 +386,29 @@ class DiscreteActionResponse(dict):
         :param str type: Enum that discriminates between action models.
                Expected value is 'discrete'.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "selector_id", selector_id)
-        pulumi.set(__self__, "type", 'discrete')
+        DiscreteActionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+            selector_id=selector_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             parameters: Sequence['outputs.KeyValuePairResponse'],
+             selector_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'selectorId' in kwargs:
+            selector_id = kwargs['selectorId']
+
+        _setter("name", name)
+        _setter("parameters", parameters)
+        _setter("selector_id", selector_id)
+        _setter("type", 'discrete')
 
     @property
     @pulumi.getter
@@ -366,8 +457,21 @@ class ExperimentPropertiesResponse(dict):
         :param Sequence[Union['ListSelectorResponse', 'QuerySelectorResponse']] selectors: List of selectors.
         :param Sequence['StepResponse'] steps: List of steps.
         """
-        pulumi.set(__self__, "selectors", selectors)
-        pulumi.set(__self__, "steps", steps)
+        ExperimentPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selectors=selectors,
+            steps=steps,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selectors: Sequence[Any],
+             steps: Sequence['outputs.StepResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("selectors", selectors)
+        _setter("steps", steps)
 
     @property
     @pulumi.getter
@@ -399,8 +503,21 @@ class KeyValuePairResponse(dict):
         :param str key: The name of the setting for the action.
         :param str value: The value of the setting for the action.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        KeyValuePairResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -437,11 +554,28 @@ class ListSelectorResponse(dict):
                Expected value is 'List'.
         :param 'SimpleFilterResponse' filter: Model that represents available filter types that can be applied to a targets list.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "targets", targets)
-        pulumi.set(__self__, "type", 'List')
+        ListSelectorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            targets=targets,
+            type=type,
+            filter=filter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             targets: Sequence['outputs.TargetReferenceResponse'],
+             type: str,
+             filter: Optional['outputs.SimpleFilterResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
+        _setter("targets", targets)
+        _setter("type", 'List')
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
 
     @property
     @pulumi.getter
@@ -516,12 +650,35 @@ class QuerySelectorResponse(dict):
                Expected value is 'Query'.
         :param 'SimpleFilterResponse' filter: Model that represents available filter types that can be applied to a targets list.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "query_string", query_string)
-        pulumi.set(__self__, "subscription_ids", subscription_ids)
-        pulumi.set(__self__, "type", 'Query')
+        QuerySelectorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            query_string=query_string,
+            subscription_ids=subscription_ids,
+            type=type,
+            filter=filter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             query_string: str,
+             subscription_ids: Sequence[str],
+             type: str,
+             filter: Optional['outputs.SimpleFilterResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'subscriptionIds' in kwargs:
+            subscription_ids = kwargs['subscriptionIds']
+
+        _setter("id", id)
+        _setter("query_string", query_string)
+        _setter("subscription_ids", subscription_ids)
+        _setter("type", 'Query')
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
 
     @property
     @pulumi.getter
@@ -603,11 +760,34 @@ class ResourceIdentityResponse(dict):
         :param str type: String of the resource identity type.
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user identities associated with the Experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        ResourceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -653,8 +833,19 @@ class SimpleFilterParametersResponse(dict):
         Model that represents the Simple filter parameters.
         :param Sequence[str] zones: List of Azure availability zones to filter targets by.
         """
+        SimpleFilterParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             zones: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter
@@ -679,9 +870,22 @@ class SimpleFilterResponse(dict):
                Expected value is 'Simple'.
         :param 'SimpleFilterParametersResponse' parameters: Model that represents the Simple filter parameters.
         """
-        pulumi.set(__self__, "type", 'Simple')
+        SimpleFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             parameters: Optional['outputs.SimpleFilterParametersResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("type", 'Simple')
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -714,8 +918,21 @@ class StepResponse(dict):
         :param Sequence['BranchResponse'] branches: List of branches.
         :param str name: String of the step name.
         """
-        pulumi.set(__self__, "branches", branches)
-        pulumi.set(__self__, "name", name)
+        StepResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branches=branches,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branches: Sequence['outputs.BranchResponse'],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("branches", branches)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -782,18 +999,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -857,8 +1107,21 @@ class TargetReferenceResponse(dict):
         :param str id: String of the resource ID of a Target resource.
         :param str type: Enum of the Target reference type.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "type", type)
+        TargetReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -909,8 +1172,25 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: The client ID of the assigned identity.
         :param str principal_id: The principal ID of the assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")

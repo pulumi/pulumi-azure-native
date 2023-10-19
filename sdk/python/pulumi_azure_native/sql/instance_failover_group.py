@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,15 +34,52 @@ class InstanceFailoverGroupArgs:
         :param pulumi.Input[str] failover_group_name: The name of the failover group.
         :param pulumi.Input['InstanceFailoverGroupReadOnlyEndpointArgs'] read_only_endpoint: Read-only endpoint of the failover group instance.
         """
-        pulumi.set(__self__, "location_name", location_name)
-        pulumi.set(__self__, "managed_instance_pairs", managed_instance_pairs)
-        pulumi.set(__self__, "partner_regions", partner_regions)
-        pulumi.set(__self__, "read_write_endpoint", read_write_endpoint)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        InstanceFailoverGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location_name=location_name,
+            managed_instance_pairs=managed_instance_pairs,
+            partner_regions=partner_regions,
+            read_write_endpoint=read_write_endpoint,
+            resource_group_name=resource_group_name,
+            failover_group_name=failover_group_name,
+            read_only_endpoint=read_only_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location_name: pulumi.Input[str],
+             managed_instance_pairs: pulumi.Input[Sequence[pulumi.Input['ManagedInstancePairInfoArgs']]],
+             partner_regions: pulumi.Input[Sequence[pulumi.Input['PartnerRegionInfoArgs']]],
+             read_write_endpoint: pulumi.Input['InstanceFailoverGroupReadWriteEndpointArgs'],
+             resource_group_name: pulumi.Input[str],
+             failover_group_name: Optional[pulumi.Input[str]] = None,
+             read_only_endpoint: Optional[pulumi.Input['InstanceFailoverGroupReadOnlyEndpointArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'locationName' in kwargs:
+            location_name = kwargs['locationName']
+        if 'managedInstancePairs' in kwargs:
+            managed_instance_pairs = kwargs['managedInstancePairs']
+        if 'partnerRegions' in kwargs:
+            partner_regions = kwargs['partnerRegions']
+        if 'readWriteEndpoint' in kwargs:
+            read_write_endpoint = kwargs['readWriteEndpoint']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'failoverGroupName' in kwargs:
+            failover_group_name = kwargs['failoverGroupName']
+        if 'readOnlyEndpoint' in kwargs:
+            read_only_endpoint = kwargs['readOnlyEndpoint']
+
+        _setter("location_name", location_name)
+        _setter("managed_instance_pairs", managed_instance_pairs)
+        _setter("partner_regions", partner_regions)
+        _setter("read_write_endpoint", read_write_endpoint)
+        _setter("resource_group_name", resource_group_name)
         if failover_group_name is not None:
-            pulumi.set(__self__, "failover_group_name", failover_group_name)
+            _setter("failover_group_name", failover_group_name)
         if read_only_endpoint is not None:
-            pulumi.set(__self__, "read_only_endpoint", read_only_endpoint)
+            _setter("read_only_endpoint", read_only_endpoint)
 
     @property
     @pulumi.getter(name="locationName")
@@ -176,6 +213,10 @@ class InstanceFailoverGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceFailoverGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -207,7 +248,17 @@ class InstanceFailoverGroup(pulumi.CustomResource):
             if partner_regions is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_regions'")
             __props__.__dict__["partner_regions"] = partner_regions
+            if read_only_endpoint is not None and not isinstance(read_only_endpoint, InstanceFailoverGroupReadOnlyEndpointArgs):
+                read_only_endpoint = read_only_endpoint or {}
+                def _setter(key, value):
+                    read_only_endpoint[key] = value
+                InstanceFailoverGroupReadOnlyEndpointArgs._configure(_setter, **read_only_endpoint)
             __props__.__dict__["read_only_endpoint"] = read_only_endpoint
+            if read_write_endpoint is not None and not isinstance(read_write_endpoint, InstanceFailoverGroupReadWriteEndpointArgs):
+                read_write_endpoint = read_write_endpoint or {}
+                def _setter(key, value):
+                    read_write_endpoint[key] = value
+                InstanceFailoverGroupReadWriteEndpointArgs._configure(_setter, **read_write_endpoint)
             if read_write_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'read_write_endpoint'")
             __props__.__dict__["read_write_endpoint"] = read_write_endpoint

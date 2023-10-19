@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['TagDescriptionArgs', 'TagDescription']
@@ -31,17 +31,52 @@ class TagDescriptionArgs:
         :param pulumi.Input[str] external_docs_url: Absolute URL of external resources describing the tag.
         :param pulumi.Input[str] tag_id: Tag identifier. Must be unique in the current API Management service instance.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        TagDescriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            description=description,
+            external_docs_description=external_docs_description,
+            external_docs_url=external_docs_url,
+            tag_id=tag_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             external_docs_description: Optional[pulumi.Input[str]] = None,
+             external_docs_url: Optional[pulumi.Input[str]] = None,
+             tag_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'externalDocsDescription' in kwargs:
+            external_docs_description = kwargs['externalDocsDescription']
+        if 'externalDocsUrl' in kwargs:
+            external_docs_url = kwargs['externalDocsUrl']
+        if 'tagId' in kwargs:
+            tag_id = kwargs['tagId']
+
+        _setter("api_id", api_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if external_docs_description is not None:
-            pulumi.set(__self__, "external_docs_description", external_docs_description)
+            _setter("external_docs_description", external_docs_description)
         if external_docs_url is not None:
-            pulumi.set(__self__, "external_docs_url", external_docs_url)
+            _setter("external_docs_url", external_docs_url)
         if tag_id is not None:
-            pulumi.set(__self__, "tag_id", tag_id)
+            _setter("tag_id", tag_id)
 
     @property
     @pulumi.getter(name="apiId")
@@ -173,6 +208,10 @@ class TagDescription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TagDescriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

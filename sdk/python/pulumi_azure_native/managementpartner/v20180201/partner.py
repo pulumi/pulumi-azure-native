@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['PartnerArgs', 'Partner']
@@ -19,8 +19,21 @@ class PartnerArgs:
         The set of arguments for constructing a Partner resource.
         :param pulumi.Input[str] partner_id: Id of the Partner
         """
+        PartnerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partner_id=partner_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partner_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partnerId' in kwargs:
+            partner_id = kwargs['partnerId']
+
         if partner_id is not None:
-            pulumi.set(__self__, "partner_id", partner_id)
+            _setter("partner_id", partner_id)
 
     @property
     @pulumi.getter(name="partnerId")
@@ -68,6 +81,10 @@ class Partner(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PartnerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

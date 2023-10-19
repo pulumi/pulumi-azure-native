@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -41,13 +41,40 @@ class ServiceProviderParameterResponse(dict):
         :param str name: Name of the Service Provider
         :param str type: Type of the Service Provider
         """
-        pulumi.set(__self__, "default", default)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "help_url", help_url)
-        pulumi.set(__self__, "metadata", metadata)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ServiceProviderParameterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default=default,
+            description=description,
+            display_name=display_name,
+            help_url=help_url,
+            metadata=metadata,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default: str,
+             description: str,
+             display_name: str,
+             help_url: str,
+             metadata: 'outputs.ServiceProviderParameterResponseMetadata',
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'helpUrl' in kwargs:
+            help_url = kwargs['helpUrl']
+
+        _setter("default", default)
+        _setter("description", description)
+        _setter("display_name", display_name)
+        _setter("help_url", help_url)
+        _setter("metadata", metadata)
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -117,8 +144,19 @@ class ServiceProviderParameterResponseConstraints(dict):
         the constraints of the bot meta data.
         :param bool required: Whether required the constraints of the bot meta data.
         """
+        ServiceProviderParameterResponseConstraints._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            required=required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             required: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if required is not None:
-            pulumi.set(__self__, "required", required)
+            _setter("required", required)
 
     @property
     @pulumi.getter
@@ -140,8 +178,19 @@ class ServiceProviderParameterResponseMetadata(dict):
         Meta data for the Service Provider
         :param 'ServiceProviderParameterResponseConstraints' constraints: the constraints of the bot meta data.
         """
+        ServiceProviderParameterResponseMetadata._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            constraints=constraints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             constraints: Optional['outputs.ServiceProviderParameterResponseConstraints'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if constraints is not None:
-            pulumi.set(__self__, "constraints", constraints)
+            _setter("constraints", constraints)
 
     @property
     @pulumi.getter
@@ -173,16 +222,45 @@ class ServiceProviderPropertiesResponse(dict):
         :param str icon_url: The URL of icon
         :param Sequence['ServiceProviderParameterResponse'] parameters: The list of parameters for the Service Provider
         """
-        pulumi.set(__self__, "dev_portal_url", dev_portal_url)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "service_provider_name", service_provider_name)
+        ServiceProviderPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dev_portal_url=dev_portal_url,
+            display_name=display_name,
+            id=id,
+            service_provider_name=service_provider_name,
+            icon_url=icon_url,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dev_portal_url: str,
+             display_name: str,
+             id: str,
+             service_provider_name: str,
+             icon_url: Optional[str] = None,
+             parameters: Optional[Sequence['outputs.ServiceProviderParameterResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'devPortalUrl' in kwargs:
+            dev_portal_url = kwargs['devPortalUrl']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'serviceProviderName' in kwargs:
+            service_provider_name = kwargs['serviceProviderName']
+        if 'iconUrl' in kwargs:
+            icon_url = kwargs['iconUrl']
+
+        _setter("dev_portal_url", dev_portal_url)
+        _setter("display_name", display_name)
+        _setter("id", id)
+        _setter("service_provider_name", service_provider_name)
         if icon_url is None:
             icon_url = ''
         if icon_url is not None:
-            pulumi.set(__self__, "icon_url", icon_url)
+            _setter("icon_url", icon_url)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="devPortalUrl")
@@ -244,8 +322,19 @@ class ServiceProviderResponse(dict):
         Service Provider Definition
         :param 'ServiceProviderPropertiesResponse' properties: The Properties of a Service Provider Object
         """
+        ServiceProviderResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional['outputs.ServiceProviderPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter

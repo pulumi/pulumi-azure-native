@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AdvancedThreatProtectionArgs', 'AdvancedThreatProtection']
@@ -23,11 +23,32 @@ class AdvancedThreatProtectionArgs:
         :param pulumi.Input[bool] is_enabled: Indicates whether Advanced Threat Protection is enabled.
         :param pulumi.Input[str] setting_name: Advanced Threat Protection setting name.
         """
-        pulumi.set(__self__, "resource_id", resource_id)
+        AdvancedThreatProtectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            is_enabled=is_enabled,
+            setting_name=setting_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: pulumi.Input[str],
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             setting_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'settingName' in kwargs:
+            setting_name = kwargs['settingName']
+
+        _setter("resource_id", resource_id)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if setting_name is not None:
-            pulumi.set(__self__, "setting_name", setting_name)
+            _setter("setting_name", setting_name)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -105,6 +126,10 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AdvancedThreatProtectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

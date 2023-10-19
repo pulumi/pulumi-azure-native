@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -36,25 +36,66 @@ class MultipleActivationKeyArgs:
         :param pulumi.Input[Union[str, 'SupportType']] support_type: Type of support
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MultipleActivationKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            agreement_number=agreement_number,
+            installed_server_number=installed_server_number,
+            is_eligible=is_eligible,
+            location=location,
+            multiple_activation_key_name=multiple_activation_key_name,
+            os_type=os_type,
+            support_type=support_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             agreement_number: Optional[pulumi.Input[str]] = None,
+             installed_server_number: Optional[pulumi.Input[int]] = None,
+             is_eligible: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             multiple_activation_key_name: Optional[pulumi.Input[str]] = None,
+             os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
+             support_type: Optional[pulumi.Input[Union[str, 'SupportType']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'agreementNumber' in kwargs:
+            agreement_number = kwargs['agreementNumber']
+        if 'installedServerNumber' in kwargs:
+            installed_server_number = kwargs['installedServerNumber']
+        if 'isEligible' in kwargs:
+            is_eligible = kwargs['isEligible']
+        if 'multipleActivationKeyName' in kwargs:
+            multiple_activation_key_name = kwargs['multipleActivationKeyName']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'supportType' in kwargs:
+            support_type = kwargs['supportType']
+
+        _setter("resource_group_name", resource_group_name)
         if agreement_number is not None:
-            pulumi.set(__self__, "agreement_number", agreement_number)
+            _setter("agreement_number", agreement_number)
         if installed_server_number is not None:
-            pulumi.set(__self__, "installed_server_number", installed_server_number)
+            _setter("installed_server_number", installed_server_number)
         if is_eligible is not None:
-            pulumi.set(__self__, "is_eligible", is_eligible)
+            _setter("is_eligible", is_eligible)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if multiple_activation_key_name is not None:
-            pulumi.set(__self__, "multiple_activation_key_name", multiple_activation_key_name)
+            _setter("multiple_activation_key_name", multiple_activation_key_name)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if support_type is None:
             support_type = 'SupplementalServicing'
         if support_type is not None:
-            pulumi.set(__self__, "support_type", support_type)
+            _setter("support_type", support_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -216,6 +257,10 @@ class MultipleActivationKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MultipleActivationKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

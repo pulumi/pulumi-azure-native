@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,28 +44,69 @@ class PipelineArgs:
         :param pulumi.Input[Mapping[str, Any]] run_dimensions: Dimensions emitted by Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input['VariableSpecificationArgs']]] variables: List of variables for pipeline.
         """
-        pulumi.set(__self__, "factory_name", factory_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PipelineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            factory_name=factory_name,
+            resource_group_name=resource_group_name,
+            activities=activities,
+            annotations=annotations,
+            concurrency=concurrency,
+            description=description,
+            folder=folder,
+            parameters=parameters,
+            pipeline_name=pipeline_name,
+            policy=policy,
+            run_dimensions=run_dimensions,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             factory_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'SynapseNotebookActivityArgs', 'SynapseSparkJobDefinitionActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+             concurrency: Optional[pulumi.Input[int]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input['PipelineFolderArgs']] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+             pipeline_name: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input['PipelinePolicyArgs']] = None,
+             run_dimensions: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             variables: Optional[pulumi.Input[Mapping[str, pulumi.Input['VariableSpecificationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'factoryName' in kwargs:
+            factory_name = kwargs['factoryName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'pipelineName' in kwargs:
+            pipeline_name = kwargs['pipelineName']
+        if 'runDimensions' in kwargs:
+            run_dimensions = kwargs['runDimensions']
+
+        _setter("factory_name", factory_name)
+        _setter("resource_group_name", resource_group_name)
         if activities is not None:
-            pulumi.set(__self__, "activities", activities)
+            _setter("activities", activities)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if concurrency is not None:
-            pulumi.set(__self__, "concurrency", concurrency)
+            _setter("concurrency", concurrency)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if folder is not None:
-            pulumi.set(__self__, "folder", folder)
+            _setter("folder", folder)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if pipeline_name is not None:
-            pulumi.set(__self__, "pipeline_name", pipeline_name)
+            _setter("pipeline_name", pipeline_name)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if run_dimensions is not None:
-            pulumi.set(__self__, "run_dimensions", run_dimensions)
+            _setter("run_dimensions", run_dimensions)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter(name="factoryName")
@@ -269,6 +310,10 @@ class Pipeline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PipelineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -302,9 +347,19 @@ class Pipeline(pulumi.CustomResource):
             if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")
             __props__.__dict__["factory_name"] = factory_name
+            if folder is not None and not isinstance(folder, PipelineFolderArgs):
+                folder = folder or {}
+                def _setter(key, value):
+                    folder[key] = value
+                PipelineFolderArgs._configure(_setter, **folder)
             __props__.__dict__["folder"] = folder
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["pipeline_name"] = pipeline_name
+            if policy is not None and not isinstance(policy, PipelinePolicyArgs):
+                policy = policy or {}
+                def _setter(key, value):
+                    policy[key] = value
+                PipelinePolicyArgs._configure(_setter, **policy)
             __props__.__dict__["policy"] = policy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

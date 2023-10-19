@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -34,16 +34,39 @@ class ThreatIntelligenceExternalReferenceArgs:
         :param pulumi.Input[str] source_name: External reference source name
         :param pulumi.Input[str] url: External reference URL
         """
+        ThreatIntelligenceExternalReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            external_id=external_id,
+            hashes=hashes,
+            source_name=source_name,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             external_id: Optional[pulumi.Input[str]] = None,
+             hashes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             source_name: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if 'sourceName' in kwargs:
+            source_name = kwargs['sourceName']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if external_id is not None:
-            pulumi.set(__self__, "external_id", external_id)
+            _setter("external_id", external_id)
         if hashes is not None:
-            pulumi.set(__self__, "hashes", hashes)
+            _setter("hashes", hashes)
         if source_name is not None:
-            pulumi.set(__self__, "source_name", source_name)
+            _setter("source_name", source_name)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -118,12 +141,29 @@ class ThreatIntelligenceGranularMarkingModelArgs:
         :param pulumi.Input[int] marking_ref: marking reference granular marking model
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selectors: granular marking model selectors
         """
+        ThreatIntelligenceGranularMarkingModelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            language=language,
+            marking_ref=marking_ref,
+            selectors=selectors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             language: Optional[pulumi.Input[str]] = None,
+             marking_ref: Optional[pulumi.Input[int]] = None,
+             selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'markingRef' in kwargs:
+            marking_ref = kwargs['markingRef']
+
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if marking_ref is not None:
-            pulumi.set(__self__, "marking_ref", marking_ref)
+            _setter("marking_ref", marking_ref)
         if selectors is not None:
-            pulumi.set(__self__, "selectors", selectors)
+            _setter("selectors", selectors)
 
     @property
     @pulumi.getter
@@ -172,10 +212,27 @@ class ThreatIntelligenceKillChainPhaseArgs:
         :param pulumi.Input[str] kill_chain_name: Kill chainName name
         :param pulumi.Input[str] phase_name: Phase name
         """
+        ThreatIntelligenceKillChainPhaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kill_chain_name=kill_chain_name,
+            phase_name=phase_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kill_chain_name: Optional[pulumi.Input[str]] = None,
+             phase_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'killChainName' in kwargs:
+            kill_chain_name = kwargs['killChainName']
+        if 'phaseName' in kwargs:
+            phase_name = kwargs['phaseName']
+
         if kill_chain_name is not None:
-            pulumi.set(__self__, "kill_chain_name", kill_chain_name)
+            _setter("kill_chain_name", kill_chain_name)
         if phase_name is not None:
-            pulumi.set(__self__, "phase_name", phase_name)
+            _setter("phase_name", phase_name)
 
     @property
     @pulumi.getter(name="killChainName")
@@ -212,10 +269,25 @@ class ThreatIntelligenceParsedPatternTypeValueArgs:
         :param pulumi.Input[str] value: Value of parsed pattern
         :param pulumi.Input[str] value_type: Type of the value
         """
+        ThreatIntelligenceParsedPatternTypeValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            value_type=value_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[pulumi.Input[str]] = None,
+             value_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'valueType' in kwargs:
+            value_type = kwargs['valueType']
+
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
         if value_type is not None:
-            pulumi.set(__self__, "value_type", value_type)
+            _setter("value_type", value_type)
 
     @property
     @pulumi.getter
@@ -252,10 +324,27 @@ class ThreatIntelligenceParsedPatternArgs:
         :param pulumi.Input[str] pattern_type_key: Pattern type key
         :param pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgs']]] pattern_type_values: Pattern type keys
         """
+        ThreatIntelligenceParsedPatternArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pattern_type_key=pattern_type_key,
+            pattern_type_values=pattern_type_values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pattern_type_key: Optional[pulumi.Input[str]] = None,
+             pattern_type_values: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'patternTypeKey' in kwargs:
+            pattern_type_key = kwargs['patternTypeKey']
+        if 'patternTypeValues' in kwargs:
+            pattern_type_values = kwargs['patternTypeValues']
+
         if pattern_type_key is not None:
-            pulumi.set(__self__, "pattern_type_key", pattern_type_key)
+            _setter("pattern_type_key", pattern_type_key)
         if pattern_type_values is not None:
-            pulumi.set(__self__, "pattern_type_values", pattern_type_values)
+            _setter("pattern_type_values", pattern_type_values)
 
     @property
     @pulumi.getter(name="patternTypeKey")

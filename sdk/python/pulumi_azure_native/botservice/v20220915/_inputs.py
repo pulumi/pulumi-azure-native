@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -70,13 +70,30 @@ class AcsChatChannelArgs:
         :param pulumi.Input[str] etag: Entity Tag of the resource
         :param pulumi.Input[str] location: Specifies the location of the resource.
         """
-        pulumi.set(__self__, "channel_name", 'AcsChatChannel')
+        AcsChatChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'AcsChatChannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="channelName")
@@ -126,8 +143,25 @@ class AlexaChannelPropertiesArgs:
         :param pulumi.Input[str] alexa_skill_id: The Alexa skill Id
         :param pulumi.Input[bool] is_enabled: Whether this channel is enabled for the bot
         """
-        pulumi.set(__self__, "alexa_skill_id", alexa_skill_id)
-        pulumi.set(__self__, "is_enabled", is_enabled)
+        AlexaChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alexa_skill_id=alexa_skill_id,
+            is_enabled=is_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alexa_skill_id: pulumi.Input[str],
+             is_enabled: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alexaSkillId' in kwargs:
+            alexa_skill_id = kwargs['alexaSkillId']
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
+        _setter("alexa_skill_id", alexa_skill_id)
+        _setter("is_enabled", is_enabled)
 
     @property
     @pulumi.getter(name="alexaSkillId")
@@ -169,15 +203,34 @@ class AlexaChannelArgs:
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['AlexaChannelPropertiesArgs'] properties: The set of properties specific to Alexa channel resource
         """
-        pulumi.set(__self__, "channel_name", 'AlexaChannel')
+        AlexaChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['AlexaChannelPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'AlexaChannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -289,65 +342,176 @@ class BotPropertiesArgs:
         :param pulumi.Input[str] storage_resource_id: The storage resourceId for the bot
         :param pulumi.Input[str] tenant_id: The Tenant Id for the bot
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "msa_app_id", msa_app_id)
+        BotPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            endpoint=endpoint,
+            msa_app_id=msa_app_id,
+            all_settings=all_settings,
+            app_password_hint=app_password_hint,
+            cmek_key_vault_url=cmek_key_vault_url,
+            description=description,
+            developer_app_insight_key=developer_app_insight_key,
+            developer_app_insights_api_key=developer_app_insights_api_key,
+            developer_app_insights_application_id=developer_app_insights_application_id,
+            disable_local_auth=disable_local_auth,
+            icon_url=icon_url,
+            is_cmek_enabled=is_cmek_enabled,
+            is_streaming_supported=is_streaming_supported,
+            luis_app_ids=luis_app_ids,
+            luis_key=luis_key,
+            manifest_url=manifest_url,
+            msa_app_msi_resource_id=msa_app_msi_resource_id,
+            msa_app_tenant_id=msa_app_tenant_id,
+            msa_app_type=msa_app_type,
+            open_with_hint=open_with_hint,
+            parameters=parameters,
+            public_network_access=public_network_access,
+            publishing_credentials=publishing_credentials,
+            schema_transformation_version=schema_transformation_version,
+            storage_resource_id=storage_resource_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             endpoint: pulumi.Input[str],
+             msa_app_id: pulumi.Input[str],
+             all_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             app_password_hint: Optional[pulumi.Input[str]] = None,
+             cmek_key_vault_url: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             developer_app_insight_key: Optional[pulumi.Input[str]] = None,
+             developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
+             developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             icon_url: Optional[pulumi.Input[str]] = None,
+             is_cmek_enabled: Optional[pulumi.Input[bool]] = None,
+             is_streaming_supported: Optional[pulumi.Input[bool]] = None,
+             luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             luis_key: Optional[pulumi.Input[str]] = None,
+             manifest_url: Optional[pulumi.Input[str]] = None,
+             msa_app_msi_resource_id: Optional[pulumi.Input[str]] = None,
+             msa_app_tenant_id: Optional[pulumi.Input[str]] = None,
+             msa_app_type: Optional[pulumi.Input[Union[str, 'MsaAppType']]] = None,
+             open_with_hint: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             publishing_credentials: Optional[pulumi.Input[str]] = None,
+             schema_transformation_version: Optional[pulumi.Input[str]] = None,
+             storage_resource_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'msaAppId' in kwargs:
+            msa_app_id = kwargs['msaAppId']
+        if 'allSettings' in kwargs:
+            all_settings = kwargs['allSettings']
+        if 'appPasswordHint' in kwargs:
+            app_password_hint = kwargs['appPasswordHint']
+        if 'cmekKeyVaultUrl' in kwargs:
+            cmek_key_vault_url = kwargs['cmekKeyVaultUrl']
+        if 'developerAppInsightKey' in kwargs:
+            developer_app_insight_key = kwargs['developerAppInsightKey']
+        if 'developerAppInsightsApiKey' in kwargs:
+            developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
+        if 'developerAppInsightsApplicationId' in kwargs:
+            developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
+        if 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if 'iconUrl' in kwargs:
+            icon_url = kwargs['iconUrl']
+        if 'isCmekEnabled' in kwargs:
+            is_cmek_enabled = kwargs['isCmekEnabled']
+        if 'isStreamingSupported' in kwargs:
+            is_streaming_supported = kwargs['isStreamingSupported']
+        if 'luisAppIds' in kwargs:
+            luis_app_ids = kwargs['luisAppIds']
+        if 'luisKey' in kwargs:
+            luis_key = kwargs['luisKey']
+        if 'manifestUrl' in kwargs:
+            manifest_url = kwargs['manifestUrl']
+        if 'msaAppMSIResourceId' in kwargs:
+            msa_app_msi_resource_id = kwargs['msaAppMSIResourceId']
+        if 'msaAppTenantId' in kwargs:
+            msa_app_tenant_id = kwargs['msaAppTenantId']
+        if 'msaAppType' in kwargs:
+            msa_app_type = kwargs['msaAppType']
+        if 'openWithHint' in kwargs:
+            open_with_hint = kwargs['openWithHint']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if 'publishingCredentials' in kwargs:
+            publishing_credentials = kwargs['publishingCredentials']
+        if 'schemaTransformationVersion' in kwargs:
+            schema_transformation_version = kwargs['schemaTransformationVersion']
+        if 'storageResourceId' in kwargs:
+            storage_resource_id = kwargs['storageResourceId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("display_name", display_name)
+        _setter("endpoint", endpoint)
+        _setter("msa_app_id", msa_app_id)
         if all_settings is not None:
-            pulumi.set(__self__, "all_settings", all_settings)
+            _setter("all_settings", all_settings)
         if app_password_hint is not None:
-            pulumi.set(__self__, "app_password_hint", app_password_hint)
+            _setter("app_password_hint", app_password_hint)
         if cmek_key_vault_url is not None:
-            pulumi.set(__self__, "cmek_key_vault_url", cmek_key_vault_url)
+            _setter("cmek_key_vault_url", cmek_key_vault_url)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if developer_app_insight_key is not None:
-            pulumi.set(__self__, "developer_app_insight_key", developer_app_insight_key)
+            _setter("developer_app_insight_key", developer_app_insight_key)
         if developer_app_insights_api_key is not None:
-            pulumi.set(__self__, "developer_app_insights_api_key", developer_app_insights_api_key)
+            _setter("developer_app_insights_api_key", developer_app_insights_api_key)
         if developer_app_insights_application_id is not None:
-            pulumi.set(__self__, "developer_app_insights_application_id", developer_app_insights_application_id)
+            _setter("developer_app_insights_application_id", developer_app_insights_application_id)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if icon_url is None:
             icon_url = ''
         if icon_url is not None:
-            pulumi.set(__self__, "icon_url", icon_url)
+            _setter("icon_url", icon_url)
         if is_cmek_enabled is None:
             is_cmek_enabled = False
         if is_cmek_enabled is not None:
-            pulumi.set(__self__, "is_cmek_enabled", is_cmek_enabled)
+            _setter("is_cmek_enabled", is_cmek_enabled)
         if is_streaming_supported is None:
             is_streaming_supported = False
         if is_streaming_supported is not None:
-            pulumi.set(__self__, "is_streaming_supported", is_streaming_supported)
+            _setter("is_streaming_supported", is_streaming_supported)
         if luis_app_ids is not None:
-            pulumi.set(__self__, "luis_app_ids", luis_app_ids)
+            _setter("luis_app_ids", luis_app_ids)
         if luis_key is not None:
-            pulumi.set(__self__, "luis_key", luis_key)
+            _setter("luis_key", luis_key)
         if manifest_url is not None:
-            pulumi.set(__self__, "manifest_url", manifest_url)
+            _setter("manifest_url", manifest_url)
         if msa_app_msi_resource_id is not None:
-            pulumi.set(__self__, "msa_app_msi_resource_id", msa_app_msi_resource_id)
+            _setter("msa_app_msi_resource_id", msa_app_msi_resource_id)
         if msa_app_tenant_id is not None:
-            pulumi.set(__self__, "msa_app_tenant_id", msa_app_tenant_id)
+            _setter("msa_app_tenant_id", msa_app_tenant_id)
         if msa_app_type is not None:
-            pulumi.set(__self__, "msa_app_type", msa_app_type)
+            _setter("msa_app_type", msa_app_type)
         if open_with_hint is not None:
-            pulumi.set(__self__, "open_with_hint", open_with_hint)
+            _setter("open_with_hint", open_with_hint)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if publishing_credentials is not None:
-            pulumi.set(__self__, "publishing_credentials", publishing_credentials)
+            _setter("publishing_credentials", publishing_credentials)
         if schema_transformation_version is not None:
-            pulumi.set(__self__, "schema_transformation_version", schema_transformation_version)
+            _setter("schema_transformation_version", schema_transformation_version)
         if storage_resource_id is not None:
-            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+            _setter("storage_resource_id", storage_resource_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="displayName")
@@ -684,10 +848,23 @@ class ConnectionSettingParameterArgs:
         :param pulumi.Input[str] key: Key for the Connection Setting Parameter.
         :param pulumi.Input[str] value: Value associated with the Connection Setting Parameter.
         """
+        ConnectionSettingParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -738,26 +915,63 @@ class ConnectionSettingPropertiesArgs:
         :param pulumi.Input[str] service_provider_display_name: Service Provider Display Name associated with the Connection Setting
         :param pulumi.Input[str] service_provider_id: Service Provider Id associated with the Connection Setting
         """
+        ConnectionSettingPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            id=id,
+            name=name,
+            parameters=parameters,
+            provisioning_state=provisioning_state,
+            scopes=scopes,
+            service_provider_display_name=service_provider_display_name,
+            service_provider_id=service_provider_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionSettingParameterArgs']]]] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[str]] = None,
+             service_provider_display_name: Optional[pulumi.Input[str]] = None,
+             service_provider_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'serviceProviderDisplayName' in kwargs:
+            service_provider_display_name = kwargs['serviceProviderDisplayName']
+        if 'serviceProviderId' in kwargs:
+            service_provider_id = kwargs['serviceProviderId']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if scopes is None:
             scopes = ''
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
         if service_provider_display_name is not None:
-            pulumi.set(__self__, "service_provider_display_name", service_provider_display_name)
+            _setter("service_provider_display_name", service_provider_display_name)
         if service_provider_id is not None:
-            pulumi.set(__self__, "service_provider_id", service_provider_id)
+            _setter("service_provider_id", service_provider_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -882,18 +1096,41 @@ class DirectLineChannelPropertiesArgs:
         :param pulumi.Input[str] extension_key2: The extensionKey2
         :param pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]] sites: The list of Direct Line sites
         """
+        DirectLineChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            direct_line_embed_code=direct_line_embed_code,
+            extension_key1=extension_key1,
+            extension_key2=extension_key2,
+            sites=sites,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             direct_line_embed_code: Optional[pulumi.Input[str]] = None,
+             extension_key1: Optional[pulumi.Input[str]] = None,
+             extension_key2: Optional[pulumi.Input[str]] = None,
+             sites: Optional[pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'directLineEmbedCode' in kwargs:
+            direct_line_embed_code = kwargs['directLineEmbedCode']
+        if 'extensionKey1' in kwargs:
+            extension_key1 = kwargs['extensionKey1']
+        if 'extensionKey2' in kwargs:
+            extension_key2 = kwargs['extensionKey2']
+
         if direct_line_embed_code is not None:
-            pulumi.set(__self__, "direct_line_embed_code", direct_line_embed_code)
+            _setter("direct_line_embed_code", direct_line_embed_code)
         if extension_key1 is None:
             extension_key1 = ''
         if extension_key1 is not None:
-            pulumi.set(__self__, "extension_key1", extension_key1)
+            _setter("extension_key1", extension_key1)
         if extension_key2 is None:
             extension_key2 = ''
         if extension_key2 is not None:
-            pulumi.set(__self__, "extension_key2", extension_key2)
+            _setter("extension_key2", extension_key2)
         if sites is not None:
-            pulumi.set(__self__, "sites", sites)
+            _setter("sites", sites)
 
     @property
     @pulumi.getter(name="directLineEmbedCode")
@@ -959,15 +1196,34 @@ class DirectLineChannelArgs:
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['DirectLineChannelPropertiesArgs'] properties: The set of properties specific to Direct Line channel resource
         """
-        pulumi.set(__self__, "channel_name", 'DirectLineChannel')
+        DirectLineChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['DirectLineChannelPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'DirectLineChannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -1055,36 +1311,105 @@ class DirectLineSiteArgs:
         :param pulumi.Input[str] tenant_id: Tenant Id
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_origins: List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "is_v1_enabled", is_v1_enabled)
-        pulumi.set(__self__, "is_v3_enabled", is_v3_enabled)
-        pulumi.set(__self__, "site_name", site_name)
+        DirectLineSiteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            is_v1_enabled=is_v1_enabled,
+            is_v3_enabled=is_v3_enabled,
+            site_name=site_name,
+            app_id=app_id,
+            e_tag=e_tag,
+            is_block_user_upload_enabled=is_block_user_upload_enabled,
+            is_detailed_logging_enabled=is_detailed_logging_enabled,
+            is_endpoint_parameters_enabled=is_endpoint_parameters_enabled,
+            is_no_storage_enabled=is_no_storage_enabled,
+            is_secure_site_enabled=is_secure_site_enabled,
+            is_web_chat_speech_enabled=is_web_chat_speech_enabled,
+            is_webchat_preview_enabled=is_webchat_preview_enabled,
+            tenant_id=tenant_id,
+            trusted_origins=trusted_origins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: pulumi.Input[bool],
+             is_v1_enabled: pulumi.Input[bool],
+             is_v3_enabled: pulumi.Input[bool],
+             site_name: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             e_tag: Optional[pulumi.Input[str]] = None,
+             is_block_user_upload_enabled: Optional[pulumi.Input[bool]] = None,
+             is_detailed_logging_enabled: Optional[pulumi.Input[bool]] = None,
+             is_endpoint_parameters_enabled: Optional[pulumi.Input[bool]] = None,
+             is_no_storage_enabled: Optional[pulumi.Input[bool]] = None,
+             is_secure_site_enabled: Optional[pulumi.Input[bool]] = None,
+             is_web_chat_speech_enabled: Optional[pulumi.Input[bool]] = None,
+             is_webchat_preview_enabled: Optional[pulumi.Input[bool]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             trusted_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'isV1Enabled' in kwargs:
+            is_v1_enabled = kwargs['isV1Enabled']
+        if 'isV3Enabled' in kwargs:
+            is_v3_enabled = kwargs['isV3Enabled']
+        if 'siteName' in kwargs:
+            site_name = kwargs['siteName']
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+        if 'isBlockUserUploadEnabled' in kwargs:
+            is_block_user_upload_enabled = kwargs['isBlockUserUploadEnabled']
+        if 'isDetailedLoggingEnabled' in kwargs:
+            is_detailed_logging_enabled = kwargs['isDetailedLoggingEnabled']
+        if 'isEndpointParametersEnabled' in kwargs:
+            is_endpoint_parameters_enabled = kwargs['isEndpointParametersEnabled']
+        if 'isNoStorageEnabled' in kwargs:
+            is_no_storage_enabled = kwargs['isNoStorageEnabled']
+        if 'isSecureSiteEnabled' in kwargs:
+            is_secure_site_enabled = kwargs['isSecureSiteEnabled']
+        if 'isWebChatSpeechEnabled' in kwargs:
+            is_web_chat_speech_enabled = kwargs['isWebChatSpeechEnabled']
+        if 'isWebchatPreviewEnabled' in kwargs:
+            is_webchat_preview_enabled = kwargs['isWebchatPreviewEnabled']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'trustedOrigins' in kwargs:
+            trusted_origins = kwargs['trustedOrigins']
+
+        _setter("is_enabled", is_enabled)
+        _setter("is_v1_enabled", is_v1_enabled)
+        _setter("is_v3_enabled", is_v3_enabled)
+        _setter("site_name", site_name)
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if is_block_user_upload_enabled is not None:
-            pulumi.set(__self__, "is_block_user_upload_enabled", is_block_user_upload_enabled)
+            _setter("is_block_user_upload_enabled", is_block_user_upload_enabled)
         if is_detailed_logging_enabled is not None:
-            pulumi.set(__self__, "is_detailed_logging_enabled", is_detailed_logging_enabled)
+            _setter("is_detailed_logging_enabled", is_detailed_logging_enabled)
         if is_endpoint_parameters_enabled is not None:
-            pulumi.set(__self__, "is_endpoint_parameters_enabled", is_endpoint_parameters_enabled)
+            _setter("is_endpoint_parameters_enabled", is_endpoint_parameters_enabled)
         if is_no_storage_enabled is not None:
-            pulumi.set(__self__, "is_no_storage_enabled", is_no_storage_enabled)
+            _setter("is_no_storage_enabled", is_no_storage_enabled)
         if is_secure_site_enabled is not None:
-            pulumi.set(__self__, "is_secure_site_enabled", is_secure_site_enabled)
+            _setter("is_secure_site_enabled", is_secure_site_enabled)
         if is_web_chat_speech_enabled is None:
             is_web_chat_speech_enabled = False
         if is_web_chat_speech_enabled is not None:
-            pulumi.set(__self__, "is_web_chat_speech_enabled", is_web_chat_speech_enabled)
+            _setter("is_web_chat_speech_enabled", is_web_chat_speech_enabled)
         if is_webchat_preview_enabled is None:
             is_webchat_preview_enabled = False
         if is_webchat_preview_enabled is not None:
-            pulumi.set(__self__, "is_webchat_preview_enabled", is_webchat_preview_enabled)
+            _setter("is_webchat_preview_enabled", is_webchat_preview_enabled)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if trusted_origins is not None:
-            pulumi.set(__self__, "trusted_origins", trusted_origins)
+            _setter("trusted_origins", trusted_origins)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -1287,20 +1612,57 @@ class DirectLineSpeechChannelPropertiesArgs:
         :param pulumi.Input[bool] is_default_bot_for_cog_svc_account: Make this a default bot for chosen cognitive service account.
         :param pulumi.Input[bool] is_enabled: Whether this channel is enabled or not.
         """
+        DirectLineSpeechChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cognitive_service_region=cognitive_service_region,
+            cognitive_service_resource_id=cognitive_service_resource_id,
+            cognitive_service_subscription_key=cognitive_service_subscription_key,
+            custom_speech_model_id=custom_speech_model_id,
+            custom_voice_deployment_id=custom_voice_deployment_id,
+            is_default_bot_for_cog_svc_account=is_default_bot_for_cog_svc_account,
+            is_enabled=is_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cognitive_service_region: Optional[pulumi.Input[str]] = None,
+             cognitive_service_resource_id: Optional[pulumi.Input[str]] = None,
+             cognitive_service_subscription_key: Optional[pulumi.Input[str]] = None,
+             custom_speech_model_id: Optional[pulumi.Input[str]] = None,
+             custom_voice_deployment_id: Optional[pulumi.Input[str]] = None,
+             is_default_bot_for_cog_svc_account: Optional[pulumi.Input[bool]] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cognitiveServiceRegion' in kwargs:
+            cognitive_service_region = kwargs['cognitiveServiceRegion']
+        if 'cognitiveServiceResourceId' in kwargs:
+            cognitive_service_resource_id = kwargs['cognitiveServiceResourceId']
+        if 'cognitiveServiceSubscriptionKey' in kwargs:
+            cognitive_service_subscription_key = kwargs['cognitiveServiceSubscriptionKey']
+        if 'customSpeechModelId' in kwargs:
+            custom_speech_model_id = kwargs['customSpeechModelId']
+        if 'customVoiceDeploymentId' in kwargs:
+            custom_voice_deployment_id = kwargs['customVoiceDeploymentId']
+        if 'isDefaultBotForCogSvcAccount' in kwargs:
+            is_default_bot_for_cog_svc_account = kwargs['isDefaultBotForCogSvcAccount']
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
         if cognitive_service_region is not None:
-            pulumi.set(__self__, "cognitive_service_region", cognitive_service_region)
+            _setter("cognitive_service_region", cognitive_service_region)
         if cognitive_service_resource_id is not None:
-            pulumi.set(__self__, "cognitive_service_resource_id", cognitive_service_resource_id)
+            _setter("cognitive_service_resource_id", cognitive_service_resource_id)
         if cognitive_service_subscription_key is not None:
-            pulumi.set(__self__, "cognitive_service_subscription_key", cognitive_service_subscription_key)
+            _setter("cognitive_service_subscription_key", cognitive_service_subscription_key)
         if custom_speech_model_id is not None:
-            pulumi.set(__self__, "custom_speech_model_id", custom_speech_model_id)
+            _setter("custom_speech_model_id", custom_speech_model_id)
         if custom_voice_deployment_id is not None:
-            pulumi.set(__self__, "custom_voice_deployment_id", custom_voice_deployment_id)
+            _setter("custom_voice_deployment_id", custom_voice_deployment_id)
         if is_default_bot_for_cog_svc_account is not None:
-            pulumi.set(__self__, "is_default_bot_for_cog_svc_account", is_default_bot_for_cog_svc_account)
+            _setter("is_default_bot_for_cog_svc_account", is_default_bot_for_cog_svc_account)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
 
     @property
     @pulumi.getter(name="cognitiveServiceRegion")
@@ -1402,15 +1764,34 @@ class DirectLineSpeechChannelArgs:
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['DirectLineSpeechChannelPropertiesArgs'] properties: The set of properties specific to DirectLine Speech channel resource
         """
-        pulumi.set(__self__, "channel_name", 'DirectLineSpeechChannel')
+        DirectLineSpeechChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['DirectLineSpeechChannelPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'DirectLineSpeechChannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -1478,14 +1859,41 @@ class EmailChannelPropertiesArgs:
         :param pulumi.Input[str] magic_code: The magic code for setting up the modern authentication.
         :param pulumi.Input[str] password: The password for the email address. Value only returned through POST to the action Channel List API, otherwise empty.
         """
-        pulumi.set(__self__, "email_address", email_address)
-        pulumi.set(__self__, "is_enabled", is_enabled)
+        EmailChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            is_enabled=is_enabled,
+            auth_method=auth_method,
+            magic_code=magic_code,
+            password=password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: pulumi.Input[str],
+             is_enabled: pulumi.Input[bool],
+             auth_method: Optional[pulumi.Input[float]] = None,
+             magic_code: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'authMethod' in kwargs:
+            auth_method = kwargs['authMethod']
+        if 'magicCode' in kwargs:
+            magic_code = kwargs['magicCode']
+
+        _setter("email_address", email_address)
+        _setter("is_enabled", is_enabled)
         if auth_method is not None:
-            pulumi.set(__self__, "auth_method", auth_method)
+            _setter("auth_method", auth_method)
         if magic_code is not None:
-            pulumi.set(__self__, "magic_code", magic_code)
+            _setter("magic_code", magic_code)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -1563,15 +1971,34 @@ class EmailChannelArgs:
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['EmailChannelPropertiesArgs'] properties: The set of properties specific to email channel resource
         """
-        pulumi.set(__self__, "channel_name", 'EmailChannel')
+        EmailChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['EmailChannelPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'EmailChannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -1637,12 +2064,35 @@ class FacebookChannelPropertiesArgs:
         :param pulumi.Input[str] app_secret: Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[Sequence[pulumi.Input['FacebookPageArgs']]] pages: The list of Facebook pages
         """
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "is_enabled", is_enabled)
+        FacebookChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            is_enabled=is_enabled,
+            app_secret=app_secret,
+            pages=pages,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: pulumi.Input[str],
+             is_enabled: pulumi.Input[bool],
+             app_secret: Optional[pulumi.Input[str]] = None,
+             pages: Optional[pulumi.Input[Sequence[pulumi.Input['FacebookPageArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+
+        _setter("app_id", app_id)
+        _setter("is_enabled", is_enabled)
         if app_secret is not None:
-            pulumi.set(__self__, "app_secret", app_secret)
+            _setter("app_secret", app_secret)
         if pages is not None:
-            pulumi.set(__self__, "pages", pages)
+            _setter("pages", pages)
 
     @property
     @pulumi.getter(name="appId")
@@ -1708,15 +2158,34 @@ class FacebookChannelArgs:
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['FacebookChannelPropertiesArgs'] properties: The set of properties specific to bot facebook channel
         """
-        pulumi.set(__self__, "channel_name", 'FacebookChannel')
+        FacebookChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['FacebookChannelPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'FacebookChannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -1778,9 +2247,24 @@ class FacebookPageArgs:
         :param pulumi.Input[str] id: Page id
         :param pulumi.Input[str] access_token: Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
         """
-        pulumi.set(__self__, "id", id)
+        FacebookPageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            access_token=access_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             access_token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+
+        _setter("id", id)
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
 
     @property
     @pulumi.getter
@@ -1821,12 +2305,37 @@ class KikChannelPropertiesArgs:
         :param pulumi.Input[str] api_key: Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[bool] is_validated: Whether this channel is validated for the bot
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "user_name", user_name)
+        KikChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            user_name=user_name,
+            api_key=api_key,
+            is_validated=is_validated,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: pulumi.Input[bool],
+             user_name: pulumi.Input[str],
+             api_key: Optional[pulumi.Input[str]] = None,
+             is_validated: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'isValidated' in kwargs:
+            is_validated = kwargs['isValidated']
+
+        _setter("is_enabled", is_enabled)
+        _setter("user_name", user_name)
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if is_validated is not None:
-            pulumi.set(__self__, "is_validated", is_validated)
+            _setter("is_validated", is_validated)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -1892,15 +2401,34 @@ class KikChannelArgs:
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['KikChannelPropertiesArgs'] properties: The set of properties specific to Kik channel resource
         """
-        pulumi.set(__self__, "channel_name", 'KikChannel')
+        KikChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['KikChannelPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'KikChannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -1960,7 +2488,20 @@ class LineChannelPropertiesArgs:
         The parameters to provide for the Line channel.
         :param pulumi.Input[Sequence[pulumi.Input['LineRegistrationArgs']]] line_registrations: The list of line channel registrations
         """
-        pulumi.set(__self__, "line_registrations", line_registrations)
+        LineChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            line_registrations=line_registrations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             line_registrations: pulumi.Input[Sequence[pulumi.Input['LineRegistrationArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lineRegistrations' in kwargs:
+            line_registrations = kwargs['lineRegistrations']
+
+        _setter("line_registrations", line_registrations)
 
     @property
     @pulumi.getter(name="lineRegistrations")
@@ -1990,15 +2531,34 @@ class LineChannelArgs:
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['LineChannelPropertiesArgs'] properties: The set of properties specific to line channel resource
         """
-        pulumi.set(__self__, "channel_name", 'LineChannel')
+        LineChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['LineChannelPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'LineChannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2060,10 +2620,27 @@ class LineRegistrationArgs:
         :param pulumi.Input[str] channel_access_token: Access token for the line channel registration
         :param pulumi.Input[str] channel_secret: Secret for the line channel registration
         """
+        LineRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_access_token=channel_access_token,
+            channel_secret=channel_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_access_token: Optional[pulumi.Input[str]] = None,
+             channel_secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelAccessToken' in kwargs:
+            channel_access_token = kwargs['channelAccessToken']
+        if 'channelSecret' in kwargs:
+            channel_secret = kwargs['channelSecret']
+
         if channel_access_token is not None:
-            pulumi.set(__self__, "channel_access_token", channel_access_token)
+            _setter("channel_access_token", channel_access_token)
         if channel_secret is not None:
-            pulumi.set(__self__, "channel_secret", channel_secret)
+            _setter("channel_secret", channel_secret)
 
     @property
     @pulumi.getter(name="channelAccessToken")
@@ -2103,13 +2680,30 @@ class M365ExtensionsArgs:
         :param pulumi.Input[str] etag: Entity Tag of the resource
         :param pulumi.Input[str] location: Specifies the location of the resource.
         """
-        pulumi.set(__self__, "channel_name", 'M365Extensions')
+        M365ExtensionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'M365Extensions')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2167,21 +2761,54 @@ class MsTeamsChannelPropertiesArgs:
         :param pulumi.Input[bool] enable_calling: Enable calling for Microsoft Teams channel
         :param pulumi.Input[str] incoming_call_route: Webhook for Microsoft Teams channel calls
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
+        MsTeamsChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            accepted_terms=accepted_terms,
+            calling_webhook=calling_webhook,
+            deployment_environment=deployment_environment,
+            enable_calling=enable_calling,
+            incoming_call_route=incoming_call_route,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: pulumi.Input[bool],
+             accepted_terms: Optional[pulumi.Input[bool]] = None,
+             calling_webhook: Optional[pulumi.Input[str]] = None,
+             deployment_environment: Optional[pulumi.Input[str]] = None,
+             enable_calling: Optional[pulumi.Input[bool]] = None,
+             incoming_call_route: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'acceptedTerms' in kwargs:
+            accepted_terms = kwargs['acceptedTerms']
+        if 'callingWebhook' in kwargs:
+            calling_webhook = kwargs['callingWebhook']
+        if 'deploymentEnvironment' in kwargs:
+            deployment_environment = kwargs['deploymentEnvironment']
+        if 'enableCalling' in kwargs:
+            enable_calling = kwargs['enableCalling']
+        if 'incomingCallRoute' in kwargs:
+            incoming_call_route = kwargs['incomingCallRoute']
+
+        _setter("is_enabled", is_enabled)
         if accepted_terms is not None:
-            pulumi.set(__self__, "accepted_terms", accepted_terms)
+            _setter("accepted_terms", accepted_terms)
         if calling_webhook is not None:
-            pulumi.set(__self__, "calling_webhook", calling_webhook)
+            _setter("calling_webhook", calling_webhook)
         if deployment_environment is None:
             deployment_environment = 'FallbackDeploymentEnvironment'
         if deployment_environment is not None:
-            pulumi.set(__self__, "deployment_environment", deployment_environment)
+            _setter("deployment_environment", deployment_environment)
         if enable_calling is None:
             enable_calling = False
         if enable_calling is not None:
-            pulumi.set(__self__, "enable_calling", enable_calling)
+            _setter("enable_calling", enable_calling)
         if incoming_call_route is not None:
-            pulumi.set(__self__, "incoming_call_route", incoming_call_route)
+            _setter("incoming_call_route", incoming_call_route)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -2271,15 +2898,34 @@ class MsTeamsChannelArgs:
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['MsTeamsChannelPropertiesArgs'] properties: The set of properties specific to Microsoft Teams channel resource
         """
-        pulumi.set(__self__, "channel_name", 'MsTeamsChannel')
+        MsTeamsChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['MsTeamsChannelPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'MsTeamsChannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2344,13 +2990,30 @@ class OmnichannelArgs:
         :param pulumi.Input[str] etag: Entity Tag of the resource
         :param pulumi.Input[str] location: Specifies the location of the resource.
         """
-        pulumi.set(__self__, "channel_name", 'Omnichannel')
+        OmnichannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'Omnichannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2403,13 +3066,30 @@ class OutlookChannelArgs:
         :param pulumi.Input[str] etag: Entity Tag of the resource
         :param pulumi.Input[str] location: Specifies the location of the resource.
         """
-        pulumi.set(__self__, "channel_name", 'OutlookChannel')
+        OutlookChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'OutlookChannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2461,12 +3141,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -2518,13 +3215,30 @@ class SearchAssistantArgs:
         :param pulumi.Input[str] etag: Entity Tag of the resource
         :param pulumi.Input[str] location: Specifies the location of the resource.
         """
-        pulumi.set(__self__, "channel_name", 'SearchAssistant')
+        SearchAssistantArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'SearchAssistant')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2572,7 +3286,18 @@ class SkuArgs:
         The SKU of the cognitive services account.
         :param pulumi.Input[Union[str, 'SkuName']] name: The sku name
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'SkuName']],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2613,27 +3338,76 @@ class SkypeChannelPropertiesArgs:
         :param pulumi.Input[str] groups_mode: Group mode for Skype channel
         :param pulumi.Input[str] incoming_call_route: Incoming call route for Skype channel
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
+        SkypeChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            calling_web_hook=calling_web_hook,
+            enable_calling=enable_calling,
+            enable_groups=enable_groups,
+            enable_media_cards=enable_media_cards,
+            enable_messaging=enable_messaging,
+            enable_screen_sharing=enable_screen_sharing,
+            enable_video=enable_video,
+            groups_mode=groups_mode,
+            incoming_call_route=incoming_call_route,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: pulumi.Input[bool],
+             calling_web_hook: Optional[pulumi.Input[str]] = None,
+             enable_calling: Optional[pulumi.Input[bool]] = None,
+             enable_groups: Optional[pulumi.Input[bool]] = None,
+             enable_media_cards: Optional[pulumi.Input[bool]] = None,
+             enable_messaging: Optional[pulumi.Input[bool]] = None,
+             enable_screen_sharing: Optional[pulumi.Input[bool]] = None,
+             enable_video: Optional[pulumi.Input[bool]] = None,
+             groups_mode: Optional[pulumi.Input[str]] = None,
+             incoming_call_route: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'callingWebHook' in kwargs:
+            calling_web_hook = kwargs['callingWebHook']
+        if 'enableCalling' in kwargs:
+            enable_calling = kwargs['enableCalling']
+        if 'enableGroups' in kwargs:
+            enable_groups = kwargs['enableGroups']
+        if 'enableMediaCards' in kwargs:
+            enable_media_cards = kwargs['enableMediaCards']
+        if 'enableMessaging' in kwargs:
+            enable_messaging = kwargs['enableMessaging']
+        if 'enableScreenSharing' in kwargs:
+            enable_screen_sharing = kwargs['enableScreenSharing']
+        if 'enableVideo' in kwargs:
+            enable_video = kwargs['enableVideo']
+        if 'groupsMode' in kwargs:
+            groups_mode = kwargs['groupsMode']
+        if 'incomingCallRoute' in kwargs:
+            incoming_call_route = kwargs['incomingCallRoute']
+
+        _setter("is_enabled", is_enabled)
         if calling_web_hook is not None:
-            pulumi.set(__self__, "calling_web_hook", calling_web_hook)
+            _setter("calling_web_hook", calling_web_hook)
         if enable_calling is None:
             enable_calling = False
         if enable_calling is not None:
-            pulumi.set(__self__, "enable_calling", enable_calling)
+            _setter("enable_calling", enable_calling)
         if enable_groups is not None:
-            pulumi.set(__self__, "enable_groups", enable_groups)
+            _setter("enable_groups", enable_groups)
         if enable_media_cards is not None:
-            pulumi.set(__self__, "enable_media_cards", enable_media_cards)
+            _setter("enable_media_cards", enable_media_cards)
         if enable_messaging is not None:
-            pulumi.set(__self__, "enable_messaging", enable_messaging)
+            _setter("enable_messaging", enable_messaging)
         if enable_screen_sharing is not None:
-            pulumi.set(__self__, "enable_screen_sharing", enable_screen_sharing)
+            _setter("enable_screen_sharing", enable_screen_sharing)
         if enable_video is not None:
-            pulumi.set(__self__, "enable_video", enable_video)
+            _setter("enable_video", enable_video)
         if groups_mode is not None:
-            pulumi.set(__self__, "groups_mode", groups_mode)
+            _setter("groups_mode", groups_mode)
         if incoming_call_route is not None:
-            pulumi.set(__self__, "incoming_call_route", incoming_call_route)
+            _setter("incoming_call_route", incoming_call_route)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -2771,15 +3545,34 @@ class SkypeChannelArgs:
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['SkypeChannelPropertiesArgs'] properties: The set of properties specific to Skype channel resource
         """
-        pulumi.set(__self__, "channel_name", 'SkypeChannel')
+        SkypeChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['SkypeChannelPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'SkypeChannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2853,21 +3646,60 @@ class SlackChannelPropertiesArgs:
         :param pulumi.Input[str] signing_secret: The Slack signing secret.
         :param pulumi.Input[str] verification_token: The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
+        SlackChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            client_id=client_id,
+            client_secret=client_secret,
+            landing_page_url=landing_page_url,
+            register_before_o_auth_flow=register_before_o_auth_flow,
+            scopes=scopes,
+            signing_secret=signing_secret,
+            verification_token=verification_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: pulumi.Input[bool],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             landing_page_url: Optional[pulumi.Input[str]] = None,
+             register_before_o_auth_flow: Optional[pulumi.Input[bool]] = None,
+             scopes: Optional[pulumi.Input[str]] = None,
+             signing_secret: Optional[pulumi.Input[str]] = None,
+             verification_token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'landingPageUrl' in kwargs:
+            landing_page_url = kwargs['landingPageUrl']
+        if 'registerBeforeOAuthFlow' in kwargs:
+            register_before_o_auth_flow = kwargs['registerBeforeOAuthFlow']
+        if 'signingSecret' in kwargs:
+            signing_secret = kwargs['signingSecret']
+        if 'verificationToken' in kwargs:
+            verification_token = kwargs['verificationToken']
+
+        _setter("is_enabled", is_enabled)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if landing_page_url is not None:
-            pulumi.set(__self__, "landing_page_url", landing_page_url)
+            _setter("landing_page_url", landing_page_url)
         if register_before_o_auth_flow is not None:
-            pulumi.set(__self__, "register_before_o_auth_flow", register_before_o_auth_flow)
+            _setter("register_before_o_auth_flow", register_before_o_auth_flow)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
         if signing_secret is not None:
-            pulumi.set(__self__, "signing_secret", signing_secret)
+            _setter("signing_secret", signing_secret)
         if verification_token is not None:
-            pulumi.set(__self__, "verification_token", verification_token)
+            _setter("verification_token", verification_token)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -2981,15 +3813,34 @@ class SlackChannelArgs:
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['SlackChannelPropertiesArgs'] properties: The set of properties specific to Slack channel resource
         """
-        pulumi.set(__self__, "channel_name", 'SlackChannel')
+        SlackChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['SlackChannelPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'SlackChannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -3057,13 +3908,40 @@ class SmsChannelPropertiesArgs:
         :param pulumi.Input[str] auth_token: The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[bool] is_validated: Whether this channel is validated for the bot
         """
-        pulumi.set(__self__, "account_sid", account_sid)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "phone", phone)
+        SmsChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_sid=account_sid,
+            is_enabled=is_enabled,
+            phone=phone,
+            auth_token=auth_token,
+            is_validated=is_validated,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_sid: pulumi.Input[str],
+             is_enabled: pulumi.Input[bool],
+             phone: pulumi.Input[str],
+             auth_token: Optional[pulumi.Input[str]] = None,
+             is_validated: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountSID' in kwargs:
+            account_sid = kwargs['accountSID']
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'authToken' in kwargs:
+            auth_token = kwargs['authToken']
+        if 'isValidated' in kwargs:
+            is_validated = kwargs['isValidated']
+
+        _setter("account_sid", account_sid)
+        _setter("is_enabled", is_enabled)
+        _setter("phone", phone)
         if auth_token is not None:
-            pulumi.set(__self__, "auth_token", auth_token)
+            _setter("auth_token", auth_token)
         if is_validated is not None:
-            pulumi.set(__self__, "is_validated", is_validated)
+            _setter("is_validated", is_validated)
 
     @property
     @pulumi.getter(name="accountSID")
@@ -3141,15 +4019,34 @@ class SmsChannelArgs:
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['SmsChannelPropertiesArgs'] properties: The set of properties specific to Sms channel resource
         """
-        pulumi.set(__self__, "channel_name", 'SmsChannel')
+        SmsChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['SmsChannelPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'SmsChannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -3213,11 +4110,32 @@ class TelegramChannelPropertiesArgs:
         :param pulumi.Input[str] access_token: The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[bool] is_validated: Whether this channel is validated for the bot
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
+        TelegramChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            access_token=access_token,
+            is_validated=is_validated,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: pulumi.Input[bool],
+             access_token: Optional[pulumi.Input[str]] = None,
+             is_validated: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'isValidated' in kwargs:
+            is_validated = kwargs['isValidated']
+
+        _setter("is_enabled", is_enabled)
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if is_validated is not None:
-            pulumi.set(__self__, "is_validated", is_validated)
+            _setter("is_validated", is_validated)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -3271,15 +4189,34 @@ class TelegramChannelArgs:
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['TelegramChannelPropertiesArgs'] properties: The set of properties specific to Telegram channel resource
         """
-        pulumi.set(__self__, "channel_name", 'TelegramChannel')
+        TelegramChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['TelegramChannelPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'TelegramChannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -3351,20 +4288,57 @@ class TelephonyChannelPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TelephonyPhoneNumbersArgs']]] phone_numbers: The list of Telephony phone numbers
         :param pulumi.Input[str] premium_sku: The premium SKU applied to the channel
         """
+        TelephonyChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_configurations=api_configurations,
+            cognitive_service_region=cognitive_service_region,
+            cognitive_service_subscription_key=cognitive_service_subscription_key,
+            default_locale=default_locale,
+            is_enabled=is_enabled,
+            phone_numbers=phone_numbers,
+            premium_sku=premium_sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['TelephonyChannelResourceApiConfigurationArgs']]]] = None,
+             cognitive_service_region: Optional[pulumi.Input[str]] = None,
+             cognitive_service_subscription_key: Optional[pulumi.Input[str]] = None,
+             default_locale: Optional[pulumi.Input[str]] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             phone_numbers: Optional[pulumi.Input[Sequence[pulumi.Input['TelephonyPhoneNumbersArgs']]]] = None,
+             premium_sku: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiConfigurations' in kwargs:
+            api_configurations = kwargs['apiConfigurations']
+        if 'cognitiveServiceRegion' in kwargs:
+            cognitive_service_region = kwargs['cognitiveServiceRegion']
+        if 'cognitiveServiceSubscriptionKey' in kwargs:
+            cognitive_service_subscription_key = kwargs['cognitiveServiceSubscriptionKey']
+        if 'defaultLocale' in kwargs:
+            default_locale = kwargs['defaultLocale']
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'phoneNumbers' in kwargs:
+            phone_numbers = kwargs['phoneNumbers']
+        if 'premiumSKU' in kwargs:
+            premium_sku = kwargs['premiumSKU']
+
         if api_configurations is not None:
-            pulumi.set(__self__, "api_configurations", api_configurations)
+            _setter("api_configurations", api_configurations)
         if cognitive_service_region is not None:
-            pulumi.set(__self__, "cognitive_service_region", cognitive_service_region)
+            _setter("cognitive_service_region", cognitive_service_region)
         if cognitive_service_subscription_key is not None:
-            pulumi.set(__self__, "cognitive_service_subscription_key", cognitive_service_subscription_key)
+            _setter("cognitive_service_subscription_key", cognitive_service_subscription_key)
         if default_locale is not None:
-            pulumi.set(__self__, "default_locale", default_locale)
+            _setter("default_locale", default_locale)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if phone_numbers is not None:
-            pulumi.set(__self__, "phone_numbers", phone_numbers)
+            _setter("phone_numbers", phone_numbers)
         if premium_sku is not None:
-            pulumi.set(__self__, "premium_sku", premium_sku)
+            _setter("premium_sku", premium_sku)
 
     @property
     @pulumi.getter(name="apiConfigurations")
@@ -3469,18 +4443,49 @@ class TelephonyChannelResourceApiConfigurationArgs:
         :param pulumi.Input[str] id: The id of config.
         :param pulumi.Input[str] provider_name: The provider name.
         """
+        TelephonyChannelResourceApiConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cognitive_service_region=cognitive_service_region,
+            cognitive_service_resource_id=cognitive_service_resource_id,
+            cognitive_service_subscription_key=cognitive_service_subscription_key,
+            default_locale=default_locale,
+            id=id,
+            provider_name=provider_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cognitive_service_region: Optional[pulumi.Input[str]] = None,
+             cognitive_service_resource_id: Optional[pulumi.Input[str]] = None,
+             cognitive_service_subscription_key: Optional[pulumi.Input[str]] = None,
+             default_locale: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             provider_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cognitiveServiceRegion' in kwargs:
+            cognitive_service_region = kwargs['cognitiveServiceRegion']
+        if 'cognitiveServiceResourceId' in kwargs:
+            cognitive_service_resource_id = kwargs['cognitiveServiceResourceId']
+        if 'cognitiveServiceSubscriptionKey' in kwargs:
+            cognitive_service_subscription_key = kwargs['cognitiveServiceSubscriptionKey']
+        if 'defaultLocale' in kwargs:
+            default_locale = kwargs['defaultLocale']
+        if 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+
         if cognitive_service_region is not None:
-            pulumi.set(__self__, "cognitive_service_region", cognitive_service_region)
+            _setter("cognitive_service_region", cognitive_service_region)
         if cognitive_service_resource_id is not None:
-            pulumi.set(__self__, "cognitive_service_resource_id", cognitive_service_resource_id)
+            _setter("cognitive_service_resource_id", cognitive_service_resource_id)
         if cognitive_service_subscription_key is not None:
-            pulumi.set(__self__, "cognitive_service_subscription_key", cognitive_service_subscription_key)
+            _setter("cognitive_service_subscription_key", cognitive_service_subscription_key)
         if default_locale is not None:
-            pulumi.set(__self__, "default_locale", default_locale)
+            _setter("default_locale", default_locale)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if provider_name is not None:
-            pulumi.set(__self__, "provider_name", provider_name)
+            _setter("provider_name", provider_name)
 
     @property
     @pulumi.getter(name="cognitiveServiceRegion")
@@ -3570,15 +4575,34 @@ class TelephonyChannelArgs:
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['TelephonyChannelPropertiesArgs'] properties: The set of properties specific to Telephony channel resource
         """
-        pulumi.set(__self__, "channel_name", 'TelephonyChannel')
+        TelephonyChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['TelephonyChannelPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'TelephonyChannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -3656,26 +4680,73 @@ class TelephonyPhoneNumbersArgs:
         :param pulumi.Input[str] offer_type: Optional Property that will determine the offering type of the phone.
         :param pulumi.Input[str] phone_number: The phone number.
         """
+        TelephonyPhoneNumbersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acs_endpoint=acs_endpoint,
+            acs_resource_id=acs_resource_id,
+            acs_secret=acs_secret,
+            cognitive_service_region=cognitive_service_region,
+            cognitive_service_resource_id=cognitive_service_resource_id,
+            cognitive_service_subscription_key=cognitive_service_subscription_key,
+            default_locale=default_locale,
+            id=id,
+            offer_type=offer_type,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acs_endpoint: Optional[pulumi.Input[str]] = None,
+             acs_resource_id: Optional[pulumi.Input[str]] = None,
+             acs_secret: Optional[pulumi.Input[str]] = None,
+             cognitive_service_region: Optional[pulumi.Input[str]] = None,
+             cognitive_service_resource_id: Optional[pulumi.Input[str]] = None,
+             cognitive_service_subscription_key: Optional[pulumi.Input[str]] = None,
+             default_locale: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             offer_type: Optional[pulumi.Input[str]] = None,
+             phone_number: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acsEndpoint' in kwargs:
+            acs_endpoint = kwargs['acsEndpoint']
+        if 'acsResourceId' in kwargs:
+            acs_resource_id = kwargs['acsResourceId']
+        if 'acsSecret' in kwargs:
+            acs_secret = kwargs['acsSecret']
+        if 'cognitiveServiceRegion' in kwargs:
+            cognitive_service_region = kwargs['cognitiveServiceRegion']
+        if 'cognitiveServiceResourceId' in kwargs:
+            cognitive_service_resource_id = kwargs['cognitiveServiceResourceId']
+        if 'cognitiveServiceSubscriptionKey' in kwargs:
+            cognitive_service_subscription_key = kwargs['cognitiveServiceSubscriptionKey']
+        if 'defaultLocale' in kwargs:
+            default_locale = kwargs['defaultLocale']
+        if 'offerType' in kwargs:
+            offer_type = kwargs['offerType']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         if acs_endpoint is not None:
-            pulumi.set(__self__, "acs_endpoint", acs_endpoint)
+            _setter("acs_endpoint", acs_endpoint)
         if acs_resource_id is not None:
-            pulumi.set(__self__, "acs_resource_id", acs_resource_id)
+            _setter("acs_resource_id", acs_resource_id)
         if acs_secret is not None:
-            pulumi.set(__self__, "acs_secret", acs_secret)
+            _setter("acs_secret", acs_secret)
         if cognitive_service_region is not None:
-            pulumi.set(__self__, "cognitive_service_region", cognitive_service_region)
+            _setter("cognitive_service_region", cognitive_service_region)
         if cognitive_service_resource_id is not None:
-            pulumi.set(__self__, "cognitive_service_resource_id", cognitive_service_resource_id)
+            _setter("cognitive_service_resource_id", cognitive_service_resource_id)
         if cognitive_service_subscription_key is not None:
-            pulumi.set(__self__, "cognitive_service_subscription_key", cognitive_service_subscription_key)
+            _setter("cognitive_service_subscription_key", cognitive_service_subscription_key)
         if default_locale is not None:
-            pulumi.set(__self__, "default_locale", default_locale)
+            _setter("default_locale", default_locale)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if offer_type is not None:
-            pulumi.set(__self__, "offer_type", offer_type)
+            _setter("offer_type", offer_type)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
 
     @property
     @pulumi.getter(name="acsEndpoint")
@@ -3806,8 +4877,19 @@ class WebChatChannelPropertiesArgs:
         The parameters to provide for the Web Chat channel.
         :param pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgs']]] sites: The list of Web Chat sites
         """
+        WebChatChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sites=sites,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sites: Optional[pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if sites is not None:
-            pulumi.set(__self__, "sites", sites)
+            _setter("sites", sites)
 
     @property
     @pulumi.getter
@@ -3837,15 +4919,34 @@ class WebChatChannelArgs:
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['WebChatChannelPropertiesArgs'] properties: The set of properties specific to Web Chat channel resource
         """
-        pulumi.set(__self__, "channel_name", 'WebChatChannel')
+        WebChatChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['WebChatChannelPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
+        _setter("channel_name", 'WebChatChannel')
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -3933,37 +5034,106 @@ class WebChatSiteArgs:
         :param pulumi.Input[str] tenant_id: Tenant Id
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_origins: List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
+        WebChatSiteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            is_webchat_preview_enabled=is_webchat_preview_enabled,
+            site_name=site_name,
+            app_id=app_id,
+            e_tag=e_tag,
+            is_block_user_upload_enabled=is_block_user_upload_enabled,
+            is_detailed_logging_enabled=is_detailed_logging_enabled,
+            is_endpoint_parameters_enabled=is_endpoint_parameters_enabled,
+            is_no_storage_enabled=is_no_storage_enabled,
+            is_secure_site_enabled=is_secure_site_enabled,
+            is_v1_enabled=is_v1_enabled,
+            is_v3_enabled=is_v3_enabled,
+            is_web_chat_speech_enabled=is_web_chat_speech_enabled,
+            tenant_id=tenant_id,
+            trusted_origins=trusted_origins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: pulumi.Input[bool],
+             is_webchat_preview_enabled: Optional[pulumi.Input[bool]] = None,
+             site_name: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             e_tag: Optional[pulumi.Input[str]] = None,
+             is_block_user_upload_enabled: Optional[pulumi.Input[bool]] = None,
+             is_detailed_logging_enabled: Optional[pulumi.Input[bool]] = None,
+             is_endpoint_parameters_enabled: Optional[pulumi.Input[bool]] = None,
+             is_no_storage_enabled: Optional[pulumi.Input[bool]] = None,
+             is_secure_site_enabled: Optional[pulumi.Input[bool]] = None,
+             is_v1_enabled: Optional[pulumi.Input[bool]] = None,
+             is_v3_enabled: Optional[pulumi.Input[bool]] = None,
+             is_web_chat_speech_enabled: Optional[pulumi.Input[bool]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             trusted_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'isWebchatPreviewEnabled' in kwargs:
+            is_webchat_preview_enabled = kwargs['isWebchatPreviewEnabled']
+        if 'siteName' in kwargs:
+            site_name = kwargs['siteName']
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+        if 'isBlockUserUploadEnabled' in kwargs:
+            is_block_user_upload_enabled = kwargs['isBlockUserUploadEnabled']
+        if 'isDetailedLoggingEnabled' in kwargs:
+            is_detailed_logging_enabled = kwargs['isDetailedLoggingEnabled']
+        if 'isEndpointParametersEnabled' in kwargs:
+            is_endpoint_parameters_enabled = kwargs['isEndpointParametersEnabled']
+        if 'isNoStorageEnabled' in kwargs:
+            is_no_storage_enabled = kwargs['isNoStorageEnabled']
+        if 'isSecureSiteEnabled' in kwargs:
+            is_secure_site_enabled = kwargs['isSecureSiteEnabled']
+        if 'isV1Enabled' in kwargs:
+            is_v1_enabled = kwargs['isV1Enabled']
+        if 'isV3Enabled' in kwargs:
+            is_v3_enabled = kwargs['isV3Enabled']
+        if 'isWebChatSpeechEnabled' in kwargs:
+            is_web_chat_speech_enabled = kwargs['isWebChatSpeechEnabled']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'trustedOrigins' in kwargs:
+            trusted_origins = kwargs['trustedOrigins']
+
+        _setter("is_enabled", is_enabled)
         if is_webchat_preview_enabled is None:
             is_webchat_preview_enabled = False
-        pulumi.set(__self__, "is_webchat_preview_enabled", is_webchat_preview_enabled)
-        pulumi.set(__self__, "site_name", site_name)
+        _setter("is_webchat_preview_enabled", is_webchat_preview_enabled)
+        _setter("site_name", site_name)
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if is_block_user_upload_enabled is not None:
-            pulumi.set(__self__, "is_block_user_upload_enabled", is_block_user_upload_enabled)
+            _setter("is_block_user_upload_enabled", is_block_user_upload_enabled)
         if is_detailed_logging_enabled is not None:
-            pulumi.set(__self__, "is_detailed_logging_enabled", is_detailed_logging_enabled)
+            _setter("is_detailed_logging_enabled", is_detailed_logging_enabled)
         if is_endpoint_parameters_enabled is not None:
-            pulumi.set(__self__, "is_endpoint_parameters_enabled", is_endpoint_parameters_enabled)
+            _setter("is_endpoint_parameters_enabled", is_endpoint_parameters_enabled)
         if is_no_storage_enabled is not None:
-            pulumi.set(__self__, "is_no_storage_enabled", is_no_storage_enabled)
+            _setter("is_no_storage_enabled", is_no_storage_enabled)
         if is_secure_site_enabled is not None:
-            pulumi.set(__self__, "is_secure_site_enabled", is_secure_site_enabled)
+            _setter("is_secure_site_enabled", is_secure_site_enabled)
         if is_v1_enabled is not None:
-            pulumi.set(__self__, "is_v1_enabled", is_v1_enabled)
+            _setter("is_v1_enabled", is_v1_enabled)
         if is_v3_enabled is not None:
-            pulumi.set(__self__, "is_v3_enabled", is_v3_enabled)
+            _setter("is_v3_enabled", is_v3_enabled)
         if is_web_chat_speech_enabled is None:
             is_web_chat_speech_enabled = False
         if is_web_chat_speech_enabled is not None:
-            pulumi.set(__self__, "is_web_chat_speech_enabled", is_web_chat_speech_enabled)
+            _setter("is_web_chat_speech_enabled", is_web_chat_speech_enabled)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if trusted_origins is not None:
-            pulumi.set(__self__, "trusted_origins", trusted_origins)
+            _setter("trusted_origins", trusted_origins)
 
     @property
     @pulumi.getter(name="isEnabled")

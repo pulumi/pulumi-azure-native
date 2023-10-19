@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -32,10 +32,27 @@ class AddressPrefixItemArgs:
         :param pulumi.Input[str] address_prefix: Address prefix.
         :param pulumi.Input[Union[str, 'AddressPrefixType']] address_prefix_type: Address prefix type.
         """
+        AddressPrefixItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_prefix=address_prefix,
+            address_prefix_type=address_prefix_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_prefix: Optional[pulumi.Input[str]] = None,
+             address_prefix_type: Optional[pulumi.Input[Union[str, 'AddressPrefixType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if 'addressPrefixType' in kwargs:
+            address_prefix_type = kwargs['addressPrefixType']
+
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if address_prefix_type is not None:
-            pulumi.set(__self__, "address_prefix_type", address_prefix_type)
+            _setter("address_prefix_type", address_prefix_type)
 
     @property
     @pulumi.getter(name="addressPrefix")
@@ -72,10 +89,25 @@ class DnsConfigArgs:
         :param pulumi.Input[str] relative_name: The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
         :param pulumi.Input[float] ttl: The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
         """
+        DnsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            relative_name=relative_name,
+            ttl=ttl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             relative_name: Optional[pulumi.Input[str]] = None,
+             ttl: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'relativeName' in kwargs:
+            relative_name = kwargs['relativeName']
+
         if relative_name is not None:
-            pulumi.set(__self__, "relative_name", relative_name)
+            _setter("relative_name", relative_name)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
 
     @property
     @pulumi.getter(name="relativeName")
@@ -112,10 +144,23 @@ class EndpointPropertiesCustomHeadersArgs:
         :param pulumi.Input[str] name: Header name.
         :param pulumi.Input[str] value: Header value.
         """
+        EndpointPropertiesCustomHeadersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -154,12 +199,27 @@ class EndpointPropertiesSubnetsArgs:
         :param pulumi.Input[str] last: Last address in the subnet.
         :param pulumi.Input[int] scope: Block size (number of leading bits in the subnet mask).
         """
+        EndpointPropertiesSubnetsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            first=first,
+            last=last,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             first: Optional[pulumi.Input[str]] = None,
+             last: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if first is not None:
-            pulumi.set(__self__, "first", first)
+            _setter("first", first)
         if last is not None:
-            pulumi.set(__self__, "last", last)
+            _setter("last", last)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -238,40 +298,103 @@ class EndpointArgs:
         :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         :param pulumi.Input[float] weight: The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
+        EndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            always_serve=always_serve,
+            custom_headers=custom_headers,
+            endpoint_location=endpoint_location,
+            endpoint_monitor_status=endpoint_monitor_status,
+            endpoint_status=endpoint_status,
+            geo_mapping=geo_mapping,
+            id=id,
+            min_child_endpoints=min_child_endpoints,
+            min_child_endpoints_i_pv4=min_child_endpoints_i_pv4,
+            min_child_endpoints_i_pv6=min_child_endpoints_i_pv6,
+            name=name,
+            priority=priority,
+            subnets=subnets,
+            target=target,
+            target_resource_id=target_resource_id,
+            type=type,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             always_serve: Optional[pulumi.Input[Union[str, 'AlwaysServe']]] = None,
+             custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersArgs']]]] = None,
+             endpoint_location: Optional[pulumi.Input[str]] = None,
+             endpoint_monitor_status: Optional[pulumi.Input[Union[str, 'EndpointMonitorStatus']]] = None,
+             endpoint_status: Optional[pulumi.Input[Union[str, 'EndpointStatus']]] = None,
+             geo_mapping: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             min_child_endpoints: Optional[pulumi.Input[float]] = None,
+             min_child_endpoints_i_pv4: Optional[pulumi.Input[float]] = None,
+             min_child_endpoints_i_pv6: Optional[pulumi.Input[float]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[float]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsArgs']]]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             weight: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysServe' in kwargs:
+            always_serve = kwargs['alwaysServe']
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'endpointLocation' in kwargs:
+            endpoint_location = kwargs['endpointLocation']
+        if 'endpointMonitorStatus' in kwargs:
+            endpoint_monitor_status = kwargs['endpointMonitorStatus']
+        if 'endpointStatus' in kwargs:
+            endpoint_status = kwargs['endpointStatus']
+        if 'geoMapping' in kwargs:
+            geo_mapping = kwargs['geoMapping']
+        if 'minChildEndpoints' in kwargs:
+            min_child_endpoints = kwargs['minChildEndpoints']
+        if 'minChildEndpointsIPv4' in kwargs:
+            min_child_endpoints_i_pv4 = kwargs['minChildEndpointsIPv4']
+        if 'minChildEndpointsIPv6' in kwargs:
+            min_child_endpoints_i_pv6 = kwargs['minChildEndpointsIPv6']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         if always_serve is not None:
-            pulumi.set(__self__, "always_serve", always_serve)
+            _setter("always_serve", always_serve)
         if custom_headers is not None:
-            pulumi.set(__self__, "custom_headers", custom_headers)
+            _setter("custom_headers", custom_headers)
         if endpoint_location is not None:
-            pulumi.set(__self__, "endpoint_location", endpoint_location)
+            _setter("endpoint_location", endpoint_location)
         if endpoint_monitor_status is not None:
-            pulumi.set(__self__, "endpoint_monitor_status", endpoint_monitor_status)
+            _setter("endpoint_monitor_status", endpoint_monitor_status)
         if endpoint_status is not None:
-            pulumi.set(__self__, "endpoint_status", endpoint_status)
+            _setter("endpoint_status", endpoint_status)
         if geo_mapping is not None:
-            pulumi.set(__self__, "geo_mapping", geo_mapping)
+            _setter("geo_mapping", geo_mapping)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if min_child_endpoints is not None:
-            pulumi.set(__self__, "min_child_endpoints", min_child_endpoints)
+            _setter("min_child_endpoints", min_child_endpoints)
         if min_child_endpoints_i_pv4 is not None:
-            pulumi.set(__self__, "min_child_endpoints_i_pv4", min_child_endpoints_i_pv4)
+            _setter("min_child_endpoints_i_pv4", min_child_endpoints_i_pv4)
         if min_child_endpoints_i_pv6 is not None:
-            pulumi.set(__self__, "min_child_endpoints_i_pv6", min_child_endpoints_i_pv6)
+            _setter("min_child_endpoints_i_pv6", min_child_endpoints_i_pv6)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="alwaysServe")
@@ -488,10 +611,23 @@ class MonitorConfigCustomHeadersArgs:
         :param pulumi.Input[str] name: Header name.
         :param pulumi.Input[str] value: Header value.
         """
+        MonitorConfigCustomHeadersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -528,10 +664,23 @@ class MonitorConfigExpectedStatusCodeRangesArgs:
         :param pulumi.Input[int] max: Max status code.
         :param pulumi.Input[int] min: Min status code.
         """
+        MonitorConfigExpectedStatusCodeRangesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max=max,
+            min=min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max: Optional[pulumi.Input[int]] = None,
+             min: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
-            pulumi.set(__self__, "max", max)
+            _setter("max", max)
         if min is not None:
-            pulumi.set(__self__, "min", min)
+            _setter("min", min)
 
     @property
     @pulumi.getter
@@ -582,24 +731,63 @@ class MonitorConfigArgs:
         :param pulumi.Input[float] timeout_in_seconds: The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
         :param pulumi.Input[float] tolerated_number_of_failures: The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
         """
+        MonitorConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_headers=custom_headers,
+            expected_status_code_ranges=expected_status_code_ranges,
+            interval_in_seconds=interval_in_seconds,
+            path=path,
+            port=port,
+            profile_monitor_status=profile_monitor_status,
+            protocol=protocol,
+            timeout_in_seconds=timeout_in_seconds,
+            tolerated_number_of_failures=tolerated_number_of_failures,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorConfigCustomHeadersArgs']]]] = None,
+             expected_status_code_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorConfigExpectedStatusCodeRangesArgs']]]] = None,
+             interval_in_seconds: Optional[pulumi.Input[float]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[float]] = None,
+             profile_monitor_status: Optional[pulumi.Input[Union[str, 'ProfileMonitorStatus']]] = None,
+             protocol: Optional[pulumi.Input[Union[str, 'MonitorProtocol']]] = None,
+             timeout_in_seconds: Optional[pulumi.Input[float]] = None,
+             tolerated_number_of_failures: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'expectedStatusCodeRanges' in kwargs:
+            expected_status_code_ranges = kwargs['expectedStatusCodeRanges']
+        if 'intervalInSeconds' in kwargs:
+            interval_in_seconds = kwargs['intervalInSeconds']
+        if 'profileMonitorStatus' in kwargs:
+            profile_monitor_status = kwargs['profileMonitorStatus']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+        if 'toleratedNumberOfFailures' in kwargs:
+            tolerated_number_of_failures = kwargs['toleratedNumberOfFailures']
+
         if custom_headers is not None:
-            pulumi.set(__self__, "custom_headers", custom_headers)
+            _setter("custom_headers", custom_headers)
         if expected_status_code_ranges is not None:
-            pulumi.set(__self__, "expected_status_code_ranges", expected_status_code_ranges)
+            _setter("expected_status_code_ranges", expected_status_code_ranges)
         if interval_in_seconds is not None:
-            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+            _setter("interval_in_seconds", interval_in_seconds)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if profile_monitor_status is not None:
-            pulumi.set(__self__, "profile_monitor_status", profile_monitor_status)
+            _setter("profile_monitor_status", profile_monitor_status)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
         if tolerated_number_of_failures is not None:
-            pulumi.set(__self__, "tolerated_number_of_failures", tolerated_number_of_failures)
+            _setter("tolerated_number_of_failures", tolerated_number_of_failures)
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -718,7 +906,20 @@ class NetworkManagerSecurityGroupItemArgs:
         Network manager security group item.
         :param pulumi.Input[str] network_group_id: Network manager group Id.
         """
-        pulumi.set(__self__, "network_group_id", network_group_id)
+        NetworkManagerSecurityGroupItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_group_id=network_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_group_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkGroupId' in kwargs:
+            network_group_id = kwargs['networkGroupId']
+
+        _setter("network_group_id", network_group_id)
 
     @property
     @pulumi.getter(name="networkGroupId")

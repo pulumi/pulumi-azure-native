@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -31,10 +31,23 @@ class ArmTemplateParameterResponse(dict):
         :param str name: name of the parameter.
         :param str value: value for the parameter. In Jtoken 
         """
+        ArmTemplateParameterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -81,7 +94,20 @@ class ManagementAssociationPropertiesResponse(dict):
         ManagementAssociation properties supported by the OperationsManagement resource provider.
         :param str application_id: The applicationId of the appliance for this association.
         """
-        pulumi.set(__self__, "application_id", application_id)
+        ManagementAssociationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+
+        _setter("application_id", application_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -132,12 +158,37 @@ class ManagementConfigurationPropertiesResponse(dict):
         :param Any template: The Json object containing the ARM template to deploy
         :param str application_id: The applicationId of the appliance for this Management.
         """
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "parent_resource_type", parent_resource_type)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "template", template)
+        ManagementConfigurationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameters=parameters,
+            parent_resource_type=parent_resource_type,
+            provisioning_state=provisioning_state,
+            template=template,
+            application_id=application_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameters: Sequence['outputs.ArmTemplateParameterResponse'],
+             parent_resource_type: str,
+             provisioning_state: str,
+             template: Any,
+             application_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parentResourceType' in kwargs:
+            parent_resource_type = kwargs['parentResourceType']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+
+        _setter("parameters", parameters)
+        _setter("parent_resource_type", parent_resource_type)
+        _setter("provisioning_state", provisioning_state)
+        _setter("template", template)
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
 
     @property
     @pulumi.getter
@@ -214,14 +265,33 @@ class SolutionPlanResponse(dict):
         :param str promotion_code: promotionCode, Not really used now, can you left as empty
         :param str publisher: Publisher name. For gallery solution, it is Microsoft.
         """
+        SolutionPlanResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            product=product,
+            promotion_code=promotion_code,
+            publisher=publisher,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             product: Optional[str] = None,
+             promotion_code: Optional[str] = None,
+             publisher: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'promotionCode' in kwargs:
+            promotion_code = kwargs['promotionCode']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if product is not None:
-            pulumi.set(__self__, "product", product)
+            _setter("product", product)
         if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
+            _setter("promotion_code", promotion_code)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
 
     @property
     @pulumi.getter
@@ -296,12 +366,37 @@ class SolutionPropertiesResponse(dict):
         :param Sequence[str] contained_resources: The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
         :param Sequence[str] referenced_resources: The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+        SolutionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            workspace_resource_id=workspace_resource_id,
+            contained_resources=contained_resources,
+            referenced_resources=referenced_resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: str,
+             workspace_resource_id: str,
+             contained_resources: Optional[Sequence[str]] = None,
+             referenced_resources: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'workspaceResourceId' in kwargs:
+            workspace_resource_id = kwargs['workspaceResourceId']
+        if 'containedResources' in kwargs:
+            contained_resources = kwargs['containedResources']
+        if 'referencedResources' in kwargs:
+            referenced_resources = kwargs['referencedResources']
+
+        _setter("provisioning_state", provisioning_state)
+        _setter("workspace_resource_id", workspace_resource_id)
         if contained_resources is not None:
-            pulumi.set(__self__, "contained_resources", contained_resources)
+            _setter("contained_resources", contained_resources)
         if referenced_resources is not None:
-            pulumi.set(__self__, "referenced_resources", referenced_resources)
+            _setter("referenced_resources", referenced_resources)
 
     @property
     @pulumi.getter(name="provisioningState")

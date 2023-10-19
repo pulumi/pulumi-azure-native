@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -41,24 +41,79 @@ class SqlPoolSensitivityLabelArgs:
         :param pulumi.Input[str] label_name: The label name.
         :param pulumi.Input[str] sensitivity_label_source: The source of the sensitivity label.
         """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schema_name", schema_name)
-        pulumi.set(__self__, "sql_pool_name", sql_pool_name)
-        pulumi.set(__self__, "table_name", table_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        SqlPoolSensitivityLabelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            resource_group_name=resource_group_name,
+            schema_name=schema_name,
+            sql_pool_name=sql_pool_name,
+            table_name=table_name,
+            workspace_name=workspace_name,
+            information_type=information_type,
+            information_type_id=information_type_id,
+            label_id=label_id,
+            label_name=label_name,
+            rank=rank,
+            sensitivity_label_source=sensitivity_label_source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             schema_name: pulumi.Input[str],
+             sql_pool_name: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             information_type: Optional[pulumi.Input[str]] = None,
+             information_type_id: Optional[pulumi.Input[str]] = None,
+             label_id: Optional[pulumi.Input[str]] = None,
+             label_name: Optional[pulumi.Input[str]] = None,
+             rank: Optional[pulumi.Input['SensitivityLabelRank']] = None,
+             sensitivity_label_source: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if 'sqlPoolName' in kwargs:
+            sql_pool_name = kwargs['sqlPoolName']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'informationType' in kwargs:
+            information_type = kwargs['informationType']
+        if 'informationTypeId' in kwargs:
+            information_type_id = kwargs['informationTypeId']
+        if 'labelId' in kwargs:
+            label_id = kwargs['labelId']
+        if 'labelName' in kwargs:
+            label_name = kwargs['labelName']
+        if 'sensitivityLabelSource' in kwargs:
+            sensitivity_label_source = kwargs['sensitivityLabelSource']
+
+        _setter("column_name", column_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("schema_name", schema_name)
+        _setter("sql_pool_name", sql_pool_name)
+        _setter("table_name", table_name)
+        _setter("workspace_name", workspace_name)
         if information_type is not None:
-            pulumi.set(__self__, "information_type", information_type)
+            _setter("information_type", information_type)
         if information_type_id is not None:
-            pulumi.set(__self__, "information_type_id", information_type_id)
+            _setter("information_type_id", information_type_id)
         if label_id is not None:
-            pulumi.set(__self__, "label_id", label_id)
+            _setter("label_id", label_id)
         if label_name is not None:
-            pulumi.set(__self__, "label_name", label_name)
+            _setter("label_name", label_name)
         if rank is not None:
-            pulumi.set(__self__, "rank", rank)
+            _setter("rank", rank)
         if sensitivity_label_source is not None:
-            pulumi.set(__self__, "sensitivity_label_source", sensitivity_label_source)
+            _setter("sensitivity_label_source", sensitivity_label_source)
 
     @property
     @pulumi.getter(name="columnName")
@@ -258,6 +313,10 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlPoolSensitivityLabelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

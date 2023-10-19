@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -44,28 +44,87 @@ class SyncMemberArgs:
         :param pulumi.Input[bool] use_private_link_connection: Whether to use private link connection.
         :param pulumi.Input[str] user_name: User name of the member database in the sync member.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "sync_group_name", sync_group_name)
+        SyncMemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            sync_group_name=sync_group_name,
+            database_type=database_type,
+            password=password,
+            sql_server_database_id=sql_server_database_id,
+            sync_agent_id=sync_agent_id,
+            sync_direction=sync_direction,
+            sync_member_azure_database_resource_id=sync_member_azure_database_resource_id,
+            sync_member_name=sync_member_name,
+            use_private_link_connection=use_private_link_connection,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             sync_group_name: pulumi.Input[str],
+             database_type: Optional[pulumi.Input[Union[str, 'SyncMemberDbType']]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             sql_server_database_id: Optional[pulumi.Input[str]] = None,
+             sync_agent_id: Optional[pulumi.Input[str]] = None,
+             sync_direction: Optional[pulumi.Input[Union[str, 'SyncDirection']]] = None,
+             sync_member_azure_database_resource_id: Optional[pulumi.Input[str]] = None,
+             sync_member_name: Optional[pulumi.Input[str]] = None,
+             use_private_link_connection: Optional[pulumi.Input[bool]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'syncGroupName' in kwargs:
+            sync_group_name = kwargs['syncGroupName']
+        if 'databaseType' in kwargs:
+            database_type = kwargs['databaseType']
+        if 'sqlServerDatabaseId' in kwargs:
+            sql_server_database_id = kwargs['sqlServerDatabaseId']
+        if 'syncAgentId' in kwargs:
+            sync_agent_id = kwargs['syncAgentId']
+        if 'syncDirection' in kwargs:
+            sync_direction = kwargs['syncDirection']
+        if 'syncMemberAzureDatabaseResourceId' in kwargs:
+            sync_member_azure_database_resource_id = kwargs['syncMemberAzureDatabaseResourceId']
+        if 'syncMemberName' in kwargs:
+            sync_member_name = kwargs['syncMemberName']
+        if 'usePrivateLinkConnection' in kwargs:
+            use_private_link_connection = kwargs['usePrivateLinkConnection']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("database_name", database_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
+        _setter("sync_group_name", sync_group_name)
         if database_type is not None:
-            pulumi.set(__self__, "database_type", database_type)
+            _setter("database_type", database_type)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if sql_server_database_id is not None:
-            pulumi.set(__self__, "sql_server_database_id", sql_server_database_id)
+            _setter("sql_server_database_id", sql_server_database_id)
         if sync_agent_id is not None:
-            pulumi.set(__self__, "sync_agent_id", sync_agent_id)
+            _setter("sync_agent_id", sync_agent_id)
         if sync_direction is not None:
-            pulumi.set(__self__, "sync_direction", sync_direction)
+            _setter("sync_direction", sync_direction)
         if sync_member_azure_database_resource_id is not None:
-            pulumi.set(__self__, "sync_member_azure_database_resource_id", sync_member_azure_database_resource_id)
+            _setter("sync_member_azure_database_resource_id", sync_member_azure_database_resource_id)
         if sync_member_name is not None:
-            pulumi.set(__self__, "sync_member_name", sync_member_name)
+            _setter("sync_member_name", sync_member_name)
         if use_private_link_connection is not None:
-            pulumi.set(__self__, "use_private_link_connection", use_private_link_connection)
+            _setter("use_private_link_connection", use_private_link_connection)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -281,6 +340,10 @@ class SyncMember(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SyncMemberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

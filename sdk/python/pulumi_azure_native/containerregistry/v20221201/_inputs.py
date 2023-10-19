@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -39,10 +39,25 @@ class EncryptionPropertyArgs:
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Key vault properties.
         :param pulumi.Input[Union[str, 'EncryptionStatus']] status: Indicates whether or not the encryption is enabled for container registry.
         """
+        EncryptionPropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_properties=key_vault_properties,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+             status: Optional[pulumi.Input[Union[str, 'EncryptionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultProperties' in kwargs:
+            key_vault_properties = kwargs['keyVaultProperties']
+
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="keyVaultProperties")
@@ -77,10 +92,21 @@ class ExportPolicyArgs:
         The export policy for a container registry.
         :param pulumi.Input[Union[str, 'ExportPolicyStatus']] status: The value that indicates whether the policy is enabled or not.
         """
+        ExportPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[pulumi.Input[Union[str, 'ExportPolicyStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if status is None:
             status = 'enabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -105,11 +131,26 @@ class IPRuleArgs:
         :param pulumi.Input[str] i_p_address_or_range: Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
         :param pulumi.Input[Union[str, 'Action']] action: The action of IP ACL rule.
         """
-        pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
+        IPRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            i_p_address_or_range=i_p_address_or_range,
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             i_p_address_or_range: pulumi.Input[str],
+             action: Optional[pulumi.Input[Union[str, 'Action']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'iPAddressOrRange' in kwargs:
+            i_p_address_or_range = kwargs['iPAddressOrRange']
+
+        _setter("i_p_address_or_range", i_p_address_or_range)
         if action is None:
             action = 'Allow'
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
 
     @property
     @pulumi.getter(name="iPAddressOrRange")
@@ -153,14 +194,37 @@ class IdentityPropertiesArgs:
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
                    providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
+        IdentityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -223,10 +287,25 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] identity: The client id of the identity which will be used to access key vault.
         :param pulumi.Input[str] key_identifier: Key vault uri to access the encryption key.
         """
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity=identity,
+            key_identifier=key_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity: Optional[pulumi.Input[str]] = None,
+             key_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyIdentifier' in kwargs:
+            key_identifier = kwargs['keyIdentifier']
+
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_identifier is not None:
-            pulumi.set(__self__, "key_identifier", key_identifier)
+            _setter("key_identifier", key_identifier)
 
     @property
     @pulumi.getter
@@ -263,11 +342,28 @@ class NetworkRuleSetArgs:
         :param pulumi.Input[Union[str, 'DefaultAction']] default_action: The default action of allow or deny when no other rules match.
         :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: The IP ACL rules.
         """
+        NetworkRuleSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            ip_rules=ip_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: Optional[pulumi.Input[Union[str, 'DefaultAction']]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+
         if default_action is None:
             default_action = 'Allow'
-        pulumi.set(__self__, "default_action", default_action)
+        _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -308,14 +404,39 @@ class PoliciesArgs:
         :param pulumi.Input['RetentionPolicyArgs'] retention_policy: The retention policy for a container registry.
         :param pulumi.Input['TrustPolicyArgs'] trust_policy: The content trust policy for a container registry.
         """
+        PoliciesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            export_policy=export_policy,
+            quarantine_policy=quarantine_policy,
+            retention_policy=retention_policy,
+            trust_policy=trust_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             export_policy: Optional[pulumi.Input['ExportPolicyArgs']] = None,
+             quarantine_policy: Optional[pulumi.Input['QuarantinePolicyArgs']] = None,
+             retention_policy: Optional[pulumi.Input['RetentionPolicyArgs']] = None,
+             trust_policy: Optional[pulumi.Input['TrustPolicyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exportPolicy' in kwargs:
+            export_policy = kwargs['exportPolicy']
+        if 'quarantinePolicy' in kwargs:
+            quarantine_policy = kwargs['quarantinePolicy']
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if 'trustPolicy' in kwargs:
+            trust_policy = kwargs['trustPolicy']
+
         if export_policy is not None:
-            pulumi.set(__self__, "export_policy", export_policy)
+            _setter("export_policy", export_policy)
         if quarantine_policy is not None:
-            pulumi.set(__self__, "quarantine_policy", quarantine_policy)
+            _setter("quarantine_policy", quarantine_policy)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
         if trust_policy is not None:
-            pulumi.set(__self__, "trust_policy", trust_policy)
+            _setter("trust_policy", trust_policy)
 
     @property
     @pulumi.getter(name="exportPolicy")
@@ -374,8 +495,19 @@ class PrivateEndpointArgs:
         The Private Endpoint resource.
         :param pulumi.Input[str] id: This is private endpoint resource created with Microsoft.Network resource provider.
         """
+        PrivateEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -402,12 +534,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The description for connection status. For example if connection is rejected it can indicate reason for rejection.
         :param pulumi.Input[Union[str, 'ConnectionStatus']] status: The private link service connection status.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[Union[str, 'ActionsRequired']]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'ConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -454,10 +603,21 @@ class QuarantinePolicyArgs:
         The quarantine policy for a container registry.
         :param pulumi.Input[Union[str, 'PolicyStatus']] status: The value that indicates whether the policy is enabled or not.
         """
+        QuarantinePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[pulumi.Input[Union[str, 'PolicyStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if status is None:
             status = 'disabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -482,14 +642,27 @@ class RetentionPolicyArgs:
         :param pulumi.Input[int] days: The number of days to retain an untagged manifest after which it gets purged.
         :param pulumi.Input[Union[str, 'PolicyStatus']] status: The value that indicates whether the policy is enabled or not.
         """
+        RetentionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PolicyStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if days is None:
             days = 7
         if days is not None:
-            pulumi.set(__self__, "days", days)
+            _setter("days", days)
         if status is None:
             status = 'disabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -524,7 +697,18 @@ class SkuArgs:
         The SKU of a container registry.
         :param pulumi.Input[Union[str, 'SkuName']] name: The SKU name of the container registry. Required for registry creation.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'SkuName']],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -552,14 +736,33 @@ class TokenCertificateArgs:
         :param pulumi.Input[str] expiry: The expiry datetime of the certificate.
         :param pulumi.Input[str] thumbprint: The thumbprint of the certificate.
         """
+        TokenCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encoded_pem_certificate=encoded_pem_certificate,
+            expiry=expiry,
+            name=name,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encoded_pem_certificate: Optional[pulumi.Input[str]] = None,
+             expiry: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[Union[str, 'TokenCertificateName']]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encodedPemCertificate' in kwargs:
+            encoded_pem_certificate = kwargs['encodedPemCertificate']
+
         if encoded_pem_certificate is not None:
-            pulumi.set(__self__, "encoded_pem_certificate", encoded_pem_certificate)
+            _setter("encoded_pem_certificate", encoded_pem_certificate)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="encodedPemCertificate")
@@ -615,10 +818,23 @@ class TokenCredentialsPropertiesArgs:
         """
         The properties of the credentials that can be used for authenticating the token.
         """
+        TokenCredentialsPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            passwords=passwords,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: Optional[pulumi.Input[Sequence[pulumi.Input['TokenCertificateArgs']]]] = None,
+             passwords: Optional[pulumi.Input[Sequence[pulumi.Input['TokenPasswordArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
+            _setter("certificates", certificates)
         if passwords is not None:
-            pulumi.set(__self__, "passwords", passwords)
+            _setter("passwords", passwords)
 
     @property
     @pulumi.getter
@@ -651,12 +867,29 @@ class TokenPasswordArgs:
         :param pulumi.Input[str] expiry: The expiry datetime of the password.
         :param pulumi.Input[Union[str, 'TokenPasswordName']] name: The password name "password1" or "password2"
         """
+        TokenPasswordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creation_time=creation_time,
+            expiry=expiry,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creation_time: Optional[pulumi.Input[str]] = None,
+             expiry: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[Union[str, 'TokenPasswordName']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+
         if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+            _setter("creation_time", creation_time)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="creationTime")
@@ -705,14 +938,27 @@ class TrustPolicyArgs:
         :param pulumi.Input[Union[str, 'PolicyStatus']] status: The value that indicates whether the policy is enabled or not.
         :param pulumi.Input[Union[str, 'TrustPolicyType']] type: The type of trust policy.
         """
+        TrustPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[pulumi.Input[Union[str, 'PolicyStatus']]] = None,
+             type: Optional[pulumi.Input[Union[str, 'TrustPolicyType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if status is None:
             status = 'disabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is None:
             type = 'Notary'
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -748,10 +994,27 @@ class UserIdentityPropertiesArgs:
         :param pulumi.Input[str] client_id: The client id of user assigned identity.
         :param pulumi.Input[str] principal_id: The principal id of user assigned identity.
         """
+        UserIdentityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")

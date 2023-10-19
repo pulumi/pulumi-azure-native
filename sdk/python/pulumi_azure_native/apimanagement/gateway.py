@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,41 @@ class GatewayArgs:
         :param pulumi.Input[str] gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
         :param pulumi.Input['ResourceLocationDataContractArgs'] location_data: Gateway location.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        GatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            description=description,
+            gateway_id=gateway_id,
+            location_data=location_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             gateway_id: Optional[pulumi.Input[str]] = None,
+             location_data: Optional[pulumi.Input['ResourceLocationDataContractArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'gatewayId' in kwargs:
+            gateway_id = kwargs['gatewayId']
+        if 'locationData' in kwargs:
+            location_data = kwargs['locationData']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if gateway_id is not None:
-            pulumi.set(__self__, "gateway_id", gateway_id)
+            _setter("gateway_id", gateway_id)
         if location_data is not None:
-            pulumi.set(__self__, "location_data", location_data)
+            _setter("location_data", location_data)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -142,6 +169,10 @@ class Gateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -163,6 +194,11 @@ class Gateway(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["gateway_id"] = gateway_id
+            if location_data is not None and not isinstance(location_data, ResourceLocationDataContractArgs):
+                location_data = location_data or {}
+                def _setter(key, value):
+                    location_data[key] = value
+                ResourceLocationDataContractArgs._configure(_setter, **location_data)
             __props__.__dict__["location_data"] = location_data
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

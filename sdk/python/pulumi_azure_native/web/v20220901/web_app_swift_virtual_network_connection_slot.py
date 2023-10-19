@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['WebAppSwiftVirtualNetworkConnectionSlotArgs', 'WebAppSwiftVirtualNetworkConnectionSlot']
@@ -29,15 +29,42 @@ class WebAppSwiftVirtualNetworkConnectionSlotArgs:
         :param pulumi.Input[str] subnet_resource_id: The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
         :param pulumi.Input[bool] swift_supported: A flag that specifies if the scale unit this Web App is on supports Swift integration.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "slot", slot)
+        WebAppSwiftVirtualNetworkConnectionSlotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            slot=slot,
+            kind=kind,
+            subnet_resource_id=subnet_resource_id,
+            swift_supported=swift_supported,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             slot: pulumi.Input[str],
+             kind: Optional[pulumi.Input[str]] = None,
+             subnet_resource_id: Optional[pulumi.Input[str]] = None,
+             swift_supported: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'subnetResourceId' in kwargs:
+            subnet_resource_id = kwargs['subnetResourceId']
+        if 'swiftSupported' in kwargs:
+            swift_supported = kwargs['swiftSupported']
+
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("slot", slot)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if subnet_resource_id is not None:
-            pulumi.set(__self__, "subnet_resource_id", subnet_resource_id)
+            _setter("subnet_resource_id", subnet_resource_id)
         if swift_supported is not None:
-            pulumi.set(__self__, "swift_supported", swift_supported)
+            _setter("swift_supported", swift_supported)
 
     @property
     @pulumi.getter
@@ -155,6 +182,10 @@ class WebAppSwiftVirtualNetworkConnectionSlot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppSwiftVirtualNetworkConnectionSlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

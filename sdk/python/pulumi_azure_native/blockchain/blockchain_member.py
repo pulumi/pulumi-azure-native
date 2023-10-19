@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -46,31 +46,80 @@ class BlockchainMemberArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describes the resource.
         :param pulumi.Input['BlockchainMemberNodesSkuArgs'] validator_nodes_sku: Gets or sets the blockchain validator nodes Sku.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        BlockchainMemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            blockchain_member_name=blockchain_member_name,
+            consortium=consortium,
+            consortium_management_account_password=consortium_management_account_password,
+            consortium_member_display_name=consortium_member_display_name,
+            consortium_role=consortium_role,
+            firewall_rules=firewall_rules,
+            location=location,
+            password=password,
+            protocol=protocol,
+            sku=sku,
+            tags=tags,
+            validator_nodes_sku=validator_nodes_sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             blockchain_member_name: Optional[pulumi.Input[str]] = None,
+             consortium: Optional[pulumi.Input[str]] = None,
+             consortium_management_account_password: Optional[pulumi.Input[str]] = None,
+             consortium_member_display_name: Optional[pulumi.Input[str]] = None,
+             consortium_role: Optional[pulumi.Input[str]] = None,
+             firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[Union[str, 'BlockchainProtocol']]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             validator_nodes_sku: Optional[pulumi.Input['BlockchainMemberNodesSkuArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'blockchainMemberName' in kwargs:
+            blockchain_member_name = kwargs['blockchainMemberName']
+        if 'consortiumManagementAccountPassword' in kwargs:
+            consortium_management_account_password = kwargs['consortiumManagementAccountPassword']
+        if 'consortiumMemberDisplayName' in kwargs:
+            consortium_member_display_name = kwargs['consortiumMemberDisplayName']
+        if 'consortiumRole' in kwargs:
+            consortium_role = kwargs['consortiumRole']
+        if 'firewallRules' in kwargs:
+            firewall_rules = kwargs['firewallRules']
+        if 'validatorNodesSku' in kwargs:
+            validator_nodes_sku = kwargs['validatorNodesSku']
+
+        _setter("resource_group_name", resource_group_name)
         if blockchain_member_name is not None:
-            pulumi.set(__self__, "blockchain_member_name", blockchain_member_name)
+            _setter("blockchain_member_name", blockchain_member_name)
         if consortium is not None:
-            pulumi.set(__self__, "consortium", consortium)
+            _setter("consortium", consortium)
         if consortium_management_account_password is not None:
-            pulumi.set(__self__, "consortium_management_account_password", consortium_management_account_password)
+            _setter("consortium_management_account_password", consortium_management_account_password)
         if consortium_member_display_name is not None:
-            pulumi.set(__self__, "consortium_member_display_name", consortium_member_display_name)
+            _setter("consortium_member_display_name", consortium_member_display_name)
         if consortium_role is not None:
-            pulumi.set(__self__, "consortium_role", consortium_role)
+            _setter("consortium_role", consortium_role)
         if firewall_rules is not None:
-            pulumi.set(__self__, "firewall_rules", firewall_rules)
+            _setter("firewall_rules", firewall_rules)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if validator_nodes_sku is not None:
-            pulumi.set(__self__, "validator_nodes_sku", validator_nodes_sku)
+            _setter("validator_nodes_sku", validator_nodes_sku)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -288,6 +337,10 @@ class BlockchainMember(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BlockchainMemberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -327,8 +380,18 @@ class BlockchainMember(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            if validator_nodes_sku is not None and not isinstance(validator_nodes_sku, BlockchainMemberNodesSkuArgs):
+                validator_nodes_sku = validator_nodes_sku or {}
+                def _setter(key, value):
+                    validator_nodes_sku[key] = value
+                BlockchainMemberNodesSkuArgs._configure(_setter, **validator_nodes_sku)
             __props__.__dict__["validator_nodes_sku"] = validator_nodes_sku
             __props__.__dict__["consortium_management_account_address"] = None
             __props__.__dict__["dns"] = None

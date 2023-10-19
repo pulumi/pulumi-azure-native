@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -80,8 +80,21 @@ class AutomaticResolutionPropertiesResponse(dict):
         :param str move_resource_id: Gets the MoveResource ARM ID of
                the dependent resource if the resolution type is Automatic.
         """
+        AutomaticResolutionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            move_resource_id=move_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             move_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'moveResourceId' in kwargs:
+            move_resource_id = kwargs['moveResourceId']
+
         if move_resource_id is not None:
-            pulumi.set(__self__, "move_resource_id", move_resource_id)
+            _setter("move_resource_id", move_resource_id)
 
     @property
     @pulumi.getter(name="moveResourceId")
@@ -140,17 +153,48 @@ class AvailabilitySetResourceSettingsResponse(dict):
         :param str target_resource_name: Gets or sets the target Resource name.
         :param int update_domain: Gets or sets the target update domain.
         """
-        pulumi.set(__self__, "resource_type", 'Microsoft.Compute/availabilitySets')
+        AvailabilitySetResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type=resource_type,
+            fault_domain=fault_domain,
+            tags=tags,
+            target_resource_group_name=target_resource_group_name,
+            target_resource_name=target_resource_name,
+            update_domain=update_domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type: str,
+             fault_domain: Optional[int] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             target_resource_group_name: Optional[str] = None,
+             target_resource_name: Optional[str] = None,
+             update_domain: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'faultDomain' in kwargs:
+            fault_domain = kwargs['faultDomain']
+        if 'targetResourceGroupName' in kwargs:
+            target_resource_group_name = kwargs['targetResourceGroupName']
+        if 'targetResourceName' in kwargs:
+            target_resource_name = kwargs['targetResourceName']
+        if 'updateDomain' in kwargs:
+            update_domain = kwargs['updateDomain']
+
+        _setter("resource_type", 'Microsoft.Compute/availabilitySets')
         if fault_domain is not None:
-            pulumi.set(__self__, "fault_domain", fault_domain)
+            _setter("fault_domain", fault_domain)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_group_name is not None:
-            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+            _setter("target_resource_group_name", target_resource_group_name)
         if target_resource_name is not None:
-            pulumi.set(__self__, "target_resource_name", target_resource_name)
+            _setter("target_resource_name", target_resource_name)
         if update_domain is not None:
-            pulumi.set(__self__, "update_domain", update_domain)
+            _setter("update_domain", update_domain)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -239,11 +283,32 @@ class DiskEncryptionSetResourceSettingsResponse(dict):
         :param str target_resource_group_name: Gets or sets the target resource group name.
         :param str target_resource_name: Gets or sets the target Resource name.
         """
-        pulumi.set(__self__, "resource_type", 'Microsoft.Compute/diskEncryptionSets')
+        DiskEncryptionSetResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type=resource_type,
+            target_resource_group_name=target_resource_group_name,
+            target_resource_name=target_resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type: str,
+             target_resource_group_name: Optional[str] = None,
+             target_resource_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'targetResourceGroupName' in kwargs:
+            target_resource_group_name = kwargs['targetResourceGroupName']
+        if 'targetResourceName' in kwargs:
+            target_resource_name = kwargs['targetResourceName']
+
+        _setter("resource_type", 'Microsoft.Compute/diskEncryptionSets')
         if target_resource_group_name is not None:
-            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+            _setter("target_resource_group_name", target_resource_group_name)
         if target_resource_name is not None:
-            pulumi.set(__self__, "target_resource_name", target_resource_name)
+            _setter("target_resource_name", target_resource_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -305,12 +370,31 @@ class IdentityResponse(dict):
         :param str tenant_id: Gets or sets the tenant id.
         :param str type: The type of identity used for the resource mover service.
         """
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -369,8 +453,25 @@ class JobStatusResponse(dict):
         :param str job_name: Defines the job name.
         :param str job_progress: Gets or sets the monitoring job percentage.
         """
-        pulumi.set(__self__, "job_name", job_name)
-        pulumi.set(__self__, "job_progress", job_progress)
+        JobStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_name=job_name,
+            job_progress=job_progress,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_name: str,
+             job_progress: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if 'jobProgress' in kwargs:
+            job_progress = kwargs['jobProgress']
+
+        _setter("job_name", job_name)
+        _setter("job_progress", job_progress)
 
     @property
     @pulumi.getter(name="jobName")
@@ -426,11 +527,32 @@ class KeyVaultResourceSettingsResponse(dict):
         :param str target_resource_group_name: Gets or sets the target resource group name.
         :param str target_resource_name: Gets or sets the target Resource name.
         """
-        pulumi.set(__self__, "resource_type", 'Microsoft.KeyVault/vaults')
+        KeyVaultResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type=resource_type,
+            target_resource_group_name=target_resource_group_name,
+            target_resource_name=target_resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type: str,
+             target_resource_group_name: Optional[str] = None,
+             target_resource_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'targetResourceGroupName' in kwargs:
+            target_resource_group_name = kwargs['targetResourceGroupName']
+        if 'targetResourceName' in kwargs:
+            target_resource_name = kwargs['targetResourceName']
+
+        _setter("resource_type", 'Microsoft.KeyVault/vaults')
         if target_resource_group_name is not None:
-            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+            _setter("target_resource_group_name", target_resource_group_name)
         if target_resource_name is not None:
-            pulumi.set(__self__, "target_resource_name", target_resource_name)
+            _setter("target_resource_name", target_resource_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -469,8 +591,19 @@ class LBBackendAddressPoolResourceSettingsResponse(dict):
         Defines load balancer backend address pool properties.
         :param str name: Gets or sets the backend address pool name.
         """
+        LBBackendAddressPoolResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -520,16 +653,39 @@ class LBFrontendIPConfigurationResourceSettingsResponse(dict):
         :param 'SubnetReferenceResponse' subnet: Defines reference to subnet.
         :param str zones: Gets or sets the csv list of zones.
         """
+        LBFrontendIPConfigurationResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            private_ip_address=private_ip_address,
+            private_ip_allocation_method=private_ip_allocation_method,
+            subnet=subnet,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             private_ip_address: Optional[str] = None,
+             private_ip_allocation_method: Optional[str] = None,
+             subnet: Optional['outputs.SubnetReferenceResponse'] = None,
+             zones: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAllocationMethod' in kwargs:
+            private_ip_allocation_method = kwargs['privateIpAllocationMethod']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if private_ip_allocation_method is not None:
-            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+            _setter("private_ip_allocation_method", private_ip_allocation_method)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter
@@ -603,9 +759,24 @@ class LoadBalancerBackendAddressPoolReferenceResponse(dict):
         :param str source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
         :param str name: Gets the name of the proxy resource on the target side.
         """
-        pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
+        LoadBalancerBackendAddressPoolReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_arm_resource_id=source_arm_resource_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_arm_resource_id: str,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceArmResourceId' in kwargs:
+            source_arm_resource_id = kwargs['sourceArmResourceId']
+
+        _setter("source_arm_resource_id", source_arm_resource_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="sourceArmResourceId")
@@ -654,9 +825,24 @@ class LoadBalancerNatRuleReferenceResponse(dict):
         :param str source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
         :param str name: Gets the name of the proxy resource on the target side.
         """
-        pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
+        LoadBalancerNatRuleReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_arm_resource_id=source_arm_resource_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_arm_resource_id: str,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceArmResourceId' in kwargs:
+            source_arm_resource_id = kwargs['sourceArmResourceId']
+
+        _setter("source_arm_resource_id", source_arm_resource_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="sourceArmResourceId")
@@ -727,21 +913,56 @@ class LoadBalancerResourceSettingsResponse(dict):
         :param str zones: Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
                 precedence only if frontend IP configurations settings are not present.
         """
-        pulumi.set(__self__, "resource_type", 'Microsoft.Network/loadBalancers')
+        LoadBalancerResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type=resource_type,
+            backend_address_pools=backend_address_pools,
+            frontend_ip_configurations=frontend_ip_configurations,
+            sku=sku,
+            tags=tags,
+            target_resource_group_name=target_resource_group_name,
+            target_resource_name=target_resource_name,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type: str,
+             backend_address_pools: Optional[Sequence['outputs.LBBackendAddressPoolResourceSettingsResponse']] = None,
+             frontend_ip_configurations: Optional[Sequence['outputs.LBFrontendIPConfigurationResourceSettingsResponse']] = None,
+             sku: Optional[str] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             target_resource_group_name: Optional[str] = None,
+             target_resource_name: Optional[str] = None,
+             zones: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'backendAddressPools' in kwargs:
+            backend_address_pools = kwargs['backendAddressPools']
+        if 'frontendIPConfigurations' in kwargs:
+            frontend_ip_configurations = kwargs['frontendIPConfigurations']
+        if 'targetResourceGroupName' in kwargs:
+            target_resource_group_name = kwargs['targetResourceGroupName']
+        if 'targetResourceName' in kwargs:
+            target_resource_name = kwargs['targetResourceName']
+
+        _setter("resource_type", 'Microsoft.Network/loadBalancers')
         if backend_address_pools is not None:
-            pulumi.set(__self__, "backend_address_pools", backend_address_pools)
+            _setter("backend_address_pools", backend_address_pools)
         if frontend_ip_configurations is not None:
-            pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+            _setter("frontend_ip_configurations", frontend_ip_configurations)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_group_name is not None:
-            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+            _setter("target_resource_group_name", target_resource_group_name)
         if target_resource_name is not None:
-            pulumi.set(__self__, "target_resource_name", target_resource_name)
+            _setter("target_resource_name", target_resource_name)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -838,8 +1059,21 @@ class ManualResolutionPropertiesResponse(dict):
         Defines the properties for manual resolution.
         :param str target_id: Gets or sets the target resource ARM ID of the dependent resource if the resource type is Manual.
         """
+        ManualResolutionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_id=target_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+
         if target_id is not None:
-            pulumi.set(__self__, "target_id", target_id)
+            _setter("target_id", target_id)
 
     @property
     @pulumi.getter(name="targetId")
@@ -898,18 +1132,51 @@ class MoveCollectionPropertiesResponse(dict):
         :param str target_region: Gets or sets the target region.
         :param str version: Gets or sets the version of move collection.
         """
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        MoveCollectionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            errors=errors,
+            provisioning_state=provisioning_state,
+            move_region=move_region,
+            move_type=move_type,
+            source_region=source_region,
+            target_region=target_region,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             errors: 'outputs.MoveCollectionPropertiesResponseErrors',
+             provisioning_state: str,
+             move_region: Optional[str] = None,
+             move_type: Optional[str] = None,
+             source_region: Optional[str] = None,
+             target_region: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'moveRegion' in kwargs:
+            move_region = kwargs['moveRegion']
+        if 'moveType' in kwargs:
+            move_type = kwargs['moveType']
+        if 'sourceRegion' in kwargs:
+            source_region = kwargs['sourceRegion']
+        if 'targetRegion' in kwargs:
+            target_region = kwargs['targetRegion']
+
+        _setter("errors", errors)
+        _setter("provisioning_state", provisioning_state)
         if move_region is not None:
-            pulumi.set(__self__, "move_region", move_region)
+            _setter("move_region", move_region)
         if move_type is not None:
-            pulumi.set(__self__, "move_type", move_type)
+            _setter("move_type", move_type)
         if source_region is not None:
-            pulumi.set(__self__, "source_region", source_region)
+            _setter("source_region", source_region)
         if target_region is not None:
-            pulumi.set(__self__, "target_region", target_region)
+            _setter("target_region", target_region)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -979,8 +1246,19 @@ class MoveCollectionPropertiesResponseErrors(dict):
         Defines the move collection errors.
         :param 'MoveResourceErrorBodyResponse' properties: The move resource error body.
         """
+        MoveCollectionPropertiesResponseErrors._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional['outputs.MoveResourceErrorBodyResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -1022,10 +1300,25 @@ class MoveResourceDependencyOverrideResponse(dict):
         :param str target_id: Gets or sets the resource ARM id of either the MoveResource or the resource ARM ID of
                the dependent resource.
         """
+        MoveResourceDependencyOverrideResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            target_id=target_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             target_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if target_id is not None:
-            pulumi.set(__self__, "target_id", target_id)
+            _setter("target_id", target_id)
 
     @property
     @pulumi.getter
@@ -1095,20 +1388,55 @@ class MoveResourceDependencyResponse(dict):
         :param str resolution_status: Gets the dependency resolution status.
         :param str resolution_type: Defines the resolution type.
         """
+        MoveResourceDependencyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automatic_resolution=automatic_resolution,
+            dependency_type=dependency_type,
+            id=id,
+            is_optional=is_optional,
+            manual_resolution=manual_resolution,
+            resolution_status=resolution_status,
+            resolution_type=resolution_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automatic_resolution: Optional['outputs.AutomaticResolutionPropertiesResponse'] = None,
+             dependency_type: Optional[str] = None,
+             id: Optional[str] = None,
+             is_optional: Optional[str] = None,
+             manual_resolution: Optional['outputs.ManualResolutionPropertiesResponse'] = None,
+             resolution_status: Optional[str] = None,
+             resolution_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automaticResolution' in kwargs:
+            automatic_resolution = kwargs['automaticResolution']
+        if 'dependencyType' in kwargs:
+            dependency_type = kwargs['dependencyType']
+        if 'isOptional' in kwargs:
+            is_optional = kwargs['isOptional']
+        if 'manualResolution' in kwargs:
+            manual_resolution = kwargs['manualResolution']
+        if 'resolutionStatus' in kwargs:
+            resolution_status = kwargs['resolutionStatus']
+        if 'resolutionType' in kwargs:
+            resolution_type = kwargs['resolutionType']
+
         if automatic_resolution is not None:
-            pulumi.set(__self__, "automatic_resolution", automatic_resolution)
+            _setter("automatic_resolution", automatic_resolution)
         if dependency_type is not None:
-            pulumi.set(__self__, "dependency_type", dependency_type)
+            _setter("dependency_type", dependency_type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if is_optional is not None:
-            pulumi.set(__self__, "is_optional", is_optional)
+            _setter("is_optional", is_optional)
         if manual_resolution is not None:
-            pulumi.set(__self__, "manual_resolution", manual_resolution)
+            _setter("manual_resolution", manual_resolution)
         if resolution_status is not None:
-            pulumi.set(__self__, "resolution_status", resolution_status)
+            _setter("resolution_status", resolution_status)
         if resolution_type is not None:
-            pulumi.set(__self__, "resolution_type", resolution_type)
+            _setter("resolution_type", resolution_type)
 
     @property
     @pulumi.getter(name="automaticResolution")
@@ -1184,10 +1512,27 @@ class MoveResourceErrorBodyResponse(dict):
         :param str message: A message describing the error, intended to be suitable for display in a user interface.
         :param str target: The target of the particular error. For example, the name of the property in error.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        MoveResourceErrorBodyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            details=details,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             details: Sequence['outputs.MoveResourceErrorBodyResponse'],
+             message: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("code", code)
+        _setter("details", details)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter
@@ -1233,8 +1578,19 @@ class MoveResourceErrorResponse(dict):
         An error response from the azure resource mover service.
         :param 'MoveResourceErrorBodyResponse' properties: The move resource error body.
         """
+        MoveResourceErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional['outputs.MoveResourceErrorBodyResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -1311,20 +1667,71 @@ class MoveResourcePropertiesResponse(dict):
         :param str existing_target_id: Gets or sets the existing target ARM Id of the resource.
         :param Union['AvailabilitySetResourceSettingsResponse', 'DiskEncryptionSetResourceSettingsResponse', 'KeyVaultResourceSettingsResponse', 'LoadBalancerResourceSettingsResponse', 'NetworkInterfaceResourceSettingsResponse', 'NetworkSecurityGroupResourceSettingsResponse', 'PublicIPAddressResourceSettingsResponse', 'ResourceGroupResourceSettingsResponse', 'SqlDatabaseResourceSettingsResponse', 'SqlElasticPoolResourceSettingsResponse', 'SqlServerResourceSettingsResponse', 'VirtualMachineResourceSettingsResponse', 'VirtualNetworkResourceSettingsResponse'] resource_settings: Gets or sets the resource settings.
         """
-        pulumi.set(__self__, "depends_on", depends_on)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "is_resolve_required", is_resolve_required)
-        pulumi.set(__self__, "move_status", move_status)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "source_id", source_id)
-        pulumi.set(__self__, "source_resource_settings", source_resource_settings)
-        pulumi.set(__self__, "target_id", target_id)
+        MoveResourcePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            depends_on=depends_on,
+            errors=errors,
+            is_resolve_required=is_resolve_required,
+            move_status=move_status,
+            provisioning_state=provisioning_state,
+            source_id=source_id,
+            source_resource_settings=source_resource_settings,
+            target_id=target_id,
+            depends_on_overrides=depends_on_overrides,
+            existing_target_id=existing_target_id,
+            resource_settings=resource_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             depends_on: Sequence['outputs.MoveResourceDependencyResponse'],
+             errors: 'outputs.MoveResourcePropertiesResponseErrors',
+             is_resolve_required: bool,
+             move_status: 'outputs.MoveResourcePropertiesResponseMoveStatus',
+             provisioning_state: str,
+             source_id: str,
+             source_resource_settings: Any,
+             target_id: str,
+             depends_on_overrides: Optional[Sequence['outputs.MoveResourceDependencyOverrideResponse']] = None,
+             existing_target_id: Optional[str] = None,
+             resource_settings: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dependsOn' in kwargs:
+            depends_on = kwargs['dependsOn']
+        if 'isResolveRequired' in kwargs:
+            is_resolve_required = kwargs['isResolveRequired']
+        if 'moveStatus' in kwargs:
+            move_status = kwargs['moveStatus']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if 'sourceResourceSettings' in kwargs:
+            source_resource_settings = kwargs['sourceResourceSettings']
+        if 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if 'dependsOnOverrides' in kwargs:
+            depends_on_overrides = kwargs['dependsOnOverrides']
+        if 'existingTargetId' in kwargs:
+            existing_target_id = kwargs['existingTargetId']
+        if 'resourceSettings' in kwargs:
+            resource_settings = kwargs['resourceSettings']
+
+        _setter("depends_on", depends_on)
+        _setter("errors", errors)
+        _setter("is_resolve_required", is_resolve_required)
+        _setter("move_status", move_status)
+        _setter("provisioning_state", provisioning_state)
+        _setter("source_id", source_id)
+        _setter("source_resource_settings", source_resource_settings)
+        _setter("target_id", target_id)
         if depends_on_overrides is not None:
-            pulumi.set(__self__, "depends_on_overrides", depends_on_overrides)
+            _setter("depends_on_overrides", depends_on_overrides)
         if existing_target_id is not None:
-            pulumi.set(__self__, "existing_target_id", existing_target_id)
+            _setter("existing_target_id", existing_target_id)
         if resource_settings is not None:
-            pulumi.set(__self__, "resource_settings", resource_settings)
+            _setter("resource_settings", resource_settings)
 
     @property
     @pulumi.getter(name="dependsOn")
@@ -1426,8 +1833,19 @@ class MoveResourcePropertiesResponseErrors(dict):
         Defines the move resource errors.
         :param 'MoveResourceErrorBodyResponse' properties: The move resource error body.
         """
+        MoveResourcePropertiesResponseErrors._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional['outputs.MoveResourceErrorBodyResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -1472,11 +1890,30 @@ class MoveResourcePropertiesResponseMoveStatus(dict):
         :param 'MoveResourceErrorResponse' errors: An error response from the azure resource mover service.
         :param 'JobStatusResponse' job_status: Defines the job status.
         """
-        pulumi.set(__self__, "move_state", move_state)
+        MoveResourcePropertiesResponseMoveStatus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            move_state=move_state,
+            errors=errors,
+            job_status=job_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             move_state: str,
+             errors: Optional['outputs.MoveResourceErrorResponse'] = None,
+             job_status: Optional['outputs.JobStatusResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'moveState' in kwargs:
+            move_state = kwargs['moveState']
+        if 'jobStatus' in kwargs:
+            job_status = kwargs['jobStatus']
+
+        _setter("move_state", move_state)
         if errors is not None:
-            pulumi.set(__self__, "errors", errors)
+            _setter("errors", errors)
         if job_status is not None:
-            pulumi.set(__self__, "job_status", job_status)
+            _setter("job_status", job_status)
 
     @property
     @pulumi.getter(name="moveState")
@@ -1550,17 +1987,48 @@ class NetworkInterfaceResourceSettingsResponse(dict):
         :param str target_resource_group_name: Gets or sets the target resource group name.
         :param str target_resource_name: Gets or sets the target Resource name.
         """
-        pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkInterfaces')
+        NetworkInterfaceResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type=resource_type,
+            enable_accelerated_networking=enable_accelerated_networking,
+            ip_configurations=ip_configurations,
+            tags=tags,
+            target_resource_group_name=target_resource_group_name,
+            target_resource_name=target_resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type: str,
+             enable_accelerated_networking: Optional[bool] = None,
+             ip_configurations: Optional[Sequence['outputs.NicIpConfigurationResourceSettingsResponse']] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             target_resource_group_name: Optional[str] = None,
+             target_resource_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'enableAcceleratedNetworking' in kwargs:
+            enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'targetResourceGroupName' in kwargs:
+            target_resource_group_name = kwargs['targetResourceGroupName']
+        if 'targetResourceName' in kwargs:
+            target_resource_name = kwargs['targetResourceName']
+
+        _setter("resource_type", 'Microsoft.Network/networkInterfaces')
         if enable_accelerated_networking is not None:
-            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+            _setter("enable_accelerated_networking", enable_accelerated_networking)
         if ip_configurations is not None:
-            pulumi.set(__self__, "ip_configurations", ip_configurations)
+            _setter("ip_configurations", ip_configurations)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_group_name is not None:
-            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+            _setter("target_resource_group_name", target_resource_group_name)
         if target_resource_name is not None:
-            pulumi.set(__self__, "target_resource_name", target_resource_name)
+            _setter("target_resource_name", target_resource_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -1655,15 +2123,42 @@ class NetworkSecurityGroupResourceSettingsResponse(dict):
         :param str target_resource_group_name: Gets or sets the target resource group name.
         :param str target_resource_name: Gets or sets the target Resource name.
         """
-        pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkSecurityGroups')
+        NetworkSecurityGroupResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type=resource_type,
+            security_rules=security_rules,
+            tags=tags,
+            target_resource_group_name=target_resource_group_name,
+            target_resource_name=target_resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type: str,
+             security_rules: Optional[Sequence['outputs.NsgSecurityRuleResponse']] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             target_resource_group_name: Optional[str] = None,
+             target_resource_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'securityRules' in kwargs:
+            security_rules = kwargs['securityRules']
+        if 'targetResourceGroupName' in kwargs:
+            target_resource_group_name = kwargs['targetResourceGroupName']
+        if 'targetResourceName' in kwargs:
+            target_resource_name = kwargs['targetResourceName']
+
+        _setter("resource_type", 'Microsoft.Network/networkSecurityGroups')
         if security_rules is not None:
-            pulumi.set(__self__, "security_rules", security_rules)
+            _setter("security_rules", security_rules)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_group_name is not None:
-            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+            _setter("target_resource_group_name", target_resource_group_name)
         if target_resource_name is not None:
-            pulumi.set(__self__, "target_resource_name", target_resource_name)
+            _setter("target_resource_name", target_resource_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -1757,22 +2252,57 @@ class NicIpConfigurationResourceSettingsResponse(dict):
         :param 'PublicIpReferenceResponse' public_ip: Defines reference to a public IP.
         :param 'SubnetReferenceResponse' subnet: Defines reference to subnet.
         """
+        NicIpConfigurationResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_backend_address_pools=load_balancer_backend_address_pools,
+            load_balancer_nat_rules=load_balancer_nat_rules,
+            name=name,
+            primary=primary,
+            private_ip_address=private_ip_address,
+            private_ip_allocation_method=private_ip_allocation_method,
+            public_ip=public_ip,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_backend_address_pools: Optional[Sequence['outputs.LoadBalancerBackendAddressPoolReferenceResponse']] = None,
+             load_balancer_nat_rules: Optional[Sequence['outputs.LoadBalancerNatRuleReferenceResponse']] = None,
+             name: Optional[str] = None,
+             primary: Optional[bool] = None,
+             private_ip_address: Optional[str] = None,
+             private_ip_allocation_method: Optional[str] = None,
+             public_ip: Optional['outputs.PublicIpReferenceResponse'] = None,
+             subnet: Optional['outputs.SubnetReferenceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loadBalancerBackendAddressPools' in kwargs:
+            load_balancer_backend_address_pools = kwargs['loadBalancerBackendAddressPools']
+        if 'loadBalancerNatRules' in kwargs:
+            load_balancer_nat_rules = kwargs['loadBalancerNatRules']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAllocationMethod' in kwargs:
+            private_ip_allocation_method = kwargs['privateIpAllocationMethod']
+        if 'publicIp' in kwargs:
+            public_ip = kwargs['publicIp']
+
         if load_balancer_backend_address_pools is not None:
-            pulumi.set(__self__, "load_balancer_backend_address_pools", load_balancer_backend_address_pools)
+            _setter("load_balancer_backend_address_pools", load_balancer_backend_address_pools)
         if load_balancer_nat_rules is not None:
-            pulumi.set(__self__, "load_balancer_nat_rules", load_balancer_nat_rules)
+            _setter("load_balancer_nat_rules", load_balancer_nat_rules)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if primary is not None:
-            pulumi.set(__self__, "primary", primary)
+            _setter("primary", primary)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if private_ip_allocation_method is not None:
-            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+            _setter("private_ip_allocation_method", private_ip_allocation_method)
         if public_ip is not None:
-            pulumi.set(__self__, "public_ip", public_ip)
+            _setter("public_ip", public_ip)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddressPools")
@@ -1867,7 +2397,20 @@ class NsgReferenceResponse(dict):
         Defines reference to NSG.
         :param str source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
         """
-        pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
+        NsgReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_arm_resource_id=source_arm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_arm_resource_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceArmResourceId' in kwargs:
+            source_arm_resource_id = kwargs['sourceArmResourceId']
+
+        _setter("source_arm_resource_id", source_arm_resource_id)
 
     @property
     @pulumi.getter(name="sourceArmResourceId")
@@ -1941,26 +2484,63 @@ class NsgSecurityRuleResponse(dict):
         :param str source_port_range: Gets or sets Source Port or Range. Integer or range between 0 and
                65535. A “*” can also be used to match all ports.
         """
+        NsgSecurityRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            description=description,
+            destination_address_prefix=destination_address_prefix,
+            destination_port_range=destination_port_range,
+            direction=direction,
+            name=name,
+            priority=priority,
+            protocol=protocol,
+            source_address_prefix=source_address_prefix,
+            source_port_range=source_port_range,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: Optional[str] = None,
+             description: Optional[str] = None,
+             destination_address_prefix: Optional[str] = None,
+             destination_port_range: Optional[str] = None,
+             direction: Optional[str] = None,
+             name: Optional[str] = None,
+             priority: Optional[int] = None,
+             protocol: Optional[str] = None,
+             source_address_prefix: Optional[str] = None,
+             source_port_range: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationAddressPrefix' in kwargs:
+            destination_address_prefix = kwargs['destinationAddressPrefix']
+        if 'destinationPortRange' in kwargs:
+            destination_port_range = kwargs['destinationPortRange']
+        if 'sourceAddressPrefix' in kwargs:
+            source_address_prefix = kwargs['sourceAddressPrefix']
+        if 'sourcePortRange' in kwargs:
+            source_port_range = kwargs['sourcePortRange']
+
         if access is not None:
-            pulumi.set(__self__, "access", access)
+            _setter("access", access)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_address_prefix is not None:
-            pulumi.set(__self__, "destination_address_prefix", destination_address_prefix)
+            _setter("destination_address_prefix", destination_address_prefix)
         if destination_port_range is not None:
-            pulumi.set(__self__, "destination_port_range", destination_port_range)
+            _setter("destination_port_range", destination_port_range)
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if source_address_prefix is not None:
-            pulumi.set(__self__, "source_address_prefix", source_address_prefix)
+            _setter("source_address_prefix", source_address_prefix)
         if source_port_range is not None:
-            pulumi.set(__self__, "source_port_range", source_port_range)
+            _setter("source_port_range", source_port_range)
 
     @property
     @pulumi.getter
@@ -2107,23 +2687,60 @@ class PublicIPAddressResourceSettingsResponse(dict):
         :param str target_resource_name: Gets or sets the target Resource name.
         :param str zones: Gets or sets public IP zones.
         """
-        pulumi.set(__self__, "resource_type", 'Microsoft.Network/publicIPAddresses')
+        PublicIPAddressResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type=resource_type,
+            domain_name_label=domain_name_label,
+            fqdn=fqdn,
+            public_ip_allocation_method=public_ip_allocation_method,
+            sku=sku,
+            tags=tags,
+            target_resource_group_name=target_resource_group_name,
+            target_resource_name=target_resource_name,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type: str,
+             domain_name_label: Optional[str] = None,
+             fqdn: Optional[str] = None,
+             public_ip_allocation_method: Optional[str] = None,
+             sku: Optional[str] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             target_resource_group_name: Optional[str] = None,
+             target_resource_name: Optional[str] = None,
+             zones: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'domainNameLabel' in kwargs:
+            domain_name_label = kwargs['domainNameLabel']
+        if 'publicIpAllocationMethod' in kwargs:
+            public_ip_allocation_method = kwargs['publicIpAllocationMethod']
+        if 'targetResourceGroupName' in kwargs:
+            target_resource_group_name = kwargs['targetResourceGroupName']
+        if 'targetResourceName' in kwargs:
+            target_resource_name = kwargs['targetResourceName']
+
+        _setter("resource_type", 'Microsoft.Network/publicIPAddresses')
         if domain_name_label is not None:
-            pulumi.set(__self__, "domain_name_label", domain_name_label)
+            _setter("domain_name_label", domain_name_label)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if public_ip_allocation_method is not None:
-            pulumi.set(__self__, "public_ip_allocation_method", public_ip_allocation_method)
+            _setter("public_ip_allocation_method", public_ip_allocation_method)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_group_name is not None:
-            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+            _setter("target_resource_group_name", target_resource_group_name)
         if target_resource_name is not None:
-            pulumi.set(__self__, "target_resource_name", target_resource_name)
+            _setter("target_resource_name", target_resource_name)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -2227,7 +2844,20 @@ class PublicIpReferenceResponse(dict):
         Defines reference to a public IP.
         :param str source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
         """
-        pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
+        PublicIpReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_arm_resource_id=source_arm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_arm_resource_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceArmResourceId' in kwargs:
+            source_arm_resource_id = kwargs['sourceArmResourceId']
+
+        _setter("source_arm_resource_id", source_arm_resource_id)
 
     @property
     @pulumi.getter(name="sourceArmResourceId")
@@ -2275,11 +2905,32 @@ class ResourceGroupResourceSettingsResponse(dict):
         :param str target_resource_group_name: Gets or sets the target resource group name.
         :param str target_resource_name: Gets or sets the target Resource name.
         """
-        pulumi.set(__self__, "resource_type", 'resourceGroups')
+        ResourceGroupResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type=resource_type,
+            target_resource_group_name=target_resource_group_name,
+            target_resource_name=target_resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type: str,
+             target_resource_group_name: Optional[str] = None,
+             target_resource_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'targetResourceGroupName' in kwargs:
+            target_resource_group_name = kwargs['targetResourceGroupName']
+        if 'targetResourceName' in kwargs:
+            target_resource_name = kwargs['targetResourceName']
+
+        _setter("resource_type", 'resourceGroups')
         if target_resource_group_name is not None:
-            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+            _setter("target_resource_group_name", target_resource_group_name)
         if target_resource_name is not None:
-            pulumi.set(__self__, "target_resource_name", target_resource_name)
+            _setter("target_resource_name", target_resource_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -2350,15 +3001,42 @@ class SqlDatabaseResourceSettingsResponse(dict):
         :param str target_resource_name: Gets or sets the target Resource name.
         :param str zone_redundant: Defines the zone redundant resource setting.
         """
-        pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers/databases')
+        SqlDatabaseResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type=resource_type,
+            tags=tags,
+            target_resource_group_name=target_resource_group_name,
+            target_resource_name=target_resource_name,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type: str,
+             tags: Optional[Mapping[str, str]] = None,
+             target_resource_group_name: Optional[str] = None,
+             target_resource_name: Optional[str] = None,
+             zone_redundant: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'targetResourceGroupName' in kwargs:
+            target_resource_group_name = kwargs['targetResourceGroupName']
+        if 'targetResourceName' in kwargs:
+            target_resource_name = kwargs['targetResourceName']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
+        _setter("resource_type", 'Microsoft.Sql/servers/databases')
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_group_name is not None:
-            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+            _setter("target_resource_group_name", target_resource_group_name)
         if target_resource_name is not None:
-            pulumi.set(__self__, "target_resource_name", target_resource_name)
+            _setter("target_resource_name", target_resource_name)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -2445,15 +3123,42 @@ class SqlElasticPoolResourceSettingsResponse(dict):
         :param str target_resource_name: Gets or sets the target Resource name.
         :param str zone_redundant: Defines the zone redundant resource setting.
         """
-        pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers/elasticPools')
+        SqlElasticPoolResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type=resource_type,
+            tags=tags,
+            target_resource_group_name=target_resource_group_name,
+            target_resource_name=target_resource_name,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type: str,
+             tags: Optional[Mapping[str, str]] = None,
+             target_resource_group_name: Optional[str] = None,
+             target_resource_name: Optional[str] = None,
+             zone_redundant: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'targetResourceGroupName' in kwargs:
+            target_resource_group_name = kwargs['targetResourceGroupName']
+        if 'targetResourceName' in kwargs:
+            target_resource_name = kwargs['targetResourceName']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
+        _setter("resource_type", 'Microsoft.Sql/servers/elasticPools')
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_group_name is not None:
-            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+            _setter("target_resource_group_name", target_resource_group_name)
         if target_resource_name is not None:
-            pulumi.set(__self__, "target_resource_name", target_resource_name)
+            _setter("target_resource_name", target_resource_name)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -2534,11 +3239,32 @@ class SqlServerResourceSettingsResponse(dict):
         :param str target_resource_group_name: Gets or sets the target resource group name.
         :param str target_resource_name: Gets or sets the target Resource name.
         """
-        pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers')
+        SqlServerResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type=resource_type,
+            target_resource_group_name=target_resource_group_name,
+            target_resource_name=target_resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type: str,
+             target_resource_group_name: Optional[str] = None,
+             target_resource_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'targetResourceGroupName' in kwargs:
+            target_resource_group_name = kwargs['targetResourceGroupName']
+        if 'targetResourceName' in kwargs:
+            target_resource_name = kwargs['targetResourceName']
+
+        _setter("resource_type", 'Microsoft.Sql/servers')
         if target_resource_group_name is not None:
-            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+            _setter("target_resource_group_name", target_resource_group_name)
         if target_resource_name is not None:
-            pulumi.set(__self__, "target_resource_name", target_resource_name)
+            _setter("target_resource_name", target_resource_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -2596,9 +3322,24 @@ class SubnetReferenceResponse(dict):
         :param str source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
         :param str name: Gets the name of the proxy resource on the target side.
         """
-        pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
+        SubnetReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_arm_resource_id=source_arm_resource_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_arm_resource_id: str,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceArmResourceId' in kwargs:
+            source_arm_resource_id = kwargs['sourceArmResourceId']
+
+        _setter("source_arm_resource_id", source_arm_resource_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="sourceArmResourceId")
@@ -2651,12 +3392,31 @@ class SubnetResourceSettingsResponse(dict):
         :param str name: Gets or sets the Subnet name.
         :param 'NsgReferenceResponse' network_security_group: Defines reference to NSG.
         """
+        SubnetResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_prefix=address_prefix,
+            name=name,
+            network_security_group=network_security_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_prefix: Optional[str] = None,
+             name: Optional[str] = None,
+             network_security_group: Optional['outputs.NsgReferenceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if 'networkSecurityGroup' in kwargs:
+            network_security_group = kwargs['networkSecurityGroup']
+
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_security_group is not None:
-            pulumi.set(__self__, "network_security_group", network_security_group)
+            _setter("network_security_group", network_security_group)
 
     @property
     @pulumi.getter(name="addressPrefix")
@@ -2731,18 +3491,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -2848,21 +3641,60 @@ class VirtualMachineResourceSettingsResponse(dict):
         :param str target_vm_size: Gets or sets the target virtual machine size.
         :param Sequence[str] user_managed_identities: Gets or sets user-managed identities
         """
-        pulumi.set(__self__, "resource_type", 'Microsoft.Compute/virtualMachines')
+        VirtualMachineResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type=resource_type,
+            tags=tags,
+            target_availability_set_id=target_availability_set_id,
+            target_availability_zone=target_availability_zone,
+            target_resource_group_name=target_resource_group_name,
+            target_resource_name=target_resource_name,
+            target_vm_size=target_vm_size,
+            user_managed_identities=user_managed_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type: str,
+             tags: Optional[Mapping[str, str]] = None,
+             target_availability_set_id: Optional[str] = None,
+             target_availability_zone: Optional[str] = None,
+             target_resource_group_name: Optional[str] = None,
+             target_resource_name: Optional[str] = None,
+             target_vm_size: Optional[str] = None,
+             user_managed_identities: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'targetAvailabilitySetId' in kwargs:
+            target_availability_set_id = kwargs['targetAvailabilitySetId']
+        if 'targetAvailabilityZone' in kwargs:
+            target_availability_zone = kwargs['targetAvailabilityZone']
+        if 'targetResourceGroupName' in kwargs:
+            target_resource_group_name = kwargs['targetResourceGroupName']
+        if 'targetResourceName' in kwargs:
+            target_resource_name = kwargs['targetResourceName']
+        if 'targetVmSize' in kwargs:
+            target_vm_size = kwargs['targetVmSize']
+        if 'userManagedIdentities' in kwargs:
+            user_managed_identities = kwargs['userManagedIdentities']
+
+        _setter("resource_type", 'Microsoft.Compute/virtualMachines')
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_availability_set_id is not None:
-            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
+            _setter("target_availability_set_id", target_availability_set_id)
         if target_availability_zone is not None:
-            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+            _setter("target_availability_zone", target_availability_zone)
         if target_resource_group_name is not None:
-            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+            _setter("target_resource_group_name", target_resource_group_name)
         if target_resource_name is not None:
-            pulumi.set(__self__, "target_resource_name", target_resource_name)
+            _setter("target_resource_name", target_resource_name)
         if target_vm_size is not None:
-            pulumi.set(__self__, "target_vm_size", target_vm_size)
+            _setter("target_vm_size", target_vm_size)
         if user_managed_identities is not None:
-            pulumi.set(__self__, "user_managed_identities", user_managed_identities)
+            _setter("user_managed_identities", user_managed_identities)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -2985,21 +3817,58 @@ class VirtualNetworkResourceSettingsResponse(dict):
         :param str target_resource_group_name: Gets or sets the target resource group name.
         :param str target_resource_name: Gets or sets the target Resource name.
         """
-        pulumi.set(__self__, "resource_type", 'Microsoft.Network/virtualNetworks')
+        VirtualNetworkResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type=resource_type,
+            address_space=address_space,
+            dns_servers=dns_servers,
+            enable_ddos_protection=enable_ddos_protection,
+            subnets=subnets,
+            tags=tags,
+            target_resource_group_name=target_resource_group_name,
+            target_resource_name=target_resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type: str,
+             address_space: Optional[Sequence[str]] = None,
+             dns_servers: Optional[Sequence[str]] = None,
+             enable_ddos_protection: Optional[bool] = None,
+             subnets: Optional[Sequence['outputs.SubnetResourceSettingsResponse']] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             target_resource_group_name: Optional[str] = None,
+             target_resource_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'addressSpace' in kwargs:
+            address_space = kwargs['addressSpace']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'enableDdosProtection' in kwargs:
+            enable_ddos_protection = kwargs['enableDdosProtection']
+        if 'targetResourceGroupName' in kwargs:
+            target_resource_group_name = kwargs['targetResourceGroupName']
+        if 'targetResourceName' in kwargs:
+            target_resource_name = kwargs['targetResourceName']
+
+        _setter("resource_type", 'Microsoft.Network/virtualNetworks')
         if address_space is not None:
-            pulumi.set(__self__, "address_space", address_space)
+            _setter("address_space", address_space)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if enable_ddos_protection is not None:
-            pulumi.set(__self__, "enable_ddos_protection", enable_ddos_protection)
+            _setter("enable_ddos_protection", enable_ddos_protection)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_group_name is not None:
-            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+            _setter("target_resource_group_name", target_resource_group_name)
         if target_resource_name is not None:
-            pulumi.set(__self__, "target_resource_name", target_resource_name)
+            _setter("target_resource_name", target_resource_name)
 
     @property
     @pulumi.getter(name="resourceType")

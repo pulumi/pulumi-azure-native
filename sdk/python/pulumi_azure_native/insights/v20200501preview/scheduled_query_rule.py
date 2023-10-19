@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -51,31 +51,88 @@ class ScheduledQueryRuleArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_resource_types: List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
         """
-        pulumi.set(__self__, "criteria", criteria)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scopes", scopes)
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "window_size", window_size)
+        ScheduledQueryRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            criteria=criteria,
+            enabled=enabled,
+            evaluation_frequency=evaluation_frequency,
+            resource_group_name=resource_group_name,
+            scopes=scopes,
+            severity=severity,
+            window_size=window_size,
+            actions=actions,
+            description=description,
+            display_name=display_name,
+            location=location,
+            mute_actions_duration=mute_actions_duration,
+            override_query_time_range=override_query_time_range,
+            rule_name=rule_name,
+            tags=tags,
+            target_resource_types=target_resource_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             criteria: pulumi.Input['ScheduledQueryRuleCriteriaArgs'],
+             enabled: pulumi.Input[bool],
+             evaluation_frequency: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             severity: pulumi.Input[float],
+             window_size: pulumi.Input[str],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['ActionArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mute_actions_duration: Optional[pulumi.Input[str]] = None,
+             override_query_time_range: Optional[pulumi.Input[str]] = None,
+             rule_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'evaluationFrequency' in kwargs:
+            evaluation_frequency = kwargs['evaluationFrequency']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'windowSize' in kwargs:
+            window_size = kwargs['windowSize']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'muteActionsDuration' in kwargs:
+            mute_actions_duration = kwargs['muteActionsDuration']
+        if 'overrideQueryTimeRange' in kwargs:
+            override_query_time_range = kwargs['overrideQueryTimeRange']
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if 'targetResourceTypes' in kwargs:
+            target_resource_types = kwargs['targetResourceTypes']
+
+        _setter("criteria", criteria)
+        _setter("enabled", enabled)
+        _setter("evaluation_frequency", evaluation_frequency)
+        _setter("resource_group_name", resource_group_name)
+        _setter("scopes", scopes)
+        _setter("severity", severity)
+        _setter("window_size", window_size)
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mute_actions_duration is not None:
-            pulumi.set(__self__, "mute_actions_duration", mute_actions_duration)
+            _setter("mute_actions_duration", mute_actions_duration)
         if override_query_time_range is not None:
-            pulumi.set(__self__, "override_query_time_range", override_query_time_range)
+            _setter("override_query_time_range", override_query_time_range)
         if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
+            _setter("rule_name", rule_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_types is not None:
-            pulumi.set(__self__, "target_resource_types", target_resource_types)
+            _setter("target_resource_types", target_resource_types)
 
     @property
     @pulumi.getter
@@ -329,6 +386,10 @@ class ScheduledQueryRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduledQueryRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -360,6 +421,11 @@ class ScheduledQueryRule(pulumi.CustomResource):
             __props__ = ScheduledQueryRuleArgs.__new__(ScheduledQueryRuleArgs)
 
             __props__.__dict__["actions"] = actions
+            if criteria is not None and not isinstance(criteria, ScheduledQueryRuleCriteriaArgs):
+                criteria = criteria or {}
+                def _setter(key, value):
+                    criteria[key] = value
+                ScheduledQueryRuleCriteriaArgs._configure(_setter, **criteria)
             if criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'criteria'")
             __props__.__dict__["criteria"] = criteria

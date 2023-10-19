@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,17 +31,46 @@ class OrganizationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Organization resource tags
         :param pulumi.Input['OrganizationResourcePropertiesUserDetailArgs'] user_detail: Subscriber detail
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        OrganizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            location=location,
+            offer_detail=offer_detail,
+            organization_name=organization_name,
+            tags=tags,
+            user_detail=user_detail,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             offer_detail: Optional[pulumi.Input['OrganizationResourcePropertiesOfferDetailArgs']] = None,
+             organization_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_detail: Optional[pulumi.Input['OrganizationResourcePropertiesUserDetailArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'offerDetail' in kwargs:
+            offer_detail = kwargs['offerDetail']
+        if 'organizationName' in kwargs:
+            organization_name = kwargs['organizationName']
+        if 'userDetail' in kwargs:
+            user_detail = kwargs['userDetail']
+
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if offer_detail is not None:
-            pulumi.set(__self__, "offer_detail", offer_detail)
+            _setter("offer_detail", offer_detail)
         if organization_name is not None:
-            pulumi.set(__self__, "organization_name", organization_name)
+            _setter("organization_name", organization_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_detail is not None:
-            pulumi.set(__self__, "user_detail", user_detail)
+            _setter("user_detail", user_detail)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -159,6 +188,10 @@ class Organization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -180,12 +213,22 @@ class Organization(pulumi.CustomResource):
             __props__ = OrganizationArgs.__new__(OrganizationArgs)
 
             __props__.__dict__["location"] = location
+            if offer_detail is not None and not isinstance(offer_detail, OrganizationResourcePropertiesOfferDetailArgs):
+                offer_detail = offer_detail or {}
+                def _setter(key, value):
+                    offer_detail[key] = value
+                OrganizationResourcePropertiesOfferDetailArgs._configure(_setter, **offer_detail)
             __props__.__dict__["offer_detail"] = offer_detail
             __props__.__dict__["organization_name"] = organization_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if user_detail is not None and not isinstance(user_detail, OrganizationResourcePropertiesUserDetailArgs):
+                user_detail = user_detail or {}
+                def _setter(key, value):
+                    user_detail[key] = value
+                OrganizationResourcePropertiesUserDetailArgs._configure(_setter, **user_detail)
             __props__.__dict__["user_detail"] = user_detail
             __props__.__dict__["created_time"] = None
             __props__.__dict__["name"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -51,10 +51,35 @@ class AzStackHCIClusterPropertiesArgs:
         :param pulumi.Input[str] storage_account_name: Gets or sets the Storage account name.
         :param pulumi.Input[Sequence[pulumi.Input['StorageContainerPropertiesArgs']]] storage_containers: Gets or sets the list of AzStackHCICluster Storage Container.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "storage_containers", storage_containers)
+        AzStackHCIClusterPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            resource_name=resource_name,
+            storage_account_name=storage_account_name,
+            storage_containers=storage_containers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             resource_name: pulumi.Input[str],
+             storage_account_name: pulumi.Input[str],
+             storage_containers: pulumi.Input[Sequence[pulumi.Input['StorageContainerPropertiesArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'storageContainers' in kwargs:
+            storage_containers = kwargs['storageContainers']
+
+        _setter("cluster_name", cluster_name)
+        _setter("resource_name", resource_name)
+        _setter("storage_account_name", storage_account_name)
+        _setter("storage_containers", storage_containers)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -120,10 +145,33 @@ class AzStackHCIFabricModelCustomPropertiesArgs:
                Expected value is 'AzStackHCI'.
         :param pulumi.Input[str] migration_solution_id: Gets or sets the Migration solution ARM Id.
         """
-        pulumi.set(__self__, "az_stack_hci_site_id", az_stack_hci_site_id)
-        pulumi.set(__self__, "cluster", cluster)
-        pulumi.set(__self__, "instance_type", 'AzStackHCI')
-        pulumi.set(__self__, "migration_solution_id", migration_solution_id)
+        AzStackHCIFabricModelCustomPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            az_stack_hci_site_id=az_stack_hci_site_id,
+            cluster=cluster,
+            instance_type=instance_type,
+            migration_solution_id=migration_solution_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             az_stack_hci_site_id: pulumi.Input[str],
+             cluster: pulumi.Input['AzStackHCIClusterPropertiesArgs'],
+             instance_type: pulumi.Input[str],
+             migration_solution_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azStackHciSiteId' in kwargs:
+            az_stack_hci_site_id = kwargs['azStackHciSiteId']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'migrationSolutionId' in kwargs:
+            migration_solution_id = kwargs['migrationSolutionId']
+
+        _setter("az_stack_hci_site_id", az_stack_hci_site_id)
+        _setter("cluster", cluster)
+        _setter("instance_type", 'AzStackHCI')
+        _setter("migration_solution_id", migration_solution_id)
 
     @property
     @pulumi.getter(name="azStackHciSiteId")
@@ -191,11 +239,40 @@ class DraModelPropertiesArgs:
         :param pulumi.Input[str] machine_name: Gets or sets the machine name where Dra is running.
         :param pulumi.Input['IdentityModelArgs'] resource_access_identity: Identity model.
         """
-        pulumi.set(__self__, "authentication_identity", authentication_identity)
-        pulumi.set(__self__, "custom_properties", custom_properties)
-        pulumi.set(__self__, "machine_id", machine_id)
-        pulumi.set(__self__, "machine_name", machine_name)
-        pulumi.set(__self__, "resource_access_identity", resource_access_identity)
+        DraModelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_identity=authentication_identity,
+            custom_properties=custom_properties,
+            machine_id=machine_id,
+            machine_name=machine_name,
+            resource_access_identity=resource_access_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_identity: pulumi.Input['IdentityModelArgs'],
+             custom_properties: pulumi.Input['VMwareDraModelCustomPropertiesArgs'],
+             machine_id: pulumi.Input[str],
+             machine_name: pulumi.Input[str],
+             resource_access_identity: pulumi.Input['IdentityModelArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationIdentity' in kwargs:
+            authentication_identity = kwargs['authenticationIdentity']
+        if 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+        if 'machineId' in kwargs:
+            machine_id = kwargs['machineId']
+        if 'machineName' in kwargs:
+            machine_name = kwargs['machineName']
+        if 'resourceAccessIdentity' in kwargs:
+            resource_access_identity = kwargs['resourceAccessIdentity']
+
+        _setter("authentication_identity", authentication_identity)
+        _setter("custom_properties", custom_properties)
+        _setter("machine_id", machine_id)
+        _setter("machine_name", machine_name)
+        _setter("resource_access_identity", resource_access_identity)
 
     @property
     @pulumi.getter(name="authenticationIdentity")
@@ -266,7 +343,20 @@ class FabricModelPropertiesArgs:
         Fabric model properties.
         :param pulumi.Input[Union['AzStackHCIFabricModelCustomPropertiesArgs', 'HyperVMigrateFabricModelCustomPropertiesArgs', 'VMwareMigrateFabricModelCustomPropertiesArgs']] custom_properties: Fabric model custom properties.
         """
-        pulumi.set(__self__, "custom_properties", custom_properties)
+        FabricModelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_properties=custom_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_properties: pulumi.Input[Union['AzStackHCIFabricModelCustomPropertiesArgs', 'HyperVMigrateFabricModelCustomPropertiesArgs', 'VMwareMigrateFabricModelCustomPropertiesArgs']],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+
+        _setter("custom_properties", custom_properties)
 
     @property
     @pulumi.getter(name="customProperties")
@@ -294,9 +384,30 @@ class HyperVMigrateFabricModelCustomPropertiesArgs:
                Expected value is 'HyperVMigrate'.
         :param pulumi.Input[str] migration_solution_id: Gets or sets the migration solution ARM Id.
         """
-        pulumi.set(__self__, "hyper_v_site_id", hyper_v_site_id)
-        pulumi.set(__self__, "instance_type", 'HyperVMigrate')
-        pulumi.set(__self__, "migration_solution_id", migration_solution_id)
+        HyperVMigrateFabricModelCustomPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hyper_v_site_id=hyper_v_site_id,
+            instance_type=instance_type,
+            migration_solution_id=migration_solution_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hyper_v_site_id: pulumi.Input[str],
+             instance_type: pulumi.Input[str],
+             migration_solution_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hyperVSiteId' in kwargs:
+            hyper_v_site_id = kwargs['hyperVSiteId']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'migrationSolutionId' in kwargs:
+            migration_solution_id = kwargs['migrationSolutionId']
+
+        _setter("hyper_v_site_id", hyper_v_site_id)
+        _setter("instance_type", 'HyperVMigrate')
+        _setter("migration_solution_id", migration_solution_id)
 
     @property
     @pulumi.getter(name="hyperVSiteId")
@@ -355,14 +466,47 @@ class HyperVToAzStackHCIDiskInputArgs:
                disk.
         :param pulumi.Input[str] storage_container_id: Gets or sets the target storage account ARM Id.
         """
-        pulumi.set(__self__, "disk_file_format", disk_file_format)
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
-        pulumi.set(__self__, "is_os_disk", is_os_disk)
+        HyperVToAzStackHCIDiskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_file_format=disk_file_format,
+            disk_id=disk_id,
+            disk_size_gb=disk_size_gb,
+            is_os_disk=is_os_disk,
+            is_dynamic=is_dynamic,
+            storage_container_id=storage_container_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_file_format: pulumi.Input[str],
+             disk_id: pulumi.Input[str],
+             disk_size_gb: pulumi.Input[float],
+             is_os_disk: pulumi.Input[bool],
+             is_dynamic: Optional[pulumi.Input[bool]] = None,
+             storage_container_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskFileFormat' in kwargs:
+            disk_file_format = kwargs['diskFileFormat']
+        if 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+        if 'isOsDisk' in kwargs:
+            is_os_disk = kwargs['isOsDisk']
+        if 'isDynamic' in kwargs:
+            is_dynamic = kwargs['isDynamic']
+        if 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+
+        _setter("disk_file_format", disk_file_format)
+        _setter("disk_id", disk_id)
+        _setter("disk_size_gb", disk_size_gb)
+        _setter("is_os_disk", is_os_disk)
         if is_dynamic is not None:
-            pulumi.set(__self__, "is_dynamic", is_dynamic)
+            _setter("is_dynamic", is_dynamic)
         if storage_container_id is not None:
-            pulumi.set(__self__, "storage_container_id", storage_container_id)
+            _setter("storage_container_id", storage_container_id)
 
     @property
     @pulumi.getter(name="diskFileFormat")
@@ -452,10 +596,35 @@ class HyperVToAzStackHCINicInputArgs:
         :param pulumi.Input[str] target_network_id: Gets or sets the target network Id within AzStackHCI Cluster.
         :param pulumi.Input[str] test_network_id: Gets or sets the target test network Id within AzStackHCI Cluster.
         """
-        pulumi.set(__self__, "nic_id", nic_id)
-        pulumi.set(__self__, "selection_type_for_failover", selection_type_for_failover)
-        pulumi.set(__self__, "target_network_id", target_network_id)
-        pulumi.set(__self__, "test_network_id", test_network_id)
+        HyperVToAzStackHCINicInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nic_id=nic_id,
+            selection_type_for_failover=selection_type_for_failover,
+            target_network_id=target_network_id,
+            test_network_id=test_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nic_id: pulumi.Input[str],
+             selection_type_for_failover: pulumi.Input[Union[str, 'VMNicSelection']],
+             target_network_id: pulumi.Input[str],
+             test_network_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nicId' in kwargs:
+            nic_id = kwargs['nicId']
+        if 'selectionTypeForFailover' in kwargs:
+            selection_type_for_failover = kwargs['selectionTypeForFailover']
+        if 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+        if 'testNetworkId' in kwargs:
+            test_network_id = kwargs['testNetworkId']
+
+        _setter("nic_id", nic_id)
+        _setter("selection_type_for_failover", selection_type_for_failover)
+        _setter("target_network_id", target_network_id)
+        _setter("test_network_id", test_network_id)
 
     @property
     @pulumi.getter(name="nicId")
@@ -522,10 +691,35 @@ class HyperVToAzStackHCIPolicyModelCustomPropertiesArgs:
         :param pulumi.Input[int] recovery_point_history_in_minutes: Gets or sets the duration in minutes until which the recovery points need to be
                stored.
         """
-        pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
-        pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
-        pulumi.set(__self__, "instance_type", 'HyperVToAzStackHCI')
-        pulumi.set(__self__, "recovery_point_history_in_minutes", recovery_point_history_in_minutes)
+        HyperVToAzStackHCIPolicyModelCustomPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+            instance_type=instance_type,
+            recovery_point_history_in_minutes=recovery_point_history_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_consistent_frequency_in_minutes: pulumi.Input[int],
+             crash_consistent_frequency_in_minutes: pulumi.Input[int],
+             instance_type: pulumi.Input[str],
+             recovery_point_history_in_minutes: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appConsistentFrequencyInMinutes' in kwargs:
+            app_consistent_frequency_in_minutes = kwargs['appConsistentFrequencyInMinutes']
+        if 'crashConsistentFrequencyInMinutes' in kwargs:
+            crash_consistent_frequency_in_minutes = kwargs['crashConsistentFrequencyInMinutes']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'recoveryPointHistoryInMinutes' in kwargs:
+            recovery_point_history_in_minutes = kwargs['recoveryPointHistoryInMinutes']
+
+        _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+        _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+        _setter("instance_type", 'HyperVToAzStackHCI')
+        _setter("recovery_point_history_in_minutes", recovery_point_history_in_minutes)
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
@@ -625,33 +819,122 @@ class HyperVToAzStackHCIProtectedItemModelCustomPropertiesArgs:
         :param pulumi.Input[str] target_vm_name: Gets or sets the target VM display name.
         :param pulumi.Input[str] test_network_id: Gets or sets the target test network Id within AzStackHCI Cluster.
         """
-        pulumi.set(__self__, "custom_location_region", custom_location_region)
-        pulumi.set(__self__, "disks_to_include", disks_to_include)
-        pulumi.set(__self__, "fabric_discovery_machine_id", fabric_discovery_machine_id)
-        pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
-        pulumi.set(__self__, "instance_type", 'HyperVToAzStackHCI')
-        pulumi.set(__self__, "nics_to_include", nics_to_include)
-        pulumi.set(__self__, "run_as_account_id", run_as_account_id)
-        pulumi.set(__self__, "source_dra_name", source_dra_name)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
-        pulumi.set(__self__, "target_arc_cluster_custom_location_id", target_arc_cluster_custom_location_id)
-        pulumi.set(__self__, "target_dra_name", target_dra_name)
-        pulumi.set(__self__, "target_hci_cluster_id", target_hci_cluster_id)
-        pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
+        HyperVToAzStackHCIProtectedItemModelCustomPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_location_region=custom_location_region,
+            disks_to_include=disks_to_include,
+            fabric_discovery_machine_id=fabric_discovery_machine_id,
+            hyper_v_generation=hyper_v_generation,
+            instance_type=instance_type,
+            nics_to_include=nics_to_include,
+            run_as_account_id=run_as_account_id,
+            source_dra_name=source_dra_name,
+            storage_container_id=storage_container_id,
+            target_arc_cluster_custom_location_id=target_arc_cluster_custom_location_id,
+            target_dra_name=target_dra_name,
+            target_hci_cluster_id=target_hci_cluster_id,
+            target_resource_group_id=target_resource_group_id,
+            dynamic_memory_config=dynamic_memory_config,
+            is_dynamic_ram=is_dynamic_ram,
+            target_cpu_cores=target_cpu_cores,
+            target_memory_in_mega_bytes=target_memory_in_mega_bytes,
+            target_network_id=target_network_id,
+            target_vm_name=target_vm_name,
+            test_network_id=test_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_location_region: pulumi.Input[str],
+             disks_to_include: pulumi.Input[Sequence[pulumi.Input['HyperVToAzStackHCIDiskInputArgs']]],
+             fabric_discovery_machine_id: pulumi.Input[str],
+             hyper_v_generation: pulumi.Input[str],
+             instance_type: pulumi.Input[str],
+             nics_to_include: pulumi.Input[Sequence[pulumi.Input['HyperVToAzStackHCINicInputArgs']]],
+             run_as_account_id: pulumi.Input[str],
+             source_dra_name: pulumi.Input[str],
+             storage_container_id: pulumi.Input[str],
+             target_arc_cluster_custom_location_id: pulumi.Input[str],
+             target_dra_name: pulumi.Input[str],
+             target_hci_cluster_id: pulumi.Input[str],
+             target_resource_group_id: pulumi.Input[str],
+             dynamic_memory_config: Optional[pulumi.Input['ProtectedItemDynamicMemoryConfigArgs']] = None,
+             is_dynamic_ram: Optional[pulumi.Input[bool]] = None,
+             target_cpu_cores: Optional[pulumi.Input[int]] = None,
+             target_memory_in_mega_bytes: Optional[pulumi.Input[int]] = None,
+             target_network_id: Optional[pulumi.Input[str]] = None,
+             target_vm_name: Optional[pulumi.Input[str]] = None,
+             test_network_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customLocationRegion' in kwargs:
+            custom_location_region = kwargs['customLocationRegion']
+        if 'disksToInclude' in kwargs:
+            disks_to_include = kwargs['disksToInclude']
+        if 'fabricDiscoveryMachineId' in kwargs:
+            fabric_discovery_machine_id = kwargs['fabricDiscoveryMachineId']
+        if 'hyperVGeneration' in kwargs:
+            hyper_v_generation = kwargs['hyperVGeneration']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'nicsToInclude' in kwargs:
+            nics_to_include = kwargs['nicsToInclude']
+        if 'runAsAccountId' in kwargs:
+            run_as_account_id = kwargs['runAsAccountId']
+        if 'sourceDraName' in kwargs:
+            source_dra_name = kwargs['sourceDraName']
+        if 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+        if 'targetArcClusterCustomLocationId' in kwargs:
+            target_arc_cluster_custom_location_id = kwargs['targetArcClusterCustomLocationId']
+        if 'targetDraName' in kwargs:
+            target_dra_name = kwargs['targetDraName']
+        if 'targetHciClusterId' in kwargs:
+            target_hci_cluster_id = kwargs['targetHciClusterId']
+        if 'targetResourceGroupId' in kwargs:
+            target_resource_group_id = kwargs['targetResourceGroupId']
+        if 'dynamicMemoryConfig' in kwargs:
+            dynamic_memory_config = kwargs['dynamicMemoryConfig']
+        if 'isDynamicRam' in kwargs:
+            is_dynamic_ram = kwargs['isDynamicRam']
+        if 'targetCpuCores' in kwargs:
+            target_cpu_cores = kwargs['targetCpuCores']
+        if 'targetMemoryInMegaBytes' in kwargs:
+            target_memory_in_mega_bytes = kwargs['targetMemoryInMegaBytes']
+        if 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+        if 'targetVmName' in kwargs:
+            target_vm_name = kwargs['targetVmName']
+        if 'testNetworkId' in kwargs:
+            test_network_id = kwargs['testNetworkId']
+
+        _setter("custom_location_region", custom_location_region)
+        _setter("disks_to_include", disks_to_include)
+        _setter("fabric_discovery_machine_id", fabric_discovery_machine_id)
+        _setter("hyper_v_generation", hyper_v_generation)
+        _setter("instance_type", 'HyperVToAzStackHCI')
+        _setter("nics_to_include", nics_to_include)
+        _setter("run_as_account_id", run_as_account_id)
+        _setter("source_dra_name", source_dra_name)
+        _setter("storage_container_id", storage_container_id)
+        _setter("target_arc_cluster_custom_location_id", target_arc_cluster_custom_location_id)
+        _setter("target_dra_name", target_dra_name)
+        _setter("target_hci_cluster_id", target_hci_cluster_id)
+        _setter("target_resource_group_id", target_resource_group_id)
         if dynamic_memory_config is not None:
-            pulumi.set(__self__, "dynamic_memory_config", dynamic_memory_config)
+            _setter("dynamic_memory_config", dynamic_memory_config)
         if is_dynamic_ram is not None:
-            pulumi.set(__self__, "is_dynamic_ram", is_dynamic_ram)
+            _setter("is_dynamic_ram", is_dynamic_ram)
         if target_cpu_cores is not None:
-            pulumi.set(__self__, "target_cpu_cores", target_cpu_cores)
+            _setter("target_cpu_cores", target_cpu_cores)
         if target_memory_in_mega_bytes is not None:
-            pulumi.set(__self__, "target_memory_in_mega_bytes", target_memory_in_mega_bytes)
+            _setter("target_memory_in_mega_bytes", target_memory_in_mega_bytes)
         if target_network_id is not None:
-            pulumi.set(__self__, "target_network_id", target_network_id)
+            _setter("target_network_id", target_network_id)
         if target_vm_name is not None:
-            pulumi.set(__self__, "target_vm_name", target_vm_name)
+            _setter("target_vm_name", target_vm_name)
         if test_network_id is not None:
-            pulumi.set(__self__, "test_network_id", test_network_id)
+            _setter("test_network_id", test_network_id)
 
     @property
     @pulumi.getter(name="customLocationRegion")
@@ -912,13 +1195,42 @@ class HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesArgs:
         :param pulumi.Input[str] storage_account_id: Gets or sets the storage account Id.
         :param pulumi.Input[str] storage_account_sas_secret_name: Gets or sets the Sas Secret of storage account.
         """
-        pulumi.set(__self__, "az_stack_hci_fabric_arm_id", az_stack_hci_fabric_arm_id)
-        pulumi.set(__self__, "hyper_v_fabric_arm_id", hyper_v_fabric_arm_id)
-        pulumi.set(__self__, "instance_type", 'HyperVToAzStackHCI')
+        HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            az_stack_hci_fabric_arm_id=az_stack_hci_fabric_arm_id,
+            hyper_v_fabric_arm_id=hyper_v_fabric_arm_id,
+            instance_type=instance_type,
+            storage_account_id=storage_account_id,
+            storage_account_sas_secret_name=storage_account_sas_secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             az_stack_hci_fabric_arm_id: pulumi.Input[str],
+             hyper_v_fabric_arm_id: pulumi.Input[str],
+             instance_type: pulumi.Input[str],
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             storage_account_sas_secret_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azStackHciFabricArmId' in kwargs:
+            az_stack_hci_fabric_arm_id = kwargs['azStackHciFabricArmId']
+        if 'hyperVFabricArmId' in kwargs:
+            hyper_v_fabric_arm_id = kwargs['hyperVFabricArmId']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storageAccountSasSecretName' in kwargs:
+            storage_account_sas_secret_name = kwargs['storageAccountSasSecretName']
+
+        _setter("az_stack_hci_fabric_arm_id", az_stack_hci_fabric_arm_id)
+        _setter("hyper_v_fabric_arm_id", hyper_v_fabric_arm_id)
+        _setter("instance_type", 'HyperVToAzStackHCI')
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if storage_account_sas_secret_name is not None:
-            pulumi.set(__self__, "storage_account_sas_secret_name", storage_account_sas_secret_name)
+            _setter("storage_account_sas_secret_name", storage_account_sas_secret_name)
 
     @property
     @pulumi.getter(name="azStackHciFabricArmId")
@@ -999,11 +1311,38 @@ class IdentityModelArgs:
         :param pulumi.Input[str] object_id: Gets or sets the object Id of the SPN with which Dra communicates to service.
         :param pulumi.Input[str] tenant_id: Gets or sets the tenant Id of the SPN with which Dra communicates to service.
         """
-        pulumi.set(__self__, "aad_authority", aad_authority)
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "audience", audience)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityModelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_authority=aad_authority,
+            application_id=application_id,
+            audience=audience,
+            object_id=object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_authority: pulumi.Input[str],
+             application_id: pulumi.Input[str],
+             audience: pulumi.Input[str],
+             object_id: pulumi.Input[str],
+             tenant_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aadAuthority' in kwargs:
+            aad_authority = kwargs['aadAuthority']
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("aad_authority", aad_authority)
+        _setter("application_id", application_id)
+        _setter("audience", audience)
+        _setter("object_id", object_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="aadAuthority")
@@ -1075,7 +1414,20 @@ class PolicyModelPropertiesArgs:
         Policy model properties.
         :param pulumi.Input[Union['HyperVToAzStackHCIPolicyModelCustomPropertiesArgs', 'VMwareToAzStackHCIPolicyModelCustomPropertiesArgs']] custom_properties: Policy model custom properties.
         """
-        pulumi.set(__self__, "custom_properties", custom_properties)
+        PolicyModelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_properties=custom_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_properties: pulumi.Input[Union['HyperVToAzStackHCIPolicyModelCustomPropertiesArgs', 'VMwareToAzStackHCIPolicyModelCustomPropertiesArgs']],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+
+        _setter("custom_properties", custom_properties)
 
     @property
     @pulumi.getter(name="customProperties")
@@ -1102,9 +1454,30 @@ class ProtectedItemDynamicMemoryConfigArgs:
         :param pulumi.Input[float] minimum_memory_in_mega_bytes: Gets or sets minimum memory in MB.
         :param pulumi.Input[int] target_memory_buffer_percentage: Gets or sets target memory buffer in %.
         """
-        pulumi.set(__self__, "maximum_memory_in_mega_bytes", maximum_memory_in_mega_bytes)
-        pulumi.set(__self__, "minimum_memory_in_mega_bytes", minimum_memory_in_mega_bytes)
-        pulumi.set(__self__, "target_memory_buffer_percentage", target_memory_buffer_percentage)
+        ProtectedItemDynamicMemoryConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_memory_in_mega_bytes=maximum_memory_in_mega_bytes,
+            minimum_memory_in_mega_bytes=minimum_memory_in_mega_bytes,
+            target_memory_buffer_percentage=target_memory_buffer_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_memory_in_mega_bytes: pulumi.Input[float],
+             minimum_memory_in_mega_bytes: pulumi.Input[float],
+             target_memory_buffer_percentage: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maximumMemoryInMegaBytes' in kwargs:
+            maximum_memory_in_mega_bytes = kwargs['maximumMemoryInMegaBytes']
+        if 'minimumMemoryInMegaBytes' in kwargs:
+            minimum_memory_in_mega_bytes = kwargs['minimumMemoryInMegaBytes']
+        if 'targetMemoryBufferPercentage' in kwargs:
+            target_memory_buffer_percentage = kwargs['targetMemoryBufferPercentage']
+
+        _setter("maximum_memory_in_mega_bytes", maximum_memory_in_mega_bytes)
+        _setter("minimum_memory_in_mega_bytes", minimum_memory_in_mega_bytes)
+        _setter("target_memory_buffer_percentage", target_memory_buffer_percentage)
 
     @property
     @pulumi.getter(name="maximumMemoryInMegaBytes")
@@ -1155,9 +1528,30 @@ class ProtectedItemModelPropertiesArgs:
         :param pulumi.Input[str] policy_name: Gets or sets the policy name.
         :param pulumi.Input[str] replication_extension_name: Gets or sets the replication extension name.
         """
-        pulumi.set(__self__, "custom_properties", custom_properties)
-        pulumi.set(__self__, "policy_name", policy_name)
-        pulumi.set(__self__, "replication_extension_name", replication_extension_name)
+        ProtectedItemModelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_properties=custom_properties,
+            policy_name=policy_name,
+            replication_extension_name=replication_extension_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_properties: pulumi.Input[Union['HyperVToAzStackHCIProtectedItemModelCustomPropertiesArgs', 'VMwareToAzStackHCIProtectedItemModelCustomPropertiesArgs']],
+             policy_name: pulumi.Input[str],
+             replication_extension_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'replicationExtensionName' in kwargs:
+            replication_extension_name = kwargs['replicationExtensionName']
+
+        _setter("custom_properties", custom_properties)
+        _setter("policy_name", policy_name)
+        _setter("replication_extension_name", replication_extension_name)
 
     @property
     @pulumi.getter(name="customProperties")
@@ -1204,7 +1598,20 @@ class ReplicationExtensionModelPropertiesArgs:
         Replication extension model properties.
         :param pulumi.Input[Union['HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesArgs', 'VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesArgs']] custom_properties: Replication extension model custom properties.
         """
-        pulumi.set(__self__, "custom_properties", custom_properties)
+        ReplicationExtensionModelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_properties=custom_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_properties: pulumi.Input[Union['HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesArgs', 'VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesArgs']],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+
+        _setter("custom_properties", custom_properties)
 
     @property
     @pulumi.getter(name="customProperties")
@@ -1229,8 +1636,23 @@ class StorageContainerPropertiesArgs:
         :param pulumi.Input[str] cluster_shared_volume_path: Gets or sets the ClusterSharedVolumePath.
         :param pulumi.Input[str] name: Gets or sets the Name.
         """
-        pulumi.set(__self__, "cluster_shared_volume_path", cluster_shared_volume_path)
-        pulumi.set(__self__, "name", name)
+        StorageContainerPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_shared_volume_path=cluster_shared_volume_path,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_shared_volume_path: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterSharedVolumePath' in kwargs:
+            cluster_shared_volume_path = kwargs['clusterSharedVolumePath']
+
+        _setter("cluster_shared_volume_path", cluster_shared_volume_path)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="clusterSharedVolumePath")
@@ -1270,9 +1692,30 @@ class VMwareDraModelCustomPropertiesArgs:
                Expected value is 'VMware'.
         :param pulumi.Input['IdentityModelArgs'] mars_authentication_identity: Identity model.
         """
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "instance_type", 'VMware')
-        pulumi.set(__self__, "mars_authentication_identity", mars_authentication_identity)
+        VMwareDraModelCustomPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bios_id=bios_id,
+            instance_type=instance_type,
+            mars_authentication_identity=mars_authentication_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bios_id: pulumi.Input[str],
+             instance_type: pulumi.Input[str],
+             mars_authentication_identity: pulumi.Input['IdentityModelArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'biosId' in kwargs:
+            bios_id = kwargs['biosId']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'marsAuthenticationIdentity' in kwargs:
+            mars_authentication_identity = kwargs['marsAuthenticationIdentity']
+
+        _setter("bios_id", bios_id)
+        _setter("instance_type", 'VMware')
+        _setter("mars_authentication_identity", mars_authentication_identity)
 
     @property
     @pulumi.getter(name="biosId")
@@ -1325,9 +1768,30 @@ class VMwareMigrateFabricModelCustomPropertiesArgs:
         :param pulumi.Input[str] migration_solution_id: Gets or sets the ARM Id of the migration solution.
         :param pulumi.Input[str] vmware_site_id: Gets or sets the ARM Id of the VMware site.
         """
-        pulumi.set(__self__, "instance_type", 'VMwareMigrate')
-        pulumi.set(__self__, "migration_solution_id", migration_solution_id)
-        pulumi.set(__self__, "vmware_site_id", vmware_site_id)
+        VMwareMigrateFabricModelCustomPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            migration_solution_id=migration_solution_id,
+            vmware_site_id=vmware_site_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             migration_solution_id: pulumi.Input[str],
+             vmware_site_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'migrationSolutionId' in kwargs:
+            migration_solution_id = kwargs['migrationSolutionId']
+        if 'vmwareSiteId' in kwargs:
+            vmware_site_id = kwargs['vmwareSiteId']
+
+        _setter("instance_type", 'VMwareMigrate')
+        _setter("migration_solution_id", migration_solution_id)
+        _setter("vmware_site_id", vmware_site_id)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -1386,14 +1850,47 @@ class VMwareToAzStackHCIDiskInputArgs:
                disk.
         :param pulumi.Input[str] storage_container_id: Gets or sets the target storage account ARM Id.
         """
-        pulumi.set(__self__, "disk_file_format", disk_file_format)
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
-        pulumi.set(__self__, "is_os_disk", is_os_disk)
+        VMwareToAzStackHCIDiskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_file_format=disk_file_format,
+            disk_id=disk_id,
+            disk_size_gb=disk_size_gb,
+            is_os_disk=is_os_disk,
+            is_dynamic=is_dynamic,
+            storage_container_id=storage_container_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_file_format: pulumi.Input[str],
+             disk_id: pulumi.Input[str],
+             disk_size_gb: pulumi.Input[float],
+             is_os_disk: pulumi.Input[bool],
+             is_dynamic: Optional[pulumi.Input[bool]] = None,
+             storage_container_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskFileFormat' in kwargs:
+            disk_file_format = kwargs['diskFileFormat']
+        if 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+        if 'isOsDisk' in kwargs:
+            is_os_disk = kwargs['isOsDisk']
+        if 'isDynamic' in kwargs:
+            is_dynamic = kwargs['isDynamic']
+        if 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+
+        _setter("disk_file_format", disk_file_format)
+        _setter("disk_id", disk_id)
+        _setter("disk_size_gb", disk_size_gb)
+        _setter("is_os_disk", is_os_disk)
         if is_dynamic is not None:
-            pulumi.set(__self__, "is_dynamic", is_dynamic)
+            _setter("is_dynamic", is_dynamic)
         if storage_container_id is not None:
-            pulumi.set(__self__, "storage_container_id", storage_container_id)
+            _setter("storage_container_id", storage_container_id)
 
     @property
     @pulumi.getter(name="diskFileFormat")
@@ -1485,11 +1982,38 @@ class VMwareToAzStackHCINicInputArgs:
         :param pulumi.Input[str] target_network_id: Gets or sets the target network Id within AzStackHCI Cluster.
         :param pulumi.Input[str] test_network_id: Gets or sets the target test network Id within AzStackHCI Cluster.
         """
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "nic_id", nic_id)
-        pulumi.set(__self__, "selection_type_for_failover", selection_type_for_failover)
-        pulumi.set(__self__, "target_network_id", target_network_id)
-        pulumi.set(__self__, "test_network_id", test_network_id)
+        VMwareToAzStackHCINicInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            nic_id=nic_id,
+            selection_type_for_failover=selection_type_for_failover,
+            target_network_id=target_network_id,
+            test_network_id=test_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: pulumi.Input[str],
+             nic_id: pulumi.Input[str],
+             selection_type_for_failover: pulumi.Input[Union[str, 'VMNicSelection']],
+             target_network_id: pulumi.Input[str],
+             test_network_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nicId' in kwargs:
+            nic_id = kwargs['nicId']
+        if 'selectionTypeForFailover' in kwargs:
+            selection_type_for_failover = kwargs['selectionTypeForFailover']
+        if 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+        if 'testNetworkId' in kwargs:
+            test_network_id = kwargs['testNetworkId']
+
+        _setter("label", label)
+        _setter("nic_id", nic_id)
+        _setter("selection_type_for_failover", selection_type_for_failover)
+        _setter("target_network_id", target_network_id)
+        _setter("test_network_id", test_network_id)
 
     @property
     @pulumi.getter
@@ -1568,10 +2092,35 @@ class VMwareToAzStackHCIPolicyModelCustomPropertiesArgs:
         :param pulumi.Input[int] recovery_point_history_in_minutes: Gets or sets the duration in minutes until which the recovery points need to be
                stored.
         """
-        pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
-        pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
-        pulumi.set(__self__, "instance_type", 'VMwareToAzStackHCI')
-        pulumi.set(__self__, "recovery_point_history_in_minutes", recovery_point_history_in_minutes)
+        VMwareToAzStackHCIPolicyModelCustomPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+            instance_type=instance_type,
+            recovery_point_history_in_minutes=recovery_point_history_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_consistent_frequency_in_minutes: pulumi.Input[int],
+             crash_consistent_frequency_in_minutes: pulumi.Input[int],
+             instance_type: pulumi.Input[str],
+             recovery_point_history_in_minutes: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appConsistentFrequencyInMinutes' in kwargs:
+            app_consistent_frequency_in_minutes = kwargs['appConsistentFrequencyInMinutes']
+        if 'crashConsistentFrequencyInMinutes' in kwargs:
+            crash_consistent_frequency_in_minutes = kwargs['crashConsistentFrequencyInMinutes']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'recoveryPointHistoryInMinutes' in kwargs:
+            recovery_point_history_in_minutes = kwargs['recoveryPointHistoryInMinutes']
+
+        _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+        _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+        _setter("instance_type", 'VMwareToAzStackHCI')
+        _setter("recovery_point_history_in_minutes", recovery_point_history_in_minutes)
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
@@ -1673,35 +2222,128 @@ class VMwareToAzStackHCIProtectedItemModelCustomPropertiesArgs:
         :param pulumi.Input[str] target_vm_name: Gets or sets the target VM display name.
         :param pulumi.Input[str] test_network_id: Gets or sets the target test network Id within AzStackHCI Cluster.
         """
-        pulumi.set(__self__, "custom_location_region", custom_location_region)
-        pulumi.set(__self__, "disks_to_include", disks_to_include)
-        pulumi.set(__self__, "fabric_discovery_machine_id", fabric_discovery_machine_id)
-        pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
-        pulumi.set(__self__, "instance_type", 'VMwareToAzStackHCI')
-        pulumi.set(__self__, "nics_to_include", nics_to_include)
-        pulumi.set(__self__, "run_as_account_id", run_as_account_id)
-        pulumi.set(__self__, "source_dra_name", source_dra_name)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
-        pulumi.set(__self__, "target_arc_cluster_custom_location_id", target_arc_cluster_custom_location_id)
-        pulumi.set(__self__, "target_dra_name", target_dra_name)
-        pulumi.set(__self__, "target_hci_cluster_id", target_hci_cluster_id)
-        pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
+        VMwareToAzStackHCIProtectedItemModelCustomPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_location_region=custom_location_region,
+            disks_to_include=disks_to_include,
+            fabric_discovery_machine_id=fabric_discovery_machine_id,
+            hyper_v_generation=hyper_v_generation,
+            instance_type=instance_type,
+            nics_to_include=nics_to_include,
+            run_as_account_id=run_as_account_id,
+            source_dra_name=source_dra_name,
+            storage_container_id=storage_container_id,
+            target_arc_cluster_custom_location_id=target_arc_cluster_custom_location_id,
+            target_dra_name=target_dra_name,
+            target_hci_cluster_id=target_hci_cluster_id,
+            target_resource_group_id=target_resource_group_id,
+            dynamic_memory_config=dynamic_memory_config,
+            is_dynamic_ram=is_dynamic_ram,
+            perform_auto_resync=perform_auto_resync,
+            target_cpu_cores=target_cpu_cores,
+            target_memory_in_mega_bytes=target_memory_in_mega_bytes,
+            target_network_id=target_network_id,
+            target_vm_name=target_vm_name,
+            test_network_id=test_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_location_region: pulumi.Input[str],
+             disks_to_include: pulumi.Input[Sequence[pulumi.Input['VMwareToAzStackHCIDiskInputArgs']]],
+             fabric_discovery_machine_id: pulumi.Input[str],
+             hyper_v_generation: pulumi.Input[str],
+             instance_type: pulumi.Input[str],
+             nics_to_include: pulumi.Input[Sequence[pulumi.Input['VMwareToAzStackHCINicInputArgs']]],
+             run_as_account_id: pulumi.Input[str],
+             source_dra_name: pulumi.Input[str],
+             storage_container_id: pulumi.Input[str],
+             target_arc_cluster_custom_location_id: pulumi.Input[str],
+             target_dra_name: pulumi.Input[str],
+             target_hci_cluster_id: pulumi.Input[str],
+             target_resource_group_id: pulumi.Input[str],
+             dynamic_memory_config: Optional[pulumi.Input['ProtectedItemDynamicMemoryConfigArgs']] = None,
+             is_dynamic_ram: Optional[pulumi.Input[bool]] = None,
+             perform_auto_resync: Optional[pulumi.Input[bool]] = None,
+             target_cpu_cores: Optional[pulumi.Input[int]] = None,
+             target_memory_in_mega_bytes: Optional[pulumi.Input[int]] = None,
+             target_network_id: Optional[pulumi.Input[str]] = None,
+             target_vm_name: Optional[pulumi.Input[str]] = None,
+             test_network_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customLocationRegion' in kwargs:
+            custom_location_region = kwargs['customLocationRegion']
+        if 'disksToInclude' in kwargs:
+            disks_to_include = kwargs['disksToInclude']
+        if 'fabricDiscoveryMachineId' in kwargs:
+            fabric_discovery_machine_id = kwargs['fabricDiscoveryMachineId']
+        if 'hyperVGeneration' in kwargs:
+            hyper_v_generation = kwargs['hyperVGeneration']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'nicsToInclude' in kwargs:
+            nics_to_include = kwargs['nicsToInclude']
+        if 'runAsAccountId' in kwargs:
+            run_as_account_id = kwargs['runAsAccountId']
+        if 'sourceDraName' in kwargs:
+            source_dra_name = kwargs['sourceDraName']
+        if 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+        if 'targetArcClusterCustomLocationId' in kwargs:
+            target_arc_cluster_custom_location_id = kwargs['targetArcClusterCustomLocationId']
+        if 'targetDraName' in kwargs:
+            target_dra_name = kwargs['targetDraName']
+        if 'targetHciClusterId' in kwargs:
+            target_hci_cluster_id = kwargs['targetHciClusterId']
+        if 'targetResourceGroupId' in kwargs:
+            target_resource_group_id = kwargs['targetResourceGroupId']
+        if 'dynamicMemoryConfig' in kwargs:
+            dynamic_memory_config = kwargs['dynamicMemoryConfig']
+        if 'isDynamicRam' in kwargs:
+            is_dynamic_ram = kwargs['isDynamicRam']
+        if 'performAutoResync' in kwargs:
+            perform_auto_resync = kwargs['performAutoResync']
+        if 'targetCpuCores' in kwargs:
+            target_cpu_cores = kwargs['targetCpuCores']
+        if 'targetMemoryInMegaBytes' in kwargs:
+            target_memory_in_mega_bytes = kwargs['targetMemoryInMegaBytes']
+        if 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+        if 'targetVmName' in kwargs:
+            target_vm_name = kwargs['targetVmName']
+        if 'testNetworkId' in kwargs:
+            test_network_id = kwargs['testNetworkId']
+
+        _setter("custom_location_region", custom_location_region)
+        _setter("disks_to_include", disks_to_include)
+        _setter("fabric_discovery_machine_id", fabric_discovery_machine_id)
+        _setter("hyper_v_generation", hyper_v_generation)
+        _setter("instance_type", 'VMwareToAzStackHCI')
+        _setter("nics_to_include", nics_to_include)
+        _setter("run_as_account_id", run_as_account_id)
+        _setter("source_dra_name", source_dra_name)
+        _setter("storage_container_id", storage_container_id)
+        _setter("target_arc_cluster_custom_location_id", target_arc_cluster_custom_location_id)
+        _setter("target_dra_name", target_dra_name)
+        _setter("target_hci_cluster_id", target_hci_cluster_id)
+        _setter("target_resource_group_id", target_resource_group_id)
         if dynamic_memory_config is not None:
-            pulumi.set(__self__, "dynamic_memory_config", dynamic_memory_config)
+            _setter("dynamic_memory_config", dynamic_memory_config)
         if is_dynamic_ram is not None:
-            pulumi.set(__self__, "is_dynamic_ram", is_dynamic_ram)
+            _setter("is_dynamic_ram", is_dynamic_ram)
         if perform_auto_resync is not None:
-            pulumi.set(__self__, "perform_auto_resync", perform_auto_resync)
+            _setter("perform_auto_resync", perform_auto_resync)
         if target_cpu_cores is not None:
-            pulumi.set(__self__, "target_cpu_cores", target_cpu_cores)
+            _setter("target_cpu_cores", target_cpu_cores)
         if target_memory_in_mega_bytes is not None:
-            pulumi.set(__self__, "target_memory_in_mega_bytes", target_memory_in_mega_bytes)
+            _setter("target_memory_in_mega_bytes", target_memory_in_mega_bytes)
         if target_network_id is not None:
-            pulumi.set(__self__, "target_network_id", target_network_id)
+            _setter("target_network_id", target_network_id)
         if target_vm_name is not None:
-            pulumi.set(__self__, "target_vm_name", target_vm_name)
+            _setter("target_vm_name", target_vm_name)
         if test_network_id is not None:
-            pulumi.set(__self__, "test_network_id", test_network_id)
+            _setter("test_network_id", test_network_id)
 
     @property
     @pulumi.getter(name="customLocationRegion")
@@ -1974,13 +2616,42 @@ class VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesArgs:
         :param pulumi.Input[str] storage_account_id: Gets or sets the storage account Id.
         :param pulumi.Input[str] storage_account_sas_secret_name: Gets or sets the Sas Secret of storage account.
         """
-        pulumi.set(__self__, "az_stack_hci_fabric_arm_id", az_stack_hci_fabric_arm_id)
-        pulumi.set(__self__, "instance_type", 'VMwareToAzStackHCI')
-        pulumi.set(__self__, "vmware_fabric_arm_id", vmware_fabric_arm_id)
+        VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            az_stack_hci_fabric_arm_id=az_stack_hci_fabric_arm_id,
+            instance_type=instance_type,
+            vmware_fabric_arm_id=vmware_fabric_arm_id,
+            storage_account_id=storage_account_id,
+            storage_account_sas_secret_name=storage_account_sas_secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             az_stack_hci_fabric_arm_id: pulumi.Input[str],
+             instance_type: pulumi.Input[str],
+             vmware_fabric_arm_id: pulumi.Input[str],
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             storage_account_sas_secret_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azStackHciFabricArmId' in kwargs:
+            az_stack_hci_fabric_arm_id = kwargs['azStackHciFabricArmId']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'vmwareFabricArmId' in kwargs:
+            vmware_fabric_arm_id = kwargs['vmwareFabricArmId']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storageAccountSasSecretName' in kwargs:
+            storage_account_sas_secret_name = kwargs['storageAccountSasSecretName']
+
+        _setter("az_stack_hci_fabric_arm_id", az_stack_hci_fabric_arm_id)
+        _setter("instance_type", 'VMwareToAzStackHCI')
+        _setter("vmware_fabric_arm_id", vmware_fabric_arm_id)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if storage_account_sas_secret_name is not None:
-            pulumi.set(__self__, "storage_account_sas_secret_name", storage_account_sas_secret_name)
+            _setter("storage_account_sas_secret_name", storage_account_sas_secret_name)
 
     @property
     @pulumi.getter(name="azStackHciFabricArmId")
@@ -2052,8 +2723,21 @@ class VaultModelPropertiesArgs:
         Vault properties.
         :param pulumi.Input[Union[str, 'ReplicationVaultType']] vault_type: Gets or sets the type of vault.
         """
+        VaultModelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vault_type=vault_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vault_type: Optional[pulumi.Input[Union[str, 'ReplicationVaultType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vaultType' in kwargs:
+            vault_type = kwargs['vaultType']
+
         if vault_type is not None:
-            pulumi.set(__self__, "vault_type", vault_type)
+            _setter("vault_type", vault_type)
 
     @property
     @pulumi.getter(name="vaultType")

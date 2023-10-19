@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -64,10 +64,29 @@ class CspmMonitorAwsOfferingResponse(dict):
                Expected value is 'CspmMonitorAws'.
         :param 'CspmMonitorAwsOfferingResponseNativeCloudConnection' native_cloud_connection: The native cloud connection configuration
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "offering_type", 'CspmMonitorAws')
+        CspmMonitorAwsOfferingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            offering_type=offering_type,
+            native_cloud_connection=native_cloud_connection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: str,
+             offering_type: str,
+             native_cloud_connection: Optional['outputs.CspmMonitorAwsOfferingResponseNativeCloudConnection'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'offeringType' in kwargs:
+            offering_type = kwargs['offeringType']
+        if 'nativeCloudConnection' in kwargs:
+            native_cloud_connection = kwargs['nativeCloudConnection']
+
+        _setter("description", description)
+        _setter("offering_type", 'CspmMonitorAws')
         if native_cloud_connection is not None:
-            pulumi.set(__self__, "native_cloud_connection", native_cloud_connection)
+            _setter("native_cloud_connection", native_cloud_connection)
 
     @property
     @pulumi.getter
@@ -123,8 +142,21 @@ class CspmMonitorAwsOfferingResponseNativeCloudConnection(dict):
         The native cloud connection configuration
         :param str cloud_role_arn: The cloud role ARN in AWS for this feature
         """
+        CspmMonitorAwsOfferingResponseNativeCloudConnection._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_role_arn=cloud_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudRoleArn' in kwargs:
+            cloud_role_arn = kwargs['cloudRoleArn']
+
         if cloud_role_arn is not None:
-            pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
+            _setter("cloud_role_arn", cloud_role_arn)
 
     @property
     @pulumi.getter(name="cloudRoleArn")
@@ -182,16 +214,47 @@ class DefenderForContainersAwsOfferingResponse(dict):
         :param 'DefenderForContainersAwsOfferingResponseKubernetesScubaReader' kubernetes_scuba_reader: The kubernetes to scuba connection configuration
         :param 'DefenderForContainersAwsOfferingResponseKubernetesService' kubernetes_service: The kubernetes service connection configuration
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "offering_type", 'DefenderForContainersAws')
+        DefenderForContainersAwsOfferingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            offering_type=offering_type,
+            cloud_watch_to_kinesis=cloud_watch_to_kinesis,
+            kinesis_to_s3=kinesis_to_s3,
+            kubernetes_scuba_reader=kubernetes_scuba_reader,
+            kubernetes_service=kubernetes_service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: str,
+             offering_type: str,
+             cloud_watch_to_kinesis: Optional['outputs.DefenderForContainersAwsOfferingResponseCloudWatchToKinesis'] = None,
+             kinesis_to_s3: Optional['outputs.DefenderForContainersAwsOfferingResponseKinesisToS3'] = None,
+             kubernetes_scuba_reader: Optional['outputs.DefenderForContainersAwsOfferingResponseKubernetesScubaReader'] = None,
+             kubernetes_service: Optional['outputs.DefenderForContainersAwsOfferingResponseKubernetesService'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'offeringType' in kwargs:
+            offering_type = kwargs['offeringType']
+        if 'cloudWatchToKinesis' in kwargs:
+            cloud_watch_to_kinesis = kwargs['cloudWatchToKinesis']
+        if 'kinesisToS3' in kwargs:
+            kinesis_to_s3 = kwargs['kinesisToS3']
+        if 'kubernetesScubaReader' in kwargs:
+            kubernetes_scuba_reader = kwargs['kubernetesScubaReader']
+        if 'kubernetesService' in kwargs:
+            kubernetes_service = kwargs['kubernetesService']
+
+        _setter("description", description)
+        _setter("offering_type", 'DefenderForContainersAws')
         if cloud_watch_to_kinesis is not None:
-            pulumi.set(__self__, "cloud_watch_to_kinesis", cloud_watch_to_kinesis)
+            _setter("cloud_watch_to_kinesis", cloud_watch_to_kinesis)
         if kinesis_to_s3 is not None:
-            pulumi.set(__self__, "kinesis_to_s3", kinesis_to_s3)
+            _setter("kinesis_to_s3", kinesis_to_s3)
         if kubernetes_scuba_reader is not None:
-            pulumi.set(__self__, "kubernetes_scuba_reader", kubernetes_scuba_reader)
+            _setter("kubernetes_scuba_reader", kubernetes_scuba_reader)
         if kubernetes_service is not None:
-            pulumi.set(__self__, "kubernetes_service", kubernetes_service)
+            _setter("kubernetes_service", kubernetes_service)
 
     @property
     @pulumi.getter
@@ -271,8 +334,21 @@ class DefenderForContainersAwsOfferingResponseCloudWatchToKinesis(dict):
         The cloudwatch to kinesis connection configuration
         :param str cloud_role_arn: The cloud role ARN in AWS for this feature
         """
+        DefenderForContainersAwsOfferingResponseCloudWatchToKinesis._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_role_arn=cloud_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudRoleArn' in kwargs:
+            cloud_role_arn = kwargs['cloudRoleArn']
+
         if cloud_role_arn is not None:
-            pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
+            _setter("cloud_role_arn", cloud_role_arn)
 
     @property
     @pulumi.getter(name="cloudRoleArn")
@@ -311,8 +387,21 @@ class DefenderForContainersAwsOfferingResponseKinesisToS3(dict):
         The kinesis to s3 connection configuration
         :param str cloud_role_arn: The cloud role ARN in AWS for this feature
         """
+        DefenderForContainersAwsOfferingResponseKinesisToS3._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_role_arn=cloud_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudRoleArn' in kwargs:
+            cloud_role_arn = kwargs['cloudRoleArn']
+
         if cloud_role_arn is not None:
-            pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
+            _setter("cloud_role_arn", cloud_role_arn)
 
     @property
     @pulumi.getter(name="cloudRoleArn")
@@ -351,8 +440,21 @@ class DefenderForContainersAwsOfferingResponseKubernetesScubaReader(dict):
         The kubernetes to scuba connection configuration
         :param str cloud_role_arn: The cloud role ARN in AWS for this feature
         """
+        DefenderForContainersAwsOfferingResponseKubernetesScubaReader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_role_arn=cloud_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudRoleArn' in kwargs:
+            cloud_role_arn = kwargs['cloudRoleArn']
+
         if cloud_role_arn is not None:
-            pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
+            _setter("cloud_role_arn", cloud_role_arn)
 
     @property
     @pulumi.getter(name="cloudRoleArn")
@@ -391,8 +493,21 @@ class DefenderForContainersAwsOfferingResponseKubernetesService(dict):
         The kubernetes service connection configuration
         :param str cloud_role_arn: The cloud role ARN in AWS for this feature
         """
+        DefenderForContainersAwsOfferingResponseKubernetesService._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_role_arn=cloud_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudRoleArn' in kwargs:
+            cloud_role_arn = kwargs['cloudRoleArn']
+
         if cloud_role_arn is not None:
-            pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
+            _setter("cloud_role_arn", cloud_role_arn)
 
     @property
     @pulumi.getter(name="cloudRoleArn")
@@ -442,12 +557,35 @@ class DefenderForServersAwsOfferingResponse(dict):
         :param 'DefenderForServersAwsOfferingResponseArcAutoProvisioning' arc_auto_provisioning: The ARC autoprovisioning configuration
         :param 'DefenderForServersAwsOfferingResponseDefenderForServers' defender_for_servers: The Defender for servers connection configuration
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "offering_type", 'DefenderForServersAws')
+        DefenderForServersAwsOfferingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            offering_type=offering_type,
+            arc_auto_provisioning=arc_auto_provisioning,
+            defender_for_servers=defender_for_servers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: str,
+             offering_type: str,
+             arc_auto_provisioning: Optional['outputs.DefenderForServersAwsOfferingResponseArcAutoProvisioning'] = None,
+             defender_for_servers: Optional['outputs.DefenderForServersAwsOfferingResponseDefenderForServers'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'offeringType' in kwargs:
+            offering_type = kwargs['offeringType']
+        if 'arcAutoProvisioning' in kwargs:
+            arc_auto_provisioning = kwargs['arcAutoProvisioning']
+        if 'defenderForServers' in kwargs:
+            defender_for_servers = kwargs['defenderForServers']
+
+        _setter("description", description)
+        _setter("offering_type", 'DefenderForServersAws')
         if arc_auto_provisioning is not None:
-            pulumi.set(__self__, "arc_auto_provisioning", arc_auto_provisioning)
+            _setter("arc_auto_provisioning", arc_auto_provisioning)
         if defender_for_servers is not None:
-            pulumi.set(__self__, "defender_for_servers", defender_for_servers)
+            _setter("defender_for_servers", defender_for_servers)
 
     @property
     @pulumi.getter
@@ -513,10 +651,25 @@ class DefenderForServersAwsOfferingResponseArcAutoProvisioning(dict):
         :param bool enabled: Is arc auto provisioning enabled
         :param 'DefenderForServersAwsOfferingResponseServicePrincipalSecretMetadata' service_principal_secret_metadata: Metadata of Service Principal secret for autoprovisioning
         """
+        DefenderForServersAwsOfferingResponseArcAutoProvisioning._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            service_principal_secret_metadata=service_principal_secret_metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             service_principal_secret_metadata: Optional['outputs.DefenderForServersAwsOfferingResponseServicePrincipalSecretMetadata'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'servicePrincipalSecretMetadata' in kwargs:
+            service_principal_secret_metadata = kwargs['servicePrincipalSecretMetadata']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if service_principal_secret_metadata is not None:
-            pulumi.set(__self__, "service_principal_secret_metadata", service_principal_secret_metadata)
+            _setter("service_principal_secret_metadata", service_principal_secret_metadata)
 
     @property
     @pulumi.getter
@@ -563,8 +716,21 @@ class DefenderForServersAwsOfferingResponseDefenderForServers(dict):
         The Defender for servers connection configuration
         :param str cloud_role_arn: The cloud role ARN in AWS for this feature
         """
+        DefenderForServersAwsOfferingResponseDefenderForServers._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_role_arn=cloud_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudRoleArn' in kwargs:
+            cloud_role_arn = kwargs['cloudRoleArn']
+
         if cloud_role_arn is not None:
-            pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
+            _setter("cloud_role_arn", cloud_role_arn)
 
     @property
     @pulumi.getter(name="cloudRoleArn")
@@ -611,12 +777,33 @@ class DefenderForServersAwsOfferingResponseServicePrincipalSecretMetadata(dict):
         :param str parameter_name_in_store: name of secret resource in parameter store
         :param str parameter_store_region: region of parameter store where secret is kept
         """
+        DefenderForServersAwsOfferingResponseServicePrincipalSecretMetadata._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiry_date=expiry_date,
+            parameter_name_in_store=parameter_name_in_store,
+            parameter_store_region=parameter_store_region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiry_date: Optional[str] = None,
+             parameter_name_in_store: Optional[str] = None,
+             parameter_store_region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expiryDate' in kwargs:
+            expiry_date = kwargs['expiryDate']
+        if 'parameterNameInStore' in kwargs:
+            parameter_name_in_store = kwargs['parameterNameInStore']
+        if 'parameterStoreRegion' in kwargs:
+            parameter_store_region = kwargs['parameterStoreRegion']
+
         if expiry_date is not None:
-            pulumi.set(__self__, "expiry_date", expiry_date)
+            _setter("expiry_date", expiry_date)
         if parameter_name_in_store is not None:
-            pulumi.set(__self__, "parameter_name_in_store", parameter_name_in_store)
+            _setter("parameter_name_in_store", parameter_name_in_store)
         if parameter_store_region is not None:
-            pulumi.set(__self__, "parameter_store_region", parameter_store_region)
+            _setter("parameter_store_region", parameter_store_region)
 
     @property
     @pulumi.getter(name="expiryDate")
@@ -678,10 +865,29 @@ class InformationProtectionAwsOfferingResponse(dict):
                Expected value is 'InformationProtectionAws'.
         :param 'InformationProtectionAwsOfferingResponseInformationProtection' information_protection: The native cloud connection configuration
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "offering_type", 'InformationProtectionAws')
+        InformationProtectionAwsOfferingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            offering_type=offering_type,
+            information_protection=information_protection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: str,
+             offering_type: str,
+             information_protection: Optional['outputs.InformationProtectionAwsOfferingResponseInformationProtection'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'offeringType' in kwargs:
+            offering_type = kwargs['offeringType']
+        if 'informationProtection' in kwargs:
+            information_protection = kwargs['informationProtection']
+
+        _setter("description", description)
+        _setter("offering_type", 'InformationProtectionAws')
         if information_protection is not None:
-            pulumi.set(__self__, "information_protection", information_protection)
+            _setter("information_protection", information_protection)
 
     @property
     @pulumi.getter
@@ -737,8 +943,21 @@ class InformationProtectionAwsOfferingResponseInformationProtection(dict):
         The native cloud connection configuration
         :param str cloud_role_arn: The cloud role ARN in AWS for this feature
         """
+        InformationProtectionAwsOfferingResponseInformationProtection._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_role_arn=cloud_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudRoleArn' in kwargs:
+            cloud_role_arn = kwargs['cloudRoleArn']
+
         if cloud_role_arn is not None:
-            pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
+            _setter("cloud_role_arn", cloud_role_arn)
 
     @property
     @pulumi.getter(name="cloudRoleArn")
@@ -789,14 +1008,39 @@ class SecurityConnectorPropertiesResponseOrganizationalData(dict):
         :param str parent_hierarchy_id: If the multi cloud account is not of membership type organization, this will be the ID of the account's parent
         :param str stackset_name: If the multi cloud account is of membership type organization, this will be the name of the onboarding stackset
         """
+        SecurityConnectorPropertiesResponseOrganizationalData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excluded_account_ids=excluded_account_ids,
+            organization_membership_type=organization_membership_type,
+            parent_hierarchy_id=parent_hierarchy_id,
+            stackset_name=stackset_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excluded_account_ids: Optional[Sequence[str]] = None,
+             organization_membership_type: Optional[str] = None,
+             parent_hierarchy_id: Optional[str] = None,
+             stackset_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedAccountIds' in kwargs:
+            excluded_account_ids = kwargs['excludedAccountIds']
+        if 'organizationMembershipType' in kwargs:
+            organization_membership_type = kwargs['organizationMembershipType']
+        if 'parentHierarchyId' in kwargs:
+            parent_hierarchy_id = kwargs['parentHierarchyId']
+        if 'stacksetName' in kwargs:
+            stackset_name = kwargs['stacksetName']
+
         if excluded_account_ids is not None:
-            pulumi.set(__self__, "excluded_account_ids", excluded_account_ids)
+            _setter("excluded_account_ids", excluded_account_ids)
         if organization_membership_type is not None:
-            pulumi.set(__self__, "organization_membership_type", organization_membership_type)
+            _setter("organization_membership_type", organization_membership_type)
         if parent_hierarchy_id is not None:
-            pulumi.set(__self__, "parent_hierarchy_id", parent_hierarchy_id)
+            _setter("parent_hierarchy_id", parent_hierarchy_id)
         if stackset_name is not None:
-            pulumi.set(__self__, "stackset_name", stackset_name)
+            _setter("stackset_name", stackset_name)
 
     @property
     @pulumi.getter(name="excludedAccountIds")
@@ -879,18 +1123,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

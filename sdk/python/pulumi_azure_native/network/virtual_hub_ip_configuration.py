@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,22 +38,61 @@ class VirtualHubIpConfigurationArgs:
         :param pulumi.Input['PublicIPAddressArgs'] public_ip_address: The reference to the public IP resource.
         :param pulumi.Input['SubnetArgs'] subnet: The reference to the subnet resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
+        VirtualHubIpConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            virtual_hub_name=virtual_hub_name,
+            id=id,
+            ip_config_name=ip_config_name,
+            name=name,
+            private_ip_address=private_ip_address,
+            private_ip_allocation_method=private_ip_allocation_method,
+            public_ip_address=public_ip_address,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             virtual_hub_name: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
+             ip_config_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             private_ip_allocation_method: Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]] = None,
+             public_ip_address: Optional[pulumi.Input['PublicIPAddressArgs']] = None,
+             subnet: Optional[pulumi.Input['SubnetArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualHubName' in kwargs:
+            virtual_hub_name = kwargs['virtualHubName']
+        if 'ipConfigName' in kwargs:
+            ip_config_name = kwargs['ipConfigName']
+        if 'privateIPAddress' in kwargs:
+            private_ip_address = kwargs['privateIPAddress']
+        if 'privateIPAllocationMethod' in kwargs:
+            private_ip_allocation_method = kwargs['privateIPAllocationMethod']
+        if 'publicIPAddress' in kwargs:
+            public_ip_address = kwargs['publicIPAddress']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_hub_name", virtual_hub_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_config_name is not None:
-            pulumi.set(__self__, "ip_config_name", ip_config_name)
+            _setter("ip_config_name", ip_config_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if private_ip_allocation_method is not None:
-            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+            _setter("private_ip_allocation_method", private_ip_allocation_method)
         if public_ip_address is not None:
-            pulumi.set(__self__, "public_ip_address", public_ip_address)
+            _setter("public_ip_address", public_ip_address)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -215,6 +254,10 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualHubIpConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -243,10 +286,20 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["private_ip_address"] = private_ip_address
             __props__.__dict__["private_ip_allocation_method"] = private_ip_allocation_method
+            if public_ip_address is not None and not isinstance(public_ip_address, PublicIPAddressArgs):
+                public_ip_address = public_ip_address or {}
+                def _setter(key, value):
+                    public_ip_address[key] = value
+                PublicIPAddressArgs._configure(_setter, **public_ip_address)
             __props__.__dict__["public_ip_address"] = public_ip_address
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if subnet is not None and not isinstance(subnet, SubnetArgs):
+                subnet = subnet or {}
+                def _setter(key, value):
+                    subnet[key] = value
+                SubnetArgs._configure(_setter, **subnet)
             __props__.__dict__["subnet"] = subnet
             if virtual_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_name'")

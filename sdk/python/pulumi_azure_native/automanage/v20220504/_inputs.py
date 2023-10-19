@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -22,8 +22,21 @@ class ConfigurationProfileAssignmentPropertiesArgs:
         Automanage configuration profile assignment properties.
         :param pulumi.Input[str] configuration_profile: The Automanage configurationProfile ARM Resource URI.
         """
+        ConfigurationProfileAssignmentPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_profile=configuration_profile,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_profile: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationProfile' in kwargs:
+            configuration_profile = kwargs['configurationProfile']
+
         if configuration_profile is not None:
-            pulumi.set(__self__, "configuration_profile", configuration_profile)
+            _setter("configuration_profile", configuration_profile)
 
     @property
     @pulumi.getter(name="configurationProfile")
@@ -46,8 +59,19 @@ class ConfigurationProfilePropertiesArgs:
         Automanage configuration profile properties.
         :param Any configuration: configuration dictionary of the configuration profile.
         """
+        ConfigurationProfilePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration=configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
 
     @property
     @pulumi.getter

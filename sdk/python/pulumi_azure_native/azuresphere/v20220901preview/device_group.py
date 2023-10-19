@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -37,21 +37,64 @@ class DeviceGroupArgs:
         :param pulumi.Input[Union[str, 'RegionalDataBoundary']] regional_data_boundary: Regional data boundary for the device group.
         :param pulumi.Input[Union[str, 'UpdatePolicy']] update_policy: Update policy of the device group.
         """
-        pulumi.set(__self__, "catalog_name", catalog_name)
-        pulumi.set(__self__, "product_name", product_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DeviceGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_name=catalog_name,
+            product_name=product_name,
+            resource_group_name=resource_group_name,
+            allow_crash_dumps_collection=allow_crash_dumps_collection,
+            description=description,
+            device_group_name=device_group_name,
+            os_feed_type=os_feed_type,
+            regional_data_boundary=regional_data_boundary,
+            update_policy=update_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_name: pulumi.Input[str],
+             product_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             allow_crash_dumps_collection: Optional[pulumi.Input[Union[str, 'AllowCrashDumpCollection']]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             device_group_name: Optional[pulumi.Input[str]] = None,
+             os_feed_type: Optional[pulumi.Input[Union[str, 'OSFeedType']]] = None,
+             regional_data_boundary: Optional[pulumi.Input[Union[str, 'RegionalDataBoundary']]] = None,
+             update_policy: Optional[pulumi.Input[Union[str, 'UpdatePolicy']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogName' in kwargs:
+            catalog_name = kwargs['catalogName']
+        if 'productName' in kwargs:
+            product_name = kwargs['productName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'allowCrashDumpsCollection' in kwargs:
+            allow_crash_dumps_collection = kwargs['allowCrashDumpsCollection']
+        if 'deviceGroupName' in kwargs:
+            device_group_name = kwargs['deviceGroupName']
+        if 'osFeedType' in kwargs:
+            os_feed_type = kwargs['osFeedType']
+        if 'regionalDataBoundary' in kwargs:
+            regional_data_boundary = kwargs['regionalDataBoundary']
+        if 'updatePolicy' in kwargs:
+            update_policy = kwargs['updatePolicy']
+
+        _setter("catalog_name", catalog_name)
+        _setter("product_name", product_name)
+        _setter("resource_group_name", resource_group_name)
         if allow_crash_dumps_collection is not None:
-            pulumi.set(__self__, "allow_crash_dumps_collection", allow_crash_dumps_collection)
+            _setter("allow_crash_dumps_collection", allow_crash_dumps_collection)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if device_group_name is not None:
-            pulumi.set(__self__, "device_group_name", device_group_name)
+            _setter("device_group_name", device_group_name)
         if os_feed_type is not None:
-            pulumi.set(__self__, "os_feed_type", os_feed_type)
+            _setter("os_feed_type", os_feed_type)
         if regional_data_boundary is not None:
-            pulumi.set(__self__, "regional_data_boundary", regional_data_boundary)
+            _setter("regional_data_boundary", regional_data_boundary)
         if update_policy is not None:
-            pulumi.set(__self__, "update_policy", update_policy)
+            _setter("update_policy", update_policy)
 
     @property
     @pulumi.getter(name="catalogName")
@@ -211,6 +254,10 @@ class DeviceGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeviceGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -43,33 +43,80 @@ class TopicArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         :param pulumi.Input[str] topic_name: Name of the topic.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        TopicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            data_residency_boundary=data_residency_boundary,
+            disable_local_auth=disable_local_auth,
+            identity=identity,
+            inbound_ip_rules=inbound_ip_rules,
+            input_schema=input_schema,
+            input_schema_mapping=input_schema_mapping,
+            location=location,
+            public_network_access=public_network_access,
+            tags=tags,
+            topic_name=topic_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             data_residency_boundary: Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['IdentityInfoArgs']] = None,
+             inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]]] = None,
+             input_schema: Optional[pulumi.Input[Union[str, 'InputSchema']]] = None,
+             input_schema_mapping: Optional[pulumi.Input['JsonInputSchemaMappingArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             topic_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'dataResidencyBoundary' in kwargs:
+            data_residency_boundary = kwargs['dataResidencyBoundary']
+        if 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if 'inboundIpRules' in kwargs:
+            inbound_ip_rules = kwargs['inboundIpRules']
+        if 'inputSchema' in kwargs:
+            input_schema = kwargs['inputSchema']
+        if 'inputSchemaMapping' in kwargs:
+            input_schema_mapping = kwargs['inputSchemaMapping']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if 'topicName' in kwargs:
+            topic_name = kwargs['topicName']
+
+        _setter("resource_group_name", resource_group_name)
         if data_residency_boundary is not None:
-            pulumi.set(__self__, "data_residency_boundary", data_residency_boundary)
+            _setter("data_residency_boundary", data_residency_boundary)
         if disable_local_auth is None:
             disable_local_auth = False
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if inbound_ip_rules is not None:
-            pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
+            _setter("inbound_ip_rules", inbound_ip_rules)
         if input_schema is None:
             input_schema = 'EventGridSchema'
         if input_schema is not None:
-            pulumi.set(__self__, "input_schema", input_schema)
+            _setter("input_schema", input_schema)
         if input_schema_mapping is not None:
-            pulumi.set(__self__, "input_schema_mapping", input_schema_mapping)
+            _setter("input_schema_mapping", input_schema_mapping)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if topic_name is not None:
-            pulumi.set(__self__, "topic_name", topic_name)
+            _setter("topic_name", topic_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -261,6 +308,10 @@ class Topic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TopicArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -290,11 +341,21 @@ class Topic(pulumi.CustomResource):
             if disable_local_auth is None:
                 disable_local_auth = False
             __props__.__dict__["disable_local_auth"] = disable_local_auth
+            if identity is not None and not isinstance(identity, IdentityInfoArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityInfoArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
             if input_schema is None:
                 input_schema = 'EventGridSchema'
             __props__.__dict__["input_schema"] = input_schema
+            if input_schema_mapping is not None and not isinstance(input_schema_mapping, JsonInputSchemaMappingArgs):
+                input_schema_mapping = input_schema_mapping or {}
+                def _setter(key, value):
+                    input_schema_mapping[key] = value
+                JsonInputSchemaMappingArgs._configure(_setter, **input_schema_mapping)
             __props__.__dict__["input_schema_mapping"] = input_schema_mapping
             __props__.__dict__["location"] = location
             if public_network_access is None:

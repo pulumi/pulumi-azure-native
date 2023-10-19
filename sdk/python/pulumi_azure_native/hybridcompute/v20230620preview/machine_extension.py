@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,43 @@ class MachineExtensionArgs:
         :param pulumi.Input['MachineExtensionPropertiesArgs'] properties: Describes Machine Extension Properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "machine_name", machine_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MachineExtensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            machine_name=machine_name,
+            resource_group_name=resource_group_name,
+            extension_name=extension_name,
+            location=location,
+            properties=properties,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             machine_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             extension_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['MachineExtensionPropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'machineName' in kwargs:
+            machine_name = kwargs['machineName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'extensionName' in kwargs:
+            extension_name = kwargs['extensionName']
+
+        _setter("machine_name", machine_name)
+        _setter("resource_group_name", resource_group_name)
         if extension_name is not None:
-            pulumi.set(__self__, "extension_name", extension_name)
+            _setter("extension_name", extension_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="machineName")
@@ -159,6 +186,10 @@ class MachineExtension(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MachineExtensionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -184,6 +215,11 @@ class MachineExtension(pulumi.CustomResource):
             if machine_name is None and not opts.urn:
                 raise TypeError("Missing required property 'machine_name'")
             __props__.__dict__["machine_name"] = machine_name
+            if properties is not None and not isinstance(properties, MachineExtensionPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                MachineExtensionPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

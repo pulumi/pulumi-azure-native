@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,20 +38,63 @@ class VolumeContainerArgs:
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] volume_container_name: The name of the volume container.
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "manager_name", manager_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_account_credential_id", storage_account_credential_id)
+        VolumeContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            manager_name=manager_name,
+            resource_group_name=resource_group_name,
+            storage_account_credential_id=storage_account_credential_id,
+            band_width_rate_in_mbps=band_width_rate_in_mbps,
+            bandwidth_setting_id=bandwidth_setting_id,
+            encryption_key=encryption_key,
+            kind=kind,
+            volume_container_name=volume_container_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: pulumi.Input[str],
+             manager_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             storage_account_credential_id: pulumi.Input[str],
+             band_width_rate_in_mbps: Optional[pulumi.Input[int]] = None,
+             bandwidth_setting_id: Optional[pulumi.Input[str]] = None,
+             encryption_key: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
+             kind: Optional[pulumi.Input['Kind']] = None,
+             volume_container_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'managerName' in kwargs:
+            manager_name = kwargs['managerName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountCredentialId' in kwargs:
+            storage_account_credential_id = kwargs['storageAccountCredentialId']
+        if 'bandWidthRateInMbps' in kwargs:
+            band_width_rate_in_mbps = kwargs['bandWidthRateInMbps']
+        if 'bandwidthSettingId' in kwargs:
+            bandwidth_setting_id = kwargs['bandwidthSettingId']
+        if 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+        if 'volumeContainerName' in kwargs:
+            volume_container_name = kwargs['volumeContainerName']
+
+        _setter("device_name", device_name)
+        _setter("manager_name", manager_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_account_credential_id", storage_account_credential_id)
         if band_width_rate_in_mbps is not None:
-            pulumi.set(__self__, "band_width_rate_in_mbps", band_width_rate_in_mbps)
+            _setter("band_width_rate_in_mbps", band_width_rate_in_mbps)
         if bandwidth_setting_id is not None:
-            pulumi.set(__self__, "bandwidth_setting_id", bandwidth_setting_id)
+            _setter("bandwidth_setting_id", bandwidth_setting_id)
         if encryption_key is not None:
-            pulumi.set(__self__, "encryption_key", encryption_key)
+            _setter("encryption_key", encryption_key)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if volume_container_name is not None:
-            pulumi.set(__self__, "volume_container_name", volume_container_name)
+            _setter("volume_container_name", volume_container_name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -213,6 +256,10 @@ class VolumeContainer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeContainerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -241,6 +288,11 @@ class VolumeContainer(pulumi.CustomResource):
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
+            if encryption_key is not None and not isinstance(encryption_key, AsymmetricEncryptedSecretArgs):
+                encryption_key = encryption_key or {}
+                def _setter(key, value):
+                    encryption_key[key] = value
+                AsymmetricEncryptedSecretArgs._configure(_setter, **encryption_key)
             __props__.__dict__["encryption_key"] = encryption_key
             __props__.__dict__["kind"] = kind
             if manager_name is None and not opts.urn:

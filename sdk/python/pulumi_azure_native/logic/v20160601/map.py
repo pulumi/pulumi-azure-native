@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,23 +40,64 @@ class MapArgs:
         :param pulumi.Input['IntegrationAccountMapPropertiesParametersSchemaArgs'] parameters_schema: The parameters schema of integration account map.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "integration_account_name", integration_account_name)
-        pulumi.set(__self__, "map_type", map_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MapArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            integration_account_name=integration_account_name,
+            map_type=map_type,
+            resource_group_name=resource_group_name,
+            content=content,
+            content_type=content_type,
+            location=location,
+            map_name=map_name,
+            metadata=metadata,
+            parameters_schema=parameters_schema,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             integration_account_name: pulumi.Input[str],
+             map_type: pulumi.Input['MapType'],
+             resource_group_name: pulumi.Input[str],
+             content: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             map_name: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             parameters_schema: Optional[pulumi.Input['IntegrationAccountMapPropertiesParametersSchemaArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'integrationAccountName' in kwargs:
+            integration_account_name = kwargs['integrationAccountName']
+        if 'mapType' in kwargs:
+            map_type = kwargs['mapType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'mapName' in kwargs:
+            map_name = kwargs['mapName']
+        if 'parametersSchema' in kwargs:
+            parameters_schema = kwargs['parametersSchema']
+
+        _setter("integration_account_name", integration_account_name)
+        _setter("map_type", map_type)
+        _setter("resource_group_name", resource_group_name)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if map_name is not None:
-            pulumi.set(__self__, "map_name", map_name)
+            _setter("map_name", map_name)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if parameters_schema is not None:
-            pulumi.set(__self__, "parameters_schema", parameters_schema)
+            _setter("parameters_schema", parameters_schema)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="integrationAccountName")
@@ -230,6 +271,10 @@ class Map(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MapArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -265,6 +310,11 @@ class Map(pulumi.CustomResource):
                 raise TypeError("Missing required property 'map_type'")
             __props__.__dict__["map_type"] = map_type
             __props__.__dict__["metadata"] = metadata
+            if parameters_schema is not None and not isinstance(parameters_schema, IntegrationAccountMapPropertiesParametersSchemaArgs):
+                parameters_schema = parameters_schema or {}
+                def _setter(key, value):
+                    parameters_schema[key] = value
+                IntegrationAccountMapPropertiesParametersSchemaArgs._configure(_setter, **parameters_schema)
             __props__.__dict__["parameters_schema"] = parameters_schema
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

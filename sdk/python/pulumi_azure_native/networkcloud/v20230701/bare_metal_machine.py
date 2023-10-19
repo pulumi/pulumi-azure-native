@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,24 +49,89 @@ class BareMetalMachineArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "bmc_connection_string", bmc_connection_string)
-        pulumi.set(__self__, "bmc_credentials", bmc_credentials)
-        pulumi.set(__self__, "bmc_mac_address", bmc_mac_address)
-        pulumi.set(__self__, "boot_mac_address", boot_mac_address)
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "machine_details", machine_details)
-        pulumi.set(__self__, "machine_name", machine_name)
-        pulumi.set(__self__, "machine_sku_id", machine_sku_id)
-        pulumi.set(__self__, "rack_id", rack_id)
-        pulumi.set(__self__, "rack_slot", rack_slot)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "serial_number", serial_number)
+        BareMetalMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bmc_connection_string=bmc_connection_string,
+            bmc_credentials=bmc_credentials,
+            bmc_mac_address=bmc_mac_address,
+            boot_mac_address=boot_mac_address,
+            extended_location=extended_location,
+            machine_details=machine_details,
+            machine_name=machine_name,
+            machine_sku_id=machine_sku_id,
+            rack_id=rack_id,
+            rack_slot=rack_slot,
+            resource_group_name=resource_group_name,
+            serial_number=serial_number,
+            bare_metal_machine_name=bare_metal_machine_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bmc_connection_string: pulumi.Input[str],
+             bmc_credentials: pulumi.Input['AdministrativeCredentialsArgs'],
+             bmc_mac_address: pulumi.Input[str],
+             boot_mac_address: pulumi.Input[str],
+             extended_location: pulumi.Input['ExtendedLocationArgs'],
+             machine_details: pulumi.Input[str],
+             machine_name: pulumi.Input[str],
+             machine_sku_id: pulumi.Input[str],
+             rack_id: pulumi.Input[str],
+             rack_slot: pulumi.Input[float],
+             resource_group_name: pulumi.Input[str],
+             serial_number: pulumi.Input[str],
+             bare_metal_machine_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bmcConnectionString' in kwargs:
+            bmc_connection_string = kwargs['bmcConnectionString']
+        if 'bmcCredentials' in kwargs:
+            bmc_credentials = kwargs['bmcCredentials']
+        if 'bmcMacAddress' in kwargs:
+            bmc_mac_address = kwargs['bmcMacAddress']
+        if 'bootMacAddress' in kwargs:
+            boot_mac_address = kwargs['bootMacAddress']
+        if 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if 'machineDetails' in kwargs:
+            machine_details = kwargs['machineDetails']
+        if 'machineName' in kwargs:
+            machine_name = kwargs['machineName']
+        if 'machineSkuId' in kwargs:
+            machine_sku_id = kwargs['machineSkuId']
+        if 'rackId' in kwargs:
+            rack_id = kwargs['rackId']
+        if 'rackSlot' in kwargs:
+            rack_slot = kwargs['rackSlot']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if 'bareMetalMachineName' in kwargs:
+            bare_metal_machine_name = kwargs['bareMetalMachineName']
+
+        _setter("bmc_connection_string", bmc_connection_string)
+        _setter("bmc_credentials", bmc_credentials)
+        _setter("bmc_mac_address", bmc_mac_address)
+        _setter("boot_mac_address", boot_mac_address)
+        _setter("extended_location", extended_location)
+        _setter("machine_details", machine_details)
+        _setter("machine_name", machine_name)
+        _setter("machine_sku_id", machine_sku_id)
+        _setter("rack_id", rack_id)
+        _setter("rack_slot", rack_slot)
+        _setter("resource_group_name", resource_group_name)
+        _setter("serial_number", serial_number)
         if bare_metal_machine_name is not None:
-            pulumi.set(__self__, "bare_metal_machine_name", bare_metal_machine_name)
+            _setter("bare_metal_machine_name", bare_metal_machine_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="bmcConnectionString")
@@ -308,6 +373,10 @@ class BareMetalMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BareMetalMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -341,6 +410,11 @@ class BareMetalMachine(pulumi.CustomResource):
             if bmc_connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'bmc_connection_string'")
             __props__.__dict__["bmc_connection_string"] = bmc_connection_string
+            if bmc_credentials is not None and not isinstance(bmc_credentials, AdministrativeCredentialsArgs):
+                bmc_credentials = bmc_credentials or {}
+                def _setter(key, value):
+                    bmc_credentials[key] = value
+                AdministrativeCredentialsArgs._configure(_setter, **bmc_credentials)
             if bmc_credentials is None and not opts.urn:
                 raise TypeError("Missing required property 'bmc_credentials'")
             __props__.__dict__["bmc_credentials"] = bmc_credentials
@@ -350,6 +424,11 @@ class BareMetalMachine(pulumi.CustomResource):
             if boot_mac_address is None and not opts.urn:
                 raise TypeError("Missing required property 'boot_mac_address'")
             __props__.__dict__["boot_mac_address"] = boot_mac_address
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location

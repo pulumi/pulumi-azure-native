@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -53,14 +53,39 @@ class CertificatePropertiesResponse(dict):
         :param str updated: The certificate's last update date and time.
         :param str certificate: The certificate content
         """
-        pulumi.set(__self__, "created", created)
-        pulumi.set(__self__, "expiry", expiry)
-        pulumi.set(__self__, "is_verified", is_verified)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "thumbprint", thumbprint)
-        pulumi.set(__self__, "updated", updated)
+        CertificatePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created=created,
+            expiry=expiry,
+            is_verified=is_verified,
+            subject=subject,
+            thumbprint=thumbprint,
+            updated=updated,
+            certificate=certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created: str,
+             expiry: str,
+             is_verified: bool,
+             subject: str,
+             thumbprint: str,
+             updated: str,
+             certificate: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isVerified' in kwargs:
+            is_verified = kwargs['isVerified']
+
+        _setter("created", created)
+        _setter("expiry", expiry)
+        _setter("is_verified", is_verified)
+        _setter("subject", subject)
+        _setter("thumbprint", thumbprint)
+        _setter("updated", updated)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -42,23 +42,56 @@ class AcsClusterPropertiesArgs:
         :param pulumi.Input['KubernetesClusterPropertiesArgs'] orchestrator_properties: Orchestrator specific properties
         :param pulumi.Input[Sequence[pulumi.Input['SystemServiceArgs']]] system_services: The system services deployed to the cluster
         """
-        pulumi.set(__self__, "orchestrator_type", orchestrator_type)
+        AcsClusterPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            orchestrator_type=orchestrator_type,
+            agent_count=agent_count,
+            agent_vm_size=agent_vm_size,
+            master_count=master_count,
+            orchestrator_properties=orchestrator_properties,
+            system_services=system_services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             orchestrator_type: pulumi.Input[Union[str, 'OrchestratorType']],
+             agent_count: Optional[pulumi.Input[int]] = None,
+             agent_vm_size: Optional[pulumi.Input[Union[str, 'AgentVMSizeTypes']]] = None,
+             master_count: Optional[pulumi.Input[int]] = None,
+             orchestrator_properties: Optional[pulumi.Input['KubernetesClusterPropertiesArgs']] = None,
+             system_services: Optional[pulumi.Input[Sequence[pulumi.Input['SystemServiceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'orchestratorType' in kwargs:
+            orchestrator_type = kwargs['orchestratorType']
+        if 'agentCount' in kwargs:
+            agent_count = kwargs['agentCount']
+        if 'agentVmSize' in kwargs:
+            agent_vm_size = kwargs['agentVmSize']
+        if 'masterCount' in kwargs:
+            master_count = kwargs['masterCount']
+        if 'orchestratorProperties' in kwargs:
+            orchestrator_properties = kwargs['orchestratorProperties']
+        if 'systemServices' in kwargs:
+            system_services = kwargs['systemServices']
+
+        _setter("orchestrator_type", orchestrator_type)
         if agent_count is None:
             agent_count = 2
         if agent_count is not None:
-            pulumi.set(__self__, "agent_count", agent_count)
+            _setter("agent_count", agent_count)
         if agent_vm_size is None:
             agent_vm_size = 'Standard_D3_v2'
         if agent_vm_size is not None:
-            pulumi.set(__self__, "agent_vm_size", agent_vm_size)
+            _setter("agent_vm_size", agent_vm_size)
         if master_count is None:
             master_count = 1
         if master_count is not None:
-            pulumi.set(__self__, "master_count", master_count)
+            _setter("master_count", master_count)
         if orchestrator_properties is not None:
-            pulumi.set(__self__, "orchestrator_properties", orchestrator_properties)
+            _setter("orchestrator_properties", orchestrator_properties)
         if system_services is not None:
-            pulumi.set(__self__, "system_services", system_services)
+            _setter("system_services", system_services)
 
     @property
     @pulumi.getter(name="orchestratorType")
@@ -141,8 +174,21 @@ class AppInsightsPropertiesArgs:
         Properties of App Insights.
         :param pulumi.Input[str] resource_id: ARM resource ID of the App Insights.
         """
+        AppInsightsPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -173,22 +219,49 @@ class AutoScaleConfigurationArgs:
         :param pulumi.Input[Union[str, 'Status']] status: If auto-scale is enabled for all services. Each service can turn it off individually.
         :param pulumi.Input[float] target_utilization: The target utilization.
         """
+        AutoScaleConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_replicas=max_replicas,
+            min_replicas=min_replicas,
+            refresh_period_in_seconds=refresh_period_in_seconds,
+            status=status,
+            target_utilization=target_utilization,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_replicas: Optional[pulumi.Input[int]] = None,
+             min_replicas: Optional[pulumi.Input[int]] = None,
+             refresh_period_in_seconds: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
+             target_utilization: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxReplicas' in kwargs:
+            max_replicas = kwargs['maxReplicas']
+        if 'minReplicas' in kwargs:
+            min_replicas = kwargs['minReplicas']
+        if 'refreshPeriodInSeconds' in kwargs:
+            refresh_period_in_seconds = kwargs['refreshPeriodInSeconds']
+        if 'targetUtilization' in kwargs:
+            target_utilization = kwargs['targetUtilization']
+
         if max_replicas is None:
             max_replicas = 100
         if max_replicas is not None:
-            pulumi.set(__self__, "max_replicas", max_replicas)
+            _setter("max_replicas", max_replicas)
         if min_replicas is None:
             min_replicas = 1
         if min_replicas is not None:
-            pulumi.set(__self__, "min_replicas", min_replicas)
+            _setter("min_replicas", min_replicas)
         if refresh_period_in_seconds is not None:
-            pulumi.set(__self__, "refresh_period_in_seconds", refresh_period_in_seconds)
+            _setter("refresh_period_in_seconds", refresh_period_in_seconds)
         if status is None:
             status = 'Disabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if target_utilization is not None:
-            pulumi.set(__self__, "target_utilization", target_utilization)
+            _setter("target_utilization", target_utilization)
 
     @property
     @pulumi.getter(name="maxReplicas")
@@ -259,8 +332,21 @@ class ContainerRegistryPropertiesArgs:
         Properties of Azure Container Registry.
         :param pulumi.Input[str] resource_id: ARM resource ID of the Azure Container Registry used to store Docker images for web services in the cluster. If not provided one will be created. This cannot be changed once the cluster is created.
         """
+        ContainerRegistryPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -289,14 +375,35 @@ class GlobalServiceConfigurationArgs:
         :param pulumi.Input['ServiceAuthConfigurationArgs'] service_auth: Optional global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
         :param pulumi.Input['SslConfigurationArgs'] ssl: The SSL configuration properties
         """
+        GlobalServiceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_scale=auto_scale,
+            etag=etag,
+            service_auth=service_auth,
+            ssl=ssl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_scale: Optional[pulumi.Input['AutoScaleConfigurationArgs']] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             service_auth: Optional[pulumi.Input['ServiceAuthConfigurationArgs']] = None,
+             ssl: Optional[pulumi.Input['SslConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoScale' in kwargs:
+            auto_scale = kwargs['autoScale']
+        if 'serviceAuth' in kwargs:
+            service_auth = kwargs['serviceAuth']
+
         if auto_scale is not None:
-            pulumi.set(__self__, "auto_scale", auto_scale)
+            _setter("auto_scale", auto_scale)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if service_auth is not None:
-            pulumi.set(__self__, "service_auth", service_auth)
+            _setter("service_auth", service_auth)
         if ssl is not None:
-            pulumi.set(__self__, "ssl", ssl)
+            _setter("ssl", ssl)
 
     @property
     @pulumi.getter(name="autoScale")
@@ -355,8 +462,21 @@ class KubernetesClusterPropertiesArgs:
         Kubernetes cluster specific properties
         :param pulumi.Input['ServicePrincipalPropertiesArgs'] service_principal: The Azure Service Principal used by Kubernetes
         """
+        KubernetesClusterPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_principal=service_principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_principal: Optional[pulumi.Input['ServicePrincipalPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'servicePrincipal' in kwargs:
+            service_principal = kwargs['servicePrincipal']
+
         if service_principal is not None:
-            pulumi.set(__self__, "service_principal", service_principal)
+            _setter("service_principal", service_principal)
 
     @property
     @pulumi.getter(name="servicePrincipal")
@@ -381,8 +501,25 @@ class ServiceAuthConfigurationArgs:
         :param pulumi.Input[str] primary_auth_key_hash: The primary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
         :param pulumi.Input[str] secondary_auth_key_hash: The secondary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
         """
-        pulumi.set(__self__, "primary_auth_key_hash", primary_auth_key_hash)
-        pulumi.set(__self__, "secondary_auth_key_hash", secondary_auth_key_hash)
+        ServiceAuthConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary_auth_key_hash=primary_auth_key_hash,
+            secondary_auth_key_hash=secondary_auth_key_hash,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary_auth_key_hash: pulumi.Input[str],
+             secondary_auth_key_hash: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'primaryAuthKeyHash' in kwargs:
+            primary_auth_key_hash = kwargs['primaryAuthKeyHash']
+        if 'secondaryAuthKeyHash' in kwargs:
+            secondary_auth_key_hash = kwargs['secondaryAuthKeyHash']
+
+        _setter("primary_auth_key_hash", primary_auth_key_hash)
+        _setter("secondary_auth_key_hash", secondary_auth_key_hash)
 
     @property
     @pulumi.getter(name="primaryAuthKeyHash")
@@ -419,8 +556,23 @@ class ServicePrincipalPropertiesArgs:
         :param pulumi.Input[str] client_id: The service principal client ID
         :param pulumi.Input[str] secret: The service principal secret. This is not returned in response of GET/PUT on the resource. To see this please call listKeys.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "secret", secret)
+        ServicePrincipalPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
+        _setter("client_id", client_id)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter(name="clientId")
@@ -461,16 +613,33 @@ class SslConfigurationArgs:
         :param pulumi.Input[str] key: The SSL key data in PEM format. This is not returned in response of GET/PUT on the resource. To see this please call listKeys API.
         :param pulumi.Input[Union[str, 'Status']] status: SSL status. Allowed values are Enabled and Disabled.
         """
+        SslConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cert=cert,
+            cname=cname,
+            key=key,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cert: Optional[pulumi.Input[str]] = None,
+             cname: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cert is not None:
-            pulumi.set(__self__, "cert", cert)
+            _setter("cert", cert)
         if cname is not None:
-            pulumi.set(__self__, "cname", cname)
+            _setter("cname", cname)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if status is None:
             status = 'Enabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -529,8 +698,21 @@ class StorageAccountPropertiesArgs:
         Properties of Storage Account.
         :param pulumi.Input[str] resource_id: ARM resource ID of the Azure Storage Account to store CLI specific files. If not provided one will be created. This cannot be changed once the cluster is created.
         """
+        StorageAccountPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -553,7 +735,20 @@ class SystemServiceArgs:
         Information about a system service deployed in the cluster
         :param pulumi.Input[Union[str, 'SystemServiceType']] system_service_type: The system service type
         """
-        pulumi.set(__self__, "system_service_type", system_service_type)
+        SystemServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            system_service_type=system_service_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             system_service_type: pulumi.Input[Union[str, 'SystemServiceType']],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'systemServiceType' in kwargs:
+            system_service_type = kwargs['systemServiceType']
+
+        _setter("system_service_type", system_service_type)
 
     @property
     @pulumi.getter(name="systemServiceType")

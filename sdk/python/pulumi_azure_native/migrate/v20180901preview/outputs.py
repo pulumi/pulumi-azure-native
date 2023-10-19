@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -63,13 +63,38 @@ class DatabaseProjectSummaryResponse(dict):
         :param str last_summary_refreshed_time: Gets or sets the time when summary was last refreshed.
         :param str refresh_summary_state: Gets or sets the state of refresh summary.
         """
-        pulumi.set(__self__, "instance_type", 'Databases')
+        DatabaseProjectSummaryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            extended_summary=extended_summary,
+            last_summary_refreshed_time=last_summary_refreshed_time,
+            refresh_summary_state=refresh_summary_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             extended_summary: Optional[Mapping[str, str]] = None,
+             last_summary_refreshed_time: Optional[str] = None,
+             refresh_summary_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'extendedSummary' in kwargs:
+            extended_summary = kwargs['extendedSummary']
+        if 'lastSummaryRefreshedTime' in kwargs:
+            last_summary_refreshed_time = kwargs['lastSummaryRefreshedTime']
+        if 'refreshSummaryState' in kwargs:
+            refresh_summary_state = kwargs['refreshSummaryState']
+
+        _setter("instance_type", 'Databases')
         if extended_summary is not None:
-            pulumi.set(__self__, "extended_summary", extended_summary)
+            _setter("extended_summary", extended_summary)
         if last_summary_refreshed_time is not None:
-            pulumi.set(__self__, "last_summary_refreshed_time", last_summary_refreshed_time)
+            _setter("last_summary_refreshed_time", last_summary_refreshed_time)
         if refresh_summary_state is not None:
-            pulumi.set(__self__, "refresh_summary_state", refresh_summary_state)
+            _setter("refresh_summary_state", refresh_summary_state)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -146,13 +171,38 @@ class DatabasesSolutionSummaryResponse(dict):
         :param int databases_assessed_count: Gets or sets the count of databases assessed.
         :param int migration_ready_count: Gets or sets the count of databases ready for migration.
         """
-        pulumi.set(__self__, "instance_type", 'Databases')
+        DatabasesSolutionSummaryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            database_instances_assessed_count=database_instances_assessed_count,
+            databases_assessed_count=databases_assessed_count,
+            migration_ready_count=migration_ready_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             database_instances_assessed_count: Optional[int] = None,
+             databases_assessed_count: Optional[int] = None,
+             migration_ready_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'databaseInstancesAssessedCount' in kwargs:
+            database_instances_assessed_count = kwargs['databaseInstancesAssessedCount']
+        if 'databasesAssessedCount' in kwargs:
+            databases_assessed_count = kwargs['databasesAssessedCount']
+        if 'migrationReadyCount' in kwargs:
+            migration_ready_count = kwargs['migrationReadyCount']
+
+        _setter("instance_type", 'Databases')
         if database_instances_assessed_count is not None:
-            pulumi.set(__self__, "database_instances_assessed_count", database_instances_assessed_count)
+            _setter("database_instances_assessed_count", database_instances_assessed_count)
         if databases_assessed_count is not None:
-            pulumi.set(__self__, "databases_assessed_count", databases_assessed_count)
+            _setter("databases_assessed_count", databases_assessed_count)
         if migration_ready_count is not None:
-            pulumi.set(__self__, "migration_ready_count", migration_ready_count)
+            _setter("migration_ready_count", migration_ready_count)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -230,13 +280,40 @@ class MigrateProjectPropertiesResponse(dict):
         :param str provisioning_state: Provisioning state of the migrate project.
         :param Sequence[str] registered_tools: Gets or sets the list of tools registered with the migrate project.
         """
-        pulumi.set(__self__, "last_summary_refreshed_time", last_summary_refreshed_time)
-        pulumi.set(__self__, "refresh_summary_state", refresh_summary_state)
-        pulumi.set(__self__, "summary", summary)
+        MigrateProjectPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_summary_refreshed_time=last_summary_refreshed_time,
+            refresh_summary_state=refresh_summary_state,
+            summary=summary,
+            provisioning_state=provisioning_state,
+            registered_tools=registered_tools,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_summary_refreshed_time: str,
+             refresh_summary_state: str,
+             summary: Mapping[str, Any],
+             provisioning_state: Optional[str] = None,
+             registered_tools: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastSummaryRefreshedTime' in kwargs:
+            last_summary_refreshed_time = kwargs['lastSummaryRefreshedTime']
+        if 'refreshSummaryState' in kwargs:
+            refresh_summary_state = kwargs['refreshSummaryState']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'registeredTools' in kwargs:
+            registered_tools = kwargs['registeredTools']
+
+        _setter("last_summary_refreshed_time", last_summary_refreshed_time)
+        _setter("refresh_summary_state", refresh_summary_state)
+        _setter("summary", summary)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if registered_tools is not None:
-            pulumi.set(__self__, "registered_tools", registered_tools)
+            _setter("registered_tools", registered_tools)
 
     @property
     @pulumi.getter(name="lastSummaryRefreshedTime")
@@ -306,8 +383,21 @@ class MigrateProjectResponseTags(dict):
         """
         Gets or sets the tags.
         """
+        MigrateProjectResponseTags._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_properties=additional_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_properties: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -376,23 +466,68 @@ class ServersProjectSummaryResponse(dict):
         :param int replicating_count: Gets or sets the count of entities being replicated.
         :param int test_migrated_count: Gets or sets the count of entities test migrated.
         """
-        pulumi.set(__self__, "instance_type", 'Servers')
+        ServersProjectSummaryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            assessed_count=assessed_count,
+            discovered_count=discovered_count,
+            extended_summary=extended_summary,
+            last_summary_refreshed_time=last_summary_refreshed_time,
+            migrated_count=migrated_count,
+            refresh_summary_state=refresh_summary_state,
+            replicating_count=replicating_count,
+            test_migrated_count=test_migrated_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             assessed_count: Optional[int] = None,
+             discovered_count: Optional[int] = None,
+             extended_summary: Optional[Mapping[str, str]] = None,
+             last_summary_refreshed_time: Optional[str] = None,
+             migrated_count: Optional[int] = None,
+             refresh_summary_state: Optional[str] = None,
+             replicating_count: Optional[int] = None,
+             test_migrated_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'assessedCount' in kwargs:
+            assessed_count = kwargs['assessedCount']
+        if 'discoveredCount' in kwargs:
+            discovered_count = kwargs['discoveredCount']
+        if 'extendedSummary' in kwargs:
+            extended_summary = kwargs['extendedSummary']
+        if 'lastSummaryRefreshedTime' in kwargs:
+            last_summary_refreshed_time = kwargs['lastSummaryRefreshedTime']
+        if 'migratedCount' in kwargs:
+            migrated_count = kwargs['migratedCount']
+        if 'refreshSummaryState' in kwargs:
+            refresh_summary_state = kwargs['refreshSummaryState']
+        if 'replicatingCount' in kwargs:
+            replicating_count = kwargs['replicatingCount']
+        if 'testMigratedCount' in kwargs:
+            test_migrated_count = kwargs['testMigratedCount']
+
+        _setter("instance_type", 'Servers')
         if assessed_count is not None:
-            pulumi.set(__self__, "assessed_count", assessed_count)
+            _setter("assessed_count", assessed_count)
         if discovered_count is not None:
-            pulumi.set(__self__, "discovered_count", discovered_count)
+            _setter("discovered_count", discovered_count)
         if extended_summary is not None:
-            pulumi.set(__self__, "extended_summary", extended_summary)
+            _setter("extended_summary", extended_summary)
         if last_summary_refreshed_time is not None:
-            pulumi.set(__self__, "last_summary_refreshed_time", last_summary_refreshed_time)
+            _setter("last_summary_refreshed_time", last_summary_refreshed_time)
         if migrated_count is not None:
-            pulumi.set(__self__, "migrated_count", migrated_count)
+            _setter("migrated_count", migrated_count)
         if refresh_summary_state is not None:
-            pulumi.set(__self__, "refresh_summary_state", refresh_summary_state)
+            _setter("refresh_summary_state", refresh_summary_state)
         if replicating_count is not None:
-            pulumi.set(__self__, "replicating_count", replicating_count)
+            _setter("replicating_count", replicating_count)
         if test_migrated_count is not None:
-            pulumi.set(__self__, "test_migrated_count", test_migrated_count)
+            _setter("test_migrated_count", test_migrated_count)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -517,17 +652,50 @@ class ServersSolutionSummaryResponse(dict):
         :param int replicating_count: Gets or sets the count of servers being replicated.
         :param int test_migrated_count: Gets or sets the count of servers test migrated.
         """
-        pulumi.set(__self__, "instance_type", 'Servers')
+        ServersSolutionSummaryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            assessed_count=assessed_count,
+            discovered_count=discovered_count,
+            migrated_count=migrated_count,
+            replicating_count=replicating_count,
+            test_migrated_count=test_migrated_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             assessed_count: Optional[int] = None,
+             discovered_count: Optional[int] = None,
+             migrated_count: Optional[int] = None,
+             replicating_count: Optional[int] = None,
+             test_migrated_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'assessedCount' in kwargs:
+            assessed_count = kwargs['assessedCount']
+        if 'discoveredCount' in kwargs:
+            discovered_count = kwargs['discoveredCount']
+        if 'migratedCount' in kwargs:
+            migrated_count = kwargs['migratedCount']
+        if 'replicatingCount' in kwargs:
+            replicating_count = kwargs['replicatingCount']
+        if 'testMigratedCount' in kwargs:
+            test_migrated_count = kwargs['testMigratedCount']
+
+        _setter("instance_type", 'Servers')
         if assessed_count is not None:
-            pulumi.set(__self__, "assessed_count", assessed_count)
+            _setter("assessed_count", assessed_count)
         if discovered_count is not None:
-            pulumi.set(__self__, "discovered_count", discovered_count)
+            _setter("discovered_count", discovered_count)
         if migrated_count is not None:
-            pulumi.set(__self__, "migrated_count", migrated_count)
+            _setter("migrated_count", migrated_count)
         if replicating_count is not None:
-            pulumi.set(__self__, "replicating_count", replicating_count)
+            _setter("replicating_count", replicating_count)
         if test_migrated_count is not None:
-            pulumi.set(__self__, "test_migrated_count", test_migrated_count)
+            _setter("test_migrated_count", test_migrated_count)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -615,12 +783,33 @@ class SolutionDetailsResponse(dict):
         :param Mapping[str, str] extended_details: Gets or sets the extended details reported by the solution.
         :param int group_count: Gets or sets the count of groups reported by the solution.
         """
+        SolutionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_count=assessment_count,
+            extended_details=extended_details,
+            group_count=group_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_count: Optional[int] = None,
+             extended_details: Optional[Mapping[str, str]] = None,
+             group_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assessmentCount' in kwargs:
+            assessment_count = kwargs['assessmentCount']
+        if 'extendedDetails' in kwargs:
+            extended_details = kwargs['extendedDetails']
+        if 'groupCount' in kwargs:
+            group_count = kwargs['groupCount']
+
         if assessment_count is not None:
-            pulumi.set(__self__, "assessment_count", assessment_count)
+            _setter("assessment_count", assessment_count)
         if extended_details is not None:
-            pulumi.set(__self__, "extended_details", extended_details)
+            _setter("extended_details", extended_details)
         if group_count is not None:
-            pulumi.set(__self__, "group_count", group_count)
+            _setter("group_count", group_count)
 
     @property
     @pulumi.getter(name="assessmentCount")
@@ -687,20 +876,45 @@ class SolutionPropertiesResponse(dict):
         :param Union['DatabasesSolutionSummaryResponse', 'ServersSolutionSummaryResponse'] summary: Gets or sets the summary of the solution.
         :param str tool: Gets or sets the tool being used in the solution.
         """
+        SolutionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cleanup_state=cleanup_state,
+            details=details,
+            goal=goal,
+            purpose=purpose,
+            status=status,
+            summary=summary,
+            tool=tool,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cleanup_state: Optional[str] = None,
+             details: Optional['outputs.SolutionDetailsResponse'] = None,
+             goal: Optional[str] = None,
+             purpose: Optional[str] = None,
+             status: Optional[str] = None,
+             summary: Optional[Any] = None,
+             tool: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cleanupState' in kwargs:
+            cleanup_state = kwargs['cleanupState']
+
         if cleanup_state is not None:
-            pulumi.set(__self__, "cleanup_state", cleanup_state)
+            _setter("cleanup_state", cleanup_state)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if goal is not None:
-            pulumi.set(__self__, "goal", goal)
+            _setter("goal", goal)
         if purpose is not None:
-            pulumi.set(__self__, "purpose", purpose)
+            _setter("purpose", purpose)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
         if tool is not None:
-            pulumi.set(__self__, "tool", tool)
+            _setter("tool", tool)
 
     @property
     @pulumi.getter(name="cleanupState")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,23 +42,68 @@ class ScheduleArgs:
         :param pulumi.Input[str] schedule_name: The schedule name.
         :param pulumi.Input[str] time_zone: Gets or sets the time zone of the schedule.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "frequency", frequency)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "start_time", start_time)
+        ScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            frequency=frequency,
+            name=name,
+            resource_group_name=resource_group_name,
+            start_time=start_time,
+            advanced_schedule=advanced_schedule,
+            description=description,
+            expiry_time=expiry_time,
+            interval=interval,
+            schedule_name=schedule_name,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: pulumi.Input[str],
+             frequency: pulumi.Input[Union[str, 'ScheduleFrequency']],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             start_time: pulumi.Input[str],
+             advanced_schedule: Optional[pulumi.Input['AdvancedScheduleArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             expiry_time: Optional[pulumi.Input[str]] = None,
+             interval: Optional[Any] = None,
+             schedule_name: Optional[pulumi.Input[str]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'advancedSchedule' in kwargs:
+            advanced_schedule = kwargs['advancedSchedule']
+        if 'expiryTime' in kwargs:
+            expiry_time = kwargs['expiryTime']
+        if 'scheduleName' in kwargs:
+            schedule_name = kwargs['scheduleName']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("automation_account_name", automation_account_name)
+        _setter("frequency", frequency)
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("start_time", start_time)
         if advanced_schedule is not None:
-            pulumi.set(__self__, "advanced_schedule", advanced_schedule)
+            _setter("advanced_schedule", advanced_schedule)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if expiry_time is not None:
-            pulumi.set(__self__, "expiry_time", expiry_time)
+            _setter("expiry_time", expiry_time)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if schedule_name is not None:
-            pulumi.set(__self__, "schedule_name", schedule_name)
+            _setter("schedule_name", schedule_name)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -248,6 +293,10 @@ class Schedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -273,6 +322,11 @@ class Schedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ScheduleArgs.__new__(ScheduleArgs)
 
+            if advanced_schedule is not None and not isinstance(advanced_schedule, AdvancedScheduleArgs):
+                advanced_schedule = advanced_schedule or {}
+                def _setter(key, value):
+                    advanced_schedule[key] = value
+                AdvancedScheduleArgs._configure(_setter, **advanced_schedule)
             __props__.__dict__["advanced_schedule"] = advanced_schedule
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")

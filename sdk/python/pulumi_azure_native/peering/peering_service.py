@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,23 +37,62 @@ class PeeringServiceArgs:
         :param pulumi.Input['PeeringServiceSkuArgs'] sku: The SKU that defines the type of the peering service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PeeringServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            location=location,
+            peering_service_location=peering_service_location,
+            peering_service_name=peering_service_name,
+            peering_service_provider=peering_service_provider,
+            provider_backup_peering_location=provider_backup_peering_location,
+            provider_primary_peering_location=provider_primary_peering_location,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             peering_service_location: Optional[pulumi.Input[str]] = None,
+             peering_service_name: Optional[pulumi.Input[str]] = None,
+             peering_service_provider: Optional[pulumi.Input[str]] = None,
+             provider_backup_peering_location: Optional[pulumi.Input[str]] = None,
+             provider_primary_peering_location: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['PeeringServiceSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'peeringServiceLocation' in kwargs:
+            peering_service_location = kwargs['peeringServiceLocation']
+        if 'peeringServiceName' in kwargs:
+            peering_service_name = kwargs['peeringServiceName']
+        if 'peeringServiceProvider' in kwargs:
+            peering_service_provider = kwargs['peeringServiceProvider']
+        if 'providerBackupPeeringLocation' in kwargs:
+            provider_backup_peering_location = kwargs['providerBackupPeeringLocation']
+        if 'providerPrimaryPeeringLocation' in kwargs:
+            provider_primary_peering_location = kwargs['providerPrimaryPeeringLocation']
+
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if peering_service_location is not None:
-            pulumi.set(__self__, "peering_service_location", peering_service_location)
+            _setter("peering_service_location", peering_service_location)
         if peering_service_name is not None:
-            pulumi.set(__self__, "peering_service_name", peering_service_name)
+            _setter("peering_service_name", peering_service_name)
         if peering_service_provider is not None:
-            pulumi.set(__self__, "peering_service_provider", peering_service_provider)
+            _setter("peering_service_provider", peering_service_provider)
         if provider_backup_peering_location is not None:
-            pulumi.set(__self__, "provider_backup_peering_location", provider_backup_peering_location)
+            _setter("provider_backup_peering_location", provider_backup_peering_location)
         if provider_primary_peering_location is not None:
-            pulumi.set(__self__, "provider_primary_peering_location", provider_primary_peering_location)
+            _setter("provider_primary_peering_location", provider_primary_peering_location)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -215,6 +254,10 @@ class PeeringService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PeeringServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -247,6 +290,11 @@ class PeeringService(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, PeeringServiceSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                PeeringServiceSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["log_analytics_workspace_properties"] = None

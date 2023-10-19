@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -85,8 +85,23 @@ class AdditionalConfigurationResponse(dict):
         :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy of the product which uniquely identifies the configuration.
         :param int quantity: Quantity of the product.
         """
-        pulumi.set(__self__, "hierarchy_information", hierarchy_information)
-        pulumi.set(__self__, "quantity", quantity)
+        AdditionalConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hierarchy_information=hierarchy_information,
+            quantity=quantity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hierarchy_information: 'outputs.HierarchyInformationResponse',
+             quantity: int,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hierarchyInformation' in kwargs:
+            hierarchy_information = kwargs['hierarchyInformation']
+
+        _setter("hierarchy_information", hierarchy_information)
+        _setter("quantity", quantity)
 
     @property
     @pulumi.getter(name="hierarchyInformation")
@@ -137,8 +152,25 @@ class AddressDetailsResponse(dict):
         :param 'AddressPropertiesResponse' forward_address: Customer address and contact details. It should be address resource
         :param 'AddressPropertiesResponse' return_address: Return shipping address
         """
-        pulumi.set(__self__, "forward_address", forward_address)
-        pulumi.set(__self__, "return_address", return_address)
+        AddressDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            forward_address=forward_address,
+            return_address=return_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             forward_address: 'outputs.AddressPropertiesResponse',
+             return_address: 'outputs.AddressPropertiesResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'forwardAddress' in kwargs:
+            forward_address = kwargs['forwardAddress']
+        if 'returnAddress' in kwargs:
+            return_address = kwargs['returnAddress']
+
+        _setter("forward_address", forward_address)
+        _setter("return_address", return_address)
 
     @property
     @pulumi.getter(name="forwardAddress")
@@ -193,10 +225,31 @@ class AddressPropertiesResponse(dict):
         :param 'ContactDetailsResponse' contact_details: Contact details for the address
         :param 'ShippingAddressResponse' shipping_address: Shipping details for the address
         """
-        pulumi.set(__self__, "address_validation_status", address_validation_status)
-        pulumi.set(__self__, "contact_details", contact_details)
+        AddressPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_validation_status=address_validation_status,
+            contact_details=contact_details,
+            shipping_address=shipping_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_validation_status: str,
+             contact_details: 'outputs.ContactDetailsResponse',
+             shipping_address: Optional['outputs.ShippingAddressResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressValidationStatus' in kwargs:
+            address_validation_status = kwargs['addressValidationStatus']
+        if 'contactDetails' in kwargs:
+            contact_details = kwargs['contactDetails']
+        if 'shippingAddress' in kwargs:
+            shipping_address = kwargs['shippingAddress']
+
+        _setter("address_validation_status", address_validation_status)
+        _setter("contact_details", contact_details)
         if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+            _setter("shipping_address", shipping_address)
 
     @property
     @pulumi.getter(name="addressValidationStatus")
@@ -238,9 +291,30 @@ class AvailabilityInformationResponse(dict):
         :param str disabled_reason: Reason why the product is disabled.
         :param str disabled_reason_message: Message for why the product is disabled.
         """
-        pulumi.set(__self__, "availability_stage", availability_stage)
-        pulumi.set(__self__, "disabled_reason", disabled_reason)
-        pulumi.set(__self__, "disabled_reason_message", disabled_reason_message)
+        AvailabilityInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_stage=availability_stage,
+            disabled_reason=disabled_reason,
+            disabled_reason_message=disabled_reason_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_stage: str,
+             disabled_reason: str,
+             disabled_reason_message: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityStage' in kwargs:
+            availability_stage = kwargs['availabilityStage']
+        if 'disabledReason' in kwargs:
+            disabled_reason = kwargs['disabledReason']
+        if 'disabledReasonMessage' in kwargs:
+            disabled_reason_message = kwargs['disabledReasonMessage']
+
+        _setter("availability_stage", availability_stage)
+        _setter("disabled_reason", disabled_reason)
+        _setter("disabled_reason_message", disabled_reason_message)
 
     @property
     @pulumi.getter(name="availabilityStage")
@@ -284,10 +358,31 @@ class BillingMeterDetailsResponse(dict):
         :param str metering_type: Represents Metering type (eg one-time or recurrent).
         :param str name: Represents Billing type name.
         """
-        pulumi.set(__self__, "frequency", frequency)
-        pulumi.set(__self__, "meter_details", meter_details)
-        pulumi.set(__self__, "metering_type", metering_type)
-        pulumi.set(__self__, "name", name)
+        BillingMeterDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            frequency=frequency,
+            meter_details=meter_details,
+            metering_type=metering_type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             frequency: str,
+             meter_details: Any,
+             metering_type: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'meterDetails' in kwargs:
+            meter_details = kwargs['meterDetails']
+        if 'meteringType' in kwargs:
+            metering_type = kwargs['meteringType']
+
+        _setter("frequency", frequency)
+        _setter("meter_details", meter_details)
+        _setter("metering_type", metering_type)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -339,14 +434,35 @@ class CategoryInformationResponse(dict):
         :param str description: Description text for the category.
         :param Sequence['LinkResponse'] links: Links for the category.
         """
+        CategoryInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category_display_name=category_display_name,
+            category_name=category_name,
+            description=description,
+            links=links,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category_display_name: Optional[str] = None,
+             category_name: Optional[str] = None,
+             description: Optional[str] = None,
+             links: Optional[Sequence['outputs.LinkResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'categoryDisplayName' in kwargs:
+            category_display_name = kwargs['categoryDisplayName']
+        if 'categoryName' in kwargs:
+            category_name = kwargs['categoryName']
+
         if category_display_name is not None:
-            pulumi.set(__self__, "category_display_name", category_display_name)
+            _setter("category_display_name", category_display_name)
         if category_name is not None:
-            pulumi.set(__self__, "category_name", category_name)
+            _setter("category_name", category_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if links is not None:
-            pulumi.set(__self__, "links", links)
+            _setter("links", links)
 
     @property
     @pulumi.getter(name="categoryDisplayName")
@@ -422,22 +538,89 @@ class ChildConfigurationResponse(dict):
         :param int minimum_quantity: Minimum quantity a customer can order while choosing this configuration.
         :param Sequence['SpecificationResponse'] specifications: Specifications of the configuration.
         """
-        pulumi.set(__self__, "availability_information", availability_information)
-        pulumi.set(__self__, "child_configuration_type", child_configuration_type)
-        pulumi.set(__self__, "child_configuration_types", child_configuration_types)
-        pulumi.set(__self__, "cost_information", cost_information)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "dimensions", dimensions)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "filterable_properties", filterable_properties)
-        pulumi.set(__self__, "fulfilled_by", fulfilled_by)
-        pulumi.set(__self__, "grouped_child_configurations", grouped_child_configurations)
-        pulumi.set(__self__, "hierarchy_information", hierarchy_information)
-        pulumi.set(__self__, "image_information", image_information)
-        pulumi.set(__self__, "is_part_of_base_configuration", is_part_of_base_configuration)
-        pulumi.set(__self__, "maximum_quantity", maximum_quantity)
-        pulumi.set(__self__, "minimum_quantity", minimum_quantity)
-        pulumi.set(__self__, "specifications", specifications)
+        ChildConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_information=availability_information,
+            child_configuration_type=child_configuration_type,
+            child_configuration_types=child_configuration_types,
+            cost_information=cost_information,
+            description=description,
+            dimensions=dimensions,
+            display_name=display_name,
+            filterable_properties=filterable_properties,
+            fulfilled_by=fulfilled_by,
+            grouped_child_configurations=grouped_child_configurations,
+            hierarchy_information=hierarchy_information,
+            image_information=image_information,
+            is_part_of_base_configuration=is_part_of_base_configuration,
+            maximum_quantity=maximum_quantity,
+            minimum_quantity=minimum_quantity,
+            specifications=specifications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_information: 'outputs.AvailabilityInformationResponse',
+             child_configuration_type: str,
+             child_configuration_types: Sequence[str],
+             cost_information: 'outputs.CostInformationResponse',
+             description: 'outputs.DescriptionResponse',
+             dimensions: 'outputs.DimensionsResponse',
+             display_name: str,
+             filterable_properties: Sequence['outputs.FilterablePropertyResponse'],
+             fulfilled_by: str,
+             grouped_child_configurations: Sequence['outputs.GroupedChildConfigurationsResponse'],
+             hierarchy_information: 'outputs.HierarchyInformationResponse',
+             image_information: Sequence['outputs.ImageInformationResponse'],
+             is_part_of_base_configuration: bool,
+             maximum_quantity: int,
+             minimum_quantity: int,
+             specifications: Sequence['outputs.SpecificationResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityInformation' in kwargs:
+            availability_information = kwargs['availabilityInformation']
+        if 'childConfigurationType' in kwargs:
+            child_configuration_type = kwargs['childConfigurationType']
+        if 'childConfigurationTypes' in kwargs:
+            child_configuration_types = kwargs['childConfigurationTypes']
+        if 'costInformation' in kwargs:
+            cost_information = kwargs['costInformation']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'filterableProperties' in kwargs:
+            filterable_properties = kwargs['filterableProperties']
+        if 'fulfilledBy' in kwargs:
+            fulfilled_by = kwargs['fulfilledBy']
+        if 'groupedChildConfigurations' in kwargs:
+            grouped_child_configurations = kwargs['groupedChildConfigurations']
+        if 'hierarchyInformation' in kwargs:
+            hierarchy_information = kwargs['hierarchyInformation']
+        if 'imageInformation' in kwargs:
+            image_information = kwargs['imageInformation']
+        if 'isPartOfBaseConfiguration' in kwargs:
+            is_part_of_base_configuration = kwargs['isPartOfBaseConfiguration']
+        if 'maximumQuantity' in kwargs:
+            maximum_quantity = kwargs['maximumQuantity']
+        if 'minimumQuantity' in kwargs:
+            minimum_quantity = kwargs['minimumQuantity']
+
+        _setter("availability_information", availability_information)
+        _setter("child_configuration_type", child_configuration_type)
+        _setter("child_configuration_types", child_configuration_types)
+        _setter("cost_information", cost_information)
+        _setter("description", description)
+        _setter("dimensions", dimensions)
+        _setter("display_name", display_name)
+        _setter("filterable_properties", filterable_properties)
+        _setter("fulfilled_by", fulfilled_by)
+        _setter("grouped_child_configurations", grouped_child_configurations)
+        _setter("hierarchy_information", hierarchy_information)
+        _setter("image_information", image_information)
+        _setter("is_part_of_base_configuration", is_part_of_base_configuration)
+        _setter("maximum_quantity", maximum_quantity)
+        _setter("minimum_quantity", minimum_quantity)
+        _setter("specifications", specifications)
 
     @property
     @pulumi.getter(name="availabilityInformation")
@@ -610,12 +793,39 @@ class ConfigurationDeviceDetailsResponse(dict):
         :param int quantity: Quantity of the product.
         :param 'DisplayInfoResponse' display_info: Display details of the product.
         """
-        pulumi.set(__self__, "device_details", device_details)
-        pulumi.set(__self__, "hierarchy_information", hierarchy_information)
-        pulumi.set(__self__, "identification_type", identification_type)
-        pulumi.set(__self__, "quantity", quantity)
+        ConfigurationDeviceDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_details=device_details,
+            hierarchy_information=hierarchy_information,
+            identification_type=identification_type,
+            quantity=quantity,
+            display_info=display_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_details: Sequence['outputs.DeviceDetailsResponse'],
+             hierarchy_information: 'outputs.HierarchyInformationResponse',
+             identification_type: str,
+             quantity: int,
+             display_info: Optional['outputs.DisplayInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceDetails' in kwargs:
+            device_details = kwargs['deviceDetails']
+        if 'hierarchyInformation' in kwargs:
+            hierarchy_information = kwargs['hierarchyInformation']
+        if 'identificationType' in kwargs:
+            identification_type = kwargs['identificationType']
+        if 'displayInfo' in kwargs:
+            display_info = kwargs['displayInfo']
+
+        _setter("device_details", device_details)
+        _setter("hierarchy_information", hierarchy_information)
+        _setter("identification_type", identification_type)
+        _setter("quantity", quantity)
         if display_info is not None:
-            pulumi.set(__self__, "display_info", display_info)
+            _setter("display_info", display_info)
 
     @property
     @pulumi.getter(name="deviceDetails")
@@ -691,18 +901,69 @@ class ConfigurationResponse(dict):
         :param Sequence['ImageInformationResponse'] image_information: Image information for the product system.
         :param Sequence['SpecificationResponse'] specifications: Specifications of the configuration.
         """
-        pulumi.set(__self__, "availability_information", availability_information)
-        pulumi.set(__self__, "child_configuration_types", child_configuration_types)
-        pulumi.set(__self__, "cost_information", cost_information)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "dimensions", dimensions)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "filterable_properties", filterable_properties)
-        pulumi.set(__self__, "fulfilled_by", fulfilled_by)
-        pulumi.set(__self__, "grouped_child_configurations", grouped_child_configurations)
-        pulumi.set(__self__, "hierarchy_information", hierarchy_information)
-        pulumi.set(__self__, "image_information", image_information)
-        pulumi.set(__self__, "specifications", specifications)
+        ConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_information=availability_information,
+            child_configuration_types=child_configuration_types,
+            cost_information=cost_information,
+            description=description,
+            dimensions=dimensions,
+            display_name=display_name,
+            filterable_properties=filterable_properties,
+            fulfilled_by=fulfilled_by,
+            grouped_child_configurations=grouped_child_configurations,
+            hierarchy_information=hierarchy_information,
+            image_information=image_information,
+            specifications=specifications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_information: 'outputs.AvailabilityInformationResponse',
+             child_configuration_types: Sequence[str],
+             cost_information: 'outputs.CostInformationResponse',
+             description: 'outputs.DescriptionResponse',
+             dimensions: 'outputs.DimensionsResponse',
+             display_name: str,
+             filterable_properties: Sequence['outputs.FilterablePropertyResponse'],
+             fulfilled_by: str,
+             grouped_child_configurations: Sequence['outputs.GroupedChildConfigurationsResponse'],
+             hierarchy_information: 'outputs.HierarchyInformationResponse',
+             image_information: Sequence['outputs.ImageInformationResponse'],
+             specifications: Sequence['outputs.SpecificationResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityInformation' in kwargs:
+            availability_information = kwargs['availabilityInformation']
+        if 'childConfigurationTypes' in kwargs:
+            child_configuration_types = kwargs['childConfigurationTypes']
+        if 'costInformation' in kwargs:
+            cost_information = kwargs['costInformation']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'filterableProperties' in kwargs:
+            filterable_properties = kwargs['filterableProperties']
+        if 'fulfilledBy' in kwargs:
+            fulfilled_by = kwargs['fulfilledBy']
+        if 'groupedChildConfigurations' in kwargs:
+            grouped_child_configurations = kwargs['groupedChildConfigurations']
+        if 'hierarchyInformation' in kwargs:
+            hierarchy_information = kwargs['hierarchyInformation']
+        if 'imageInformation' in kwargs:
+            image_information = kwargs['imageInformation']
+
+        _setter("availability_information", availability_information)
+        _setter("child_configuration_types", child_configuration_types)
+        _setter("cost_information", cost_information)
+        _setter("description", description)
+        _setter("dimensions", dimensions)
+        _setter("display_name", display_name)
+        _setter("filterable_properties", filterable_properties)
+        _setter("fulfilled_by", fulfilled_by)
+        _setter("grouped_child_configurations", grouped_child_configurations)
+        _setter("hierarchy_information", hierarchy_information)
+        _setter("image_information", image_information)
+        _setter("specifications", specifications)
 
     @property
     @pulumi.getter(name="availabilityInformation")
@@ -841,13 +1102,38 @@ class ContactDetailsResponse(dict):
         :param str mobile: Mobile number of the contact person.
         :param str phone_extension: Phone extension number of the contact person.
         """
-        pulumi.set(__self__, "contact_name", contact_name)
-        pulumi.set(__self__, "email_list", email_list)
-        pulumi.set(__self__, "phone", phone)
+        ContactDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_name=contact_name,
+            email_list=email_list,
+            phone=phone,
+            mobile=mobile,
+            phone_extension=phone_extension,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_name: str,
+             email_list: Sequence[str],
+             phone: str,
+             mobile: Optional[str] = None,
+             phone_extension: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactName' in kwargs:
+            contact_name = kwargs['contactName']
+        if 'emailList' in kwargs:
+            email_list = kwargs['emailList']
+        if 'phoneExtension' in kwargs:
+            phone_extension = kwargs['phoneExtension']
+
+        _setter("contact_name", contact_name)
+        _setter("email_list", email_list)
+        _setter("phone", phone)
         if mobile is not None:
-            pulumi.set(__self__, "mobile", mobile)
+            _setter("mobile", mobile)
         if phone_extension is not None:
-            pulumi.set(__self__, "phone_extension", phone_extension)
+            _setter("phone_extension", phone_extension)
 
     @property
     @pulumi.getter(name="contactName")
@@ -903,8 +1189,25 @@ class CostInformationResponse(dict):
         :param str billing_info_url: Default url to display billing information.
         :param Sequence['BillingMeterDetailsResponse'] billing_meter_details: Details on the various billing aspects for the product system.
         """
-        pulumi.set(__self__, "billing_info_url", billing_info_url)
-        pulumi.set(__self__, "billing_meter_details", billing_meter_details)
+        CostInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_info_url=billing_info_url,
+            billing_meter_details=billing_meter_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_info_url: str,
+             billing_meter_details: Sequence['outputs.BillingMeterDetailsResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billingInfoUrl' in kwargs:
+            billing_info_url = kwargs['billingInfoUrl']
+        if 'billingMeterDetails' in kwargs:
+            billing_meter_details = kwargs['billingMeterDetails']
+
+        _setter("billing_info_url", billing_info_url)
+        _setter("billing_meter_details", billing_meter_details)
 
     @property
     @pulumi.getter(name="billingInfoUrl")
@@ -944,12 +1247,39 @@ class DescriptionResponse(dict):
         :param str long_description: Long description of the product system.
         :param str short_description: Short description of the product system.
         """
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "description_type", description_type)
-        pulumi.set(__self__, "keywords", keywords)
-        pulumi.set(__self__, "links", links)
-        pulumi.set(__self__, "long_description", long_description)
-        pulumi.set(__self__, "short_description", short_description)
+        DescriptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            description_type=description_type,
+            keywords=keywords,
+            links=links,
+            long_description=long_description,
+            short_description=short_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Sequence[str],
+             description_type: str,
+             keywords: Sequence[str],
+             links: Sequence['outputs.LinkResponse'],
+             long_description: str,
+             short_description: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'descriptionType' in kwargs:
+            description_type = kwargs['descriptionType']
+        if 'longDescription' in kwargs:
+            long_description = kwargs['longDescription']
+        if 'shortDescription' in kwargs:
+            short_description = kwargs['shortDescription']
+
+        _setter("attributes", attributes)
+        _setter("description_type", description_type)
+        _setter("keywords", keywords)
+        _setter("links", links)
+        _setter("long_description", long_description)
+        _setter("short_description", short_description)
 
     @property
     @pulumi.getter
@@ -1036,9 +1366,30 @@ class DeviceDetailsResponse(dict):
         :param str management_resource_tenant_id: Management Resource Tenant ID
         :param str serial_number: device serial number
         """
-        pulumi.set(__self__, "management_resource_id", management_resource_id)
-        pulumi.set(__self__, "management_resource_tenant_id", management_resource_tenant_id)
-        pulumi.set(__self__, "serial_number", serial_number)
+        DeviceDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_resource_id=management_resource_id,
+            management_resource_tenant_id=management_resource_tenant_id,
+            serial_number=serial_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_resource_id: str,
+             management_resource_tenant_id: str,
+             serial_number: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementResourceId' in kwargs:
+            management_resource_id = kwargs['managementResourceId']
+        if 'managementResourceTenantId' in kwargs:
+            management_resource_tenant_id = kwargs['managementResourceTenantId']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+
+        _setter("management_resource_id", management_resource_id)
+        _setter("management_resource_tenant_id", management_resource_tenant_id)
+        _setter("serial_number", serial_number)
 
     @property
     @pulumi.getter(name="managementResourceId")
@@ -1088,13 +1439,40 @@ class DimensionsResponse(dict):
         :param str weight_unit: Unit for the dimensions of weight.
         :param float width: Width of the device.
         """
-        pulumi.set(__self__, "depth", depth)
-        pulumi.set(__self__, "height", height)
-        pulumi.set(__self__, "length", length)
-        pulumi.set(__self__, "length_height_unit", length_height_unit)
-        pulumi.set(__self__, "weight", weight)
-        pulumi.set(__self__, "weight_unit", weight_unit)
-        pulumi.set(__self__, "width", width)
+        DimensionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            depth=depth,
+            height=height,
+            length=length,
+            length_height_unit=length_height_unit,
+            weight=weight,
+            weight_unit=weight_unit,
+            width=width,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             depth: float,
+             height: float,
+             length: float,
+             length_height_unit: str,
+             weight: float,
+             weight_unit: str,
+             width: float,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lengthHeightUnit' in kwargs:
+            length_height_unit = kwargs['lengthHeightUnit']
+        if 'weightUnit' in kwargs:
+            weight_unit = kwargs['weightUnit']
+
+        _setter("depth", depth)
+        _setter("height", height)
+        _setter("length", length)
+        _setter("length_height_unit", length_height_unit)
+        _setter("weight", weight)
+        _setter("weight_unit", weight_unit)
+        _setter("width", width)
 
     @property
     @pulumi.getter
@@ -1185,8 +1563,25 @@ class DisplayInfoResponse(dict):
         :param str configuration_display_name: Configuration display name
         :param str product_family_display_name: Product family display name
         """
-        pulumi.set(__self__, "configuration_display_name", configuration_display_name)
-        pulumi.set(__self__, "product_family_display_name", product_family_display_name)
+        DisplayInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_display_name=configuration_display_name,
+            product_family_display_name=product_family_display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_display_name: str,
+             product_family_display_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationDisplayName' in kwargs:
+            configuration_display_name = kwargs['configurationDisplayName']
+        if 'productFamilyDisplayName' in kwargs:
+            product_family_display_name = kwargs['productFamilyDisplayName']
+
+        _setter("configuration_display_name", configuration_display_name)
+        _setter("product_family_display_name", product_family_display_name)
 
     @property
     @pulumi.getter(name="configurationDisplayName")
@@ -1233,8 +1628,21 @@ class EncryptionPreferencesResponse(dict):
         Preferences related to the double encryption
         :param str double_encryption_status: Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
         """
+        EncryptionPreferencesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            double_encryption_status=double_encryption_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             double_encryption_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'doubleEncryptionStatus' in kwargs:
+            double_encryption_status = kwargs['doubleEncryptionStatus']
+
         if double_encryption_status is not None:
-            pulumi.set(__self__, "double_encryption_status", double_encryption_status)
+            _setter("double_encryption_status", double_encryption_status)
 
     @property
     @pulumi.getter(name="doubleEncryptionStatus")
@@ -1258,8 +1666,21 @@ class ErrorAdditionalInfoResponse(dict):
         :param Any info: The additional info.
         :param str type: The additional info type.
         """
-        pulumi.set(__self__, "info", info)
-        pulumi.set(__self__, "type", type)
+        ErrorAdditionalInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            info=info,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             info: Any,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("info", info)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1314,11 +1735,32 @@ class ErrorDetailResponse(dict):
         :param str message: The error message.
         :param str target: The error target.
         """
-        pulumi.set(__self__, "additional_info", additional_info)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        ErrorDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_info=additional_info,
+            code=code,
+            details=details,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+             code: str,
+             details: Sequence['outputs.ErrorDetailResponse'],
+             message: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalInfo' in kwargs:
+            additional_info = kwargs['additionalInfo']
+
+        _setter("additional_info", additional_info)
+        _setter("code", code)
+        _setter("details", details)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter(name="additionalInfo")
@@ -1374,8 +1816,23 @@ class FilterablePropertyResponse(dict):
         :param Sequence[str] supported_values: Values to be filtered.
         :param str type: Type of product filter.
         """
-        pulumi.set(__self__, "supported_values", supported_values)
-        pulumi.set(__self__, "type", type)
+        FilterablePropertyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            supported_values=supported_values,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             supported_values: Sequence[str],
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'supportedValues' in kwargs:
+            supported_values = kwargs['supportedValues']
+
+        _setter("supported_values", supported_values)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="supportedValues")
@@ -1434,10 +1891,35 @@ class ForwardShippingDetailsResponse(dict):
         :param str tracking_id: TrackingId of the package
         :param str tracking_url: TrackingUrl of the package.
         """
-        pulumi.set(__self__, "carrier_display_name", carrier_display_name)
-        pulumi.set(__self__, "carrier_name", carrier_name)
-        pulumi.set(__self__, "tracking_id", tracking_id)
-        pulumi.set(__self__, "tracking_url", tracking_url)
+        ForwardShippingDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            carrier_display_name=carrier_display_name,
+            carrier_name=carrier_name,
+            tracking_id=tracking_id,
+            tracking_url=tracking_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             carrier_display_name: str,
+             carrier_name: str,
+             tracking_id: str,
+             tracking_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'carrierDisplayName' in kwargs:
+            carrier_display_name = kwargs['carrierDisplayName']
+        if 'carrierName' in kwargs:
+            carrier_name = kwargs['carrierName']
+        if 'trackingId' in kwargs:
+            tracking_id = kwargs['trackingId']
+        if 'trackingUrl' in kwargs:
+            tracking_url = kwargs['trackingUrl']
+
+        _setter("carrier_display_name", carrier_display_name)
+        _setter("carrier_name", carrier_name)
+        _setter("tracking_id", tracking_id)
+        _setter("tracking_url", tracking_url)
 
     @property
     @pulumi.getter(name="carrierDisplayName")
@@ -1485,8 +1967,25 @@ class GroupedChildConfigurationsResponse(dict):
         :param 'CategoryInformationResponse' category_information: Category information.
         :param Sequence['ChildConfigurationResponse'] child_configurations: List of child configurations.
         """
-        pulumi.set(__self__, "category_information", category_information)
-        pulumi.set(__self__, "child_configurations", child_configurations)
+        GroupedChildConfigurationsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category_information=category_information,
+            child_configurations=child_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category_information: 'outputs.CategoryInformationResponse',
+             child_configurations: Sequence['outputs.ChildConfigurationResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'categoryInformation' in kwargs:
+            category_information = kwargs['categoryInformation']
+        if 'childConfigurations' in kwargs:
+            child_configurations = kwargs['childConfigurations']
+
+        _setter("category_information", category_information)
+        _setter("child_configurations", child_configurations)
 
     @property
     @pulumi.getter(name="categoryInformation")
@@ -1545,14 +2044,39 @@ class HierarchyInformationResponse(dict):
         :param str product_line_name: Represents product line name that uniquely identifies product line.
         :param str product_name: Represents product name that uniquely identifies product.
         """
+        HierarchyInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_name=configuration_name,
+            product_family_name=product_family_name,
+            product_line_name=product_line_name,
+            product_name=product_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_name: Optional[str] = None,
+             product_family_name: Optional[str] = None,
+             product_line_name: Optional[str] = None,
+             product_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationName' in kwargs:
+            configuration_name = kwargs['configurationName']
+        if 'productFamilyName' in kwargs:
+            product_family_name = kwargs['productFamilyName']
+        if 'productLineName' in kwargs:
+            product_line_name = kwargs['productLineName']
+        if 'productName' in kwargs:
+            product_name = kwargs['productName']
+
         if configuration_name is not None:
-            pulumi.set(__self__, "configuration_name", configuration_name)
+            _setter("configuration_name", configuration_name)
         if product_family_name is not None:
-            pulumi.set(__self__, "product_family_name", product_family_name)
+            _setter("product_family_name", product_family_name)
         if product_line_name is not None:
-            pulumi.set(__self__, "product_line_name", product_line_name)
+            _setter("product_line_name", product_line_name)
         if product_name is not None:
-            pulumi.set(__self__, "product_name", product_name)
+            _setter("product_name", product_name)
 
     @property
     @pulumi.getter(name="configurationName")
@@ -1600,8 +2124,25 @@ class ImageInformationResponse(dict):
         :param str image_type: Type of the image.
         :param str image_url: Url of the image.
         """
-        pulumi.set(__self__, "image_type", image_type)
-        pulumi.set(__self__, "image_url", image_url)
+        ImageInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_type=image_type,
+            image_url=image_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_type: str,
+             image_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageType' in kwargs:
+            image_type = kwargs['imageType']
+        if 'imageUrl' in kwargs:
+            image_url = kwargs['imageUrl']
+
+        _setter("image_type", image_type)
+        _setter("image_url", image_url)
 
     @property
     @pulumi.getter(name="imageType")
@@ -1633,8 +2174,25 @@ class LinkResponse(dict):
         :param str link_type: Type of link.
         :param str link_url: Url of the link.
         """
-        pulumi.set(__self__, "link_type", link_type)
-        pulumi.set(__self__, "link_url", link_url)
+        LinkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            link_type=link_type,
+            link_url=link_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             link_type: str,
+             link_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkType' in kwargs:
+            link_type = kwargs['linkType']
+        if 'linkUrl' in kwargs:
+            link_url = kwargs['linkUrl']
+
+        _setter("link_type", link_type)
+        _setter("link_url", link_url)
 
     @property
     @pulumi.getter(name="linkType")
@@ -1681,8 +2239,21 @@ class ManagementResourcePreferencesResponse(dict):
         Management resource preference to link device
         :param str preferred_management_resource_id: Customer preferred Management resource ARM ID
         """
+        ManagementResourcePreferencesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            preferred_management_resource_id=preferred_management_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             preferred_management_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'preferredManagementResourceId' in kwargs:
+            preferred_management_resource_id = kwargs['preferredManagementResourceId']
+
         if preferred_management_resource_id is not None:
-            pulumi.set(__self__, "preferred_management_resource_id", preferred_management_resource_id)
+            _setter("preferred_management_resource_id", preferred_management_resource_id)
 
     @property
     @pulumi.getter(name="preferredManagementResourceId")
@@ -1725,8 +2296,25 @@ class NotificationPreferenceResponse(dict):
         :param bool send_notification: Notification is required or not.
         :param str stage_name: Name of the stage.
         """
-        pulumi.set(__self__, "send_notification", send_notification)
-        pulumi.set(__self__, "stage_name", stage_name)
+        NotificationPreferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            send_notification=send_notification,
+            stage_name=stage_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             send_notification: bool,
+             stage_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sendNotification' in kwargs:
+            send_notification = kwargs['sendNotification']
+        if 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+
+        _setter("send_notification", send_notification)
+        _setter("stage_name", stage_name)
 
     @property
     @pulumi.getter(name="sendNotification")
@@ -1833,26 +2421,99 @@ class OrderItemDetailsResponse(dict):
         :param str order_item_mode: Defines the mode of the Order item.
         :param 'PreferencesResponse' preferences: Customer notification Preferences
         """
-        pulumi.set(__self__, "cancellation_reason", cancellation_reason)
-        pulumi.set(__self__, "cancellation_status", cancellation_status)
-        pulumi.set(__self__, "current_stage", current_stage)
-        pulumi.set(__self__, "deletion_status", deletion_status)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "forward_shipping_details", forward_shipping_details)
-        pulumi.set(__self__, "management_rp_details", management_rp_details)
-        pulumi.set(__self__, "management_rp_details_list", management_rp_details_list)
-        pulumi.set(__self__, "order_item_stage_history", order_item_stage_history)
-        pulumi.set(__self__, "order_item_type", order_item_type)
-        pulumi.set(__self__, "product_details", product_details)
-        pulumi.set(__self__, "return_reason", return_reason)
-        pulumi.set(__self__, "return_status", return_status)
-        pulumi.set(__self__, "reverse_shipping_details", reverse_shipping_details)
+        OrderItemDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cancellation_reason=cancellation_reason,
+            cancellation_status=cancellation_status,
+            current_stage=current_stage,
+            deletion_status=deletion_status,
+            error=error,
+            forward_shipping_details=forward_shipping_details,
+            management_rp_details=management_rp_details,
+            management_rp_details_list=management_rp_details_list,
+            order_item_stage_history=order_item_stage_history,
+            order_item_type=order_item_type,
+            product_details=product_details,
+            return_reason=return_reason,
+            return_status=return_status,
+            reverse_shipping_details=reverse_shipping_details,
+            notification_email_list=notification_email_list,
+            order_item_mode=order_item_mode,
+            preferences=preferences,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cancellation_reason: str,
+             cancellation_status: str,
+             current_stage: 'outputs.StageDetailsResponse',
+             deletion_status: str,
+             error: 'outputs.ErrorDetailResponse',
+             forward_shipping_details: 'outputs.ForwardShippingDetailsResponse',
+             management_rp_details: 'outputs.ResourceProviderDetailsResponse',
+             management_rp_details_list: Sequence['outputs.ResourceProviderDetailsResponse'],
+             order_item_stage_history: Sequence['outputs.StageDetailsResponse'],
+             order_item_type: str,
+             product_details: 'outputs.ProductDetailsResponse',
+             return_reason: str,
+             return_status: str,
+             reverse_shipping_details: 'outputs.ReverseShippingDetailsResponse',
+             notification_email_list: Optional[Sequence[str]] = None,
+             order_item_mode: Optional[str] = None,
+             preferences: Optional['outputs.PreferencesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cancellationReason' in kwargs:
+            cancellation_reason = kwargs['cancellationReason']
+        if 'cancellationStatus' in kwargs:
+            cancellation_status = kwargs['cancellationStatus']
+        if 'currentStage' in kwargs:
+            current_stage = kwargs['currentStage']
+        if 'deletionStatus' in kwargs:
+            deletion_status = kwargs['deletionStatus']
+        if 'forwardShippingDetails' in kwargs:
+            forward_shipping_details = kwargs['forwardShippingDetails']
+        if 'managementRpDetails' in kwargs:
+            management_rp_details = kwargs['managementRpDetails']
+        if 'managementRpDetailsList' in kwargs:
+            management_rp_details_list = kwargs['managementRpDetailsList']
+        if 'orderItemStageHistory' in kwargs:
+            order_item_stage_history = kwargs['orderItemStageHistory']
+        if 'orderItemType' in kwargs:
+            order_item_type = kwargs['orderItemType']
+        if 'productDetails' in kwargs:
+            product_details = kwargs['productDetails']
+        if 'returnReason' in kwargs:
+            return_reason = kwargs['returnReason']
+        if 'returnStatus' in kwargs:
+            return_status = kwargs['returnStatus']
+        if 'reverseShippingDetails' in kwargs:
+            reverse_shipping_details = kwargs['reverseShippingDetails']
+        if 'notificationEmailList' in kwargs:
+            notification_email_list = kwargs['notificationEmailList']
+        if 'orderItemMode' in kwargs:
+            order_item_mode = kwargs['orderItemMode']
+
+        _setter("cancellation_reason", cancellation_reason)
+        _setter("cancellation_status", cancellation_status)
+        _setter("current_stage", current_stage)
+        _setter("deletion_status", deletion_status)
+        _setter("error", error)
+        _setter("forward_shipping_details", forward_shipping_details)
+        _setter("management_rp_details", management_rp_details)
+        _setter("management_rp_details_list", management_rp_details_list)
+        _setter("order_item_stage_history", order_item_stage_history)
+        _setter("order_item_type", order_item_type)
+        _setter("product_details", product_details)
+        _setter("return_reason", return_reason)
+        _setter("return_status", return_status)
+        _setter("reverse_shipping_details", reverse_shipping_details)
         if notification_email_list is not None:
-            pulumi.set(__self__, "notification_email_list", notification_email_list)
+            _setter("notification_email_list", notification_email_list)
         if order_item_mode is not None:
-            pulumi.set(__self__, "order_item_mode", order_item_mode)
+            _setter("order_item_mode", order_item_mode)
         if preferences is not None:
-            pulumi.set(__self__, "preferences", preferences)
+            _setter("preferences", preferences)
 
     @property
     @pulumi.getter(name="cancellationReason")
@@ -2009,10 +2670,33 @@ class Pav2MeterDetailsResponse(dict):
         :param str meter_guid: Validation status of requested data center and transport.
         :param float multiplier: Billing unit applicable for Pav2 billing.
         """
-        pulumi.set(__self__, "billing_type", 'Pav2')
-        pulumi.set(__self__, "charging_type", charging_type)
-        pulumi.set(__self__, "meter_guid", meter_guid)
-        pulumi.set(__self__, "multiplier", multiplier)
+        Pav2MeterDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_type=billing_type,
+            charging_type=charging_type,
+            meter_guid=meter_guid,
+            multiplier=multiplier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_type: str,
+             charging_type: str,
+             meter_guid: str,
+             multiplier: float,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billingType' in kwargs:
+            billing_type = kwargs['billingType']
+        if 'chargingType' in kwargs:
+            charging_type = kwargs['chargingType']
+        if 'meterGuid' in kwargs:
+            meter_guid = kwargs['meterGuid']
+
+        _setter("billing_type", 'Pav2')
+        _setter("charging_type", charging_type)
+        _setter("meter_guid", meter_guid)
+        _setter("multiplier", multiplier)
 
     @property
     @pulumi.getter(name="billingType")
@@ -2088,14 +2772,39 @@ class PreferencesResponse(dict):
         :param Sequence['NotificationPreferenceResponse'] notification_preferences: Notification preferences.
         :param 'TransportPreferencesResponse' transport_preferences: Preferences related to the shipment logistics of the order.
         """
+        PreferencesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_preferences=encryption_preferences,
+            management_resource_preferences=management_resource_preferences,
+            notification_preferences=notification_preferences,
+            transport_preferences=transport_preferences,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_preferences: Optional['outputs.EncryptionPreferencesResponse'] = None,
+             management_resource_preferences: Optional['outputs.ManagementResourcePreferencesResponse'] = None,
+             notification_preferences: Optional[Sequence['outputs.NotificationPreferenceResponse']] = None,
+             transport_preferences: Optional['outputs.TransportPreferencesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionPreferences' in kwargs:
+            encryption_preferences = kwargs['encryptionPreferences']
+        if 'managementResourcePreferences' in kwargs:
+            management_resource_preferences = kwargs['managementResourcePreferences']
+        if 'notificationPreferences' in kwargs:
+            notification_preferences = kwargs['notificationPreferences']
+        if 'transportPreferences' in kwargs:
+            transport_preferences = kwargs['transportPreferences']
+
         if encryption_preferences is not None:
-            pulumi.set(__self__, "encryption_preferences", encryption_preferences)
+            _setter("encryption_preferences", encryption_preferences)
         if management_resource_preferences is not None:
-            pulumi.set(__self__, "management_resource_preferences", management_resource_preferences)
+            _setter("management_resource_preferences", management_resource_preferences)
         if notification_preferences is not None:
-            pulumi.set(__self__, "notification_preferences", notification_preferences)
+            _setter("notification_preferences", notification_preferences)
         if transport_preferences is not None:
-            pulumi.set(__self__, "transport_preferences", transport_preferences)
+            _setter("transport_preferences", transport_preferences)
 
     @property
     @pulumi.getter(name="encryptionPreferences")
@@ -2188,20 +2897,63 @@ class ProductDetailsResponse(dict):
         :param Sequence['AdditionalConfigurationResponse'] opt_in_additional_configurations: List of additional configurations customer wants in the order item apart from the ones included in the base configuration.
         :param 'DeviceDetailsResponse' parent_device_details: Device details of the parent configuration.
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "device_details", device_details)
-        pulumi.set(__self__, "hierarchy_information", hierarchy_information)
-        pulumi.set(__self__, "product_double_encryption_status", product_double_encryption_status)
+        ProductDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            device_details=device_details,
+            hierarchy_information=hierarchy_information,
+            product_double_encryption_status=product_double_encryption_status,
+            child_configuration_device_details=child_configuration_device_details,
+            display_info=display_info,
+            identification_type=identification_type,
+            opt_in_additional_configurations=opt_in_additional_configurations,
+            parent_device_details=parent_device_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: int,
+             device_details: Sequence['outputs.DeviceDetailsResponse'],
+             hierarchy_information: 'outputs.HierarchyInformationResponse',
+             product_double_encryption_status: str,
+             child_configuration_device_details: Optional[Sequence['outputs.ConfigurationDeviceDetailsResponse']] = None,
+             display_info: Optional['outputs.DisplayInfoResponse'] = None,
+             identification_type: Optional[str] = None,
+             opt_in_additional_configurations: Optional[Sequence['outputs.AdditionalConfigurationResponse']] = None,
+             parent_device_details: Optional['outputs.DeviceDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceDetails' in kwargs:
+            device_details = kwargs['deviceDetails']
+        if 'hierarchyInformation' in kwargs:
+            hierarchy_information = kwargs['hierarchyInformation']
+        if 'productDoubleEncryptionStatus' in kwargs:
+            product_double_encryption_status = kwargs['productDoubleEncryptionStatus']
+        if 'childConfigurationDeviceDetails' in kwargs:
+            child_configuration_device_details = kwargs['childConfigurationDeviceDetails']
+        if 'displayInfo' in kwargs:
+            display_info = kwargs['displayInfo']
+        if 'identificationType' in kwargs:
+            identification_type = kwargs['identificationType']
+        if 'optInAdditionalConfigurations' in kwargs:
+            opt_in_additional_configurations = kwargs['optInAdditionalConfigurations']
+        if 'parentDeviceDetails' in kwargs:
+            parent_device_details = kwargs['parentDeviceDetails']
+
+        _setter("count", count)
+        _setter("device_details", device_details)
+        _setter("hierarchy_information", hierarchy_information)
+        _setter("product_double_encryption_status", product_double_encryption_status)
         if child_configuration_device_details is not None:
-            pulumi.set(__self__, "child_configuration_device_details", child_configuration_device_details)
+            _setter("child_configuration_device_details", child_configuration_device_details)
         if display_info is not None:
-            pulumi.set(__self__, "display_info", display_info)
+            _setter("display_info", display_info)
         if identification_type is not None:
-            pulumi.set(__self__, "identification_type", identification_type)
+            _setter("identification_type", identification_type)
         if opt_in_additional_configurations is not None:
-            pulumi.set(__self__, "opt_in_additional_configurations", opt_in_additional_configurations)
+            _setter("opt_in_additional_configurations", opt_in_additional_configurations)
         if parent_device_details is not None:
-            pulumi.set(__self__, "parent_device_details", parent_device_details)
+            _setter("parent_device_details", parent_device_details)
 
     @property
     @pulumi.getter
@@ -2305,17 +3057,64 @@ class ProductFamilyResponse(dict):
         :param Sequence['ProductLineResponse'] product_lines: List of product lines supported in the product family.
         :param Sequence['ResourceProviderDetailsResponse'] resource_provider_details: Contains details related to resource provider.
         """
-        pulumi.set(__self__, "availability_information", availability_information)
-        pulumi.set(__self__, "cost_information", cost_information)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "filterable_properties", filterable_properties)
-        pulumi.set(__self__, "fulfilled_by", fulfilled_by)
-        pulumi.set(__self__, "hierarchy_information", hierarchy_information)
-        pulumi.set(__self__, "image_information", image_information)
-        pulumi.set(__self__, "product_lines", product_lines)
+        ProductFamilyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_information=availability_information,
+            cost_information=cost_information,
+            description=description,
+            display_name=display_name,
+            filterable_properties=filterable_properties,
+            fulfilled_by=fulfilled_by,
+            hierarchy_information=hierarchy_information,
+            image_information=image_information,
+            product_lines=product_lines,
+            resource_provider_details=resource_provider_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_information: 'outputs.AvailabilityInformationResponse',
+             cost_information: 'outputs.CostInformationResponse',
+             description: 'outputs.DescriptionResponse',
+             display_name: str,
+             filterable_properties: Sequence['outputs.FilterablePropertyResponse'],
+             fulfilled_by: str,
+             hierarchy_information: 'outputs.HierarchyInformationResponse',
+             image_information: Sequence['outputs.ImageInformationResponse'],
+             product_lines: Sequence['outputs.ProductLineResponse'],
+             resource_provider_details: Optional[Sequence['outputs.ResourceProviderDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityInformation' in kwargs:
+            availability_information = kwargs['availabilityInformation']
+        if 'costInformation' in kwargs:
+            cost_information = kwargs['costInformation']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'filterableProperties' in kwargs:
+            filterable_properties = kwargs['filterableProperties']
+        if 'fulfilledBy' in kwargs:
+            fulfilled_by = kwargs['fulfilledBy']
+        if 'hierarchyInformation' in kwargs:
+            hierarchy_information = kwargs['hierarchyInformation']
+        if 'imageInformation' in kwargs:
+            image_information = kwargs['imageInformation']
+        if 'productLines' in kwargs:
+            product_lines = kwargs['productLines']
+        if 'resourceProviderDetails' in kwargs:
+            resource_provider_details = kwargs['resourceProviderDetails']
+
+        _setter("availability_information", availability_information)
+        _setter("cost_information", cost_information)
+        _setter("description", description)
+        _setter("display_name", display_name)
+        _setter("filterable_properties", filterable_properties)
+        _setter("fulfilled_by", fulfilled_by)
+        _setter("hierarchy_information", hierarchy_information)
+        _setter("image_information", image_information)
+        _setter("product_lines", product_lines)
         if resource_provider_details is not None:
-            pulumi.set(__self__, "resource_provider_details", resource_provider_details)
+            _setter("resource_provider_details", resource_provider_details)
 
     @property
     @pulumi.getter(name="availabilityInformation")
@@ -2425,15 +3224,56 @@ class ProductLineResponse(dict):
         :param Sequence['ImageInformationResponse'] image_information: Image information for the product system.
         :param Sequence['ProductResponse'] products: List of products in the product line.
         """
-        pulumi.set(__self__, "availability_information", availability_information)
-        pulumi.set(__self__, "cost_information", cost_information)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "filterable_properties", filterable_properties)
-        pulumi.set(__self__, "fulfilled_by", fulfilled_by)
-        pulumi.set(__self__, "hierarchy_information", hierarchy_information)
-        pulumi.set(__self__, "image_information", image_information)
-        pulumi.set(__self__, "products", products)
+        ProductLineResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_information=availability_information,
+            cost_information=cost_information,
+            description=description,
+            display_name=display_name,
+            filterable_properties=filterable_properties,
+            fulfilled_by=fulfilled_by,
+            hierarchy_information=hierarchy_information,
+            image_information=image_information,
+            products=products,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_information: 'outputs.AvailabilityInformationResponse',
+             cost_information: 'outputs.CostInformationResponse',
+             description: 'outputs.DescriptionResponse',
+             display_name: str,
+             filterable_properties: Sequence['outputs.FilterablePropertyResponse'],
+             fulfilled_by: str,
+             hierarchy_information: 'outputs.HierarchyInformationResponse',
+             image_information: Sequence['outputs.ImageInformationResponse'],
+             products: Sequence['outputs.ProductResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityInformation' in kwargs:
+            availability_information = kwargs['availabilityInformation']
+        if 'costInformation' in kwargs:
+            cost_information = kwargs['costInformation']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'filterableProperties' in kwargs:
+            filterable_properties = kwargs['filterableProperties']
+        if 'fulfilledBy' in kwargs:
+            fulfilled_by = kwargs['fulfilledBy']
+        if 'hierarchyInformation' in kwargs:
+            hierarchy_information = kwargs['hierarchyInformation']
+        if 'imageInformation' in kwargs:
+            image_information = kwargs['imageInformation']
+
+        _setter("availability_information", availability_information)
+        _setter("cost_information", cost_information)
+        _setter("description", description)
+        _setter("display_name", display_name)
+        _setter("filterable_properties", filterable_properties)
+        _setter("fulfilled_by", fulfilled_by)
+        _setter("hierarchy_information", hierarchy_information)
+        _setter("image_information", image_information)
+        _setter("products", products)
 
     @property
     @pulumi.getter(name="availabilityInformation")
@@ -2535,15 +3375,56 @@ class ProductResponse(dict):
         :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of a product.
         :param Sequence['ImageInformationResponse'] image_information: Image information for the product system.
         """
-        pulumi.set(__self__, "availability_information", availability_information)
-        pulumi.set(__self__, "configurations", configurations)
-        pulumi.set(__self__, "cost_information", cost_information)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "filterable_properties", filterable_properties)
-        pulumi.set(__self__, "fulfilled_by", fulfilled_by)
-        pulumi.set(__self__, "hierarchy_information", hierarchy_information)
-        pulumi.set(__self__, "image_information", image_information)
+        ProductResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_information=availability_information,
+            configurations=configurations,
+            cost_information=cost_information,
+            description=description,
+            display_name=display_name,
+            filterable_properties=filterable_properties,
+            fulfilled_by=fulfilled_by,
+            hierarchy_information=hierarchy_information,
+            image_information=image_information,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_information: 'outputs.AvailabilityInformationResponse',
+             configurations: Sequence['outputs.ConfigurationResponse'],
+             cost_information: 'outputs.CostInformationResponse',
+             description: 'outputs.DescriptionResponse',
+             display_name: str,
+             filterable_properties: Sequence['outputs.FilterablePropertyResponse'],
+             fulfilled_by: str,
+             hierarchy_information: 'outputs.HierarchyInformationResponse',
+             image_information: Sequence['outputs.ImageInformationResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityInformation' in kwargs:
+            availability_information = kwargs['availabilityInformation']
+        if 'costInformation' in kwargs:
+            cost_information = kwargs['costInformation']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'filterableProperties' in kwargs:
+            filterable_properties = kwargs['filterableProperties']
+        if 'fulfilledBy' in kwargs:
+            fulfilled_by = kwargs['fulfilledBy']
+        if 'hierarchyInformation' in kwargs:
+            hierarchy_information = kwargs['hierarchyInformation']
+        if 'imageInformation' in kwargs:
+            image_information = kwargs['imageInformation']
+
+        _setter("availability_information", availability_information)
+        _setter("configurations", configurations)
+        _setter("cost_information", cost_information)
+        _setter("description", description)
+        _setter("display_name", display_name)
+        _setter("filterable_properties", filterable_properties)
+        _setter("fulfilled_by", fulfilled_by)
+        _setter("hierarchy_information", hierarchy_information)
+        _setter("image_information", image_information)
 
     @property
     @pulumi.getter(name="availabilityInformation")
@@ -2640,12 +3521,43 @@ class PurchaseMeterDetailsResponse(dict):
         :param str sku_id: Sku Id.
         :param str term_id: Term Id.
         """
-        pulumi.set(__self__, "billing_type", 'Purchase')
-        pulumi.set(__self__, "charging_type", charging_type)
-        pulumi.set(__self__, "multiplier", multiplier)
-        pulumi.set(__self__, "product_id", product_id)
-        pulumi.set(__self__, "sku_id", sku_id)
-        pulumi.set(__self__, "term_id", term_id)
+        PurchaseMeterDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_type=billing_type,
+            charging_type=charging_type,
+            multiplier=multiplier,
+            product_id=product_id,
+            sku_id=sku_id,
+            term_id=term_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_type: str,
+             charging_type: str,
+             multiplier: float,
+             product_id: str,
+             sku_id: str,
+             term_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billingType' in kwargs:
+            billing_type = kwargs['billingType']
+        if 'chargingType' in kwargs:
+            charging_type = kwargs['chargingType']
+        if 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if 'skuId' in kwargs:
+            sku_id = kwargs['skuId']
+        if 'termId' in kwargs:
+            term_id = kwargs['termId']
+
+        _setter("billing_type", 'Purchase')
+        _setter("charging_type", charging_type)
+        _setter("multiplier", multiplier)
+        _setter("product_id", product_id)
+        _setter("sku_id", sku_id)
+        _setter("term_id", term_id)
 
     @property
     @pulumi.getter(name="billingType")
@@ -2725,7 +3637,20 @@ class ResourceProviderDetailsResponse(dict):
         Management RP details.
         :param str resource_provider_namespace: Resource provider namespace.
         """
-        pulumi.set(__self__, "resource_provider_namespace", resource_provider_namespace)
+        ResourceProviderDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_provider_namespace=resource_provider_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_provider_namespace: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceProviderNamespace' in kwargs:
+            resource_provider_namespace = kwargs['resourceProviderNamespace']
+
+        _setter("resource_provider_namespace", resource_provider_namespace)
 
     @property
     @pulumi.getter(name="resourceProviderNamespace")
@@ -2780,11 +3705,40 @@ class ReverseShippingDetailsResponse(dict):
         :param str tracking_id: TrackingId of the package
         :param str tracking_url: TrackingUrl of the package.
         """
-        pulumi.set(__self__, "carrier_display_name", carrier_display_name)
-        pulumi.set(__self__, "carrier_name", carrier_name)
-        pulumi.set(__self__, "sas_key_for_label", sas_key_for_label)
-        pulumi.set(__self__, "tracking_id", tracking_id)
-        pulumi.set(__self__, "tracking_url", tracking_url)
+        ReverseShippingDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            carrier_display_name=carrier_display_name,
+            carrier_name=carrier_name,
+            sas_key_for_label=sas_key_for_label,
+            tracking_id=tracking_id,
+            tracking_url=tracking_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             carrier_display_name: str,
+             carrier_name: str,
+             sas_key_for_label: str,
+             tracking_id: str,
+             tracking_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'carrierDisplayName' in kwargs:
+            carrier_display_name = kwargs['carrierDisplayName']
+        if 'carrierName' in kwargs:
+            carrier_name = kwargs['carrierName']
+        if 'sasKeyForLabel' in kwargs:
+            sas_key_for_label = kwargs['sasKeyForLabel']
+        if 'trackingId' in kwargs:
+            tracking_id = kwargs['trackingId']
+        if 'trackingUrl' in kwargs:
+            tracking_url = kwargs['trackingUrl']
+
+        _setter("carrier_display_name", carrier_display_name)
+        _setter("carrier_name", carrier_name)
+        _setter("sas_key_for_label", sas_key_for_label)
+        _setter("tracking_id", tracking_id)
+        _setter("tracking_url", tracking_url)
 
     @property
     @pulumi.getter(name="carrierDisplayName")
@@ -2887,24 +3841,69 @@ class ShippingAddressResponse(dict):
         :param str street_address3: Street Address line 3.
         :param str zip_extended_code: Extended Zip Code.
         """
-        pulumi.set(__self__, "country", country)
-        pulumi.set(__self__, "street_address1", street_address1)
+        ShippingAddressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country=country,
+            street_address1=street_address1,
+            address_type=address_type,
+            city=city,
+            company_name=company_name,
+            postal_code=postal_code,
+            state_or_province=state_or_province,
+            street_address2=street_address2,
+            street_address3=street_address3,
+            zip_extended_code=zip_extended_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country: str,
+             street_address1: str,
+             address_type: Optional[str] = None,
+             city: Optional[str] = None,
+             company_name: Optional[str] = None,
+             postal_code: Optional[str] = None,
+             state_or_province: Optional[str] = None,
+             street_address2: Optional[str] = None,
+             street_address3: Optional[str] = None,
+             zip_extended_code: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'streetAddress1' in kwargs:
+            street_address1 = kwargs['streetAddress1']
+        if 'addressType' in kwargs:
+            address_type = kwargs['addressType']
+        if 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if 'postalCode' in kwargs:
+            postal_code = kwargs['postalCode']
+        if 'stateOrProvince' in kwargs:
+            state_or_province = kwargs['stateOrProvince']
+        if 'streetAddress2' in kwargs:
+            street_address2 = kwargs['streetAddress2']
+        if 'streetAddress3' in kwargs:
+            street_address3 = kwargs['streetAddress3']
+        if 'zipExtendedCode' in kwargs:
+            zip_extended_code = kwargs['zipExtendedCode']
+
+        _setter("country", country)
+        _setter("street_address1", street_address1)
         if address_type is not None:
-            pulumi.set(__self__, "address_type", address_type)
+            _setter("address_type", address_type)
         if city is not None:
-            pulumi.set(__self__, "city", city)
+            _setter("city", city)
         if company_name is not None:
-            pulumi.set(__self__, "company_name", company_name)
+            _setter("company_name", company_name)
         if postal_code is not None:
-            pulumi.set(__self__, "postal_code", postal_code)
+            _setter("postal_code", postal_code)
         if state_or_province is not None:
-            pulumi.set(__self__, "state_or_province", state_or_province)
+            _setter("state_or_province", state_or_province)
         if street_address2 is not None:
-            pulumi.set(__self__, "street_address2", street_address2)
+            _setter("street_address2", street_address2)
         if street_address3 is not None:
-            pulumi.set(__self__, "street_address3", street_address3)
+            _setter("street_address3", street_address3)
         if zip_extended_code is not None:
-            pulumi.set(__self__, "zip_extended_code", zip_extended_code)
+            _setter("zip_extended_code", zip_extended_code)
 
     @property
     @pulumi.getter
@@ -3000,8 +3999,21 @@ class SpecificationResponse(dict):
         :param str name: Name of the specification.
         :param str value: Value of the specification.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        SpecificationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3060,10 +4072,35 @@ class StageDetailsResponse(dict):
         :param str stage_status: Stage status.
         :param str start_time: Stage start time
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "stage_name", stage_name)
-        pulumi.set(__self__, "stage_status", stage_status)
-        pulumi.set(__self__, "start_time", start_time)
+        StageDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            stage_name=stage_name,
+            stage_status=stage_status,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: str,
+             stage_name: str,
+             stage_status: str,
+             start_time: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+        if 'stageStatus' in kwargs:
+            stage_status = kwargs['stageStatus']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
+        _setter("display_name", display_name)
+        _setter("stage_name", stage_name)
+        _setter("stage_status", stage_status)
+        _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="displayName")
@@ -3146,18 +4183,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -3236,7 +4306,20 @@ class TransportPreferencesResponse(dict):
         Preferences related to the shipment logistics of the sku
         :param str preferred_shipment_type: Indicates Shipment Logistics type that the customer preferred.
         """
-        pulumi.set(__self__, "preferred_shipment_type", preferred_shipment_type)
+        TransportPreferencesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            preferred_shipment_type=preferred_shipment_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             preferred_shipment_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'preferredShipmentType' in kwargs:
+            preferred_shipment_type = kwargs['preferredShipmentType']
+
+        _setter("preferred_shipment_type", preferred_shipment_type)
 
     @property
     @pulumi.getter(name="preferredShipmentType")

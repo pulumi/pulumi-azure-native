@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -30,16 +30,45 @@ class AccessPolicyArgs:
         :param pulumi.Input[str] principal_object_id: The objectId of the principal in Azure Active Directory.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessPolicyRole']]]] roles: The list of roles the principal is assigned on the environment.
         """
-        pulumi.set(__self__, "environment_name", environment_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_name=environment_name,
+            resource_group_name=resource_group_name,
+            access_policy_name=access_policy_name,
+            description=description,
+            principal_object_id=principal_object_id,
+            roles=roles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             access_policy_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             principal_object_id: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessPolicyRole']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'accessPolicyName' in kwargs:
+            access_policy_name = kwargs['accessPolicyName']
+        if 'principalObjectId' in kwargs:
+            principal_object_id = kwargs['principalObjectId']
+
+        _setter("environment_name", environment_name)
+        _setter("resource_group_name", resource_group_name)
         if access_policy_name is not None:
-            pulumi.set(__self__, "access_policy_name", access_policy_name)
+            _setter("access_policy_name", access_policy_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if principal_object_id is not None:
-            pulumi.set(__self__, "principal_object_id", principal_object_id)
+            _setter("principal_object_id", principal_object_id)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
 
     @property
     @pulumi.getter(name="environmentName")
@@ -159,6 +188,10 @@ class AccessPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

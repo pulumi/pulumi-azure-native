@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -54,39 +54,100 @@ class StaticSiteArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['StaticSiteTemplateOptionsArgs'] template_properties: Template options for generating a new repository.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        StaticSiteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            allow_config_file_updates=allow_config_file_updates,
+            branch=branch,
+            build_properties=build_properties,
+            enterprise_grade_cdn_status=enterprise_grade_cdn_status,
+            identity=identity,
+            kind=kind,
+            location=location,
+            name=name,
+            provider=provider,
+            public_network_access=public_network_access,
+            repository_token=repository_token,
+            repository_url=repository_url,
+            sku=sku,
+            staging_environment_policy=staging_environment_policy,
+            tags=tags,
+            template_properties=template_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             allow_config_file_updates: Optional[pulumi.Input[bool]] = None,
+             branch: Optional[pulumi.Input[str]] = None,
+             build_properties: Optional[pulumi.Input['StaticSiteBuildPropertiesArgs']] = None,
+             enterprise_grade_cdn_status: Optional[pulumi.Input[Union[str, 'EnterpriseGradeCdnStatus']]] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             provider: Optional[pulumi.Input[str]] = None,
+             public_network_access: Optional[pulumi.Input[str]] = None,
+             repository_token: Optional[pulumi.Input[str]] = None,
+             repository_url: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuDescriptionArgs']] = None,
+             staging_environment_policy: Optional[pulumi.Input['StagingEnvironmentPolicy']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template_properties: Optional[pulumi.Input['StaticSiteTemplateOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'allowConfigFileUpdates' in kwargs:
+            allow_config_file_updates = kwargs['allowConfigFileUpdates']
+        if 'buildProperties' in kwargs:
+            build_properties = kwargs['buildProperties']
+        if 'enterpriseGradeCdnStatus' in kwargs:
+            enterprise_grade_cdn_status = kwargs['enterpriseGradeCdnStatus']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if 'repositoryToken' in kwargs:
+            repository_token = kwargs['repositoryToken']
+        if 'repositoryUrl' in kwargs:
+            repository_url = kwargs['repositoryUrl']
+        if 'stagingEnvironmentPolicy' in kwargs:
+            staging_environment_policy = kwargs['stagingEnvironmentPolicy']
+        if 'templateProperties' in kwargs:
+            template_properties = kwargs['templateProperties']
+
+        _setter("resource_group_name", resource_group_name)
         if allow_config_file_updates is not None:
-            pulumi.set(__self__, "allow_config_file_updates", allow_config_file_updates)
+            _setter("allow_config_file_updates", allow_config_file_updates)
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if build_properties is not None:
-            pulumi.set(__self__, "build_properties", build_properties)
+            _setter("build_properties", build_properties)
         if enterprise_grade_cdn_status is not None:
-            pulumi.set(__self__, "enterprise_grade_cdn_status", enterprise_grade_cdn_status)
+            _setter("enterprise_grade_cdn_status", enterprise_grade_cdn_status)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provider is not None:
-            pulumi.set(__self__, "provider", provider)
+            _setter("provider", provider)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if repository_token is not None:
-            pulumi.set(__self__, "repository_token", repository_token)
+            _setter("repository_token", repository_token)
         if repository_url is not None:
-            pulumi.set(__self__, "repository_url", repository_url)
+            _setter("repository_url", repository_url)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if staging_environment_policy is not None:
-            pulumi.set(__self__, "staging_environment_policy", staging_environment_policy)
+            _setter("staging_environment_policy", staging_environment_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template_properties is not None:
-            pulumi.set(__self__, "template_properties", template_properties)
+            _setter("template_properties", template_properties)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -360,6 +421,10 @@ class StaticSite(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StaticSiteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -393,8 +458,18 @@ class StaticSite(pulumi.CustomResource):
 
             __props__.__dict__["allow_config_file_updates"] = allow_config_file_updates
             __props__.__dict__["branch"] = branch
+            if build_properties is not None and not isinstance(build_properties, StaticSiteBuildPropertiesArgs):
+                build_properties = build_properties or {}
+                def _setter(key, value):
+                    build_properties[key] = value
+                StaticSiteBuildPropertiesArgs._configure(_setter, **build_properties)
             __props__.__dict__["build_properties"] = build_properties
             __props__.__dict__["enterprise_grade_cdn_status"] = enterprise_grade_cdn_status
+            if identity is not None and not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
@@ -406,9 +481,19 @@ class StaticSite(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuDescriptionArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuDescriptionArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["staging_environment_policy"] = staging_environment_policy
             __props__.__dict__["tags"] = tags
+            if template_properties is not None and not isinstance(template_properties, StaticSiteTemplateOptionsArgs):
+                template_properties = template_properties or {}
+                def _setter(key, value):
+                    template_properties[key] = value
+                StaticSiteTemplateOptionsArgs._configure(_setter, **template_properties)
             __props__.__dict__["template_properties"] = template_properties
             __props__.__dict__["content_distribution_endpoint"] = None
             __props__.__dict__["custom_domains"] = None

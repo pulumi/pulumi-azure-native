@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,37 +50,94 @@ class VirtualNetworkArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]] virtual_network_peerings: A list of peerings in a Virtual Network.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            address_space=address_space,
+            bgp_communities=bgp_communities,
+            ddos_protection_plan=ddos_protection_plan,
+            dhcp_options=dhcp_options,
+            enable_ddos_protection=enable_ddos_protection,
+            enable_vm_protection=enable_vm_protection,
+            id=id,
+            location=location,
+            resource_guid=resource_guid,
+            subnets=subnets,
+            tags=tags,
+            virtual_network_name=virtual_network_name,
+            virtual_network_peerings=virtual_network_peerings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
+             bgp_communities: Optional[pulumi.Input['VirtualNetworkBgpCommunitiesArgs']] = None,
+             ddos_protection_plan: Optional[pulumi.Input['SubResourceArgs']] = None,
+             dhcp_options: Optional[pulumi.Input['DhcpOptionsArgs']] = None,
+             enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
+             enable_vm_protection: Optional[pulumi.Input[bool]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             resource_guid: Optional[pulumi.Input[str]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_network_name: Optional[pulumi.Input[str]] = None,
+             virtual_network_peerings: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'addressSpace' in kwargs:
+            address_space = kwargs['addressSpace']
+        if 'bgpCommunities' in kwargs:
+            bgp_communities = kwargs['bgpCommunities']
+        if 'ddosProtectionPlan' in kwargs:
+            ddos_protection_plan = kwargs['ddosProtectionPlan']
+        if 'dhcpOptions' in kwargs:
+            dhcp_options = kwargs['dhcpOptions']
+        if 'enableDdosProtection' in kwargs:
+            enable_ddos_protection = kwargs['enableDdosProtection']
+        if 'enableVmProtection' in kwargs:
+            enable_vm_protection = kwargs['enableVmProtection']
+        if 'resourceGuid' in kwargs:
+            resource_guid = kwargs['resourceGuid']
+        if 'virtualNetworkName' in kwargs:
+            virtual_network_name = kwargs['virtualNetworkName']
+        if 'virtualNetworkPeerings' in kwargs:
+            virtual_network_peerings = kwargs['virtualNetworkPeerings']
+
+        _setter("resource_group_name", resource_group_name)
         if address_space is not None:
-            pulumi.set(__self__, "address_space", address_space)
+            _setter("address_space", address_space)
         if bgp_communities is not None:
-            pulumi.set(__self__, "bgp_communities", bgp_communities)
+            _setter("bgp_communities", bgp_communities)
         if ddos_protection_plan is not None:
-            pulumi.set(__self__, "ddos_protection_plan", ddos_protection_plan)
+            _setter("ddos_protection_plan", ddos_protection_plan)
         if dhcp_options is not None:
-            pulumi.set(__self__, "dhcp_options", dhcp_options)
+            _setter("dhcp_options", dhcp_options)
         if enable_ddos_protection is None:
             enable_ddos_protection = False
         if enable_ddos_protection is not None:
-            pulumi.set(__self__, "enable_ddos_protection", enable_ddos_protection)
+            _setter("enable_ddos_protection", enable_ddos_protection)
         if enable_vm_protection is None:
             enable_vm_protection = False
         if enable_vm_protection is not None:
-            pulumi.set(__self__, "enable_vm_protection", enable_vm_protection)
+            _setter("enable_vm_protection", enable_vm_protection)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if resource_guid is not None:
-            pulumi.set(__self__, "resource_guid", resource_guid)
+            _setter("resource_guid", resource_guid)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_network_name is not None:
-            pulumi.set(__self__, "virtual_network_name", virtual_network_name)
+            _setter("virtual_network_name", virtual_network_name)
         if virtual_network_peerings is not None:
-            pulumi.set(__self__, "virtual_network_peerings", virtual_network_peerings)
+            _setter("virtual_network_peerings", virtual_network_peerings)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -314,6 +371,10 @@ class VirtualNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualNetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -342,9 +403,29 @@ class VirtualNetwork(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualNetworkArgs.__new__(VirtualNetworkArgs)
 
+            if address_space is not None and not isinstance(address_space, AddressSpaceArgs):
+                address_space = address_space or {}
+                def _setter(key, value):
+                    address_space[key] = value
+                AddressSpaceArgs._configure(_setter, **address_space)
             __props__.__dict__["address_space"] = address_space
+            if bgp_communities is not None and not isinstance(bgp_communities, VirtualNetworkBgpCommunitiesArgs):
+                bgp_communities = bgp_communities or {}
+                def _setter(key, value):
+                    bgp_communities[key] = value
+                VirtualNetworkBgpCommunitiesArgs._configure(_setter, **bgp_communities)
             __props__.__dict__["bgp_communities"] = bgp_communities
+            if ddos_protection_plan is not None and not isinstance(ddos_protection_plan, SubResourceArgs):
+                ddos_protection_plan = ddos_protection_plan or {}
+                def _setter(key, value):
+                    ddos_protection_plan[key] = value
+                SubResourceArgs._configure(_setter, **ddos_protection_plan)
             __props__.__dict__["ddos_protection_plan"] = ddos_protection_plan
+            if dhcp_options is not None and not isinstance(dhcp_options, DhcpOptionsArgs):
+                dhcp_options = dhcp_options or {}
+                def _setter(key, value):
+                    dhcp_options[key] = value
+                DhcpOptionsArgs._configure(_setter, **dhcp_options)
             __props__.__dict__["dhcp_options"] = dhcp_options
             if enable_ddos_protection is None:
                 enable_ddos_protection = False

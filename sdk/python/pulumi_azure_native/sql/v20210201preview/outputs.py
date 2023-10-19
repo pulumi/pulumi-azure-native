@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -66,18 +66,47 @@ class ManagedInstanceExternalAdministratorResponse(dict):
         :param str sid: SID (object ID) of the server administrator.
         :param str tenant_id: Tenant ID of the administrator.
         """
+        ManagedInstanceExternalAdministratorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_type=administrator_type,
+            azure_ad_only_authentication=azure_ad_only_authentication,
+            login=login,
+            principal_type=principal_type,
+            sid=sid,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_type: Optional[str] = None,
+             azure_ad_only_authentication: Optional[bool] = None,
+             login: Optional[str] = None,
+             principal_type: Optional[str] = None,
+             sid: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorType' in kwargs:
+            administrator_type = kwargs['administratorType']
+        if 'azureADOnlyAuthentication' in kwargs:
+            azure_ad_only_authentication = kwargs['azureADOnlyAuthentication']
+        if 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if administrator_type is not None:
-            pulumi.set(__self__, "administrator_type", administrator_type)
+            _setter("administrator_type", administrator_type)
         if azure_ad_only_authentication is not None:
-            pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
+            _setter("azure_ad_only_authentication", azure_ad_only_authentication)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if principal_type is not None:
-            pulumi.set(__self__, "principal_type", principal_type)
+            _setter("principal_type", principal_type)
         if sid is not None:
-            pulumi.set(__self__, "sid", sid)
+            _setter("sid", sid)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="administratorType")
@@ -141,8 +170,21 @@ class ManagedInstancePecPropertyResponse(dict):
         :param str id: Resource ID.
         :param 'ManagedInstancePrivateEndpointConnectionPropertiesResponse' properties: Private endpoint connection properties
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "properties", properties)
+        ManagedInstancePecPropertyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             properties: 'outputs.ManagedInstancePrivateEndpointConnectionPropertiesResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -197,11 +239,32 @@ class ManagedInstancePrivateEndpointConnectionPropertiesResponse(dict):
         :param 'ManagedInstancePrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
         :param 'ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection State of the Private Endpoint Connection.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        ManagedInstancePrivateEndpointConnectionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            private_endpoint=private_endpoint,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: str,
+             private_endpoint: Optional['outputs.ManagedInstancePrivateEndpointPropertyResponse'] = None,
+             private_link_service_connection_state: Optional['outputs.ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
+        _setter("provisioning_state", provisioning_state)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -235,8 +298,19 @@ class ManagedInstancePrivateEndpointPropertyResponse(dict):
         """
         :param str id: Resource id of the private endpoint.
         """
+        ManagedInstancePrivateEndpointPropertyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -275,9 +349,26 @@ class ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse(dict):
         :param str description: The private link service connection description.
         :param str status: The private link service connection status.
         """
-        pulumi.set(__self__, "actions_required", actions_required)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
+        ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: str,
+             description: str,
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
+        _setter("actions_required", actions_required)
+        _setter("description", description)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -342,12 +433,35 @@ class ResourceIdentityResponse(dict):
         :param str type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: The resource ids of the user assigned identities to use
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ResourceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -401,15 +515,34 @@ class SkuResponse(dict):
         :param str size: Size of the particular SKU
         :param str tier: The tier or edition of the particular SKU, e.g. Basic, Premium.
         """
-        pulumi.set(__self__, "name", name)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             capacity: Optional[int] = None,
+             family: Optional[str] = None,
+             size: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -484,8 +617,25 @@ class UserIdentityResponse(dict):
         :param str client_id: The Azure Active Directory client id.
         :param str principal_id: The Azure Active Directory principal id.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")

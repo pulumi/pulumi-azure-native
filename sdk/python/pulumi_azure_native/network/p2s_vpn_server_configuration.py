@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -46,30 +46,87 @@ class P2sVpnServerConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]] vpn_client_ipsec_policies: VpnClientIpsecPolicies for P2SVpnServerConfiguration.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]] vpn_protocols: VPN protocols for the P2SVpnServerConfiguration.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_wan_name", virtual_wan_name)
+        P2sVpnServerConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            virtual_wan_name=virtual_wan_name,
+            id=id,
+            name=name,
+            p2_s_vpn_server_config_radius_client_root_certificates=p2_s_vpn_server_config_radius_client_root_certificates,
+            p2_s_vpn_server_config_radius_server_root_certificates=p2_s_vpn_server_config_radius_server_root_certificates,
+            p2_s_vpn_server_config_vpn_client_revoked_certificates=p2_s_vpn_server_config_vpn_client_revoked_certificates,
+            p2_s_vpn_server_config_vpn_client_root_certificates=p2_s_vpn_server_config_vpn_client_root_certificates,
+            p2_s_vpn_server_configuration_name=p2_s_vpn_server_configuration_name,
+            radius_server_address=radius_server_address,
+            radius_server_secret=radius_server_secret,
+            vpn_client_ipsec_policies=vpn_client_ipsec_policies,
+            vpn_protocols=vpn_protocols,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             virtual_wan_name: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             p2_s_vpn_server_config_radius_client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigRadiusClientRootCertificateArgs']]]] = None,
+             p2_s_vpn_server_config_radius_server_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigRadiusServerRootCertificateArgs']]]] = None,
+             p2_s_vpn_server_config_vpn_client_revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigVpnClientRevokedCertificateArgs']]]] = None,
+             p2_s_vpn_server_config_vpn_client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigVpnClientRootCertificateArgs']]]] = None,
+             p2_s_vpn_server_configuration_name: Optional[pulumi.Input[str]] = None,
+             radius_server_address: Optional[pulumi.Input[str]] = None,
+             radius_server_secret: Optional[pulumi.Input[str]] = None,
+             vpn_client_ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
+             vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualWanName' in kwargs:
+            virtual_wan_name = kwargs['virtualWanName']
+        if 'p2SVpnServerConfigRadiusClientRootCertificates' in kwargs:
+            p2_s_vpn_server_config_radius_client_root_certificates = kwargs['p2SVpnServerConfigRadiusClientRootCertificates']
+        if 'p2SVpnServerConfigRadiusServerRootCertificates' in kwargs:
+            p2_s_vpn_server_config_radius_server_root_certificates = kwargs['p2SVpnServerConfigRadiusServerRootCertificates']
+        if 'p2SVpnServerConfigVpnClientRevokedCertificates' in kwargs:
+            p2_s_vpn_server_config_vpn_client_revoked_certificates = kwargs['p2SVpnServerConfigVpnClientRevokedCertificates']
+        if 'p2SVpnServerConfigVpnClientRootCertificates' in kwargs:
+            p2_s_vpn_server_config_vpn_client_root_certificates = kwargs['p2SVpnServerConfigVpnClientRootCertificates']
+        if 'p2SVpnServerConfigurationName' in kwargs:
+            p2_s_vpn_server_configuration_name = kwargs['p2SVpnServerConfigurationName']
+        if 'radiusServerAddress' in kwargs:
+            radius_server_address = kwargs['radiusServerAddress']
+        if 'radiusServerSecret' in kwargs:
+            radius_server_secret = kwargs['radiusServerSecret']
+        if 'vpnClientIpsecPolicies' in kwargs:
+            vpn_client_ipsec_policies = kwargs['vpnClientIpsecPolicies']
+        if 'vpnProtocols' in kwargs:
+            vpn_protocols = kwargs['vpnProtocols']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_wan_name", virtual_wan_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if p2_s_vpn_server_config_radius_client_root_certificates is not None:
-            pulumi.set(__self__, "p2_s_vpn_server_config_radius_client_root_certificates", p2_s_vpn_server_config_radius_client_root_certificates)
+            _setter("p2_s_vpn_server_config_radius_client_root_certificates", p2_s_vpn_server_config_radius_client_root_certificates)
         if p2_s_vpn_server_config_radius_server_root_certificates is not None:
-            pulumi.set(__self__, "p2_s_vpn_server_config_radius_server_root_certificates", p2_s_vpn_server_config_radius_server_root_certificates)
+            _setter("p2_s_vpn_server_config_radius_server_root_certificates", p2_s_vpn_server_config_radius_server_root_certificates)
         if p2_s_vpn_server_config_vpn_client_revoked_certificates is not None:
-            pulumi.set(__self__, "p2_s_vpn_server_config_vpn_client_revoked_certificates", p2_s_vpn_server_config_vpn_client_revoked_certificates)
+            _setter("p2_s_vpn_server_config_vpn_client_revoked_certificates", p2_s_vpn_server_config_vpn_client_revoked_certificates)
         if p2_s_vpn_server_config_vpn_client_root_certificates is not None:
-            pulumi.set(__self__, "p2_s_vpn_server_config_vpn_client_root_certificates", p2_s_vpn_server_config_vpn_client_root_certificates)
+            _setter("p2_s_vpn_server_config_vpn_client_root_certificates", p2_s_vpn_server_config_vpn_client_root_certificates)
         if p2_s_vpn_server_configuration_name is not None:
-            pulumi.set(__self__, "p2_s_vpn_server_configuration_name", p2_s_vpn_server_configuration_name)
+            _setter("p2_s_vpn_server_configuration_name", p2_s_vpn_server_configuration_name)
         if radius_server_address is not None:
-            pulumi.set(__self__, "radius_server_address", radius_server_address)
+            _setter("radius_server_address", radius_server_address)
         if radius_server_secret is not None:
-            pulumi.set(__self__, "radius_server_secret", radius_server_secret)
+            _setter("radius_server_secret", radius_server_secret)
         if vpn_client_ipsec_policies is not None:
-            pulumi.set(__self__, "vpn_client_ipsec_policies", vpn_client_ipsec_policies)
+            _setter("vpn_client_ipsec_policies", vpn_client_ipsec_policies)
         if vpn_protocols is not None:
-            pulumi.set(__self__, "vpn_protocols", vpn_protocols)
+            _setter("vpn_protocols", vpn_protocols)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -287,6 +344,10 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            P2sVpnServerConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

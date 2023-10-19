@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -46,33 +46,84 @@ class ConnectedClusterArgs:
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the connected cluster resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "agent_public_key_certificate", agent_public_key_certificate)
-        pulumi.set(__self__, "identity", identity)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConnectedClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_public_key_certificate=agent_public_key_certificate,
+            identity=identity,
+            resource_group_name=resource_group_name,
+            azure_hybrid_benefit=azure_hybrid_benefit,
+            cluster_name=cluster_name,
+            distribution=distribution,
+            distribution_version=distribution_version,
+            infrastructure=infrastructure,
+            location=location,
+            private_link_scope_resource_id=private_link_scope_resource_id,
+            private_link_state=private_link_state,
+            provisioning_state=provisioning_state,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_public_key_certificate: pulumi.Input[str],
+             identity: pulumi.Input['ConnectedClusterIdentityArgs'],
+             resource_group_name: pulumi.Input[str],
+             azure_hybrid_benefit: Optional[pulumi.Input[Union[str, 'AzureHybridBenefit']]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             distribution: Optional[pulumi.Input[str]] = None,
+             distribution_version: Optional[pulumi.Input[str]] = None,
+             infrastructure: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             private_link_scope_resource_id: Optional[pulumi.Input[str]] = None,
+             private_link_state: Optional[pulumi.Input[Union[str, 'PrivateLinkState']]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentPublicKeyCertificate' in kwargs:
+            agent_public_key_certificate = kwargs['agentPublicKeyCertificate']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'azureHybridBenefit' in kwargs:
+            azure_hybrid_benefit = kwargs['azureHybridBenefit']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'distributionVersion' in kwargs:
+            distribution_version = kwargs['distributionVersion']
+        if 'privateLinkScopeResourceId' in kwargs:
+            private_link_scope_resource_id = kwargs['privateLinkScopeResourceId']
+        if 'privateLinkState' in kwargs:
+            private_link_state = kwargs['privateLinkState']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("agent_public_key_certificate", agent_public_key_certificate)
+        _setter("identity", identity)
+        _setter("resource_group_name", resource_group_name)
         if azure_hybrid_benefit is None:
             azure_hybrid_benefit = 'NotApplicable'
         if azure_hybrid_benefit is not None:
-            pulumi.set(__self__, "azure_hybrid_benefit", azure_hybrid_benefit)
+            _setter("azure_hybrid_benefit", azure_hybrid_benefit)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if distribution is not None:
-            pulumi.set(__self__, "distribution", distribution)
+            _setter("distribution", distribution)
         if distribution_version is not None:
-            pulumi.set(__self__, "distribution_version", distribution_version)
+            _setter("distribution_version", distribution_version)
         if infrastructure is not None:
-            pulumi.set(__self__, "infrastructure", infrastructure)
+            _setter("infrastructure", infrastructure)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if private_link_scope_resource_id is not None:
-            pulumi.set(__self__, "private_link_scope_resource_id", private_link_scope_resource_id)
+            _setter("private_link_scope_resource_id", private_link_scope_resource_id)
         if private_link_state is None:
             private_link_state = 'Disabled'
         if private_link_state is not None:
-            pulumi.set(__self__, "private_link_state", private_link_state)
+            _setter("private_link_state", private_link_state)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="agentPublicKeyCertificate")
@@ -288,6 +339,10 @@ class ConnectedCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectedClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -324,6 +379,11 @@ class ConnectedCluster(pulumi.CustomResource):
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["distribution"] = distribution
             __props__.__dict__["distribution_version"] = distribution_version
+            if identity is not None and not isinstance(identity, ConnectedClusterIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ConnectedClusterIdentityArgs._configure(_setter, **identity)
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity

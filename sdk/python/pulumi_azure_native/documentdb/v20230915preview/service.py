@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -31,16 +31,49 @@ class ServiceArgs:
         :param pulumi.Input[str] service_name: Cosmos DB service name.
         :param pulumi.Input[Union[str, 'ServiceType']] service_type: ServiceType for the service.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            instance_count=instance_count,
+            instance_size=instance_size,
+            service_name=service_name,
+            service_type=service_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             instance_count: Optional[pulumi.Input[int]] = None,
+             instance_size: Optional[pulumi.Input[Union[str, 'ServiceSize']]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             service_type: Optional[pulumi.Input[Union[str, 'ServiceType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'instanceSize' in kwargs:
+            instance_size = kwargs['instanceSize']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'serviceType' in kwargs:
+            service_type = kwargs['serviceType']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if instance_size is not None:
-            pulumi.set(__self__, "instance_size", instance_size)
+            _setter("instance_size", instance_size)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if service_type is not None:
-            pulumi.set(__self__, "service_type", service_type)
+            _setter("service_type", service_type)
 
     @property
     @pulumi.getter(name="accountName")
@@ -158,6 +191,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

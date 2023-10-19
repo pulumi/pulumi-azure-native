@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,19 +34,50 @@ class StorageSyncServiceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] use_identity: Use Identity authorization when customer have finished setup RBAC permissions.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        StorageSyncServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            identity=identity,
+            incoming_traffic_policy=incoming_traffic_policy,
+            location=location,
+            storage_sync_service_name=storage_sync_service_name,
+            tags=tags,
+            use_identity=use_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             incoming_traffic_policy: Optional[pulumi.Input[Union[str, 'IncomingTrafficPolicy']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             storage_sync_service_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             use_identity: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'incomingTrafficPolicy' in kwargs:
+            incoming_traffic_policy = kwargs['incomingTrafficPolicy']
+        if 'storageSyncServiceName' in kwargs:
+            storage_sync_service_name = kwargs['storageSyncServiceName']
+        if 'useIdentity' in kwargs:
+            use_identity = kwargs['useIdentity']
+
+        _setter("resource_group_name", resource_group_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if incoming_traffic_policy is not None:
-            pulumi.set(__self__, "incoming_traffic_policy", incoming_traffic_policy)
+            _setter("incoming_traffic_policy", incoming_traffic_policy)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if storage_sync_service_name is not None:
-            pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
+            _setter("storage_sync_service_name", storage_sync_service_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if use_identity is not None:
-            pulumi.set(__self__, "use_identity", use_identity)
+            _setter("use_identity", use_identity)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -178,6 +209,10 @@ class StorageSyncService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StorageSyncServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -199,6 +234,11 @@ class StorageSyncService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StorageSyncServiceArgs.__new__(StorageSyncServiceArgs)
 
+            if identity is not None and not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["incoming_traffic_policy"] = incoming_traffic_policy
             __props__.__dict__["location"] = location

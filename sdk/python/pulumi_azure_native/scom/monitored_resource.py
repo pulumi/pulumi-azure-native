@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -24,10 +24,31 @@ class MonitoredResourceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] monitored_resource_name: The monitored resource name.
         """
-        pulumi.set(__self__, "instance_name", instance_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MonitoredResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_name=instance_name,
+            resource_group_name=resource_group_name,
+            monitored_resource_name=monitored_resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             monitored_resource_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceName' in kwargs:
+            instance_name = kwargs['instanceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'monitoredResourceName' in kwargs:
+            monitored_resource_name = kwargs['monitoredResourceName']
+
+        _setter("instance_name", instance_name)
+        _setter("resource_group_name", resource_group_name)
         if monitored_resource_name is not None:
-            pulumi.set(__self__, "monitored_resource_name", monitored_resource_name)
+            _setter("monitored_resource_name", monitored_resource_name)
 
     @property
     @pulumi.getter(name="instanceName")
@@ -105,6 +126,10 @@ class MonitoredResource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MonitoredResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

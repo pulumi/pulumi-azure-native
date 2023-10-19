@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -30,16 +30,45 @@ class ApiPolicyArgs:
         :param pulumi.Input[Union[str, 'PolicyContentFormat']] format: Format of the policyContent.
         :param pulumi.Input[str] policy_id: The identifier of the Policy.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "value", value)
+        ApiPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            value=value,
+            format=format,
+            policy_id=policy_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             value: pulumi.Input[str],
+             format: Optional[pulumi.Input[Union[str, 'PolicyContentFormat']]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+
+        _setter("api_id", api_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("value", value)
         if format is None:
             format = 'xml'
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
 
     @property
     @pulumi.getter(name="apiId")
@@ -159,6 +188,10 @@ class ApiPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

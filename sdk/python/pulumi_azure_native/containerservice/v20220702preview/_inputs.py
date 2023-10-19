@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -21,8 +21,21 @@ class FleetHubProfileArgs:
         The FleetHubProfile configures the fleet hub.
         :param pulumi.Input[str] dns_prefix: DNS prefix used to create the FQDN for the Fleet hub.
         """
+        FleetHubProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_prefix=dns_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsPrefix' in kwargs:
+            dns_prefix = kwargs['dnsPrefix']
+
         if dns_prefix is not None:
-            pulumi.set(__self__, "dns_prefix", dns_prefix)
+            _setter("dns_prefix", dns_prefix)
 
     @property
     @pulumi.getter(name="dnsPrefix")

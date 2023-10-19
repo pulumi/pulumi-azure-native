@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,12 +29,39 @@ class ReplicationRecoveryServicesProviderArgs:
         :param pulumi.Input[str] resource_name: The name of the recovery services vault.
         :param pulumi.Input[str] provider_name: Recovery services provider name.
         """
-        pulumi.set(__self__, "fabric_name", fabric_name)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        ReplicationRecoveryServicesProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_name=fabric_name,
+            properties=properties,
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            provider_name=provider_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_name: pulumi.Input[str],
+             properties: pulumi.Input['AddRecoveryServicesProviderInputPropertiesArgs'],
+             resource_group_name: pulumi.Input[str],
+             resource_name: pulumi.Input[str],
+             provider_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fabricName' in kwargs:
+            fabric_name = kwargs['fabricName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+
+        _setter("fabric_name", fabric_name)
+        _setter("properties", properties)
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if provider_name is not None:
-            pulumi.set(__self__, "provider_name", provider_name)
+            _setter("provider_name", provider_name)
 
     @property
     @pulumi.getter(name="fabricName")
@@ -140,6 +167,10 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReplicationRecoveryServicesProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -162,6 +193,11 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
             if fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__.__dict__["fabric_name"] = fabric_name
+            if properties is not None and not isinstance(properties, AddRecoveryServicesProviderInputPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                AddRecoveryServicesProviderInputPropertiesArgs._configure(_setter, **properties)
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties

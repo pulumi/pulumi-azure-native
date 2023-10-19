@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -60,44 +60,121 @@ class UpdateArgs:
         :param pulumi.Input[str] update_name: The name of the Update
         :param pulumi.Input[str] version: Version of the update.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        UpdateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            resource_group_name=resource_group_name,
+            additional_properties=additional_properties,
+            availability_type=availability_type,
+            description=description,
+            display_name=display_name,
+            health_check_date=health_check_date,
+            installed_date=installed_date,
+            location=location,
+            notify_message=notify_message,
+            package_path=package_path,
+            package_size_in_mb=package_size_in_mb,
+            package_type=package_type,
+            prerequisites=prerequisites,
+            progress_percentage=progress_percentage,
+            publisher=publisher,
+            release_link=release_link,
+            state=state,
+            update_name=update_name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             additional_properties: Optional[pulumi.Input[str]] = None,
+             availability_type: Optional[pulumi.Input[Union[str, 'AvailabilityType']]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             health_check_date: Optional[pulumi.Input[str]] = None,
+             installed_date: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             notify_message: Optional[pulumi.Input[str]] = None,
+             package_path: Optional[pulumi.Input[str]] = None,
+             package_size_in_mb: Optional[pulumi.Input[float]] = None,
+             package_type: Optional[pulumi.Input[str]] = None,
+             prerequisites: Optional[pulumi.Input[Sequence[pulumi.Input['UpdatePrerequisiteArgs']]]] = None,
+             progress_percentage: Optional[pulumi.Input[float]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             release_link: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[Union[str, 'State']]] = None,
+             update_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'availabilityType' in kwargs:
+            availability_type = kwargs['availabilityType']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'healthCheckDate' in kwargs:
+            health_check_date = kwargs['healthCheckDate']
+        if 'installedDate' in kwargs:
+            installed_date = kwargs['installedDate']
+        if 'notifyMessage' in kwargs:
+            notify_message = kwargs['notifyMessage']
+        if 'packagePath' in kwargs:
+            package_path = kwargs['packagePath']
+        if 'packageSizeInMb' in kwargs:
+            package_size_in_mb = kwargs['packageSizeInMb']
+        if 'packageType' in kwargs:
+            package_type = kwargs['packageType']
+        if 'progressPercentage' in kwargs:
+            progress_percentage = kwargs['progressPercentage']
+        if 'releaseLink' in kwargs:
+            release_link = kwargs['releaseLink']
+        if 'updateName' in kwargs:
+            update_name = kwargs['updateName']
+
+        _setter("cluster_name", cluster_name)
+        _setter("resource_group_name", resource_group_name)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if availability_type is not None:
-            pulumi.set(__self__, "availability_type", availability_type)
+            _setter("availability_type", availability_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if health_check_date is not None:
-            pulumi.set(__self__, "health_check_date", health_check_date)
+            _setter("health_check_date", health_check_date)
         if installed_date is not None:
-            pulumi.set(__self__, "installed_date", installed_date)
+            _setter("installed_date", installed_date)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if notify_message is not None:
-            pulumi.set(__self__, "notify_message", notify_message)
+            _setter("notify_message", notify_message)
         if package_path is not None:
-            pulumi.set(__self__, "package_path", package_path)
+            _setter("package_path", package_path)
         if package_size_in_mb is not None:
-            pulumi.set(__self__, "package_size_in_mb", package_size_in_mb)
+            _setter("package_size_in_mb", package_size_in_mb)
         if package_type is not None:
-            pulumi.set(__self__, "package_type", package_type)
+            _setter("package_type", package_type)
         if prerequisites is not None:
-            pulumi.set(__self__, "prerequisites", prerequisites)
+            _setter("prerequisites", prerequisites)
         if progress_percentage is not None:
-            pulumi.set(__self__, "progress_percentage", progress_percentage)
+            _setter("progress_percentage", progress_percentage)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
         if release_link is not None:
-            pulumi.set(__self__, "release_link", release_link)
+            _setter("release_link", release_link)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if update_name is not None:
-            pulumi.set(__self__, "update_name", update_name)
+            _setter("update_name", update_name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -413,6 +490,10 @@ class Update(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UpdateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -88,65 +88,190 @@ class ClusterArgs:
         :param pulumi.Input[Union[str, 'VmssZonalUpgradeMode']] vmss_zonal_upgrade_mode: This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
         :param pulumi.Input[bool] wave_upgrade_paused: Boolean to pause automatic runtime version upgrades to the cluster.
         """
-        pulumi.set(__self__, "management_endpoint", management_endpoint)
-        pulumi.set(__self__, "node_types", node_types)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_endpoint=management_endpoint,
+            node_types=node_types,
+            resource_group_name=resource_group_name,
+            add_on_features=add_on_features,
+            application_type_versions_cleanup_policy=application_type_versions_cleanup_policy,
+            azure_active_directory=azure_active_directory,
+            certificate=certificate,
+            certificate_common_names=certificate_common_names,
+            client_certificate_common_names=client_certificate_common_names,
+            client_certificate_thumbprints=client_certificate_thumbprints,
+            cluster_code_version=cluster_code_version,
+            cluster_name=cluster_name,
+            diagnostics_storage_account_config=diagnostics_storage_account_config,
+            event_store_service_enabled=event_store_service_enabled,
+            fabric_settings=fabric_settings,
+            infrastructure_service_manager=infrastructure_service_manager,
+            location=location,
+            notifications=notifications,
+            reliability_level=reliability_level,
+            reverse_proxy_certificate=reverse_proxy_certificate,
+            reverse_proxy_certificate_common_names=reverse_proxy_certificate_common_names,
+            sf_zonal_upgrade_mode=sf_zonal_upgrade_mode,
+            tags=tags,
+            upgrade_description=upgrade_description,
+            upgrade_mode=upgrade_mode,
+            upgrade_pause_end_timestamp_utc=upgrade_pause_end_timestamp_utc,
+            upgrade_pause_start_timestamp_utc=upgrade_pause_start_timestamp_utc,
+            upgrade_wave=upgrade_wave,
+            vm_image=vm_image,
+            vmss_zonal_upgrade_mode=vmss_zonal_upgrade_mode,
+            wave_upgrade_paused=wave_upgrade_paused,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_endpoint: pulumi.Input[str],
+             node_types: pulumi.Input[Sequence[pulumi.Input['NodeTypeDescriptionArgs']]],
+             resource_group_name: pulumi.Input[str],
+             add_on_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             application_type_versions_cleanup_policy: Optional[pulumi.Input['ApplicationTypeVersionsCleanupPolicyArgs']] = None,
+             azure_active_directory: Optional[pulumi.Input['AzureActiveDirectoryArgs']] = None,
+             certificate: Optional[pulumi.Input['CertificateDescriptionArgs']] = None,
+             certificate_common_names: Optional[pulumi.Input['ServerCertificateCommonNamesArgs']] = None,
+             client_certificate_common_names: Optional[pulumi.Input[Sequence[pulumi.Input['ClientCertificateCommonNameArgs']]]] = None,
+             client_certificate_thumbprints: Optional[pulumi.Input[Sequence[pulumi.Input['ClientCertificateThumbprintArgs']]]] = None,
+             cluster_code_version: Optional[pulumi.Input[str]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             diagnostics_storage_account_config: Optional[pulumi.Input['DiagnosticsStorageAccountConfigArgs']] = None,
+             event_store_service_enabled: Optional[pulumi.Input[bool]] = None,
+             fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input['SettingsSectionDescriptionArgs']]]] = None,
+             infrastructure_service_manager: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationArgs']]]] = None,
+             reliability_level: Optional[pulumi.Input[str]] = None,
+             reverse_proxy_certificate: Optional[pulumi.Input['CertificateDescriptionArgs']] = None,
+             reverse_proxy_certificate_common_names: Optional[pulumi.Input['ServerCertificateCommonNamesArgs']] = None,
+             sf_zonal_upgrade_mode: Optional[pulumi.Input[Union[str, 'SfZonalUpgradeMode']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             upgrade_description: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
+             upgrade_mode: Optional[pulumi.Input[Union[str, 'UpgradeMode']]] = None,
+             upgrade_pause_end_timestamp_utc: Optional[pulumi.Input[str]] = None,
+             upgrade_pause_start_timestamp_utc: Optional[pulumi.Input[str]] = None,
+             upgrade_wave: Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]] = None,
+             vm_image: Optional[pulumi.Input[str]] = None,
+             vmss_zonal_upgrade_mode: Optional[pulumi.Input[Union[str, 'VmssZonalUpgradeMode']]] = None,
+             wave_upgrade_paused: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementEndpoint' in kwargs:
+            management_endpoint = kwargs['managementEndpoint']
+        if 'nodeTypes' in kwargs:
+            node_types = kwargs['nodeTypes']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'addOnFeatures' in kwargs:
+            add_on_features = kwargs['addOnFeatures']
+        if 'applicationTypeVersionsCleanupPolicy' in kwargs:
+            application_type_versions_cleanup_policy = kwargs['applicationTypeVersionsCleanupPolicy']
+        if 'azureActiveDirectory' in kwargs:
+            azure_active_directory = kwargs['azureActiveDirectory']
+        if 'certificateCommonNames' in kwargs:
+            certificate_common_names = kwargs['certificateCommonNames']
+        if 'clientCertificateCommonNames' in kwargs:
+            client_certificate_common_names = kwargs['clientCertificateCommonNames']
+        if 'clientCertificateThumbprints' in kwargs:
+            client_certificate_thumbprints = kwargs['clientCertificateThumbprints']
+        if 'clusterCodeVersion' in kwargs:
+            cluster_code_version = kwargs['clusterCodeVersion']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'diagnosticsStorageAccountConfig' in kwargs:
+            diagnostics_storage_account_config = kwargs['diagnosticsStorageAccountConfig']
+        if 'eventStoreServiceEnabled' in kwargs:
+            event_store_service_enabled = kwargs['eventStoreServiceEnabled']
+        if 'fabricSettings' in kwargs:
+            fabric_settings = kwargs['fabricSettings']
+        if 'infrastructureServiceManager' in kwargs:
+            infrastructure_service_manager = kwargs['infrastructureServiceManager']
+        if 'reliabilityLevel' in kwargs:
+            reliability_level = kwargs['reliabilityLevel']
+        if 'reverseProxyCertificate' in kwargs:
+            reverse_proxy_certificate = kwargs['reverseProxyCertificate']
+        if 'reverseProxyCertificateCommonNames' in kwargs:
+            reverse_proxy_certificate_common_names = kwargs['reverseProxyCertificateCommonNames']
+        if 'sfZonalUpgradeMode' in kwargs:
+            sf_zonal_upgrade_mode = kwargs['sfZonalUpgradeMode']
+        if 'upgradeDescription' in kwargs:
+            upgrade_description = kwargs['upgradeDescription']
+        if 'upgradeMode' in kwargs:
+            upgrade_mode = kwargs['upgradeMode']
+        if 'upgradePauseEndTimestampUtc' in kwargs:
+            upgrade_pause_end_timestamp_utc = kwargs['upgradePauseEndTimestampUtc']
+        if 'upgradePauseStartTimestampUtc' in kwargs:
+            upgrade_pause_start_timestamp_utc = kwargs['upgradePauseStartTimestampUtc']
+        if 'upgradeWave' in kwargs:
+            upgrade_wave = kwargs['upgradeWave']
+        if 'vmImage' in kwargs:
+            vm_image = kwargs['vmImage']
+        if 'vmssZonalUpgradeMode' in kwargs:
+            vmss_zonal_upgrade_mode = kwargs['vmssZonalUpgradeMode']
+        if 'waveUpgradePaused' in kwargs:
+            wave_upgrade_paused = kwargs['waveUpgradePaused']
+
+        _setter("management_endpoint", management_endpoint)
+        _setter("node_types", node_types)
+        _setter("resource_group_name", resource_group_name)
         if add_on_features is not None:
-            pulumi.set(__self__, "add_on_features", add_on_features)
+            _setter("add_on_features", add_on_features)
         if application_type_versions_cleanup_policy is not None:
-            pulumi.set(__self__, "application_type_versions_cleanup_policy", application_type_versions_cleanup_policy)
+            _setter("application_type_versions_cleanup_policy", application_type_versions_cleanup_policy)
         if azure_active_directory is not None:
-            pulumi.set(__self__, "azure_active_directory", azure_active_directory)
+            _setter("azure_active_directory", azure_active_directory)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_common_names is not None:
-            pulumi.set(__self__, "certificate_common_names", certificate_common_names)
+            _setter("certificate_common_names", certificate_common_names)
         if client_certificate_common_names is not None:
-            pulumi.set(__self__, "client_certificate_common_names", client_certificate_common_names)
+            _setter("client_certificate_common_names", client_certificate_common_names)
         if client_certificate_thumbprints is not None:
-            pulumi.set(__self__, "client_certificate_thumbprints", client_certificate_thumbprints)
+            _setter("client_certificate_thumbprints", client_certificate_thumbprints)
         if cluster_code_version is not None:
-            pulumi.set(__self__, "cluster_code_version", cluster_code_version)
+            _setter("cluster_code_version", cluster_code_version)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if diagnostics_storage_account_config is not None:
-            pulumi.set(__self__, "diagnostics_storage_account_config", diagnostics_storage_account_config)
+            _setter("diagnostics_storage_account_config", diagnostics_storage_account_config)
         if event_store_service_enabled is not None:
-            pulumi.set(__self__, "event_store_service_enabled", event_store_service_enabled)
+            _setter("event_store_service_enabled", event_store_service_enabled)
         if fabric_settings is not None:
-            pulumi.set(__self__, "fabric_settings", fabric_settings)
+            _setter("fabric_settings", fabric_settings)
         if infrastructure_service_manager is not None:
-            pulumi.set(__self__, "infrastructure_service_manager", infrastructure_service_manager)
+            _setter("infrastructure_service_manager", infrastructure_service_manager)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
         if reliability_level is not None:
-            pulumi.set(__self__, "reliability_level", reliability_level)
+            _setter("reliability_level", reliability_level)
         if reverse_proxy_certificate is not None:
-            pulumi.set(__self__, "reverse_proxy_certificate", reverse_proxy_certificate)
+            _setter("reverse_proxy_certificate", reverse_proxy_certificate)
         if reverse_proxy_certificate_common_names is not None:
-            pulumi.set(__self__, "reverse_proxy_certificate_common_names", reverse_proxy_certificate_common_names)
+            _setter("reverse_proxy_certificate_common_names", reverse_proxy_certificate_common_names)
         if sf_zonal_upgrade_mode is not None:
-            pulumi.set(__self__, "sf_zonal_upgrade_mode", sf_zonal_upgrade_mode)
+            _setter("sf_zonal_upgrade_mode", sf_zonal_upgrade_mode)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if upgrade_description is not None:
-            pulumi.set(__self__, "upgrade_description", upgrade_description)
+            _setter("upgrade_description", upgrade_description)
         if upgrade_mode is not None:
-            pulumi.set(__self__, "upgrade_mode", upgrade_mode)
+            _setter("upgrade_mode", upgrade_mode)
         if upgrade_pause_end_timestamp_utc is not None:
-            pulumi.set(__self__, "upgrade_pause_end_timestamp_utc", upgrade_pause_end_timestamp_utc)
+            _setter("upgrade_pause_end_timestamp_utc", upgrade_pause_end_timestamp_utc)
         if upgrade_pause_start_timestamp_utc is not None:
-            pulumi.set(__self__, "upgrade_pause_start_timestamp_utc", upgrade_pause_start_timestamp_utc)
+            _setter("upgrade_pause_start_timestamp_utc", upgrade_pause_start_timestamp_utc)
         if upgrade_wave is not None:
-            pulumi.set(__self__, "upgrade_wave", upgrade_wave)
+            _setter("upgrade_wave", upgrade_wave)
         if vm_image is not None:
-            pulumi.set(__self__, "vm_image", vm_image)
+            _setter("vm_image", vm_image)
         if vmss_zonal_upgrade_mode is not None:
-            pulumi.set(__self__, "vmss_zonal_upgrade_mode", vmss_zonal_upgrade_mode)
+            _setter("vmss_zonal_upgrade_mode", vmss_zonal_upgrade_mode)
         if wave_upgrade_paused is not None:
-            pulumi.set(__self__, "wave_upgrade_paused", wave_upgrade_paused)
+            _setter("wave_upgrade_paused", wave_upgrade_paused)
 
     @property
     @pulumi.getter(name="managementEndpoint")
@@ -626,6 +751,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -672,14 +801,39 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["add_on_features"] = add_on_features
+            if application_type_versions_cleanup_policy is not None and not isinstance(application_type_versions_cleanup_policy, ApplicationTypeVersionsCleanupPolicyArgs):
+                application_type_versions_cleanup_policy = application_type_versions_cleanup_policy or {}
+                def _setter(key, value):
+                    application_type_versions_cleanup_policy[key] = value
+                ApplicationTypeVersionsCleanupPolicyArgs._configure(_setter, **application_type_versions_cleanup_policy)
             __props__.__dict__["application_type_versions_cleanup_policy"] = application_type_versions_cleanup_policy
+            if azure_active_directory is not None and not isinstance(azure_active_directory, AzureActiveDirectoryArgs):
+                azure_active_directory = azure_active_directory or {}
+                def _setter(key, value):
+                    azure_active_directory[key] = value
+                AzureActiveDirectoryArgs._configure(_setter, **azure_active_directory)
             __props__.__dict__["azure_active_directory"] = azure_active_directory
+            if certificate is not None and not isinstance(certificate, CertificateDescriptionArgs):
+                certificate = certificate or {}
+                def _setter(key, value):
+                    certificate[key] = value
+                CertificateDescriptionArgs._configure(_setter, **certificate)
             __props__.__dict__["certificate"] = certificate
+            if certificate_common_names is not None and not isinstance(certificate_common_names, ServerCertificateCommonNamesArgs):
+                certificate_common_names = certificate_common_names or {}
+                def _setter(key, value):
+                    certificate_common_names[key] = value
+                ServerCertificateCommonNamesArgs._configure(_setter, **certificate_common_names)
             __props__.__dict__["certificate_common_names"] = certificate_common_names
             __props__.__dict__["client_certificate_common_names"] = client_certificate_common_names
             __props__.__dict__["client_certificate_thumbprints"] = client_certificate_thumbprints
             __props__.__dict__["cluster_code_version"] = cluster_code_version
             __props__.__dict__["cluster_name"] = cluster_name
+            if diagnostics_storage_account_config is not None and not isinstance(diagnostics_storage_account_config, DiagnosticsStorageAccountConfigArgs):
+                diagnostics_storage_account_config = diagnostics_storage_account_config or {}
+                def _setter(key, value):
+                    diagnostics_storage_account_config[key] = value
+                DiagnosticsStorageAccountConfigArgs._configure(_setter, **diagnostics_storage_account_config)
             __props__.__dict__["diagnostics_storage_account_config"] = diagnostics_storage_account_config
             __props__.__dict__["event_store_service_enabled"] = event_store_service_enabled
             __props__.__dict__["fabric_settings"] = fabric_settings
@@ -696,10 +850,25 @@ class Cluster(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if reverse_proxy_certificate is not None and not isinstance(reverse_proxy_certificate, CertificateDescriptionArgs):
+                reverse_proxy_certificate = reverse_proxy_certificate or {}
+                def _setter(key, value):
+                    reverse_proxy_certificate[key] = value
+                CertificateDescriptionArgs._configure(_setter, **reverse_proxy_certificate)
             __props__.__dict__["reverse_proxy_certificate"] = reverse_proxy_certificate
+            if reverse_proxy_certificate_common_names is not None and not isinstance(reverse_proxy_certificate_common_names, ServerCertificateCommonNamesArgs):
+                reverse_proxy_certificate_common_names = reverse_proxy_certificate_common_names or {}
+                def _setter(key, value):
+                    reverse_proxy_certificate_common_names[key] = value
+                ServerCertificateCommonNamesArgs._configure(_setter, **reverse_proxy_certificate_common_names)
             __props__.__dict__["reverse_proxy_certificate_common_names"] = reverse_proxy_certificate_common_names
             __props__.__dict__["sf_zonal_upgrade_mode"] = sf_zonal_upgrade_mode
             __props__.__dict__["tags"] = tags
+            if upgrade_description is not None and not isinstance(upgrade_description, ClusterUpgradePolicyArgs):
+                upgrade_description = upgrade_description or {}
+                def _setter(key, value):
+                    upgrade_description[key] = value
+                ClusterUpgradePolicyArgs._configure(_setter, **upgrade_description)
             __props__.__dict__["upgrade_description"] = upgrade_description
             __props__.__dict__["upgrade_mode"] = upgrade_mode
             __props__.__dict__["upgrade_pause_end_timestamp_utc"] = upgrade_pause_end_timestamp_utc

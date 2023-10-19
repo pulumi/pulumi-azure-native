@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -38,25 +38,68 @@ class BlobArgs:
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: An asset to copy to the blob contents. This field cannot be specified for Append blobs.
         :param pulumi.Input['BlobType'] type: The type of the storage blob to be created. Defaults to 'Block'.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        BlobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            container_name=container_name,
+            resource_group_name=resource_group_name,
+            access_tier=access_tier,
+            blob_name=blob_name,
+            content_md5=content_md5,
+            content_type=content_type,
+            metadata=metadata,
+            source=source,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             container_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             access_tier: Optional[pulumi.Input['BlobAccessTier']] = None,
+             blob_name: Optional[pulumi.Input[str]] = None,
+             content_md5: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
+             type: Optional[pulumi.Input['BlobType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'accessTier' in kwargs:
+            access_tier = kwargs['accessTier']
+        if 'blobName' in kwargs:
+            blob_name = kwargs['blobName']
+        if 'contentMd5' in kwargs:
+            content_md5 = kwargs['contentMd5']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
+        _setter("account_name", account_name)
+        _setter("container_name", container_name)
+        _setter("resource_group_name", resource_group_name)
         if access_tier is not None:
-            pulumi.set(__self__, "access_tier", access_tier)
+            _setter("access_tier", access_tier)
         if blob_name is not None:
-            pulumi.set(__self__, "blob_name", blob_name)
+            _setter("blob_name", blob_name)
         if content_md5 is not None:
-            pulumi.set(__self__, "content_md5", content_md5)
+            _setter("content_md5", content_md5)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if type is None:
             type = 'Block'
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="accountName")
@@ -230,6 +273,10 @@ class Blob(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BlobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

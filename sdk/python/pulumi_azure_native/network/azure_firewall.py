@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -54,39 +54,106 @@ class AzureFirewallArgs:
         :param pulumi.Input['SubResourceArgs'] virtual_hub: The virtualHub to which the firewall belongs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AzureFirewallArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            additional_properties=additional_properties,
+            application_rule_collections=application_rule_collections,
+            azure_firewall_name=azure_firewall_name,
+            firewall_policy=firewall_policy,
+            hub_ip_addresses=hub_ip_addresses,
+            id=id,
+            ip_configurations=ip_configurations,
+            location=location,
+            management_ip_configuration=management_ip_configuration,
+            nat_rule_collections=nat_rule_collections,
+            network_rule_collections=network_rule_collections,
+            sku=sku,
+            tags=tags,
+            threat_intel_mode=threat_intel_mode,
+            virtual_hub=virtual_hub,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleCollectionArgs']]]] = None,
+             azure_firewall_name: Optional[pulumi.Input[str]] = None,
+             firewall_policy: Optional[pulumi.Input['SubResourceArgs']] = None,
+             hub_ip_addresses: Optional[pulumi.Input['HubIPAddressesArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallIPConfigurationArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             management_ip_configuration: Optional[pulumi.Input['AzureFirewallIPConfigurationArgs']] = None,
+             nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNatRuleCollectionArgs']]]] = None,
+             network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNetworkRuleCollectionArgs']]]] = None,
+             sku: Optional[pulumi.Input['AzureFirewallSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
+             virtual_hub: Optional[pulumi.Input['SubResourceArgs']] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'applicationRuleCollections' in kwargs:
+            application_rule_collections = kwargs['applicationRuleCollections']
+        if 'azureFirewallName' in kwargs:
+            azure_firewall_name = kwargs['azureFirewallName']
+        if 'firewallPolicy' in kwargs:
+            firewall_policy = kwargs['firewallPolicy']
+        if 'hubIPAddresses' in kwargs:
+            hub_ip_addresses = kwargs['hubIPAddresses']
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'managementIpConfiguration' in kwargs:
+            management_ip_configuration = kwargs['managementIpConfiguration']
+        if 'natRuleCollections' in kwargs:
+            nat_rule_collections = kwargs['natRuleCollections']
+        if 'networkRuleCollections' in kwargs:
+            network_rule_collections = kwargs['networkRuleCollections']
+        if 'threatIntelMode' in kwargs:
+            threat_intel_mode = kwargs['threatIntelMode']
+        if 'virtualHub' in kwargs:
+            virtual_hub = kwargs['virtualHub']
+
+        _setter("resource_group_name", resource_group_name)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if application_rule_collections is not None:
-            pulumi.set(__self__, "application_rule_collections", application_rule_collections)
+            _setter("application_rule_collections", application_rule_collections)
         if azure_firewall_name is not None:
-            pulumi.set(__self__, "azure_firewall_name", azure_firewall_name)
+            _setter("azure_firewall_name", azure_firewall_name)
         if firewall_policy is not None:
-            pulumi.set(__self__, "firewall_policy", firewall_policy)
+            _setter("firewall_policy", firewall_policy)
         if hub_ip_addresses is not None:
-            pulumi.set(__self__, "hub_ip_addresses", hub_ip_addresses)
+            _setter("hub_ip_addresses", hub_ip_addresses)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_configurations is not None:
-            pulumi.set(__self__, "ip_configurations", ip_configurations)
+            _setter("ip_configurations", ip_configurations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if management_ip_configuration is not None:
-            pulumi.set(__self__, "management_ip_configuration", management_ip_configuration)
+            _setter("management_ip_configuration", management_ip_configuration)
         if nat_rule_collections is not None:
-            pulumi.set(__self__, "nat_rule_collections", nat_rule_collections)
+            _setter("nat_rule_collections", nat_rule_collections)
         if network_rule_collections is not None:
-            pulumi.set(__self__, "network_rule_collections", network_rule_collections)
+            _setter("network_rule_collections", network_rule_collections)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if threat_intel_mode is not None:
-            pulumi.set(__self__, "threat_intel_mode", threat_intel_mode)
+            _setter("threat_intel_mode", threat_intel_mode)
         if virtual_hub is not None:
-            pulumi.set(__self__, "virtual_hub", virtual_hub)
+            _setter("virtual_hub", virtual_hub)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -360,6 +427,10 @@ class AzureFirewall(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AzureFirewallArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -394,20 +465,45 @@ class AzureFirewall(pulumi.CustomResource):
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["application_rule_collections"] = application_rule_collections
             __props__.__dict__["azure_firewall_name"] = azure_firewall_name
+            if firewall_policy is not None and not isinstance(firewall_policy, SubResourceArgs):
+                firewall_policy = firewall_policy or {}
+                def _setter(key, value):
+                    firewall_policy[key] = value
+                SubResourceArgs._configure(_setter, **firewall_policy)
             __props__.__dict__["firewall_policy"] = firewall_policy
+            if hub_ip_addresses is not None and not isinstance(hub_ip_addresses, HubIPAddressesArgs):
+                hub_ip_addresses = hub_ip_addresses or {}
+                def _setter(key, value):
+                    hub_ip_addresses[key] = value
+                HubIPAddressesArgs._configure(_setter, **hub_ip_addresses)
             __props__.__dict__["hub_ip_addresses"] = hub_ip_addresses
             __props__.__dict__["id"] = id
             __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
+            if management_ip_configuration is not None and not isinstance(management_ip_configuration, AzureFirewallIPConfigurationArgs):
+                management_ip_configuration = management_ip_configuration or {}
+                def _setter(key, value):
+                    management_ip_configuration[key] = value
+                AzureFirewallIPConfigurationArgs._configure(_setter, **management_ip_configuration)
             __props__.__dict__["management_ip_configuration"] = management_ip_configuration
             __props__.__dict__["nat_rule_collections"] = nat_rule_collections
             __props__.__dict__["network_rule_collections"] = network_rule_collections
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, AzureFirewallSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                AzureFirewallSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["threat_intel_mode"] = threat_intel_mode
+            if virtual_hub is not None and not isinstance(virtual_hub, SubResourceArgs):
+                virtual_hub = virtual_hub or {}
+                def _setter(key, value):
+                    virtual_hub[key] = value
+                SubResourceArgs._configure(_setter, **virtual_hub)
             __props__.__dict__["virtual_hub"] = virtual_hub
             __props__.__dict__["zones"] = zones
             __props__.__dict__["etag"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -59,8 +59,21 @@ class CustomProfileResponse(dict):
         Specifies the custom settings for the virtual machine.
         :param str metadata_configuration_path: Path for metadata configuration.
         """
+        CustomProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metadata_configuration_path=metadata_configuration_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metadata_configuration_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metadataConfigurationPath' in kwargs:
+            metadata_configuration_path = kwargs['metadataConfigurationPath']
+
         if metadata_configuration_path is not None:
-            pulumi.set(__self__, "metadata_configuration_path", metadata_configuration_path)
+            _setter("metadata_configuration_path", metadata_configuration_path)
 
     @property
     @pulumi.getter(name="metadataConfigurationPath")
@@ -105,12 +118,31 @@ class DataDiskResponse(dict):
         :param int disk_size_gb: Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
         :param str name: The name of data disk.
         """
+        DataDiskResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_option=create_option,
+            disk_size_gb=disk_size_gb,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_option: Optional[str] = None,
+             disk_size_gb: Optional[int] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+
         if create_option is not None:
-            pulumi.set(__self__, "create_option", create_option)
+            _setter("create_option", create_option)
         if disk_size_gb is not None:
-            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+            _setter("disk_size_gb", disk_size_gb)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="createOption")
@@ -173,16 +205,37 @@ class ImageReferenceResponse(dict):
         :param str sku: The image SKU.
         :param str version: Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
         """
+        ImageReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact_version=exact_version,
+            offer=offer,
+            publisher=publisher,
+            sku=sku,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact_version: Optional[str] = None,
+             offer: Optional[str] = None,
+             publisher: Optional[str] = None,
+             sku: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exactVersion' in kwargs:
+            exact_version = kwargs['exactVersion']
+
         if exact_version is not None:
-            pulumi.set(__self__, "exact_version", exact_version)
+            _setter("exact_version", exact_version)
         if offer is not None:
-            pulumi.set(__self__, "offer", offer)
+            _setter("offer", offer)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="exactVersion")
@@ -236,8 +289,19 @@ class LinuxConfigurationResponse(dict):
         Specifies the Linux operating system settings on the virtual machine.
         :param 'SshConfigurationResponse' ssh: Specifies the ssh key configuration for a Linux OS.
         """
+        LinuxConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ssh=ssh,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ssh: Optional['outputs.SshConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ssh is not None:
-            pulumi.set(__self__, "ssh", ssh)
+            _setter("ssh", ssh)
 
     @property
     @pulumi.getter
@@ -308,24 +372,69 @@ class NetworkFunctionRoleConfigurationResponse(dict):
         :param Any user_data_template: The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
         :param str virtual_machine_size: The size of the virtual machine.
         """
+        NetworkFunctionRoleConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_profile=custom_profile,
+            network_interfaces=network_interfaces,
+            os_profile=os_profile,
+            role_name=role_name,
+            role_type=role_type,
+            storage_profile=storage_profile,
+            user_data_parameters=user_data_parameters,
+            user_data_template=user_data_template,
+            virtual_machine_size=virtual_machine_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_profile: Optional['outputs.CustomProfileResponse'] = None,
+             network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResponse']] = None,
+             os_profile: Optional['outputs.OsProfileResponse'] = None,
+             role_name: Optional[str] = None,
+             role_type: Optional[str] = None,
+             storage_profile: Optional['outputs.StorageProfileResponse'] = None,
+             user_data_parameters: Optional[Any] = None,
+             user_data_template: Optional[Any] = None,
+             virtual_machine_size: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customProfile' in kwargs:
+            custom_profile = kwargs['customProfile']
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if 'roleType' in kwargs:
+            role_type = kwargs['roleType']
+        if 'storageProfile' in kwargs:
+            storage_profile = kwargs['storageProfile']
+        if 'userDataParameters' in kwargs:
+            user_data_parameters = kwargs['userDataParameters']
+        if 'userDataTemplate' in kwargs:
+            user_data_template = kwargs['userDataTemplate']
+        if 'virtualMachineSize' in kwargs:
+            virtual_machine_size = kwargs['virtualMachineSize']
+
         if custom_profile is not None:
-            pulumi.set(__self__, "custom_profile", custom_profile)
+            _setter("custom_profile", custom_profile)
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
         if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
+            _setter("os_profile", os_profile)
         if role_name is not None:
-            pulumi.set(__self__, "role_name", role_name)
+            _setter("role_name", role_name)
         if role_type is not None:
-            pulumi.set(__self__, "role_type", role_type)
+            _setter("role_type", role_type)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if user_data_parameters is not None:
-            pulumi.set(__self__, "user_data_parameters", user_data_parameters)
+            _setter("user_data_parameters", user_data_parameters)
         if user_data_template is not None:
-            pulumi.set(__self__, "user_data_template", user_data_template)
+            _setter("user_data_template", user_data_template)
         if virtual_machine_size is not None:
-            pulumi.set(__self__, "virtual_machine_size", virtual_machine_size)
+            _setter("virtual_machine_size", virtual_machine_size)
 
     @property
     @pulumi.getter(name="customProfile")
@@ -428,8 +537,21 @@ class NetworkFunctionTemplateResponse(dict):
         The network function template.
         :param Sequence['NetworkFunctionRoleConfigurationResponse'] network_function_role_configurations: An array of network function role definitions.
         """
+        NetworkFunctionTemplateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_function_role_configurations=network_function_role_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_function_role_configurations: Optional[Sequence['outputs.NetworkFunctionRoleConfigurationResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkFunctionRoleConfigurations' in kwargs:
+            network_function_role_configurations = kwargs['networkFunctionRoleConfigurations']
+
         if network_function_role_configurations is not None:
-            pulumi.set(__self__, "network_function_role_configurations", network_function_role_configurations)
+            _setter("network_function_role_configurations", network_function_role_configurations)
 
     @property
     @pulumi.getter(name="networkFunctionRoleConfigurations")
@@ -480,14 +602,39 @@ class NetworkFunctionUserConfigurationResponse(dict):
         :param str role_name: The name of the network function role.
         :param Any user_data_parameters: The user data parameters from the customer.
         """
+        NetworkFunctionUserConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_interfaces=network_interfaces,
+            os_profile=os_profile,
+            role_name=role_name,
+            user_data_parameters=user_data_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResponse']] = None,
+             os_profile: Optional['outputs.NetworkFunctionUserConfigurationResponseOsProfile'] = None,
+             role_name: Optional[str] = None,
+             user_data_parameters: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if 'userDataParameters' in kwargs:
+            user_data_parameters = kwargs['userDataParameters']
+
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
         if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
+            _setter("os_profile", os_profile)
         if role_name is not None:
-            pulumi.set(__self__, "role_name", role_name)
+            _setter("role_name", role_name)
         if user_data_parameters is not None:
-            pulumi.set(__self__, "user_data_parameters", user_data_parameters)
+            _setter("user_data_parameters", user_data_parameters)
 
     @property
     @pulumi.getter(name="networkInterfaces")
@@ -550,8 +697,21 @@ class NetworkFunctionUserConfigurationResponseOsProfile(dict):
         Specifies the operating system settings for the role instance.
         :param str custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
         """
+        NetworkFunctionUserConfigurationResponseOsProfile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_data=custom_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_data: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customData' in kwargs:
+            custom_data = kwargs['customData']
+
         if custom_data is not None:
-            pulumi.set(__self__, "custom_data", custom_data)
+            _setter("custom_data", custom_data)
 
     @property
     @pulumi.getter(name="customData")
@@ -606,18 +766,47 @@ class NetworkInterfaceIPConfigurationResponse(dict):
         :param str ip_version: IP address version.
         :param str subnet: The value of the subnet.
         """
+        NetworkInterfaceIPConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_servers=dns_servers,
+            gateway=gateway,
+            ip_address=ip_address,
+            ip_allocation_method=ip_allocation_method,
+            ip_version=ip_version,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_servers: Optional[Sequence[str]] = None,
+             gateway: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             ip_allocation_method: Optional[str] = None,
+             ip_version: Optional[str] = None,
+             subnet: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'ipAllocationMethod' in kwargs:
+            ip_allocation_method = kwargs['ipAllocationMethod']
+        if 'ipVersion' in kwargs:
+            ip_version = kwargs['ipVersion']
+
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if gateway is not None:
-            pulumi.set(__self__, "gateway", gateway)
+            _setter("gateway", gateway)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if ip_allocation_method is not None:
-            pulumi.set(__self__, "ip_allocation_method", ip_allocation_method)
+            _setter("ip_allocation_method", ip_allocation_method)
         if ip_version is not None:
-            pulumi.set(__self__, "ip_version", ip_version)
+            _setter("ip_version", ip_version)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter(name="dnsServers")
@@ -708,14 +897,39 @@ class NetworkInterfaceResponse(dict):
         :param str network_interface_name: The name of the network interface.
         :param str vm_switch_type: The type of the VM switch.
         """
+        NetworkInterfaceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_configurations=ip_configurations,
+            mac_address=mac_address,
+            network_interface_name=network_interface_name,
+            vm_switch_type=vm_switch_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_configurations: Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']] = None,
+             mac_address: Optional[str] = None,
+             network_interface_name: Optional[str] = None,
+             vm_switch_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+        if 'networkInterfaceName' in kwargs:
+            network_interface_name = kwargs['networkInterfaceName']
+        if 'vmSwitchType' in kwargs:
+            vm_switch_type = kwargs['vmSwitchType']
+
         if ip_configurations is not None:
-            pulumi.set(__self__, "ip_configurations", ip_configurations)
+            _setter("ip_configurations", ip_configurations)
         if mac_address is not None:
-            pulumi.set(__self__, "mac_address", mac_address)
+            _setter("mac_address", mac_address)
         if network_interface_name is not None:
-            pulumi.set(__self__, "network_interface_name", network_interface_name)
+            _setter("network_interface_name", network_interface_name)
         if vm_switch_type is not None:
-            pulumi.set(__self__, "vm_switch_type", vm_switch_type)
+            _setter("vm_switch_type", vm_switch_type)
 
     @property
     @pulumi.getter(name="ipConfigurations")
@@ -784,12 +998,31 @@ class OsDiskResponse(dict):
         :param str name: The VHD name.
         :param str os_type: The OS type.
         """
+        OsDiskResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_size_gb=disk_size_gb,
+            name=name,
+            os_type=os_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_size_gb: Optional[int] = None,
+             name: Optional[str] = None,
+             os_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+
         if disk_size_gb is not None:
-            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+            _setter("disk_size_gb", disk_size_gb)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
 
     @property
     @pulumi.getter(name="diskSizeGB")
@@ -856,16 +1089,41 @@ class OsProfileResponse(dict):
         :param bool custom_data_required: Indicates if custom data is required to deploy this role.
         :param 'LinuxConfigurationResponse' linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         """
+        OsProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_username=admin_username,
+            custom_data=custom_data,
+            custom_data_required=custom_data_required,
+            linux_configuration=linux_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_username: Optional[str] = None,
+             custom_data: Optional[str] = None,
+             custom_data_required: Optional[bool] = None,
+             linux_configuration: Optional['outputs.LinuxConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'customData' in kwargs:
+            custom_data = kwargs['customData']
+        if 'customDataRequired' in kwargs:
+            custom_data_required = kwargs['customDataRequired']
+        if 'linuxConfiguration' in kwargs:
+            linux_configuration = kwargs['linuxConfiguration']
+
         if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
+            _setter("admin_username", admin_username)
         if custom_data is not None:
-            pulumi.set(__self__, "custom_data", custom_data)
+            _setter("custom_data", custom_data)
         if custom_data_required is None:
             custom_data_required = True
         if custom_data_required is not None:
-            pulumi.set(__self__, "custom_data_required", custom_data_required)
+            _setter("custom_data_required", custom_data_required)
         if linux_configuration is not None:
-            pulumi.set(__self__, "linux_configuration", linux_configuration)
+            _setter("linux_configuration", linux_configuration)
 
     @property
     @pulumi.getter(name="adminUsername")
@@ -928,8 +1186,21 @@ class SshConfigurationResponse(dict):
         SSH configuration for Linux based VMs running on Azure
         :param Sequence['SshPublicKeyResponse'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
         """
+        SshConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_keys=public_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicKeys' in kwargs:
+            public_keys = kwargs['publicKeys']
+
         if public_keys is not None:
-            pulumi.set(__self__, "public_keys", public_keys)
+            _setter("public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
@@ -970,10 +1241,25 @@ class SshPublicKeyResponse(dict):
         :param str key_data: SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         :param str path: Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
         """
+        SshPublicKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_data=key_data,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_data: Optional[str] = None,
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyData' in kwargs:
+            key_data = kwargs['keyData']
+
         if key_data is not None:
-            pulumi.set(__self__, "key_data", key_data)
+            _setter("key_data", key_data)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter(name="keyData")
@@ -1028,12 +1314,33 @@ class StorageProfileResponse(dict):
         :param 'ImageReferenceResponse' image_reference: The image reference properties.
         :param 'OsDiskResponse' os_disk: Specifies information about the operating system disk used by the virtual machine.
         """
+        StorageProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_disks=data_disks,
+            image_reference=image_reference,
+            os_disk=os_disk,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_disks: Optional[Sequence['outputs.DataDiskResponse']] = None,
+             image_reference: Optional['outputs.ImageReferenceResponse'] = None,
+             os_disk: Optional['outputs.OsDiskResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataDisks' in kwargs:
+            data_disks = kwargs['dataDisks']
+        if 'imageReference' in kwargs:
+            image_reference = kwargs['imageReference']
+        if 'osDisk' in kwargs:
+            os_disk = kwargs['osDisk']
+
         if data_disks is not None:
-            pulumi.set(__self__, "data_disks", data_disks)
+            _setter("data_disks", data_disks)
         if image_reference is not None:
-            pulumi.set(__self__, "image_reference", image_reference)
+            _setter("image_reference", image_reference)
         if os_disk is not None:
-            pulumi.set(__self__, "os_disk", os_disk)
+            _setter("os_disk", os_disk)
 
     @property
     @pulumi.getter(name="dataDisks")
@@ -1071,8 +1378,19 @@ class SubResourceResponse(dict):
         Reference to another sub resource.
         :param str id: Resource ID.
         """
+        SubResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1131,18 +1449,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

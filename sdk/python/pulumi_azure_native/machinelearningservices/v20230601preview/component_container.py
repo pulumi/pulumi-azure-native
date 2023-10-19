@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,34 @@ class ComponentContainerInitArgs:
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] name: Container name.
         """
-        pulumi.set(__self__, "component_container_properties", component_container_properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        ComponentContainerInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_container_properties=component_container_properties,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_container_properties: pulumi.Input['ComponentContainerArgs'],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'componentContainerProperties' in kwargs:
+            component_container_properties = kwargs['componentContainerProperties']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+
+        _setter("component_container_properties", component_container_properties)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="componentContainerProperties")
@@ -121,6 +144,10 @@ class ComponentContainer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ComponentContainerInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -139,6 +166,11 @@ class ComponentContainer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ComponentContainerInitArgs.__new__(ComponentContainerInitArgs)
 
+            if component_container_properties is not None and not isinstance(component_container_properties, ComponentContainerArgs):
+                component_container_properties = component_container_properties or {}
+                def _setter(key, value):
+                    component_container_properties[key] = value
+                ComponentContainerArgs._configure(_setter, **component_container_properties)
             if component_container_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'component_container_properties'")
             __props__.__dict__["component_container_properties"] = component_container_properties

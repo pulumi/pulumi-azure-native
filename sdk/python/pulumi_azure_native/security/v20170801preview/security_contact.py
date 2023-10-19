@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,13 +28,38 @@ class SecurityContactArgs:
         :param pulumi.Input[str] phone: The phone number of this security contact
         :param pulumi.Input[str] security_contact_name: Name of the security contact object
         """
-        pulumi.set(__self__, "alert_notifications", alert_notifications)
-        pulumi.set(__self__, "alerts_to_admins", alerts_to_admins)
-        pulumi.set(__self__, "email", email)
+        SecurityContactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_notifications=alert_notifications,
+            alerts_to_admins=alerts_to_admins,
+            email=email,
+            phone=phone,
+            security_contact_name=security_contact_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_notifications: pulumi.Input[Union[str, 'AlertNotifications']],
+             alerts_to_admins: pulumi.Input[Union[str, 'AlertsToAdmins']],
+             email: pulumi.Input[str],
+             phone: Optional[pulumi.Input[str]] = None,
+             security_contact_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertNotifications' in kwargs:
+            alert_notifications = kwargs['alertNotifications']
+        if 'alertsToAdmins' in kwargs:
+            alerts_to_admins = kwargs['alertsToAdmins']
+        if 'securityContactName' in kwargs:
+            security_contact_name = kwargs['securityContactName']
+
+        _setter("alert_notifications", alert_notifications)
+        _setter("alerts_to_admins", alerts_to_admins)
+        _setter("email", email)
         if phone is not None:
-            pulumi.set(__self__, "phone", phone)
+            _setter("phone", phone)
         if security_contact_name is not None:
-            pulumi.set(__self__, "security_contact_name", security_contact_name)
+            _setter("security_contact_name", security_contact_name)
 
     @property
     @pulumi.getter(name="alertNotifications")
@@ -138,6 +163,10 @@ class SecurityContact(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityContactArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

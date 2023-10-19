@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,20 +40,55 @@ class PipelineTopologyArgs:
         :param pulumi.Input[str] pipeline_topology_name: Pipeline topology unique identifier.
         :param pulumi.Input[Sequence[pulumi.Input['EncoderProcessorArgs']]] processors: List of the topology processor nodes. Processor nodes enable pipeline data to be analyzed, processed or transformed.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sinks", sinks)
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "sources", sources)
+        PipelineTopologyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            sinks=sinks,
+            sku=sku,
+            sources=sources,
+            description=description,
+            parameters=parameters,
+            pipeline_topology_name=pipeline_topology_name,
+            processors=processors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             kind: pulumi.Input[Union[str, 'Kind']],
+             resource_group_name: pulumi.Input[str],
+             sinks: pulumi.Input[Sequence[pulumi.Input['VideoSinkArgs']]],
+             sku: pulumi.Input['SkuArgs'],
+             sources: pulumi.Input[Sequence[pulumi.Input[Union['RtspSourceArgs', 'VideoSourceArgs']]]],
+             description: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterDeclarationArgs']]]] = None,
+             pipeline_topology_name: Optional[pulumi.Input[str]] = None,
+             processors: Optional[pulumi.Input[Sequence[pulumi.Input['EncoderProcessorArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'pipelineTopologyName' in kwargs:
+            pipeline_topology_name = kwargs['pipelineTopologyName']
+
+        _setter("account_name", account_name)
+        _setter("kind", kind)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sinks", sinks)
+        _setter("sku", sku)
+        _setter("sources", sources)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if pipeline_topology_name is not None:
-            pulumi.set(__self__, "pipeline_topology_name", pipeline_topology_name)
+            _setter("pipeline_topology_name", pipeline_topology_name)
         if processors is not None:
-            pulumi.set(__self__, "processors", processors)
+            _setter("processors", processors)
 
     @property
     @pulumi.getter(name="accountName")
@@ -237,6 +272,10 @@ class PipelineTopology(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PipelineTopologyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -277,6 +316,11 @@ class PipelineTopology(pulumi.CustomResource):
             if sinks is None and not opts.urn:
                 raise TypeError("Missing required property 'sinks'")
             __props__.__dict__["sinks"] = sinks
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

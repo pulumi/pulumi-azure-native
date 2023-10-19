@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -48,29 +48,80 @@ class IncidentArgs:
         :param pulumi.Input[str] last_activity_time_utc: The time of the last activity in the incident
         :param pulumi.Input['IncidentOwnerInfoArgs'] owner: Describes a user that the incident is assigned to
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "title", title)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        IncidentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            severity=severity,
+            status=status,
+            title=title,
+            workspace_name=workspace_name,
+            classification=classification,
+            classification_comment=classification_comment,
+            classification_reason=classification_reason,
+            description=description,
+            first_activity_time_utc=first_activity_time_utc,
+            incident_id=incident_id,
+            labels=labels,
+            last_activity_time_utc=last_activity_time_utc,
+            owner=owner,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             severity: pulumi.Input[Union[str, 'IncidentSeverity']],
+             status: pulumi.Input[Union[str, 'IncidentStatus']],
+             title: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             classification: Optional[pulumi.Input[Union[str, 'IncidentClassification']]] = None,
+             classification_comment: Optional[pulumi.Input[str]] = None,
+             classification_reason: Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             first_activity_time_utc: Optional[pulumi.Input[str]] = None,
+             incident_id: Optional[pulumi.Input[str]] = None,
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]]] = None,
+             last_activity_time_utc: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input['IncidentOwnerInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'classificationComment' in kwargs:
+            classification_comment = kwargs['classificationComment']
+        if 'classificationReason' in kwargs:
+            classification_reason = kwargs['classificationReason']
+        if 'firstActivityTimeUtc' in kwargs:
+            first_activity_time_utc = kwargs['firstActivityTimeUtc']
+        if 'incidentId' in kwargs:
+            incident_id = kwargs['incidentId']
+        if 'lastActivityTimeUtc' in kwargs:
+            last_activity_time_utc = kwargs['lastActivityTimeUtc']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("severity", severity)
+        _setter("status", status)
+        _setter("title", title)
+        _setter("workspace_name", workspace_name)
         if classification is not None:
-            pulumi.set(__self__, "classification", classification)
+            _setter("classification", classification)
         if classification_comment is not None:
-            pulumi.set(__self__, "classification_comment", classification_comment)
+            _setter("classification_comment", classification_comment)
         if classification_reason is not None:
-            pulumi.set(__self__, "classification_reason", classification_reason)
+            _setter("classification_reason", classification_reason)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if first_activity_time_utc is not None:
-            pulumi.set(__self__, "first_activity_time_utc", first_activity_time_utc)
+            _setter("first_activity_time_utc", first_activity_time_utc)
         if incident_id is not None:
-            pulumi.set(__self__, "incident_id", incident_id)
+            _setter("incident_id", incident_id)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if last_activity_time_utc is not None:
-            pulumi.set(__self__, "last_activity_time_utc", last_activity_time_utc)
+            _setter("last_activity_time_utc", last_activity_time_utc)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -302,6 +353,10 @@ class Incident(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IncidentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -338,6 +393,11 @@ class Incident(pulumi.CustomResource):
             __props__.__dict__["incident_id"] = incident_id
             __props__.__dict__["labels"] = labels
             __props__.__dict__["last_activity_time_utc"] = last_activity_time_utc
+            if owner is not None and not isinstance(owner, IncidentOwnerInfoArgs):
+                owner = owner or {}
+                def _setter(key, value):
+                    owner[key] = value
+                IncidentOwnerInfoArgs._configure(_setter, **owner)
             __props__.__dict__["owner"] = owner
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

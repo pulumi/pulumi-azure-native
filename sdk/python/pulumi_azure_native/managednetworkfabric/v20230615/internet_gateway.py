@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -35,19 +35,52 @@ class InternetGatewayArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_fabric_controller_id", network_fabric_controller_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "type", type)
+        InternetGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_fabric_controller_id=network_fabric_controller_id,
+            resource_group_name=resource_group_name,
+            type=type,
+            annotation=annotation,
+            internet_gateway_name=internet_gateway_name,
+            internet_gateway_rule_id=internet_gateway_rule_id,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_fabric_controller_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             type: pulumi.Input[Union[str, 'GatewayType']],
+             annotation: Optional[pulumi.Input[str]] = None,
+             internet_gateway_name: Optional[pulumi.Input[str]] = None,
+             internet_gateway_rule_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkFabricControllerId' in kwargs:
+            network_fabric_controller_id = kwargs['networkFabricControllerId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'internetGatewayName' in kwargs:
+            internet_gateway_name = kwargs['internetGatewayName']
+        if 'internetGatewayRuleId' in kwargs:
+            internet_gateway_rule_id = kwargs['internetGatewayRuleId']
+
+        _setter("network_fabric_controller_id", network_fabric_controller_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("type", type)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if internet_gateway_name is not None:
-            pulumi.set(__self__, "internet_gateway_name", internet_gateway_name)
+            _setter("internet_gateway_name", internet_gateway_name)
         if internet_gateway_rule_id is not None:
-            pulumi.set(__self__, "internet_gateway_rule_id", internet_gateway_rule_id)
+            _setter("internet_gateway_rule_id", internet_gateway_rule_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="networkFabricControllerId")
@@ -193,6 +226,10 @@ class InternetGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InternetGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

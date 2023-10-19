@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,14 +30,39 @@ class ManagedNetworkPeeringPolicyArgs:
         :param pulumi.Input[str] managed_network_peering_policy_name: The name of the Managed Network Peering Policy.
         :param pulumi.Input['ManagedNetworkPeeringPolicyPropertiesArgs'] properties: Gets or sets the properties of a Managed Network Policy
         """
-        pulumi.set(__self__, "managed_network_name", managed_network_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagedNetworkPeeringPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_network_name=managed_network_name,
+            resource_group_name=resource_group_name,
+            location=location,
+            managed_network_peering_policy_name=managed_network_peering_policy_name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_network_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             managed_network_peering_policy_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['ManagedNetworkPeeringPolicyPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedNetworkName' in kwargs:
+            managed_network_name = kwargs['managedNetworkName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'managedNetworkPeeringPolicyName' in kwargs:
+            managed_network_peering_policy_name = kwargs['managedNetworkPeeringPolicyName']
+
+        _setter("managed_network_name", managed_network_name)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_network_peering_policy_name is not None:
-            pulumi.set(__self__, "managed_network_peering_policy_name", managed_network_peering_policy_name)
+            _setter("managed_network_peering_policy_name", managed_network_peering_policy_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="managedNetworkName")
@@ -143,6 +168,10 @@ class ManagedNetworkPeeringPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedNetworkPeeringPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -167,6 +196,11 @@ class ManagedNetworkPeeringPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'managed_network_name'")
             __props__.__dict__["managed_network_name"] = managed_network_name
             __props__.__dict__["managed_network_peering_policy_name"] = managed_network_peering_policy_name
+            if properties is not None and not isinstance(properties, ManagedNetworkPeeringPolicyPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                ManagedNetworkPeeringPolicyPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

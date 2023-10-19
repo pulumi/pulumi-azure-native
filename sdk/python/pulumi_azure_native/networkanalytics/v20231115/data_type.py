@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -33,18 +33,53 @@ class DataTypeArgs:
         :param pulumi.Input[Union[str, 'DataTypeState']] state: State of data type.
         :param pulumi.Input[int] storage_output_retention: Field for storage output retention in days.
         """
-        pulumi.set(__self__, "data_product_name", data_product_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DataTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_product_name=data_product_name,
+            resource_group_name=resource_group_name,
+            data_type_name=data_type_name,
+            database_cache_retention=database_cache_retention,
+            database_retention=database_retention,
+            state=state,
+            storage_output_retention=storage_output_retention,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_product_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             data_type_name: Optional[pulumi.Input[str]] = None,
+             database_cache_retention: Optional[pulumi.Input[int]] = None,
+             database_retention: Optional[pulumi.Input[int]] = None,
+             state: Optional[pulumi.Input[Union[str, 'DataTypeState']]] = None,
+             storage_output_retention: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataProductName' in kwargs:
+            data_product_name = kwargs['dataProductName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'dataTypeName' in kwargs:
+            data_type_name = kwargs['dataTypeName']
+        if 'databaseCacheRetention' in kwargs:
+            database_cache_retention = kwargs['databaseCacheRetention']
+        if 'databaseRetention' in kwargs:
+            database_retention = kwargs['databaseRetention']
+        if 'storageOutputRetention' in kwargs:
+            storage_output_retention = kwargs['storageOutputRetention']
+
+        _setter("data_product_name", data_product_name)
+        _setter("resource_group_name", resource_group_name)
         if data_type_name is not None:
-            pulumi.set(__self__, "data_type_name", data_type_name)
+            _setter("data_type_name", data_type_name)
         if database_cache_retention is not None:
-            pulumi.set(__self__, "database_cache_retention", database_cache_retention)
+            _setter("database_cache_retention", database_cache_retention)
         if database_retention is not None:
-            pulumi.set(__self__, "database_retention", database_retention)
+            _setter("database_retention", database_retention)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if storage_output_retention is not None:
-            pulumi.set(__self__, "storage_output_retention", storage_output_retention)
+            _setter("storage_output_retention", storage_output_retention)
 
     @property
     @pulumi.getter(name="dataProductName")
@@ -176,6 +211,10 @@ class DataType(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataTypeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,65 @@ class VideoAnalyzerArgs:
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for resources under the Video Analyzer account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_accounts", storage_accounts)
+        VideoAnalyzerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            storage_accounts=storage_accounts,
+            account_name=account_name,
+            encryption=encryption,
+            identity=identity,
+            iot_hubs=iot_hubs,
+            location=location,
+            network_access_control=network_access_control,
+            public_network_access=public_network_access,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             storage_accounts: pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]],
+             account_name: Optional[pulumi.Input[str]] = None,
+             encryption: Optional[pulumi.Input['AccountEncryptionArgs']] = None,
+             identity: Optional[pulumi.Input['VideoAnalyzerIdentityArgs']] = None,
+             iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_access_control: Optional[pulumi.Input['NetworkAccessControlArgs']] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'iotHubs' in kwargs:
+            iot_hubs = kwargs['iotHubs']
+        if 'networkAccessControl' in kwargs:
+            network_access_control = kwargs['networkAccessControl']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_accounts", storage_accounts)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if iot_hubs is not None:
-            pulumi.set(__self__, "iot_hubs", iot_hubs)
+            _setter("iot_hubs", iot_hubs)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_access_control is not None:
-            pulumi.set(__self__, "network_access_control", network_access_control)
+            _setter("network_access_control", network_access_control)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -233,6 +274,10 @@ class VideoAnalyzer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VideoAnalyzerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -258,10 +303,25 @@ class VideoAnalyzer(pulumi.CustomResource):
             __props__ = VideoAnalyzerArgs.__new__(VideoAnalyzerArgs)
 
             __props__.__dict__["account_name"] = account_name
+            if encryption is not None and not isinstance(encryption, AccountEncryptionArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                AccountEncryptionArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
+            if identity is not None and not isinstance(identity, VideoAnalyzerIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                VideoAnalyzerIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["iot_hubs"] = iot_hubs
             __props__.__dict__["location"] = location
+            if network_access_control is not None and not isinstance(network_access_control, NetworkAccessControlArgs):
+                network_access_control = network_access_control or {}
+                def _setter(key, value):
+                    network_access_control[key] = value
+                NetworkAccessControlArgs._configure(_setter, **network_access_control)
             __props__.__dict__["network_access_control"] = network_access_control
             __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:

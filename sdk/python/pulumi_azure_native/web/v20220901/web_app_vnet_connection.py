@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -35,20 +35,57 @@ class WebAppVnetConnectionArgs:
         :param pulumi.Input[str] vnet_name: Name of an existing Virtual Network.
         :param pulumi.Input[str] vnet_resource_id: The Virtual Network's resource ID.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WebAppVnetConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            cert_blob=cert_blob,
+            dns_servers=dns_servers,
+            is_swift=is_swift,
+            kind=kind,
+            vnet_name=vnet_name,
+            vnet_resource_id=vnet_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             cert_blob: Optional[pulumi.Input[str]] = None,
+             dns_servers: Optional[pulumi.Input[str]] = None,
+             is_swift: Optional[pulumi.Input[bool]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             vnet_name: Optional[pulumi.Input[str]] = None,
+             vnet_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'certBlob' in kwargs:
+            cert_blob = kwargs['certBlob']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'isSwift' in kwargs:
+            is_swift = kwargs['isSwift']
+        if 'vnetName' in kwargs:
+            vnet_name = kwargs['vnetName']
+        if 'vnetResourceId' in kwargs:
+            vnet_resource_id = kwargs['vnetResourceId']
+
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if cert_blob is not None:
-            pulumi.set(__self__, "cert_blob", cert_blob)
+            _setter("cert_blob", cert_blob)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if is_swift is not None:
-            pulumi.set(__self__, "is_swift", is_swift)
+            _setter("is_swift", is_swift)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if vnet_name is not None:
-            pulumi.set(__self__, "vnet_name", vnet_name)
+            _setter("vnet_name", vnet_name)
         if vnet_resource_id is not None:
-            pulumi.set(__self__, "vnet_resource_id", vnet_resource_id)
+            _setter("vnet_resource_id", vnet_resource_id)
 
     @property
     @pulumi.getter
@@ -196,6 +233,10 @@ class WebAppVnetConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppVnetConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

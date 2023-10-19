@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -34,19 +34,52 @@ class L2IsolationDomainArgs:
         :param pulumi.Input[int] mtu: maximum transmission unit. Default value is 1500.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_fabric_id", network_fabric_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vlan_id", vlan_id)
+        L2IsolationDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_fabric_id=network_fabric_id,
+            resource_group_name=resource_group_name,
+            vlan_id=vlan_id,
+            annotation=annotation,
+            l2_isolation_domain_name=l2_isolation_domain_name,
+            location=location,
+            mtu=mtu,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_fabric_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             vlan_id: pulumi.Input[int],
+             annotation: Optional[pulumi.Input[str]] = None,
+             l2_isolation_domain_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mtu: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkFabricId' in kwargs:
+            network_fabric_id = kwargs['networkFabricId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'vlanId' in kwargs:
+            vlan_id = kwargs['vlanId']
+        if 'l2IsolationDomainName' in kwargs:
+            l2_isolation_domain_name = kwargs['l2IsolationDomainName']
+
+        _setter("network_fabric_id", network_fabric_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("vlan_id", vlan_id)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if l2_isolation_domain_name is not None:
-            pulumi.set(__self__, "l2_isolation_domain_name", l2_isolation_domain_name)
+            _setter("l2_isolation_domain_name", l2_isolation_domain_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mtu is not None:
-            pulumi.set(__self__, "mtu", mtu)
+            _setter("mtu", mtu)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="networkFabricId")
@@ -194,6 +227,10 @@ class L2IsolationDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            L2IsolationDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

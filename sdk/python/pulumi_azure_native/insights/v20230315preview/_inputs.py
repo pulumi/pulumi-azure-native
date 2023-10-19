@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -32,12 +32,33 @@ class ActionsArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] action_properties: The properties of an action properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: The properties of an alert payload.
         """
+        ActionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_groups=action_groups,
+            action_properties=action_properties,
+            custom_properties=custom_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             action_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionGroups' in kwargs:
+            action_groups = kwargs['actionGroups']
+        if 'actionProperties' in kwargs:
+            action_properties = kwargs['actionProperties']
+        if 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+
         if action_groups is not None:
-            pulumi.set(__self__, "action_groups", action_groups)
+            _setter("action_groups", action_groups)
         if action_properties is not None:
-            pulumi.set(__self__, "action_properties", action_properties)
+            _setter("action_properties", action_properties)
         if custom_properties is not None:
-            pulumi.set(__self__, "custom_properties", custom_properties)
+            _setter("custom_properties", custom_properties)
 
     @property
     @pulumi.getter(name="actionGroups")
@@ -86,14 +107,31 @@ class ConditionFailingPeriodsArgs:
         :param pulumi.Input[float] min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
         :param pulumi.Input[float] number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
         """
+        ConditionFailingPeriodsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            min_failing_periods_to_alert=min_failing_periods_to_alert,
+            number_of_evaluation_periods=number_of_evaluation_periods,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             min_failing_periods_to_alert: Optional[pulumi.Input[float]] = None,
+             number_of_evaluation_periods: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'minFailingPeriodsToAlert' in kwargs:
+            min_failing_periods_to_alert = kwargs['minFailingPeriodsToAlert']
+        if 'numberOfEvaluationPeriods' in kwargs:
+            number_of_evaluation_periods = kwargs['numberOfEvaluationPeriods']
+
         if min_failing_periods_to_alert is None:
             min_failing_periods_to_alert = 1
         if min_failing_periods_to_alert is not None:
-            pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
+            _setter("min_failing_periods_to_alert", min_failing_periods_to_alert)
         if number_of_evaluation_periods is None:
             number_of_evaluation_periods = 1
         if number_of_evaluation_periods is not None:
-            pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+            _setter("number_of_evaluation_periods", number_of_evaluation_periods)
 
     @property
     @pulumi.getter(name="minFailingPeriodsToAlert")
@@ -144,24 +182,61 @@ class ConditionArgs:
         :param pulumi.Input[float] threshold: the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
         :param pulumi.Input[Union[str, 'TimeAggregation']] time_aggregation: Aggregation type. Relevant and required only for rules of the kind LogAlert.
         """
+        ConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimensions=dimensions,
+            failing_periods=failing_periods,
+            metric_measure_column=metric_measure_column,
+            metric_name=metric_name,
+            operator=operator,
+            query=query,
+            resource_id_column=resource_id_column,
+            threshold=threshold,
+            time_aggregation=time_aggregation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]] = None,
+             failing_periods: Optional[pulumi.Input['ConditionFailingPeriodsArgs']] = None,
+             metric_measure_column: Optional[pulumi.Input[str]] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             operator: Optional[pulumi.Input[Union[str, 'ConditionOperator']]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             resource_id_column: Optional[pulumi.Input[str]] = None,
+             threshold: Optional[pulumi.Input[float]] = None,
+             time_aggregation: Optional[pulumi.Input[Union[str, 'TimeAggregation']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failingPeriods' in kwargs:
+            failing_periods = kwargs['failingPeriods']
+        if 'metricMeasureColumn' in kwargs:
+            metric_measure_column = kwargs['metricMeasureColumn']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'resourceIdColumn' in kwargs:
+            resource_id_column = kwargs['resourceIdColumn']
+        if 'timeAggregation' in kwargs:
+            time_aggregation = kwargs['timeAggregation']
+
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if failing_periods is not None:
-            pulumi.set(__self__, "failing_periods", failing_periods)
+            _setter("failing_periods", failing_periods)
         if metric_measure_column is not None:
-            pulumi.set(__self__, "metric_measure_column", metric_measure_column)
+            _setter("metric_measure_column", metric_measure_column)
         if metric_name is not None:
-            pulumi.set(__self__, "metric_name", metric_name)
+            _setter("metric_name", metric_name)
         if operator is not None:
-            pulumi.set(__self__, "operator", operator)
+            _setter("operator", operator)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
         if resource_id_column is not None:
-            pulumi.set(__self__, "resource_id_column", resource_id_column)
+            _setter("resource_id_column", resource_id_column)
         if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
+            _setter("threshold", threshold)
         if time_aggregation is not None:
-            pulumi.set(__self__, "time_aggregation", time_aggregation)
+            _setter("time_aggregation", time_aggregation)
 
     @property
     @pulumi.getter
@@ -284,9 +359,24 @@ class DimensionArgs:
         :param pulumi.Input[Union[str, 'DimensionOperator']] operator: Operator for dimension values
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of dimension values
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        DimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             operator: pulumi.Input[Union[str, 'DimensionOperator']],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -335,9 +425,24 @@ class IdentityArgs:
         :param pulumi.Input['IdentityType'] type: Type of managed service identity.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "type", type)
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input['IdentityType'],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -374,10 +479,27 @@ class RuleResolveConfigurationArgs:
         :param pulumi.Input[bool] auto_resolved: The flag that indicates whether or not to auto resolve a fired alert.
         :param pulumi.Input[str] time_to_resolve: The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
         """
+        RuleResolveConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_resolved=auto_resolved,
+            time_to_resolve=time_to_resolve,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_resolved: Optional[pulumi.Input[bool]] = None,
+             time_to_resolve: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoResolved' in kwargs:
+            auto_resolved = kwargs['autoResolved']
+        if 'timeToResolve' in kwargs:
+            time_to_resolve = kwargs['timeToResolve']
+
         if auto_resolved is not None:
-            pulumi.set(__self__, "auto_resolved", auto_resolved)
+            _setter("auto_resolved", auto_resolved)
         if time_to_resolve is not None:
-            pulumi.set(__self__, "time_to_resolve", time_to_resolve)
+            _setter("time_to_resolve", time_to_resolve)
 
     @property
     @pulumi.getter(name="autoResolved")
@@ -412,8 +534,21 @@ class ScheduledQueryRuleCriteriaArgs:
         The rule criteria that defines the conditions of the scheduled query rule.
         :param pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]] all_of: A list of conditions to evaluate against the specified scopes
         """
+        ScheduledQueryRuleCriteriaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_of=all_of,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_of: Optional[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allOf' in kwargs:
+            all_of = kwargs['allOf']
+
         if all_of is not None:
-            pulumi.set(__self__, "all_of", all_of)
+            _setter("all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")

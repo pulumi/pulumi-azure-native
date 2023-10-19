@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -57,42 +57,125 @@ class QueueArgs:
         :param pulumi.Input[bool] requires_session: A value that indicates whether the queue supports the concept of sessions.
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        QueueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            auto_delete_on_idle=auto_delete_on_idle,
+            dead_lettering_on_message_expiration=dead_lettering_on_message_expiration,
+            default_message_time_to_live=default_message_time_to_live,
+            duplicate_detection_history_time_window=duplicate_detection_history_time_window,
+            enable_batched_operations=enable_batched_operations,
+            enable_express=enable_express,
+            enable_partitioning=enable_partitioning,
+            forward_dead_lettered_messages_to=forward_dead_lettered_messages_to,
+            forward_to=forward_to,
+            lock_duration=lock_duration,
+            max_delivery_count=max_delivery_count,
+            max_message_size_in_kilobytes=max_message_size_in_kilobytes,
+            max_size_in_megabytes=max_size_in_megabytes,
+            queue_name=queue_name,
+            requires_duplicate_detection=requires_duplicate_detection,
+            requires_session=requires_session,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+             dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
+             default_message_time_to_live: Optional[pulumi.Input[str]] = None,
+             duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
+             enable_batched_operations: Optional[pulumi.Input[bool]] = None,
+             enable_express: Optional[pulumi.Input[bool]] = None,
+             enable_partitioning: Optional[pulumi.Input[bool]] = None,
+             forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
+             forward_to: Optional[pulumi.Input[str]] = None,
+             lock_duration: Optional[pulumi.Input[str]] = None,
+             max_delivery_count: Optional[pulumi.Input[int]] = None,
+             max_message_size_in_kilobytes: Optional[pulumi.Input[float]] = None,
+             max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
+             queue_name: Optional[pulumi.Input[str]] = None,
+             requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
+             requires_session: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input['EntityStatus']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'autoDeleteOnIdle' in kwargs:
+            auto_delete_on_idle = kwargs['autoDeleteOnIdle']
+        if 'deadLetteringOnMessageExpiration' in kwargs:
+            dead_lettering_on_message_expiration = kwargs['deadLetteringOnMessageExpiration']
+        if 'defaultMessageTimeToLive' in kwargs:
+            default_message_time_to_live = kwargs['defaultMessageTimeToLive']
+        if 'duplicateDetectionHistoryTimeWindow' in kwargs:
+            duplicate_detection_history_time_window = kwargs['duplicateDetectionHistoryTimeWindow']
+        if 'enableBatchedOperations' in kwargs:
+            enable_batched_operations = kwargs['enableBatchedOperations']
+        if 'enableExpress' in kwargs:
+            enable_express = kwargs['enableExpress']
+        if 'enablePartitioning' in kwargs:
+            enable_partitioning = kwargs['enablePartitioning']
+        if 'forwardDeadLetteredMessagesTo' in kwargs:
+            forward_dead_lettered_messages_to = kwargs['forwardDeadLetteredMessagesTo']
+        if 'forwardTo' in kwargs:
+            forward_to = kwargs['forwardTo']
+        if 'lockDuration' in kwargs:
+            lock_duration = kwargs['lockDuration']
+        if 'maxDeliveryCount' in kwargs:
+            max_delivery_count = kwargs['maxDeliveryCount']
+        if 'maxMessageSizeInKilobytes' in kwargs:
+            max_message_size_in_kilobytes = kwargs['maxMessageSizeInKilobytes']
+        if 'maxSizeInMegabytes' in kwargs:
+            max_size_in_megabytes = kwargs['maxSizeInMegabytes']
+        if 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+        if 'requiresDuplicateDetection' in kwargs:
+            requires_duplicate_detection = kwargs['requiresDuplicateDetection']
+        if 'requiresSession' in kwargs:
+            requires_session = kwargs['requiresSession']
+
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if auto_delete_on_idle is not None:
-            pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+            _setter("auto_delete_on_idle", auto_delete_on_idle)
         if dead_lettering_on_message_expiration is not None:
-            pulumi.set(__self__, "dead_lettering_on_message_expiration", dead_lettering_on_message_expiration)
+            _setter("dead_lettering_on_message_expiration", dead_lettering_on_message_expiration)
         if default_message_time_to_live is not None:
-            pulumi.set(__self__, "default_message_time_to_live", default_message_time_to_live)
+            _setter("default_message_time_to_live", default_message_time_to_live)
         if duplicate_detection_history_time_window is not None:
-            pulumi.set(__self__, "duplicate_detection_history_time_window", duplicate_detection_history_time_window)
+            _setter("duplicate_detection_history_time_window", duplicate_detection_history_time_window)
         if enable_batched_operations is not None:
-            pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
+            _setter("enable_batched_operations", enable_batched_operations)
         if enable_express is not None:
-            pulumi.set(__self__, "enable_express", enable_express)
+            _setter("enable_express", enable_express)
         if enable_partitioning is not None:
-            pulumi.set(__self__, "enable_partitioning", enable_partitioning)
+            _setter("enable_partitioning", enable_partitioning)
         if forward_dead_lettered_messages_to is not None:
-            pulumi.set(__self__, "forward_dead_lettered_messages_to", forward_dead_lettered_messages_to)
+            _setter("forward_dead_lettered_messages_to", forward_dead_lettered_messages_to)
         if forward_to is not None:
-            pulumi.set(__self__, "forward_to", forward_to)
+            _setter("forward_to", forward_to)
         if lock_duration is not None:
-            pulumi.set(__self__, "lock_duration", lock_duration)
+            _setter("lock_duration", lock_duration)
         if max_delivery_count is not None:
-            pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+            _setter("max_delivery_count", max_delivery_count)
         if max_message_size_in_kilobytes is not None:
-            pulumi.set(__self__, "max_message_size_in_kilobytes", max_message_size_in_kilobytes)
+            _setter("max_message_size_in_kilobytes", max_message_size_in_kilobytes)
         if max_size_in_megabytes is not None:
-            pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
+            _setter("max_size_in_megabytes", max_size_in_megabytes)
         if queue_name is not None:
-            pulumi.set(__self__, "queue_name", queue_name)
+            _setter("queue_name", queue_name)
         if requires_duplicate_detection is not None:
-            pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
+            _setter("requires_duplicate_detection", requires_duplicate_detection)
         if requires_session is not None:
-            pulumi.set(__self__, "requires_session", requires_session)
+            _setter("requires_session", requires_session)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -394,6 +477,10 @@ class Queue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            QueueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -46,24 +46,77 @@ class RosettaNetProcessConfigurationArgs:
         :param pulumi.Input[str] rosetta_net_process_configuration_name: The integration account RosettaNet ProcessConfiguration name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "activity_settings", activity_settings)
-        pulumi.set(__self__, "initiator_role_settings", initiator_role_settings)
-        pulumi.set(__self__, "integration_account_name", integration_account_name)
-        pulumi.set(__self__, "process_code", process_code)
-        pulumi.set(__self__, "process_name", process_name)
-        pulumi.set(__self__, "process_version", process_version)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "responder_role_settings", responder_role_settings)
+        RosettaNetProcessConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activity_settings=activity_settings,
+            initiator_role_settings=initiator_role_settings,
+            integration_account_name=integration_account_name,
+            process_code=process_code,
+            process_name=process_name,
+            process_version=process_version,
+            resource_group_name=resource_group_name,
+            responder_role_settings=responder_role_settings,
+            description=description,
+            location=location,
+            metadata=metadata,
+            rosetta_net_process_configuration_name=rosetta_net_process_configuration_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activity_settings: pulumi.Input['RosettaNetPipActivitySettingsArgs'],
+             initiator_role_settings: pulumi.Input['RosettaNetPipRoleSettingsArgs'],
+             integration_account_name: pulumi.Input[str],
+             process_code: pulumi.Input[str],
+             process_name: pulumi.Input[str],
+             process_version: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             responder_role_settings: pulumi.Input['RosettaNetPipRoleSettingsArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             rosetta_net_process_configuration_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activitySettings' in kwargs:
+            activity_settings = kwargs['activitySettings']
+        if 'initiatorRoleSettings' in kwargs:
+            initiator_role_settings = kwargs['initiatorRoleSettings']
+        if 'integrationAccountName' in kwargs:
+            integration_account_name = kwargs['integrationAccountName']
+        if 'processCode' in kwargs:
+            process_code = kwargs['processCode']
+        if 'processName' in kwargs:
+            process_name = kwargs['processName']
+        if 'processVersion' in kwargs:
+            process_version = kwargs['processVersion']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'responderRoleSettings' in kwargs:
+            responder_role_settings = kwargs['responderRoleSettings']
+        if 'rosettaNetProcessConfigurationName' in kwargs:
+            rosetta_net_process_configuration_name = kwargs['rosettaNetProcessConfigurationName']
+
+        _setter("activity_settings", activity_settings)
+        _setter("initiator_role_settings", initiator_role_settings)
+        _setter("integration_account_name", integration_account_name)
+        _setter("process_code", process_code)
+        _setter("process_name", process_name)
+        _setter("process_version", process_version)
+        _setter("resource_group_name", resource_group_name)
+        _setter("responder_role_settings", responder_role_settings)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if rosetta_net_process_configuration_name is not None:
-            pulumi.set(__self__, "rosetta_net_process_configuration_name", rosetta_net_process_configuration_name)
+            _setter("rosetta_net_process_configuration_name", rosetta_net_process_configuration_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="activitySettings")
@@ -281,6 +334,10 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RosettaNetProcessConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -308,10 +365,20 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RosettaNetProcessConfigurationArgs.__new__(RosettaNetProcessConfigurationArgs)
 
+            if activity_settings is not None and not isinstance(activity_settings, RosettaNetPipActivitySettingsArgs):
+                activity_settings = activity_settings or {}
+                def _setter(key, value):
+                    activity_settings[key] = value
+                RosettaNetPipActivitySettingsArgs._configure(_setter, **activity_settings)
             if activity_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'activity_settings'")
             __props__.__dict__["activity_settings"] = activity_settings
             __props__.__dict__["description"] = description
+            if initiator_role_settings is not None and not isinstance(initiator_role_settings, RosettaNetPipRoleSettingsArgs):
+                initiator_role_settings = initiator_role_settings or {}
+                def _setter(key, value):
+                    initiator_role_settings[key] = value
+                RosettaNetPipRoleSettingsArgs._configure(_setter, **initiator_role_settings)
             if initiator_role_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'initiator_role_settings'")
             __props__.__dict__["initiator_role_settings"] = initiator_role_settings
@@ -332,6 +399,11 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if responder_role_settings is not None and not isinstance(responder_role_settings, RosettaNetPipRoleSettingsArgs):
+                responder_role_settings = responder_role_settings or {}
+                def _setter(key, value):
+                    responder_role_settings[key] = value
+                RosettaNetPipRoleSettingsArgs._configure(_setter, **responder_role_settings)
             if responder_role_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'responder_role_settings'")
             __props__.__dict__["responder_role_settings"] = responder_role_settings

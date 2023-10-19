@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -25,9 +25,24 @@ class AdditionalAttributesArgs:
         Additional attribute to allow subscriptions to be part of the GroupQuota.
         :param pulumi.Input['GroupingIdArgs'] group_id: The grouping Id for the group quota. It can be management Group Id or ServiceTreeId if applicable. 
         """
-        pulumi.set(__self__, "group_id", group_id)
+        AdditionalAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            environment=environment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: pulumi.Input['GroupingIdArgs'],
+             environment: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+
+        _setter("group_id", group_id)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
 
     @property
     @pulumi.getter(name="groupId")
@@ -61,10 +76,27 @@ class GroupQuotasEntityBaseArgs:
         :param pulumi.Input['AdditionalAttributesArgs'] additional_attributes: Additional attributes to allow subscription, which can be added to the subscriptionIds.
         :param pulumi.Input[str] display_name: Display name of the GroupQuota entity.
         """
+        GroupQuotasEntityBaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_attributes=additional_attributes,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_attributes: Optional[pulumi.Input['AdditionalAttributesArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalAttributes' in kwargs:
+            additional_attributes = kwargs['additionalAttributes']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         if additional_attributes is not None:
-            pulumi.set(__self__, "additional_attributes", additional_attributes)
+            _setter("additional_attributes", additional_attributes)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter(name="additionalAttributes")
@@ -101,10 +133,25 @@ class GroupingIdArgs:
         :param pulumi.Input[Union[str, 'GroupingIdType']] grouping_id_type: GroupingId type. It is a required property. More types of groupIds can be supported in future. MGID is already in the URI, so it's not needed.'
         :param pulumi.Input[str] value: GroupId value based on the groupingType selected - management Group Id or ServiceTreeId.
         """
+        GroupingIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grouping_id_type=grouping_id_type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grouping_id_type: Optional[pulumi.Input[Union[str, 'GroupingIdType']]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupingIdType' in kwargs:
+            grouping_id_type = kwargs['groupingIdType']
+
         if grouping_id_type is not None:
-            pulumi.set(__self__, "grouping_id_type", grouping_id_type)
+            _setter("grouping_id_type", grouping_id_type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="groupingIdType")

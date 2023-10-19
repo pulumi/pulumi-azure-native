@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,18 +34,55 @@ class AFDOriginGroupArgs:
         :param pulumi.Input[Union[str, 'EnabledState']] session_affinity_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         :param pulumi.Input[int] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
-        pulumi.set(__self__, "profile_name", profile_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AFDOriginGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            profile_name=profile_name,
+            resource_group_name=resource_group_name,
+            health_probe_settings=health_probe_settings,
+            load_balancing_settings=load_balancing_settings,
+            origin_group_name=origin_group_name,
+            session_affinity_state=session_affinity_state,
+            traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=traffic_restoration_time_to_healed_or_new_endpoints_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             profile_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             health_probe_settings: Optional[pulumi.Input['HealthProbeParametersArgs']] = None,
+             load_balancing_settings: Optional[pulumi.Input['LoadBalancingSettingsParametersArgs']] = None,
+             origin_group_name: Optional[pulumi.Input[str]] = None,
+             session_affinity_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
+             traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'profileName' in kwargs:
+            profile_name = kwargs['profileName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'healthProbeSettings' in kwargs:
+            health_probe_settings = kwargs['healthProbeSettings']
+        if 'loadBalancingSettings' in kwargs:
+            load_balancing_settings = kwargs['loadBalancingSettings']
+        if 'originGroupName' in kwargs:
+            origin_group_name = kwargs['originGroupName']
+        if 'sessionAffinityState' in kwargs:
+            session_affinity_state = kwargs['sessionAffinityState']
+        if 'trafficRestorationTimeToHealedOrNewEndpointsInMinutes' in kwargs:
+            traffic_restoration_time_to_healed_or_new_endpoints_in_minutes = kwargs['trafficRestorationTimeToHealedOrNewEndpointsInMinutes']
+
+        _setter("profile_name", profile_name)
+        _setter("resource_group_name", resource_group_name)
         if health_probe_settings is not None:
-            pulumi.set(__self__, "health_probe_settings", health_probe_settings)
+            _setter("health_probe_settings", health_probe_settings)
         if load_balancing_settings is not None:
-            pulumi.set(__self__, "load_balancing_settings", load_balancing_settings)
+            _setter("load_balancing_settings", load_balancing_settings)
         if origin_group_name is not None:
-            pulumi.set(__self__, "origin_group_name", origin_group_name)
+            _setter("origin_group_name", origin_group_name)
         if session_affinity_state is not None:
-            pulumi.set(__self__, "session_affinity_state", session_affinity_state)
+            _setter("session_affinity_state", session_affinity_state)
         if traffic_restoration_time_to_healed_or_new_endpoints_in_minutes is not None:
-            pulumi.set(__self__, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", traffic_restoration_time_to_healed_or_new_endpoints_in_minutes)
+            _setter("traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", traffic_restoration_time_to_healed_or_new_endpoints_in_minutes)
 
     @property
     @pulumi.getter(name="profileName")
@@ -179,6 +216,10 @@ class AFDOriginGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AFDOriginGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -200,7 +241,17 @@ class AFDOriginGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AFDOriginGroupArgs.__new__(AFDOriginGroupArgs)
 
+            if health_probe_settings is not None and not isinstance(health_probe_settings, HealthProbeParametersArgs):
+                health_probe_settings = health_probe_settings or {}
+                def _setter(key, value):
+                    health_probe_settings[key] = value
+                HealthProbeParametersArgs._configure(_setter, **health_probe_settings)
             __props__.__dict__["health_probe_settings"] = health_probe_settings
+            if load_balancing_settings is not None and not isinstance(load_balancing_settings, LoadBalancingSettingsParametersArgs):
+                load_balancing_settings = load_balancing_settings or {}
+                def _setter(key, value):
+                    load_balancing_settings[key] = value
+                LoadBalancingSettingsParametersArgs._configure(_setter, **load_balancing_settings)
             __props__.__dict__["load_balancing_settings"] = load_balancing_settings
             __props__.__dict__["origin_group_name"] = origin_group_name
             if profile_name is None and not opts.urn:

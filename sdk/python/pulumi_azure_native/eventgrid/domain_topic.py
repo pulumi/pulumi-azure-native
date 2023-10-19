@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -24,10 +24,31 @@ class DomainTopicArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[str] domain_topic_name: Name of the domain topic.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DomainTopicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            resource_group_name=resource_group_name,
+            domain_topic_name=domain_topic_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             domain_topic_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'domainTopicName' in kwargs:
+            domain_topic_name = kwargs['domainTopicName']
+
+        _setter("domain_name", domain_name)
+        _setter("resource_group_name", resource_group_name)
         if domain_topic_name is not None:
-            pulumi.set(__self__, "domain_topic_name", domain_topic_name)
+            _setter("domain_topic_name", domain_topic_name)
 
     @property
     @pulumi.getter(name="domainName")
@@ -105,6 +126,10 @@ class DomainTopic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainTopicArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

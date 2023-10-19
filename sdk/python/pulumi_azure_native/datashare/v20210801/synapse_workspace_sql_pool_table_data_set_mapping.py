@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -33,14 +33,49 @@ class SynapseWorkspaceSqlPoolTableDataSetMappingArgs:
         :param pulumi.Input[str] synapse_workspace_sql_pool_table_resource_id: Resource id of the Synapse Workspace SQL Pool Table
         :param pulumi.Input[str] data_set_mapping_name: The name of the data set mapping to be created.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        pulumi.set(__self__, "kind", 'SynapseWorkspaceSqlPoolTable')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "share_subscription_name", share_subscription_name)
-        pulumi.set(__self__, "synapse_workspace_sql_pool_table_resource_id", synapse_workspace_sql_pool_table_resource_id)
+        SynapseWorkspaceSqlPoolTableDataSetMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            data_set_id=data_set_id,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            share_subscription_name=share_subscription_name,
+            synapse_workspace_sql_pool_table_resource_id=synapse_workspace_sql_pool_table_resource_id,
+            data_set_mapping_name=data_set_mapping_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             data_set_id: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             share_subscription_name: pulumi.Input[str],
+             synapse_workspace_sql_pool_table_resource_id: pulumi.Input[str],
+             data_set_mapping_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'dataSetId' in kwargs:
+            data_set_id = kwargs['dataSetId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'shareSubscriptionName' in kwargs:
+            share_subscription_name = kwargs['shareSubscriptionName']
+        if 'synapseWorkspaceSqlPoolTableResourceId' in kwargs:
+            synapse_workspace_sql_pool_table_resource_id = kwargs['synapseWorkspaceSqlPoolTableResourceId']
+        if 'dataSetMappingName' in kwargs:
+            data_set_mapping_name = kwargs['dataSetMappingName']
+
+        _setter("account_name", account_name)
+        _setter("data_set_id", data_set_id)
+        _setter("kind", 'SynapseWorkspaceSqlPoolTable')
+        _setter("resource_group_name", resource_group_name)
+        _setter("share_subscription_name", share_subscription_name)
+        _setter("synapse_workspace_sql_pool_table_resource_id", synapse_workspace_sql_pool_table_resource_id)
         if data_set_mapping_name is not None:
-            pulumi.set(__self__, "data_set_mapping_name", data_set_mapping_name)
+            _setter("data_set_mapping_name", data_set_mapping_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -174,6 +209,10 @@ class SynapseWorkspaceSqlPoolTableDataSetMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SynapseWorkspaceSqlPoolTableDataSetMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

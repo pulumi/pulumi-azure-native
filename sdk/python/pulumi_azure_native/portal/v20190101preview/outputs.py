@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -31,10 +31,25 @@ class DashboardLensResponse(dict):
         :param Mapping[str, 'DashboardPartsResponse'] parts: The dashboard parts.
         :param Mapping[str, Any] metadata: The dashboard len's metadata.
         """
-        pulumi.set(__self__, "order", order)
-        pulumi.set(__self__, "parts", parts)
+        DashboardLensResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            order=order,
+            parts=parts,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             order: int,
+             parts: Mapping[str, 'outputs.DashboardPartsResponse'],
+             metadata: Optional[Mapping[str, Any]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("order", order)
+        _setter("parts", parts)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter
@@ -74,9 +89,22 @@ class DashboardPartsResponse(dict):
         :param 'DashboardPartsResponsePosition' position: The dashboard's part position.
         :param Any metadata: A dashboard part metadata.
         """
-        pulumi.set(__self__, "position", position)
+        DashboardPartsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            position=position,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             position: 'outputs.DashboardPartsResponsePosition',
+             metadata: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("position", position)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter
@@ -133,12 +161,35 @@ class DashboardPartsResponsePosition(dict):
         :param int y: The dashboard's part y coordinate.
         :param Mapping[str, Any] metadata: The dashboard part's metadata.
         """
-        pulumi.set(__self__, "col_span", col_span)
-        pulumi.set(__self__, "row_span", row_span)
-        pulumi.set(__self__, "x", x)
-        pulumi.set(__self__, "y", y)
+        DashboardPartsResponsePosition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            col_span=col_span,
+            row_span=row_span,
+            x=x,
+            y=y,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             col_span: int,
+             row_span: int,
+             x: int,
+             y: int,
+             metadata: Optional[Mapping[str, Any]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'colSpan' in kwargs:
+            col_span = kwargs['colSpan']
+        if 'rowSpan' in kwargs:
+            row_span = kwargs['rowSpan']
+
+        _setter("col_span", col_span)
+        _setter("row_span", row_span)
+        _setter("x", x)
+        _setter("y", y)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter(name="colSpan")

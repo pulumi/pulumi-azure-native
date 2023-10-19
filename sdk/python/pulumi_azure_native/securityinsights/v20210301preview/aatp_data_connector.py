@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -35,15 +35,50 @@ class AATPDataConnectorArgs:
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input['AlertsDataTypeOfDataConnectorArgs'] data_types: The available data types for the connector.
         """
-        pulumi.set(__self__, "kind", 'AzureAdvancedThreatProtection')
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        AATPDataConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            operational_insights_resource_provider=operational_insights_resource_provider,
+            resource_group_name=resource_group_name,
+            tenant_id=tenant_id,
+            workspace_name=workspace_name,
+            data_connector_id=data_connector_id,
+            data_types=data_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[str],
+             operational_insights_resource_provider: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             tenant_id: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             data_connector_id: Optional[pulumi.Input[str]] = None,
+             data_types: Optional[pulumi.Input['AlertsDataTypeOfDataConnectorArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'operationalInsightsResourceProvider' in kwargs:
+            operational_insights_resource_provider = kwargs['operationalInsightsResourceProvider']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'dataConnectorId' in kwargs:
+            data_connector_id = kwargs['dataConnectorId']
+        if 'dataTypes' in kwargs:
+            data_types = kwargs['dataTypes']
+
+        _setter("kind", 'AzureAdvancedThreatProtection')
+        _setter("operational_insights_resource_provider", operational_insights_resource_provider)
+        _setter("resource_group_name", resource_group_name)
+        _setter("tenant_id", tenant_id)
+        _setter("workspace_name", workspace_name)
         if data_connector_id is not None:
-            pulumi.set(__self__, "data_connector_id", data_connector_id)
+            _setter("data_connector_id", data_connector_id)
         if data_types is not None:
-            pulumi.set(__self__, "data_types", data_types)
+            _setter("data_types", data_types)
 
     @property
     @pulumi.getter
@@ -177,6 +212,10 @@ class AATPDataConnector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AATPDataConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -199,6 +238,11 @@ class AATPDataConnector(pulumi.CustomResource):
             __props__ = AATPDataConnectorArgs.__new__(AATPDataConnectorArgs)
 
             __props__.__dict__["data_connector_id"] = data_connector_id
+            if data_types is not None and not isinstance(data_types, AlertsDataTypeOfDataConnectorArgs):
+                data_types = data_types or {}
+                def _setter(key, value):
+                    data_types[key] = value
+                AlertsDataTypeOfDataConnectorArgs._configure(_setter, **data_types)
             __props__.__dict__["data_types"] = data_types
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")

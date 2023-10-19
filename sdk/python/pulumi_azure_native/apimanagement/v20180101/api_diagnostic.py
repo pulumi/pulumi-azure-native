@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['ApiDiagnosticArgs', 'ApiDiagnostic']
@@ -27,12 +27,39 @@ class ApiDiagnosticArgs:
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        ApiDiagnosticArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            enabled=enabled,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            diagnostic_id=diagnostic_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: pulumi.Input[str],
+             enabled: pulumi.Input[bool],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             diagnostic_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'diagnosticId' in kwargs:
+            diagnostic_id = kwargs['diagnosticId']
+
+        _setter("api_id", api_id)
+        _setter("enabled", enabled)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if diagnostic_id is not None:
-            pulumi.set(__self__, "diagnostic_id", diagnostic_id)
+            _setter("diagnostic_id", diagnostic_id)
 
     @property
     @pulumi.getter(name="apiId")
@@ -136,6 +163,10 @@ class ApiDiagnostic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiDiagnosticArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

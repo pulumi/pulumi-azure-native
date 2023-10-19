@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -62,46 +62,125 @@ class ApplicationDefinitionArgs:
         :param pulumi.Input[str] storage_account_id: The storage account id for bring your own storage scenario.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "lock_level", lock_level)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ApplicationDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lock_level=lock_level,
+            resource_group_name=resource_group_name,
+            application_definition_name=application_definition_name,
+            artifacts=artifacts,
+            authorizations=authorizations,
+            create_ui_definition=create_ui_definition,
+            deployment_policy=deployment_policy,
+            description=description,
+            display_name=display_name,
+            is_enabled=is_enabled,
+            location=location,
+            locking_policy=locking_policy,
+            main_template=main_template,
+            managed_by=managed_by,
+            management_policy=management_policy,
+            notification_policy=notification_policy,
+            package_file_uri=package_file_uri,
+            policies=policies,
+            sku=sku,
+            storage_account_id=storage_account_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lock_level: pulumi.Input['ApplicationLockLevel'],
+             resource_group_name: pulumi.Input[str],
+             application_definition_name: Optional[pulumi.Input[str]] = None,
+             artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDefinitionArtifactArgs']]]] = None,
+             authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAuthorizationArgs']]]] = None,
+             create_ui_definition: Optional[Any] = None,
+             deployment_policy: Optional[pulumi.Input['ApplicationDeploymentPolicyArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             locking_policy: Optional[pulumi.Input['ApplicationPackageLockingPolicyDefinitionArgs']] = None,
+             main_template: Optional[Any] = None,
+             managed_by: Optional[pulumi.Input[str]] = None,
+             management_policy: Optional[pulumi.Input['ApplicationManagementPolicyArgs']] = None,
+             notification_policy: Optional[pulumi.Input['ApplicationNotificationPolicyArgs']] = None,
+             package_file_uri: Optional[pulumi.Input[str]] = None,
+             policies: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationPolicyArgs']]]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lockLevel' in kwargs:
+            lock_level = kwargs['lockLevel']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'applicationDefinitionName' in kwargs:
+            application_definition_name = kwargs['applicationDefinitionName']
+        if 'createUiDefinition' in kwargs:
+            create_ui_definition = kwargs['createUiDefinition']
+        if 'deploymentPolicy' in kwargs:
+            deployment_policy = kwargs['deploymentPolicy']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'lockingPolicy' in kwargs:
+            locking_policy = kwargs['lockingPolicy']
+        if 'mainTemplate' in kwargs:
+            main_template = kwargs['mainTemplate']
+        if 'managedBy' in kwargs:
+            managed_by = kwargs['managedBy']
+        if 'managementPolicy' in kwargs:
+            management_policy = kwargs['managementPolicy']
+        if 'notificationPolicy' in kwargs:
+            notification_policy = kwargs['notificationPolicy']
+        if 'packageFileUri' in kwargs:
+            package_file_uri = kwargs['packageFileUri']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
+        _setter("lock_level", lock_level)
+        _setter("resource_group_name", resource_group_name)
         if application_definition_name is not None:
-            pulumi.set(__self__, "application_definition_name", application_definition_name)
+            _setter("application_definition_name", application_definition_name)
         if artifacts is not None:
-            pulumi.set(__self__, "artifacts", artifacts)
+            _setter("artifacts", artifacts)
         if authorizations is not None:
-            pulumi.set(__self__, "authorizations", authorizations)
+            _setter("authorizations", authorizations)
         if create_ui_definition is not None:
-            pulumi.set(__self__, "create_ui_definition", create_ui_definition)
+            _setter("create_ui_definition", create_ui_definition)
         if deployment_policy is not None:
-            pulumi.set(__self__, "deployment_policy", deployment_policy)
+            _setter("deployment_policy", deployment_policy)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if locking_policy is not None:
-            pulumi.set(__self__, "locking_policy", locking_policy)
+            _setter("locking_policy", locking_policy)
         if main_template is not None:
-            pulumi.set(__self__, "main_template", main_template)
+            _setter("main_template", main_template)
         if managed_by is not None:
-            pulumi.set(__self__, "managed_by", managed_by)
+            _setter("managed_by", managed_by)
         if management_policy is not None:
-            pulumi.set(__self__, "management_policy", management_policy)
+            _setter("management_policy", management_policy)
         if notification_policy is not None:
-            pulumi.set(__self__, "notification_policy", notification_policy)
+            _setter("notification_policy", notification_policy)
         if package_file_uri is not None:
-            pulumi.set(__self__, "package_file_uri", package_file_uri)
+            _setter("package_file_uri", package_file_uri)
         if policies is not None:
-            pulumi.set(__self__, "policies", policies)
+            _setter("policies", policies)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="lockLevel")
@@ -429,6 +508,10 @@ class ApplicationDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -468,6 +551,11 @@ class ApplicationDefinition(pulumi.CustomResource):
             __props__.__dict__["artifacts"] = artifacts
             __props__.__dict__["authorizations"] = authorizations
             __props__.__dict__["create_ui_definition"] = create_ui_definition
+            if deployment_policy is not None and not isinstance(deployment_policy, ApplicationDeploymentPolicyArgs):
+                deployment_policy = deployment_policy or {}
+                def _setter(key, value):
+                    deployment_policy[key] = value
+                ApplicationDeploymentPolicyArgs._configure(_setter, **deployment_policy)
             __props__.__dict__["deployment_policy"] = deployment_policy
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
@@ -476,16 +564,36 @@ class ApplicationDefinition(pulumi.CustomResource):
             if lock_level is None and not opts.urn:
                 raise TypeError("Missing required property 'lock_level'")
             __props__.__dict__["lock_level"] = lock_level
+            if locking_policy is not None and not isinstance(locking_policy, ApplicationPackageLockingPolicyDefinitionArgs):
+                locking_policy = locking_policy or {}
+                def _setter(key, value):
+                    locking_policy[key] = value
+                ApplicationPackageLockingPolicyDefinitionArgs._configure(_setter, **locking_policy)
             __props__.__dict__["locking_policy"] = locking_policy
             __props__.__dict__["main_template"] = main_template
             __props__.__dict__["managed_by"] = managed_by
+            if management_policy is not None and not isinstance(management_policy, ApplicationManagementPolicyArgs):
+                management_policy = management_policy or {}
+                def _setter(key, value):
+                    management_policy[key] = value
+                ApplicationManagementPolicyArgs._configure(_setter, **management_policy)
             __props__.__dict__["management_policy"] = management_policy
+            if notification_policy is not None and not isinstance(notification_policy, ApplicationNotificationPolicyArgs):
+                notification_policy = notification_policy or {}
+                def _setter(key, value):
+                    notification_policy[key] = value
+                ApplicationNotificationPolicyArgs._configure(_setter, **notification_policy)
             __props__.__dict__["notification_policy"] = notification_policy
             __props__.__dict__["package_file_uri"] = package_file_uri
             __props__.__dict__["policies"] = policies
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["tags"] = tags

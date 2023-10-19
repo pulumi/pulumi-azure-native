@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -83,75 +83,224 @@ class WorkloadCrrAccessTokenResponse(dict):
         :param str subscription_id: Subscription Id of the source vault
         :param str token_extended_information: Extended Information about the token like FileSpec etc.
         """
-        pulumi.set(__self__, "object_type", 'WorkloadCrrAccessToken')
+        WorkloadCrrAccessTokenResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_type=object_type,
+            access_token_string=access_token_string,
+            b_ms_active_region=b_ms_active_region,
+            backup_management_type=backup_management_type,
+            container_id=container_id,
+            container_name=container_name,
+            container_type=container_type,
+            coordinator_service_stamp_id=coordinator_service_stamp_id,
+            coordinator_service_stamp_uri=coordinator_service_stamp_uri,
+            datasource_container_name=datasource_container_name,
+            datasource_id=datasource_id,
+            datasource_name=datasource_name,
+            datasource_type=datasource_type,
+            policy_id=policy_id,
+            policy_name=policy_name,
+            protectable_object_container_host_os_name=protectable_object_container_host_os_name,
+            protectable_object_friendly_name=protectable_object_friendly_name,
+            protectable_object_parent_logical_container_name=protectable_object_parent_logical_container_name,
+            protectable_object_protection_state=protectable_object_protection_state,
+            protectable_object_unique_name=protectable_object_unique_name,
+            protectable_object_workload_type=protectable_object_workload_type,
+            protection_container_id=protection_container_id,
+            protection_service_stamp_id=protection_service_stamp_id,
+            protection_service_stamp_uri=protection_service_stamp_uri,
+            recovery_point_id=recovery_point_id,
+            recovery_point_time=recovery_point_time,
+            resource_group_name=resource_group_name,
+            resource_id=resource_id,
+            resource_name=resource_name,
+            rp_is_managed_virtual_machine=rp_is_managed_virtual_machine,
+            rp_original_sa_option=rp_original_sa_option,
+            rp_tier_information=rp_tier_information,
+            rp_vm_size_description=rp_vm_size_description,
+            subscription_id=subscription_id,
+            token_extended_information=token_extended_information,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_type: str,
+             access_token_string: Optional[str] = None,
+             b_ms_active_region: Optional[str] = None,
+             backup_management_type: Optional[str] = None,
+             container_id: Optional[str] = None,
+             container_name: Optional[str] = None,
+             container_type: Optional[str] = None,
+             coordinator_service_stamp_id: Optional[str] = None,
+             coordinator_service_stamp_uri: Optional[str] = None,
+             datasource_container_name: Optional[str] = None,
+             datasource_id: Optional[str] = None,
+             datasource_name: Optional[str] = None,
+             datasource_type: Optional[str] = None,
+             policy_id: Optional[str] = None,
+             policy_name: Optional[str] = None,
+             protectable_object_container_host_os_name: Optional[str] = None,
+             protectable_object_friendly_name: Optional[str] = None,
+             protectable_object_parent_logical_container_name: Optional[str] = None,
+             protectable_object_protection_state: Optional[str] = None,
+             protectable_object_unique_name: Optional[str] = None,
+             protectable_object_workload_type: Optional[str] = None,
+             protection_container_id: Optional[float] = None,
+             protection_service_stamp_id: Optional[str] = None,
+             protection_service_stamp_uri: Optional[str] = None,
+             recovery_point_id: Optional[str] = None,
+             recovery_point_time: Optional[str] = None,
+             resource_group_name: Optional[str] = None,
+             resource_id: Optional[str] = None,
+             resource_name: Optional[str] = None,
+             rp_is_managed_virtual_machine: Optional[bool] = None,
+             rp_original_sa_option: Optional[bool] = None,
+             rp_tier_information: Optional[Mapping[str, str]] = None,
+             rp_vm_size_description: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             token_extended_information: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'accessTokenString' in kwargs:
+            access_token_string = kwargs['accessTokenString']
+        if 'bMSActiveRegion' in kwargs:
+            b_ms_active_region = kwargs['bMSActiveRegion']
+        if 'backupManagementType' in kwargs:
+            backup_management_type = kwargs['backupManagementType']
+        if 'containerId' in kwargs:
+            container_id = kwargs['containerId']
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'containerType' in kwargs:
+            container_type = kwargs['containerType']
+        if 'coordinatorServiceStampId' in kwargs:
+            coordinator_service_stamp_id = kwargs['coordinatorServiceStampId']
+        if 'coordinatorServiceStampUri' in kwargs:
+            coordinator_service_stamp_uri = kwargs['coordinatorServiceStampUri']
+        if 'datasourceContainerName' in kwargs:
+            datasource_container_name = kwargs['datasourceContainerName']
+        if 'datasourceId' in kwargs:
+            datasource_id = kwargs['datasourceId']
+        if 'datasourceName' in kwargs:
+            datasource_name = kwargs['datasourceName']
+        if 'datasourceType' in kwargs:
+            datasource_type = kwargs['datasourceType']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'protectableObjectContainerHostOsName' in kwargs:
+            protectable_object_container_host_os_name = kwargs['protectableObjectContainerHostOsName']
+        if 'protectableObjectFriendlyName' in kwargs:
+            protectable_object_friendly_name = kwargs['protectableObjectFriendlyName']
+        if 'protectableObjectParentLogicalContainerName' in kwargs:
+            protectable_object_parent_logical_container_name = kwargs['protectableObjectParentLogicalContainerName']
+        if 'protectableObjectProtectionState' in kwargs:
+            protectable_object_protection_state = kwargs['protectableObjectProtectionState']
+        if 'protectableObjectUniqueName' in kwargs:
+            protectable_object_unique_name = kwargs['protectableObjectUniqueName']
+        if 'protectableObjectWorkloadType' in kwargs:
+            protectable_object_workload_type = kwargs['protectableObjectWorkloadType']
+        if 'protectionContainerId' in kwargs:
+            protection_container_id = kwargs['protectionContainerId']
+        if 'protectionServiceStampId' in kwargs:
+            protection_service_stamp_id = kwargs['protectionServiceStampId']
+        if 'protectionServiceStampUri' in kwargs:
+            protection_service_stamp_uri = kwargs['protectionServiceStampUri']
+        if 'recoveryPointId' in kwargs:
+            recovery_point_id = kwargs['recoveryPointId']
+        if 'recoveryPointTime' in kwargs:
+            recovery_point_time = kwargs['recoveryPointTime']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if 'rpIsManagedVirtualMachine' in kwargs:
+            rp_is_managed_virtual_machine = kwargs['rpIsManagedVirtualMachine']
+        if 'rpOriginalSAOption' in kwargs:
+            rp_original_sa_option = kwargs['rpOriginalSAOption']
+        if 'rpTierInformation' in kwargs:
+            rp_tier_information = kwargs['rpTierInformation']
+        if 'rpVMSizeDescription' in kwargs:
+            rp_vm_size_description = kwargs['rpVMSizeDescription']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'tokenExtendedInformation' in kwargs:
+            token_extended_information = kwargs['tokenExtendedInformation']
+
+        _setter("object_type", 'WorkloadCrrAccessToken')
         if access_token_string is not None:
-            pulumi.set(__self__, "access_token_string", access_token_string)
+            _setter("access_token_string", access_token_string)
         if b_ms_active_region is not None:
-            pulumi.set(__self__, "b_ms_active_region", b_ms_active_region)
+            _setter("b_ms_active_region", b_ms_active_region)
         if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", backup_management_type)
+            _setter("backup_management_type", backup_management_type)
         if container_id is not None:
-            pulumi.set(__self__, "container_id", container_id)
+            _setter("container_id", container_id)
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if container_type is not None:
-            pulumi.set(__self__, "container_type", container_type)
+            _setter("container_type", container_type)
         if coordinator_service_stamp_id is not None:
-            pulumi.set(__self__, "coordinator_service_stamp_id", coordinator_service_stamp_id)
+            _setter("coordinator_service_stamp_id", coordinator_service_stamp_id)
         if coordinator_service_stamp_uri is not None:
-            pulumi.set(__self__, "coordinator_service_stamp_uri", coordinator_service_stamp_uri)
+            _setter("coordinator_service_stamp_uri", coordinator_service_stamp_uri)
         if datasource_container_name is not None:
-            pulumi.set(__self__, "datasource_container_name", datasource_container_name)
+            _setter("datasource_container_name", datasource_container_name)
         if datasource_id is not None:
-            pulumi.set(__self__, "datasource_id", datasource_id)
+            _setter("datasource_id", datasource_id)
         if datasource_name is not None:
-            pulumi.set(__self__, "datasource_name", datasource_name)
+            _setter("datasource_name", datasource_name)
         if datasource_type is not None:
-            pulumi.set(__self__, "datasource_type", datasource_type)
+            _setter("datasource_type", datasource_type)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+            _setter("policy_name", policy_name)
         if protectable_object_container_host_os_name is not None:
-            pulumi.set(__self__, "protectable_object_container_host_os_name", protectable_object_container_host_os_name)
+            _setter("protectable_object_container_host_os_name", protectable_object_container_host_os_name)
         if protectable_object_friendly_name is not None:
-            pulumi.set(__self__, "protectable_object_friendly_name", protectable_object_friendly_name)
+            _setter("protectable_object_friendly_name", protectable_object_friendly_name)
         if protectable_object_parent_logical_container_name is not None:
-            pulumi.set(__self__, "protectable_object_parent_logical_container_name", protectable_object_parent_logical_container_name)
+            _setter("protectable_object_parent_logical_container_name", protectable_object_parent_logical_container_name)
         if protectable_object_protection_state is not None:
-            pulumi.set(__self__, "protectable_object_protection_state", protectable_object_protection_state)
+            _setter("protectable_object_protection_state", protectable_object_protection_state)
         if protectable_object_unique_name is not None:
-            pulumi.set(__self__, "protectable_object_unique_name", protectable_object_unique_name)
+            _setter("protectable_object_unique_name", protectable_object_unique_name)
         if protectable_object_workload_type is not None:
-            pulumi.set(__self__, "protectable_object_workload_type", protectable_object_workload_type)
+            _setter("protectable_object_workload_type", protectable_object_workload_type)
         if protection_container_id is not None:
-            pulumi.set(__self__, "protection_container_id", protection_container_id)
+            _setter("protection_container_id", protection_container_id)
         if protection_service_stamp_id is not None:
-            pulumi.set(__self__, "protection_service_stamp_id", protection_service_stamp_id)
+            _setter("protection_service_stamp_id", protection_service_stamp_id)
         if protection_service_stamp_uri is not None:
-            pulumi.set(__self__, "protection_service_stamp_uri", protection_service_stamp_uri)
+            _setter("protection_service_stamp_uri", protection_service_stamp_uri)
         if recovery_point_id is not None:
-            pulumi.set(__self__, "recovery_point_id", recovery_point_id)
+            _setter("recovery_point_id", recovery_point_id)
         if recovery_point_time is not None:
-            pulumi.set(__self__, "recovery_point_time", recovery_point_time)
+            _setter("recovery_point_time", recovery_point_time)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if rp_is_managed_virtual_machine is not None:
-            pulumi.set(__self__, "rp_is_managed_virtual_machine", rp_is_managed_virtual_machine)
+            _setter("rp_is_managed_virtual_machine", rp_is_managed_virtual_machine)
         if rp_original_sa_option is not None:
-            pulumi.set(__self__, "rp_original_sa_option", rp_original_sa_option)
+            _setter("rp_original_sa_option", rp_original_sa_option)
         if rp_tier_information is not None:
-            pulumi.set(__self__, "rp_tier_information", rp_tier_information)
+            _setter("rp_tier_information", rp_tier_information)
         if rp_vm_size_description is not None:
-            pulumi.set(__self__, "rp_vm_size_description", rp_vm_size_description)
+            _setter("rp_vm_size_description", rp_vm_size_description)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if token_extended_information is not None:
-            pulumi.set(__self__, "token_extended_information", token_extended_information)
+            _setter("token_extended_information", token_extended_information)
 
     @property
     @pulumi.getter(name="objectType")

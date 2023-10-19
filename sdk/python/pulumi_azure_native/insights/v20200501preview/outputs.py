@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -51,10 +51,27 @@ class ActionResponse(dict):
         :param str action_group_id: Action Group resource Id to invoke when the alert fires.
         :param Mapping[str, str] web_hook_properties: The properties of a webhook object.
         """
+        ActionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_group_id=action_group_id,
+            web_hook_properties=web_hook_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_group_id: Optional[str] = None,
+             web_hook_properties: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionGroupId' in kwargs:
+            action_group_id = kwargs['actionGroupId']
+        if 'webHookProperties' in kwargs:
+            web_hook_properties = kwargs['webHookProperties']
+
         if action_group_id is not None:
-            pulumi.set(__self__, "action_group_id", action_group_id)
+            _setter("action_group_id", action_group_id)
         if web_hook_properties is not None:
-            pulumi.set(__self__, "web_hook_properties", web_hook_properties)
+            _setter("web_hook_properties", web_hook_properties)
 
     @property
     @pulumi.getter(name="actionGroupId")
@@ -121,19 +138,52 @@ class ConditionResponse(dict):
         :param str query: Log query alert
         :param str resource_id_column: The column containing the resource id. The content of the column must be a uri formatted as resource id
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "time_aggregation", time_aggregation)
+        ConditionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            threshold=threshold,
+            time_aggregation=time_aggregation,
+            dimensions=dimensions,
+            failing_periods=failing_periods,
+            metric_measure_column=metric_measure_column,
+            query=query,
+            resource_id_column=resource_id_column,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: str,
+             threshold: float,
+             time_aggregation: str,
+             dimensions: Optional[Sequence['outputs.DimensionResponse']] = None,
+             failing_periods: Optional['outputs.ConditionResponseFailingPeriods'] = None,
+             metric_measure_column: Optional[str] = None,
+             query: Optional[str] = None,
+             resource_id_column: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeAggregation' in kwargs:
+            time_aggregation = kwargs['timeAggregation']
+        if 'failingPeriods' in kwargs:
+            failing_periods = kwargs['failingPeriods']
+        if 'metricMeasureColumn' in kwargs:
+            metric_measure_column = kwargs['metricMeasureColumn']
+        if 'resourceIdColumn' in kwargs:
+            resource_id_column = kwargs['resourceIdColumn']
+
+        _setter("operator", operator)
+        _setter("threshold", threshold)
+        _setter("time_aggregation", time_aggregation)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if failing_periods is not None:
-            pulumi.set(__self__, "failing_periods", failing_periods)
+            _setter("failing_periods", failing_periods)
         if metric_measure_column is not None:
-            pulumi.set(__self__, "metric_measure_column", metric_measure_column)
+            _setter("metric_measure_column", metric_measure_column)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
         if resource_id_column is not None:
-            pulumi.set(__self__, "resource_id_column", resource_id_column)
+            _setter("resource_id_column", resource_id_column)
 
     @property
     @pulumi.getter
@@ -232,14 +282,31 @@ class ConditionResponseFailingPeriods(dict):
         :param float min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
         :param float number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
         """
+        ConditionResponseFailingPeriods._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            min_failing_periods_to_alert=min_failing_periods_to_alert,
+            number_of_evaluation_periods=number_of_evaluation_periods,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             min_failing_periods_to_alert: Optional[float] = None,
+             number_of_evaluation_periods: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'minFailingPeriodsToAlert' in kwargs:
+            min_failing_periods_to_alert = kwargs['minFailingPeriodsToAlert']
+        if 'numberOfEvaluationPeriods' in kwargs:
+            number_of_evaluation_periods = kwargs['numberOfEvaluationPeriods']
+
         if min_failing_periods_to_alert is None:
             min_failing_periods_to_alert = 1
         if min_failing_periods_to_alert is not None:
-            pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
+            _setter("min_failing_periods_to_alert", min_failing_periods_to_alert)
         if number_of_evaluation_periods is None:
             number_of_evaluation_periods = 1
         if number_of_evaluation_periods is not None:
-            pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+            _setter("number_of_evaluation_periods", number_of_evaluation_periods)
 
     @property
     @pulumi.getter(name="minFailingPeriodsToAlert")
@@ -273,9 +340,24 @@ class DimensionResponse(dict):
         :param str operator: Operator for dimension values
         :param Sequence[str] values: List of dimension values
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        DimensionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             operator: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -330,8 +412,21 @@ class ScheduledQueryRuleCriteriaResponse(dict):
         The rule criteria that defines the conditions of the scheduled query rule.
         :param Sequence['ConditionResponse'] all_of: A list of conditions to evaluate against the specified scopes
         """
+        ScheduledQueryRuleCriteriaResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_of=all_of,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_of: Optional[Sequence['outputs.ConditionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allOf' in kwargs:
+            all_of = kwargs['allOf']
+
         if all_of is not None:
-            pulumi.set(__self__, "all_of", all_of)
+            _setter("all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")

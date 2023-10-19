@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -35,20 +35,57 @@ class VcenterControllerArgs:
         :param pulumi.Input[str] run_as_account_id: Gets or sets the run as account ID of the vCenter.
         :param pulumi.Input[str] vcenter_name:  VCenters name
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "site_name", site_name)
+        VcenterControllerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            site_name=site_name,
+            fqdn=fqdn,
+            friendly_name=friendly_name,
+            port=port,
+            provisioning_state=provisioning_state,
+            run_as_account_id=run_as_account_id,
+            vcenter_name=vcenter_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             site_name: pulumi.Input[str],
+             fqdn: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             run_as_account_id: Optional[pulumi.Input[str]] = None,
+             vcenter_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'siteName' in kwargs:
+            site_name = kwargs['siteName']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'runAsAccountId' in kwargs:
+            run_as_account_id = kwargs['runAsAccountId']
+        if 'vcenterName' in kwargs:
+            vcenter_name = kwargs['vcenterName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("site_name", site_name)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if run_as_account_id is not None:
-            pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+            _setter("run_as_account_id", run_as_account_id)
         if vcenter_name is not None:
-            pulumi.set(__self__, "vcenter_name", vcenter_name)
+            _setter("vcenter_name", vcenter_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -196,6 +233,10 @@ class VcenterController(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VcenterControllerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

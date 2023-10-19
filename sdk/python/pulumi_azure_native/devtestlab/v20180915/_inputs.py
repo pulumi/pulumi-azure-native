@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -57,10 +57,23 @@ class ArmTemplateParameterPropertiesArgs:
         :param pulumi.Input[str] name: The name of the template parameter.
         :param pulumi.Input[str] value: The value of the template parameter.
         """
+        ArmTemplateParameterPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -107,20 +120,53 @@ class ArtifactInstallPropertiesArgs:
         :param pulumi.Input[str] status: The status of the artifact.
         :param pulumi.Input[str] vm_extension_status_message: The status message from the virtual machine extension.
         """
+        ArtifactInstallPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            artifact_id=artifact_id,
+            artifact_title=artifact_title,
+            deployment_status_message=deployment_status_message,
+            install_time=install_time,
+            parameters=parameters,
+            status=status,
+            vm_extension_status_message=vm_extension_status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             artifact_id: Optional[pulumi.Input[str]] = None,
+             artifact_title: Optional[pulumi.Input[str]] = None,
+             deployment_status_message: Optional[pulumi.Input[str]] = None,
+             install_time: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactParameterPropertiesArgs']]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             vm_extension_status_message: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'artifactId' in kwargs:
+            artifact_id = kwargs['artifactId']
+        if 'artifactTitle' in kwargs:
+            artifact_title = kwargs['artifactTitle']
+        if 'deploymentStatusMessage' in kwargs:
+            deployment_status_message = kwargs['deploymentStatusMessage']
+        if 'installTime' in kwargs:
+            install_time = kwargs['installTime']
+        if 'vmExtensionStatusMessage' in kwargs:
+            vm_extension_status_message = kwargs['vmExtensionStatusMessage']
+
         if artifact_id is not None:
-            pulumi.set(__self__, "artifact_id", artifact_id)
+            _setter("artifact_id", artifact_id)
         if artifact_title is not None:
-            pulumi.set(__self__, "artifact_title", artifact_title)
+            _setter("artifact_title", artifact_title)
         if deployment_status_message is not None:
-            pulumi.set(__self__, "deployment_status_message", deployment_status_message)
+            _setter("deployment_status_message", deployment_status_message)
         if install_time is not None:
-            pulumi.set(__self__, "install_time", install_time)
+            _setter("install_time", install_time)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if vm_extension_status_message is not None:
-            pulumi.set(__self__, "vm_extension_status_message", vm_extension_status_message)
+            _setter("vm_extension_status_message", vm_extension_status_message)
 
     @property
     @pulumi.getter(name="artifactId")
@@ -217,10 +263,23 @@ class ArtifactParameterPropertiesArgs:
         :param pulumi.Input[str] name: The name of the artifact parameter.
         :param pulumi.Input[str] value: The value of the artifact parameter.
         """
+        ArtifactParameterPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -259,12 +318,33 @@ class AttachNewDataDiskOptionsArgs:
         :param pulumi.Input[int] disk_size_gi_b: Size of the disk to be attached in Gibibytes.
         :param pulumi.Input[Union[str, 'StorageType']] disk_type: The storage type for the disk (i.e. Standard, Premium).
         """
+        AttachNewDataDiskOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_name=disk_name,
+            disk_size_gi_b=disk_size_gi_b,
+            disk_type=disk_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_name: Optional[pulumi.Input[str]] = None,
+             disk_size_gi_b: Optional[pulumi.Input[int]] = None,
+             disk_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskName' in kwargs:
+            disk_name = kwargs['diskName']
+        if 'diskSizeGiB' in kwargs:
+            disk_size_gi_b = kwargs['diskSizeGiB']
+        if 'diskType' in kwargs:
+            disk_type = kwargs['diskType']
+
         if disk_name is not None:
-            pulumi.set(__self__, "disk_name", disk_name)
+            _setter("disk_name", disk_name)
         if disk_size_gi_b is not None:
-            pulumi.set(__self__, "disk_size_gi_b", disk_size_gi_b)
+            _setter("disk_size_gi_b", disk_size_gi_b)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
 
     @property
     @pulumi.getter(name="diskName")
@@ -311,8 +391,21 @@ class BulkCreationParametersArgs:
         Parameters for creating multiple virtual machines as a single action.
         :param pulumi.Input[int] instance_count: The number of virtual machine instances to create.
         """
+        BulkCreationParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_count=instance_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
 
     @property
     @pulumi.getter(name="instanceCount")
@@ -339,11 +432,32 @@ class CustomImagePropertiesCustomArgs:
         :param pulumi.Input[str] image_name: The image name.
         :param pulumi.Input[bool] sys_prep: Indicates whether sysprep has been run on the VHD.
         """
-        pulumi.set(__self__, "os_type", os_type)
+        CustomImagePropertiesCustomArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_type=os_type,
+            image_name=image_name,
+            sys_prep=sys_prep,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_type: pulumi.Input[Union[str, 'CustomImageOsType']],
+             image_name: Optional[pulumi.Input[str]] = None,
+             sys_prep: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'sysPrep' in kwargs:
+            sys_prep = kwargs['sysPrep']
+
+        _setter("os_type", os_type)
         if image_name is not None:
-            pulumi.set(__self__, "image_name", image_name)
+            _setter("image_name", image_name)
         if sys_prep is not None:
-            pulumi.set(__self__, "sys_prep", sys_prep)
+            _setter("sys_prep", sys_prep)
 
     @property
     @pulumi.getter(name="osType")
@@ -394,12 +508,27 @@ class CustomImagePropertiesFromPlanArgs:
         :param pulumi.Input[str] offer: The offer for the plan from the marketplace image the custom image is derived from
         :param pulumi.Input[str] publisher: The publisher for the plan from the marketplace image the custom image is derived from
         """
+        CustomImagePropertiesFromPlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            offer=offer,
+            publisher=publisher,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             offer: Optional[pulumi.Input[str]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if offer is not None:
-            pulumi.set(__self__, "offer", offer)
+            _setter("offer", offer)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
 
     @property
     @pulumi.getter
@@ -450,12 +579,33 @@ class CustomImagePropertiesFromVmArgs:
         :param pulumi.Input[str] source_vm_id: The source vm identifier.
         :param pulumi.Input['WindowsOsInfoArgs'] windows_os_info: The Windows OS information of the VM.
         """
+        CustomImagePropertiesFromVmArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linux_os_info=linux_os_info,
+            source_vm_id=source_vm_id,
+            windows_os_info=windows_os_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linux_os_info: Optional[pulumi.Input['LinuxOsInfoArgs']] = None,
+             source_vm_id: Optional[pulumi.Input[str]] = None,
+             windows_os_info: Optional[pulumi.Input['WindowsOsInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linuxOsInfo' in kwargs:
+            linux_os_info = kwargs['linuxOsInfo']
+        if 'sourceVmId' in kwargs:
+            source_vm_id = kwargs['sourceVmId']
+        if 'windowsOsInfo' in kwargs:
+            windows_os_info = kwargs['windowsOsInfo']
+
         if linux_os_info is not None:
-            pulumi.set(__self__, "linux_os_info", linux_os_info)
+            _setter("linux_os_info", linux_os_info)
         if source_vm_id is not None:
-            pulumi.set(__self__, "source_vm_id", source_vm_id)
+            _setter("source_vm_id", source_vm_id)
         if windows_os_info is not None:
-            pulumi.set(__self__, "windows_os_info", windows_os_info)
+            _setter("windows_os_info", windows_os_info)
 
     @property
     @pulumi.getter(name="linuxOsInfo")
@@ -506,12 +656,33 @@ class DataDiskPropertiesArgs:
         :param pulumi.Input[str] existing_lab_disk_id: Specifies the existing lab disk id to attach to virtual machine.
         :param pulumi.Input[Union[str, 'HostCachingOptions']] host_caching: Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
         """
+        DataDiskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attach_new_data_disk_options=attach_new_data_disk_options,
+            existing_lab_disk_id=existing_lab_disk_id,
+            host_caching=host_caching,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attach_new_data_disk_options: Optional[pulumi.Input['AttachNewDataDiskOptionsArgs']] = None,
+             existing_lab_disk_id: Optional[pulumi.Input[str]] = None,
+             host_caching: Optional[pulumi.Input[Union[str, 'HostCachingOptions']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attachNewDataDiskOptions' in kwargs:
+            attach_new_data_disk_options = kwargs['attachNewDataDiskOptions']
+        if 'existingLabDiskId' in kwargs:
+            existing_lab_disk_id = kwargs['existingLabDiskId']
+        if 'hostCaching' in kwargs:
+            host_caching = kwargs['hostCaching']
+
         if attach_new_data_disk_options is not None:
-            pulumi.set(__self__, "attach_new_data_disk_options", attach_new_data_disk_options)
+            _setter("attach_new_data_disk_options", attach_new_data_disk_options)
         if existing_lab_disk_id is not None:
-            pulumi.set(__self__, "existing_lab_disk_id", existing_lab_disk_id)
+            _setter("existing_lab_disk_id", existing_lab_disk_id)
         if host_caching is not None:
-            pulumi.set(__self__, "host_caching", host_caching)
+            _setter("host_caching", host_caching)
 
     @property
     @pulumi.getter(name="attachNewDataDiskOptions")
@@ -560,10 +731,25 @@ class DataDiskStorageTypeInfoArgs:
         :param pulumi.Input[str] lun: Disk Lun
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: Disk Storage Type
         """
+        DataDiskStorageTypeInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lun=lun,
+            storage_type=storage_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lun: Optional[pulumi.Input[str]] = None,
+             storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+
         if lun is not None:
-            pulumi.set(__self__, "lun", lun)
+            _setter("lun", lun)
         if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
+            _setter("storage_type", storage_type)
 
     @property
     @pulumi.getter
@@ -598,8 +784,19 @@ class DayDetailsArgs:
         Properties of a daily schedule.
         :param pulumi.Input[str] time: The time of day the schedule will occur.
         """
+        DayDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if time is not None:
-            pulumi.set(__self__, "time", time)
+            _setter("time", time)
 
     @property
     @pulumi.getter
@@ -624,10 +821,25 @@ class EnvironmentDeploymentPropertiesArgs:
         :param pulumi.Input[str] arm_template_id: The Azure Resource Manager template's identifier.
         :param pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgs']]] parameters: The parameters of the Azure Resource Manager template.
         """
+        EnvironmentDeploymentPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arm_template_id=arm_template_id,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arm_template_id: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'armTemplateId' in kwargs:
+            arm_template_id = kwargs['armTemplateId']
+
         if arm_template_id is not None:
-            pulumi.set(__self__, "arm_template_id", arm_template_id)
+            _setter("arm_template_id", arm_template_id)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="armTemplateId")
@@ -662,8 +874,21 @@ class EventArgs:
         An event to be notified for.
         :param pulumi.Input[Union[str, 'NotificationChannelEventType']] event_name: The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
         """
+        EventArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_name=event_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_name: Optional[pulumi.Input[Union[str, 'NotificationChannelEventType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventName' in kwargs:
+            event_name = kwargs['eventName']
+
         if event_name is not None:
-            pulumi.set(__self__, "event_name", event_name)
+            _setter("event_name", event_name)
 
     @property
     @pulumi.getter(name="eventName")
@@ -686,8 +911,21 @@ class FormulaPropertiesFromVmArgs:
         Information about a VM from which a formula is to be created.
         :param pulumi.Input[str] lab_vm_id: The identifier of the VM from which a formula is to be created.
         """
+        FormulaPropertiesFromVmArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_vm_id=lab_vm_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_vm_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labVmId' in kwargs:
+            lab_vm_id = kwargs['labVmId']
+
         if lab_vm_id is not None:
-            pulumi.set(__self__, "lab_vm_id", lab_vm_id)
+            _setter("lab_vm_id", lab_vm_id)
 
     @property
     @pulumi.getter(name="labVmId")
@@ -718,16 +956,37 @@ class GalleryImageReferenceArgs:
         :param pulumi.Input[str] sku: The SKU of the gallery image.
         :param pulumi.Input[str] version: The version of the gallery image.
         """
+        GalleryImageReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            offer=offer,
+            os_type=os_type,
+            publisher=publisher,
+            sku=sku,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             offer: Optional[pulumi.Input[str]] = None,
+             os_type: Optional[pulumi.Input[str]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+
         if offer is not None:
-            pulumi.set(__self__, "offer", offer)
+            _setter("offer", offer)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -798,8 +1057,19 @@ class HourDetailsArgs:
         Properties of an hourly schedule.
         :param pulumi.Input[int] minute: Minutes of the hour the schedule will run.
         """
+        HourDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            minute=minute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             minute: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if minute is not None:
-            pulumi.set(__self__, "minute", minute)
+            _setter("minute", minute)
 
     @property
     @pulumi.getter
@@ -828,14 +1098,37 @@ class IdentityPropertiesArgs:
         :param pulumi.Input[str] tenant_id: The tenant identifier of resource.
         :param pulumi.Input[Union[str, 'ManagedIdentityType']] type: Managed identity.
         """
+        IdentityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_secret_url=client_secret_url,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_secret_url: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'ManagedIdentityType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientSecretUrl' in kwargs:
+            client_secret_url = kwargs['clientSecretUrl']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if client_secret_url is not None:
-            pulumi.set(__self__, "client_secret_url", client_secret_url)
+            _setter("client_secret_url", client_secret_url)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="clientSecretUrl")
@@ -898,12 +1191,33 @@ class InboundNatRuleArgs:
         :param pulumi.Input[int] frontend_port: The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
         :param pulumi.Input[Union[str, 'TransportProtocol']] transport_protocol: The transport protocol for the endpoint.
         """
+        InboundNatRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_port=backend_port,
+            frontend_port=frontend_port,
+            transport_protocol=transport_protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_port: Optional[pulumi.Input[int]] = None,
+             frontend_port: Optional[pulumi.Input[int]] = None,
+             transport_protocol: Optional[pulumi.Input[Union[str, 'TransportProtocol']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'frontendPort' in kwargs:
+            frontend_port = kwargs['frontendPort']
+        if 'transportProtocol' in kwargs:
+            transport_protocol = kwargs['transportProtocol']
+
         if backend_port is not None:
-            pulumi.set(__self__, "backend_port", backend_port)
+            _setter("backend_port", backend_port)
         if frontend_port is not None:
-            pulumi.set(__self__, "frontend_port", frontend_port)
+            _setter("frontend_port", frontend_port)
         if transport_protocol is not None:
-            pulumi.set(__self__, "transport_protocol", transport_protocol)
+            _setter("transport_protocol", transport_protocol)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -958,16 +1272,37 @@ class LabAnnouncementPropertiesArgs:
         :param pulumi.Input[str] markdown: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
         :param pulumi.Input[str] title: The plain text title for the lab announcement
         """
+        LabAnnouncementPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            expiration_date=expiration_date,
+            expired=expired,
+            markdown=markdown,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             expired: Optional[pulumi.Input[bool]] = None,
+             markdown: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if expired is not None:
-            pulumi.set(__self__, "expired", expired)
+            _setter("expired", expired)
         if markdown is not None:
-            pulumi.set(__self__, "markdown", markdown)
+            _setter("markdown", markdown)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter
@@ -1040,10 +1375,23 @@ class LabSupportPropertiesArgs:
         :param pulumi.Input[Union[str, 'EnableStatus']] enabled: Is the lab support banner active/enabled at this time?
         :param pulumi.Input[str] markdown: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
         """
+        LabSupportPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            markdown=markdown,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
+             markdown: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if markdown is not None:
-            pulumi.set(__self__, "markdown", markdown)
+            _setter("markdown", markdown)
 
     @property
     @pulumi.getter
@@ -1130,68 +1478,171 @@ class LabVirtualMachineCreationParameterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] user_name: The user name of the virtual machine.
         """
+        LabVirtualMachineCreationParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_claim=allow_claim,
+            artifacts=artifacts,
+            bulk_creation_parameters=bulk_creation_parameters,
+            created_date=created_date,
+            custom_image_id=custom_image_id,
+            data_disk_parameters=data_disk_parameters,
+            disallow_public_ip_address=disallow_public_ip_address,
+            environment_id=environment_id,
+            expiration_date=expiration_date,
+            gallery_image_reference=gallery_image_reference,
+            is_authentication_with_ssh_key=is_authentication_with_ssh_key,
+            lab_subnet_name=lab_subnet_name,
+            lab_virtual_network_id=lab_virtual_network_id,
+            location=location,
+            name=name,
+            network_interface=network_interface,
+            notes=notes,
+            owner_object_id=owner_object_id,
+            owner_user_principal_name=owner_user_principal_name,
+            password=password,
+            plan_id=plan_id,
+            schedule_parameters=schedule_parameters,
+            size=size,
+            ssh_key=ssh_key,
+            storage_type=storage_type,
+            tags=tags,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_claim: Optional[pulumi.Input[bool]] = None,
+             artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]] = None,
+             bulk_creation_parameters: Optional[pulumi.Input['BulkCreationParametersArgs']] = None,
+             created_date: Optional[pulumi.Input[str]] = None,
+             custom_image_id: Optional[pulumi.Input[str]] = None,
+             data_disk_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskPropertiesArgs']]]] = None,
+             disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             gallery_image_reference: Optional[pulumi.Input['GalleryImageReferenceArgs']] = None,
+             is_authentication_with_ssh_key: Optional[pulumi.Input[bool]] = None,
+             lab_subnet_name: Optional[pulumi.Input[str]] = None,
+             lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_interface: Optional[pulumi.Input['NetworkInterfacePropertiesArgs']] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             owner_object_id: Optional[pulumi.Input[str]] = None,
+             owner_user_principal_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             plan_id: Optional[pulumi.Input[str]] = None,
+             schedule_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleCreationParameterArgs']]]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             ssh_key: Optional[pulumi.Input[str]] = None,
+             storage_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowClaim' in kwargs:
+            allow_claim = kwargs['allowClaim']
+        if 'bulkCreationParameters' in kwargs:
+            bulk_creation_parameters = kwargs['bulkCreationParameters']
+        if 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if 'customImageId' in kwargs:
+            custom_image_id = kwargs['customImageId']
+        if 'dataDiskParameters' in kwargs:
+            data_disk_parameters = kwargs['dataDiskParameters']
+        if 'disallowPublicIpAddress' in kwargs:
+            disallow_public_ip_address = kwargs['disallowPublicIpAddress']
+        if 'environmentId' in kwargs:
+            environment_id = kwargs['environmentId']
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'galleryImageReference' in kwargs:
+            gallery_image_reference = kwargs['galleryImageReference']
+        if 'isAuthenticationWithSshKey' in kwargs:
+            is_authentication_with_ssh_key = kwargs['isAuthenticationWithSshKey']
+        if 'labSubnetName' in kwargs:
+            lab_subnet_name = kwargs['labSubnetName']
+        if 'labVirtualNetworkId' in kwargs:
+            lab_virtual_network_id = kwargs['labVirtualNetworkId']
+        if 'networkInterface' in kwargs:
+            network_interface = kwargs['networkInterface']
+        if 'ownerObjectId' in kwargs:
+            owner_object_id = kwargs['ownerObjectId']
+        if 'ownerUserPrincipalName' in kwargs:
+            owner_user_principal_name = kwargs['ownerUserPrincipalName']
+        if 'planId' in kwargs:
+            plan_id = kwargs['planId']
+        if 'scheduleParameters' in kwargs:
+            schedule_parameters = kwargs['scheduleParameters']
+        if 'sshKey' in kwargs:
+            ssh_key = kwargs['sshKey']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if allow_claim is None:
             allow_claim = False
         if allow_claim is not None:
-            pulumi.set(__self__, "allow_claim", allow_claim)
+            _setter("allow_claim", allow_claim)
         if artifacts is not None:
-            pulumi.set(__self__, "artifacts", artifacts)
+            _setter("artifacts", artifacts)
         if bulk_creation_parameters is not None:
-            pulumi.set(__self__, "bulk_creation_parameters", bulk_creation_parameters)
+            _setter("bulk_creation_parameters", bulk_creation_parameters)
         if created_date is not None:
-            pulumi.set(__self__, "created_date", created_date)
+            _setter("created_date", created_date)
         if custom_image_id is not None:
-            pulumi.set(__self__, "custom_image_id", custom_image_id)
+            _setter("custom_image_id", custom_image_id)
         if data_disk_parameters is not None:
-            pulumi.set(__self__, "data_disk_parameters", data_disk_parameters)
+            _setter("data_disk_parameters", data_disk_parameters)
         if disallow_public_ip_address is None:
             disallow_public_ip_address = False
         if disallow_public_ip_address is not None:
-            pulumi.set(__self__, "disallow_public_ip_address", disallow_public_ip_address)
+            _setter("disallow_public_ip_address", disallow_public_ip_address)
         if environment_id is not None:
-            pulumi.set(__self__, "environment_id", environment_id)
+            _setter("environment_id", environment_id)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if gallery_image_reference is not None:
-            pulumi.set(__self__, "gallery_image_reference", gallery_image_reference)
+            _setter("gallery_image_reference", gallery_image_reference)
         if is_authentication_with_ssh_key is not None:
-            pulumi.set(__self__, "is_authentication_with_ssh_key", is_authentication_with_ssh_key)
+            _setter("is_authentication_with_ssh_key", is_authentication_with_ssh_key)
         if lab_subnet_name is not None:
-            pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
+            _setter("lab_subnet_name", lab_subnet_name)
         if lab_virtual_network_id is not None:
-            pulumi.set(__self__, "lab_virtual_network_id", lab_virtual_network_id)
+            _setter("lab_virtual_network_id", lab_virtual_network_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_interface is not None:
-            pulumi.set(__self__, "network_interface", network_interface)
+            _setter("network_interface", network_interface)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if owner_object_id is None:
             owner_object_id = 'dynamicValue'
         if owner_object_id is not None:
-            pulumi.set(__self__, "owner_object_id", owner_object_id)
+            _setter("owner_object_id", owner_object_id)
         if owner_user_principal_name is not None:
-            pulumi.set(__self__, "owner_user_principal_name", owner_user_principal_name)
+            _setter("owner_user_principal_name", owner_user_principal_name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if plan_id is not None:
-            pulumi.set(__self__, "plan_id", plan_id)
+            _setter("plan_id", plan_id)
         if schedule_parameters is not None:
-            pulumi.set(__self__, "schedule_parameters", schedule_parameters)
+            _setter("schedule_parameters", schedule_parameters)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if ssh_key is not None:
-            pulumi.set(__self__, "ssh_key", ssh_key)
+            _setter("ssh_key", ssh_key)
         if storage_type is None:
             storage_type = 'labStorageType'
         if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
+            _setter("storage_type", storage_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="allowClaim")
@@ -1526,8 +1977,21 @@ class LinuxOsInfoArgs:
         Information about a Linux OS.
         :param pulumi.Input[Union[str, 'LinuxOsState']] linux_os_state: The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
         """
+        LinuxOsInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linux_os_state=linux_os_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linux_os_state: Optional[pulumi.Input[Union[str, 'LinuxOsState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linuxOsState' in kwargs:
+            linux_os_state = kwargs['linuxOsState']
+
         if linux_os_state is not None:
-            pulumi.set(__self__, "linux_os_state", linux_os_state)
+            _setter("linux_os_state", linux_os_state)
 
     @property
     @pulumi.getter(name="linuxOsState")
@@ -1566,24 +2030,69 @@ class NetworkInterfacePropertiesArgs:
         :param pulumi.Input[str] subnet_id: The resource ID of the sub net.
         :param pulumi.Input[str] virtual_network_id: The resource ID of the virtual network.
         """
+        NetworkInterfacePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            private_ip_address=private_ip_address,
+            public_ip_address=public_ip_address,
+            public_ip_address_id=public_ip_address_id,
+            rdp_authority=rdp_authority,
+            shared_public_ip_address_configuration=shared_public_ip_address_configuration,
+            ssh_authority=ssh_authority,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: Optional[pulumi.Input[str]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             public_ip_address: Optional[pulumi.Input[str]] = None,
+             public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             rdp_authority: Optional[pulumi.Input[str]] = None,
+             shared_public_ip_address_configuration: Optional[pulumi.Input['SharedPublicIpAddressConfigurationArgs']] = None,
+             ssh_authority: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             virtual_network_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'publicIpAddress' in kwargs:
+            public_ip_address = kwargs['publicIpAddress']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'rdpAuthority' in kwargs:
+            rdp_authority = kwargs['rdpAuthority']
+        if 'sharedPublicIpAddressConfiguration' in kwargs:
+            shared_public_ip_address_configuration = kwargs['sharedPublicIpAddressConfiguration']
+        if 'sshAuthority' in kwargs:
+            ssh_authority = kwargs['sshAuthority']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if public_ip_address is not None:
-            pulumi.set(__self__, "public_ip_address", public_ip_address)
+            _setter("public_ip_address", public_ip_address)
         if public_ip_address_id is not None:
-            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+            _setter("public_ip_address_id", public_ip_address_id)
         if rdp_authority is not None:
-            pulumi.set(__self__, "rdp_authority", rdp_authority)
+            _setter("rdp_authority", rdp_authority)
         if shared_public_ip_address_configuration is not None:
-            pulumi.set(__self__, "shared_public_ip_address_configuration", shared_public_ip_address_configuration)
+            _setter("shared_public_ip_address_configuration", shared_public_ip_address_configuration)
         if ssh_authority is not None:
-            pulumi.set(__self__, "ssh_authority", ssh_authority)
+            _setter("ssh_authority", ssh_authority)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -1710,18 +2219,45 @@ class NotificationSettingsArgs:
         :param pulumi.Input[int] time_in_minutes: Time in minutes before event at which notification will be sent.
         :param pulumi.Input[str] webhook_url: The webhook URL to which the notification will be sent.
         """
+        NotificationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_recipient=email_recipient,
+            notification_locale=notification_locale,
+            status=status,
+            time_in_minutes=time_in_minutes,
+            webhook_url=webhook_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_recipient: Optional[pulumi.Input[str]] = None,
+             notification_locale: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
+             time_in_minutes: Optional[pulumi.Input[int]] = None,
+             webhook_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailRecipient' in kwargs:
+            email_recipient = kwargs['emailRecipient']
+        if 'notificationLocale' in kwargs:
+            notification_locale = kwargs['notificationLocale']
+        if 'timeInMinutes' in kwargs:
+            time_in_minutes = kwargs['timeInMinutes']
+        if 'webhookUrl' in kwargs:
+            webhook_url = kwargs['webhookUrl']
+
         if email_recipient is not None:
-            pulumi.set(__self__, "email_recipient", email_recipient)
+            _setter("email_recipient", email_recipient)
         if notification_locale is not None:
-            pulumi.set(__self__, "notification_locale", notification_locale)
+            _setter("notification_locale", notification_locale)
         if status is None:
             status = 'Disabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if time_in_minutes is not None:
-            pulumi.set(__self__, "time_in_minutes", time_in_minutes)
+            _setter("time_in_minutes", time_in_minutes)
         if webhook_url is not None:
-            pulumi.set(__self__, "webhook_url", webhook_url)
+            _setter("webhook_url", webhook_url)
 
     @property
     @pulumi.getter(name="emailRecipient")
@@ -1794,10 +2330,27 @@ class PortArgs:
         :param pulumi.Input[int] backend_port: Backend port of the target virtual machine.
         :param pulumi.Input[Union[str, 'TransportProtocol']] transport_protocol: Protocol type of the port.
         """
+        PortArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_port=backend_port,
+            transport_protocol=transport_protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_port: Optional[pulumi.Input[int]] = None,
+             transport_protocol: Optional[pulumi.Input[Union[str, 'TransportProtocol']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'transportProtocol' in kwargs:
+            transport_protocol = kwargs['transportProtocol']
+
         if backend_port is not None:
-            pulumi.set(__self__, "backend_port", backend_port)
+            _setter("backend_port", backend_port)
         if transport_protocol is not None:
-            pulumi.set(__self__, "transport_protocol", transport_protocol)
+            _setter("transport_protocol", transport_protocol)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -1850,28 +2403,71 @@ class ScheduleCreationParameterArgs:
         :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         :param pulumi.Input['WeekDetailsArgs'] weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
+        ScheduleCreationParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            daily_recurrence=daily_recurrence,
+            hourly_recurrence=hourly_recurrence,
+            name=name,
+            notification_settings=notification_settings,
+            status=status,
+            tags=tags,
+            target_resource_id=target_resource_id,
+            task_type=task_type,
+            time_zone_id=time_zone_id,
+            weekly_recurrence=weekly_recurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             daily_recurrence: Optional[pulumi.Input['DayDetailsArgs']] = None,
+             hourly_recurrence: Optional[pulumi.Input['HourDetailsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_settings: Optional[pulumi.Input['NotificationSettingsArgs']] = None,
+             status: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             task_type: Optional[pulumi.Input[str]] = None,
+             time_zone_id: Optional[pulumi.Input[str]] = None,
+             weekly_recurrence: Optional[pulumi.Input['WeekDetailsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dailyRecurrence' in kwargs:
+            daily_recurrence = kwargs['dailyRecurrence']
+        if 'hourlyRecurrence' in kwargs:
+            hourly_recurrence = kwargs['hourlyRecurrence']
+        if 'notificationSettings' in kwargs:
+            notification_settings = kwargs['notificationSettings']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if 'timeZoneId' in kwargs:
+            time_zone_id = kwargs['timeZoneId']
+        if 'weeklyRecurrence' in kwargs:
+            weekly_recurrence = kwargs['weeklyRecurrence']
+
         if daily_recurrence is not None:
-            pulumi.set(__self__, "daily_recurrence", daily_recurrence)
+            _setter("daily_recurrence", daily_recurrence)
         if hourly_recurrence is not None:
-            pulumi.set(__self__, "hourly_recurrence", hourly_recurrence)
+            _setter("hourly_recurrence", hourly_recurrence)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_settings is not None:
-            pulumi.set(__self__, "notification_settings", notification_settings)
+            _setter("notification_settings", notification_settings)
         if status is None:
             status = 'Disabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
         if task_type is not None:
-            pulumi.set(__self__, "task_type", task_type)
+            _setter("task_type", task_type)
         if time_zone_id is not None:
-            pulumi.set(__self__, "time_zone_id", time_zone_id)
+            _setter("time_zone_id", time_zone_id)
         if weekly_recurrence is not None:
-            pulumi.set(__self__, "weekly_recurrence", weekly_recurrence)
+            _setter("weekly_recurrence", weekly_recurrence)
 
     @property
     @pulumi.getter(name="dailyRecurrence")
@@ -2002,8 +2598,21 @@ class SharedPublicIpAddressConfigurationArgs:
         Properties of a virtual machine that determine how it is connected to a load balancer.
         :param pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]] inbound_nat_rules: The incoming NAT rules
         """
+        SharedPublicIpAddressConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inbound_nat_rules=inbound_nat_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inboundNatRules' in kwargs:
+            inbound_nat_rules = kwargs['inboundNatRules']
+
         if inbound_nat_rules is not None:
-            pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
+            _setter("inbound_nat_rules", inbound_nat_rules)
 
     @property
     @pulumi.getter(name="inboundNatRules")
@@ -2036,18 +2645,51 @@ class SubnetOverrideArgs:
         :param pulumi.Input[Union[str, 'UsagePermissionType']] use_public_ip_address_permission: Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
         :param pulumi.Input[str] virtual_network_pool_name: The virtual network pool associated with this subnet.
         """
+        SubnetOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_subnet_name=lab_subnet_name,
+            resource_id=resource_id,
+            shared_public_ip_address_configuration=shared_public_ip_address_configuration,
+            use_in_vm_creation_permission=use_in_vm_creation_permission,
+            use_public_ip_address_permission=use_public_ip_address_permission,
+            virtual_network_pool_name=virtual_network_pool_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_subnet_name: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             shared_public_ip_address_configuration: Optional[pulumi.Input['SubnetSharedPublicIpAddressConfigurationArgs']] = None,
+             use_in_vm_creation_permission: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]] = None,
+             use_public_ip_address_permission: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]] = None,
+             virtual_network_pool_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labSubnetName' in kwargs:
+            lab_subnet_name = kwargs['labSubnetName']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'sharedPublicIpAddressConfiguration' in kwargs:
+            shared_public_ip_address_configuration = kwargs['sharedPublicIpAddressConfiguration']
+        if 'useInVmCreationPermission' in kwargs:
+            use_in_vm_creation_permission = kwargs['useInVmCreationPermission']
+        if 'usePublicIpAddressPermission' in kwargs:
+            use_public_ip_address_permission = kwargs['usePublicIpAddressPermission']
+        if 'virtualNetworkPoolName' in kwargs:
+            virtual_network_pool_name = kwargs['virtualNetworkPoolName']
+
         if lab_subnet_name is not None:
-            pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
+            _setter("lab_subnet_name", lab_subnet_name)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if shared_public_ip_address_configuration is not None:
-            pulumi.set(__self__, "shared_public_ip_address_configuration", shared_public_ip_address_configuration)
+            _setter("shared_public_ip_address_configuration", shared_public_ip_address_configuration)
         if use_in_vm_creation_permission is not None:
-            pulumi.set(__self__, "use_in_vm_creation_permission", use_in_vm_creation_permission)
+            _setter("use_in_vm_creation_permission", use_in_vm_creation_permission)
         if use_public_ip_address_permission is not None:
-            pulumi.set(__self__, "use_public_ip_address_permission", use_public_ip_address_permission)
+            _setter("use_public_ip_address_permission", use_public_ip_address_permission)
         if virtual_network_pool_name is not None:
-            pulumi.set(__self__, "virtual_network_pool_name", virtual_network_pool_name)
+            _setter("virtual_network_pool_name", virtual_network_pool_name)
 
     @property
     @pulumi.getter(name="labSubnetName")
@@ -2130,8 +2772,21 @@ class SubnetSharedPublicIpAddressConfigurationArgs:
         Configuration for public IP address sharing.
         :param pulumi.Input[Sequence[pulumi.Input['PortArgs']]] allowed_ports: Backend ports that virtual machines on this subnet are allowed to expose
         """
+        SubnetSharedPublicIpAddressConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_ports=allowed_ports,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_ports: Optional[pulumi.Input[Sequence[pulumi.Input['PortArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedPorts' in kwargs:
+            allowed_ports = kwargs['allowedPorts']
+
         if allowed_ports is not None:
-            pulumi.set(__self__, "allowed_ports", allowed_ports)
+            _setter("allowed_ports", allowed_ports)
 
     @property
     @pulumi.getter(name="allowedPorts")
@@ -2158,12 +2813,33 @@ class SubnetArgs:
         :param pulumi.Input[str] lab_subnet_name: The name of the subnet as seen in the lab.
         :param pulumi.Input[str] resource_id: The resource ID of the subnet.
         """
+        SubnetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_public_ip=allow_public_ip,
+            lab_subnet_name=lab_subnet_name,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_public_ip: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]] = None,
+             lab_subnet_name: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowPublicIp' in kwargs:
+            allow_public_ip = kwargs['allowPublicIp']
+        if 'labSubnetName' in kwargs:
+            lab_subnet_name = kwargs['labSubnetName']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if allow_public_ip is not None:
-            pulumi.set(__self__, "allow_public_ip", allow_public_ip)
+            _setter("allow_public_ip", allow_public_ip)
         if lab_subnet_name is not None:
-            pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
+            _setter("lab_subnet_name", lab_subnet_name)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="allowPublicIp")
@@ -2218,16 +2894,45 @@ class UserIdentityArgs:
         :param pulumi.Input[str] principal_name: Set to the principal name / UPN of the client JWT making the request.
         :param pulumi.Input[str] tenant_id: Set to the tenant ID of the client JWT making the request.
         """
+        UserIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            object_id=object_id,
+            principal_id=principal_id,
+            principal_name=principal_name,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             principal_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'principalName' in kwargs:
+            principal_name = kwargs['principalName']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if principal_name is not None:
-            pulumi.set(__self__, "principal_name", principal_name)
+            _setter("principal_name", principal_name)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="appId")
@@ -2300,10 +3005,27 @@ class UserSecretStoreArgs:
         :param pulumi.Input[str] key_vault_id: The ID of the user's Key vault.
         :param pulumi.Input[str] key_vault_uri: The URI of the user's Key vault.
         """
+        UserSecretStoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_id=key_vault_id,
+            key_vault_uri=key_vault_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             key_vault_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+            _setter("key_vault_uri", key_vault_uri)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -2340,10 +3062,23 @@ class WeekDetailsArgs:
         :param pulumi.Input[str] time: The time of the day the schedule will occur.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
         """
+        WeekDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time=time,
+            weekdays=weekdays,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time: Optional[pulumi.Input[str]] = None,
+             weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if time is not None:
-            pulumi.set(__self__, "time", time)
+            _setter("time", time)
         if weekdays is not None:
-            pulumi.set(__self__, "weekdays", weekdays)
+            _setter("weekdays", weekdays)
 
     @property
     @pulumi.getter
@@ -2378,8 +3113,21 @@ class WindowsOsInfoArgs:
         Information about a Windows OS.
         :param pulumi.Input[Union[str, 'WindowsOsState']] windows_os_state: The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
         """
+        WindowsOsInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            windows_os_state=windows_os_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             windows_os_state: Optional[pulumi.Input[Union[str, 'WindowsOsState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'windowsOsState' in kwargs:
+            windows_os_state = kwargs['windowsOsState']
+
         if windows_os_state is not None:
-            pulumi.set(__self__, "windows_os_state", windows_os_state)
+            _setter("windows_os_state", windows_os_state)
 
     @property
     @pulumi.getter(name="windowsOsState")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -49,43 +49,112 @@ class ServerEndpointArgs:
         :param pulumi.Input[int] tier_files_older_than_days: Tier files older than days.
         :param pulumi.Input[int] volume_free_space_percent: Level of free space to be maintained by Cloud Tiering if it is enabled.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
-        pulumi.set(__self__, "sync_group_name", sync_group_name)
+        ServerEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            storage_sync_service_name=storage_sync_service_name,
+            sync_group_name=sync_group_name,
+            cloud_tiering=cloud_tiering,
+            friendly_name=friendly_name,
+            initial_download_policy=initial_download_policy,
+            initial_upload_policy=initial_upload_policy,
+            local_cache_mode=local_cache_mode,
+            offline_data_transfer=offline_data_transfer,
+            offline_data_transfer_share_name=offline_data_transfer_share_name,
+            server_endpoint_name=server_endpoint_name,
+            server_local_path=server_local_path,
+            server_resource_id=server_resource_id,
+            tier_files_older_than_days=tier_files_older_than_days,
+            volume_free_space_percent=volume_free_space_percent,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             storage_sync_service_name: pulumi.Input[str],
+             sync_group_name: pulumi.Input[str],
+             cloud_tiering: Optional[pulumi.Input[Union[str, 'FeatureStatus']]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             initial_download_policy: Optional[pulumi.Input[Union[str, 'InitialDownloadPolicy']]] = None,
+             initial_upload_policy: Optional[pulumi.Input[Union[str, 'InitialUploadPolicy']]] = None,
+             local_cache_mode: Optional[pulumi.Input[Union[str, 'LocalCacheMode']]] = None,
+             offline_data_transfer: Optional[pulumi.Input[Union[str, 'FeatureStatus']]] = None,
+             offline_data_transfer_share_name: Optional[pulumi.Input[str]] = None,
+             server_endpoint_name: Optional[pulumi.Input[str]] = None,
+             server_local_path: Optional[pulumi.Input[str]] = None,
+             server_resource_id: Optional[pulumi.Input[str]] = None,
+             tier_files_older_than_days: Optional[pulumi.Input[int]] = None,
+             volume_free_space_percent: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageSyncServiceName' in kwargs:
+            storage_sync_service_name = kwargs['storageSyncServiceName']
+        if 'syncGroupName' in kwargs:
+            sync_group_name = kwargs['syncGroupName']
+        if 'cloudTiering' in kwargs:
+            cloud_tiering = kwargs['cloudTiering']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'initialDownloadPolicy' in kwargs:
+            initial_download_policy = kwargs['initialDownloadPolicy']
+        if 'initialUploadPolicy' in kwargs:
+            initial_upload_policy = kwargs['initialUploadPolicy']
+        if 'localCacheMode' in kwargs:
+            local_cache_mode = kwargs['localCacheMode']
+        if 'offlineDataTransfer' in kwargs:
+            offline_data_transfer = kwargs['offlineDataTransfer']
+        if 'offlineDataTransferShareName' in kwargs:
+            offline_data_transfer_share_name = kwargs['offlineDataTransferShareName']
+        if 'serverEndpointName' in kwargs:
+            server_endpoint_name = kwargs['serverEndpointName']
+        if 'serverLocalPath' in kwargs:
+            server_local_path = kwargs['serverLocalPath']
+        if 'serverResourceId' in kwargs:
+            server_resource_id = kwargs['serverResourceId']
+        if 'tierFilesOlderThanDays' in kwargs:
+            tier_files_older_than_days = kwargs['tierFilesOlderThanDays']
+        if 'volumeFreeSpacePercent' in kwargs:
+            volume_free_space_percent = kwargs['volumeFreeSpacePercent']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_sync_service_name", storage_sync_service_name)
+        _setter("sync_group_name", sync_group_name)
         if cloud_tiering is not None:
-            pulumi.set(__self__, "cloud_tiering", cloud_tiering)
+            _setter("cloud_tiering", cloud_tiering)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if initial_download_policy is None:
             initial_download_policy = 'NamespaceThenModifiedFiles'
         if initial_download_policy is not None:
-            pulumi.set(__self__, "initial_download_policy", initial_download_policy)
+            _setter("initial_download_policy", initial_download_policy)
         if initial_upload_policy is None:
             initial_upload_policy = 'Merge'
         if initial_upload_policy is not None:
-            pulumi.set(__self__, "initial_upload_policy", initial_upload_policy)
+            _setter("initial_upload_policy", initial_upload_policy)
         if local_cache_mode is None:
             local_cache_mode = 'UpdateLocallyCachedFiles'
         if local_cache_mode is not None:
-            pulumi.set(__self__, "local_cache_mode", local_cache_mode)
+            _setter("local_cache_mode", local_cache_mode)
         if offline_data_transfer is not None:
-            pulumi.set(__self__, "offline_data_transfer", offline_data_transfer)
+            _setter("offline_data_transfer", offline_data_transfer)
         if offline_data_transfer_share_name is not None:
-            pulumi.set(__self__, "offline_data_transfer_share_name", offline_data_transfer_share_name)
+            _setter("offline_data_transfer_share_name", offline_data_transfer_share_name)
         if server_endpoint_name is not None:
-            pulumi.set(__self__, "server_endpoint_name", server_endpoint_name)
+            _setter("server_endpoint_name", server_endpoint_name)
         if server_local_path is not None:
-            pulumi.set(__self__, "server_local_path", server_local_path)
+            _setter("server_local_path", server_local_path)
         if server_resource_id is not None:
-            pulumi.set(__self__, "server_resource_id", server_resource_id)
+            _setter("server_resource_id", server_resource_id)
         if tier_files_older_than_days is None:
             tier_files_older_than_days = 0
         if tier_files_older_than_days is not None:
-            pulumi.set(__self__, "tier_files_older_than_days", tier_files_older_than_days)
+            _setter("tier_files_older_than_days", tier_files_older_than_days)
         if volume_free_space_percent is None:
             volume_free_space_percent = 20
         if volume_free_space_percent is not None:
-            pulumi.set(__self__, "volume_free_space_percent", volume_free_space_percent)
+            _setter("volume_free_space_percent", volume_free_space_percent)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -331,6 +400,10 @@ class ServerEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

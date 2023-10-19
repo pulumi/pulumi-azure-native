@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -112,19 +112,80 @@ class CloudEndpointChangeEnumerationActivityResponse(dict):
         :param float total_files_count: Total count of files enumerated
         :param float total_size_bytes: Total enumerated size in bytes
         """
-        pulumi.set(__self__, "deletes_progress_percent", deletes_progress_percent)
-        pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
-        pulumi.set(__self__, "minutes_remaining", minutes_remaining)
-        pulumi.set(__self__, "operation_state", operation_state)
-        pulumi.set(__self__, "processed_directories_count", processed_directories_count)
-        pulumi.set(__self__, "processed_files_count", processed_files_count)
-        pulumi.set(__self__, "progress_percent", progress_percent)
-        pulumi.set(__self__, "started_timestamp", started_timestamp)
-        pulumi.set(__self__, "status_code", status_code)
-        pulumi.set(__self__, "total_counts_state", total_counts_state)
-        pulumi.set(__self__, "total_directories_count", total_directories_count)
-        pulumi.set(__self__, "total_files_count", total_files_count)
-        pulumi.set(__self__, "total_size_bytes", total_size_bytes)
+        CloudEndpointChangeEnumerationActivityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deletes_progress_percent=deletes_progress_percent,
+            last_updated_timestamp=last_updated_timestamp,
+            minutes_remaining=minutes_remaining,
+            operation_state=operation_state,
+            processed_directories_count=processed_directories_count,
+            processed_files_count=processed_files_count,
+            progress_percent=progress_percent,
+            started_timestamp=started_timestamp,
+            status_code=status_code,
+            total_counts_state=total_counts_state,
+            total_directories_count=total_directories_count,
+            total_files_count=total_files_count,
+            total_size_bytes=total_size_bytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deletes_progress_percent: int,
+             last_updated_timestamp: str,
+             minutes_remaining: int,
+             operation_state: str,
+             processed_directories_count: float,
+             processed_files_count: float,
+             progress_percent: int,
+             started_timestamp: str,
+             status_code: int,
+             total_counts_state: str,
+             total_directories_count: float,
+             total_files_count: float,
+             total_size_bytes: float,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deletesProgressPercent' in kwargs:
+            deletes_progress_percent = kwargs['deletesProgressPercent']
+        if 'lastUpdatedTimestamp' in kwargs:
+            last_updated_timestamp = kwargs['lastUpdatedTimestamp']
+        if 'minutesRemaining' in kwargs:
+            minutes_remaining = kwargs['minutesRemaining']
+        if 'operationState' in kwargs:
+            operation_state = kwargs['operationState']
+        if 'processedDirectoriesCount' in kwargs:
+            processed_directories_count = kwargs['processedDirectoriesCount']
+        if 'processedFilesCount' in kwargs:
+            processed_files_count = kwargs['processedFilesCount']
+        if 'progressPercent' in kwargs:
+            progress_percent = kwargs['progressPercent']
+        if 'startedTimestamp' in kwargs:
+            started_timestamp = kwargs['startedTimestamp']
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+        if 'totalCountsState' in kwargs:
+            total_counts_state = kwargs['totalCountsState']
+        if 'totalDirectoriesCount' in kwargs:
+            total_directories_count = kwargs['totalDirectoriesCount']
+        if 'totalFilesCount' in kwargs:
+            total_files_count = kwargs['totalFilesCount']
+        if 'totalSizeBytes' in kwargs:
+            total_size_bytes = kwargs['totalSizeBytes']
+
+        _setter("deletes_progress_percent", deletes_progress_percent)
+        _setter("last_updated_timestamp", last_updated_timestamp)
+        _setter("minutes_remaining", minutes_remaining)
+        _setter("operation_state", operation_state)
+        _setter("processed_directories_count", processed_directories_count)
+        _setter("processed_files_count", processed_files_count)
+        _setter("progress_percent", progress_percent)
+        _setter("started_timestamp", started_timestamp)
+        _setter("status_code", status_code)
+        _setter("total_counts_state", total_counts_state)
+        _setter("total_directories_count", total_directories_count)
+        _setter("total_files_count", total_files_count)
+        _setter("total_size_bytes", total_size_bytes)
 
     @property
     @pulumi.getter(name="deletesProgressPercent")
@@ -265,9 +326,28 @@ class CloudEndpointChangeEnumerationStatusResponse(dict):
         :param 'CloudEndpointLastChangeEnumerationStatusResponse' last_enumeration_status: Status of last completed change enumeration
         :param str last_updated_timestamp: Last updated timestamp
         """
-        pulumi.set(__self__, "activity", activity)
-        pulumi.set(__self__, "last_enumeration_status", last_enumeration_status)
-        pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
+        CloudEndpointChangeEnumerationStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activity=activity,
+            last_enumeration_status=last_enumeration_status,
+            last_updated_timestamp=last_updated_timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activity: 'outputs.CloudEndpointChangeEnumerationActivityResponse',
+             last_enumeration_status: 'outputs.CloudEndpointLastChangeEnumerationStatusResponse',
+             last_updated_timestamp: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastEnumerationStatus' in kwargs:
+            last_enumeration_status = kwargs['lastEnumerationStatus']
+        if 'lastUpdatedTimestamp' in kwargs:
+            last_updated_timestamp = kwargs['lastUpdatedTimestamp']
+
+        _setter("activity", activity)
+        _setter("last_enumeration_status", last_enumeration_status)
+        _setter("last_updated_timestamp", last_updated_timestamp)
 
     @property
     @pulumi.getter
@@ -342,12 +422,45 @@ class CloudEndpointLastChangeEnumerationStatusResponse(dict):
         :param str next_run_timestamp: Timestamp of when change enumeration is expected to run again
         :param str started_timestamp: Timestamp when change enumeration started
         """
-        pulumi.set(__self__, "completed_timestamp", completed_timestamp)
-        pulumi.set(__self__, "namespace_directories_count", namespace_directories_count)
-        pulumi.set(__self__, "namespace_files_count", namespace_files_count)
-        pulumi.set(__self__, "namespace_size_bytes", namespace_size_bytes)
-        pulumi.set(__self__, "next_run_timestamp", next_run_timestamp)
-        pulumi.set(__self__, "started_timestamp", started_timestamp)
+        CloudEndpointLastChangeEnumerationStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            completed_timestamp=completed_timestamp,
+            namespace_directories_count=namespace_directories_count,
+            namespace_files_count=namespace_files_count,
+            namespace_size_bytes=namespace_size_bytes,
+            next_run_timestamp=next_run_timestamp,
+            started_timestamp=started_timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             completed_timestamp: str,
+             namespace_directories_count: float,
+             namespace_files_count: float,
+             namespace_size_bytes: float,
+             next_run_timestamp: str,
+             started_timestamp: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'completedTimestamp' in kwargs:
+            completed_timestamp = kwargs['completedTimestamp']
+        if 'namespaceDirectoriesCount' in kwargs:
+            namespace_directories_count = kwargs['namespaceDirectoriesCount']
+        if 'namespaceFilesCount' in kwargs:
+            namespace_files_count = kwargs['namespaceFilesCount']
+        if 'namespaceSizeBytes' in kwargs:
+            namespace_size_bytes = kwargs['namespaceSizeBytes']
+        if 'nextRunTimestamp' in kwargs:
+            next_run_timestamp = kwargs['nextRunTimestamp']
+        if 'startedTimestamp' in kwargs:
+            started_timestamp = kwargs['startedTimestamp']
+
+        _setter("completed_timestamp", completed_timestamp)
+        _setter("namespace_directories_count", namespace_directories_count)
+        _setter("namespace_files_count", namespace_files_count)
+        _setter("namespace_size_bytes", namespace_size_bytes)
+        _setter("next_run_timestamp", next_run_timestamp)
+        _setter("started_timestamp", started_timestamp)
 
     @property
     @pulumi.getter(name="completedTimestamp")
@@ -438,10 +551,35 @@ class CloudTieringCachePerformanceResponse(dict):
         :param float cache_miss_bytes: Count of bytes that were served from the cloud
         :param str last_updated_timestamp: Last updated timestamp
         """
-        pulumi.set(__self__, "cache_hit_bytes", cache_hit_bytes)
-        pulumi.set(__self__, "cache_hit_bytes_percent", cache_hit_bytes_percent)
-        pulumi.set(__self__, "cache_miss_bytes", cache_miss_bytes)
-        pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
+        CloudTieringCachePerformanceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_hit_bytes=cache_hit_bytes,
+            cache_hit_bytes_percent=cache_hit_bytes_percent,
+            cache_miss_bytes=cache_miss_bytes,
+            last_updated_timestamp=last_updated_timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_hit_bytes: float,
+             cache_hit_bytes_percent: int,
+             cache_miss_bytes: float,
+             last_updated_timestamp: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cacheHitBytes' in kwargs:
+            cache_hit_bytes = kwargs['cacheHitBytes']
+        if 'cacheHitBytesPercent' in kwargs:
+            cache_hit_bytes_percent = kwargs['cacheHitBytesPercent']
+        if 'cacheMissBytes' in kwargs:
+            cache_miss_bytes = kwargs['cacheMissBytes']
+        if 'lastUpdatedTimestamp' in kwargs:
+            last_updated_timestamp = kwargs['lastUpdatedTimestamp']
+
+        _setter("cache_hit_bytes", cache_hit_bytes)
+        _setter("cache_hit_bytes_percent", cache_hit_bytes_percent)
+        _setter("cache_miss_bytes", cache_miss_bytes)
+        _setter("last_updated_timestamp", last_updated_timestamp)
 
     @property
     @pulumi.getter(name="cacheHitBytes")
@@ -508,8 +646,25 @@ class CloudTieringDatePolicyStatusResponse(dict):
         :param str last_updated_timestamp: Last updated timestamp
         :param str tiered_files_most_recent_access_timestamp: Most recent access time of tiered files
         """
-        pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
-        pulumi.set(__self__, "tiered_files_most_recent_access_timestamp", tiered_files_most_recent_access_timestamp)
+        CloudTieringDatePolicyStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_updated_timestamp=last_updated_timestamp,
+            tiered_files_most_recent_access_timestamp=tiered_files_most_recent_access_timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_updated_timestamp: str,
+             tiered_files_most_recent_access_timestamp: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastUpdatedTimestamp' in kwargs:
+            last_updated_timestamp = kwargs['lastUpdatedTimestamp']
+        if 'tieredFilesMostRecentAccessTimestamp' in kwargs:
+            tiered_files_most_recent_access_timestamp = kwargs['tieredFilesMostRecentAccessTimestamp']
+
+        _setter("last_updated_timestamp", last_updated_timestamp)
+        _setter("tiered_files_most_recent_access_timestamp", tiered_files_most_recent_access_timestamp)
 
     @property
     @pulumi.getter(name="lastUpdatedTimestamp")
@@ -562,9 +717,28 @@ class CloudTieringFilesNotTieringResponse(dict):
         :param str last_updated_timestamp: Last updated timestamp
         :param float total_file_count: Last cloud tiering result (HResult)
         """
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
-        pulumi.set(__self__, "total_file_count", total_file_count)
+        CloudTieringFilesNotTieringResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            errors=errors,
+            last_updated_timestamp=last_updated_timestamp,
+            total_file_count=total_file_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             errors: Sequence['outputs.FilesNotTieringErrorResponse'],
+             last_updated_timestamp: str,
+             total_file_count: float,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastUpdatedTimestamp' in kwargs:
+            last_updated_timestamp = kwargs['lastUpdatedTimestamp']
+        if 'totalFileCount' in kwargs:
+            total_file_count = kwargs['totalFileCount']
+
+        _setter("errors", errors)
+        _setter("last_updated_timestamp", last_updated_timestamp)
+        _setter("total_file_count", total_file_count)
 
     @property
     @pulumi.getter
@@ -621,8 +795,23 @@ class CloudTieringLowDiskModeResponse(dict):
         :param str last_updated_timestamp: Last updated timestamp
         :param str state: Low disk mode state
         """
-        pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
-        pulumi.set(__self__, "state", state)
+        CloudTieringLowDiskModeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_updated_timestamp=last_updated_timestamp,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_updated_timestamp: str,
+             state: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastUpdatedTimestamp' in kwargs:
+            last_updated_timestamp = kwargs['lastUpdatedTimestamp']
+
+        _setter("last_updated_timestamp", last_updated_timestamp)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="lastUpdatedTimestamp")
@@ -689,12 +878,45 @@ class CloudTieringSpaceSavingsResponse(dict):
         :param float total_size_cloud_bytes: Total size of content in the azure file share
         :param float volume_size_bytes: Volume size
         """
-        pulumi.set(__self__, "cached_size_bytes", cached_size_bytes)
-        pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
-        pulumi.set(__self__, "space_savings_bytes", space_savings_bytes)
-        pulumi.set(__self__, "space_savings_percent", space_savings_percent)
-        pulumi.set(__self__, "total_size_cloud_bytes", total_size_cloud_bytes)
-        pulumi.set(__self__, "volume_size_bytes", volume_size_bytes)
+        CloudTieringSpaceSavingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cached_size_bytes=cached_size_bytes,
+            last_updated_timestamp=last_updated_timestamp,
+            space_savings_bytes=space_savings_bytes,
+            space_savings_percent=space_savings_percent,
+            total_size_cloud_bytes=total_size_cloud_bytes,
+            volume_size_bytes=volume_size_bytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cached_size_bytes: float,
+             last_updated_timestamp: str,
+             space_savings_bytes: float,
+             space_savings_percent: int,
+             total_size_cloud_bytes: float,
+             volume_size_bytes: float,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cachedSizeBytes' in kwargs:
+            cached_size_bytes = kwargs['cachedSizeBytes']
+        if 'lastUpdatedTimestamp' in kwargs:
+            last_updated_timestamp = kwargs['lastUpdatedTimestamp']
+        if 'spaceSavingsBytes' in kwargs:
+            space_savings_bytes = kwargs['spaceSavingsBytes']
+        if 'spaceSavingsPercent' in kwargs:
+            space_savings_percent = kwargs['spaceSavingsPercent']
+        if 'totalSizeCloudBytes' in kwargs:
+            total_size_cloud_bytes = kwargs['totalSizeCloudBytes']
+        if 'volumeSizeBytes' in kwargs:
+            volume_size_bytes = kwargs['volumeSizeBytes']
+
+        _setter("cached_size_bytes", cached_size_bytes)
+        _setter("last_updated_timestamp", last_updated_timestamp)
+        _setter("space_savings_bytes", space_savings_bytes)
+        _setter("space_savings_percent", space_savings_percent)
+        _setter("total_size_cloud_bytes", total_size_cloud_bytes)
+        _setter("volume_size_bytes", volume_size_bytes)
 
     @property
     @pulumi.getter(name="cachedSizeBytes")
@@ -781,9 +1003,30 @@ class CloudTieringVolumeFreeSpacePolicyStatusResponse(dict):
         :param int effective_volume_free_space_policy: In the case where multiple server endpoints are present in a volume, an effective free space policy is applied.
         :param str last_updated_timestamp: Last updated timestamp
         """
-        pulumi.set(__self__, "current_volume_free_space_percent", current_volume_free_space_percent)
-        pulumi.set(__self__, "effective_volume_free_space_policy", effective_volume_free_space_policy)
-        pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
+        CloudTieringVolumeFreeSpacePolicyStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_volume_free_space_percent=current_volume_free_space_percent,
+            effective_volume_free_space_policy=effective_volume_free_space_policy,
+            last_updated_timestamp=last_updated_timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_volume_free_space_percent: int,
+             effective_volume_free_space_policy: int,
+             last_updated_timestamp: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'currentVolumeFreeSpacePercent' in kwargs:
+            current_volume_free_space_percent = kwargs['currentVolumeFreeSpacePercent']
+        if 'effectiveVolumeFreeSpacePolicy' in kwargs:
+            effective_volume_free_space_policy = kwargs['effectiveVolumeFreeSpacePolicy']
+        if 'lastUpdatedTimestamp' in kwargs:
+            last_updated_timestamp = kwargs['lastUpdatedTimestamp']
+
+        _setter("current_volume_free_space_percent", current_volume_free_space_percent)
+        _setter("effective_volume_free_space_policy", effective_volume_free_space_policy)
+        _setter("last_updated_timestamp", last_updated_timestamp)
 
     @property
     @pulumi.getter(name="currentVolumeFreeSpacePercent")
@@ -842,8 +1085,25 @@ class FilesNotTieringErrorResponse(dict):
         :param int error_code: Error code (HResult)
         :param float file_count: Count of files with this error
         """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "file_count", file_count)
+        FilesNotTieringErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            file_count=file_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: int,
+             file_count: float,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if 'fileCount' in kwargs:
+            file_count = kwargs['fileCount']
+
+        _setter("error_code", error_code)
+        _setter("file_count", file_count)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -908,14 +1168,45 @@ class PrivateEndpointConnectionResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            private_endpoint=private_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+             provisioning_state: str,
+             system_data: 'outputs.SystemDataResponse',
+             type: str,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
 
     @property
     @pulumi.getter
@@ -985,7 +1276,18 @@ class PrivateEndpointResponse(dict):
         The Private Endpoint resource.
         :param str id: The ARM identifier for Private Endpoint
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1028,12 +1330,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -1098,10 +1417,33 @@ class ServerEndpointBackgroundDataDownloadActivityResponse(dict):
         :param str started_timestamp: Timestamp when the operation started
         :param str timestamp: Timestamp when properties were updated
         """
-        pulumi.set(__self__, "downloaded_bytes", downloaded_bytes)
-        pulumi.set(__self__, "percent_progress", percent_progress)
-        pulumi.set(__self__, "started_timestamp", started_timestamp)
-        pulumi.set(__self__, "timestamp", timestamp)
+        ServerEndpointBackgroundDataDownloadActivityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downloaded_bytes=downloaded_bytes,
+            percent_progress=percent_progress,
+            started_timestamp=started_timestamp,
+            timestamp=timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downloaded_bytes: float,
+             percent_progress: int,
+             started_timestamp: str,
+             timestamp: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'downloadedBytes' in kwargs:
+            downloaded_bytes = kwargs['downloadedBytes']
+        if 'percentProgress' in kwargs:
+            percent_progress = kwargs['percentProgress']
+        if 'startedTimestamp' in kwargs:
+            started_timestamp = kwargs['startedTimestamp']
+
+        _setter("downloaded_bytes", downloaded_bytes)
+        _setter("percent_progress", percent_progress)
+        _setter("started_timestamp", started_timestamp)
+        _setter("timestamp", timestamp)
 
     @property
     @pulumi.getter(name="downloadedBytes")
@@ -1202,17 +1544,68 @@ class ServerEndpointCloudTieringStatusResponse(dict):
         :param 'CloudTieringSpaceSavingsResponse' space_savings: Information regarding how much local space cloud tiering is saving.
         :param 'CloudTieringVolumeFreeSpacePolicyStatusResponse' volume_free_space_policy_status: Status of the volume free space policy
         """
-        pulumi.set(__self__, "cache_performance", cache_performance)
-        pulumi.set(__self__, "date_policy_status", date_policy_status)
-        pulumi.set(__self__, "files_not_tiering", files_not_tiering)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_last_updated_timestamp", health_last_updated_timestamp)
-        pulumi.set(__self__, "last_cloud_tiering_result", last_cloud_tiering_result)
-        pulumi.set(__self__, "last_success_timestamp", last_success_timestamp)
-        pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
-        pulumi.set(__self__, "low_disk_mode", low_disk_mode)
-        pulumi.set(__self__, "space_savings", space_savings)
-        pulumi.set(__self__, "volume_free_space_policy_status", volume_free_space_policy_status)
+        ServerEndpointCloudTieringStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_performance=cache_performance,
+            date_policy_status=date_policy_status,
+            files_not_tiering=files_not_tiering,
+            health=health,
+            health_last_updated_timestamp=health_last_updated_timestamp,
+            last_cloud_tiering_result=last_cloud_tiering_result,
+            last_success_timestamp=last_success_timestamp,
+            last_updated_timestamp=last_updated_timestamp,
+            low_disk_mode=low_disk_mode,
+            space_savings=space_savings,
+            volume_free_space_policy_status=volume_free_space_policy_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_performance: 'outputs.CloudTieringCachePerformanceResponse',
+             date_policy_status: 'outputs.CloudTieringDatePolicyStatusResponse',
+             files_not_tiering: 'outputs.CloudTieringFilesNotTieringResponse',
+             health: str,
+             health_last_updated_timestamp: str,
+             last_cloud_tiering_result: int,
+             last_success_timestamp: str,
+             last_updated_timestamp: str,
+             low_disk_mode: 'outputs.CloudTieringLowDiskModeResponse',
+             space_savings: 'outputs.CloudTieringSpaceSavingsResponse',
+             volume_free_space_policy_status: 'outputs.CloudTieringVolumeFreeSpacePolicyStatusResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cachePerformance' in kwargs:
+            cache_performance = kwargs['cachePerformance']
+        if 'datePolicyStatus' in kwargs:
+            date_policy_status = kwargs['datePolicyStatus']
+        if 'filesNotTiering' in kwargs:
+            files_not_tiering = kwargs['filesNotTiering']
+        if 'healthLastUpdatedTimestamp' in kwargs:
+            health_last_updated_timestamp = kwargs['healthLastUpdatedTimestamp']
+        if 'lastCloudTieringResult' in kwargs:
+            last_cloud_tiering_result = kwargs['lastCloudTieringResult']
+        if 'lastSuccessTimestamp' in kwargs:
+            last_success_timestamp = kwargs['lastSuccessTimestamp']
+        if 'lastUpdatedTimestamp' in kwargs:
+            last_updated_timestamp = kwargs['lastUpdatedTimestamp']
+        if 'lowDiskMode' in kwargs:
+            low_disk_mode = kwargs['lowDiskMode']
+        if 'spaceSavings' in kwargs:
+            space_savings = kwargs['spaceSavings']
+        if 'volumeFreeSpacePolicyStatus' in kwargs:
+            volume_free_space_policy_status = kwargs['volumeFreeSpacePolicyStatus']
+
+        _setter("cache_performance", cache_performance)
+        _setter("date_policy_status", date_policy_status)
+        _setter("files_not_tiering", files_not_tiering)
+        _setter("health", health)
+        _setter("health_last_updated_timestamp", health_last_updated_timestamp)
+        _setter("last_cloud_tiering_result", last_cloud_tiering_result)
+        _setter("last_success_timestamp", last_success_timestamp)
+        _setter("last_updated_timestamp", last_updated_timestamp)
+        _setter("low_disk_mode", low_disk_mode)
+        _setter("space_savings", space_savings)
+        _setter("volume_free_space_policy_status", volume_free_space_policy_status)
 
     @property
     @pulumi.getter(name="cachePerformance")
@@ -1339,9 +1732,30 @@ class ServerEndpointFilesNotSyncingErrorResponse(dict):
         :param float persistent_count: Count of persistent files not syncing with the specified error code
         :param float transient_count: Count of transient files not syncing with the specified error code
         """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "persistent_count", persistent_count)
-        pulumi.set(__self__, "transient_count", transient_count)
+        ServerEndpointFilesNotSyncingErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            persistent_count=persistent_count,
+            transient_count=transient_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: int,
+             persistent_count: float,
+             transient_count: float,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if 'persistentCount' in kwargs:
+            persistent_count = kwargs['persistentCount']
+        if 'transientCount' in kwargs:
+            transient_count = kwargs['transientCount']
+
+        _setter("error_code", error_code)
+        _setter("persistent_count", persistent_count)
+        _setter("transient_count", transient_count)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -1398,8 +1812,23 @@ class ServerEndpointRecallErrorResponse(dict):
         :param float count: Count of occurences of the error
         :param int error_code: Error code (HResult)
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "error_code", error_code)
+        ServerEndpointRecallErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            error_code=error_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: float,
+             error_code: int,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+
+        _setter("count", count)
+        _setter("error_code", error_code)
 
     @property
     @pulumi.getter
@@ -1454,9 +1883,30 @@ class ServerEndpointRecallStatusResponse(dict):
         :param Sequence['ServerEndpointRecallErrorResponse'] recall_errors: Array of recall errors
         :param float total_recall_errors_count: Total count of recall errors.
         """
-        pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
-        pulumi.set(__self__, "recall_errors", recall_errors)
-        pulumi.set(__self__, "total_recall_errors_count", total_recall_errors_count)
+        ServerEndpointRecallStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_updated_timestamp=last_updated_timestamp,
+            recall_errors=recall_errors,
+            total_recall_errors_count=total_recall_errors_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_updated_timestamp: str,
+             recall_errors: Sequence['outputs.ServerEndpointRecallErrorResponse'],
+             total_recall_errors_count: float,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastUpdatedTimestamp' in kwargs:
+            last_updated_timestamp = kwargs['lastUpdatedTimestamp']
+        if 'recallErrors' in kwargs:
+            recall_errors = kwargs['recallErrors']
+        if 'totalRecallErrorsCount' in kwargs:
+            total_recall_errors_count = kwargs['totalRecallErrorsCount']
+
+        _setter("last_updated_timestamp", last_updated_timestamp)
+        _setter("recall_errors", recall_errors)
+        _setter("total_recall_errors_count", total_recall_errors_count)
 
     @property
     @pulumi.getter(name="lastUpdatedTimestamp")
@@ -1537,14 +1987,53 @@ class ServerEndpointSyncActivityStatusResponse(dict):
         :param float total_bytes: Total bytes (if available)
         :param float total_item_count: Total item count (if available)
         """
-        pulumi.set(__self__, "applied_bytes", applied_bytes)
-        pulumi.set(__self__, "applied_item_count", applied_item_count)
-        pulumi.set(__self__, "per_item_error_count", per_item_error_count)
-        pulumi.set(__self__, "session_minutes_remaining", session_minutes_remaining)
-        pulumi.set(__self__, "sync_mode", sync_mode)
-        pulumi.set(__self__, "timestamp", timestamp)
-        pulumi.set(__self__, "total_bytes", total_bytes)
-        pulumi.set(__self__, "total_item_count", total_item_count)
+        ServerEndpointSyncActivityStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            applied_bytes=applied_bytes,
+            applied_item_count=applied_item_count,
+            per_item_error_count=per_item_error_count,
+            session_minutes_remaining=session_minutes_remaining,
+            sync_mode=sync_mode,
+            timestamp=timestamp,
+            total_bytes=total_bytes,
+            total_item_count=total_item_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             applied_bytes: float,
+             applied_item_count: float,
+             per_item_error_count: float,
+             session_minutes_remaining: int,
+             sync_mode: str,
+             timestamp: str,
+             total_bytes: float,
+             total_item_count: float,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appliedBytes' in kwargs:
+            applied_bytes = kwargs['appliedBytes']
+        if 'appliedItemCount' in kwargs:
+            applied_item_count = kwargs['appliedItemCount']
+        if 'perItemErrorCount' in kwargs:
+            per_item_error_count = kwargs['perItemErrorCount']
+        if 'sessionMinutesRemaining' in kwargs:
+            session_minutes_remaining = kwargs['sessionMinutesRemaining']
+        if 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+        if 'totalBytes' in kwargs:
+            total_bytes = kwargs['totalBytes']
+        if 'totalItemCount' in kwargs:
+            total_item_count = kwargs['totalItemCount']
+
+        _setter("applied_bytes", applied_bytes)
+        _setter("applied_item_count", applied_item_count)
+        _setter("per_item_error_count", per_item_error_count)
+        _setter("session_minutes_remaining", session_minutes_remaining)
+        _setter("sync_mode", sync_mode)
+        _setter("timestamp", timestamp)
+        _setter("total_bytes", total_bytes)
+        _setter("total_item_count", total_item_count)
 
     @property
     @pulumi.getter(name="appliedBytes")
@@ -1667,14 +2156,55 @@ class ServerEndpointSyncSessionStatusResponse(dict):
         :param float persistent_files_not_syncing_count: Count of persistent files not syncing.
         :param float transient_files_not_syncing_count: Count of transient files not syncing.
         """
-        pulumi.set(__self__, "files_not_syncing_errors", files_not_syncing_errors)
-        pulumi.set(__self__, "last_sync_mode", last_sync_mode)
-        pulumi.set(__self__, "last_sync_per_item_error_count", last_sync_per_item_error_count)
-        pulumi.set(__self__, "last_sync_result", last_sync_result)
-        pulumi.set(__self__, "last_sync_success_timestamp", last_sync_success_timestamp)
-        pulumi.set(__self__, "last_sync_timestamp", last_sync_timestamp)
-        pulumi.set(__self__, "persistent_files_not_syncing_count", persistent_files_not_syncing_count)
-        pulumi.set(__self__, "transient_files_not_syncing_count", transient_files_not_syncing_count)
+        ServerEndpointSyncSessionStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            files_not_syncing_errors=files_not_syncing_errors,
+            last_sync_mode=last_sync_mode,
+            last_sync_per_item_error_count=last_sync_per_item_error_count,
+            last_sync_result=last_sync_result,
+            last_sync_success_timestamp=last_sync_success_timestamp,
+            last_sync_timestamp=last_sync_timestamp,
+            persistent_files_not_syncing_count=persistent_files_not_syncing_count,
+            transient_files_not_syncing_count=transient_files_not_syncing_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             files_not_syncing_errors: Sequence['outputs.ServerEndpointFilesNotSyncingErrorResponse'],
+             last_sync_mode: str,
+             last_sync_per_item_error_count: float,
+             last_sync_result: int,
+             last_sync_success_timestamp: str,
+             last_sync_timestamp: str,
+             persistent_files_not_syncing_count: float,
+             transient_files_not_syncing_count: float,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filesNotSyncingErrors' in kwargs:
+            files_not_syncing_errors = kwargs['filesNotSyncingErrors']
+        if 'lastSyncMode' in kwargs:
+            last_sync_mode = kwargs['lastSyncMode']
+        if 'lastSyncPerItemErrorCount' in kwargs:
+            last_sync_per_item_error_count = kwargs['lastSyncPerItemErrorCount']
+        if 'lastSyncResult' in kwargs:
+            last_sync_result = kwargs['lastSyncResult']
+        if 'lastSyncSuccessTimestamp' in kwargs:
+            last_sync_success_timestamp = kwargs['lastSyncSuccessTimestamp']
+        if 'lastSyncTimestamp' in kwargs:
+            last_sync_timestamp = kwargs['lastSyncTimestamp']
+        if 'persistentFilesNotSyncingCount' in kwargs:
+            persistent_files_not_syncing_count = kwargs['persistentFilesNotSyncingCount']
+        if 'transientFilesNotSyncingCount' in kwargs:
+            transient_files_not_syncing_count = kwargs['transientFilesNotSyncingCount']
+
+        _setter("files_not_syncing_errors", files_not_syncing_errors)
+        _setter("last_sync_mode", last_sync_mode)
+        _setter("last_sync_per_item_error_count", last_sync_per_item_error_count)
+        _setter("last_sync_result", last_sync_result)
+        _setter("last_sync_success_timestamp", last_sync_success_timestamp)
+        _setter("last_sync_timestamp", last_sync_timestamp)
+        _setter("persistent_files_not_syncing_count", persistent_files_not_syncing_count)
+        _setter("transient_files_not_syncing_count", transient_files_not_syncing_count)
 
     @property
     @pulumi.getter(name="filesNotSyncingErrors")
@@ -1813,18 +2343,75 @@ class ServerEndpointSyncStatusResponse(dict):
         :param str upload_health: Upload Health Status.
         :param 'ServerEndpointSyncSessionStatusResponse' upload_status: Upload Status
         """
-        pulumi.set(__self__, "background_data_download_activity", background_data_download_activity)
-        pulumi.set(__self__, "combined_health", combined_health)
-        pulumi.set(__self__, "download_activity", download_activity)
-        pulumi.set(__self__, "download_health", download_health)
-        pulumi.set(__self__, "download_status", download_status)
-        pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
-        pulumi.set(__self__, "offline_data_transfer_status", offline_data_transfer_status)
-        pulumi.set(__self__, "sync_activity", sync_activity)
-        pulumi.set(__self__, "total_persistent_files_not_syncing_count", total_persistent_files_not_syncing_count)
-        pulumi.set(__self__, "upload_activity", upload_activity)
-        pulumi.set(__self__, "upload_health", upload_health)
-        pulumi.set(__self__, "upload_status", upload_status)
+        ServerEndpointSyncStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            background_data_download_activity=background_data_download_activity,
+            combined_health=combined_health,
+            download_activity=download_activity,
+            download_health=download_health,
+            download_status=download_status,
+            last_updated_timestamp=last_updated_timestamp,
+            offline_data_transfer_status=offline_data_transfer_status,
+            sync_activity=sync_activity,
+            total_persistent_files_not_syncing_count=total_persistent_files_not_syncing_count,
+            upload_activity=upload_activity,
+            upload_health=upload_health,
+            upload_status=upload_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             background_data_download_activity: 'outputs.ServerEndpointBackgroundDataDownloadActivityResponse',
+             combined_health: str,
+             download_activity: 'outputs.ServerEndpointSyncActivityStatusResponse',
+             download_health: str,
+             download_status: 'outputs.ServerEndpointSyncSessionStatusResponse',
+             last_updated_timestamp: str,
+             offline_data_transfer_status: str,
+             sync_activity: str,
+             total_persistent_files_not_syncing_count: float,
+             upload_activity: 'outputs.ServerEndpointSyncActivityStatusResponse',
+             upload_health: str,
+             upload_status: 'outputs.ServerEndpointSyncSessionStatusResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backgroundDataDownloadActivity' in kwargs:
+            background_data_download_activity = kwargs['backgroundDataDownloadActivity']
+        if 'combinedHealth' in kwargs:
+            combined_health = kwargs['combinedHealth']
+        if 'downloadActivity' in kwargs:
+            download_activity = kwargs['downloadActivity']
+        if 'downloadHealth' in kwargs:
+            download_health = kwargs['downloadHealth']
+        if 'downloadStatus' in kwargs:
+            download_status = kwargs['downloadStatus']
+        if 'lastUpdatedTimestamp' in kwargs:
+            last_updated_timestamp = kwargs['lastUpdatedTimestamp']
+        if 'offlineDataTransferStatus' in kwargs:
+            offline_data_transfer_status = kwargs['offlineDataTransferStatus']
+        if 'syncActivity' in kwargs:
+            sync_activity = kwargs['syncActivity']
+        if 'totalPersistentFilesNotSyncingCount' in kwargs:
+            total_persistent_files_not_syncing_count = kwargs['totalPersistentFilesNotSyncingCount']
+        if 'uploadActivity' in kwargs:
+            upload_activity = kwargs['uploadActivity']
+        if 'uploadHealth' in kwargs:
+            upload_health = kwargs['uploadHealth']
+        if 'uploadStatus' in kwargs:
+            upload_status = kwargs['uploadStatus']
+
+        _setter("background_data_download_activity", background_data_download_activity)
+        _setter("combined_health", combined_health)
+        _setter("download_activity", download_activity)
+        _setter("download_health", download_health)
+        _setter("download_status", download_status)
+        _setter("last_updated_timestamp", last_updated_timestamp)
+        _setter("offline_data_transfer_status", offline_data_transfer_status)
+        _setter("sync_activity", sync_activity)
+        _setter("total_persistent_files_not_syncing_count", total_persistent_files_not_syncing_count)
+        _setter("upload_activity", upload_activity)
+        _setter("upload_health", upload_health)
+        _setter("upload_status", upload_status)
 
     @property
     @pulumi.getter(name="backgroundDataDownloadActivity")
@@ -1971,18 +2558,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

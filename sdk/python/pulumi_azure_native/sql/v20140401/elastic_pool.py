@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -40,26 +40,71 @@ class ElasticPoolArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        ElasticPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            database_dtu_max=database_dtu_max,
+            database_dtu_min=database_dtu_min,
+            dtu=dtu,
+            edition=edition,
+            elastic_pool_name=elastic_pool_name,
+            location=location,
+            storage_mb=storage_mb,
+            tags=tags,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             database_dtu_max: Optional[pulumi.Input[int]] = None,
+             database_dtu_min: Optional[pulumi.Input[int]] = None,
+             dtu: Optional[pulumi.Input[int]] = None,
+             edition: Optional[pulumi.Input[Union[str, 'ElasticPoolEdition']]] = None,
+             elastic_pool_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             storage_mb: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone_redundant: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'databaseDtuMax' in kwargs:
+            database_dtu_max = kwargs['databaseDtuMax']
+        if 'databaseDtuMin' in kwargs:
+            database_dtu_min = kwargs['databaseDtuMin']
+        if 'elasticPoolName' in kwargs:
+            elastic_pool_name = kwargs['elasticPoolName']
+        if 'storageMB' in kwargs:
+            storage_mb = kwargs['storageMB']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if database_dtu_max is not None:
-            pulumi.set(__self__, "database_dtu_max", database_dtu_max)
+            _setter("database_dtu_max", database_dtu_max)
         if database_dtu_min is not None:
-            pulumi.set(__self__, "database_dtu_min", database_dtu_min)
+            _setter("database_dtu_min", database_dtu_min)
         if dtu is not None:
-            pulumi.set(__self__, "dtu", dtu)
+            _setter("dtu", dtu)
         if edition is not None:
-            pulumi.set(__self__, "edition", edition)
+            _setter("edition", edition)
         if elastic_pool_name is not None:
-            pulumi.set(__self__, "elastic_pool_name", elastic_pool_name)
+            _setter("elastic_pool_name", elastic_pool_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if storage_mb is not None:
-            pulumi.set(__self__, "storage_mb", storage_mb)
+            _setter("storage_mb", storage_mb)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -247,6 +292,10 @@ class ElasticPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ElasticPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

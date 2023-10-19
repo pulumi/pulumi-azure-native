@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -60,39 +60,118 @@ class PhpWorkloadArgs:
         :param pulumi.Input['SkuArgs'] sku: Php workloads SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "admin_user_profile", admin_user_profile)
-        pulumi.set(__self__, "app_location", app_location)
-        pulumi.set(__self__, "controller_profile", controller_profile)
-        pulumi.set(__self__, "database_profile", database_profile)
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "web_nodes_profile", web_nodes_profile)
+        PhpWorkloadArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_user_profile=admin_user_profile,
+            app_location=app_location,
+            controller_profile=controller_profile,
+            database_profile=database_profile,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            web_nodes_profile=web_nodes_profile,
+            backup_profile=backup_profile,
+            cache_profile=cache_profile,
+            fileshare_profile=fileshare_profile,
+            identity=identity,
+            location=location,
+            managed_resource_group_configuration=managed_resource_group_configuration,
+            network_profile=network_profile,
+            php_profile=php_profile,
+            php_workload_name=php_workload_name,
+            search_profile=search_profile,
+            site_profile=site_profile,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_user_profile: pulumi.Input['UserProfileArgs'],
+             app_location: pulumi.Input[str],
+             controller_profile: pulumi.Input['NodeProfileArgs'],
+             database_profile: pulumi.Input['DatabaseProfileArgs'],
+             kind: pulumi.Input[Union[str, 'WorkloadKind']],
+             resource_group_name: pulumi.Input[str],
+             web_nodes_profile: pulumi.Input['VmssNodesProfileArgs'],
+             backup_profile: Optional[pulumi.Input['BackupProfileArgs']] = None,
+             cache_profile: Optional[pulumi.Input['CacheProfileArgs']] = None,
+             fileshare_profile: Optional[pulumi.Input['FileshareProfileArgs']] = None,
+             identity: Optional[pulumi.Input['PhpWorkloadResourceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_resource_group_configuration: Optional[pulumi.Input['ManagedRGConfigurationArgs']] = None,
+             network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+             php_profile: Optional[pulumi.Input['PhpProfileArgs']] = None,
+             php_workload_name: Optional[pulumi.Input[str]] = None,
+             search_profile: Optional[pulumi.Input['SearchProfileArgs']] = None,
+             site_profile: Optional[pulumi.Input['SiteProfileArgs']] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUserProfile' in kwargs:
+            admin_user_profile = kwargs['adminUserProfile']
+        if 'appLocation' in kwargs:
+            app_location = kwargs['appLocation']
+        if 'controllerProfile' in kwargs:
+            controller_profile = kwargs['controllerProfile']
+        if 'databaseProfile' in kwargs:
+            database_profile = kwargs['databaseProfile']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'webNodesProfile' in kwargs:
+            web_nodes_profile = kwargs['webNodesProfile']
+        if 'backupProfile' in kwargs:
+            backup_profile = kwargs['backupProfile']
+        if 'cacheProfile' in kwargs:
+            cache_profile = kwargs['cacheProfile']
+        if 'fileshareProfile' in kwargs:
+            fileshare_profile = kwargs['fileshareProfile']
+        if 'managedResourceGroupConfiguration' in kwargs:
+            managed_resource_group_configuration = kwargs['managedResourceGroupConfiguration']
+        if 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if 'phpProfile' in kwargs:
+            php_profile = kwargs['phpProfile']
+        if 'phpWorkloadName' in kwargs:
+            php_workload_name = kwargs['phpWorkloadName']
+        if 'searchProfile' in kwargs:
+            search_profile = kwargs['searchProfile']
+        if 'siteProfile' in kwargs:
+            site_profile = kwargs['siteProfile']
+
+        _setter("admin_user_profile", admin_user_profile)
+        _setter("app_location", app_location)
+        _setter("controller_profile", controller_profile)
+        _setter("database_profile", database_profile)
+        _setter("kind", kind)
+        _setter("resource_group_name", resource_group_name)
+        _setter("web_nodes_profile", web_nodes_profile)
         if backup_profile is not None:
-            pulumi.set(__self__, "backup_profile", backup_profile)
+            _setter("backup_profile", backup_profile)
         if cache_profile is not None:
-            pulumi.set(__self__, "cache_profile", cache_profile)
+            _setter("cache_profile", cache_profile)
         if fileshare_profile is not None:
-            pulumi.set(__self__, "fileshare_profile", fileshare_profile)
+            _setter("fileshare_profile", fileshare_profile)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_resource_group_configuration is not None:
-            pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+            _setter("managed_resource_group_configuration", managed_resource_group_configuration)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if php_profile is not None:
-            pulumi.set(__self__, "php_profile", php_profile)
+            _setter("php_profile", php_profile)
         if php_workload_name is not None:
-            pulumi.set(__self__, "php_workload_name", php_workload_name)
+            _setter("php_workload_name", php_workload_name)
         if search_profile is not None:
-            pulumi.set(__self__, "search_profile", search_profile)
+            _setter("search_profile", search_profile)
         if site_profile is not None:
-            pulumi.set(__self__, "site_profile", site_profile)
+            _setter("site_profile", site_profile)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="adminUserProfile")
@@ -406,6 +485,10 @@ class PhpWorkload(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PhpWorkloadArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -440,37 +523,107 @@ class PhpWorkload(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PhpWorkloadArgs.__new__(PhpWorkloadArgs)
 
+            if admin_user_profile is not None and not isinstance(admin_user_profile, UserProfileArgs):
+                admin_user_profile = admin_user_profile or {}
+                def _setter(key, value):
+                    admin_user_profile[key] = value
+                UserProfileArgs._configure(_setter, **admin_user_profile)
             if admin_user_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_user_profile'")
             __props__.__dict__["admin_user_profile"] = admin_user_profile
             if app_location is None and not opts.urn:
                 raise TypeError("Missing required property 'app_location'")
             __props__.__dict__["app_location"] = app_location
+            if backup_profile is not None and not isinstance(backup_profile, BackupProfileArgs):
+                backup_profile = backup_profile or {}
+                def _setter(key, value):
+                    backup_profile[key] = value
+                BackupProfileArgs._configure(_setter, **backup_profile)
             __props__.__dict__["backup_profile"] = backup_profile
+            if cache_profile is not None and not isinstance(cache_profile, CacheProfileArgs):
+                cache_profile = cache_profile or {}
+                def _setter(key, value):
+                    cache_profile[key] = value
+                CacheProfileArgs._configure(_setter, **cache_profile)
             __props__.__dict__["cache_profile"] = cache_profile
+            if controller_profile is not None and not isinstance(controller_profile, NodeProfileArgs):
+                controller_profile = controller_profile or {}
+                def _setter(key, value):
+                    controller_profile[key] = value
+                NodeProfileArgs._configure(_setter, **controller_profile)
             if controller_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'controller_profile'")
             __props__.__dict__["controller_profile"] = controller_profile
+            if database_profile is not None and not isinstance(database_profile, DatabaseProfileArgs):
+                database_profile = database_profile or {}
+                def _setter(key, value):
+                    database_profile[key] = value
+                DatabaseProfileArgs._configure(_setter, **database_profile)
             if database_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'database_profile'")
             __props__.__dict__["database_profile"] = database_profile
+            if fileshare_profile is not None and not isinstance(fileshare_profile, FileshareProfileArgs):
+                fileshare_profile = fileshare_profile or {}
+                def _setter(key, value):
+                    fileshare_profile[key] = value
+                FileshareProfileArgs._configure(_setter, **fileshare_profile)
             __props__.__dict__["fileshare_profile"] = fileshare_profile
+            if identity is not None and not isinstance(identity, PhpWorkloadResourceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                PhpWorkloadResourceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
+            if managed_resource_group_configuration is not None and not isinstance(managed_resource_group_configuration, ManagedRGConfigurationArgs):
+                managed_resource_group_configuration = managed_resource_group_configuration or {}
+                def _setter(key, value):
+                    managed_resource_group_configuration[key] = value
+                ManagedRGConfigurationArgs._configure(_setter, **managed_resource_group_configuration)
             __props__.__dict__["managed_resource_group_configuration"] = managed_resource_group_configuration
+            if network_profile is not None and not isinstance(network_profile, NetworkProfileArgs):
+                network_profile = network_profile or {}
+                def _setter(key, value):
+                    network_profile[key] = value
+                NetworkProfileArgs._configure(_setter, **network_profile)
             __props__.__dict__["network_profile"] = network_profile
+            if php_profile is not None and not isinstance(php_profile, PhpProfileArgs):
+                php_profile = php_profile or {}
+                def _setter(key, value):
+                    php_profile[key] = value
+                PhpProfileArgs._configure(_setter, **php_profile)
             __props__.__dict__["php_profile"] = php_profile
             __props__.__dict__["php_workload_name"] = php_workload_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if search_profile is not None and not isinstance(search_profile, SearchProfileArgs):
+                search_profile = search_profile or {}
+                def _setter(key, value):
+                    search_profile[key] = value
+                SearchProfileArgs._configure(_setter, **search_profile)
             __props__.__dict__["search_profile"] = search_profile
+            if site_profile is not None and not isinstance(site_profile, SiteProfileArgs):
+                site_profile = site_profile or {}
+                def _setter(key, value):
+                    site_profile[key] = value
+                SiteProfileArgs._configure(_setter, **site_profile)
             __props__.__dict__["site_profile"] = site_profile
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            if web_nodes_profile is not None and not isinstance(web_nodes_profile, VmssNodesProfileArgs):
+                web_nodes_profile = web_nodes_profile or {}
+                def _setter(key, value):
+                    web_nodes_profile[key] = value
+                VmssNodesProfileArgs._configure(_setter, **web_nodes_profile)
             if web_nodes_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'web_nodes_profile'")
             __props__.__dict__["web_nodes_profile"] = web_nodes_profile

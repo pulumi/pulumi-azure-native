@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,14 +28,39 @@ class SiteArgs:
         :param pulumi.Input[str] site_name: The name of the mobile network site.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "mobile_network_name", mobile_network_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SiteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mobile_network_name=mobile_network_name,
+            resource_group_name=resource_group_name,
+            location=location,
+            site_name=site_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mobile_network_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             site_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mobileNetworkName' in kwargs:
+            mobile_network_name = kwargs['mobileNetworkName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'siteName' in kwargs:
+            site_name = kwargs['siteName']
+
+        _setter("mobile_network_name", mobile_network_name)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if site_name is not None:
-            pulumi.set(__self__, "site_name", site_name)
+            _setter("site_name", site_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="mobileNetworkName")
@@ -141,6 +166,10 @@ class Site(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SiteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

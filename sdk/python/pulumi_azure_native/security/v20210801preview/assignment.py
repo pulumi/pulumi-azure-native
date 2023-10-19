@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,33 +47,84 @@ class AssignmentArgs:
         :param pulumi.Input[str] scope: Scope to which the standardAssignment applies - can be a subscription path or a resource group under that subscription
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of key value pairs that describe the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            additional_data=additional_data,
+            assigned_component=assigned_component,
+            assigned_standard=assigned_standard,
+            assignment_id=assignment_id,
+            description=description,
+            display_name=display_name,
+            effect=effect,
+            expires_on=expires_on,
+            kind=kind,
+            location=location,
+            metadata=metadata,
+            scope=scope,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             additional_data: Optional[pulumi.Input['AssignmentPropertiesAdditionalDataArgs']] = None,
+             assigned_component: Optional[pulumi.Input['AssignedComponentItemArgs']] = None,
+             assigned_standard: Optional[pulumi.Input['AssignedStandardItemArgs']] = None,
+             assignment_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             effect: Optional[pulumi.Input[str]] = None,
+             expires_on: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'additionalData' in kwargs:
+            additional_data = kwargs['additionalData']
+        if 'assignedComponent' in kwargs:
+            assigned_component = kwargs['assignedComponent']
+        if 'assignedStandard' in kwargs:
+            assigned_standard = kwargs['assignedStandard']
+        if 'assignmentId' in kwargs:
+            assignment_id = kwargs['assignmentId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'expiresOn' in kwargs:
+            expires_on = kwargs['expiresOn']
+
+        _setter("resource_group_name", resource_group_name)
         if additional_data is not None:
-            pulumi.set(__self__, "additional_data", additional_data)
+            _setter("additional_data", additional_data)
         if assigned_component is not None:
-            pulumi.set(__self__, "assigned_component", assigned_component)
+            _setter("assigned_component", assigned_component)
         if assigned_standard is not None:
-            pulumi.set(__self__, "assigned_standard", assigned_standard)
+            _setter("assigned_standard", assigned_standard)
         if assignment_id is not None:
-            pulumi.set(__self__, "assignment_id", assignment_id)
+            _setter("assignment_id", assignment_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if effect is not None:
-            pulumi.set(__self__, "effect", effect)
+            _setter("effect", effect)
         if expires_on is not None:
-            pulumi.set(__self__, "expires_on", expires_on)
+            _setter("expires_on", expires_on)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -303,6 +354,10 @@ class Assignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -331,8 +386,23 @@ class Assignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssignmentArgs.__new__(AssignmentArgs)
 
+            if additional_data is not None and not isinstance(additional_data, AssignmentPropertiesAdditionalDataArgs):
+                additional_data = additional_data or {}
+                def _setter(key, value):
+                    additional_data[key] = value
+                AssignmentPropertiesAdditionalDataArgs._configure(_setter, **additional_data)
             __props__.__dict__["additional_data"] = additional_data
+            if assigned_component is not None and not isinstance(assigned_component, AssignedComponentItemArgs):
+                assigned_component = assigned_component or {}
+                def _setter(key, value):
+                    assigned_component[key] = value
+                AssignedComponentItemArgs._configure(_setter, **assigned_component)
             __props__.__dict__["assigned_component"] = assigned_component
+            if assigned_standard is not None and not isinstance(assigned_standard, AssignedStandardItemArgs):
+                assigned_standard = assigned_standard or {}
+                def _setter(key, value):
+                    assigned_standard[key] = value
+                AssignedStandardItemArgs._configure(_setter, **assigned_standard)
             __props__.__dict__["assigned_standard"] = assigned_standard
             __props__.__dict__["assignment_id"] = assignment_id
             __props__.__dict__["description"] = description

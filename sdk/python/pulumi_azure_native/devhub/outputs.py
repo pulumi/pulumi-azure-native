@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -58,14 +58,39 @@ class ACRResponse(dict):
         :param str acr_resource_group: ACR resource group
         :param str acr_subscription_id: ACR subscription id
         """
+        ACRResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acr_registry_name=acr_registry_name,
+            acr_repository_name=acr_repository_name,
+            acr_resource_group=acr_resource_group,
+            acr_subscription_id=acr_subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acr_registry_name: Optional[str] = None,
+             acr_repository_name: Optional[str] = None,
+             acr_resource_group: Optional[str] = None,
+             acr_subscription_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acrRegistryName' in kwargs:
+            acr_registry_name = kwargs['acrRegistryName']
+        if 'acrRepositoryName' in kwargs:
+            acr_repository_name = kwargs['acrRepositoryName']
+        if 'acrResourceGroup' in kwargs:
+            acr_resource_group = kwargs['acrResourceGroup']
+        if 'acrSubscriptionId' in kwargs:
+            acr_subscription_id = kwargs['acrSubscriptionId']
+
         if acr_registry_name is not None:
-            pulumi.set(__self__, "acr_registry_name", acr_registry_name)
+            _setter("acr_registry_name", acr_registry_name)
         if acr_repository_name is not None:
-            pulumi.set(__self__, "acr_repository_name", acr_repository_name)
+            _setter("acr_repository_name", acr_repository_name)
         if acr_resource_group is not None:
-            pulumi.set(__self__, "acr_resource_group", acr_resource_group)
+            _setter("acr_resource_group", acr_resource_group)
         if acr_subscription_id is not None:
-            pulumi.set(__self__, "acr_subscription_id", acr_subscription_id)
+            _setter("acr_subscription_id", acr_subscription_id)
 
     @property
     @pulumi.getter(name="acrRegistryName")
@@ -137,16 +162,43 @@ class DeploymentPropertiesResponse(dict):
         :param str manifest_type: Determines the type of manifests within the repository.
         :param Mapping[str, str] overrides: Manifest override values.
         """
+        DeploymentPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            helm_chart_path=helm_chart_path,
+            helm_values=helm_values,
+            kube_manifest_locations=kube_manifest_locations,
+            manifest_type=manifest_type,
+            overrides=overrides,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             helm_chart_path: Optional[str] = None,
+             helm_values: Optional[str] = None,
+             kube_manifest_locations: Optional[Sequence[str]] = None,
+             manifest_type: Optional[str] = None,
+             overrides: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'helmChartPath' in kwargs:
+            helm_chart_path = kwargs['helmChartPath']
+        if 'helmValues' in kwargs:
+            helm_values = kwargs['helmValues']
+        if 'kubeManifestLocations' in kwargs:
+            kube_manifest_locations = kwargs['kubeManifestLocations']
+        if 'manifestType' in kwargs:
+            manifest_type = kwargs['manifestType']
+
         if helm_chart_path is not None:
-            pulumi.set(__self__, "helm_chart_path", helm_chart_path)
+            _setter("helm_chart_path", helm_chart_path)
         if helm_values is not None:
-            pulumi.set(__self__, "helm_values", helm_values)
+            _setter("helm_values", helm_values)
         if kube_manifest_locations is not None:
-            pulumi.set(__self__, "kube_manifest_locations", kube_manifest_locations)
+            _setter("kube_manifest_locations", kube_manifest_locations)
         if manifest_type is not None:
-            pulumi.set(__self__, "manifest_type", manifest_type)
+            _setter("manifest_type", manifest_type)
         if overrides is not None:
-            pulumi.set(__self__, "overrides", overrides)
+            _setter("overrides", overrides)
 
     @property
     @pulumi.getter(name="helmChartPath")
@@ -218,10 +270,27 @@ class GitHubWorkflowProfileResponseOidcCredentials(dict):
         :param str azure_client_id: Azure Application Client ID
         :param str azure_tenant_id: Azure Directory (tenant) ID
         """
+        GitHubWorkflowProfileResponseOidcCredentials._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_client_id=azure_client_id,
+            azure_tenant_id=azure_tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_client_id: Optional[str] = None,
+             azure_tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureClientId' in kwargs:
+            azure_client_id = kwargs['azureClientId']
+        if 'azureTenantId' in kwargs:
+            azure_tenant_id = kwargs['azureTenantId']
+
         if azure_client_id is not None:
-            pulumi.set(__self__, "azure_client_id", azure_client_id)
+            _setter("azure_client_id", azure_client_id)
         if azure_tenant_id is not None:
-            pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+            _setter("azure_tenant_id", azure_tenant_id)
 
     @property
     @pulumi.getter(name="azureClientId")
@@ -288,18 +357,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -384,11 +486,34 @@ class WorkflowRunResponse(dict):
         :param str workflow_run_url: URL to the run of the workflow.
         :param str workflow_run_status: Describes the status of the workflow run
         """
-        pulumi.set(__self__, "last_run_at", last_run_at)
-        pulumi.set(__self__, "succeeded", succeeded)
-        pulumi.set(__self__, "workflow_run_url", workflow_run_url)
+        WorkflowRunResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_run_at=last_run_at,
+            succeeded=succeeded,
+            workflow_run_url=workflow_run_url,
+            workflow_run_status=workflow_run_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_run_at: str,
+             succeeded: bool,
+             workflow_run_url: str,
+             workflow_run_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastRunAt' in kwargs:
+            last_run_at = kwargs['lastRunAt']
+        if 'workflowRunURL' in kwargs:
+            workflow_run_url = kwargs['workflowRunURL']
+        if 'workflowRunStatus' in kwargs:
+            workflow_run_status = kwargs['workflowRunStatus']
+
+        _setter("last_run_at", last_run_at)
+        _setter("succeeded", succeeded)
+        _setter("workflow_run_url", workflow_run_url)
         if workflow_run_status is not None:
-            pulumi.set(__self__, "workflow_run_status", workflow_run_status)
+            _setter("workflow_run_status", workflow_run_status)
 
     @property
     @pulumi.getter(name="lastRunAt")

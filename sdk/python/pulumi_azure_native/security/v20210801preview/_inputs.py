@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -25,8 +25,19 @@ class AssignedComponentItemArgs:
         describe the properties of a security assessment object reference (by key)
         :param pulumi.Input[str] key: unique key to a security assessment object
         """
+        AssignedComponentItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter
@@ -49,8 +60,19 @@ class AssignedStandardItemArgs:
         describe the properties of a of a security standard object reference
         :param pulumi.Input[str] id: full resourceId of the Microsoft.Security/standard object
         """
+        AssignedStandardItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -73,8 +95,21 @@ class AssignmentPropertiesAdditionalDataArgs:
         Additional data about the assignment
         :param pulumi.Input[str] exemption_category: Exemption category of this assignment
         """
+        AssignmentPropertiesAdditionalDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exemption_category=exemption_category,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exemption_category: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exemptionCategory' in kwargs:
+            exemption_category = kwargs['exemptionCategory']
+
         if exemption_category is not None:
-            pulumi.set(__self__, "exemption_category", exemption_category)
+            _setter("exemption_category", exemption_category)
 
     @property
     @pulumi.getter(name="exemptionCategory")
@@ -97,8 +132,19 @@ class StandardComponentPropertiesArgs:
         Describes properties of an component as related to the standard
         :param pulumi.Input[str] key: Component Key matching componentMetadata
         """
+        StandardComponentPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -39,19 +39,58 @@ class ScheduleArgs:
         :param pulumi.Input[Union[str, 'ScheduleEnableStatus']] state: Indicates whether or not this scheduled task is enabled.
         :param pulumi.Input[int] top: The maximum number of resources to return from the operation. Example: '$top=10'.
         """
-        pulumi.set(__self__, "frequency", frequency)
-        pulumi.set(__self__, "pool_name", pool_name)
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "time", time)
-        pulumi.set(__self__, "time_zone", time_zone)
-        pulumi.set(__self__, "type", type)
+        ScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            frequency=frequency,
+            pool_name=pool_name,
+            project_name=project_name,
+            resource_group_name=resource_group_name,
+            time=time,
+            time_zone=time_zone,
+            type=type,
+            schedule_name=schedule_name,
+            state=state,
+            top=top,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             frequency: pulumi.Input[Union[str, 'ScheduledFrequency']],
+             pool_name: pulumi.Input[str],
+             project_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             time: pulumi.Input[str],
+             time_zone: pulumi.Input[str],
+             type: pulumi.Input[Union[str, 'ScheduledType']],
+             schedule_name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[Union[str, 'ScheduleEnableStatus']]] = None,
+             top: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'poolName' in kwargs:
+            pool_name = kwargs['poolName']
+        if 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if 'scheduleName' in kwargs:
+            schedule_name = kwargs['scheduleName']
+
+        _setter("frequency", frequency)
+        _setter("pool_name", pool_name)
+        _setter("project_name", project_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("time", time)
+        _setter("time_zone", time_zone)
+        _setter("type", type)
         if schedule_name is not None:
-            pulumi.set(__self__, "schedule_name", schedule_name)
+            _setter("schedule_name", schedule_name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if top is not None:
-            pulumi.set(__self__, "top", top)
+            _setter("top", top)
 
     @property
     @pulumi.getter
@@ -225,6 +264,10 @@ class Schedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

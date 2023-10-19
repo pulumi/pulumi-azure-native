@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['GuestDiagnosticsSettingsAssociationArgs', 'GuestDiagnosticsSettingsAssociation']
@@ -27,14 +27,39 @@ class GuestDiagnosticsSettingsAssociationArgs:
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "guest_diagnostic_settings_name", guest_diagnostic_settings_name)
-        pulumi.set(__self__, "resource_uri", resource_uri)
+        GuestDiagnosticsSettingsAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            guest_diagnostic_settings_name=guest_diagnostic_settings_name,
+            resource_uri=resource_uri,
+            association_name=association_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             guest_diagnostic_settings_name: pulumi.Input[str],
+             resource_uri: pulumi.Input[str],
+             association_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'guestDiagnosticSettingsName' in kwargs:
+            guest_diagnostic_settings_name = kwargs['guestDiagnosticSettingsName']
+        if 'resourceUri' in kwargs:
+            resource_uri = kwargs['resourceUri']
+        if 'associationName' in kwargs:
+            association_name = kwargs['associationName']
+
+        _setter("guest_diagnostic_settings_name", guest_diagnostic_settings_name)
+        _setter("resource_uri", resource_uri)
         if association_name is not None:
-            pulumi.set(__self__, "association_name", association_name)
+            _setter("association_name", association_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="guestDiagnosticSettingsName")
@@ -138,6 +163,10 @@ class GuestDiagnosticsSettingsAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GuestDiagnosticsSettingsAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

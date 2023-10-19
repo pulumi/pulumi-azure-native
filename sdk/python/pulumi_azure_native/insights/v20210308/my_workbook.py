@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,32 +50,83 @@ class MyWorkbookArgs:
         :param pulumi.Input[str] type: Azure resource type
         :param pulumi.Input[str] version: This instance's version of the data model. This can change as new features are added that can be marked private workbook.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "serialized_data", serialized_data)
+        MyWorkbookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            display_name=display_name,
+            resource_group_name=resource_group_name,
+            serialized_data=serialized_data,
+            id=id,
+            identity=identity,
+            kind=kind,
+            location=location,
+            name=name,
+            resource_name=resource_name,
+            source_id=source_id,
+            storage_uri=storage_uri,
+            tags=tags,
+            type=type,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: pulumi.Input[str],
+             display_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             serialized_data: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['MyWorkbookManagedIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             source_id: Optional[pulumi.Input[str]] = None,
+             storage_uri: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serializedData' in kwargs:
+            serialized_data = kwargs['serializedData']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if 'storageUri' in kwargs:
+            storage_uri = kwargs['storageUri']
+
+        _setter("category", category)
+        _setter("display_name", display_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("serialized_data", serialized_data)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if source_id is not None:
-            pulumi.set(__self__, "source_id", source_id)
+            _setter("source_id", source_id)
         if storage_uri is not None:
-            pulumi.set(__self__, "storage_uri", storage_uri)
+            _setter("storage_uri", storage_uri)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -319,6 +370,10 @@ class MyWorkbook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MyWorkbookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -355,6 +410,11 @@ class MyWorkbook(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["id"] = id
+            if identity is not None and not isinstance(identity, MyWorkbookManagedIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                MyWorkbookManagedIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location

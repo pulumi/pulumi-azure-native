@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -61,10 +61,29 @@ class AsymmetricEncryptedSecretResponse(dict):
         :param str value: The value of the secret.
         :param str encryption_cert_thumbprint: Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
         """
-        pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
-        pulumi.set(__self__, "value", value)
+        AsymmetricEncryptedSecretResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_algorithm=encryption_algorithm,
+            value=value,
+            encryption_cert_thumbprint=encryption_cert_thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_algorithm: str,
+             value: str,
+             encryption_cert_thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionAlgorithm' in kwargs:
+            encryption_algorithm = kwargs['encryptionAlgorithm']
+        if 'encryptionCertThumbprint' in kwargs:
+            encryption_cert_thumbprint = kwargs['encryptionCertThumbprint']
+
+        _setter("encryption_algorithm", encryption_algorithm)
+        _setter("value", value)
         if encryption_cert_thumbprint is not None:
-            pulumi.set(__self__, "encryption_cert_thumbprint", encryption_cert_thumbprint)
+            _setter("encryption_cert_thumbprint", encryption_cert_thumbprint)
 
     @property
     @pulumi.getter(name="encryptionAlgorithm")
@@ -125,10 +144,29 @@ class BandwidthScheduleResponse(dict):
         :param 'TimeResponse' start: The start time of the schedule.
         :param 'TimeResponse' stop: The stop time of the schedule.
         """
-        pulumi.set(__self__, "days", days)
-        pulumi.set(__self__, "rate_in_mbps", rate_in_mbps)
-        pulumi.set(__self__, "start", start)
-        pulumi.set(__self__, "stop", stop)
+        BandwidthScheduleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+            rate_in_mbps=rate_in_mbps,
+            start=start,
+            stop=stop,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: Sequence[str],
+             rate_in_mbps: int,
+             start: 'outputs.TimeResponse',
+             stop: 'outputs.TimeResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rateInMbps' in kwargs:
+            rate_in_mbps = kwargs['rateInMbps']
+
+        _setter("days", days)
+        _setter("rate_in_mbps", rate_in_mbps)
+        _setter("start", start)
+        _setter("stop", stop)
 
     @property
     @pulumi.getter
@@ -176,10 +214,27 @@ class FailoverSetEligibilityResultResponse(dict):
         :param str error_message: The error message, if the failover set is not eligible for failover.
         :param bool is_eligible_for_failover: Represents if this failover set is eligible for failover or not.
         """
+        FailoverSetEligibilityResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_message=error_message,
+            is_eligible_for_failover=is_eligible_for_failover,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_message: Optional[str] = None,
+             is_eligible_for_failover: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if 'isEligibleForFailover' in kwargs:
+            is_eligible_for_failover = kwargs['isEligibleForFailover']
+
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if is_eligible_for_failover is not None:
-            pulumi.set(__self__, "is_eligible_for_failover", is_eligible_for_failover)
+            _setter("is_eligible_for_failover", is_eligible_for_failover)
 
     @property
     @pulumi.getter(name="errorMessage")
@@ -211,10 +266,27 @@ class FailoverSetResponse(dict):
         :param 'FailoverSetEligibilityResultResponse' eligibility_result: The eligibility result of the failover set, for failover.
         :param Sequence['VolumeContainerFailoverMetadataResponse'] volume_containers: The list of meta data of volume containers, which are part of the failover set.
         """
+        FailoverSetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            eligibility_result=eligibility_result,
+            volume_containers=volume_containers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             eligibility_result: Optional['outputs.FailoverSetEligibilityResultResponse'] = None,
+             volume_containers: Optional[Sequence['outputs.VolumeContainerFailoverMetadataResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eligibilityResult' in kwargs:
+            eligibility_result = kwargs['eligibilityResult']
+        if 'volumeContainers' in kwargs:
+            volume_containers = kwargs['volumeContainers']
+
         if eligibility_result is not None:
-            pulumi.set(__self__, "eligibility_result", eligibility_result)
+            _setter("eligibility_result", eligibility_result)
         if volume_containers is not None:
-            pulumi.set(__self__, "volume_containers", volume_containers)
+            _setter("volume_containers", volume_containers)
 
     @property
     @pulumi.getter(name="eligibilityResult")
@@ -264,28 +336,81 @@ class FailoverTargetResponse(dict):
         :param str model_description: The model number of the device.
         :param int volumes_count: The count of volumes on the device.
         """
+        FailoverTargetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            available_local_storage_in_bytes=available_local_storage_in_bytes,
+            available_tiered_storage_in_bytes=available_tiered_storage_in_bytes,
+            data_containers_count=data_containers_count,
+            device_id=device_id,
+            device_location=device_location,
+            device_software_version=device_software_version,
+            device_status=device_status,
+            eligibility_result=eligibility_result,
+            friendly_device_software_version=friendly_device_software_version,
+            model_description=model_description,
+            volumes_count=volumes_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             available_local_storage_in_bytes: Optional[float] = None,
+             available_tiered_storage_in_bytes: Optional[float] = None,
+             data_containers_count: Optional[int] = None,
+             device_id: Optional[str] = None,
+             device_location: Optional[str] = None,
+             device_software_version: Optional[str] = None,
+             device_status: Optional[str] = None,
+             eligibility_result: Optional['outputs.TargetEligibilityResultResponse'] = None,
+             friendly_device_software_version: Optional[str] = None,
+             model_description: Optional[str] = None,
+             volumes_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availableLocalStorageInBytes' in kwargs:
+            available_local_storage_in_bytes = kwargs['availableLocalStorageInBytes']
+        if 'availableTieredStorageInBytes' in kwargs:
+            available_tiered_storage_in_bytes = kwargs['availableTieredStorageInBytes']
+        if 'dataContainersCount' in kwargs:
+            data_containers_count = kwargs['dataContainersCount']
+        if 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if 'deviceLocation' in kwargs:
+            device_location = kwargs['deviceLocation']
+        if 'deviceSoftwareVersion' in kwargs:
+            device_software_version = kwargs['deviceSoftwareVersion']
+        if 'deviceStatus' in kwargs:
+            device_status = kwargs['deviceStatus']
+        if 'eligibilityResult' in kwargs:
+            eligibility_result = kwargs['eligibilityResult']
+        if 'friendlyDeviceSoftwareVersion' in kwargs:
+            friendly_device_software_version = kwargs['friendlyDeviceSoftwareVersion']
+        if 'modelDescription' in kwargs:
+            model_description = kwargs['modelDescription']
+        if 'volumesCount' in kwargs:
+            volumes_count = kwargs['volumesCount']
+
         if available_local_storage_in_bytes is not None:
-            pulumi.set(__self__, "available_local_storage_in_bytes", available_local_storage_in_bytes)
+            _setter("available_local_storage_in_bytes", available_local_storage_in_bytes)
         if available_tiered_storage_in_bytes is not None:
-            pulumi.set(__self__, "available_tiered_storage_in_bytes", available_tiered_storage_in_bytes)
+            _setter("available_tiered_storage_in_bytes", available_tiered_storage_in_bytes)
         if data_containers_count is not None:
-            pulumi.set(__self__, "data_containers_count", data_containers_count)
+            _setter("data_containers_count", data_containers_count)
         if device_id is not None:
-            pulumi.set(__self__, "device_id", device_id)
+            _setter("device_id", device_id)
         if device_location is not None:
-            pulumi.set(__self__, "device_location", device_location)
+            _setter("device_location", device_location)
         if device_software_version is not None:
-            pulumi.set(__self__, "device_software_version", device_software_version)
+            _setter("device_software_version", device_software_version)
         if device_status is not None:
-            pulumi.set(__self__, "device_status", device_status)
+            _setter("device_status", device_status)
         if eligibility_result is not None:
-            pulumi.set(__self__, "eligibility_result", eligibility_result)
+            _setter("eligibility_result", eligibility_result)
         if friendly_device_software_version is not None:
-            pulumi.set(__self__, "friendly_device_software_version", friendly_device_software_version)
+            _setter("friendly_device_software_version", friendly_device_software_version)
         if model_description is not None:
-            pulumi.set(__self__, "model_description", model_description)
+            _setter("model_description", model_description)
         if volumes_count is not None:
-            pulumi.set(__self__, "volumes_count", volumes_count)
+            _setter("volumes_count", volumes_count)
 
     @property
     @pulumi.getter(name="availableLocalStorageInBytes")
@@ -387,7 +512,18 @@ class ManagerIntrinsicSettingsResponse(dict):
         Intrinsic settings which refers to the type of the StorSimple Manager.
         :param str type: The type of StorSimple Manager.
         """
-        pulumi.set(__self__, "type", type)
+        ManagerIntrinsicSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -409,7 +545,18 @@ class ManagerSkuResponse(dict):
         The Sku.
         :param str name: Refers to the sku name which should be "Standard"
         """
-        pulumi.set(__self__, "name", name)
+        ManagerSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -456,10 +603,31 @@ class ScheduleRecurrenceResponse(dict):
         :param int recurrence_value: The recurrence value.
         :param Sequence[str] weekly_days_list: The week days list. Applicable only for schedules of recurrence type 'weekly'.
         """
-        pulumi.set(__self__, "recurrence_type", recurrence_type)
-        pulumi.set(__self__, "recurrence_value", recurrence_value)
+        ScheduleRecurrenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recurrence_type=recurrence_type,
+            recurrence_value=recurrence_value,
+            weekly_days_list=weekly_days_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recurrence_type: str,
+             recurrence_value: int,
+             weekly_days_list: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recurrenceType' in kwargs:
+            recurrence_type = kwargs['recurrenceType']
+        if 'recurrenceValue' in kwargs:
+            recurrence_value = kwargs['recurrenceValue']
+        if 'weeklyDaysList' in kwargs:
+            weekly_days_list = kwargs['weeklyDaysList']
+
+        _setter("recurrence_type", recurrence_type)
+        _setter("recurrence_value", recurrence_value)
         if weekly_days_list is not None:
-            pulumi.set(__self__, "weekly_days_list", weekly_days_list)
+            _setter("weekly_days_list", weekly_days_list)
 
     @property
     @pulumi.getter(name="recurrenceType")
@@ -501,12 +669,29 @@ class TargetEligibilityErrorMessageResponse(dict):
         :param str resolution: The localized resolution message for the error.
         :param str result_code: The result code for the error, due to which the device does not qualify as a failover target device.
         """
+        TargetEligibilityErrorMessageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+            resolution=resolution,
+            result_code=result_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: Optional[str] = None,
+             resolution: Optional[str] = None,
+             result_code: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resultCode' in kwargs:
+            result_code = kwargs['resultCode']
+
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if resolution is not None:
-            pulumi.set(__self__, "resolution", resolution)
+            _setter("resolution", resolution)
         if result_code is not None:
-            pulumi.set(__self__, "result_code", result_code)
+            _setter("result_code", result_code)
 
     @property
     @pulumi.getter
@@ -546,10 +731,25 @@ class TargetEligibilityResultResponse(dict):
         :param str eligibility_status: The eligibility status of device, as a failover target device.
         :param Sequence['TargetEligibilityErrorMessageResponse'] messages: The list of error messages, if a device does not qualify as a failover target device.
         """
+        TargetEligibilityResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            eligibility_status=eligibility_status,
+            messages=messages,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             eligibility_status: Optional[str] = None,
+             messages: Optional[Sequence['outputs.TargetEligibilityErrorMessageResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eligibilityStatus' in kwargs:
+            eligibility_status = kwargs['eligibilityStatus']
+
         if eligibility_status is not None:
-            pulumi.set(__self__, "eligibility_status", eligibility_status)
+            _setter("eligibility_status", eligibility_status)
         if messages is not None:
-            pulumi.set(__self__, "messages", messages)
+            _setter("messages", messages)
 
     @property
     @pulumi.getter(name="eligibilityStatus")
@@ -583,9 +783,24 @@ class TimeResponse(dict):
         :param int minutes: The minute.
         :param int seconds: The second.
         """
-        pulumi.set(__self__, "hours", hours)
-        pulumi.set(__self__, "minutes", minutes)
-        pulumi.set(__self__, "seconds", seconds)
+        TimeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hours=hours,
+            minutes=minutes,
+            seconds=seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hours: int,
+             minutes: int,
+             seconds: int,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("hours", hours)
+        _setter("minutes", minutes)
+        _setter("seconds", seconds)
 
     @property
     @pulumi.getter
@@ -625,10 +840,25 @@ class VolumeContainerFailoverMetadataResponse(dict):
         :param str volume_container_id: The path ID of the volume container.
         :param Sequence['VolumeFailoverMetadataResponse'] volumes: The list of metadata of volumes inside the volume container, which contains valid cloud snapshots.
         """
+        VolumeContainerFailoverMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            volume_container_id=volume_container_id,
+            volumes=volumes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             volume_container_id: Optional[str] = None,
+             volumes: Optional[Sequence['outputs.VolumeFailoverMetadataResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'volumeContainerId' in kwargs:
+            volume_container_id = kwargs['volumeContainerId']
+
         if volume_container_id is not None:
-            pulumi.set(__self__, "volume_container_id", volume_container_id)
+            _setter("volume_container_id", volume_container_id)
         if volumes is not None:
-            pulumi.set(__self__, "volumes", volumes)
+            _setter("volumes", volumes)
 
     @property
     @pulumi.getter(name="volumeContainerId")
@@ -670,20 +900,57 @@ class VolumeFailoverMetadataResponse(dict):
         :param str volume_id: The path ID of the volume.
         :param str volume_type: The type of the volume.
         """
+        VolumeFailoverMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_created_date=backup_created_date,
+            backup_element_id=backup_element_id,
+            backup_id=backup_id,
+            backup_policy_id=backup_policy_id,
+            size_in_bytes=size_in_bytes,
+            volume_id=volume_id,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_created_date: Optional[str] = None,
+             backup_element_id: Optional[str] = None,
+             backup_id: Optional[str] = None,
+             backup_policy_id: Optional[str] = None,
+             size_in_bytes: Optional[float] = None,
+             volume_id: Optional[str] = None,
+             volume_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupCreatedDate' in kwargs:
+            backup_created_date = kwargs['backupCreatedDate']
+        if 'backupElementId' in kwargs:
+            backup_element_id = kwargs['backupElementId']
+        if 'backupId' in kwargs:
+            backup_id = kwargs['backupId']
+        if 'backupPolicyId' in kwargs:
+            backup_policy_id = kwargs['backupPolicyId']
+        if 'sizeInBytes' in kwargs:
+            size_in_bytes = kwargs['sizeInBytes']
+        if 'volumeId' in kwargs:
+            volume_id = kwargs['volumeId']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if backup_created_date is not None:
-            pulumi.set(__self__, "backup_created_date", backup_created_date)
+            _setter("backup_created_date", backup_created_date)
         if backup_element_id is not None:
-            pulumi.set(__self__, "backup_element_id", backup_element_id)
+            _setter("backup_element_id", backup_element_id)
         if backup_id is not None:
-            pulumi.set(__self__, "backup_id", backup_id)
+            _setter("backup_id", backup_id)
         if backup_policy_id is not None:
-            pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+            _setter("backup_policy_id", backup_policy_id)
         if size_in_bytes is not None:
-            pulumi.set(__self__, "size_in_bytes", size_in_bytes)
+            _setter("size_in_bytes", size_in_bytes)
         if volume_id is not None:
-            pulumi.set(__self__, "volume_id", volume_id)
+            _setter("volume_id", volume_id)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter(name="backupCreatedDate")

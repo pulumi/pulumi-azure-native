@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -43,12 +43,27 @@ class FilteringTagResponse(dict):
         :param str name: The name (also known as the key) of the tag.
         :param str value: The value of the tag.
         """
+        FilteringTagResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -104,10 +119,29 @@ class IdentityPropertiesResponse(dict):
         :param str principal_id: The identity ID.
         :param str tenant_id: The tenant ID of resource.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -171,14 +205,39 @@ class LogRulesResponse(dict):
         :param bool send_activity_logs: Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
         :param bool send_subscription_logs: Flag specifying if subscription logs should be sent for the Monitor resource.
         """
+        LogRulesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filtering_tags=filtering_tags,
+            send_aad_logs=send_aad_logs,
+            send_activity_logs=send_activity_logs,
+            send_subscription_logs=send_subscription_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filtering_tags: Optional[Sequence['outputs.FilteringTagResponse']] = None,
+             send_aad_logs: Optional[bool] = None,
+             send_activity_logs: Optional[bool] = None,
+             send_subscription_logs: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filteringTags' in kwargs:
+            filtering_tags = kwargs['filteringTags']
+        if 'sendAadLogs' in kwargs:
+            send_aad_logs = kwargs['sendAadLogs']
+        if 'sendActivityLogs' in kwargs:
+            send_activity_logs = kwargs['sendActivityLogs']
+        if 'sendSubscriptionLogs' in kwargs:
+            send_subscription_logs = kwargs['sendSubscriptionLogs']
+
         if filtering_tags is not None:
-            pulumi.set(__self__, "filtering_tags", filtering_tags)
+            _setter("filtering_tags", filtering_tags)
         if send_aad_logs is not None:
-            pulumi.set(__self__, "send_aad_logs", send_aad_logs)
+            _setter("send_aad_logs", send_aad_logs)
         if send_activity_logs is not None:
-            pulumi.set(__self__, "send_activity_logs", send_activity_logs)
+            _setter("send_activity_logs", send_activity_logs)
         if send_subscription_logs is not None:
-            pulumi.set(__self__, "send_subscription_logs", send_subscription_logs)
+            _setter("send_subscription_logs", send_subscription_logs)
 
     @property
     @pulumi.getter(name="filteringTags")
@@ -247,13 +306,36 @@ class LogzOrganizationPropertiesResponse(dict):
         :param str enterprise_app_id: The Id of the Enterprise App used for Single sign on.
         :param str single_sign_on_url: The login URL specific to this Logz Organization.
         """
-        pulumi.set(__self__, "id", id)
+        LogzOrganizationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            company_name=company_name,
+            enterprise_app_id=enterprise_app_id,
+            single_sign_on_url=single_sign_on_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             company_name: Optional[str] = None,
+             enterprise_app_id: Optional[str] = None,
+             single_sign_on_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if 'enterpriseAppId' in kwargs:
+            enterprise_app_id = kwargs['enterpriseAppId']
+        if 'singleSignOnUrl' in kwargs:
+            single_sign_on_url = kwargs['singleSignOnUrl']
+
+        _setter("id", id)
         if company_name is not None:
-            pulumi.set(__self__, "company_name", company_name)
+            _setter("company_name", company_name)
         if enterprise_app_id is not None:
-            pulumi.set(__self__, "enterprise_app_id", enterprise_app_id)
+            _setter("enterprise_app_id", enterprise_app_id)
         if single_sign_on_url is not None:
-            pulumi.set(__self__, "single_sign_on_url", single_sign_on_url)
+            _setter("single_sign_on_url", single_sign_on_url)
 
     @property
     @pulumi.getter
@@ -320,10 +402,27 @@ class MetricRulesResponse(dict):
         :param Sequence['FilteringTagResponse'] filtering_tags: List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         :param str subscription_id: Subscription Id for which filtering tags are applicable
         """
+        MetricRulesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filtering_tags=filtering_tags,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filtering_tags: Optional[Sequence['outputs.FilteringTagResponse']] = None,
+             subscription_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filteringTags' in kwargs:
+            filtering_tags = kwargs['filteringTags']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         if filtering_tags is not None:
-            pulumi.set(__self__, "filtering_tags", filtering_tags)
+            _setter("filtering_tags", filtering_tags)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter(name="filteringTags")
@@ -381,12 +480,37 @@ class MetricsTagRulesPropertiesResponse(dict):
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param bool send_metrics: Flag specifying if metrics from Azure resources should be sent for the Monitor resource.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
+        MetricsTagRulesPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            metric_rules=metric_rules,
+            send_metrics=send_metrics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: str,
+             system_data: 'outputs.SystemDataResponse',
+             metric_rules: Optional[Sequence['outputs.MetricRulesResponse']] = None,
+             send_metrics: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if 'metricRules' in kwargs:
+            metric_rules = kwargs['metricRules']
+        if 'sendMetrics' in kwargs:
+            send_metrics = kwargs['sendMetrics']
+
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
         if metric_rules is not None:
-            pulumi.set(__self__, "metric_rules", metric_rules)
+            _setter("metric_rules", metric_rules)
         if send_metrics is not None:
-            pulumi.set(__self__, "send_metrics", send_metrics)
+            _setter("send_metrics", send_metrics)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -470,19 +594,60 @@ class MonitorPropertiesResponse(dict):
         :param str marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
         :param str monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
         """
-        pulumi.set(__self__, "liftr_resource_category", liftr_resource_category)
-        pulumi.set(__self__, "liftr_resource_preference", liftr_resource_preference)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        MonitorPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            liftr_resource_category=liftr_resource_category,
+            liftr_resource_preference=liftr_resource_preference,
+            provisioning_state=provisioning_state,
+            logz_organization_properties=logz_organization_properties,
+            marketplace_subscription_status=marketplace_subscription_status,
+            monitoring_status=monitoring_status,
+            plan_data=plan_data,
+            user_info=user_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             liftr_resource_category: str,
+             liftr_resource_preference: int,
+             provisioning_state: str,
+             logz_organization_properties: Optional['outputs.LogzOrganizationPropertiesResponse'] = None,
+             marketplace_subscription_status: Optional[str] = None,
+             monitoring_status: Optional[str] = None,
+             plan_data: Optional['outputs.PlanDataResponse'] = None,
+             user_info: Optional['outputs.UserInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'liftrResourceCategory' in kwargs:
+            liftr_resource_category = kwargs['liftrResourceCategory']
+        if 'liftrResourcePreference' in kwargs:
+            liftr_resource_preference = kwargs['liftrResourcePreference']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'logzOrganizationProperties' in kwargs:
+            logz_organization_properties = kwargs['logzOrganizationProperties']
+        if 'marketplaceSubscriptionStatus' in kwargs:
+            marketplace_subscription_status = kwargs['marketplaceSubscriptionStatus']
+        if 'monitoringStatus' in kwargs:
+            monitoring_status = kwargs['monitoringStatus']
+        if 'planData' in kwargs:
+            plan_data = kwargs['planData']
+        if 'userInfo' in kwargs:
+            user_info = kwargs['userInfo']
+
+        _setter("liftr_resource_category", liftr_resource_category)
+        _setter("liftr_resource_preference", liftr_resource_preference)
+        _setter("provisioning_state", provisioning_state)
         if logz_organization_properties is not None:
-            pulumi.set(__self__, "logz_organization_properties", logz_organization_properties)
+            _setter("logz_organization_properties", logz_organization_properties)
         if marketplace_subscription_status is not None:
-            pulumi.set(__self__, "marketplace_subscription_status", marketplace_subscription_status)
+            _setter("marketplace_subscription_status", marketplace_subscription_status)
         if monitoring_status is not None:
-            pulumi.set(__self__, "monitoring_status", monitoring_status)
+            _setter("monitoring_status", monitoring_status)
         if plan_data is not None:
-            pulumi.set(__self__, "plan_data", plan_data)
+            _setter("plan_data", plan_data)
         if user_info is not None:
-            pulumi.set(__self__, "user_info", user_info)
+            _setter("user_info", user_info)
 
     @property
     @pulumi.getter(name="liftrResourceCategory")
@@ -558,17 +723,48 @@ class MonitoredResourceResponse(dict):
         :param bool sending_logs: Flag indicating if resource is sending logs to Logz.
         :param bool sending_metrics: Flag indicating if resource is sending metrics to Logz.
         """
-        pulumi.set(__self__, "system_data", system_data)
+        MonitoredResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            system_data=system_data,
+            id=id,
+            reason_for_logs_status=reason_for_logs_status,
+            reason_for_metrics_status=reason_for_metrics_status,
+            sending_logs=sending_logs,
+            sending_metrics=sending_metrics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             system_data: 'outputs.SystemDataResponse',
+             id: Optional[str] = None,
+             reason_for_logs_status: Optional[str] = None,
+             reason_for_metrics_status: Optional[str] = None,
+             sending_logs: Optional[bool] = None,
+             sending_metrics: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if 'reasonForLogsStatus' in kwargs:
+            reason_for_logs_status = kwargs['reasonForLogsStatus']
+        if 'reasonForMetricsStatus' in kwargs:
+            reason_for_metrics_status = kwargs['reasonForMetricsStatus']
+        if 'sendingLogs' in kwargs:
+            sending_logs = kwargs['sendingLogs']
+        if 'sendingMetrics' in kwargs:
+            sending_metrics = kwargs['sendingMetrics']
+
+        _setter("system_data", system_data)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if reason_for_logs_status is not None:
-            pulumi.set(__self__, "reason_for_logs_status", reason_for_logs_status)
+            _setter("reason_for_logs_status", reason_for_logs_status)
         if reason_for_metrics_status is not None:
-            pulumi.set(__self__, "reason_for_metrics_status", reason_for_metrics_status)
+            _setter("reason_for_metrics_status", reason_for_metrics_status)
         if sending_logs is not None:
-            pulumi.set(__self__, "sending_logs", sending_logs)
+            _setter("sending_logs", sending_logs)
         if sending_metrics is not None:
-            pulumi.set(__self__, "sending_metrics", sending_metrics)
+            _setter("sending_metrics", sending_metrics)
 
     @property
     @pulumi.getter(name="systemData")
@@ -655,10 +851,31 @@ class MonitoringTagRulesPropertiesResponse(dict):
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param 'LogRulesResponse' log_rules: Set of rules for sending logs for the Monitor resource.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
+        MonitoringTagRulesPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            log_rules=log_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: str,
+             system_data: 'outputs.SystemDataResponse',
+             log_rules: Optional['outputs.LogRulesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if 'logRules' in kwargs:
+            log_rules = kwargs['logRules']
+
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
         if log_rules is not None:
-            pulumi.set(__self__, "log_rules", log_rules)
+            _setter("log_rules", log_rules)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -721,14 +938,39 @@ class PlanDataResponse(dict):
         :param str plan_details: plan id as published by Logz
         :param str usage_type: different usage type like PAYG/COMMITTED. this could be enum
         """
+        PlanDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_cycle=billing_cycle,
+            effective_date=effective_date,
+            plan_details=plan_details,
+            usage_type=usage_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_cycle: Optional[str] = None,
+             effective_date: Optional[str] = None,
+             plan_details: Optional[str] = None,
+             usage_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billingCycle' in kwargs:
+            billing_cycle = kwargs['billingCycle']
+        if 'effectiveDate' in kwargs:
+            effective_date = kwargs['effectiveDate']
+        if 'planDetails' in kwargs:
+            plan_details = kwargs['planDetails']
+        if 'usageType' in kwargs:
+            usage_type = kwargs['usageType']
+
         if billing_cycle is not None:
-            pulumi.set(__self__, "billing_cycle", billing_cycle)
+            _setter("billing_cycle", billing_cycle)
         if effective_date is not None:
-            pulumi.set(__self__, "effective_date", effective_date)
+            _setter("effective_date", effective_date)
         if plan_details is not None:
-            pulumi.set(__self__, "plan_details", plan_details)
+            _setter("plan_details", plan_details)
         if usage_type is not None:
-            pulumi.set(__self__, "usage_type", usage_type)
+            _setter("usage_type", usage_type)
 
     @property
     @pulumi.getter(name="billingCycle")
@@ -811,18 +1053,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -909,14 +1184,39 @@ class UserInfoResponse(dict):
         :param str last_name: Last Name of the user
         :param str phone_number: Phone number of the user used by Logz for contacting them if needed
         """
+        UserInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            first_name=first_name,
+            last_name=last_name,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: Optional[str] = None,
+             first_name: Optional[str] = None,
+             last_name: Optional[str] = None,
+             phone_number: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         if email_address is not None:
-            pulumi.set(__self__, "email_address", email_address)
+            _setter("email_address", email_address)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -962,8 +1262,19 @@ class UserRoleResponseResponse(dict):
         Response for checking user's role for Logz.io account.
         :param str role: User roles on configured in Logz.io account.
         """
+        UserRoleResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter
@@ -987,10 +1298,25 @@ class VMResourcesResponse(dict):
         :param str agent_version: Version of the Logz agent installed on the VM.
         :param str id: Request of a list vm host update operation.
         """
+        VMResourcesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_version=agent_version,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_version: Optional[str] = None,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter(name="agentVersion")

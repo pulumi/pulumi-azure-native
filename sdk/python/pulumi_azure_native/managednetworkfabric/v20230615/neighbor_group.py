@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,41 @@ class NeighborGroupArgs:
         :param pulumi.Input[str] neighbor_group_name: Name of the Neighbor Group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "destination", destination)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NeighborGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+            resource_group_name=resource_group_name,
+            annotation=annotation,
+            location=location,
+            neighbor_group_name=neighbor_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: pulumi.Input['NeighborGroupDestinationArgs'],
+             resource_group_name: pulumi.Input[str],
+             annotation: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             neighbor_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'neighborGroupName' in kwargs:
+            neighbor_group_name = kwargs['neighborGroupName']
+
+        _setter("destination", destination)
+        _setter("resource_group_name", resource_group_name)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if neighbor_group_name is not None:
-            pulumi.set(__self__, "neighbor_group_name", neighbor_group_name)
+            _setter("neighbor_group_name", neighbor_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -158,6 +183,10 @@ class NeighborGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NeighborGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -179,6 +208,11 @@ class NeighborGroup(pulumi.CustomResource):
             __props__ = NeighborGroupArgs.__new__(NeighborGroupArgs)
 
             __props__.__dict__["annotation"] = annotation
+            if destination is not None and not isinstance(destination, NeighborGroupDestinationArgs):
+                destination = destination or {}
+                def _setter(key, value):
+                    destination[key] = value
+                NeighborGroupDestinationArgs._configure(_setter, **destination)
             if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
             __props__.__dict__["destination"] = destination

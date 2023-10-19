@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -38,12 +38,37 @@ class LocationThresholdRuleConditionArgs:
         :param pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
         """
-        pulumi.set(__self__, "failed_location_count", failed_location_count)
-        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition')
+        LocationThresholdRuleConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failed_location_count=failed_location_count,
+            odata_type=odata_type,
+            data_source=data_source,
+            window_size=window_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failed_location_count: pulumi.Input[int],
+             odata_type: pulumi.Input[str],
+             data_source: Optional[pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']]] = None,
+             window_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failedLocationCount' in kwargs:
+            failed_location_count = kwargs['failedLocationCount']
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if 'windowSize' in kwargs:
+            window_size = kwargs['windowSize']
+
+        _setter("failed_location_count", failed_location_count)
+        _setter("odata_type", 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition')
         if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+            _setter("data_source", data_source)
         if window_size is not None:
-            pulumi.set(__self__, "window_size", window_size)
+            _setter("window_size", window_size)
 
     @property
     @pulumi.getter(name="failedLocationCount")
@@ -107,12 +132,29 @@ class ManagementEventAggregationConditionArgs:
         :param pulumi.Input[float] threshold: The threshold value that activates the alert.
         :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
         """
+        ManagementEventAggregationConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            threshold=threshold,
+            window_size=window_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: Optional[pulumi.Input['ConditionOperator']] = None,
+             threshold: Optional[pulumi.Input[float]] = None,
+             window_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'windowSize' in kwargs:
+            window_size = kwargs['windowSize']
+
         if operator is not None:
-            pulumi.set(__self__, "operator", operator)
+            _setter("operator", operator)
         if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
+            _setter("threshold", threshold)
         if window_size is not None:
-            pulumi.set(__self__, "window_size", window_size)
+            _setter("window_size", window_size)
 
     @property
     @pulumi.getter
@@ -164,11 +206,30 @@ class ManagementEventRuleConditionArgs:
         :param pulumi.Input['ManagementEventAggregationConditionArgs'] aggregation: How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
         :param pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         """
-        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition')
+        ManagementEventRuleConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            aggregation=aggregation,
+            data_source=data_source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             aggregation: Optional[pulumi.Input['ManagementEventAggregationConditionArgs']] = None,
+             data_source: Optional[pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+
+        _setter("odata_type", 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition')
         if aggregation is not None:
-            pulumi.set(__self__, "aggregation", aggregation)
+            _setter("aggregation", aggregation)
         if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+            _setter("data_source", data_source)
 
     @property
     @pulumi.getter(name="odataType")
@@ -218,8 +279,21 @@ class RetentionPolicyArgs:
         :param pulumi.Input[int] days: the number of days for the retention in days. A value of 0 will retain the events indefinitely.
         :param pulumi.Input[bool] enabled: a value indicating whether the retention policy is enabled.
         """
-        pulumi.set(__self__, "days", days)
-        pulumi.set(__self__, "enabled", enabled)
+        RetentionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: pulumi.Input[int],
+             enabled: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("days", days)
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -259,11 +333,32 @@ class RuleEmailActionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_emails: the list of administrator's custom email addresses to notify of the activation of the alert.
         :param pulumi.Input[bool] send_to_service_owners: Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
         """
-        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction')
+        RuleEmailActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            custom_emails=custom_emails,
+            send_to_service_owners=send_to_service_owners,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             custom_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             send_to_service_owners: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if 'customEmails' in kwargs:
+            custom_emails = kwargs['customEmails']
+        if 'sendToServiceOwners' in kwargs:
+            send_to_service_owners = kwargs['sendToServiceOwners']
+
+        _setter("odata_type", 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction')
         if custom_emails is not None:
-            pulumi.set(__self__, "custom_emails", custom_emails)
+            _setter("custom_emails", custom_emails)
         if send_to_service_owners is not None:
-            pulumi.set(__self__, "send_to_service_owners", send_to_service_owners)
+            _setter("send_to_service_owners", send_to_service_owners)
 
     @property
     @pulumi.getter(name="odataType")
@@ -311,8 +406,21 @@ class RuleManagementEventClaimsDataSourceArgs:
         The claims for a rule management event data source.
         :param pulumi.Input[str] email_address: the email address.
         """
+        RuleManagementEventClaimsDataSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+
         if email_address is not None:
-            pulumi.set(__self__, "email_address", email_address)
+            _setter("email_address", email_address)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -362,33 +470,92 @@ class RuleManagementEventDataSourceArgs:
         :param pulumi.Input[str] status: The status of the operation that should be checked for. If no status is provided, any status will match.
         :param pulumi.Input[str] sub_status: the substatus.
         """
-        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource')
+        RuleManagementEventDataSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            claims=claims,
+            event_name=event_name,
+            event_source=event_source,
+            legacy_resource_id=legacy_resource_id,
+            level=level,
+            metric_namespace=metric_namespace,
+            operation_name=operation_name,
+            resource_group_name=resource_group_name,
+            resource_location=resource_location,
+            resource_provider_name=resource_provider_name,
+            resource_uri=resource_uri,
+            status=status,
+            sub_status=sub_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             claims: Optional[pulumi.Input['RuleManagementEventClaimsDataSourceArgs']] = None,
+             event_name: Optional[pulumi.Input[str]] = None,
+             event_source: Optional[pulumi.Input[str]] = None,
+             legacy_resource_id: Optional[pulumi.Input[str]] = None,
+             level: Optional[pulumi.Input[str]] = None,
+             metric_namespace: Optional[pulumi.Input[str]] = None,
+             operation_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_location: Optional[pulumi.Input[str]] = None,
+             resource_provider_name: Optional[pulumi.Input[str]] = None,
+             resource_uri: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             sub_status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if 'eventName' in kwargs:
+            event_name = kwargs['eventName']
+        if 'eventSource' in kwargs:
+            event_source = kwargs['eventSource']
+        if 'legacyResourceId' in kwargs:
+            legacy_resource_id = kwargs['legacyResourceId']
+        if 'metricNamespace' in kwargs:
+            metric_namespace = kwargs['metricNamespace']
+        if 'operationName' in kwargs:
+            operation_name = kwargs['operationName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceLocation' in kwargs:
+            resource_location = kwargs['resourceLocation']
+        if 'resourceProviderName' in kwargs:
+            resource_provider_name = kwargs['resourceProviderName']
+        if 'resourceUri' in kwargs:
+            resource_uri = kwargs['resourceUri']
+        if 'subStatus' in kwargs:
+            sub_status = kwargs['subStatus']
+
+        _setter("odata_type", 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource')
         if claims is not None:
-            pulumi.set(__self__, "claims", claims)
+            _setter("claims", claims)
         if event_name is not None:
-            pulumi.set(__self__, "event_name", event_name)
+            _setter("event_name", event_name)
         if event_source is not None:
-            pulumi.set(__self__, "event_source", event_source)
+            _setter("event_source", event_source)
         if legacy_resource_id is not None:
-            pulumi.set(__self__, "legacy_resource_id", legacy_resource_id)
+            _setter("legacy_resource_id", legacy_resource_id)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if metric_namespace is not None:
-            pulumi.set(__self__, "metric_namespace", metric_namespace)
+            _setter("metric_namespace", metric_namespace)
         if operation_name is not None:
-            pulumi.set(__self__, "operation_name", operation_name)
+            _setter("operation_name", operation_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if resource_location is not None:
-            pulumi.set(__self__, "resource_location", resource_location)
+            _setter("resource_location", resource_location)
         if resource_provider_name is not None:
-            pulumi.set(__self__, "resource_provider_name", resource_provider_name)
+            _setter("resource_provider_name", resource_provider_name)
         if resource_uri is not None:
-            pulumi.set(__self__, "resource_uri", resource_uri)
+            _setter("resource_uri", resource_uri)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if sub_status is not None:
-            pulumi.set(__self__, "sub_status", sub_status)
+            _setter("sub_status", sub_status)
 
     @property
     @pulumi.getter(name="odataType")
@@ -579,17 +746,50 @@ class RuleMetricDataSourceArgs:
         :param pulumi.Input[str] resource_location: the location of the resource.
         :param pulumi.Input[str] resource_uri: the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
         """
-        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource')
+        RuleMetricDataSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            legacy_resource_id=legacy_resource_id,
+            metric_name=metric_name,
+            metric_namespace=metric_namespace,
+            resource_location=resource_location,
+            resource_uri=resource_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             legacy_resource_id: Optional[pulumi.Input[str]] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             metric_namespace: Optional[pulumi.Input[str]] = None,
+             resource_location: Optional[pulumi.Input[str]] = None,
+             resource_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if 'legacyResourceId' in kwargs:
+            legacy_resource_id = kwargs['legacyResourceId']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'metricNamespace' in kwargs:
+            metric_namespace = kwargs['metricNamespace']
+        if 'resourceLocation' in kwargs:
+            resource_location = kwargs['resourceLocation']
+        if 'resourceUri' in kwargs:
+            resource_uri = kwargs['resourceUri']
+
+        _setter("odata_type", 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource')
         if legacy_resource_id is not None:
-            pulumi.set(__self__, "legacy_resource_id", legacy_resource_id)
+            _setter("legacy_resource_id", legacy_resource_id)
         if metric_name is not None:
-            pulumi.set(__self__, "metric_name", metric_name)
+            _setter("metric_name", metric_name)
         if metric_namespace is not None:
-            pulumi.set(__self__, "metric_namespace", metric_namespace)
+            _setter("metric_namespace", metric_namespace)
         if resource_location is not None:
-            pulumi.set(__self__, "resource_location", resource_location)
+            _setter("resource_location", resource_location)
         if resource_uri is not None:
-            pulumi.set(__self__, "resource_uri", resource_uri)
+            _setter("resource_uri", resource_uri)
 
     @property
     @pulumi.getter(name="odataType")
@@ -678,11 +878,30 @@ class RuleWebhookActionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
         :param pulumi.Input[str] service_uri: the service uri to Post the notification when the alert activates or resolves.
         """
-        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction')
+        RuleWebhookActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            properties=properties,
+            service_uri=service_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             service_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if 'serviceUri' in kwargs:
+            service_uri = kwargs['serviceUri']
+
+        _setter("odata_type", 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction')
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if service_uri is not None:
-            pulumi.set(__self__, "service_uri", service_uri)
+            _setter("service_uri", service_uri)
 
     @property
     @pulumi.getter(name="odataType")
@@ -741,15 +960,44 @@ class ThresholdRuleConditionArgs:
         :param pulumi.Input['TimeAggregationOperator'] time_aggregation: the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
         :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
         """
-        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition')
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "threshold", threshold)
+        ThresholdRuleConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            operator=operator,
+            threshold=threshold,
+            data_source=data_source,
+            time_aggregation=time_aggregation,
+            window_size=window_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             operator: pulumi.Input['ConditionOperator'],
+             threshold: pulumi.Input[float],
+             data_source: Optional[pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']]] = None,
+             time_aggregation: Optional[pulumi.Input['TimeAggregationOperator']] = None,
+             window_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if 'timeAggregation' in kwargs:
+            time_aggregation = kwargs['timeAggregation']
+        if 'windowSize' in kwargs:
+            window_size = kwargs['windowSize']
+
+        _setter("odata_type", 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition')
+        _setter("operator", operator)
+        _setter("threshold", threshold)
         if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+            _setter("data_source", data_source)
         if time_aggregation is not None:
-            pulumi.set(__self__, "time_aggregation", time_aggregation)
+            _setter("time_aggregation", time_aggregation)
         if window_size is not None:
-            pulumi.set(__self__, "window_size", window_size)
+            _setter("window_size", window_size)
 
     @property
     @pulumi.getter(name="odataType")

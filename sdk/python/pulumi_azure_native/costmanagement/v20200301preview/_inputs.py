@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,8 +28,21 @@ class CostAllocationProportionArgs:
         :param pulumi.Input[str] name: Target resource for cost allocation
         :param pulumi.Input[float] percentage: Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "percentage", percentage)
+        CostAllocationProportionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            percentage=percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             percentage: pulumi.Input[float],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("percentage", percentage)
 
     @property
     @pulumi.getter
@@ -66,10 +79,27 @@ class CostAllocationRuleDetailsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SourceCostAllocationResourceArgs']]] source_resources: Source resources for cost allocation. At this time, this list can contain no more than one element.
         :param pulumi.Input[Sequence[pulumi.Input['TargetCostAllocationResourceArgs']]] target_resources: Target resources for cost allocation. At this time, this list can contain no more than one element.
         """
+        CostAllocationRuleDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_resources=source_resources,
+            target_resources=target_resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_resources: Optional[pulumi.Input[Sequence[pulumi.Input['SourceCostAllocationResourceArgs']]]] = None,
+             target_resources: Optional[pulumi.Input[Sequence[pulumi.Input['TargetCostAllocationResourceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceResources' in kwargs:
+            source_resources = kwargs['sourceResources']
+        if 'targetResources' in kwargs:
+            target_resources = kwargs['targetResources']
+
         if source_resources is not None:
-            pulumi.set(__self__, "source_resources", source_resources)
+            _setter("source_resources", source_resources)
         if target_resources is not None:
-            pulumi.set(__self__, "target_resources", target_resources)
+            _setter("target_resources", target_resources)
 
     @property
     @pulumi.getter(name="sourceResources")
@@ -108,10 +138,25 @@ class CostAllocationRulePropertiesArgs:
         :param pulumi.Input[Union[str, 'RuleStatus']] status: Status of the rule
         :param pulumi.Input[str] description: Description of a cost allocation rule.
         """
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "status", status)
+        CostAllocationRulePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            details=details,
+            status=status,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             details: pulumi.Input['CostAllocationRuleDetailsArgs'],
+             status: pulumi.Input[Union[str, 'RuleStatus']],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("details", details)
+        _setter("status", status)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -162,9 +207,26 @@ class SourceCostAllocationResourceArgs:
         :param pulumi.Input[Union[str, 'CostAllocationResourceType']] resource_type: Type of resources contained in this cost allocation rule
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Source Resources for cost allocation. This list cannot contain more than 25 values.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "values", values)
+        SourceCostAllocationResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_type=resource_type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             resource_type: pulumi.Input[Union[str, 'CostAllocationResourceType']],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
+        _setter("name", name)
+        _setter("resource_type", resource_type)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -217,10 +279,31 @@ class TargetCostAllocationResourceArgs:
         :param pulumi.Input[Union[str, 'CostAllocationResourceType']] resource_type: Type of resources contained in this cost allocation rule
         :param pulumi.Input[Sequence[pulumi.Input['CostAllocationProportionArgs']]] values: Target resources for cost allocation. This list cannot contain more than 25 values.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "policy_type", policy_type)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "values", values)
+        TargetCostAllocationResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            policy_type=policy_type,
+            resource_type=resource_type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             policy_type: pulumi.Input[Union[str, 'CostAllocationPolicyType']],
+             resource_type: pulumi.Input[Union[str, 'CostAllocationResourceType']],
+             values: pulumi.Input[Sequence[pulumi.Input['CostAllocationProportionArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
+        _setter("name", name)
+        _setter("policy_type", policy_type)
+        _setter("resource_type", resource_type)
+        _setter("values", values)
 
     @property
     @pulumi.getter

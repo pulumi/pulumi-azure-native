@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -46,33 +46,94 @@ class NetworkToNetworkInterconnectArgs:
         :param pulumi.Input['NpbStaticRouteConfigurationArgs'] npb_static_route_configuration: NPB Static Route Configuration properties.
         :param pulumi.Input['NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs'] option_b_layer3_configuration: Common properties for Layer3Configuration.
         """
-        pulumi.set(__self__, "network_fabric_name", network_fabric_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "use_option_b", use_option_b)
+        NetworkToNetworkInterconnectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_fabric_name=network_fabric_name,
+            resource_group_name=resource_group_name,
+            use_option_b=use_option_b,
+            egress_acl_id=egress_acl_id,
+            export_route_policy=export_route_policy,
+            import_route_policy=import_route_policy,
+            ingress_acl_id=ingress_acl_id,
+            is_management_type=is_management_type,
+            layer2_configuration=layer2_configuration,
+            network_to_network_interconnect_name=network_to_network_interconnect_name,
+            nni_type=nni_type,
+            npb_static_route_configuration=npb_static_route_configuration,
+            option_b_layer3_configuration=option_b_layer3_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_fabric_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             use_option_b: pulumi.Input[Union[str, 'BooleanEnumProperty']],
+             egress_acl_id: Optional[pulumi.Input[str]] = None,
+             export_route_policy: Optional[pulumi.Input['ExportRoutePolicyInformationArgs']] = None,
+             import_route_policy: Optional[pulumi.Input['ImportRoutePolicyInformationArgs']] = None,
+             ingress_acl_id: Optional[pulumi.Input[str]] = None,
+             is_management_type: Optional[pulumi.Input[Union[str, 'IsManagementType']]] = None,
+             layer2_configuration: Optional[pulumi.Input['Layer2ConfigurationArgs']] = None,
+             network_to_network_interconnect_name: Optional[pulumi.Input[str]] = None,
+             nni_type: Optional[pulumi.Input[Union[str, 'NniType']]] = None,
+             npb_static_route_configuration: Optional[pulumi.Input['NpbStaticRouteConfigurationArgs']] = None,
+             option_b_layer3_configuration: Optional[pulumi.Input['NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkFabricName' in kwargs:
+            network_fabric_name = kwargs['networkFabricName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'useOptionB' in kwargs:
+            use_option_b = kwargs['useOptionB']
+        if 'egressAclId' in kwargs:
+            egress_acl_id = kwargs['egressAclId']
+        if 'exportRoutePolicy' in kwargs:
+            export_route_policy = kwargs['exportRoutePolicy']
+        if 'importRoutePolicy' in kwargs:
+            import_route_policy = kwargs['importRoutePolicy']
+        if 'ingressAclId' in kwargs:
+            ingress_acl_id = kwargs['ingressAclId']
+        if 'isManagementType' in kwargs:
+            is_management_type = kwargs['isManagementType']
+        if 'layer2Configuration' in kwargs:
+            layer2_configuration = kwargs['layer2Configuration']
+        if 'networkToNetworkInterconnectName' in kwargs:
+            network_to_network_interconnect_name = kwargs['networkToNetworkInterconnectName']
+        if 'nniType' in kwargs:
+            nni_type = kwargs['nniType']
+        if 'npbStaticRouteConfiguration' in kwargs:
+            npb_static_route_configuration = kwargs['npbStaticRouteConfiguration']
+        if 'optionBLayer3Configuration' in kwargs:
+            option_b_layer3_configuration = kwargs['optionBLayer3Configuration']
+
+        _setter("network_fabric_name", network_fabric_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("use_option_b", use_option_b)
         if egress_acl_id is not None:
-            pulumi.set(__self__, "egress_acl_id", egress_acl_id)
+            _setter("egress_acl_id", egress_acl_id)
         if export_route_policy is not None:
-            pulumi.set(__self__, "export_route_policy", export_route_policy)
+            _setter("export_route_policy", export_route_policy)
         if import_route_policy is not None:
-            pulumi.set(__self__, "import_route_policy", import_route_policy)
+            _setter("import_route_policy", import_route_policy)
         if ingress_acl_id is not None:
-            pulumi.set(__self__, "ingress_acl_id", ingress_acl_id)
+            _setter("ingress_acl_id", ingress_acl_id)
         if is_management_type is None:
             is_management_type = 'True'
         if is_management_type is not None:
-            pulumi.set(__self__, "is_management_type", is_management_type)
+            _setter("is_management_type", is_management_type)
         if layer2_configuration is not None:
-            pulumi.set(__self__, "layer2_configuration", layer2_configuration)
+            _setter("layer2_configuration", layer2_configuration)
         if network_to_network_interconnect_name is not None:
-            pulumi.set(__self__, "network_to_network_interconnect_name", network_to_network_interconnect_name)
+            _setter("network_to_network_interconnect_name", network_to_network_interconnect_name)
         if nni_type is None:
             nni_type = 'CE'
         if nni_type is not None:
-            pulumi.set(__self__, "nni_type", nni_type)
+            _setter("nni_type", nni_type)
         if npb_static_route_configuration is not None:
-            pulumi.set(__self__, "npb_static_route_configuration", npb_static_route_configuration)
+            _setter("npb_static_route_configuration", npb_static_route_configuration)
         if option_b_layer3_configuration is not None:
-            pulumi.set(__self__, "option_b_layer3_configuration", option_b_layer3_configuration)
+            _setter("option_b_layer3_configuration", option_b_layer3_configuration)
 
     @property
     @pulumi.getter(name="networkFabricName")
@@ -288,6 +349,10 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkToNetworkInterconnectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -316,12 +381,27 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
             __props__ = NetworkToNetworkInterconnectArgs.__new__(NetworkToNetworkInterconnectArgs)
 
             __props__.__dict__["egress_acl_id"] = egress_acl_id
+            if export_route_policy is not None and not isinstance(export_route_policy, ExportRoutePolicyInformationArgs):
+                export_route_policy = export_route_policy or {}
+                def _setter(key, value):
+                    export_route_policy[key] = value
+                ExportRoutePolicyInformationArgs._configure(_setter, **export_route_policy)
             __props__.__dict__["export_route_policy"] = export_route_policy
+            if import_route_policy is not None and not isinstance(import_route_policy, ImportRoutePolicyInformationArgs):
+                import_route_policy = import_route_policy or {}
+                def _setter(key, value):
+                    import_route_policy[key] = value
+                ImportRoutePolicyInformationArgs._configure(_setter, **import_route_policy)
             __props__.__dict__["import_route_policy"] = import_route_policy
             __props__.__dict__["ingress_acl_id"] = ingress_acl_id
             if is_management_type is None:
                 is_management_type = 'True'
             __props__.__dict__["is_management_type"] = is_management_type
+            if layer2_configuration is not None and not isinstance(layer2_configuration, Layer2ConfigurationArgs):
+                layer2_configuration = layer2_configuration or {}
+                def _setter(key, value):
+                    layer2_configuration[key] = value
+                Layer2ConfigurationArgs._configure(_setter, **layer2_configuration)
             __props__.__dict__["layer2_configuration"] = layer2_configuration
             if network_fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_fabric_name'")
@@ -330,7 +410,17 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
             if nni_type is None:
                 nni_type = 'CE'
             __props__.__dict__["nni_type"] = nni_type
+            if npb_static_route_configuration is not None and not isinstance(npb_static_route_configuration, NpbStaticRouteConfigurationArgs):
+                npb_static_route_configuration = npb_static_route_configuration or {}
+                def _setter(key, value):
+                    npb_static_route_configuration[key] = value
+                NpbStaticRouteConfigurationArgs._configure(_setter, **npb_static_route_configuration)
             __props__.__dict__["npb_static_route_configuration"] = npb_static_route_configuration
+            if option_b_layer3_configuration is not None and not isinstance(option_b_layer3_configuration, NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs):
+                option_b_layer3_configuration = option_b_layer3_configuration or {}
+                def _setter(key, value):
+                    option_b_layer3_configuration[key] = value
+                NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs._configure(_setter, **option_b_layer3_configuration)
             __props__.__dict__["option_b_layer3_configuration"] = option_b_layer3_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

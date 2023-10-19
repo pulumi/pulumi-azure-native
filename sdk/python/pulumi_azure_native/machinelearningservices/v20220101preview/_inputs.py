@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -80,26 +80,67 @@ class AKSPropertiesArgs:
         :param pulumi.Input[Union[str, 'LoadBalancerType']] load_balancer_type: Load Balancer Type
         :param pulumi.Input['SslConfigurationArgs'] ssl_configuration: SSL configuration
         """
+        AKSPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_count=agent_count,
+            agent_vm_size=agent_vm_size,
+            aks_networking_configuration=aks_networking_configuration,
+            cluster_fqdn=cluster_fqdn,
+            cluster_purpose=cluster_purpose,
+            load_balancer_subnet=load_balancer_subnet,
+            load_balancer_type=load_balancer_type,
+            ssl_configuration=ssl_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_count: Optional[pulumi.Input[int]] = None,
+             agent_vm_size: Optional[pulumi.Input[str]] = None,
+             aks_networking_configuration: Optional[pulumi.Input['AksNetworkingConfigurationArgs']] = None,
+             cluster_fqdn: Optional[pulumi.Input[str]] = None,
+             cluster_purpose: Optional[pulumi.Input[Union[str, 'ClusterPurpose']]] = None,
+             load_balancer_subnet: Optional[pulumi.Input[str]] = None,
+             load_balancer_type: Optional[pulumi.Input[Union[str, 'LoadBalancerType']]] = None,
+             ssl_configuration: Optional[pulumi.Input['SslConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentCount' in kwargs:
+            agent_count = kwargs['agentCount']
+        if 'agentVmSize' in kwargs:
+            agent_vm_size = kwargs['agentVmSize']
+        if 'aksNetworkingConfiguration' in kwargs:
+            aks_networking_configuration = kwargs['aksNetworkingConfiguration']
+        if 'clusterFqdn' in kwargs:
+            cluster_fqdn = kwargs['clusterFqdn']
+        if 'clusterPurpose' in kwargs:
+            cluster_purpose = kwargs['clusterPurpose']
+        if 'loadBalancerSubnet' in kwargs:
+            load_balancer_subnet = kwargs['loadBalancerSubnet']
+        if 'loadBalancerType' in kwargs:
+            load_balancer_type = kwargs['loadBalancerType']
+        if 'sslConfiguration' in kwargs:
+            ssl_configuration = kwargs['sslConfiguration']
+
         if agent_count is not None:
-            pulumi.set(__self__, "agent_count", agent_count)
+            _setter("agent_count", agent_count)
         if agent_vm_size is not None:
-            pulumi.set(__self__, "agent_vm_size", agent_vm_size)
+            _setter("agent_vm_size", agent_vm_size)
         if aks_networking_configuration is not None:
-            pulumi.set(__self__, "aks_networking_configuration", aks_networking_configuration)
+            _setter("aks_networking_configuration", aks_networking_configuration)
         if cluster_fqdn is not None:
-            pulumi.set(__self__, "cluster_fqdn", cluster_fqdn)
+            _setter("cluster_fqdn", cluster_fqdn)
         if cluster_purpose is None:
             cluster_purpose = 'FastProd'
         if cluster_purpose is not None:
-            pulumi.set(__self__, "cluster_purpose", cluster_purpose)
+            _setter("cluster_purpose", cluster_purpose)
         if load_balancer_subnet is not None:
-            pulumi.set(__self__, "load_balancer_subnet", load_balancer_subnet)
+            _setter("load_balancer_subnet", load_balancer_subnet)
         if load_balancer_type is None:
             load_balancer_type = 'PublicIp'
         if load_balancer_type is not None:
-            pulumi.set(__self__, "load_balancer_type", load_balancer_type)
+            _setter("load_balancer_type", load_balancer_type)
         if ssl_configuration is not None:
-            pulumi.set(__self__, "ssl_configuration", ssl_configuration)
+            _setter("ssl_configuration", ssl_configuration)
 
     @property
     @pulumi.getter(name="agentCount")
@@ -217,17 +258,46 @@ class AKSArgs:
         :param pulumi.Input['AKSPropertiesArgs'] properties: AKS properties
         :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'AKS')
+        AKSArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: pulumi.Input[str],
+             compute_location: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             properties: Optional[pulumi.Input['AKSPropertiesArgs']] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'computeLocation' in kwargs:
+            compute_location = kwargs['computeLocation']
+        if 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
+        _setter("compute_type", 'AKS')
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -317,14 +387,39 @@ class AksNetworkingConfigurationArgs:
         :param pulumi.Input[str] service_cidr: A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
         :param pulumi.Input[str] subnet_id: Virtual network subnet resource ID the compute nodes belong to
         """
+        AksNetworkingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_service_ip=dns_service_ip,
+            docker_bridge_cidr=docker_bridge_cidr,
+            service_cidr=service_cidr,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_service_ip: Optional[pulumi.Input[str]] = None,
+             docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
+             service_cidr: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsServiceIP' in kwargs:
+            dns_service_ip = kwargs['dnsServiceIP']
+        if 'dockerBridgeCidr' in kwargs:
+            docker_bridge_cidr = kwargs['dockerBridgeCidr']
+        if 'serviceCidr' in kwargs:
+            service_cidr = kwargs['serviceCidr']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if dns_service_ip is not None:
-            pulumi.set(__self__, "dns_service_ip", dns_service_ip)
+            _setter("dns_service_ip", dns_service_ip)
         if docker_bridge_cidr is not None:
-            pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
+            _setter("docker_bridge_cidr", docker_bridge_cidr)
         if service_cidr is not None:
-            pulumi.set(__self__, "service_cidr", service_cidr)
+            _setter("service_cidr", service_cidr)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="dnsServiceIP")
@@ -401,32 +496,79 @@ class AmlComputePropertiesArgs:
         :param pulumi.Input[Union[str, 'VmPriority']] vm_priority: Virtual Machine priority
         :param pulumi.Input[str] vm_size: Virtual Machine Size
         """
+        AmlComputePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_node_public_ip=enable_node_public_ip,
+            isolated_network=isolated_network,
+            os_type=os_type,
+            remote_login_port_public_access=remote_login_port_public_access,
+            scale_settings=scale_settings,
+            subnet=subnet,
+            user_account_credentials=user_account_credentials,
+            virtual_machine_image=virtual_machine_image,
+            vm_priority=vm_priority,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+             isolated_network: Optional[pulumi.Input[bool]] = None,
+             os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
+             remote_login_port_public_access: Optional[pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']]] = None,
+             scale_settings: Optional[pulumi.Input['ScaleSettingsArgs']] = None,
+             subnet: Optional[pulumi.Input['ResourceIdArgs']] = None,
+             user_account_credentials: Optional[pulumi.Input['UserAccountCredentialsArgs']] = None,
+             virtual_machine_image: Optional[pulumi.Input['VirtualMachineImageArgs']] = None,
+             vm_priority: Optional[pulumi.Input[Union[str, 'VmPriority']]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableNodePublicIp' in kwargs:
+            enable_node_public_ip = kwargs['enableNodePublicIp']
+        if 'isolatedNetwork' in kwargs:
+            isolated_network = kwargs['isolatedNetwork']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'remoteLoginPortPublicAccess' in kwargs:
+            remote_login_port_public_access = kwargs['remoteLoginPortPublicAccess']
+        if 'scaleSettings' in kwargs:
+            scale_settings = kwargs['scaleSettings']
+        if 'userAccountCredentials' in kwargs:
+            user_account_credentials = kwargs['userAccountCredentials']
+        if 'virtualMachineImage' in kwargs:
+            virtual_machine_image = kwargs['virtualMachineImage']
+        if 'vmPriority' in kwargs:
+            vm_priority = kwargs['vmPriority']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+
         if enable_node_public_ip is None:
             enable_node_public_ip = True
         if enable_node_public_ip is not None:
-            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+            _setter("enable_node_public_ip", enable_node_public_ip)
         if isolated_network is not None:
-            pulumi.set(__self__, "isolated_network", isolated_network)
+            _setter("isolated_network", isolated_network)
         if os_type is None:
             os_type = 'Linux'
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if remote_login_port_public_access is None:
             remote_login_port_public_access = 'NotSpecified'
         if remote_login_port_public_access is not None:
-            pulumi.set(__self__, "remote_login_port_public_access", remote_login_port_public_access)
+            _setter("remote_login_port_public_access", remote_login_port_public_access)
         if scale_settings is not None:
-            pulumi.set(__self__, "scale_settings", scale_settings)
+            _setter("scale_settings", scale_settings)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
         if user_account_credentials is not None:
-            pulumi.set(__self__, "user_account_credentials", user_account_credentials)
+            _setter("user_account_credentials", user_account_credentials)
         if virtual_machine_image is not None:
-            pulumi.set(__self__, "virtual_machine_image", virtual_machine_image)
+            _setter("virtual_machine_image", virtual_machine_image)
         if vm_priority is not None:
-            pulumi.set(__self__, "vm_priority", vm_priority)
+            _setter("vm_priority", vm_priority)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter(name="enableNodePublicIp")
@@ -568,17 +710,46 @@ class AmlComputeArgs:
         :param pulumi.Input['AmlComputePropertiesArgs'] properties: Properties of AmlCompute
         :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'AmlCompute')
+        AmlComputeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: pulumi.Input[str],
+             compute_location: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             properties: Optional[pulumi.Input['AmlComputePropertiesArgs']] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'computeLocation' in kwargs:
+            compute_location = kwargs['computeLocation']
+        if 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
+        _setter("compute_type", 'AmlCompute')
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -664,8 +835,25 @@ class AssignedUserArgs:
         :param pulumi.Input[str] object_id: User’s AAD Object Id.
         :param pulumi.Input[str] tenant_id: User’s AAD Tenant Id.
         """
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        AssignedUserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_id=object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_id: pulumi.Input[str],
+             tenant_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("object_id", object_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="objectId")
@@ -700,10 +888,25 @@ class AutoPausePropertiesArgs:
         """
         Auto pause properties
         """
+        AutoPausePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delay_in_minutes=delay_in_minutes,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delay_in_minutes: Optional[pulumi.Input[int]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'delayInMinutes' in kwargs:
+            delay_in_minutes = kwargs['delayInMinutes']
+
         if delay_in_minutes is not None:
-            pulumi.set(__self__, "delay_in_minutes", delay_in_minutes)
+            _setter("delay_in_minutes", delay_in_minutes)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="delayInMinutes")
@@ -733,12 +936,31 @@ class AutoScalePropertiesArgs:
         """
         Auto scale properties
         """
+        AutoScalePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            max_node_count=max_node_count,
+            min_node_count=min_node_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             max_node_count: Optional[pulumi.Input[int]] = None,
+             min_node_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxNodeCount' in kwargs:
+            max_node_count = kwargs['maxNodeCount']
+        if 'minNodeCount' in kwargs:
+            min_node_count = kwargs['minNodeCount']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if max_node_count is not None:
-            pulumi.set(__self__, "max_node_count", max_node_count)
+            _setter("max_node_count", max_node_count)
         if min_node_count is not None:
-            pulumi.set(__self__, "min_node_count", min_node_count)
+            _setter("min_node_count", min_node_count)
 
     @property
     @pulumi.getter
@@ -788,24 +1010,59 @@ class ComputeInstancePropertiesArgs:
         :param pulumi.Input['ResourceIdArgs'] subnet: Virtual network subnet resource ID the compute nodes belong to.
         :param pulumi.Input[str] vm_size: Virtual Machine Size
         """
+        ComputeInstancePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_sharing_policy=application_sharing_policy,
+            compute_instance_authorization_type=compute_instance_authorization_type,
+            personal_compute_instance_settings=personal_compute_instance_settings,
+            setup_scripts=setup_scripts,
+            ssh_settings=ssh_settings,
+            subnet=subnet,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_sharing_policy: Optional[pulumi.Input[Union[str, 'ApplicationSharingPolicy']]] = None,
+             compute_instance_authorization_type: Optional[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]] = None,
+             personal_compute_instance_settings: Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']] = None,
+             setup_scripts: Optional[pulumi.Input['SetupScriptsArgs']] = None,
+             ssh_settings: Optional[pulumi.Input['ComputeInstanceSshSettingsArgs']] = None,
+             subnet: Optional[pulumi.Input['ResourceIdArgs']] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationSharingPolicy' in kwargs:
+            application_sharing_policy = kwargs['applicationSharingPolicy']
+        if 'computeInstanceAuthorizationType' in kwargs:
+            compute_instance_authorization_type = kwargs['computeInstanceAuthorizationType']
+        if 'personalComputeInstanceSettings' in kwargs:
+            personal_compute_instance_settings = kwargs['personalComputeInstanceSettings']
+        if 'setupScripts' in kwargs:
+            setup_scripts = kwargs['setupScripts']
+        if 'sshSettings' in kwargs:
+            ssh_settings = kwargs['sshSettings']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+
         if application_sharing_policy is None:
             application_sharing_policy = 'Shared'
         if application_sharing_policy is not None:
-            pulumi.set(__self__, "application_sharing_policy", application_sharing_policy)
+            _setter("application_sharing_policy", application_sharing_policy)
         if compute_instance_authorization_type is None:
             compute_instance_authorization_type = 'personal'
         if compute_instance_authorization_type is not None:
-            pulumi.set(__self__, "compute_instance_authorization_type", compute_instance_authorization_type)
+            _setter("compute_instance_authorization_type", compute_instance_authorization_type)
         if personal_compute_instance_settings is not None:
-            pulumi.set(__self__, "personal_compute_instance_settings", personal_compute_instance_settings)
+            _setter("personal_compute_instance_settings", personal_compute_instance_settings)
         if setup_scripts is not None:
-            pulumi.set(__self__, "setup_scripts", setup_scripts)
+            _setter("setup_scripts", setup_scripts)
         if ssh_settings is not None:
-            pulumi.set(__self__, "ssh_settings", ssh_settings)
+            _setter("ssh_settings", ssh_settings)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter(name="applicationSharingPolicy")
@@ -902,12 +1159,29 @@ class ComputeInstanceSshSettingsArgs:
         :param pulumi.Input[str] admin_public_key: Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
         :param pulumi.Input[Union[str, 'SshPublicAccess']] ssh_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
         """
+        ComputeInstanceSshSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_public_key=admin_public_key,
+            ssh_public_access=ssh_public_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_public_key: Optional[pulumi.Input[str]] = None,
+             ssh_public_access: Optional[pulumi.Input[Union[str, 'SshPublicAccess']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminPublicKey' in kwargs:
+            admin_public_key = kwargs['adminPublicKey']
+        if 'sshPublicAccess' in kwargs:
+            ssh_public_access = kwargs['sshPublicAccess']
+
         if admin_public_key is not None:
-            pulumi.set(__self__, "admin_public_key", admin_public_key)
+            _setter("admin_public_key", admin_public_key)
         if ssh_public_access is None:
             ssh_public_access = 'Disabled'
         if ssh_public_access is not None:
-            pulumi.set(__self__, "ssh_public_access", ssh_public_access)
+            _setter("ssh_public_access", ssh_public_access)
 
     @property
     @pulumi.getter(name="adminPublicKey")
@@ -953,17 +1227,46 @@ class ComputeInstanceArgs:
         :param pulumi.Input['ComputeInstancePropertiesArgs'] properties: Properties of ComputeInstance
         :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'ComputeInstance')
+        ComputeInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: pulumi.Input[str],
+             compute_location: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             properties: Optional[pulumi.Input['ComputeInstancePropertiesArgs']] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'computeLocation' in kwargs:
+            compute_location = kwargs['computeLocation']
+        if 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
+        _setter("compute_type", 'ComputeInstance')
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -1046,8 +1349,21 @@ class CosmosDbSettingsArgs:
         """
         :param pulumi.Input[int] collections_throughput: The throughput of the collections in cosmosdb database
         """
+        CosmosDbSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            collections_throughput=collections_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             collections_throughput: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'collectionsThroughput' in kwargs:
+            collections_throughput = kwargs['collectionsThroughput']
+
         if collections_throughput is not None:
-            pulumi.set(__self__, "collections_throughput", collections_throughput)
+            _setter("collections_throughput", collections_throughput)
 
     @property
     @pulumi.getter(name="collectionsThroughput")
@@ -1079,15 +1395,42 @@ class DataFactoryArgs:
         :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'DataFactory')
+        DataFactoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: pulumi.Input[str],
+             compute_location: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'computeLocation' in kwargs:
+            compute_location = kwargs['computeLocation']
+        if 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
+        _setter("compute_type", 'DataFactory')
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -1158,8 +1501,21 @@ class DataLakeAnalyticsPropertiesArgs:
         """
         :param pulumi.Input[str] data_lake_store_account_name: DataLake Store Account Name
         """
+        DataLakeAnalyticsPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_lake_store_account_name=data_lake_store_account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_lake_store_account_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataLakeStoreAccountName' in kwargs:
+            data_lake_store_account_name = kwargs['dataLakeStoreAccountName']
+
         if data_lake_store_account_name is not None:
-            pulumi.set(__self__, "data_lake_store_account_name", data_lake_store_account_name)
+            _setter("data_lake_store_account_name", data_lake_store_account_name)
 
     @property
     @pulumi.getter(name="dataLakeStoreAccountName")
@@ -1192,17 +1548,46 @@ class DataLakeAnalyticsArgs:
         :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'DataLakeAnalytics')
+        DataLakeAnalyticsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: pulumi.Input[str],
+             compute_location: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             properties: Optional[pulumi.Input['DataLakeAnalyticsPropertiesArgs']] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'computeLocation' in kwargs:
+            compute_location = kwargs['computeLocation']
+        if 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
+        _setter("compute_type", 'DataLakeAnalytics')
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -1285,10 +1670,27 @@ class DatabricksPropertiesArgs:
         :param pulumi.Input[str] databricks_access_token: Databricks access token
         :param pulumi.Input[str] workspace_url: Workspace Url
         """
+        DatabricksPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databricks_access_token=databricks_access_token,
+            workspace_url=workspace_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databricks_access_token: Optional[pulumi.Input[str]] = None,
+             workspace_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databricksAccessToken' in kwargs:
+            databricks_access_token = kwargs['databricksAccessToken']
+        if 'workspaceUrl' in kwargs:
+            workspace_url = kwargs['workspaceUrl']
+
         if databricks_access_token is not None:
-            pulumi.set(__self__, "databricks_access_token", databricks_access_token)
+            _setter("databricks_access_token", databricks_access_token)
         if workspace_url is not None:
-            pulumi.set(__self__, "workspace_url", workspace_url)
+            _setter("workspace_url", workspace_url)
 
     @property
     @pulumi.getter(name="databricksAccessToken")
@@ -1334,17 +1736,46 @@ class DatabricksArgs:
         :param pulumi.Input['DatabricksPropertiesArgs'] properties: Properties of Databricks
         :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'Databricks')
+        DatabricksArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: pulumi.Input[str],
+             compute_location: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             properties: Optional[pulumi.Input['DatabricksPropertiesArgs']] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'computeLocation' in kwargs:
+            compute_location = kwargs['computeLocation']
+        if 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
+        _setter("compute_type", 'Databricks')
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -1437,16 +1868,45 @@ class EncryptionPropertyArgs:
         :param pulumi.Input[str] search_account_resource_id: The Bring-Your-Own search account that customer brings to store index
         :param pulumi.Input[str] storage_account_resource_id: The Bring-Your-Own storage account that customer brings to store data
         """
-        pulumi.set(__self__, "key_vault_properties", key_vault_properties)
-        pulumi.set(__self__, "status", status)
+        EncryptionPropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_properties=key_vault_properties,
+            status=status,
+            cosmos_db_resource_id=cosmos_db_resource_id,
+            identity=identity,
+            search_account_resource_id=search_account_resource_id,
+            storage_account_resource_id=storage_account_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_properties: pulumi.Input['KeyVaultPropertiesArgs'],
+             status: pulumi.Input[Union[str, 'EncryptionStatus']],
+             cosmos_db_resource_id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['IdentityForCmkArgs']] = None,
+             search_account_resource_id: Optional[pulumi.Input[str]] = None,
+             storage_account_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultProperties' in kwargs:
+            key_vault_properties = kwargs['keyVaultProperties']
+        if 'cosmosDbResourceId' in kwargs:
+            cosmos_db_resource_id = kwargs['cosmosDbResourceId']
+        if 'searchAccountResourceId' in kwargs:
+            search_account_resource_id = kwargs['searchAccountResourceId']
+        if 'storageAccountResourceId' in kwargs:
+            storage_account_resource_id = kwargs['storageAccountResourceId']
+
+        _setter("key_vault_properties", key_vault_properties)
+        _setter("status", status)
         if cosmos_db_resource_id is not None:
-            pulumi.set(__self__, "cosmos_db_resource_id", cosmos_db_resource_id)
+            _setter("cosmos_db_resource_id", cosmos_db_resource_id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if search_account_resource_id is not None:
-            pulumi.set(__self__, "search_account_resource_id", search_account_resource_id)
+            _setter("search_account_resource_id", search_account_resource_id)
         if storage_account_resource_id is not None:
-            pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+            _setter("storage_account_resource_id", storage_account_resource_id)
 
     @property
     @pulumi.getter(name="keyVaultProperties")
@@ -1533,12 +1993,31 @@ class HDInsightPropertiesArgs:
         :param pulumi.Input['VirtualMachineSshCredentialsArgs'] administrator_account: Admin credentials for master node of the cluster
         :param pulumi.Input[int] ssh_port: Port open for ssh connections on the master node of the cluster.
         """
+        HDInsightPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            administrator_account=administrator_account,
+            ssh_port=ssh_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             administrator_account: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']] = None,
+             ssh_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorAccount' in kwargs:
+            administrator_account = kwargs['administratorAccount']
+        if 'sshPort' in kwargs:
+            ssh_port = kwargs['sshPort']
+
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if administrator_account is not None:
-            pulumi.set(__self__, "administrator_account", administrator_account)
+            _setter("administrator_account", administrator_account)
         if ssh_port is not None:
-            pulumi.set(__self__, "ssh_port", ssh_port)
+            _setter("ssh_port", ssh_port)
 
     @property
     @pulumi.getter
@@ -1596,17 +2075,46 @@ class HDInsightArgs:
         :param pulumi.Input['HDInsightPropertiesArgs'] properties: HDInsight compute properties
         :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'HDInsight')
+        HDInsightArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: pulumi.Input[str],
+             compute_location: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             properties: Optional[pulumi.Input['HDInsightPropertiesArgs']] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'computeLocation' in kwargs:
+            compute_location = kwargs['computeLocation']
+        if 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
+        _setter("compute_type", 'HDInsight')
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -1690,8 +2198,21 @@ class IdentityForCmkArgs:
         Identity that will be used to access key vault for encryption at rest
         :param pulumi.Input[str] user_assigned_identity: The ArmId of the user assigned identity that will be used to access the customer managed key vault
         """
+        IdentityForCmkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_assigned_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentity' in kwargs:
+            user_assigned_identity = kwargs['userAssignedIdentity']
+
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="userAssignedIdentity")
@@ -1716,10 +2237,25 @@ class IdentityArgs:
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The user assigned identities associated with the resource.
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -1756,10 +2292,23 @@ class InstanceTypeSchemaResourcesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] limits: Resource limits for this instance type
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] requests: Resource requests for this instance type
         """
+        InstanceTypeSchemaResourcesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            limits=limits,
+            requests=requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             limits: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             requests: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if limits is not None:
-            pulumi.set(__self__, "limits", limits)
+            _setter("limits", limits)
         if requests is not None:
-            pulumi.set(__self__, "requests", requests)
+            _setter("requests", requests)
 
     @property
     @pulumi.getter
@@ -1796,10 +2345,25 @@ class InstanceTypeSchemaArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_selector: Node Selector
         :param pulumi.Input['InstanceTypeSchemaResourcesArgs'] resources: Resource requests/limits for this instance type
         """
+        InstanceTypeSchemaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node_selector=node_selector,
+            resources=resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node_selector: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             resources: Optional[pulumi.Input['InstanceTypeSchemaResourcesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nodeSelector' in kwargs:
+            node_selector = kwargs['nodeSelector']
+
         if node_selector is not None:
-            pulumi.set(__self__, "node_selector", node_selector)
+            _setter("node_selector", node_selector)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
 
     @property
     @pulumi.getter(name="nodeSelector")
@@ -1837,10 +2401,31 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] key_vault_arm_id: The ArmId of the keyVault where the customer owned encryption key is present.
         :param pulumi.Input[str] identity_client_id: For future use - The client id of the identity which will be used to access key vault.
         """
-        pulumi.set(__self__, "key_identifier", key_identifier)
-        pulumi.set(__self__, "key_vault_arm_id", key_vault_arm_id)
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_identifier=key_identifier,
+            key_vault_arm_id=key_vault_arm_id,
+            identity_client_id=identity_client_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_identifier: pulumi.Input[str],
+             key_vault_arm_id: pulumi.Input[str],
+             identity_client_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyIdentifier' in kwargs:
+            key_identifier = kwargs['keyIdentifier']
+        if 'keyVaultArmId' in kwargs:
+            key_vault_arm_id = kwargs['keyVaultArmId']
+        if 'identityClientId' in kwargs:
+            identity_client_id = kwargs['identityClientId']
+
+        _setter("key_identifier", key_identifier)
+        _setter("key_vault_arm_id", key_vault_arm_id)
         if identity_client_id is not None:
-            pulumi.set(__self__, "identity_client_id", identity_client_id)
+            _setter("identity_client_id", identity_client_id)
 
     @property
     @pulumi.getter(name="keyIdentifier")
@@ -1901,24 +2486,63 @@ class KubernetesPropertiesArgs:
         :param pulumi.Input[str] service_bus_connection_string: ServiceBus connection string.
         :param pulumi.Input[str] vc_name: VC name.
         """
+        KubernetesPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_instance_type=default_instance_type,
+            extension_instance_release_train=extension_instance_release_train,
+            extension_principal_id=extension_principal_id,
+            instance_types=instance_types,
+            namespace=namespace,
+            relay_connection_string=relay_connection_string,
+            service_bus_connection_string=service_bus_connection_string,
+            vc_name=vc_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_instance_type: Optional[pulumi.Input[str]] = None,
+             extension_instance_release_train: Optional[pulumi.Input[str]] = None,
+             extension_principal_id: Optional[pulumi.Input[str]] = None,
+             instance_types: Optional[pulumi.Input[Mapping[str, pulumi.Input['InstanceTypeSchemaArgs']]]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             relay_connection_string: Optional[pulumi.Input[str]] = None,
+             service_bus_connection_string: Optional[pulumi.Input[str]] = None,
+             vc_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultInstanceType' in kwargs:
+            default_instance_type = kwargs['defaultInstanceType']
+        if 'extensionInstanceReleaseTrain' in kwargs:
+            extension_instance_release_train = kwargs['extensionInstanceReleaseTrain']
+        if 'extensionPrincipalId' in kwargs:
+            extension_principal_id = kwargs['extensionPrincipalId']
+        if 'instanceTypes' in kwargs:
+            instance_types = kwargs['instanceTypes']
+        if 'relayConnectionString' in kwargs:
+            relay_connection_string = kwargs['relayConnectionString']
+        if 'serviceBusConnectionString' in kwargs:
+            service_bus_connection_string = kwargs['serviceBusConnectionString']
+        if 'vcName' in kwargs:
+            vc_name = kwargs['vcName']
+
         if default_instance_type is not None:
-            pulumi.set(__self__, "default_instance_type", default_instance_type)
+            _setter("default_instance_type", default_instance_type)
         if extension_instance_release_train is not None:
-            pulumi.set(__self__, "extension_instance_release_train", extension_instance_release_train)
+            _setter("extension_instance_release_train", extension_instance_release_train)
         if extension_principal_id is not None:
-            pulumi.set(__self__, "extension_principal_id", extension_principal_id)
+            _setter("extension_principal_id", extension_principal_id)
         if instance_types is not None:
-            pulumi.set(__self__, "instance_types", instance_types)
+            _setter("instance_types", instance_types)
         if namespace is None:
             namespace = 'default'
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if relay_connection_string is not None:
-            pulumi.set(__self__, "relay_connection_string", relay_connection_string)
+            _setter("relay_connection_string", relay_connection_string)
         if service_bus_connection_string is not None:
-            pulumi.set(__self__, "service_bus_connection_string", service_bus_connection_string)
+            _setter("service_bus_connection_string", service_bus_connection_string)
         if vc_name is not None:
-            pulumi.set(__self__, "vc_name", vc_name)
+            _setter("vc_name", vc_name)
 
     @property
     @pulumi.getter(name="defaultInstanceType")
@@ -2036,17 +2660,46 @@ class KubernetesArgs:
         :param pulumi.Input['KubernetesPropertiesArgs'] properties: Properties of Kubernetes
         :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'Kubernetes')
+        KubernetesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: pulumi.Input[str],
+             compute_location: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             properties: Optional[pulumi.Input['KubernetesPropertiesArgs']] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'computeLocation' in kwargs:
+            compute_location = kwargs['computeLocation']
+        if 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
+        _setter("compute_type", 'Kubernetes')
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -2130,8 +2783,21 @@ class PersonalComputeInstanceSettingsArgs:
         Settings for a personal compute instance.
         :param pulumi.Input['AssignedUserArgs'] assigned_user: A user explicitly assigned to a personal compute instance.
         """
+        PersonalComputeInstanceSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assigned_user=assigned_user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assigned_user: Optional[pulumi.Input['AssignedUserArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignedUser' in kwargs:
+            assigned_user = kwargs['assignedUser']
+
         if assigned_user is not None:
-            pulumi.set(__self__, "assigned_user", assigned_user)
+            _setter("assigned_user", assigned_user)
 
     @property
     @pulumi.getter(name="assignedUser")
@@ -2158,12 +2824,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -2210,7 +2893,18 @@ class ResourceIdArgs:
         Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
         :param pulumi.Input[str] id: The ID of the resource
         """
-        pulumi.set(__self__, "id", id)
+        ResourceIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2237,13 +2931,34 @@ class ScaleSettingsArgs:
         :param pulumi.Input[int] min_node_count: Min number of nodes to use
         :param pulumi.Input[str] node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
         """
-        pulumi.set(__self__, "max_node_count", max_node_count)
+        ScaleSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_node_count=max_node_count,
+            min_node_count=min_node_count,
+            node_idle_time_before_scale_down=node_idle_time_before_scale_down,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_node_count: pulumi.Input[int],
+             min_node_count: Optional[pulumi.Input[int]] = None,
+             node_idle_time_before_scale_down: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxNodeCount' in kwargs:
+            max_node_count = kwargs['maxNodeCount']
+        if 'minNodeCount' in kwargs:
+            min_node_count = kwargs['minNodeCount']
+        if 'nodeIdleTimeBeforeScaleDown' in kwargs:
+            node_idle_time_before_scale_down = kwargs['nodeIdleTimeBeforeScaleDown']
+
+        _setter("max_node_count", max_node_count)
         if min_node_count is None:
             min_node_count = 0
         if min_node_count is not None:
-            pulumi.set(__self__, "min_node_count", min_node_count)
+            _setter("min_node_count", min_node_count)
         if node_idle_time_before_scale_down is not None:
-            pulumi.set(__self__, "node_idle_time_before_scale_down", node_idle_time_before_scale_down)
+            _setter("node_idle_time_before_scale_down", node_idle_time_before_scale_down)
 
     @property
     @pulumi.getter(name="maxNodeCount")
@@ -2296,14 +3011,37 @@ class ScriptReferenceArgs:
         :param pulumi.Input[str] script_source: The storage source of the script: inline, workspace.
         :param pulumi.Input[str] timeout: Optional time period passed to timeout command.
         """
+        ScriptReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            script_arguments=script_arguments,
+            script_data=script_data,
+            script_source=script_source,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             script_arguments: Optional[pulumi.Input[str]] = None,
+             script_data: Optional[pulumi.Input[str]] = None,
+             script_source: Optional[pulumi.Input[str]] = None,
+             timeout: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scriptArguments' in kwargs:
+            script_arguments = kwargs['scriptArguments']
+        if 'scriptData' in kwargs:
+            script_data = kwargs['scriptData']
+        if 'scriptSource' in kwargs:
+            script_source = kwargs['scriptSource']
+
         if script_arguments is not None:
-            pulumi.set(__self__, "script_arguments", script_arguments)
+            _setter("script_arguments", script_arguments)
         if script_data is not None:
-            pulumi.set(__self__, "script_data", script_data)
+            _setter("script_data", script_data)
         if script_source is not None:
-            pulumi.set(__self__, "script_source", script_source)
+            _setter("script_source", script_source)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="scriptArguments")
@@ -2364,10 +3102,27 @@ class ScriptsToExecuteArgs:
         :param pulumi.Input['ScriptReferenceArgs'] creation_script: Script that's run only once during provision of the compute.
         :param pulumi.Input['ScriptReferenceArgs'] startup_script: Script that's run every time the machine starts.
         """
+        ScriptsToExecuteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creation_script=creation_script,
+            startup_script=startup_script,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creation_script: Optional[pulumi.Input['ScriptReferenceArgs']] = None,
+             startup_script: Optional[pulumi.Input['ScriptReferenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creationScript' in kwargs:
+            creation_script = kwargs['creationScript']
+        if 'startupScript' in kwargs:
+            startup_script = kwargs['startupScript']
+
         if creation_script is not None:
-            pulumi.set(__self__, "creation_script", creation_script)
+            _setter("creation_script", creation_script)
         if startup_script is not None:
-            pulumi.set(__self__, "startup_script", startup_script)
+            _setter("startup_script", startup_script)
 
     @property
     @pulumi.getter(name="creationScript")
@@ -2401,8 +3156,21 @@ class ServiceManagedResourcesSettingsArgs:
         """
         :param pulumi.Input['CosmosDbSettingsArgs'] cosmos_db: The settings for the service managed cosmosdb account.
         """
+        ServiceManagedResourcesSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cosmos_db=cosmos_db,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cosmos_db: Optional[pulumi.Input['CosmosDbSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cosmosDb' in kwargs:
+            cosmos_db = kwargs['cosmosDb']
+
         if cosmos_db is not None:
-            pulumi.set(__self__, "cosmos_db", cosmos_db)
+            _setter("cosmos_db", cosmos_db)
 
     @property
     @pulumi.getter(name="cosmosDb")
@@ -2425,8 +3193,19 @@ class SetupScriptsArgs:
         Details of customized scripts to execute for setting up the cluster.
         :param pulumi.Input['ScriptsToExecuteArgs'] scripts: Customized setup scripts
         """
+        SetupScriptsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scripts=scripts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scripts: Optional[pulumi.Input['ScriptsToExecuteArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if scripts is not None:
-            pulumi.set(__self__, "scripts", scripts)
+            _setter("scripts", scripts)
 
     @property
     @pulumi.getter
@@ -2456,16 +3235,41 @@ class SharedPrivateLinkResourceArgs:
         :param pulumi.Input[str] request_message: Request message.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        SharedPrivateLinkResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            name=name,
+            private_link_resource_id=private_link_resource_id,
+            request_message=request_message,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_link_resource_id: Optional[pulumi.Input[str]] = None,
+             request_message: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'privateLinkResourceId' in kwargs:
+            private_link_resource_id = kwargs['privateLinkResourceId']
+        if 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_link_resource_id is not None:
-            pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
+            _setter("private_link_resource_id", private_link_resource_id)
         if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
+            _setter("request_message", request_message)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="groupId")
@@ -2538,10 +3342,23 @@ class SkuArgs:
         :param pulumi.Input[str] name: Name of the sku
         :param pulumi.Input[str] tier: Tier of the sku like Basic or Enterprise
         """
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -2586,18 +3403,43 @@ class SslConfigurationArgs:
         :param pulumi.Input[bool] overwrite_existing_domain: Indicates whether to overwrite existing domain label.
         :param pulumi.Input[str] status: Enable or disable ssl for scoring
         """
+        SslConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cert=cert,
+            cname=cname,
+            key=key,
+            leaf_domain_label=leaf_domain_label,
+            overwrite_existing_domain=overwrite_existing_domain,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cert: Optional[pulumi.Input[str]] = None,
+             cname: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             leaf_domain_label: Optional[pulumi.Input[str]] = None,
+             overwrite_existing_domain: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'leafDomainLabel' in kwargs:
+            leaf_domain_label = kwargs['leafDomainLabel']
+        if 'overwriteExistingDomain' in kwargs:
+            overwrite_existing_domain = kwargs['overwriteExistingDomain']
+
         if cert is not None:
-            pulumi.set(__self__, "cert", cert)
+            _setter("cert", cert)
         if cname is not None:
-            pulumi.set(__self__, "cname", cname)
+            _setter("cname", cname)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if leaf_domain_label is not None:
-            pulumi.set(__self__, "leaf_domain_label", leaf_domain_label)
+            _setter("leaf_domain_label", leaf_domain_label)
         if overwrite_existing_domain is not None:
-            pulumi.set(__self__, "overwrite_existing_domain", overwrite_existing_domain)
+            _setter("overwrite_existing_domain", overwrite_existing_domain)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -2697,26 +3539,75 @@ class SynapseSparkPropertiesArgs:
         :param pulumi.Input[str] subscription_id: Azure subscription identifier.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
+        SynapseSparkPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_pause_properties=auto_pause_properties,
+            auto_scale_properties=auto_scale_properties,
+            node_count=node_count,
+            node_size=node_size,
+            node_size_family=node_size_family,
+            pool_name=pool_name,
+            resource_group=resource_group,
+            spark_version=spark_version,
+            subscription_id=subscription_id,
+            workspace_name=workspace_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_pause_properties: Optional[pulumi.Input['AutoPausePropertiesArgs']] = None,
+             auto_scale_properties: Optional[pulumi.Input['AutoScalePropertiesArgs']] = None,
+             node_count: Optional[pulumi.Input[int]] = None,
+             node_size: Optional[pulumi.Input[str]] = None,
+             node_size_family: Optional[pulumi.Input[str]] = None,
+             pool_name: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             spark_version: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoPauseProperties' in kwargs:
+            auto_pause_properties = kwargs['autoPauseProperties']
+        if 'autoScaleProperties' in kwargs:
+            auto_scale_properties = kwargs['autoScaleProperties']
+        if 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+        if 'nodeSize' in kwargs:
+            node_size = kwargs['nodeSize']
+        if 'nodeSizeFamily' in kwargs:
+            node_size_family = kwargs['nodeSizeFamily']
+        if 'poolName' in kwargs:
+            pool_name = kwargs['poolName']
+        if 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if 'sparkVersion' in kwargs:
+            spark_version = kwargs['sparkVersion']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+
         if auto_pause_properties is not None:
-            pulumi.set(__self__, "auto_pause_properties", auto_pause_properties)
+            _setter("auto_pause_properties", auto_pause_properties)
         if auto_scale_properties is not None:
-            pulumi.set(__self__, "auto_scale_properties", auto_scale_properties)
+            _setter("auto_scale_properties", auto_scale_properties)
         if node_count is not None:
-            pulumi.set(__self__, "node_count", node_count)
+            _setter("node_count", node_count)
         if node_size is not None:
-            pulumi.set(__self__, "node_size", node_size)
+            _setter("node_size", node_size)
         if node_size_family is not None:
-            pulumi.set(__self__, "node_size_family", node_size_family)
+            _setter("node_size_family", node_size_family)
         if pool_name is not None:
-            pulumi.set(__self__, "pool_name", pool_name)
+            _setter("pool_name", pool_name)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if spark_version is not None:
-            pulumi.set(__self__, "spark_version", spark_version)
+            _setter("spark_version", spark_version)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if workspace_name is not None:
-            pulumi.set(__self__, "workspace_name", workspace_name)
+            _setter("workspace_name", workspace_name)
 
     @property
     @pulumi.getter(name="autoPauseProperties")
@@ -2857,17 +3748,46 @@ class SynapseSparkArgs:
         :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'SynapseSpark')
+        SynapseSparkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: pulumi.Input[str],
+             compute_location: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             properties: Optional[pulumi.Input['SynapseSparkPropertiesArgs']] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'computeLocation' in kwargs:
+            compute_location = kwargs['computeLocation']
+        if 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
+        _setter("compute_type", 'SynapseSpark')
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -2952,11 +3872,32 @@ class UserAccountCredentialsArgs:
         :param pulumi.Input[str] admin_user_password: Password of the administrator user account.
         :param pulumi.Input[str] admin_user_ssh_public_key: SSH public key of the administrator user account.
         """
-        pulumi.set(__self__, "admin_user_name", admin_user_name)
+        UserAccountCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_user_name=admin_user_name,
+            admin_user_password=admin_user_password,
+            admin_user_ssh_public_key=admin_user_ssh_public_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_user_name: pulumi.Input[str],
+             admin_user_password: Optional[pulumi.Input[str]] = None,
+             admin_user_ssh_public_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUserName' in kwargs:
+            admin_user_name = kwargs['adminUserName']
+        if 'adminUserPassword' in kwargs:
+            admin_user_password = kwargs['adminUserPassword']
+        if 'adminUserSshPublicKey' in kwargs:
+            admin_user_ssh_public_key = kwargs['adminUserSshPublicKey']
+
+        _setter("admin_user_name", admin_user_name)
         if admin_user_password is not None:
-            pulumi.set(__self__, "admin_user_password", admin_user_password)
+            _setter("admin_user_password", admin_user_password)
         if admin_user_ssh_public_key is not None:
-            pulumi.set(__self__, "admin_user_ssh_public_key", admin_user_ssh_public_key)
+            _setter("admin_user_ssh_public_key", admin_user_ssh_public_key)
 
     @property
     @pulumi.getter(name="adminUserName")
@@ -3003,7 +3944,18 @@ class VirtualMachineImageArgs:
         Virtual Machine image for Windows AML Compute
         :param pulumi.Input[str] id: Virtual Machine image path
         """
-        pulumi.set(__self__, "id", id)
+        VirtualMachineImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3033,16 +3985,43 @@ class VirtualMachinePropertiesArgs:
         :param pulumi.Input[int] ssh_port: Port open for ssh connections.
         :param pulumi.Input[str] virtual_machine_size: Virtual Machine size
         """
+        VirtualMachinePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            administrator_account=administrator_account,
+            is_notebook_instance_compute=is_notebook_instance_compute,
+            ssh_port=ssh_port,
+            virtual_machine_size=virtual_machine_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             administrator_account: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']] = None,
+             is_notebook_instance_compute: Optional[pulumi.Input[bool]] = None,
+             ssh_port: Optional[pulumi.Input[int]] = None,
+             virtual_machine_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorAccount' in kwargs:
+            administrator_account = kwargs['administratorAccount']
+        if 'isNotebookInstanceCompute' in kwargs:
+            is_notebook_instance_compute = kwargs['isNotebookInstanceCompute']
+        if 'sshPort' in kwargs:
+            ssh_port = kwargs['sshPort']
+        if 'virtualMachineSize' in kwargs:
+            virtual_machine_size = kwargs['virtualMachineSize']
+
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if administrator_account is not None:
-            pulumi.set(__self__, "administrator_account", administrator_account)
+            _setter("administrator_account", administrator_account)
         if is_notebook_instance_compute is not None:
-            pulumi.set(__self__, "is_notebook_instance_compute", is_notebook_instance_compute)
+            _setter("is_notebook_instance_compute", is_notebook_instance_compute)
         if ssh_port is not None:
-            pulumi.set(__self__, "ssh_port", ssh_port)
+            _setter("ssh_port", ssh_port)
         if virtual_machine_size is not None:
-            pulumi.set(__self__, "virtual_machine_size", virtual_machine_size)
+            _setter("virtual_machine_size", virtual_machine_size)
 
     @property
     @pulumi.getter
@@ -3119,14 +4098,35 @@ class VirtualMachineSshCredentialsArgs:
         :param pulumi.Input[str] public_key_data: Public key data
         :param pulumi.Input[str] username: Username of admin account
         """
+        VirtualMachineSshCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            private_key_data=private_key_data,
+            public_key_data=public_key_data,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[pulumi.Input[str]] = None,
+             private_key_data: Optional[pulumi.Input[str]] = None,
+             public_key_data: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateKeyData' in kwargs:
+            private_key_data = kwargs['privateKeyData']
+        if 'publicKeyData' in kwargs:
+            public_key_data = kwargs['publicKeyData']
+
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if private_key_data is not None:
-            pulumi.set(__self__, "private_key_data", private_key_data)
+            _setter("private_key_data", private_key_data)
         if public_key_data is not None:
-            pulumi.set(__self__, "public_key_data", public_key_data)
+            _setter("public_key_data", public_key_data)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -3195,17 +4195,46 @@ class VirtualMachineArgs:
         :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'VirtualMachine')
+        VirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: pulumi.Input[str],
+             compute_location: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             properties: Optional[pulumi.Input['VirtualMachinePropertiesArgs']] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'computeLocation' in kwargs:
+            compute_location = kwargs['computeLocation']
+        if 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
+        _setter("compute_type", 'VirtualMachine')
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")

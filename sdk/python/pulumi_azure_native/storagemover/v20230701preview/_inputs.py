@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -31,11 +31,30 @@ class AzureKeyVaultSmbCredentialsArgs:
         :param pulumi.Input[str] password_uri: The Azure Key Vault secret URI which stores the password. Use empty string to clean-up existing value.
         :param pulumi.Input[str] username_uri: The Azure Key Vault secret URI which stores the username. Use empty string to clean-up existing value.
         """
-        pulumi.set(__self__, "type", 'AzureKeyVaultSmb')
+        AzureKeyVaultSmbCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            password_uri=password_uri,
+            username_uri=username_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             password_uri: Optional[pulumi.Input[str]] = None,
+             username_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'passwordUri' in kwargs:
+            password_uri = kwargs['passwordUri']
+        if 'usernameUri' in kwargs:
+            username_uri = kwargs['usernameUri']
+
+        _setter("type", 'AzureKeyVaultSmb')
         if password_uri is not None:
-            pulumi.set(__self__, "password_uri", password_uri)
+            _setter("password_uri", password_uri)
         if username_uri is not None:
-            pulumi.set(__self__, "username_uri", username_uri)
+            _setter("username_uri", username_uri)
 
     @property
     @pulumi.getter
@@ -90,11 +109,34 @@ class AzureStorageBlobContainerEndpointPropertiesArgs:
         :param pulumi.Input[str] storage_account_resource_id: The Azure Resource ID of the storage account that is the target destination.
         :param pulumi.Input[str] description: A description for the Endpoint.
         """
-        pulumi.set(__self__, "blob_container_name", blob_container_name)
-        pulumi.set(__self__, "endpoint_type", 'AzureStorageBlobContainer')
-        pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+        AzureStorageBlobContainerEndpointPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_container_name=blob_container_name,
+            endpoint_type=endpoint_type,
+            storage_account_resource_id=storage_account_resource_id,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_container_name: pulumi.Input[str],
+             endpoint_type: pulumi.Input[str],
+             storage_account_resource_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blobContainerName' in kwargs:
+            blob_container_name = kwargs['blobContainerName']
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'storageAccountResourceId' in kwargs:
+            storage_account_resource_id = kwargs['storageAccountResourceId']
+
+        _setter("blob_container_name", blob_container_name)
+        _setter("endpoint_type", 'AzureStorageBlobContainer')
+        _setter("storage_account_resource_id", storage_account_resource_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="blobContainerName")
@@ -161,11 +203,34 @@ class AzureStorageSmbFileShareEndpointPropertiesArgs:
         :param pulumi.Input[str] storage_account_resource_id: The Azure Resource ID of the storage account.
         :param pulumi.Input[str] description: A description for the Endpoint.
         """
-        pulumi.set(__self__, "endpoint_type", 'AzureStorageSmbFileShare')
-        pulumi.set(__self__, "file_share_name", file_share_name)
-        pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+        AzureStorageSmbFileShareEndpointPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            file_share_name=file_share_name,
+            storage_account_resource_id=storage_account_resource_id,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: pulumi.Input[str],
+             file_share_name: pulumi.Input[str],
+             storage_account_resource_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'fileShareName' in kwargs:
+            file_share_name = kwargs['fileShareName']
+        if 'storageAccountResourceId' in kwargs:
+            storage_account_resource_id = kwargs['storageAccountResourceId']
+
+        _setter("endpoint_type", 'AzureStorageSmbFileShare')
+        _setter("file_share_name", file_share_name)
+        _setter("storage_account_resource_id", storage_account_resource_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -234,13 +299,36 @@ class NfsMountEndpointPropertiesArgs:
         :param pulumi.Input[str] description: A description for the Endpoint.
         :param pulumi.Input[Union[str, 'NfsVersion']] nfs_version: The NFS protocol version.
         """
-        pulumi.set(__self__, "endpoint_type", 'NfsMount')
-        pulumi.set(__self__, "export", export)
-        pulumi.set(__self__, "host", host)
+        NfsMountEndpointPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            export=export,
+            host=host,
+            description=description,
+            nfs_version=nfs_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: pulumi.Input[str],
+             export: pulumi.Input[str],
+             host: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             nfs_version: Optional[pulumi.Input[Union[str, 'NfsVersion']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'nfsVersion' in kwargs:
+            nfs_version = kwargs['nfsVersion']
+
+        _setter("endpoint_type", 'NfsMount')
+        _setter("export", export)
+        _setter("host", host)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if nfs_version is not None:
-            pulumi.set(__self__, "nfs_version", nfs_version)
+            _setter("nfs_version", nfs_version)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -321,13 +409,36 @@ class SmbMountEndpointPropertiesArgs:
         :param pulumi.Input['AzureKeyVaultSmbCredentialsArgs'] credentials: The Azure Key Vault secret URIs which store the required credentials to access the SMB share.
         :param pulumi.Input[str] description: A description for the Endpoint.
         """
-        pulumi.set(__self__, "endpoint_type", 'SmbMount')
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "share_name", share_name)
+        SmbMountEndpointPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            host=host,
+            share_name=share_name,
+            credentials=credentials,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: pulumi.Input[str],
+             host: pulumi.Input[str],
+             share_name: pulumi.Input[str],
+             credentials: Optional[pulumi.Input['AzureKeyVaultSmbCredentialsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+
+        _setter("endpoint_type", 'SmbMount')
+        _setter("host", host)
+        _setter("share_name", share_name)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="endpointType")

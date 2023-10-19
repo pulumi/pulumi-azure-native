@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,15 +29,40 @@ class FleetArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FleetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            fleet_name=fleet_name,
+            hub_profile=hub_profile,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             fleet_name: Optional[pulumi.Input[str]] = None,
+             hub_profile: Optional[pulumi.Input['FleetHubProfileArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'fleetName' in kwargs:
+            fleet_name = kwargs['fleetName']
+        if 'hubProfile' in kwargs:
+            hub_profile = kwargs['hubProfile']
+
+        _setter("resource_group_name", resource_group_name)
         if fleet_name is not None:
-            pulumi.set(__self__, "fleet_name", fleet_name)
+            _setter("fleet_name", fleet_name)
         if hub_profile is not None:
-            pulumi.set(__self__, "hub_profile", hub_profile)
+            _setter("hub_profile", hub_profile)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -143,6 +168,10 @@ class Fleet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FleetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -163,6 +192,11 @@ class Fleet(pulumi.CustomResource):
             __props__ = FleetArgs.__new__(FleetArgs)
 
             __props__.__dict__["fleet_name"] = fleet_name
+            if hub_profile is not None and not isinstance(hub_profile, FleetHubProfileArgs):
+                hub_profile = hub_profile or {}
+                def _setter(key, value):
+                    hub_profile[key] = value
+                FleetHubProfileArgs._configure(_setter, **hub_profile)
             __props__.__dict__["hub_profile"] = hub_profile
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -76,23 +76,66 @@ class AccessReviewHistoryInstanceResponse(dict):
         :param str review_history_period_start_date_time: Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
         :param str run_date_time: Date time when the history data report is scheduled to be generated.
         """
-        pulumi.set(__self__, "download_uri", download_uri)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "type", type)
+        AccessReviewHistoryInstanceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            download_uri=download_uri,
+            id=id,
+            name=name,
+            status=status,
+            type=type,
+            display_name=display_name,
+            expiration=expiration,
+            fulfilled_date_time=fulfilled_date_time,
+            review_history_period_end_date_time=review_history_period_end_date_time,
+            review_history_period_start_date_time=review_history_period_start_date_time,
+            run_date_time=run_date_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             download_uri: str,
+             id: str,
+             name: str,
+             status: str,
+             type: str,
+             display_name: Optional[str] = None,
+             expiration: Optional[str] = None,
+             fulfilled_date_time: Optional[str] = None,
+             review_history_period_end_date_time: Optional[str] = None,
+             review_history_period_start_date_time: Optional[str] = None,
+             run_date_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'downloadUri' in kwargs:
+            download_uri = kwargs['downloadUri']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'fulfilledDateTime' in kwargs:
+            fulfilled_date_time = kwargs['fulfilledDateTime']
+        if 'reviewHistoryPeriodEndDateTime' in kwargs:
+            review_history_period_end_date_time = kwargs['reviewHistoryPeriodEndDateTime']
+        if 'reviewHistoryPeriodStartDateTime' in kwargs:
+            review_history_period_start_date_time = kwargs['reviewHistoryPeriodStartDateTime']
+        if 'runDateTime' in kwargs:
+            run_date_time = kwargs['runDateTime']
+
+        _setter("download_uri", download_uri)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("status", status)
+        _setter("type", type)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if fulfilled_date_time is not None:
-            pulumi.set(__self__, "fulfilled_date_time", fulfilled_date_time)
+            _setter("fulfilled_date_time", fulfilled_date_time)
         if review_history_period_end_date_time is not None:
-            pulumi.set(__self__, "review_history_period_end_date_time", review_history_period_end_date_time)
+            _setter("review_history_period_end_date_time", review_history_period_end_date_time)
         if review_history_period_start_date_time is not None:
-            pulumi.set(__self__, "review_history_period_start_date_time", review_history_period_start_date_time)
+            _setter("review_history_period_start_date_time", review_history_period_start_date_time)
         if run_date_time is not None:
-            pulumi.set(__self__, "run_date_time", run_date_time)
+            _setter("run_date_time", run_date_time)
 
     @property
     @pulumi.getter(name="downloadUri")
@@ -233,19 +276,54 @@ class AccessReviewInstanceResponse(dict):
         :param Sequence['AccessReviewReviewerResponse'] reviewers: This is the collection of reviewers.
         :param str start_date_time: The DateTime when the review instance is scheduled to be start.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "reviewers_type", reviewers_type)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "type", type)
+        AccessReviewInstanceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            reviewers_type=reviewers_type,
+            status=status,
+            type=type,
+            backup_reviewers=backup_reviewers,
+            end_date_time=end_date_time,
+            reviewers=reviewers,
+            start_date_time=start_date_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             reviewers_type: str,
+             status: str,
+             type: str,
+             backup_reviewers: Optional[Sequence['outputs.AccessReviewReviewerResponse']] = None,
+             end_date_time: Optional[str] = None,
+             reviewers: Optional[Sequence['outputs.AccessReviewReviewerResponse']] = None,
+             start_date_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'reviewersType' in kwargs:
+            reviewers_type = kwargs['reviewersType']
+        if 'backupReviewers' in kwargs:
+            backup_reviewers = kwargs['backupReviewers']
+        if 'endDateTime' in kwargs:
+            end_date_time = kwargs['endDateTime']
+        if 'startDateTime' in kwargs:
+            start_date_time = kwargs['startDateTime']
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("reviewers_type", reviewers_type)
+        _setter("status", status)
+        _setter("type", type)
         if backup_reviewers is not None:
-            pulumi.set(__self__, "backup_reviewers", backup_reviewers)
+            _setter("backup_reviewers", backup_reviewers)
         if end_date_time is not None:
-            pulumi.set(__self__, "end_date_time", end_date_time)
+            _setter("end_date_time", end_date_time)
         if reviewers is not None:
-            pulumi.set(__self__, "reviewers", reviewers)
+            _setter("reviewers", reviewers)
         if start_date_time is not None:
-            pulumi.set(__self__, "start_date_time", start_date_time)
+            _setter("start_date_time", start_date_time)
 
     @property
     @pulumi.getter
@@ -352,9 +430,26 @@ class AccessReviewReviewerResponse(dict):
         :param str principal_type: The identity type : user/servicePrincipal
         :param str principal_id: The id of the reviewer(user/servicePrincipal)
         """
-        pulumi.set(__self__, "principal_type", principal_type)
+        AccessReviewReviewerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_type=principal_type,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_type: str,
+             principal_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
+        _setter("principal_type", principal_type)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="principalType")
@@ -437,22 +532,71 @@ class AccessReviewScopeResponse(dict):
         :param bool include_access_below_resource: Flag to indicate whether to expand nested memberships or not.
         :param bool include_inherited_access: Flag to indicate whether to expand nested memberships or not.
         """
-        pulumi.set(__self__, "assignment_state", assignment_state)
-        pulumi.set(__self__, "principal_type", principal_type)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        AccessReviewScopeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assignment_state=assignment_state,
+            principal_type=principal_type,
+            resource_id=resource_id,
+            role_definition_id=role_definition_id,
+            exclude_resource_id=exclude_resource_id,
+            exclude_role_definition_id=exclude_role_definition_id,
+            expand_nested_memberships=expand_nested_memberships,
+            inactive_duration=inactive_duration,
+            include_access_below_resource=include_access_below_resource,
+            include_inherited_access=include_inherited_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assignment_state: str,
+             principal_type: str,
+             resource_id: str,
+             role_definition_id: str,
+             exclude_resource_id: Optional[str] = None,
+             exclude_role_definition_id: Optional[str] = None,
+             expand_nested_memberships: Optional[bool] = None,
+             inactive_duration: Optional[str] = None,
+             include_access_below_resource: Optional[bool] = None,
+             include_inherited_access: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignmentState' in kwargs:
+            assignment_state = kwargs['assignmentState']
+        if 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if 'excludeResourceId' in kwargs:
+            exclude_resource_id = kwargs['excludeResourceId']
+        if 'excludeRoleDefinitionId' in kwargs:
+            exclude_role_definition_id = kwargs['excludeRoleDefinitionId']
+        if 'expandNestedMemberships' in kwargs:
+            expand_nested_memberships = kwargs['expandNestedMemberships']
+        if 'inactiveDuration' in kwargs:
+            inactive_duration = kwargs['inactiveDuration']
+        if 'includeAccessBelowResource' in kwargs:
+            include_access_below_resource = kwargs['includeAccessBelowResource']
+        if 'includeInheritedAccess' in kwargs:
+            include_inherited_access = kwargs['includeInheritedAccess']
+
+        _setter("assignment_state", assignment_state)
+        _setter("principal_type", principal_type)
+        _setter("resource_id", resource_id)
+        _setter("role_definition_id", role_definition_id)
         if exclude_resource_id is not None:
-            pulumi.set(__self__, "exclude_resource_id", exclude_resource_id)
+            _setter("exclude_resource_id", exclude_resource_id)
         if exclude_role_definition_id is not None:
-            pulumi.set(__self__, "exclude_role_definition_id", exclude_role_definition_id)
+            _setter("exclude_role_definition_id", exclude_role_definition_id)
         if expand_nested_memberships is not None:
-            pulumi.set(__self__, "expand_nested_memberships", expand_nested_memberships)
+            _setter("expand_nested_memberships", expand_nested_memberships)
         if inactive_duration is not None:
-            pulumi.set(__self__, "inactive_duration", inactive_duration)
+            _setter("inactive_duration", inactive_duration)
         if include_access_below_resource is not None:
-            pulumi.set(__self__, "include_access_below_resource", include_access_below_resource)
+            _setter("include_access_below_resource", include_access_below_resource)
         if include_inherited_access is not None:
-            pulumi.set(__self__, "include_inherited_access", include_inherited_access)
+            _setter("include_inherited_access", include_inherited_access)
 
     @property
     @pulumi.getter(name="assignmentState")

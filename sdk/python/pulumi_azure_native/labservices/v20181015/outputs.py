@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -57,15 +57,54 @@ class EnvironmentDetailsResponse(dict):
         :param str total_usage: How long the environment has been used by a lab user
         :param 'VirtualMachineDetailsResponse' virtual_machine_details: Details of backing DTL virtual machine with compute and network details.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "environment_state", environment_state)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "latest_operation_result", latest_operation_result)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "password_last_reset", password_last_reset)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "total_usage", total_usage)
-        pulumi.set(__self__, "virtual_machine_details", virtual_machine_details)
+        EnvironmentDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            environment_state=environment_state,
+            id=id,
+            latest_operation_result=latest_operation_result,
+            name=name,
+            password_last_reset=password_last_reset,
+            provisioning_state=provisioning_state,
+            total_usage=total_usage,
+            virtual_machine_details=virtual_machine_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: str,
+             environment_state: str,
+             id: str,
+             latest_operation_result: 'outputs.LatestOperationResultResponse',
+             name: str,
+             password_last_reset: str,
+             provisioning_state: str,
+             total_usage: str,
+             virtual_machine_details: 'outputs.VirtualMachineDetailsResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'environmentState' in kwargs:
+            environment_state = kwargs['environmentState']
+        if 'latestOperationResult' in kwargs:
+            latest_operation_result = kwargs['latestOperationResult']
+        if 'passwordLastReset' in kwargs:
+            password_last_reset = kwargs['passwordLastReset']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'totalUsage' in kwargs:
+            total_usage = kwargs['totalUsage']
+        if 'virtualMachineDetails' in kwargs:
+            virtual_machine_details = kwargs['virtualMachineDetails']
+
+        _setter("description", description)
+        _setter("environment_state", environment_state)
+        _setter("id", id)
+        _setter("latest_operation_result", latest_operation_result)
+        _setter("name", name)
+        _setter("password_last_reset", password_last_reset)
+        _setter("provisioning_state", provisioning_state)
+        _setter("total_usage", total_usage)
+        _setter("virtual_machine_details", virtual_machine_details)
 
     @property
     @pulumi.getter
@@ -182,13 +221,40 @@ class EnvironmentSizeResponse(dict):
         :param str name: The size category
         :param Sequence['SizeInfoResponse'] vm_sizes: Represents a set of compute sizes that can serve this given size type
         """
-        pulumi.set(__self__, "max_price", max_price)
-        pulumi.set(__self__, "min_memory", min_memory)
-        pulumi.set(__self__, "min_number_of_cores", min_number_of_cores)
+        EnvironmentSizeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_price=max_price,
+            min_memory=min_memory,
+            min_number_of_cores=min_number_of_cores,
+            name=name,
+            vm_sizes=vm_sizes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_price: float,
+             min_memory: float,
+             min_number_of_cores: int,
+             name: Optional[str] = None,
+             vm_sizes: Optional[Sequence['outputs.SizeInfoResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxPrice' in kwargs:
+            max_price = kwargs['maxPrice']
+        if 'minMemory' in kwargs:
+            min_memory = kwargs['minMemory']
+        if 'minNumberOfCores' in kwargs:
+            min_number_of_cores = kwargs['minNumberOfCores']
+        if 'vmSizes' in kwargs:
+            vm_sizes = kwargs['vmSizes']
+
+        _setter("max_price", max_price)
+        _setter("min_memory", min_memory)
+        _setter("min_number_of_cores", min_number_of_cores)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if vm_sizes is not None:
-            pulumi.set(__self__, "vm_sizes", vm_sizes)
+            _setter("vm_sizes", vm_sizes)
 
     @property
     @pulumi.getter(name="maxPrice")
@@ -267,16 +333,37 @@ class GalleryImageReferenceResponse(dict):
         :param str sku: The SKU of the gallery image.
         :param str version: The version of the gallery image.
         """
+        GalleryImageReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            offer=offer,
+            os_type=os_type,
+            publisher=publisher,
+            sku=sku,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             offer: Optional[str] = None,
+             os_type: Optional[str] = None,
+             publisher: Optional[str] = None,
+             sku: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+
         if offer is not None:
-            pulumi.set(__self__, "offer", offer)
+            _setter("offer", offer)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -336,13 +423,34 @@ class LabDetailsResponse(dict):
         :param str name: Name of the lab
         :param str provisioning_state: The provisioning state of the lab.
         """
-        pulumi.set(__self__, "usage_quota", usage_quota)
+        LabDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            usage_quota=usage_quota,
+            id=id,
+            name=name,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             usage_quota: str,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'usageQuota' in kwargs:
+            usage_quota = kwargs['usageQuota']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("usage_quota", usage_quota)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="usageQuota")
@@ -423,12 +531,43 @@ class LatestOperationResultResponse(dict):
         :param str request_uri: Request URI of the operation.
         :param str status: The current status of the operation.
         """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "http_method", http_method)
-        pulumi.set(__self__, "operation_url", operation_url)
-        pulumi.set(__self__, "request_uri", request_uri)
-        pulumi.set(__self__, "status", status)
+        LatestOperationResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            error_message=error_message,
+            http_method=http_method,
+            operation_url=operation_url,
+            request_uri=request_uri,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: str,
+             error_message: str,
+             http_method: str,
+             operation_url: str,
+             request_uri: str,
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if 'operationUrl' in kwargs:
+            operation_url = kwargs['operationUrl']
+        if 'requestUri' in kwargs:
+            request_uri = kwargs['requestUri']
+
+        _setter("error_code", error_code)
+        _setter("error_message", error_message)
+        _setter("http_method", http_method)
+        _setter("operation_url", operation_url)
+        _setter("request_uri", request_uri)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -517,10 +656,33 @@ class NetworkInterfaceResponse(dict):
         :param str ssh_authority: Connection information for Linux
         :param str username: Username of the VM
         """
-        pulumi.set(__self__, "private_ip_address", private_ip_address)
-        pulumi.set(__self__, "rdp_authority", rdp_authority)
-        pulumi.set(__self__, "ssh_authority", ssh_authority)
-        pulumi.set(__self__, "username", username)
+        NetworkInterfaceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_ip_address=private_ip_address,
+            rdp_authority=rdp_authority,
+            ssh_authority=ssh_authority,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_ip_address: str,
+             rdp_authority: str,
+             ssh_authority: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'rdpAuthority' in kwargs:
+            rdp_authority = kwargs['rdpAuthority']
+        if 'sshAuthority' in kwargs:
+            ssh_authority = kwargs['sshAuthority']
+
+        _setter("private_ip_address", private_ip_address)
+        _setter("rdp_authority", rdp_authority)
+        _setter("ssh_authority", ssh_authority)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="privateIpAddress")
@@ -568,8 +730,23 @@ class OperationBatchStatusResponseItemResponse(dict):
         :param str operation_url: status of the long running operation for an environment
         :param str status: status of the long running operation for an environment
         """
-        pulumi.set(__self__, "operation_url", operation_url)
-        pulumi.set(__self__, "status", status)
+        OperationBatchStatusResponseItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation_url=operation_url,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation_url: str,
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'operationUrl' in kwargs:
+            operation_url = kwargs['operationUrl']
+
+        _setter("operation_url", operation_url)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="operationUrl")
@@ -626,11 +803,34 @@ class ReferenceVmResponse(dict):
         :param 'VmStateDetailsResponse' vm_state_details: The state details for the reference virtual machine.
         :param str password: The password of the virtual machine. This will be set to null in GET resource API
         """
-        pulumi.set(__self__, "user_name", user_name)
-        pulumi.set(__self__, "vm_resource_id", vm_resource_id)
-        pulumi.set(__self__, "vm_state_details", vm_state_details)
+        ReferenceVmResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_name=user_name,
+            vm_resource_id=vm_resource_id,
+            vm_state_details=vm_state_details,
+            password=password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_name: str,
+             vm_resource_id: str,
+             vm_state_details: 'outputs.VmStateDetailsResponse',
+             password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if 'vmResourceId' in kwargs:
+            vm_resource_id = kwargs['vmResourceId']
+        if 'vmStateDetails' in kwargs:
+            vm_state_details = kwargs['vmStateDetails']
+
+        _setter("user_name", user_name)
+        _setter("vm_resource_id", vm_resource_id)
+        _setter("vm_state_details", vm_state_details)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
 
     @property
     @pulumi.getter(name="userName")
@@ -678,10 +878,25 @@ class RegionalAvailabilityResponse(dict):
         :param str region: Corresponding region
         :param Sequence['SizeAvailabilityResponse'] size_availabilities: List of all the size information for the region
         """
+        RegionalAvailabilityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            region=region,
+            size_availabilities=size_availabilities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             region: Optional[str] = None,
+             size_availabilities: Optional[Sequence['outputs.SizeAvailabilityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sizeAvailabilities' in kwargs:
+            size_availabilities = kwargs['sizeAvailabilities']
+
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if size_availabilities is not None:
-            pulumi.set(__self__, "size_availabilities", size_availabilities)
+            _setter("size_availabilities", size_availabilities)
 
     @property
     @pulumi.getter
@@ -732,10 +947,27 @@ class ResourceSetResponse(dict):
         :param str resource_setting_id: resourceSettingId for the environment
         :param str vm_resource_id: VM resource Id for the environment
         """
+        ResourceSetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_setting_id=resource_setting_id,
+            vm_resource_id=vm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_setting_id: Optional[str] = None,
+             vm_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceSettingId' in kwargs:
+            resource_setting_id = kwargs['resourceSettingId']
+        if 'vmResourceId' in kwargs:
+            vm_resource_id = kwargs['vmResourceId']
+
         if resource_setting_id is not None:
-            pulumi.set(__self__, "resource_setting_id", resource_setting_id)
+            _setter("resource_setting_id", resource_setting_id)
         if vm_resource_id is not None:
-            pulumi.set(__self__, "vm_resource_id", vm_resource_id)
+            _setter("vm_resource_id", vm_resource_id)
 
     @property
     @pulumi.getter(name="resourceSettingId")
@@ -796,14 +1028,41 @@ class ResourceSettingsResponse(dict):
         :param str gallery_image_resource_id: The resource id of the gallery image used for creating the virtual machine
         :param str size: The size of the virtual machine
         """
-        pulumi.set(__self__, "cores", cores)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "image_name", image_name)
-        pulumi.set(__self__, "reference_vm", reference_vm)
+        ResourceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cores=cores,
+            id=id,
+            image_name=image_name,
+            reference_vm=reference_vm,
+            gallery_image_resource_id=gallery_image_resource_id,
+            size=size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cores: int,
+             id: str,
+             image_name: str,
+             reference_vm: 'outputs.ReferenceVmResponse',
+             gallery_image_resource_id: Optional[str] = None,
+             size: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'referenceVm' in kwargs:
+            reference_vm = kwargs['referenceVm']
+        if 'galleryImageResourceId' in kwargs:
+            gallery_image_resource_id = kwargs['galleryImageResourceId']
+
+        _setter("cores", cores)
+        _setter("id", id)
+        _setter("image_name", image_name)
+        _setter("reference_vm", reference_vm)
         if gallery_image_resource_id is not None:
-            pulumi.set(__self__, "gallery_image_resource_id", gallery_image_resource_id)
+            _setter("gallery_image_resource_id", gallery_image_resource_id)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
 
     @property
     @pulumi.getter
@@ -867,10 +1126,27 @@ class SizeAvailabilityResponse(dict):
         :param bool is_available: Whether or not this size category is available
         :param str size_category: The category of the size (Basic, Standard, Performance).
         """
+        SizeAvailabilityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_available=is_available,
+            size_category=size_category,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_available: Optional[bool] = None,
+             size_category: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isAvailable' in kwargs:
+            is_available = kwargs['isAvailable']
+        if 'sizeCategory' in kwargs:
+            size_category = kwargs['sizeCategory']
+
         if is_available is not None:
-            pulumi.set(__self__, "is_available", is_available)
+            _setter("is_available", is_available)
         if size_category is not None:
-            pulumi.set(__self__, "size_category", size_category)
+            _setter("size_category", size_category)
 
     @property
     @pulumi.getter(name="isAvailable")
@@ -917,8 +1193,21 @@ class SizeConfigurationPropertiesResponse(dict):
         Represents the size configuration under the lab account
         :param Sequence['EnvironmentSizeResponse'] environment_sizes: Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
         """
+        SizeConfigurationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_sizes=environment_sizes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_sizes: Optional[Sequence['outputs.EnvironmentSizeResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'environmentSizes' in kwargs:
+            environment_sizes = kwargs['environmentSizes']
+
         if environment_sizes is not None:
-            pulumi.set(__self__, "environment_sizes", environment_sizes)
+            _setter("environment_sizes", environment_sizes)
 
     @property
     @pulumi.getter(name="environmentSizes")
@@ -965,14 +1254,35 @@ class SizeInfoResponse(dict):
         :param int number_of_cores: The number of cores a VM of this size has.
         :param float price: The pay-as-you-go price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost.
         """
+        SizeInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_size=compute_size,
+            memory=memory,
+            number_of_cores=number_of_cores,
+            price=price,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_size: Optional[str] = None,
+             memory: Optional[float] = None,
+             number_of_cores: Optional[int] = None,
+             price: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeSize' in kwargs:
+            compute_size = kwargs['computeSize']
+        if 'numberOfCores' in kwargs:
+            number_of_cores = kwargs['numberOfCores']
+
         if compute_size is not None:
-            pulumi.set(__self__, "compute_size", compute_size)
+            _setter("compute_size", compute_size)
         if memory is not None:
-            pulumi.set(__self__, "memory", memory)
+            _setter("memory", memory)
         if number_of_cores is not None:
-            pulumi.set(__self__, "number_of_cores", number_of_cores)
+            _setter("number_of_cores", number_of_cores)
         if price is not None:
-            pulumi.set(__self__, "price", price)
+            _setter("price", price)
 
     @property
     @pulumi.getter(name="computeSize")
@@ -1028,12 +1338,45 @@ class VirtualMachineDetailsResponse(dict):
         :param str ssh_authority: Connection information for Linux
         :param str user_name: Compute VM login user name
         """
-        pulumi.set(__self__, "last_known_power_state", last_known_power_state)
-        pulumi.set(__self__, "private_ip_address", private_ip_address)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "rdp_authority", rdp_authority)
-        pulumi.set(__self__, "ssh_authority", ssh_authority)
-        pulumi.set(__self__, "user_name", user_name)
+        VirtualMachineDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_known_power_state=last_known_power_state,
+            private_ip_address=private_ip_address,
+            provisioning_state=provisioning_state,
+            rdp_authority=rdp_authority,
+            ssh_authority=ssh_authority,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_known_power_state: str,
+             private_ip_address: str,
+             provisioning_state: str,
+             rdp_authority: str,
+             ssh_authority: str,
+             user_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastKnownPowerState' in kwargs:
+            last_known_power_state = kwargs['lastKnownPowerState']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'rdpAuthority' in kwargs:
+            rdp_authority = kwargs['rdpAuthority']
+        if 'sshAuthority' in kwargs:
+            ssh_authority = kwargs['sshAuthority']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("last_known_power_state", last_known_power_state)
+        _setter("private_ip_address", private_ip_address)
+        _setter("provisioning_state", provisioning_state)
+        _setter("rdp_authority", rdp_authority)
+        _setter("ssh_authority", ssh_authority)
+        _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="lastKnownPowerState")
@@ -1124,10 +1467,35 @@ class VmStateDetailsResponse(dict):
         :param str rdp_authority: The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
         :param str ssh_authority: The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
         """
-        pulumi.set(__self__, "last_known_power_state", last_known_power_state)
-        pulumi.set(__self__, "power_state", power_state)
-        pulumi.set(__self__, "rdp_authority", rdp_authority)
-        pulumi.set(__self__, "ssh_authority", ssh_authority)
+        VmStateDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_known_power_state=last_known_power_state,
+            power_state=power_state,
+            rdp_authority=rdp_authority,
+            ssh_authority=ssh_authority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_known_power_state: str,
+             power_state: str,
+             rdp_authority: str,
+             ssh_authority: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastKnownPowerState' in kwargs:
+            last_known_power_state = kwargs['lastKnownPowerState']
+        if 'powerState' in kwargs:
+            power_state = kwargs['powerState']
+        if 'rdpAuthority' in kwargs:
+            rdp_authority = kwargs['rdpAuthority']
+        if 'sshAuthority' in kwargs:
+            ssh_authority = kwargs['sshAuthority']
+
+        _setter("last_known_power_state", last_known_power_state)
+        _setter("power_state", power_state)
+        _setter("rdp_authority", rdp_authority)
+        _setter("ssh_authority", ssh_authority)
 
     @property
     @pulumi.getter(name="lastKnownPowerState")

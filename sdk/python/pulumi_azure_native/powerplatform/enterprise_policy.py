@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,61 @@ class EnterprisePolicyArgs:
         :param pulumi.Input['PropertiesNetworkInjectionArgs'] network_injection: Settings concerning network injection.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        EnterprisePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            resource_group_name=resource_group_name,
+            encryption=encryption,
+            enterprise_policy_name=enterprise_policy_name,
+            health_status=health_status,
+            identity=identity,
+            location=location,
+            lockbox=lockbox,
+            network_injection=network_injection,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[Union[str, 'EnterprisePolicyKind']],
+             resource_group_name: pulumi.Input[str],
+             encryption: Optional[pulumi.Input['PropertiesEncryptionArgs']] = None,
+             enterprise_policy_name: Optional[pulumi.Input[str]] = None,
+             health_status: Optional[pulumi.Input[Union[str, 'HealthStatus']]] = None,
+             identity: Optional[pulumi.Input['EnterprisePolicyIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             lockbox: Optional[pulumi.Input['PropertiesLockboxArgs']] = None,
+             network_injection: Optional[pulumi.Input['PropertiesNetworkInjectionArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'enterprisePolicyName' in kwargs:
+            enterprise_policy_name = kwargs['enterprisePolicyName']
+        if 'healthStatus' in kwargs:
+            health_status = kwargs['healthStatus']
+        if 'networkInjection' in kwargs:
+            network_injection = kwargs['networkInjection']
+
+        _setter("kind", kind)
+        _setter("resource_group_name", resource_group_name)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if enterprise_policy_name is not None:
-            pulumi.set(__self__, "enterprise_policy_name", enterprise_policy_name)
+            _setter("enterprise_policy_name", enterprise_policy_name)
         if health_status is not None:
-            pulumi.set(__self__, "health_status", health_status)
+            _setter("health_status", health_status)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if lockbox is not None:
-            pulumi.set(__self__, "lockbox", lockbox)
+            _setter("lockbox", lockbox)
         if network_injection is not None:
-            pulumi.set(__self__, "network_injection", network_injection)
+            _setter("network_injection", network_injection)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -233,6 +270,10 @@ class EnterprisePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnterprisePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -257,15 +298,35 @@ class EnterprisePolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EnterprisePolicyArgs.__new__(EnterprisePolicyArgs)
 
+            if encryption is not None and not isinstance(encryption, PropertiesEncryptionArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                PropertiesEncryptionArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["enterprise_policy_name"] = enterprise_policy_name
             __props__.__dict__["health_status"] = health_status
+            if identity is not None and not isinstance(identity, EnterprisePolicyIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                EnterprisePolicyIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
+            if lockbox is not None and not isinstance(lockbox, PropertiesLockboxArgs):
+                lockbox = lockbox or {}
+                def _setter(key, value):
+                    lockbox[key] = value
+                PropertiesLockboxArgs._configure(_setter, **lockbox)
             __props__.__dict__["lockbox"] = lockbox
+            if network_injection is not None and not isinstance(network_injection, PropertiesNetworkInjectionArgs):
+                network_injection = network_injection or {}
+                def _setter(key, value):
+                    network_injection[key] = value
+                PropertiesNetworkInjectionArgs._configure(_setter, **network_injection)
             __props__.__dict__["network_injection"] = network_injection
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

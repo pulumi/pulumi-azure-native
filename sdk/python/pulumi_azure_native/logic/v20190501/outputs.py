@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -144,10 +144,35 @@ class AS2AcknowledgementConnectionSettingsResponse(dict):
         :param bool support_http_status_code_continue: Indicates whether to support HTTP status code 'CONTINUE'.
         :param bool unfold_http_headers: Indicates whether to unfold the HTTP headers.
         """
-        pulumi.set(__self__, "ignore_certificate_name_mismatch", ignore_certificate_name_mismatch)
-        pulumi.set(__self__, "keep_http_connection_alive", keep_http_connection_alive)
-        pulumi.set(__self__, "support_http_status_code_continue", support_http_status_code_continue)
-        pulumi.set(__self__, "unfold_http_headers", unfold_http_headers)
+        AS2AcknowledgementConnectionSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ignore_certificate_name_mismatch=ignore_certificate_name_mismatch,
+            keep_http_connection_alive=keep_http_connection_alive,
+            support_http_status_code_continue=support_http_status_code_continue,
+            unfold_http_headers=unfold_http_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ignore_certificate_name_mismatch: bool,
+             keep_http_connection_alive: bool,
+             support_http_status_code_continue: bool,
+             unfold_http_headers: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ignoreCertificateNameMismatch' in kwargs:
+            ignore_certificate_name_mismatch = kwargs['ignoreCertificateNameMismatch']
+        if 'keepHttpConnectionAlive' in kwargs:
+            keep_http_connection_alive = kwargs['keepHttpConnectionAlive']
+        if 'supportHttpStatusCodeContinue' in kwargs:
+            support_http_status_code_continue = kwargs['supportHttpStatusCodeContinue']
+        if 'unfoldHttpHeaders' in kwargs:
+            unfold_http_headers = kwargs['unfoldHttpHeaders']
+
+        _setter("ignore_certificate_name_mismatch", ignore_certificate_name_mismatch)
+        _setter("keep_http_connection_alive", keep_http_connection_alive)
+        _setter("support_http_status_code_continue", support_http_status_code_continue)
+        _setter("unfold_http_headers", unfold_http_headers)
 
     @property
     @pulumi.getter(name="ignoreCertificateNameMismatch")
@@ -214,8 +239,25 @@ class AS2AgreementContentResponse(dict):
         :param 'AS2OneWayAgreementResponse' receive_agreement: The AS2 one-way receive agreement.
         :param 'AS2OneWayAgreementResponse' send_agreement: The AS2 one-way send agreement.
         """
-        pulumi.set(__self__, "receive_agreement", receive_agreement)
-        pulumi.set(__self__, "send_agreement", send_agreement)
+        AS2AgreementContentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            receive_agreement=receive_agreement,
+            send_agreement=send_agreement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             receive_agreement: 'outputs.AS2OneWayAgreementResponse',
+             send_agreement: 'outputs.AS2OneWayAgreementResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'receiveAgreement' in kwargs:
+            receive_agreement = kwargs['receiveAgreement']
+        if 'sendAgreement' in kwargs:
+            send_agreement = kwargs['sendAgreement']
+
+        _setter("receive_agreement", receive_agreement)
+        _setter("send_agreement", send_agreement)
 
     @property
     @pulumi.getter(name="receiveAgreement")
@@ -278,11 +320,40 @@ class AS2EnvelopeSettingsResponse(dict):
         :param bool suspend_message_on_file_name_generation_error: The value indicating whether to suspend message on file name generation error.
         :param bool transmit_file_name_in_mime_header: The value indicating whether to transmit file name in mime header.
         """
-        pulumi.set(__self__, "autogenerate_file_name", autogenerate_file_name)
-        pulumi.set(__self__, "file_name_template", file_name_template)
-        pulumi.set(__self__, "message_content_type", message_content_type)
-        pulumi.set(__self__, "suspend_message_on_file_name_generation_error", suspend_message_on_file_name_generation_error)
-        pulumi.set(__self__, "transmit_file_name_in_mime_header", transmit_file_name_in_mime_header)
+        AS2EnvelopeSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autogenerate_file_name=autogenerate_file_name,
+            file_name_template=file_name_template,
+            message_content_type=message_content_type,
+            suspend_message_on_file_name_generation_error=suspend_message_on_file_name_generation_error,
+            transmit_file_name_in_mime_header=transmit_file_name_in_mime_header,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autogenerate_file_name: bool,
+             file_name_template: str,
+             message_content_type: str,
+             suspend_message_on_file_name_generation_error: bool,
+             transmit_file_name_in_mime_header: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autogenerateFileName' in kwargs:
+            autogenerate_file_name = kwargs['autogenerateFileName']
+        if 'fileNameTemplate' in kwargs:
+            file_name_template = kwargs['fileNameTemplate']
+        if 'messageContentType' in kwargs:
+            message_content_type = kwargs['messageContentType']
+        if 'suspendMessageOnFileNameGenerationError' in kwargs:
+            suspend_message_on_file_name_generation_error = kwargs['suspendMessageOnFileNameGenerationError']
+        if 'transmitFileNameInMimeHeader' in kwargs:
+            transmit_file_name_in_mime_header = kwargs['transmitFileNameInMimeHeader']
+
+        _setter("autogenerate_file_name", autogenerate_file_name)
+        _setter("file_name_template", file_name_template)
+        _setter("message_content_type", message_content_type)
+        _setter("suspend_message_on_file_name_generation_error", suspend_message_on_file_name_generation_error)
+        _setter("transmit_file_name_in_mime_header", transmit_file_name_in_mime_header)
 
     @property
     @pulumi.getter(name="autogenerateFileName")
@@ -357,8 +428,25 @@ class AS2ErrorSettingsResponse(dict):
         :param bool resend_if_mdn_not_received: The value indicating whether to resend message If MDN is not received.
         :param bool suspend_duplicate_message: The value indicating whether to suspend duplicate message.
         """
-        pulumi.set(__self__, "resend_if_mdn_not_received", resend_if_mdn_not_received)
-        pulumi.set(__self__, "suspend_duplicate_message", suspend_duplicate_message)
+        AS2ErrorSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resend_if_mdn_not_received=resend_if_mdn_not_received,
+            suspend_duplicate_message=suspend_duplicate_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resend_if_mdn_not_received: bool,
+             suspend_duplicate_message: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resendIfMDNNotReceived' in kwargs:
+            resend_if_mdn_not_received = kwargs['resendIfMDNNotReceived']
+        if 'suspendDuplicateMessage' in kwargs:
+            suspend_duplicate_message = kwargs['suspendDuplicateMessage']
+
+        _setter("resend_if_mdn_not_received", resend_if_mdn_not_received)
+        _setter("suspend_duplicate_message", suspend_duplicate_message)
 
     @property
     @pulumi.getter(name="resendIfMDNNotReceived")
@@ -437,18 +525,63 @@ class AS2MdnSettingsResponse(dict):
         :param str mdn_text: The MDN text.
         :param str receipt_delivery_url: The receipt delivery URL.
         """
-        pulumi.set(__self__, "mic_hashing_algorithm", mic_hashing_algorithm)
-        pulumi.set(__self__, "need_mdn", need_mdn)
-        pulumi.set(__self__, "send_inbound_mdn_to_message_box", send_inbound_mdn_to_message_box)
-        pulumi.set(__self__, "send_mdnasynchronously", send_mdnasynchronously)
-        pulumi.set(__self__, "sign_mdn", sign_mdn)
-        pulumi.set(__self__, "sign_outbound_mdn_if_optional", sign_outbound_mdn_if_optional)
+        AS2MdnSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mic_hashing_algorithm=mic_hashing_algorithm,
+            need_mdn=need_mdn,
+            send_inbound_mdn_to_message_box=send_inbound_mdn_to_message_box,
+            send_mdnasynchronously=send_mdnasynchronously,
+            sign_mdn=sign_mdn,
+            sign_outbound_mdn_if_optional=sign_outbound_mdn_if_optional,
+            disposition_notification_to=disposition_notification_to,
+            mdn_text=mdn_text,
+            receipt_delivery_url=receipt_delivery_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mic_hashing_algorithm: str,
+             need_mdn: bool,
+             send_inbound_mdn_to_message_box: bool,
+             send_mdnasynchronously: bool,
+             sign_mdn: bool,
+             sign_outbound_mdn_if_optional: bool,
+             disposition_notification_to: Optional[str] = None,
+             mdn_text: Optional[str] = None,
+             receipt_delivery_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'micHashingAlgorithm' in kwargs:
+            mic_hashing_algorithm = kwargs['micHashingAlgorithm']
+        if 'needMDN' in kwargs:
+            need_mdn = kwargs['needMDN']
+        if 'sendInboundMDNToMessageBox' in kwargs:
+            send_inbound_mdn_to_message_box = kwargs['sendInboundMDNToMessageBox']
+        if 'sendMDNAsynchronously' in kwargs:
+            send_mdnasynchronously = kwargs['sendMDNAsynchronously']
+        if 'signMDN' in kwargs:
+            sign_mdn = kwargs['signMDN']
+        if 'signOutboundMDNIfOptional' in kwargs:
+            sign_outbound_mdn_if_optional = kwargs['signOutboundMDNIfOptional']
+        if 'dispositionNotificationTo' in kwargs:
+            disposition_notification_to = kwargs['dispositionNotificationTo']
+        if 'mdnText' in kwargs:
+            mdn_text = kwargs['mdnText']
+        if 'receiptDeliveryUrl' in kwargs:
+            receipt_delivery_url = kwargs['receiptDeliveryUrl']
+
+        _setter("mic_hashing_algorithm", mic_hashing_algorithm)
+        _setter("need_mdn", need_mdn)
+        _setter("send_inbound_mdn_to_message_box", send_inbound_mdn_to_message_box)
+        _setter("send_mdnasynchronously", send_mdnasynchronously)
+        _setter("sign_mdn", sign_mdn)
+        _setter("sign_outbound_mdn_if_optional", sign_outbound_mdn_if_optional)
         if disposition_notification_to is not None:
-            pulumi.set(__self__, "disposition_notification_to", disposition_notification_to)
+            _setter("disposition_notification_to", disposition_notification_to)
         if mdn_text is not None:
-            pulumi.set(__self__, "mdn_text", mdn_text)
+            _setter("mdn_text", mdn_text)
         if receipt_delivery_url is not None:
-            pulumi.set(__self__, "receipt_delivery_url", receipt_delivery_url)
+            _setter("receipt_delivery_url", receipt_delivery_url)
 
     @property
     @pulumi.getter(name="micHashingAlgorithm")
@@ -563,10 +696,35 @@ class AS2MessageConnectionSettingsResponse(dict):
         :param bool support_http_status_code_continue: The value indicating whether to support HTTP status code 'CONTINUE'.
         :param bool unfold_http_headers: The value indicating whether to unfold the HTTP headers.
         """
-        pulumi.set(__self__, "ignore_certificate_name_mismatch", ignore_certificate_name_mismatch)
-        pulumi.set(__self__, "keep_http_connection_alive", keep_http_connection_alive)
-        pulumi.set(__self__, "support_http_status_code_continue", support_http_status_code_continue)
-        pulumi.set(__self__, "unfold_http_headers", unfold_http_headers)
+        AS2MessageConnectionSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ignore_certificate_name_mismatch=ignore_certificate_name_mismatch,
+            keep_http_connection_alive=keep_http_connection_alive,
+            support_http_status_code_continue=support_http_status_code_continue,
+            unfold_http_headers=unfold_http_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ignore_certificate_name_mismatch: bool,
+             keep_http_connection_alive: bool,
+             support_http_status_code_continue: bool,
+             unfold_http_headers: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ignoreCertificateNameMismatch' in kwargs:
+            ignore_certificate_name_mismatch = kwargs['ignoreCertificateNameMismatch']
+        if 'keepHttpConnectionAlive' in kwargs:
+            keep_http_connection_alive = kwargs['keepHttpConnectionAlive']
+        if 'supportHttpStatusCodeContinue' in kwargs:
+            support_http_status_code_continue = kwargs['supportHttpStatusCodeContinue']
+        if 'unfoldHttpHeaders' in kwargs:
+            unfold_http_headers = kwargs['unfoldHttpHeaders']
+
+        _setter("ignore_certificate_name_mismatch", ignore_certificate_name_mismatch)
+        _setter("keep_http_connection_alive", keep_http_connection_alive)
+        _setter("support_http_status_code_continue", support_http_status_code_continue)
+        _setter("unfold_http_headers", unfold_http_headers)
 
     @property
     @pulumi.getter(name="ignoreCertificateNameMismatch")
@@ -637,9 +795,30 @@ class AS2OneWayAgreementResponse(dict):
         :param 'BusinessIdentityResponse' receiver_business_identity: The receiver business identity
         :param 'BusinessIdentityResponse' sender_business_identity: The sender business identity
         """
-        pulumi.set(__self__, "protocol_settings", protocol_settings)
-        pulumi.set(__self__, "receiver_business_identity", receiver_business_identity)
-        pulumi.set(__self__, "sender_business_identity", sender_business_identity)
+        AS2OneWayAgreementResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol_settings=protocol_settings,
+            receiver_business_identity=receiver_business_identity,
+            sender_business_identity=sender_business_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol_settings: 'outputs.AS2ProtocolSettingsResponse',
+             receiver_business_identity: 'outputs.BusinessIdentityResponse',
+             sender_business_identity: 'outputs.BusinessIdentityResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'protocolSettings' in kwargs:
+            protocol_settings = kwargs['protocolSettings']
+        if 'receiverBusinessIdentity' in kwargs:
+            receiver_business_identity = kwargs['receiverBusinessIdentity']
+        if 'senderBusinessIdentity' in kwargs:
+            sender_business_identity = kwargs['senderBusinessIdentity']
+
+        _setter("protocol_settings", protocol_settings)
+        _setter("receiver_business_identity", receiver_business_identity)
+        _setter("sender_business_identity", sender_business_identity)
 
     @property
     @pulumi.getter(name="protocolSettings")
@@ -718,13 +897,50 @@ class AS2ProtocolSettingsResponse(dict):
         :param 'AS2SecuritySettingsResponse' security_settings: The security settings.
         :param 'AS2ValidationSettingsResponse' validation_settings: The validation settings.
         """
-        pulumi.set(__self__, "acknowledgement_connection_settings", acknowledgement_connection_settings)
-        pulumi.set(__self__, "envelope_settings", envelope_settings)
-        pulumi.set(__self__, "error_settings", error_settings)
-        pulumi.set(__self__, "mdn_settings", mdn_settings)
-        pulumi.set(__self__, "message_connection_settings", message_connection_settings)
-        pulumi.set(__self__, "security_settings", security_settings)
-        pulumi.set(__self__, "validation_settings", validation_settings)
+        AS2ProtocolSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledgement_connection_settings=acknowledgement_connection_settings,
+            envelope_settings=envelope_settings,
+            error_settings=error_settings,
+            mdn_settings=mdn_settings,
+            message_connection_settings=message_connection_settings,
+            security_settings=security_settings,
+            validation_settings=validation_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledgement_connection_settings: 'outputs.AS2AcknowledgementConnectionSettingsResponse',
+             envelope_settings: 'outputs.AS2EnvelopeSettingsResponse',
+             error_settings: 'outputs.AS2ErrorSettingsResponse',
+             mdn_settings: 'outputs.AS2MdnSettingsResponse',
+             message_connection_settings: 'outputs.AS2MessageConnectionSettingsResponse',
+             security_settings: 'outputs.AS2SecuritySettingsResponse',
+             validation_settings: 'outputs.AS2ValidationSettingsResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acknowledgementConnectionSettings' in kwargs:
+            acknowledgement_connection_settings = kwargs['acknowledgementConnectionSettings']
+        if 'envelopeSettings' in kwargs:
+            envelope_settings = kwargs['envelopeSettings']
+        if 'errorSettings' in kwargs:
+            error_settings = kwargs['errorSettings']
+        if 'mdnSettings' in kwargs:
+            mdn_settings = kwargs['mdnSettings']
+        if 'messageConnectionSettings' in kwargs:
+            message_connection_settings = kwargs['messageConnectionSettings']
+        if 'securitySettings' in kwargs:
+            security_settings = kwargs['securitySettings']
+        if 'validationSettings' in kwargs:
+            validation_settings = kwargs['validationSettings']
+
+        _setter("acknowledgement_connection_settings", acknowledgement_connection_settings)
+        _setter("envelope_settings", envelope_settings)
+        _setter("error_settings", error_settings)
+        _setter("mdn_settings", mdn_settings)
+        _setter("message_connection_settings", message_connection_settings)
+        _setter("security_settings", security_settings)
+        _setter("validation_settings", validation_settings)
 
     @property
     @pulumi.getter(name="acknowledgementConnectionSettings")
@@ -847,19 +1063,68 @@ class AS2SecuritySettingsResponse(dict):
         :param str sha2_algorithm_format: The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
         :param str signing_certificate_name: The name of the signing certificate.
         """
-        pulumi.set(__self__, "enable_nrr_for_inbound_decoded_messages", enable_nrr_for_inbound_decoded_messages)
-        pulumi.set(__self__, "enable_nrr_for_inbound_encoded_messages", enable_nrr_for_inbound_encoded_messages)
-        pulumi.set(__self__, "enable_nrr_for_inbound_mdn", enable_nrr_for_inbound_mdn)
-        pulumi.set(__self__, "enable_nrr_for_outbound_decoded_messages", enable_nrr_for_outbound_decoded_messages)
-        pulumi.set(__self__, "enable_nrr_for_outbound_encoded_messages", enable_nrr_for_outbound_encoded_messages)
-        pulumi.set(__self__, "enable_nrr_for_outbound_mdn", enable_nrr_for_outbound_mdn)
-        pulumi.set(__self__, "override_group_signing_certificate", override_group_signing_certificate)
+        AS2SecuritySettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_nrr_for_inbound_decoded_messages=enable_nrr_for_inbound_decoded_messages,
+            enable_nrr_for_inbound_encoded_messages=enable_nrr_for_inbound_encoded_messages,
+            enable_nrr_for_inbound_mdn=enable_nrr_for_inbound_mdn,
+            enable_nrr_for_outbound_decoded_messages=enable_nrr_for_outbound_decoded_messages,
+            enable_nrr_for_outbound_encoded_messages=enable_nrr_for_outbound_encoded_messages,
+            enable_nrr_for_outbound_mdn=enable_nrr_for_outbound_mdn,
+            override_group_signing_certificate=override_group_signing_certificate,
+            encryption_certificate_name=encryption_certificate_name,
+            sha2_algorithm_format=sha2_algorithm_format,
+            signing_certificate_name=signing_certificate_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_nrr_for_inbound_decoded_messages: bool,
+             enable_nrr_for_inbound_encoded_messages: bool,
+             enable_nrr_for_inbound_mdn: bool,
+             enable_nrr_for_outbound_decoded_messages: bool,
+             enable_nrr_for_outbound_encoded_messages: bool,
+             enable_nrr_for_outbound_mdn: bool,
+             override_group_signing_certificate: bool,
+             encryption_certificate_name: Optional[str] = None,
+             sha2_algorithm_format: Optional[str] = None,
+             signing_certificate_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableNRRForInboundDecodedMessages' in kwargs:
+            enable_nrr_for_inbound_decoded_messages = kwargs['enableNRRForInboundDecodedMessages']
+        if 'enableNRRForInboundEncodedMessages' in kwargs:
+            enable_nrr_for_inbound_encoded_messages = kwargs['enableNRRForInboundEncodedMessages']
+        if 'enableNRRForInboundMDN' in kwargs:
+            enable_nrr_for_inbound_mdn = kwargs['enableNRRForInboundMDN']
+        if 'enableNRRForOutboundDecodedMessages' in kwargs:
+            enable_nrr_for_outbound_decoded_messages = kwargs['enableNRRForOutboundDecodedMessages']
+        if 'enableNRRForOutboundEncodedMessages' in kwargs:
+            enable_nrr_for_outbound_encoded_messages = kwargs['enableNRRForOutboundEncodedMessages']
+        if 'enableNRRForOutboundMDN' in kwargs:
+            enable_nrr_for_outbound_mdn = kwargs['enableNRRForOutboundMDN']
+        if 'overrideGroupSigningCertificate' in kwargs:
+            override_group_signing_certificate = kwargs['overrideGroupSigningCertificate']
+        if 'encryptionCertificateName' in kwargs:
+            encryption_certificate_name = kwargs['encryptionCertificateName']
+        if 'sha2AlgorithmFormat' in kwargs:
+            sha2_algorithm_format = kwargs['sha2AlgorithmFormat']
+        if 'signingCertificateName' in kwargs:
+            signing_certificate_name = kwargs['signingCertificateName']
+
+        _setter("enable_nrr_for_inbound_decoded_messages", enable_nrr_for_inbound_decoded_messages)
+        _setter("enable_nrr_for_inbound_encoded_messages", enable_nrr_for_inbound_encoded_messages)
+        _setter("enable_nrr_for_inbound_mdn", enable_nrr_for_inbound_mdn)
+        _setter("enable_nrr_for_outbound_decoded_messages", enable_nrr_for_outbound_decoded_messages)
+        _setter("enable_nrr_for_outbound_encoded_messages", enable_nrr_for_outbound_encoded_messages)
+        _setter("enable_nrr_for_outbound_mdn", enable_nrr_for_outbound_mdn)
+        _setter("override_group_signing_certificate", override_group_signing_certificate)
         if encryption_certificate_name is not None:
-            pulumi.set(__self__, "encryption_certificate_name", encryption_certificate_name)
+            _setter("encryption_certificate_name", encryption_certificate_name)
         if sha2_algorithm_format is not None:
-            pulumi.set(__self__, "sha2_algorithm_format", sha2_algorithm_format)
+            _setter("sha2_algorithm_format", sha2_algorithm_format)
         if signing_certificate_name is not None:
-            pulumi.set(__self__, "signing_certificate_name", signing_certificate_name)
+            _setter("signing_certificate_name", signing_certificate_name)
 
     @property
     @pulumi.getter(name="enableNRRForInboundDecodedMessages")
@@ -1006,17 +1271,66 @@ class AS2ValidationSettingsResponse(dict):
         :param bool sign_message: The value indicating whether the message has to be signed.
         :param str signing_algorithm: The signing algorithm.
         """
-        pulumi.set(__self__, "check_certificate_revocation_list_on_receive", check_certificate_revocation_list_on_receive)
-        pulumi.set(__self__, "check_certificate_revocation_list_on_send", check_certificate_revocation_list_on_send)
-        pulumi.set(__self__, "check_duplicate_message", check_duplicate_message)
-        pulumi.set(__self__, "compress_message", compress_message)
-        pulumi.set(__self__, "encrypt_message", encrypt_message)
-        pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
-        pulumi.set(__self__, "interchange_duplicates_validity_days", interchange_duplicates_validity_days)
-        pulumi.set(__self__, "override_message_properties", override_message_properties)
-        pulumi.set(__self__, "sign_message", sign_message)
+        AS2ValidationSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            check_certificate_revocation_list_on_receive=check_certificate_revocation_list_on_receive,
+            check_certificate_revocation_list_on_send=check_certificate_revocation_list_on_send,
+            check_duplicate_message=check_duplicate_message,
+            compress_message=compress_message,
+            encrypt_message=encrypt_message,
+            encryption_algorithm=encryption_algorithm,
+            interchange_duplicates_validity_days=interchange_duplicates_validity_days,
+            override_message_properties=override_message_properties,
+            sign_message=sign_message,
+            signing_algorithm=signing_algorithm,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             check_certificate_revocation_list_on_receive: bool,
+             check_certificate_revocation_list_on_send: bool,
+             check_duplicate_message: bool,
+             compress_message: bool,
+             encrypt_message: bool,
+             encryption_algorithm: str,
+             interchange_duplicates_validity_days: int,
+             override_message_properties: bool,
+             sign_message: bool,
+             signing_algorithm: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'checkCertificateRevocationListOnReceive' in kwargs:
+            check_certificate_revocation_list_on_receive = kwargs['checkCertificateRevocationListOnReceive']
+        if 'checkCertificateRevocationListOnSend' in kwargs:
+            check_certificate_revocation_list_on_send = kwargs['checkCertificateRevocationListOnSend']
+        if 'checkDuplicateMessage' in kwargs:
+            check_duplicate_message = kwargs['checkDuplicateMessage']
+        if 'compressMessage' in kwargs:
+            compress_message = kwargs['compressMessage']
+        if 'encryptMessage' in kwargs:
+            encrypt_message = kwargs['encryptMessage']
+        if 'encryptionAlgorithm' in kwargs:
+            encryption_algorithm = kwargs['encryptionAlgorithm']
+        if 'interchangeDuplicatesValidityDays' in kwargs:
+            interchange_duplicates_validity_days = kwargs['interchangeDuplicatesValidityDays']
+        if 'overrideMessageProperties' in kwargs:
+            override_message_properties = kwargs['overrideMessageProperties']
+        if 'signMessage' in kwargs:
+            sign_message = kwargs['signMessage']
+        if 'signingAlgorithm' in kwargs:
+            signing_algorithm = kwargs['signingAlgorithm']
+
+        _setter("check_certificate_revocation_list_on_receive", check_certificate_revocation_list_on_receive)
+        _setter("check_certificate_revocation_list_on_send", check_certificate_revocation_list_on_send)
+        _setter("check_duplicate_message", check_duplicate_message)
+        _setter("compress_message", compress_message)
+        _setter("encrypt_message", encrypt_message)
+        _setter("encryption_algorithm", encryption_algorithm)
+        _setter("interchange_duplicates_validity_days", interchange_duplicates_validity_days)
+        _setter("override_message_properties", override_message_properties)
+        _setter("sign_message", sign_message)
         if signing_algorithm is not None:
-            pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+            _setter("signing_algorithm", signing_algorithm)
 
     @property
     @pulumi.getter(name="checkCertificateRevocationListOnReceive")
@@ -1131,12 +1445,29 @@ class AgreementContentResponse(dict):
         :param 'EdifactAgreementContentResponse' edifact: The EDIFACT agreement content.
         :param 'X12AgreementContentResponse' x12: The X12 agreement content.
         """
+        AgreementContentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            a_s2=a_s2,
+            edifact=edifact,
+            x12=x12,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             a_s2: Optional['outputs.AS2AgreementContentResponse'] = None,
+             edifact: Optional['outputs.EdifactAgreementContentResponse'] = None,
+             x12: Optional['outputs.X12AgreementContentResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aS2' in kwargs:
+            a_s2 = kwargs['aS2']
+
         if a_s2 is not None:
-            pulumi.set(__self__, "a_s2", a_s2)
+            _setter("a_s2", a_s2)
         if edifact is not None:
-            pulumi.set(__self__, "edifact", edifact)
+            _setter("edifact", edifact)
         if x12 is not None:
-            pulumi.set(__self__, "x12", x12)
+            _setter("x12", x12)
 
     @property
     @pulumi.getter(name="aS2")
@@ -1201,16 +1532,39 @@ class ApiDeploymentParameterMetadataResponse(dict):
         :param str type: The type.
         :param str visibility: The visibility.
         """
+        ApiDeploymentParameterMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            display_name=display_name,
+            is_required=is_required,
+            type=type,
+            visibility=visibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             is_required: Optional[bool] = None,
+             type: Optional[str] = None,
+             visibility: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'isRequired' in kwargs:
+            is_required = kwargs['isRequired']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if is_required is not None:
-            pulumi.set(__self__, "is_required", is_required)
+            _setter("is_required", is_required)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
 
     @property
     @pulumi.getter
@@ -1285,10 +1639,27 @@ class ApiDeploymentParameterMetadataSetResponse(dict):
         :param 'ApiDeploymentParameterMetadataResponse' package_content_link: The package content link parameter.
         :param 'ApiDeploymentParameterMetadataResponse' redis_cache_connection_string: The package content link parameter.
         """
+        ApiDeploymentParameterMetadataSetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            package_content_link=package_content_link,
+            redis_cache_connection_string=redis_cache_connection_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             package_content_link: Optional['outputs.ApiDeploymentParameterMetadataResponse'] = None,
+             redis_cache_connection_string: Optional['outputs.ApiDeploymentParameterMetadataResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'packageContentLink' in kwargs:
+            package_content_link = kwargs['packageContentLink']
+        if 'redisCacheConnectionString' in kwargs:
+            redis_cache_connection_string = kwargs['redisCacheConnectionString']
+
         if package_content_link is not None:
-            pulumi.set(__self__, "package_content_link", package_content_link)
+            _setter("package_content_link", package_content_link)
         if redis_cache_connection_string is not None:
-            pulumi.set(__self__, "redis_cache_connection_string", redis_cache_connection_string)
+            _setter("redis_cache_connection_string", redis_cache_connection_string)
 
     @property
     @pulumi.getter(name="packageContentLink")
@@ -1335,8 +1706,21 @@ class ApiResourceBackendServiceResponse(dict):
         The API backend service.
         :param str service_url: The service URL.
         """
+        ApiResourceBackendServiceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_url=service_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceUrl' in kwargs:
+            service_url = kwargs['serviceUrl']
+
         if service_url is not None:
-            pulumi.set(__self__, "service_url", service_url)
+            _setter("service_url", service_url)
 
     @property
     @pulumi.getter(name="serviceUrl")
@@ -1379,10 +1763,27 @@ class ApiResourceDefinitionsResponse(dict):
         :param str modified_swagger_url: The modified swagger url.
         :param str original_swagger_url: The original swagger url.
         """
+        ApiResourceDefinitionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            modified_swagger_url=modified_swagger_url,
+            original_swagger_url=original_swagger_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             modified_swagger_url: Optional[str] = None,
+             original_swagger_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'modifiedSwaggerUrl' in kwargs:
+            modified_swagger_url = kwargs['modifiedSwaggerUrl']
+        if 'originalSwaggerUrl' in kwargs:
+            original_swagger_url = kwargs['originalSwaggerUrl']
+
         if modified_swagger_url is not None:
-            pulumi.set(__self__, "modified_swagger_url", modified_swagger_url)
+            _setter("modified_swagger_url", modified_swagger_url)
         if original_swagger_url is not None:
-            pulumi.set(__self__, "original_swagger_url", original_swagger_url)
+            _setter("original_swagger_url", original_swagger_url)
 
     @property
     @pulumi.getter(name="modifiedSwaggerUrl")
@@ -1445,18 +1846,47 @@ class ApiResourceGeneralInformationResponse(dict):
         :param str terms_of_use_url: The terms of use url.
         :param str tier: The tier.
         """
+        ApiResourceGeneralInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            display_name=display_name,
+            icon_url=icon_url,
+            release_tag=release_tag,
+            terms_of_use_url=terms_of_use_url,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             icon_url: Optional[str] = None,
+             release_tag: Optional[str] = None,
+             terms_of_use_url: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'iconUrl' in kwargs:
+            icon_url = kwargs['iconUrl']
+        if 'releaseTag' in kwargs:
+            release_tag = kwargs['releaseTag']
+        if 'termsOfUseUrl' in kwargs:
+            terms_of_use_url = kwargs['termsOfUseUrl']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if icon_url is not None:
-            pulumi.set(__self__, "icon_url", icon_url)
+            _setter("icon_url", icon_url)
         if release_tag is not None:
-            pulumi.set(__self__, "release_tag", release_tag)
+            _setter("release_tag", release_tag)
         if terms_of_use_url is not None:
-            pulumi.set(__self__, "terms_of_use_url", terms_of_use_url)
+            _setter("terms_of_use_url", terms_of_use_url)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -1567,26 +1997,71 @@ class ApiResourceMetadataResponse(dict):
         :param str wsdl_import_method: The WSDL import method.
         :param 'WsdlServiceResponse' wsdl_service: The WSDL service.
         """
+        ApiResourceMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_type=api_type,
+            brand_color=brand_color,
+            connection_type=connection_type,
+            deployment_parameters=deployment_parameters,
+            hide_key=hide_key,
+            provisioning_state=provisioning_state,
+            source=source,
+            tags=tags,
+            wsdl_import_method=wsdl_import_method,
+            wsdl_service=wsdl_service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_type: Optional[str] = None,
+             brand_color: Optional[str] = None,
+             connection_type: Optional[str] = None,
+             deployment_parameters: Optional['outputs.ApiDeploymentParameterMetadataSetResponse'] = None,
+             hide_key: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             source: Optional[str] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             wsdl_import_method: Optional[str] = None,
+             wsdl_service: Optional['outputs.WsdlServiceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiType' in kwargs:
+            api_type = kwargs['apiType']
+        if 'brandColor' in kwargs:
+            brand_color = kwargs['brandColor']
+        if 'connectionType' in kwargs:
+            connection_type = kwargs['connectionType']
+        if 'deploymentParameters' in kwargs:
+            deployment_parameters = kwargs['deploymentParameters']
+        if 'hideKey' in kwargs:
+            hide_key = kwargs['hideKey']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'wsdlImportMethod' in kwargs:
+            wsdl_import_method = kwargs['wsdlImportMethod']
+        if 'wsdlService' in kwargs:
+            wsdl_service = kwargs['wsdlService']
+
         if api_type is not None:
-            pulumi.set(__self__, "api_type", api_type)
+            _setter("api_type", api_type)
         if brand_color is not None:
-            pulumi.set(__self__, "brand_color", brand_color)
+            _setter("brand_color", brand_color)
         if connection_type is not None:
-            pulumi.set(__self__, "connection_type", connection_type)
+            _setter("connection_type", connection_type)
         if deployment_parameters is not None:
-            pulumi.set(__self__, "deployment_parameters", deployment_parameters)
+            _setter("deployment_parameters", deployment_parameters)
         if hide_key is not None:
-            pulumi.set(__self__, "hide_key", hide_key)
+            _setter("hide_key", hide_key)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if wsdl_import_method is not None:
-            pulumi.set(__self__, "wsdl_import_method", wsdl_import_method)
+            _setter("wsdl_import_method", wsdl_import_method)
         if wsdl_service is not None:
-            pulumi.set(__self__, "wsdl_service", wsdl_service)
+            _setter("wsdl_service", wsdl_service)
 
     @property
     @pulumi.getter(name="apiType")
@@ -1699,10 +2174,25 @@ class ApiResourcePoliciesResponse(dict):
         :param str content: The API level only policies XML as embedded content.
         :param str content_link: The content link to the policies.
         """
+        ApiResourcePoliciesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            content_link=content_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[str] = None,
+             content_link: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentLink' in kwargs:
+            content_link = kwargs['contentLink']
+
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if content_link is not None:
-            pulumi.set(__self__, "content_link", content_link)
+            _setter("content_link", content_link)
 
     @property
     @pulumi.getter
@@ -1779,25 +2269,70 @@ class AssemblyPropertiesResponse(dict):
         :param str content_type: The content type.
         :param str created_time: The artifact creation time.
         """
-        pulumi.set(__self__, "assembly_name", assembly_name)
+        AssemblyPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assembly_name=assembly_name,
+            assembly_culture=assembly_culture,
+            assembly_public_key_token=assembly_public_key_token,
+            assembly_version=assembly_version,
+            changed_time=changed_time,
+            content=content,
+            content_link=content_link,
+            content_type=content_type,
+            created_time=created_time,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assembly_name: str,
+             assembly_culture: Optional[str] = None,
+             assembly_public_key_token: Optional[str] = None,
+             assembly_version: Optional[str] = None,
+             changed_time: Optional[str] = None,
+             content: Optional[Any] = None,
+             content_link: Optional['outputs.ContentLinkResponse'] = None,
+             content_type: Optional[str] = None,
+             created_time: Optional[str] = None,
+             metadata: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assemblyName' in kwargs:
+            assembly_name = kwargs['assemblyName']
+        if 'assemblyCulture' in kwargs:
+            assembly_culture = kwargs['assemblyCulture']
+        if 'assemblyPublicKeyToken' in kwargs:
+            assembly_public_key_token = kwargs['assemblyPublicKeyToken']
+        if 'assemblyVersion' in kwargs:
+            assembly_version = kwargs['assemblyVersion']
+        if 'changedTime' in kwargs:
+            changed_time = kwargs['changedTime']
+        if 'contentLink' in kwargs:
+            content_link = kwargs['contentLink']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+
+        _setter("assembly_name", assembly_name)
         if assembly_culture is not None:
-            pulumi.set(__self__, "assembly_culture", assembly_culture)
+            _setter("assembly_culture", assembly_culture)
         if assembly_public_key_token is not None:
-            pulumi.set(__self__, "assembly_public_key_token", assembly_public_key_token)
+            _setter("assembly_public_key_token", assembly_public_key_token)
         if assembly_version is not None:
-            pulumi.set(__self__, "assembly_version", assembly_version)
+            _setter("assembly_version", assembly_version)
         if changed_time is not None:
-            pulumi.set(__self__, "changed_time", changed_time)
+            _setter("changed_time", changed_time)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if content_link is not None:
-            pulumi.set(__self__, "content_link", content_link)
+            _setter("content_link", content_link)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter(name="assemblyName")
@@ -1889,10 +2424,25 @@ class AzureResourceErrorInfoResponse(dict):
         :param str message: The error message.
         :param Sequence['AzureResourceErrorInfoResponse'] details: The error details.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
+        AzureResourceErrorInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+            details=details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             message: str,
+             details: Optional[Sequence['outputs.AzureResourceErrorInfoResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("code", code)
+        _setter("message", message)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
 
     @property
     @pulumi.getter
@@ -1947,8 +2497,21 @@ class B2BPartnerContentResponse(dict):
         The B2B partner content.
         :param Sequence['BusinessIdentityResponse'] business_identities: The list of partner business identities.
         """
+        B2BPartnerContentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            business_identities=business_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             business_identities: Optional[Sequence['outputs.BusinessIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'businessIdentities' in kwargs:
+            business_identities = kwargs['businessIdentities']
+
         if business_identities is not None:
-            pulumi.set(__self__, "business_identities", business_identities)
+            _setter("business_identities", business_identities)
 
     @property
     @pulumi.getter(name="businessIdentities")
@@ -2000,14 +2563,41 @@ class BatchConfigurationPropertiesResponse(dict):
         :param str changed_time: The artifact changed time.
         :param str created_time: The artifact creation time.
         """
-        pulumi.set(__self__, "batch_group_name", batch_group_name)
-        pulumi.set(__self__, "release_criteria", release_criteria)
+        BatchConfigurationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            batch_group_name=batch_group_name,
+            release_criteria=release_criteria,
+            changed_time=changed_time,
+            created_time=created_time,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             batch_group_name: str,
+             release_criteria: 'outputs.BatchReleaseCriteriaResponse',
+             changed_time: Optional[str] = None,
+             created_time: Optional[str] = None,
+             metadata: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'batchGroupName' in kwargs:
+            batch_group_name = kwargs['batchGroupName']
+        if 'releaseCriteria' in kwargs:
+            release_criteria = kwargs['releaseCriteria']
+        if 'changedTime' in kwargs:
+            changed_time = kwargs['changedTime']
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+
+        _setter("batch_group_name", batch_group_name)
+        _setter("release_criteria", release_criteria)
         if changed_time is not None:
-            pulumi.set(__self__, "changed_time", changed_time)
+            _setter("changed_time", changed_time)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter(name="batchGroupName")
@@ -2081,12 +2671,31 @@ class BatchReleaseCriteriaResponse(dict):
         :param int message_count: The message count.
         :param 'WorkflowTriggerRecurrenceResponse' recurrence: The recurrence.
         """
+        BatchReleaseCriteriaResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            batch_size=batch_size,
+            message_count=message_count,
+            recurrence=recurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             batch_size: Optional[int] = None,
+             message_count: Optional[int] = None,
+             recurrence: Optional['outputs.WorkflowTriggerRecurrenceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'messageCount' in kwargs:
+            message_count = kwargs['messageCount']
+
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if message_count is not None:
-            pulumi.set(__self__, "message_count", message_count)
+            _setter("message_count", message_count)
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
 
     @property
     @pulumi.getter(name="batchSize")
@@ -2126,8 +2735,21 @@ class BusinessIdentityResponse(dict):
         :param str qualifier: The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
         :param str value: The user defined business identity value.
         """
-        pulumi.set(__self__, "qualifier", qualifier)
-        pulumi.set(__self__, "value", value)
+        BusinessIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            qualifier=qualifier,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             qualifier: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("qualifier", qualifier)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2159,10 +2781,23 @@ class ContentHashResponse(dict):
         :param str algorithm: The algorithm of the content hash.
         :param str value: The value of the content hash.
         """
+        ContentHashResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            algorithm=algorithm,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             algorithm: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if algorithm is not None:
-            pulumi.set(__self__, "algorithm", algorithm)
+            _setter("algorithm", algorithm)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2221,12 +2856,37 @@ class ContentLinkResponse(dict):
         :param Any metadata: The metadata.
         :param str uri: The content link URI.
         """
-        pulumi.set(__self__, "content_hash", content_hash)
-        pulumi.set(__self__, "content_size", content_size)
-        pulumi.set(__self__, "content_version", content_version)
-        pulumi.set(__self__, "metadata", metadata)
+        ContentLinkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_hash=content_hash,
+            content_size=content_size,
+            content_version=content_version,
+            metadata=metadata,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_hash: 'outputs.ContentHashResponse',
+             content_size: float,
+             content_version: str,
+             metadata: Any,
+             uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentHash' in kwargs:
+            content_hash = kwargs['contentHash']
+        if 'contentSize' in kwargs:
+            content_size = kwargs['contentSize']
+        if 'contentVersion' in kwargs:
+            content_version = kwargs['contentVersion']
+
+        _setter("content_hash", content_hash)
+        _setter("content_size", content_size)
+        _setter("content_version", content_version)
+        _setter("metadata", metadata)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="contentHash")
@@ -2337,19 +2997,72 @@ class EdifactAcknowledgementSettingsResponse(dict):
         :param str acknowledgement_control_number_prefix: The acknowledgement control number prefix.
         :param str acknowledgement_control_number_suffix: The acknowledgement control number suffix.
         """
-        pulumi.set(__self__, "acknowledgement_control_number_lower_bound", acknowledgement_control_number_lower_bound)
-        pulumi.set(__self__, "acknowledgement_control_number_upper_bound", acknowledgement_control_number_upper_bound)
-        pulumi.set(__self__, "batch_functional_acknowledgements", batch_functional_acknowledgements)
-        pulumi.set(__self__, "batch_technical_acknowledgements", batch_technical_acknowledgements)
-        pulumi.set(__self__, "need_functional_acknowledgement", need_functional_acknowledgement)
-        pulumi.set(__self__, "need_loop_for_valid_messages", need_loop_for_valid_messages)
-        pulumi.set(__self__, "need_technical_acknowledgement", need_technical_acknowledgement)
-        pulumi.set(__self__, "rollover_acknowledgement_control_number", rollover_acknowledgement_control_number)
-        pulumi.set(__self__, "send_synchronous_acknowledgement", send_synchronous_acknowledgement)
+        EdifactAcknowledgementSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledgement_control_number_lower_bound=acknowledgement_control_number_lower_bound,
+            acknowledgement_control_number_upper_bound=acknowledgement_control_number_upper_bound,
+            batch_functional_acknowledgements=batch_functional_acknowledgements,
+            batch_technical_acknowledgements=batch_technical_acknowledgements,
+            need_functional_acknowledgement=need_functional_acknowledgement,
+            need_loop_for_valid_messages=need_loop_for_valid_messages,
+            need_technical_acknowledgement=need_technical_acknowledgement,
+            rollover_acknowledgement_control_number=rollover_acknowledgement_control_number,
+            send_synchronous_acknowledgement=send_synchronous_acknowledgement,
+            acknowledgement_control_number_prefix=acknowledgement_control_number_prefix,
+            acknowledgement_control_number_suffix=acknowledgement_control_number_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledgement_control_number_lower_bound: int,
+             acknowledgement_control_number_upper_bound: int,
+             batch_functional_acknowledgements: bool,
+             batch_technical_acknowledgements: bool,
+             need_functional_acknowledgement: bool,
+             need_loop_for_valid_messages: bool,
+             need_technical_acknowledgement: bool,
+             rollover_acknowledgement_control_number: bool,
+             send_synchronous_acknowledgement: bool,
+             acknowledgement_control_number_prefix: Optional[str] = None,
+             acknowledgement_control_number_suffix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acknowledgementControlNumberLowerBound' in kwargs:
+            acknowledgement_control_number_lower_bound = kwargs['acknowledgementControlNumberLowerBound']
+        if 'acknowledgementControlNumberUpperBound' in kwargs:
+            acknowledgement_control_number_upper_bound = kwargs['acknowledgementControlNumberUpperBound']
+        if 'batchFunctionalAcknowledgements' in kwargs:
+            batch_functional_acknowledgements = kwargs['batchFunctionalAcknowledgements']
+        if 'batchTechnicalAcknowledgements' in kwargs:
+            batch_technical_acknowledgements = kwargs['batchTechnicalAcknowledgements']
+        if 'needFunctionalAcknowledgement' in kwargs:
+            need_functional_acknowledgement = kwargs['needFunctionalAcknowledgement']
+        if 'needLoopForValidMessages' in kwargs:
+            need_loop_for_valid_messages = kwargs['needLoopForValidMessages']
+        if 'needTechnicalAcknowledgement' in kwargs:
+            need_technical_acknowledgement = kwargs['needTechnicalAcknowledgement']
+        if 'rolloverAcknowledgementControlNumber' in kwargs:
+            rollover_acknowledgement_control_number = kwargs['rolloverAcknowledgementControlNumber']
+        if 'sendSynchronousAcknowledgement' in kwargs:
+            send_synchronous_acknowledgement = kwargs['sendSynchronousAcknowledgement']
+        if 'acknowledgementControlNumberPrefix' in kwargs:
+            acknowledgement_control_number_prefix = kwargs['acknowledgementControlNumberPrefix']
+        if 'acknowledgementControlNumberSuffix' in kwargs:
+            acknowledgement_control_number_suffix = kwargs['acknowledgementControlNumberSuffix']
+
+        _setter("acknowledgement_control_number_lower_bound", acknowledgement_control_number_lower_bound)
+        _setter("acknowledgement_control_number_upper_bound", acknowledgement_control_number_upper_bound)
+        _setter("batch_functional_acknowledgements", batch_functional_acknowledgements)
+        _setter("batch_technical_acknowledgements", batch_technical_acknowledgements)
+        _setter("need_functional_acknowledgement", need_functional_acknowledgement)
+        _setter("need_loop_for_valid_messages", need_loop_for_valid_messages)
+        _setter("need_technical_acknowledgement", need_technical_acknowledgement)
+        _setter("rollover_acknowledgement_control_number", rollover_acknowledgement_control_number)
+        _setter("send_synchronous_acknowledgement", send_synchronous_acknowledgement)
         if acknowledgement_control_number_prefix is not None:
-            pulumi.set(__self__, "acknowledgement_control_number_prefix", acknowledgement_control_number_prefix)
+            _setter("acknowledgement_control_number_prefix", acknowledgement_control_number_prefix)
         if acknowledgement_control_number_suffix is not None:
-            pulumi.set(__self__, "acknowledgement_control_number_suffix", acknowledgement_control_number_suffix)
+            _setter("acknowledgement_control_number_suffix", acknowledgement_control_number_suffix)
 
     @property
     @pulumi.getter(name="acknowledgementControlNumberLowerBound")
@@ -2472,8 +3185,25 @@ class EdifactAgreementContentResponse(dict):
         :param 'EdifactOneWayAgreementResponse' receive_agreement: The EDIFACT one-way receive agreement.
         :param 'EdifactOneWayAgreementResponse' send_agreement: The EDIFACT one-way send agreement.
         """
-        pulumi.set(__self__, "receive_agreement", receive_agreement)
-        pulumi.set(__self__, "send_agreement", send_agreement)
+        EdifactAgreementContentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            receive_agreement=receive_agreement,
+            send_agreement=send_agreement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             receive_agreement: 'outputs.EdifactOneWayAgreementResponse',
+             send_agreement: 'outputs.EdifactOneWayAgreementResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'receiveAgreement' in kwargs:
+            receive_agreement = kwargs['receiveAgreement']
+        if 'sendAgreement' in kwargs:
+            send_agreement = kwargs['sendAgreement']
+
+        _setter("receive_agreement", receive_agreement)
+        _setter("send_agreement", send_agreement)
 
     @property
     @pulumi.getter(name="receiveAgreement")
@@ -2564,23 +3294,80 @@ class EdifactDelimiterOverrideResponse(dict):
         :param str message_version: The message version.
         :param str target_namespace: The target namespace on which this delimiter settings has to be applied.
         """
-        pulumi.set(__self__, "component_separator", component_separator)
-        pulumi.set(__self__, "data_element_separator", data_element_separator)
-        pulumi.set(__self__, "decimal_point_indicator", decimal_point_indicator)
-        pulumi.set(__self__, "release_indicator", release_indicator)
-        pulumi.set(__self__, "repetition_separator", repetition_separator)
-        pulumi.set(__self__, "segment_terminator", segment_terminator)
-        pulumi.set(__self__, "segment_terminator_suffix", segment_terminator_suffix)
+        EdifactDelimiterOverrideResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_separator=component_separator,
+            data_element_separator=data_element_separator,
+            decimal_point_indicator=decimal_point_indicator,
+            release_indicator=release_indicator,
+            repetition_separator=repetition_separator,
+            segment_terminator=segment_terminator,
+            segment_terminator_suffix=segment_terminator_suffix,
+            message_association_assigned_code=message_association_assigned_code,
+            message_id=message_id,
+            message_release=message_release,
+            message_version=message_version,
+            target_namespace=target_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_separator: int,
+             data_element_separator: int,
+             decimal_point_indicator: str,
+             release_indicator: int,
+             repetition_separator: int,
+             segment_terminator: int,
+             segment_terminator_suffix: str,
+             message_association_assigned_code: Optional[str] = None,
+             message_id: Optional[str] = None,
+             message_release: Optional[str] = None,
+             message_version: Optional[str] = None,
+             target_namespace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'componentSeparator' in kwargs:
+            component_separator = kwargs['componentSeparator']
+        if 'dataElementSeparator' in kwargs:
+            data_element_separator = kwargs['dataElementSeparator']
+        if 'decimalPointIndicator' in kwargs:
+            decimal_point_indicator = kwargs['decimalPointIndicator']
+        if 'releaseIndicator' in kwargs:
+            release_indicator = kwargs['releaseIndicator']
+        if 'repetitionSeparator' in kwargs:
+            repetition_separator = kwargs['repetitionSeparator']
+        if 'segmentTerminator' in kwargs:
+            segment_terminator = kwargs['segmentTerminator']
+        if 'segmentTerminatorSuffix' in kwargs:
+            segment_terminator_suffix = kwargs['segmentTerminatorSuffix']
+        if 'messageAssociationAssignedCode' in kwargs:
+            message_association_assigned_code = kwargs['messageAssociationAssignedCode']
+        if 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if 'messageRelease' in kwargs:
+            message_release = kwargs['messageRelease']
+        if 'messageVersion' in kwargs:
+            message_version = kwargs['messageVersion']
+        if 'targetNamespace' in kwargs:
+            target_namespace = kwargs['targetNamespace']
+
+        _setter("component_separator", component_separator)
+        _setter("data_element_separator", data_element_separator)
+        _setter("decimal_point_indicator", decimal_point_indicator)
+        _setter("release_indicator", release_indicator)
+        _setter("repetition_separator", repetition_separator)
+        _setter("segment_terminator", segment_terminator)
+        _setter("segment_terminator_suffix", segment_terminator_suffix)
         if message_association_assigned_code is not None:
-            pulumi.set(__self__, "message_association_assigned_code", message_association_assigned_code)
+            _setter("message_association_assigned_code", message_association_assigned_code)
         if message_id is not None:
-            pulumi.set(__self__, "message_id", message_id)
+            _setter("message_id", message_id)
         if message_release is not None:
-            pulumi.set(__self__, "message_release", message_release)
+            _setter("message_release", message_release)
         if message_version is not None:
-            pulumi.set(__self__, "message_version", message_version)
+            _setter("message_version", message_version)
         if target_namespace is not None:
-            pulumi.set(__self__, "target_namespace", target_namespace)
+            _setter("target_namespace", target_namespace)
 
     @property
     @pulumi.getter(name="componentSeparator")
@@ -2763,36 +3550,105 @@ class EdifactEnvelopeOverrideResponse(dict):
         :param str sender_application_qualifier: The sender application qualifier.
         :param str target_namespace: The target namespace on which this envelope settings has to be applied.
         """
+        EdifactEnvelopeOverrideResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_password=application_password,
+            association_assigned_code=association_assigned_code,
+            controlling_agency_code=controlling_agency_code,
+            functional_group_id=functional_group_id,
+            group_header_message_release=group_header_message_release,
+            group_header_message_version=group_header_message_version,
+            message_association_assigned_code=message_association_assigned_code,
+            message_id=message_id,
+            message_release=message_release,
+            message_version=message_version,
+            receiver_application_id=receiver_application_id,
+            receiver_application_qualifier=receiver_application_qualifier,
+            sender_application_id=sender_application_id,
+            sender_application_qualifier=sender_application_qualifier,
+            target_namespace=target_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_password: Optional[str] = None,
+             association_assigned_code: Optional[str] = None,
+             controlling_agency_code: Optional[str] = None,
+             functional_group_id: Optional[str] = None,
+             group_header_message_release: Optional[str] = None,
+             group_header_message_version: Optional[str] = None,
+             message_association_assigned_code: Optional[str] = None,
+             message_id: Optional[str] = None,
+             message_release: Optional[str] = None,
+             message_version: Optional[str] = None,
+             receiver_application_id: Optional[str] = None,
+             receiver_application_qualifier: Optional[str] = None,
+             sender_application_id: Optional[str] = None,
+             sender_application_qualifier: Optional[str] = None,
+             target_namespace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationPassword' in kwargs:
+            application_password = kwargs['applicationPassword']
+        if 'associationAssignedCode' in kwargs:
+            association_assigned_code = kwargs['associationAssignedCode']
+        if 'controllingAgencyCode' in kwargs:
+            controlling_agency_code = kwargs['controllingAgencyCode']
+        if 'functionalGroupId' in kwargs:
+            functional_group_id = kwargs['functionalGroupId']
+        if 'groupHeaderMessageRelease' in kwargs:
+            group_header_message_release = kwargs['groupHeaderMessageRelease']
+        if 'groupHeaderMessageVersion' in kwargs:
+            group_header_message_version = kwargs['groupHeaderMessageVersion']
+        if 'messageAssociationAssignedCode' in kwargs:
+            message_association_assigned_code = kwargs['messageAssociationAssignedCode']
+        if 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if 'messageRelease' in kwargs:
+            message_release = kwargs['messageRelease']
+        if 'messageVersion' in kwargs:
+            message_version = kwargs['messageVersion']
+        if 'receiverApplicationId' in kwargs:
+            receiver_application_id = kwargs['receiverApplicationId']
+        if 'receiverApplicationQualifier' in kwargs:
+            receiver_application_qualifier = kwargs['receiverApplicationQualifier']
+        if 'senderApplicationId' in kwargs:
+            sender_application_id = kwargs['senderApplicationId']
+        if 'senderApplicationQualifier' in kwargs:
+            sender_application_qualifier = kwargs['senderApplicationQualifier']
+        if 'targetNamespace' in kwargs:
+            target_namespace = kwargs['targetNamespace']
+
         if application_password is not None:
-            pulumi.set(__self__, "application_password", application_password)
+            _setter("application_password", application_password)
         if association_assigned_code is not None:
-            pulumi.set(__self__, "association_assigned_code", association_assigned_code)
+            _setter("association_assigned_code", association_assigned_code)
         if controlling_agency_code is not None:
-            pulumi.set(__self__, "controlling_agency_code", controlling_agency_code)
+            _setter("controlling_agency_code", controlling_agency_code)
         if functional_group_id is not None:
-            pulumi.set(__self__, "functional_group_id", functional_group_id)
+            _setter("functional_group_id", functional_group_id)
         if group_header_message_release is not None:
-            pulumi.set(__self__, "group_header_message_release", group_header_message_release)
+            _setter("group_header_message_release", group_header_message_release)
         if group_header_message_version is not None:
-            pulumi.set(__self__, "group_header_message_version", group_header_message_version)
+            _setter("group_header_message_version", group_header_message_version)
         if message_association_assigned_code is not None:
-            pulumi.set(__self__, "message_association_assigned_code", message_association_assigned_code)
+            _setter("message_association_assigned_code", message_association_assigned_code)
         if message_id is not None:
-            pulumi.set(__self__, "message_id", message_id)
+            _setter("message_id", message_id)
         if message_release is not None:
-            pulumi.set(__self__, "message_release", message_release)
+            _setter("message_release", message_release)
         if message_version is not None:
-            pulumi.set(__self__, "message_version", message_version)
+            _setter("message_version", message_version)
         if receiver_application_id is not None:
-            pulumi.set(__self__, "receiver_application_id", receiver_application_id)
+            _setter("receiver_application_id", receiver_application_id)
         if receiver_application_qualifier is not None:
-            pulumi.set(__self__, "receiver_application_qualifier", receiver_application_qualifier)
+            _setter("receiver_application_qualifier", receiver_application_qualifier)
         if sender_application_id is not None:
-            pulumi.set(__self__, "sender_application_id", sender_application_id)
+            _setter("sender_application_id", sender_application_id)
         if sender_application_qualifier is not None:
-            pulumi.set(__self__, "sender_application_qualifier", sender_application_qualifier)
+            _setter("sender_application_qualifier", sender_application_qualifier)
         if target_namespace is not None:
-            pulumi.set(__self__, "target_namespace", target_namespace)
+            _setter("target_namespace", target_namespace)
 
     @property
     @pulumi.getter(name="applicationPassword")
@@ -3103,74 +3959,247 @@ class EdifactEnvelopeSettingsResponse(dict):
         :param str transaction_set_control_number_prefix: The transaction set control number prefix.
         :param str transaction_set_control_number_suffix: The transaction set control number suffix.
         """
-        pulumi.set(__self__, "apply_delimiter_string_advice", apply_delimiter_string_advice)
-        pulumi.set(__self__, "create_grouping_segments", create_grouping_segments)
-        pulumi.set(__self__, "enable_default_group_headers", enable_default_group_headers)
-        pulumi.set(__self__, "group_control_number_lower_bound", group_control_number_lower_bound)
-        pulumi.set(__self__, "group_control_number_upper_bound", group_control_number_upper_bound)
-        pulumi.set(__self__, "interchange_control_number_lower_bound", interchange_control_number_lower_bound)
-        pulumi.set(__self__, "interchange_control_number_upper_bound", interchange_control_number_upper_bound)
-        pulumi.set(__self__, "is_test_interchange", is_test_interchange)
-        pulumi.set(__self__, "overwrite_existing_transaction_set_control_number", overwrite_existing_transaction_set_control_number)
-        pulumi.set(__self__, "rollover_group_control_number", rollover_group_control_number)
-        pulumi.set(__self__, "rollover_interchange_control_number", rollover_interchange_control_number)
-        pulumi.set(__self__, "rollover_transaction_set_control_number", rollover_transaction_set_control_number)
-        pulumi.set(__self__, "transaction_set_control_number_lower_bound", transaction_set_control_number_lower_bound)
-        pulumi.set(__self__, "transaction_set_control_number_upper_bound", transaction_set_control_number_upper_bound)
+        EdifactEnvelopeSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apply_delimiter_string_advice=apply_delimiter_string_advice,
+            create_grouping_segments=create_grouping_segments,
+            enable_default_group_headers=enable_default_group_headers,
+            group_control_number_lower_bound=group_control_number_lower_bound,
+            group_control_number_upper_bound=group_control_number_upper_bound,
+            interchange_control_number_lower_bound=interchange_control_number_lower_bound,
+            interchange_control_number_upper_bound=interchange_control_number_upper_bound,
+            is_test_interchange=is_test_interchange,
+            overwrite_existing_transaction_set_control_number=overwrite_existing_transaction_set_control_number,
+            rollover_group_control_number=rollover_group_control_number,
+            rollover_interchange_control_number=rollover_interchange_control_number,
+            rollover_transaction_set_control_number=rollover_transaction_set_control_number,
+            transaction_set_control_number_lower_bound=transaction_set_control_number_lower_bound,
+            transaction_set_control_number_upper_bound=transaction_set_control_number_upper_bound,
+            application_reference_id=application_reference_id,
+            communication_agreement_id=communication_agreement_id,
+            functional_group_id=functional_group_id,
+            group_application_password=group_application_password,
+            group_application_receiver_id=group_application_receiver_id,
+            group_application_receiver_qualifier=group_application_receiver_qualifier,
+            group_application_sender_id=group_application_sender_id,
+            group_application_sender_qualifier=group_application_sender_qualifier,
+            group_association_assigned_code=group_association_assigned_code,
+            group_control_number_prefix=group_control_number_prefix,
+            group_control_number_suffix=group_control_number_suffix,
+            group_controlling_agency_code=group_controlling_agency_code,
+            group_message_release=group_message_release,
+            group_message_version=group_message_version,
+            interchange_control_number_prefix=interchange_control_number_prefix,
+            interchange_control_number_suffix=interchange_control_number_suffix,
+            processing_priority_code=processing_priority_code,
+            receiver_internal_identification=receiver_internal_identification,
+            receiver_internal_sub_identification=receiver_internal_sub_identification,
+            receiver_reverse_routing_address=receiver_reverse_routing_address,
+            recipient_reference_password_qualifier=recipient_reference_password_qualifier,
+            recipient_reference_password_value=recipient_reference_password_value,
+            sender_internal_identification=sender_internal_identification,
+            sender_internal_sub_identification=sender_internal_sub_identification,
+            sender_reverse_routing_address=sender_reverse_routing_address,
+            transaction_set_control_number_prefix=transaction_set_control_number_prefix,
+            transaction_set_control_number_suffix=transaction_set_control_number_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apply_delimiter_string_advice: bool,
+             create_grouping_segments: bool,
+             enable_default_group_headers: bool,
+             group_control_number_lower_bound: float,
+             group_control_number_upper_bound: float,
+             interchange_control_number_lower_bound: float,
+             interchange_control_number_upper_bound: float,
+             is_test_interchange: bool,
+             overwrite_existing_transaction_set_control_number: bool,
+             rollover_group_control_number: bool,
+             rollover_interchange_control_number: bool,
+             rollover_transaction_set_control_number: bool,
+             transaction_set_control_number_lower_bound: float,
+             transaction_set_control_number_upper_bound: float,
+             application_reference_id: Optional[str] = None,
+             communication_agreement_id: Optional[str] = None,
+             functional_group_id: Optional[str] = None,
+             group_application_password: Optional[str] = None,
+             group_application_receiver_id: Optional[str] = None,
+             group_application_receiver_qualifier: Optional[str] = None,
+             group_application_sender_id: Optional[str] = None,
+             group_application_sender_qualifier: Optional[str] = None,
+             group_association_assigned_code: Optional[str] = None,
+             group_control_number_prefix: Optional[str] = None,
+             group_control_number_suffix: Optional[str] = None,
+             group_controlling_agency_code: Optional[str] = None,
+             group_message_release: Optional[str] = None,
+             group_message_version: Optional[str] = None,
+             interchange_control_number_prefix: Optional[str] = None,
+             interchange_control_number_suffix: Optional[str] = None,
+             processing_priority_code: Optional[str] = None,
+             receiver_internal_identification: Optional[str] = None,
+             receiver_internal_sub_identification: Optional[str] = None,
+             receiver_reverse_routing_address: Optional[str] = None,
+             recipient_reference_password_qualifier: Optional[str] = None,
+             recipient_reference_password_value: Optional[str] = None,
+             sender_internal_identification: Optional[str] = None,
+             sender_internal_sub_identification: Optional[str] = None,
+             sender_reverse_routing_address: Optional[str] = None,
+             transaction_set_control_number_prefix: Optional[str] = None,
+             transaction_set_control_number_suffix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applyDelimiterStringAdvice' in kwargs:
+            apply_delimiter_string_advice = kwargs['applyDelimiterStringAdvice']
+        if 'createGroupingSegments' in kwargs:
+            create_grouping_segments = kwargs['createGroupingSegments']
+        if 'enableDefaultGroupHeaders' in kwargs:
+            enable_default_group_headers = kwargs['enableDefaultGroupHeaders']
+        if 'groupControlNumberLowerBound' in kwargs:
+            group_control_number_lower_bound = kwargs['groupControlNumberLowerBound']
+        if 'groupControlNumberUpperBound' in kwargs:
+            group_control_number_upper_bound = kwargs['groupControlNumberUpperBound']
+        if 'interchangeControlNumberLowerBound' in kwargs:
+            interchange_control_number_lower_bound = kwargs['interchangeControlNumberLowerBound']
+        if 'interchangeControlNumberUpperBound' in kwargs:
+            interchange_control_number_upper_bound = kwargs['interchangeControlNumberUpperBound']
+        if 'isTestInterchange' in kwargs:
+            is_test_interchange = kwargs['isTestInterchange']
+        if 'overwriteExistingTransactionSetControlNumber' in kwargs:
+            overwrite_existing_transaction_set_control_number = kwargs['overwriteExistingTransactionSetControlNumber']
+        if 'rolloverGroupControlNumber' in kwargs:
+            rollover_group_control_number = kwargs['rolloverGroupControlNumber']
+        if 'rolloverInterchangeControlNumber' in kwargs:
+            rollover_interchange_control_number = kwargs['rolloverInterchangeControlNumber']
+        if 'rolloverTransactionSetControlNumber' in kwargs:
+            rollover_transaction_set_control_number = kwargs['rolloverTransactionSetControlNumber']
+        if 'transactionSetControlNumberLowerBound' in kwargs:
+            transaction_set_control_number_lower_bound = kwargs['transactionSetControlNumberLowerBound']
+        if 'transactionSetControlNumberUpperBound' in kwargs:
+            transaction_set_control_number_upper_bound = kwargs['transactionSetControlNumberUpperBound']
+        if 'applicationReferenceId' in kwargs:
+            application_reference_id = kwargs['applicationReferenceId']
+        if 'communicationAgreementId' in kwargs:
+            communication_agreement_id = kwargs['communicationAgreementId']
+        if 'functionalGroupId' in kwargs:
+            functional_group_id = kwargs['functionalGroupId']
+        if 'groupApplicationPassword' in kwargs:
+            group_application_password = kwargs['groupApplicationPassword']
+        if 'groupApplicationReceiverId' in kwargs:
+            group_application_receiver_id = kwargs['groupApplicationReceiverId']
+        if 'groupApplicationReceiverQualifier' in kwargs:
+            group_application_receiver_qualifier = kwargs['groupApplicationReceiverQualifier']
+        if 'groupApplicationSenderId' in kwargs:
+            group_application_sender_id = kwargs['groupApplicationSenderId']
+        if 'groupApplicationSenderQualifier' in kwargs:
+            group_application_sender_qualifier = kwargs['groupApplicationSenderQualifier']
+        if 'groupAssociationAssignedCode' in kwargs:
+            group_association_assigned_code = kwargs['groupAssociationAssignedCode']
+        if 'groupControlNumberPrefix' in kwargs:
+            group_control_number_prefix = kwargs['groupControlNumberPrefix']
+        if 'groupControlNumberSuffix' in kwargs:
+            group_control_number_suffix = kwargs['groupControlNumberSuffix']
+        if 'groupControllingAgencyCode' in kwargs:
+            group_controlling_agency_code = kwargs['groupControllingAgencyCode']
+        if 'groupMessageRelease' in kwargs:
+            group_message_release = kwargs['groupMessageRelease']
+        if 'groupMessageVersion' in kwargs:
+            group_message_version = kwargs['groupMessageVersion']
+        if 'interchangeControlNumberPrefix' in kwargs:
+            interchange_control_number_prefix = kwargs['interchangeControlNumberPrefix']
+        if 'interchangeControlNumberSuffix' in kwargs:
+            interchange_control_number_suffix = kwargs['interchangeControlNumberSuffix']
+        if 'processingPriorityCode' in kwargs:
+            processing_priority_code = kwargs['processingPriorityCode']
+        if 'receiverInternalIdentification' in kwargs:
+            receiver_internal_identification = kwargs['receiverInternalIdentification']
+        if 'receiverInternalSubIdentification' in kwargs:
+            receiver_internal_sub_identification = kwargs['receiverInternalSubIdentification']
+        if 'receiverReverseRoutingAddress' in kwargs:
+            receiver_reverse_routing_address = kwargs['receiverReverseRoutingAddress']
+        if 'recipientReferencePasswordQualifier' in kwargs:
+            recipient_reference_password_qualifier = kwargs['recipientReferencePasswordQualifier']
+        if 'recipientReferencePasswordValue' in kwargs:
+            recipient_reference_password_value = kwargs['recipientReferencePasswordValue']
+        if 'senderInternalIdentification' in kwargs:
+            sender_internal_identification = kwargs['senderInternalIdentification']
+        if 'senderInternalSubIdentification' in kwargs:
+            sender_internal_sub_identification = kwargs['senderInternalSubIdentification']
+        if 'senderReverseRoutingAddress' in kwargs:
+            sender_reverse_routing_address = kwargs['senderReverseRoutingAddress']
+        if 'transactionSetControlNumberPrefix' in kwargs:
+            transaction_set_control_number_prefix = kwargs['transactionSetControlNumberPrefix']
+        if 'transactionSetControlNumberSuffix' in kwargs:
+            transaction_set_control_number_suffix = kwargs['transactionSetControlNumberSuffix']
+
+        _setter("apply_delimiter_string_advice", apply_delimiter_string_advice)
+        _setter("create_grouping_segments", create_grouping_segments)
+        _setter("enable_default_group_headers", enable_default_group_headers)
+        _setter("group_control_number_lower_bound", group_control_number_lower_bound)
+        _setter("group_control_number_upper_bound", group_control_number_upper_bound)
+        _setter("interchange_control_number_lower_bound", interchange_control_number_lower_bound)
+        _setter("interchange_control_number_upper_bound", interchange_control_number_upper_bound)
+        _setter("is_test_interchange", is_test_interchange)
+        _setter("overwrite_existing_transaction_set_control_number", overwrite_existing_transaction_set_control_number)
+        _setter("rollover_group_control_number", rollover_group_control_number)
+        _setter("rollover_interchange_control_number", rollover_interchange_control_number)
+        _setter("rollover_transaction_set_control_number", rollover_transaction_set_control_number)
+        _setter("transaction_set_control_number_lower_bound", transaction_set_control_number_lower_bound)
+        _setter("transaction_set_control_number_upper_bound", transaction_set_control_number_upper_bound)
         if application_reference_id is not None:
-            pulumi.set(__self__, "application_reference_id", application_reference_id)
+            _setter("application_reference_id", application_reference_id)
         if communication_agreement_id is not None:
-            pulumi.set(__self__, "communication_agreement_id", communication_agreement_id)
+            _setter("communication_agreement_id", communication_agreement_id)
         if functional_group_id is not None:
-            pulumi.set(__self__, "functional_group_id", functional_group_id)
+            _setter("functional_group_id", functional_group_id)
         if group_application_password is not None:
-            pulumi.set(__self__, "group_application_password", group_application_password)
+            _setter("group_application_password", group_application_password)
         if group_application_receiver_id is not None:
-            pulumi.set(__self__, "group_application_receiver_id", group_application_receiver_id)
+            _setter("group_application_receiver_id", group_application_receiver_id)
         if group_application_receiver_qualifier is not None:
-            pulumi.set(__self__, "group_application_receiver_qualifier", group_application_receiver_qualifier)
+            _setter("group_application_receiver_qualifier", group_application_receiver_qualifier)
         if group_application_sender_id is not None:
-            pulumi.set(__self__, "group_application_sender_id", group_application_sender_id)
+            _setter("group_application_sender_id", group_application_sender_id)
         if group_application_sender_qualifier is not None:
-            pulumi.set(__self__, "group_application_sender_qualifier", group_application_sender_qualifier)
+            _setter("group_application_sender_qualifier", group_application_sender_qualifier)
         if group_association_assigned_code is not None:
-            pulumi.set(__self__, "group_association_assigned_code", group_association_assigned_code)
+            _setter("group_association_assigned_code", group_association_assigned_code)
         if group_control_number_prefix is not None:
-            pulumi.set(__self__, "group_control_number_prefix", group_control_number_prefix)
+            _setter("group_control_number_prefix", group_control_number_prefix)
         if group_control_number_suffix is not None:
-            pulumi.set(__self__, "group_control_number_suffix", group_control_number_suffix)
+            _setter("group_control_number_suffix", group_control_number_suffix)
         if group_controlling_agency_code is not None:
-            pulumi.set(__self__, "group_controlling_agency_code", group_controlling_agency_code)
+            _setter("group_controlling_agency_code", group_controlling_agency_code)
         if group_message_release is not None:
-            pulumi.set(__self__, "group_message_release", group_message_release)
+            _setter("group_message_release", group_message_release)
         if group_message_version is not None:
-            pulumi.set(__self__, "group_message_version", group_message_version)
+            _setter("group_message_version", group_message_version)
         if interchange_control_number_prefix is not None:
-            pulumi.set(__self__, "interchange_control_number_prefix", interchange_control_number_prefix)
+            _setter("interchange_control_number_prefix", interchange_control_number_prefix)
         if interchange_control_number_suffix is not None:
-            pulumi.set(__self__, "interchange_control_number_suffix", interchange_control_number_suffix)
+            _setter("interchange_control_number_suffix", interchange_control_number_suffix)
         if processing_priority_code is not None:
-            pulumi.set(__self__, "processing_priority_code", processing_priority_code)
+            _setter("processing_priority_code", processing_priority_code)
         if receiver_internal_identification is not None:
-            pulumi.set(__self__, "receiver_internal_identification", receiver_internal_identification)
+            _setter("receiver_internal_identification", receiver_internal_identification)
         if receiver_internal_sub_identification is not None:
-            pulumi.set(__self__, "receiver_internal_sub_identification", receiver_internal_sub_identification)
+            _setter("receiver_internal_sub_identification", receiver_internal_sub_identification)
         if receiver_reverse_routing_address is not None:
-            pulumi.set(__self__, "receiver_reverse_routing_address", receiver_reverse_routing_address)
+            _setter("receiver_reverse_routing_address", receiver_reverse_routing_address)
         if recipient_reference_password_qualifier is not None:
-            pulumi.set(__self__, "recipient_reference_password_qualifier", recipient_reference_password_qualifier)
+            _setter("recipient_reference_password_qualifier", recipient_reference_password_qualifier)
         if recipient_reference_password_value is not None:
-            pulumi.set(__self__, "recipient_reference_password_value", recipient_reference_password_value)
+            _setter("recipient_reference_password_value", recipient_reference_password_value)
         if sender_internal_identification is not None:
-            pulumi.set(__self__, "sender_internal_identification", sender_internal_identification)
+            _setter("sender_internal_identification", sender_internal_identification)
         if sender_internal_sub_identification is not None:
-            pulumi.set(__self__, "sender_internal_sub_identification", sender_internal_sub_identification)
+            _setter("sender_internal_sub_identification", sender_internal_sub_identification)
         if sender_reverse_routing_address is not None:
-            pulumi.set(__self__, "sender_reverse_routing_address", sender_reverse_routing_address)
+            _setter("sender_reverse_routing_address", sender_reverse_routing_address)
         if transaction_set_control_number_prefix is not None:
-            pulumi.set(__self__, "transaction_set_control_number_prefix", transaction_set_control_number_prefix)
+            _setter("transaction_set_control_number_prefix", transaction_set_control_number_prefix)
         if transaction_set_control_number_suffix is not None:
-            pulumi.set(__self__, "transaction_set_control_number_suffix", transaction_set_control_number_suffix)
+            _setter("transaction_set_control_number_suffix", transaction_set_control_number_suffix)
 
     @property
     @pulumi.getter(name="applyDelimiterStringAdvice")
@@ -3569,19 +4598,72 @@ class EdifactFramingSettingsResponse(dict):
         :param str character_encoding: The character encoding.
         :param str service_code_list_directory_version: The service code list directory version.
         """
-        pulumi.set(__self__, "character_set", character_set)
-        pulumi.set(__self__, "component_separator", component_separator)
-        pulumi.set(__self__, "data_element_separator", data_element_separator)
-        pulumi.set(__self__, "decimal_point_indicator", decimal_point_indicator)
-        pulumi.set(__self__, "protocol_version", protocol_version)
-        pulumi.set(__self__, "release_indicator", release_indicator)
-        pulumi.set(__self__, "repetition_separator", repetition_separator)
-        pulumi.set(__self__, "segment_terminator", segment_terminator)
-        pulumi.set(__self__, "segment_terminator_suffix", segment_terminator_suffix)
+        EdifactFramingSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            character_set=character_set,
+            component_separator=component_separator,
+            data_element_separator=data_element_separator,
+            decimal_point_indicator=decimal_point_indicator,
+            protocol_version=protocol_version,
+            release_indicator=release_indicator,
+            repetition_separator=repetition_separator,
+            segment_terminator=segment_terminator,
+            segment_terminator_suffix=segment_terminator_suffix,
+            character_encoding=character_encoding,
+            service_code_list_directory_version=service_code_list_directory_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             character_set: str,
+             component_separator: int,
+             data_element_separator: int,
+             decimal_point_indicator: str,
+             protocol_version: int,
+             release_indicator: int,
+             repetition_separator: int,
+             segment_terminator: int,
+             segment_terminator_suffix: str,
+             character_encoding: Optional[str] = None,
+             service_code_list_directory_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'characterSet' in kwargs:
+            character_set = kwargs['characterSet']
+        if 'componentSeparator' in kwargs:
+            component_separator = kwargs['componentSeparator']
+        if 'dataElementSeparator' in kwargs:
+            data_element_separator = kwargs['dataElementSeparator']
+        if 'decimalPointIndicator' in kwargs:
+            decimal_point_indicator = kwargs['decimalPointIndicator']
+        if 'protocolVersion' in kwargs:
+            protocol_version = kwargs['protocolVersion']
+        if 'releaseIndicator' in kwargs:
+            release_indicator = kwargs['releaseIndicator']
+        if 'repetitionSeparator' in kwargs:
+            repetition_separator = kwargs['repetitionSeparator']
+        if 'segmentTerminator' in kwargs:
+            segment_terminator = kwargs['segmentTerminator']
+        if 'segmentTerminatorSuffix' in kwargs:
+            segment_terminator_suffix = kwargs['segmentTerminatorSuffix']
+        if 'characterEncoding' in kwargs:
+            character_encoding = kwargs['characterEncoding']
+        if 'serviceCodeListDirectoryVersion' in kwargs:
+            service_code_list_directory_version = kwargs['serviceCodeListDirectoryVersion']
+
+        _setter("character_set", character_set)
+        _setter("component_separator", component_separator)
+        _setter("data_element_separator", data_element_separator)
+        _setter("decimal_point_indicator", decimal_point_indicator)
+        _setter("protocol_version", protocol_version)
+        _setter("release_indicator", release_indicator)
+        _setter("repetition_separator", repetition_separator)
+        _setter("segment_terminator", segment_terminator)
+        _setter("segment_terminator_suffix", segment_terminator_suffix)
         if character_encoding is not None:
-            pulumi.set(__self__, "character_encoding", character_encoding)
+            _setter("character_encoding", character_encoding)
         if service_code_list_directory_version is not None:
-            pulumi.set(__self__, "service_code_list_directory_version", service_code_list_directory_version)
+            _setter("service_code_list_directory_version", service_code_list_directory_version)
 
     @property
     @pulumi.getter(name="characterSet")
@@ -3700,7 +4782,20 @@ class EdifactMessageFilterResponse(dict):
         The Edifact message filter for odata query.
         :param str message_filter_type: The message filter type.
         """
-        pulumi.set(__self__, "message_filter_type", message_filter_type)
+        EdifactMessageFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_filter_type=message_filter_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_filter_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'messageFilterType' in kwargs:
+            message_filter_type = kwargs['messageFilterType']
+
+        _setter("message_filter_type", message_filter_type)
 
     @property
     @pulumi.getter(name="messageFilterType")
@@ -3739,7 +4834,20 @@ class EdifactMessageIdentifierResponse(dict):
         The Edifact message identifier.
         :param str message_id: The message id on which this envelope settings has to be applied.
         """
-        pulumi.set(__self__, "message_id", message_id)
+        EdifactMessageIdentifierResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_id=message_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+
+        _setter("message_id", message_id)
 
     @property
     @pulumi.getter(name="messageId")
@@ -3786,9 +4894,30 @@ class EdifactOneWayAgreementResponse(dict):
         :param 'BusinessIdentityResponse' receiver_business_identity: The receiver business identity
         :param 'BusinessIdentityResponse' sender_business_identity: The sender business identity
         """
-        pulumi.set(__self__, "protocol_settings", protocol_settings)
-        pulumi.set(__self__, "receiver_business_identity", receiver_business_identity)
-        pulumi.set(__self__, "sender_business_identity", sender_business_identity)
+        EdifactOneWayAgreementResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol_settings=protocol_settings,
+            receiver_business_identity=receiver_business_identity,
+            sender_business_identity=sender_business_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol_settings: 'outputs.EdifactProtocolSettingsResponse',
+             receiver_business_identity: 'outputs.BusinessIdentityResponse',
+             sender_business_identity: 'outputs.BusinessIdentityResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'protocolSettings' in kwargs:
+            protocol_settings = kwargs['protocolSettings']
+        if 'receiverBusinessIdentity' in kwargs:
+            receiver_business_identity = kwargs['receiverBusinessIdentity']
+        if 'senderBusinessIdentity' in kwargs:
+            sender_business_identity = kwargs['senderBusinessIdentity']
+
+        _setter("protocol_settings", protocol_settings)
+        _setter("receiver_business_identity", receiver_business_identity)
+        _setter("sender_business_identity", sender_business_identity)
 
     @property
     @pulumi.getter(name="protocolSettings")
@@ -3859,11 +4988,40 @@ class EdifactProcessingSettingsResponse(dict):
         :param bool suspend_interchange_on_error: The value indicating whether to suspend interchange on error.
         :param bool use_dot_as_decimal_separator: The value indicating whether to use dot as decimal separator.
         """
-        pulumi.set(__self__, "create_empty_xml_tags_for_trailing_separators", create_empty_xml_tags_for_trailing_separators)
-        pulumi.set(__self__, "mask_security_info", mask_security_info)
-        pulumi.set(__self__, "preserve_interchange", preserve_interchange)
-        pulumi.set(__self__, "suspend_interchange_on_error", suspend_interchange_on_error)
-        pulumi.set(__self__, "use_dot_as_decimal_separator", use_dot_as_decimal_separator)
+        EdifactProcessingSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_empty_xml_tags_for_trailing_separators=create_empty_xml_tags_for_trailing_separators,
+            mask_security_info=mask_security_info,
+            preserve_interchange=preserve_interchange,
+            suspend_interchange_on_error=suspend_interchange_on_error,
+            use_dot_as_decimal_separator=use_dot_as_decimal_separator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_empty_xml_tags_for_trailing_separators: bool,
+             mask_security_info: bool,
+             preserve_interchange: bool,
+             suspend_interchange_on_error: bool,
+             use_dot_as_decimal_separator: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createEmptyXmlTagsForTrailingSeparators' in kwargs:
+            create_empty_xml_tags_for_trailing_separators = kwargs['createEmptyXmlTagsForTrailingSeparators']
+        if 'maskSecurityInfo' in kwargs:
+            mask_security_info = kwargs['maskSecurityInfo']
+        if 'preserveInterchange' in kwargs:
+            preserve_interchange = kwargs['preserveInterchange']
+        if 'suspendInterchangeOnError' in kwargs:
+            suspend_interchange_on_error = kwargs['suspendInterchangeOnError']
+        if 'useDotAsDecimalSeparator' in kwargs:
+            use_dot_as_decimal_separator = kwargs['useDotAsDecimalSeparator']
+
+        _setter("create_empty_xml_tags_for_trailing_separators", create_empty_xml_tags_for_trailing_separators)
+        _setter("mask_security_info", mask_security_info)
+        _setter("preserve_interchange", preserve_interchange)
+        _setter("suspend_interchange_on_error", suspend_interchange_on_error)
+        _setter("use_dot_as_decimal_separator", use_dot_as_decimal_separator)
 
     @property
     @pulumi.getter(name="createEmptyXmlTagsForTrailingSeparators")
@@ -3974,21 +5132,74 @@ class EdifactProtocolSettingsResponse(dict):
         :param Sequence['EdifactMessageIdentifierResponse'] message_filter_list: The EDIFACT message filter list.
         :param Sequence['EdifactValidationOverrideResponse'] validation_overrides: The EDIFACT validation override settings.
         """
-        pulumi.set(__self__, "acknowledgement_settings", acknowledgement_settings)
-        pulumi.set(__self__, "envelope_settings", envelope_settings)
-        pulumi.set(__self__, "framing_settings", framing_settings)
-        pulumi.set(__self__, "message_filter", message_filter)
-        pulumi.set(__self__, "processing_settings", processing_settings)
-        pulumi.set(__self__, "schema_references", schema_references)
-        pulumi.set(__self__, "validation_settings", validation_settings)
+        EdifactProtocolSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledgement_settings=acknowledgement_settings,
+            envelope_settings=envelope_settings,
+            framing_settings=framing_settings,
+            message_filter=message_filter,
+            processing_settings=processing_settings,
+            schema_references=schema_references,
+            validation_settings=validation_settings,
+            edifact_delimiter_overrides=edifact_delimiter_overrides,
+            envelope_overrides=envelope_overrides,
+            message_filter_list=message_filter_list,
+            validation_overrides=validation_overrides,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledgement_settings: 'outputs.EdifactAcknowledgementSettingsResponse',
+             envelope_settings: 'outputs.EdifactEnvelopeSettingsResponse',
+             framing_settings: 'outputs.EdifactFramingSettingsResponse',
+             message_filter: 'outputs.EdifactMessageFilterResponse',
+             processing_settings: 'outputs.EdifactProcessingSettingsResponse',
+             schema_references: Sequence['outputs.EdifactSchemaReferenceResponse'],
+             validation_settings: 'outputs.EdifactValidationSettingsResponse',
+             edifact_delimiter_overrides: Optional[Sequence['outputs.EdifactDelimiterOverrideResponse']] = None,
+             envelope_overrides: Optional[Sequence['outputs.EdifactEnvelopeOverrideResponse']] = None,
+             message_filter_list: Optional[Sequence['outputs.EdifactMessageIdentifierResponse']] = None,
+             validation_overrides: Optional[Sequence['outputs.EdifactValidationOverrideResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acknowledgementSettings' in kwargs:
+            acknowledgement_settings = kwargs['acknowledgementSettings']
+        if 'envelopeSettings' in kwargs:
+            envelope_settings = kwargs['envelopeSettings']
+        if 'framingSettings' in kwargs:
+            framing_settings = kwargs['framingSettings']
+        if 'messageFilter' in kwargs:
+            message_filter = kwargs['messageFilter']
+        if 'processingSettings' in kwargs:
+            processing_settings = kwargs['processingSettings']
+        if 'schemaReferences' in kwargs:
+            schema_references = kwargs['schemaReferences']
+        if 'validationSettings' in kwargs:
+            validation_settings = kwargs['validationSettings']
+        if 'edifactDelimiterOverrides' in kwargs:
+            edifact_delimiter_overrides = kwargs['edifactDelimiterOverrides']
+        if 'envelopeOverrides' in kwargs:
+            envelope_overrides = kwargs['envelopeOverrides']
+        if 'messageFilterList' in kwargs:
+            message_filter_list = kwargs['messageFilterList']
+        if 'validationOverrides' in kwargs:
+            validation_overrides = kwargs['validationOverrides']
+
+        _setter("acknowledgement_settings", acknowledgement_settings)
+        _setter("envelope_settings", envelope_settings)
+        _setter("framing_settings", framing_settings)
+        _setter("message_filter", message_filter)
+        _setter("processing_settings", processing_settings)
+        _setter("schema_references", schema_references)
+        _setter("validation_settings", validation_settings)
         if edifact_delimiter_overrides is not None:
-            pulumi.set(__self__, "edifact_delimiter_overrides", edifact_delimiter_overrides)
+            _setter("edifact_delimiter_overrides", edifact_delimiter_overrides)
         if envelope_overrides is not None:
-            pulumi.set(__self__, "envelope_overrides", envelope_overrides)
+            _setter("envelope_overrides", envelope_overrides)
         if message_filter_list is not None:
-            pulumi.set(__self__, "message_filter_list", message_filter_list)
+            _setter("message_filter_list", message_filter_list)
         if validation_overrides is not None:
-            pulumi.set(__self__, "validation_overrides", validation_overrides)
+            _setter("validation_overrides", validation_overrides)
 
     @property
     @pulumi.getter(name="acknowledgementSettings")
@@ -4131,16 +5342,53 @@ class EdifactSchemaReferenceResponse(dict):
         :param str sender_application_id: The sender application id.
         :param str sender_application_qualifier: The sender application qualifier.
         """
-        pulumi.set(__self__, "message_id", message_id)
-        pulumi.set(__self__, "message_release", message_release)
-        pulumi.set(__self__, "message_version", message_version)
-        pulumi.set(__self__, "schema_name", schema_name)
+        EdifactSchemaReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_id=message_id,
+            message_release=message_release,
+            message_version=message_version,
+            schema_name=schema_name,
+            association_assigned_code=association_assigned_code,
+            sender_application_id=sender_application_id,
+            sender_application_qualifier=sender_application_qualifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_id: str,
+             message_release: str,
+             message_version: str,
+             schema_name: str,
+             association_assigned_code: Optional[str] = None,
+             sender_application_id: Optional[str] = None,
+             sender_application_qualifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if 'messageRelease' in kwargs:
+            message_release = kwargs['messageRelease']
+        if 'messageVersion' in kwargs:
+            message_version = kwargs['messageVersion']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if 'associationAssignedCode' in kwargs:
+            association_assigned_code = kwargs['associationAssignedCode']
+        if 'senderApplicationId' in kwargs:
+            sender_application_id = kwargs['senderApplicationId']
+        if 'senderApplicationQualifier' in kwargs:
+            sender_application_qualifier = kwargs['senderApplicationQualifier']
+
+        _setter("message_id", message_id)
+        _setter("message_release", message_release)
+        _setter("message_version", message_version)
+        _setter("schema_name", schema_name)
         if association_assigned_code is not None:
-            pulumi.set(__self__, "association_assigned_code", association_assigned_code)
+            _setter("association_assigned_code", association_assigned_code)
         if sender_application_id is not None:
-            pulumi.set(__self__, "sender_application_id", sender_application_id)
+            _setter("sender_application_id", sender_application_id)
         if sender_application_qualifier is not None:
-            pulumi.set(__self__, "sender_application_qualifier", sender_application_qualifier)
+            _setter("sender_application_qualifier", sender_application_qualifier)
 
     @property
     @pulumi.getter(name="messageId")
@@ -4251,13 +5499,50 @@ class EdifactValidationOverrideResponse(dict):
         :param bool validate_edi_types: The value indicating whether to validate EDI types.
         :param bool validate_xsd_types: The value indicating whether to validate XSD types.
         """
-        pulumi.set(__self__, "allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "enforce_character_set", enforce_character_set)
-        pulumi.set(__self__, "message_id", message_id)
-        pulumi.set(__self__, "trailing_separator_policy", trailing_separator_policy)
-        pulumi.set(__self__, "trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "validate_edi_types", validate_edi_types)
-        pulumi.set(__self__, "validate_xsd_types", validate_xsd_types)
+        EdifactValidationOverrideResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_leading_and_trailing_spaces_and_zeroes=allow_leading_and_trailing_spaces_and_zeroes,
+            enforce_character_set=enforce_character_set,
+            message_id=message_id,
+            trailing_separator_policy=trailing_separator_policy,
+            trim_leading_and_trailing_spaces_and_zeroes=trim_leading_and_trailing_spaces_and_zeroes,
+            validate_edi_types=validate_edi_types,
+            validate_xsd_types=validate_xsd_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_leading_and_trailing_spaces_and_zeroes: bool,
+             enforce_character_set: bool,
+             message_id: str,
+             trailing_separator_policy: str,
+             trim_leading_and_trailing_spaces_and_zeroes: bool,
+             validate_edi_types: bool,
+             validate_xsd_types: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowLeadingAndTrailingSpacesAndZeroes' in kwargs:
+            allow_leading_and_trailing_spaces_and_zeroes = kwargs['allowLeadingAndTrailingSpacesAndZeroes']
+        if 'enforceCharacterSet' in kwargs:
+            enforce_character_set = kwargs['enforceCharacterSet']
+        if 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if 'trailingSeparatorPolicy' in kwargs:
+            trailing_separator_policy = kwargs['trailingSeparatorPolicy']
+        if 'trimLeadingAndTrailingSpacesAndZeroes' in kwargs:
+            trim_leading_and_trailing_spaces_and_zeroes = kwargs['trimLeadingAndTrailingSpacesAndZeroes']
+        if 'validateEDITypes' in kwargs:
+            validate_edi_types = kwargs['validateEDITypes']
+        if 'validateXSDTypes' in kwargs:
+            validate_xsd_types = kwargs['validateXSDTypes']
+
+        _setter("allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
+        _setter("enforce_character_set", enforce_character_set)
+        _setter("message_id", message_id)
+        _setter("trailing_separator_policy", trailing_separator_policy)
+        _setter("trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
+        _setter("validate_edi_types", validate_edi_types)
+        _setter("validate_xsd_types", validate_xsd_types)
 
     @property
     @pulumi.getter(name="allowLeadingAndTrailingSpacesAndZeroes")
@@ -4380,16 +5665,65 @@ class EdifactValidationSettingsResponse(dict):
         :param bool validate_edi_types: The value indicating whether to Whether to validate EDI types.
         :param bool validate_xsd_types: The value indicating whether to Whether to validate XSD types.
         """
-        pulumi.set(__self__, "allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "check_duplicate_group_control_number", check_duplicate_group_control_number)
-        pulumi.set(__self__, "check_duplicate_interchange_control_number", check_duplicate_interchange_control_number)
-        pulumi.set(__self__, "check_duplicate_transaction_set_control_number", check_duplicate_transaction_set_control_number)
-        pulumi.set(__self__, "interchange_control_number_validity_days", interchange_control_number_validity_days)
-        pulumi.set(__self__, "trailing_separator_policy", trailing_separator_policy)
-        pulumi.set(__self__, "trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "validate_character_set", validate_character_set)
-        pulumi.set(__self__, "validate_edi_types", validate_edi_types)
-        pulumi.set(__self__, "validate_xsd_types", validate_xsd_types)
+        EdifactValidationSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_leading_and_trailing_spaces_and_zeroes=allow_leading_and_trailing_spaces_and_zeroes,
+            check_duplicate_group_control_number=check_duplicate_group_control_number,
+            check_duplicate_interchange_control_number=check_duplicate_interchange_control_number,
+            check_duplicate_transaction_set_control_number=check_duplicate_transaction_set_control_number,
+            interchange_control_number_validity_days=interchange_control_number_validity_days,
+            trailing_separator_policy=trailing_separator_policy,
+            trim_leading_and_trailing_spaces_and_zeroes=trim_leading_and_trailing_spaces_and_zeroes,
+            validate_character_set=validate_character_set,
+            validate_edi_types=validate_edi_types,
+            validate_xsd_types=validate_xsd_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_leading_and_trailing_spaces_and_zeroes: bool,
+             check_duplicate_group_control_number: bool,
+             check_duplicate_interchange_control_number: bool,
+             check_duplicate_transaction_set_control_number: bool,
+             interchange_control_number_validity_days: int,
+             trailing_separator_policy: str,
+             trim_leading_and_trailing_spaces_and_zeroes: bool,
+             validate_character_set: bool,
+             validate_edi_types: bool,
+             validate_xsd_types: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowLeadingAndTrailingSpacesAndZeroes' in kwargs:
+            allow_leading_and_trailing_spaces_and_zeroes = kwargs['allowLeadingAndTrailingSpacesAndZeroes']
+        if 'checkDuplicateGroupControlNumber' in kwargs:
+            check_duplicate_group_control_number = kwargs['checkDuplicateGroupControlNumber']
+        if 'checkDuplicateInterchangeControlNumber' in kwargs:
+            check_duplicate_interchange_control_number = kwargs['checkDuplicateInterchangeControlNumber']
+        if 'checkDuplicateTransactionSetControlNumber' in kwargs:
+            check_duplicate_transaction_set_control_number = kwargs['checkDuplicateTransactionSetControlNumber']
+        if 'interchangeControlNumberValidityDays' in kwargs:
+            interchange_control_number_validity_days = kwargs['interchangeControlNumberValidityDays']
+        if 'trailingSeparatorPolicy' in kwargs:
+            trailing_separator_policy = kwargs['trailingSeparatorPolicy']
+        if 'trimLeadingAndTrailingSpacesAndZeroes' in kwargs:
+            trim_leading_and_trailing_spaces_and_zeroes = kwargs['trimLeadingAndTrailingSpacesAndZeroes']
+        if 'validateCharacterSet' in kwargs:
+            validate_character_set = kwargs['validateCharacterSet']
+        if 'validateEDITypes' in kwargs:
+            validate_edi_types = kwargs['validateEDITypes']
+        if 'validateXSDTypes' in kwargs:
+            validate_xsd_types = kwargs['validateXSDTypes']
+
+        _setter("allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
+        _setter("check_duplicate_group_control_number", check_duplicate_group_control_number)
+        _setter("check_duplicate_interchange_control_number", check_duplicate_interchange_control_number)
+        _setter("check_duplicate_transaction_set_control_number", check_duplicate_transaction_set_control_number)
+        _setter("interchange_control_number_validity_days", interchange_control_number_validity_days)
+        _setter("trailing_separator_policy", trailing_separator_policy)
+        _setter("trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
+        _setter("validate_character_set", validate_character_set)
+        _setter("validate_edi_types", validate_edi_types)
+        _setter("validate_xsd_types", validate_xsd_types)
 
     @property
     @pulumi.getter(name="allowLeadingAndTrailingSpacesAndZeroes")
@@ -4488,14 +5822,31 @@ class ExpressionResponse(dict):
         :param Sequence['ExpressionResponse'] subexpressions: The sub expressions.
         :param str text: The text.
         """
+        ExpressionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            subexpressions=subexpressions,
+            text=text,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.AzureResourceErrorInfoResponse'] = None,
+             subexpressions: Optional[Sequence['outputs.ExpressionResponse']] = None,
+             text: Optional[str] = None,
+             value: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
         if subexpressions is not None:
-            pulumi.set(__self__, "subexpressions", subexpressions)
+            _setter("subexpressions", subexpressions)
         if text is not None:
-            pulumi.set(__self__, "text", text)
+            _setter("text", text)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4545,16 +5896,35 @@ class ExpressionRootResponse(dict):
         :param Sequence['ExpressionResponse'] subexpressions: The sub expressions.
         :param str text: The text.
         """
+        ExpressionRootResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            path=path,
+            subexpressions=subexpressions,
+            text=text,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.AzureResourceErrorInfoResponse'] = None,
+             path: Optional[str] = None,
+             subexpressions: Optional[Sequence['outputs.ExpressionResponse']] = None,
+             text: Optional[str] = None,
+             value: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if subexpressions is not None:
-            pulumi.set(__self__, "subexpressions", subexpressions)
+            _setter("subexpressions", subexpressions)
         if text is not None:
-            pulumi.set(__self__, "text", text)
+            _setter("text", text)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4626,10 +5996,27 @@ class FlowAccessControlConfigurationPolicyResponse(dict):
         :param Sequence['IpAddressRangeResponse'] allowed_caller_ip_addresses: The allowed caller IP address ranges.
         :param 'OpenAuthenticationAccessPoliciesResponse' open_authentication_policies: The authentication policies for workflow.
         """
+        FlowAccessControlConfigurationPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_caller_ip_addresses=allowed_caller_ip_addresses,
+            open_authentication_policies=open_authentication_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_caller_ip_addresses: Optional[Sequence['outputs.IpAddressRangeResponse']] = None,
+             open_authentication_policies: Optional['outputs.OpenAuthenticationAccessPoliciesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedCallerIpAddresses' in kwargs:
+            allowed_caller_ip_addresses = kwargs['allowedCallerIpAddresses']
+        if 'openAuthenticationPolicies' in kwargs:
+            open_authentication_policies = kwargs['openAuthenticationPolicies']
+
         if allowed_caller_ip_addresses is not None:
-            pulumi.set(__self__, "allowed_caller_ip_addresses", allowed_caller_ip_addresses)
+            _setter("allowed_caller_ip_addresses", allowed_caller_ip_addresses)
         if open_authentication_policies is not None:
-            pulumi.set(__self__, "open_authentication_policies", open_authentication_policies)
+            _setter("open_authentication_policies", open_authentication_policies)
 
     @property
     @pulumi.getter(name="allowedCallerIpAddresses")
@@ -4682,14 +6069,33 @@ class FlowAccessControlConfigurationResponse(dict):
         :param 'FlowAccessControlConfigurationPolicyResponse' triggers: The access control configuration for invoking workflow triggers.
         :param 'FlowAccessControlConfigurationPolicyResponse' workflow_management: The access control configuration for workflow management.
         """
+        FlowAccessControlConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            contents=contents,
+            triggers=triggers,
+            workflow_management=workflow_management,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional['outputs.FlowAccessControlConfigurationPolicyResponse'] = None,
+             contents: Optional['outputs.FlowAccessControlConfigurationPolicyResponse'] = None,
+             triggers: Optional['outputs.FlowAccessControlConfigurationPolicyResponse'] = None,
+             workflow_management: Optional['outputs.FlowAccessControlConfigurationPolicyResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workflowManagement' in kwargs:
+            workflow_management = kwargs['workflowManagement']
+
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if contents is not None:
-            pulumi.set(__self__, "contents", contents)
+            _setter("contents", contents)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
         if workflow_management is not None:
-            pulumi.set(__self__, "workflow_management", workflow_management)
+            _setter("workflow_management", workflow_management)
 
     @property
     @pulumi.getter
@@ -4737,10 +6143,23 @@ class FlowEndpointsConfigurationResponse(dict):
         :param 'FlowEndpointsResponse' connector: The connector endpoints.
         :param 'FlowEndpointsResponse' workflow: The workflow endpoints.
         """
+        FlowEndpointsConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector=connector,
+            workflow=workflow,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector: Optional['outputs.FlowEndpointsResponse'] = None,
+             workflow: Optional['outputs.FlowEndpointsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if connector is not None:
-            pulumi.set(__self__, "connector", connector)
+            _setter("connector", connector)
         if workflow is not None:
-            pulumi.set(__self__, "workflow", workflow)
+            _setter("workflow", workflow)
 
     @property
     @pulumi.getter
@@ -4791,10 +6210,27 @@ class FlowEndpointsResponse(dict):
         :param Sequence['IpAddressResponse'] access_endpoint_ip_addresses: The access endpoint ip address.
         :param Sequence['IpAddressResponse'] outgoing_ip_addresses: The outgoing ip address.
         """
+        FlowEndpointsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_endpoint_ip_addresses=access_endpoint_ip_addresses,
+            outgoing_ip_addresses=outgoing_ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_endpoint_ip_addresses: Optional[Sequence['outputs.IpAddressResponse']] = None,
+             outgoing_ip_addresses: Optional[Sequence['outputs.IpAddressResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessEndpointIpAddresses' in kwargs:
+            access_endpoint_ip_addresses = kwargs['accessEndpointIpAddresses']
+        if 'outgoingIpAddresses' in kwargs:
+            outgoing_ip_addresses = kwargs['outgoingIpAddresses']
+
         if access_endpoint_ip_addresses is not None:
-            pulumi.set(__self__, "access_endpoint_ip_addresses", access_endpoint_ip_addresses)
+            _setter("access_endpoint_ip_addresses", access_endpoint_ip_addresses)
         if outgoing_ip_addresses is not None:
-            pulumi.set(__self__, "outgoing_ip_addresses", outgoing_ip_addresses)
+            _setter("outgoing_ip_addresses", outgoing_ip_addresses)
 
     @property
     @pulumi.getter(name="accessEndpointIpAddresses")
@@ -4824,8 +6260,19 @@ class IntegrationAccountMapPropertiesResponseParametersSchema(dict):
         The parameters schema of integration account map.
         :param str ref: The reference name.
         """
+        IntegrationAccountMapPropertiesResponseParametersSchema._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ref=ref,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ref: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ref is not None:
-            pulumi.set(__self__, "ref", ref)
+            _setter("ref", ref)
 
     @property
     @pulumi.getter
@@ -4847,7 +6294,18 @@ class IntegrationAccountSkuResponse(dict):
         The integration account sku.
         :param str name: The sku name.
         """
-        pulumi.set(__self__, "name", name)
+        IntegrationAccountSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -4886,8 +6344,21 @@ class IntegrationServiceEnvironmenEncryptionConfigurationResponse(dict):
         The encryption configuration for the integration service environment.
         :param 'IntegrationServiceEnvironmenEncryptionKeyReferenceResponse' encryption_key_reference: The encryption key reference.
         """
+        IntegrationServiceEnvironmenEncryptionConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_key_reference=encryption_key_reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_key_reference: Optional['outputs.IntegrationServiceEnvironmenEncryptionKeyReferenceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionKeyReference' in kwargs:
+            encryption_key_reference = kwargs['encryptionKeyReference']
+
         if encryption_key_reference is not None:
-            pulumi.set(__self__, "encryption_key_reference", encryption_key_reference)
+            _setter("encryption_key_reference", encryption_key_reference)
 
     @property
     @pulumi.getter(name="encryptionKeyReference")
@@ -4934,12 +6405,33 @@ class IntegrationServiceEnvironmenEncryptionKeyReferenceResponse(dict):
         :param 'ResourceReferenceResponse' key_vault: The key vault reference.
         :param str key_version: Gets the version of the key specified in the keyName property.
         """
+        IntegrationServiceEnvironmenEncryptionKeyReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault=key_vault,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[str] = None,
+             key_vault: Optional['outputs.ResourceReferenceResponse'] = None,
+             key_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'keyVault' in kwargs:
+            key_vault = kwargs['keyVault']
+        if 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_vault is not None:
-            pulumi.set(__self__, "key_vault", key_vault)
+            _setter("key_vault", key_vault)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -4977,8 +6469,19 @@ class IntegrationServiceEnvironmentAccessEndpointResponse(dict):
         The integration service environment access endpoint.
         :param str type: The access endpoint type.
         """
+        IntegrationServiceEnvironmentAccessEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -5017,8 +6520,21 @@ class IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse(dict):
         The integration service environment managed api deployment parameters.
         :param 'ContentLinkResponse' content_link_definition: The integration service environment managed api content link for deployment.
         """
+        IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_link_definition=content_link_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_link_definition: Optional['outputs.ContentLinkResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentLinkDefinition' in kwargs:
+            content_link_definition = kwargs['contentLinkDefinition']
+
         if content_link_definition is not None:
-            pulumi.set(__self__, "content_link_definition", content_link_definition)
+            _setter("content_link_definition", content_link_definition)
 
     @property
     @pulumi.getter(name="contentLinkDefinition")
@@ -5075,18 +6591,49 @@ class IntegrationServiceEnvironmentPropertiesResponse(dict):
         :param str provisioning_state: The provisioning state.
         :param str state: The integration service environment state.
         """
+        IntegrationServiceEnvironmentPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_configuration=encryption_configuration,
+            endpoints_configuration=endpoints_configuration,
+            integration_service_environment_id=integration_service_environment_id,
+            network_configuration=network_configuration,
+            provisioning_state=provisioning_state,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_configuration: Optional['outputs.IntegrationServiceEnvironmenEncryptionConfigurationResponse'] = None,
+             endpoints_configuration: Optional['outputs.FlowEndpointsConfigurationResponse'] = None,
+             integration_service_environment_id: Optional[str] = None,
+             network_configuration: Optional['outputs.NetworkConfigurationResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if 'endpointsConfiguration' in kwargs:
+            endpoints_configuration = kwargs['endpointsConfiguration']
+        if 'integrationServiceEnvironmentId' in kwargs:
+            integration_service_environment_id = kwargs['integrationServiceEnvironmentId']
+        if 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
         if encryption_configuration is not None:
-            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+            _setter("encryption_configuration", encryption_configuration)
         if endpoints_configuration is not None:
-            pulumi.set(__self__, "endpoints_configuration", endpoints_configuration)
+            _setter("endpoints_configuration", endpoints_configuration)
         if integration_service_environment_id is not None:
-            pulumi.set(__self__, "integration_service_environment_id", integration_service_environment_id)
+            _setter("integration_service_environment_id", integration_service_environment_id)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
@@ -5150,10 +6697,23 @@ class IntegrationServiceEnvironmentSkuResponse(dict):
         :param int capacity: The sku capacity.
         :param str name: The sku name.
         """
+        IntegrationServiceEnvironmentSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[int] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -5200,8 +6760,21 @@ class IpAddressRangeResponse(dict):
         The ip address range.
         :param str address_range: The IP address range.
         """
+        IpAddressRangeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_range=address_range,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_range: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressRange' in kwargs:
+            address_range = kwargs['addressRange']
+
         if address_range is not None:
-            pulumi.set(__self__, "address_range", address_range)
+            _setter("address_range", address_range)
 
     @property
     @pulumi.getter(name="addressRange")
@@ -5223,8 +6796,19 @@ class IpAddressResponse(dict):
         The ip address.
         :param str address: The address.
         """
+        IpAddressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
 
     @property
     @pulumi.getter
@@ -5271,10 +6855,31 @@ class KeyVaultKeyReferenceResponse(dict):
         :param 'KeyVaultKeyReferenceResponseKeyVault' key_vault: The key vault reference.
         :param str key_version: The private key version in key vault.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault", key_vault)
+        KeyVaultKeyReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault=key_vault,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: str,
+             key_vault: 'outputs.KeyVaultKeyReferenceResponseKeyVault',
+             key_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'keyVault' in kwargs:
+            key_vault = kwargs['keyVault']
+        if 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+
+        _setter("key_name", key_name)
+        _setter("key_vault", key_vault)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -5316,10 +6921,25 @@ class KeyVaultKeyReferenceResponseKeyVault(dict):
         :param str type: The resource type.
         :param str id: The resource id.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        KeyVaultKeyReferenceResponseKeyVault._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -5359,10 +6979,23 @@ class KeyVaultKeyResponse(dict):
         :param 'KeyVaultKeyResponseAttributes' attributes: The key attributes.
         :param str kid: The key id.
         """
+        KeyVaultKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            kid=kid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional['outputs.KeyVaultKeyResponseAttributes'] = None,
+             kid: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if kid is not None:
-            pulumi.set(__self__, "kid", kid)
+            _setter("kid", kid)
 
     @property
     @pulumi.getter
@@ -5396,12 +7029,27 @@ class KeyVaultKeyResponseAttributes(dict):
         :param bool enabled: Whether the key is enabled or not.
         :param float updated: When the key was updated.
         """
+        KeyVaultKeyResponseAttributes._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created=created,
+            enabled=enabled,
+            updated=updated,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created: Optional[float] = None,
+             enabled: Optional[bool] = None,
+             updated: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if created is not None:
-            pulumi.set(__self__, "created", created)
+            _setter("created", created)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if updated is not None:
-            pulumi.set(__self__, "updated", updated)
+            _setter("updated", updated)
 
     @property
     @pulumi.getter
@@ -5466,11 +7114,34 @@ class ManagedServiceIdentityResponse(dict):
         :param str type: Type of managed service identity. The type 'SystemAssigned' includes an implicitly created identity. The type 'None' will remove any identities from the resource.
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -5539,12 +7210,31 @@ class NetworkConfigurationResponse(dict):
         :param Sequence['ResourceReferenceResponse'] subnets: The subnets.
         :param str virtual_network_address_space: Gets the virtual network address space.
         """
+        NetworkConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_endpoint=access_endpoint,
+            subnets=subnets,
+            virtual_network_address_space=virtual_network_address_space,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_endpoint: Optional['outputs.IntegrationServiceEnvironmentAccessEndpointResponse'] = None,
+             subnets: Optional[Sequence['outputs.ResourceReferenceResponse']] = None,
+             virtual_network_address_space: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessEndpoint' in kwargs:
+            access_endpoint = kwargs['accessEndpoint']
+        if 'virtualNetworkAddressSpace' in kwargs:
+            virtual_network_address_space = kwargs['virtualNetworkAddressSpace']
+
         if access_endpoint is not None:
-            pulumi.set(__self__, "access_endpoint", access_endpoint)
+            _setter("access_endpoint", access_endpoint)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if virtual_network_address_space is not None:
-            pulumi.set(__self__, "virtual_network_address_space", virtual_network_address_space)
+            _setter("virtual_network_address_space", virtual_network_address_space)
 
     @property
     @pulumi.getter(name="accessEndpoint")
@@ -5582,8 +7272,19 @@ class OpenAuthenticationAccessPoliciesResponse(dict):
         AuthenticationPolicy of type Open.
         :param Mapping[str, 'OpenAuthenticationAccessPolicyResponse'] policies: Open authentication policies.
         """
+        OpenAuthenticationAccessPoliciesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policies=policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policies: Optional[Mapping[str, 'outputs.OpenAuthenticationAccessPolicyResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if policies is not None:
-            pulumi.set(__self__, "policies", policies)
+            _setter("policies", policies)
 
     @property
     @pulumi.getter
@@ -5607,10 +7308,23 @@ class OpenAuthenticationAccessPolicyResponse(dict):
         :param Sequence['OpenAuthenticationPolicyClaimResponse'] claims: The access policy claims.
         :param str type: Type of provider for OAuth.
         """
+        OpenAuthenticationAccessPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            claims=claims,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             claims: Optional[Sequence['outputs.OpenAuthenticationPolicyClaimResponse']] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if claims is not None:
-            pulumi.set(__self__, "claims", claims)
+            _setter("claims", claims)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -5642,10 +7356,23 @@ class OpenAuthenticationPolicyClaimResponse(dict):
         :param str name: The name of the claim.
         :param str value: The value of the claim.
         """
+        OpenAuthenticationPolicyClaimResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -5675,8 +7402,19 @@ class PartnerContentResponse(dict):
         The integration account partner content.
         :param 'B2BPartnerContentResponse' b2b: The B2B partner content.
         """
+        PartnerContentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            b2b=b2b,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             b2b: Optional['outputs.B2BPartnerContentResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if b2b is not None:
-            pulumi.set(__self__, "b2b", b2b)
+            _setter("b2b", b2b)
 
     @property
     @pulumi.getter
@@ -5700,10 +7438,23 @@ class RecurrenceScheduleOccurrenceResponse(dict):
         :param str day: The day of the week.
         :param int occurrence: The occurrence.
         """
+        RecurrenceScheduleOccurrenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day=day,
+            occurrence=occurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day: Optional[str] = None,
+             occurrence: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if day is not None:
-            pulumi.set(__self__, "day", day)
+            _setter("day", day)
         if occurrence is not None:
-            pulumi.set(__self__, "occurrence", occurrence)
+            _setter("occurrence", occurrence)
 
     @property
     @pulumi.getter
@@ -5762,16 +7513,41 @@ class RecurrenceScheduleResponse(dict):
         :param Sequence['RecurrenceScheduleOccurrenceResponse'] monthly_occurrences: The monthly occurrences.
         :param Sequence[str] week_days: The days of the week.
         """
+        RecurrenceScheduleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hours=hours,
+            minutes=minutes,
+            month_days=month_days,
+            monthly_occurrences=monthly_occurrences,
+            week_days=week_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hours: Optional[Sequence[int]] = None,
+             minutes: Optional[Sequence[int]] = None,
+             month_days: Optional[Sequence[int]] = None,
+             monthly_occurrences: Optional[Sequence['outputs.RecurrenceScheduleOccurrenceResponse']] = None,
+             week_days: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monthDays' in kwargs:
+            month_days = kwargs['monthDays']
+        if 'monthlyOccurrences' in kwargs:
+            monthly_occurrences = kwargs['monthlyOccurrences']
+        if 'weekDays' in kwargs:
+            week_days = kwargs['weekDays']
+
         if hours is not None:
-            pulumi.set(__self__, "hours", hours)
+            _setter("hours", hours)
         if minutes is not None:
-            pulumi.set(__self__, "minutes", minutes)
+            _setter("minutes", minutes)
         if month_days is not None:
-            pulumi.set(__self__, "month_days", month_days)
+            _setter("month_days", month_days)
         if monthly_occurrences is not None:
-            pulumi.set(__self__, "monthly_occurrences", monthly_occurrences)
+            _setter("monthly_occurrences", monthly_occurrences)
         if week_days is not None:
-            pulumi.set(__self__, "week_days", week_days)
+            _setter("week_days", week_days)
 
     @property
     @pulumi.getter
@@ -5829,10 +7605,25 @@ class ResourceReferenceResponse(dict):
         :param str type: Gets the resource type.
         :param str id: The resource id.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ResourceReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -5872,9 +7663,22 @@ class SkuResponse(dict):
         :param str name: The name.
         :param 'ResourceReferenceResponse' plan: The reference to plan.
         """
-        pulumi.set(__self__, "name", name)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            plan=plan,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             plan: Optional['outputs.ResourceReferenceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
 
     @property
     @pulumi.getter
@@ -5925,8 +7729,25 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: Client Id of user assigned identity
         :param str principal_id: Principal Id of user assigned identity
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -5962,14 +7783,31 @@ class WorkflowParameterResponse(dict):
         :param str type: The type.
         :param Any value: The value.
         """
+        WorkflowParameterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            metadata=metadata,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             metadata: Optional[Any] = None,
+             type: Optional[str] = None,
+             value: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -6023,16 +7861,37 @@ class WorkflowTriggerListCallbackUrlQueriesResponse(dict):
         :param str sp: The SAS permissions.
         :param str sv: The SAS version.
         """
+        WorkflowTriggerListCallbackUrlQueriesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_version=api_version,
+            se=se,
+            sig=sig,
+            sp=sp,
+            sv=sv,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_version: Optional[str] = None,
+             se: Optional[str] = None,
+             sig: Optional[str] = None,
+             sp: Optional[str] = None,
+             sv: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiVersion' in kwargs:
+            api_version = kwargs['apiVersion']
+
         if api_version is not None:
-            pulumi.set(__self__, "api_version", api_version)
+            _setter("api_version", api_version)
         if se is not None:
-            pulumi.set(__self__, "se", se)
+            _setter("se", se)
         if sig is not None:
-            pulumi.set(__self__, "sig", sig)
+            _setter("sig", sig)
         if sp is not None:
-            pulumi.set(__self__, "sp", sp)
+            _setter("sp", sp)
         if sv is not None:
-            pulumi.set(__self__, "sv", sv)
+            _setter("sv", sv)
 
     @property
     @pulumi.getter(name="apiVersion")
@@ -6117,18 +7976,45 @@ class WorkflowTriggerRecurrenceResponse(dict):
         :param str start_time: The start time.
         :param str time_zone: The time zone.
         """
+        WorkflowTriggerRecurrenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time=end_time,
+            frequency=frequency,
+            interval=interval,
+            schedule=schedule,
+            start_time=start_time,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time: Optional[str] = None,
+             frequency: Optional[str] = None,
+             interval: Optional[int] = None,
+             schedule: Optional['outputs.RecurrenceScheduleResponse'] = None,
+             start_time: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="endTime")
@@ -6211,10 +8097,27 @@ class WsdlServiceResponse(dict):
         :param Sequence[str] endpoint_qualified_names: The list of endpoints' qualified names.
         :param str qualified_name: The qualified name.
         """
+        WsdlServiceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_qualified_names=endpoint_qualified_names,
+            qualified_name=qualified_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_qualified_names: Optional[Sequence[str]] = None,
+             qualified_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointQualifiedNames' in kwargs:
+            endpoint_qualified_names = kwargs['endpointQualifiedNames']
+        if 'qualifiedName' in kwargs:
+            qualified_name = kwargs['qualifiedName']
+
         if endpoint_qualified_names is not None:
-            pulumi.set(__self__, "endpoint_qualified_names", endpoint_qualified_names)
+            _setter("endpoint_qualified_names", endpoint_qualified_names)
         if qualified_name is not None:
-            pulumi.set(__self__, "qualified_name", qualified_name)
+            _setter("qualified_name", qualified_name)
 
     @property
     @pulumi.getter(name="endpointQualifiedNames")
@@ -6317,25 +8220,94 @@ class X12AcknowledgementSettingsResponse(dict):
         :param str functional_acknowledgement_version: The functional acknowledgement version.
         :param str implementation_acknowledgement_version: The implementation acknowledgement version.
         """
-        pulumi.set(__self__, "acknowledgement_control_number_lower_bound", acknowledgement_control_number_lower_bound)
-        pulumi.set(__self__, "acknowledgement_control_number_upper_bound", acknowledgement_control_number_upper_bound)
-        pulumi.set(__self__, "batch_functional_acknowledgements", batch_functional_acknowledgements)
-        pulumi.set(__self__, "batch_implementation_acknowledgements", batch_implementation_acknowledgements)
-        pulumi.set(__self__, "batch_technical_acknowledgements", batch_technical_acknowledgements)
-        pulumi.set(__self__, "need_functional_acknowledgement", need_functional_acknowledgement)
-        pulumi.set(__self__, "need_implementation_acknowledgement", need_implementation_acknowledgement)
-        pulumi.set(__self__, "need_loop_for_valid_messages", need_loop_for_valid_messages)
-        pulumi.set(__self__, "need_technical_acknowledgement", need_technical_acknowledgement)
-        pulumi.set(__self__, "rollover_acknowledgement_control_number", rollover_acknowledgement_control_number)
-        pulumi.set(__self__, "send_synchronous_acknowledgement", send_synchronous_acknowledgement)
+        X12AcknowledgementSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledgement_control_number_lower_bound=acknowledgement_control_number_lower_bound,
+            acknowledgement_control_number_upper_bound=acknowledgement_control_number_upper_bound,
+            batch_functional_acknowledgements=batch_functional_acknowledgements,
+            batch_implementation_acknowledgements=batch_implementation_acknowledgements,
+            batch_technical_acknowledgements=batch_technical_acknowledgements,
+            need_functional_acknowledgement=need_functional_acknowledgement,
+            need_implementation_acknowledgement=need_implementation_acknowledgement,
+            need_loop_for_valid_messages=need_loop_for_valid_messages,
+            need_technical_acknowledgement=need_technical_acknowledgement,
+            rollover_acknowledgement_control_number=rollover_acknowledgement_control_number,
+            send_synchronous_acknowledgement=send_synchronous_acknowledgement,
+            acknowledgement_control_number_prefix=acknowledgement_control_number_prefix,
+            acknowledgement_control_number_suffix=acknowledgement_control_number_suffix,
+            functional_acknowledgement_version=functional_acknowledgement_version,
+            implementation_acknowledgement_version=implementation_acknowledgement_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledgement_control_number_lower_bound: int,
+             acknowledgement_control_number_upper_bound: int,
+             batch_functional_acknowledgements: bool,
+             batch_implementation_acknowledgements: bool,
+             batch_technical_acknowledgements: bool,
+             need_functional_acknowledgement: bool,
+             need_implementation_acknowledgement: bool,
+             need_loop_for_valid_messages: bool,
+             need_technical_acknowledgement: bool,
+             rollover_acknowledgement_control_number: bool,
+             send_synchronous_acknowledgement: bool,
+             acknowledgement_control_number_prefix: Optional[str] = None,
+             acknowledgement_control_number_suffix: Optional[str] = None,
+             functional_acknowledgement_version: Optional[str] = None,
+             implementation_acknowledgement_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acknowledgementControlNumberLowerBound' in kwargs:
+            acknowledgement_control_number_lower_bound = kwargs['acknowledgementControlNumberLowerBound']
+        if 'acknowledgementControlNumberUpperBound' in kwargs:
+            acknowledgement_control_number_upper_bound = kwargs['acknowledgementControlNumberUpperBound']
+        if 'batchFunctionalAcknowledgements' in kwargs:
+            batch_functional_acknowledgements = kwargs['batchFunctionalAcknowledgements']
+        if 'batchImplementationAcknowledgements' in kwargs:
+            batch_implementation_acknowledgements = kwargs['batchImplementationAcknowledgements']
+        if 'batchTechnicalAcknowledgements' in kwargs:
+            batch_technical_acknowledgements = kwargs['batchTechnicalAcknowledgements']
+        if 'needFunctionalAcknowledgement' in kwargs:
+            need_functional_acknowledgement = kwargs['needFunctionalAcknowledgement']
+        if 'needImplementationAcknowledgement' in kwargs:
+            need_implementation_acknowledgement = kwargs['needImplementationAcknowledgement']
+        if 'needLoopForValidMessages' in kwargs:
+            need_loop_for_valid_messages = kwargs['needLoopForValidMessages']
+        if 'needTechnicalAcknowledgement' in kwargs:
+            need_technical_acknowledgement = kwargs['needTechnicalAcknowledgement']
+        if 'rolloverAcknowledgementControlNumber' in kwargs:
+            rollover_acknowledgement_control_number = kwargs['rolloverAcknowledgementControlNumber']
+        if 'sendSynchronousAcknowledgement' in kwargs:
+            send_synchronous_acknowledgement = kwargs['sendSynchronousAcknowledgement']
+        if 'acknowledgementControlNumberPrefix' in kwargs:
+            acknowledgement_control_number_prefix = kwargs['acknowledgementControlNumberPrefix']
+        if 'acknowledgementControlNumberSuffix' in kwargs:
+            acknowledgement_control_number_suffix = kwargs['acknowledgementControlNumberSuffix']
+        if 'functionalAcknowledgementVersion' in kwargs:
+            functional_acknowledgement_version = kwargs['functionalAcknowledgementVersion']
+        if 'implementationAcknowledgementVersion' in kwargs:
+            implementation_acknowledgement_version = kwargs['implementationAcknowledgementVersion']
+
+        _setter("acknowledgement_control_number_lower_bound", acknowledgement_control_number_lower_bound)
+        _setter("acknowledgement_control_number_upper_bound", acknowledgement_control_number_upper_bound)
+        _setter("batch_functional_acknowledgements", batch_functional_acknowledgements)
+        _setter("batch_implementation_acknowledgements", batch_implementation_acknowledgements)
+        _setter("batch_technical_acknowledgements", batch_technical_acknowledgements)
+        _setter("need_functional_acknowledgement", need_functional_acknowledgement)
+        _setter("need_implementation_acknowledgement", need_implementation_acknowledgement)
+        _setter("need_loop_for_valid_messages", need_loop_for_valid_messages)
+        _setter("need_technical_acknowledgement", need_technical_acknowledgement)
+        _setter("rollover_acknowledgement_control_number", rollover_acknowledgement_control_number)
+        _setter("send_synchronous_acknowledgement", send_synchronous_acknowledgement)
         if acknowledgement_control_number_prefix is not None:
-            pulumi.set(__self__, "acknowledgement_control_number_prefix", acknowledgement_control_number_prefix)
+            _setter("acknowledgement_control_number_prefix", acknowledgement_control_number_prefix)
         if acknowledgement_control_number_suffix is not None:
-            pulumi.set(__self__, "acknowledgement_control_number_suffix", acknowledgement_control_number_suffix)
+            _setter("acknowledgement_control_number_suffix", acknowledgement_control_number_suffix)
         if functional_acknowledgement_version is not None:
-            pulumi.set(__self__, "functional_acknowledgement_version", functional_acknowledgement_version)
+            _setter("functional_acknowledgement_version", functional_acknowledgement_version)
         if implementation_acknowledgement_version is not None:
-            pulumi.set(__self__, "implementation_acknowledgement_version", implementation_acknowledgement_version)
+            _setter("implementation_acknowledgement_version", implementation_acknowledgement_version)
 
     @property
     @pulumi.getter(name="acknowledgementControlNumberLowerBound")
@@ -6490,8 +8462,25 @@ class X12AgreementContentResponse(dict):
         :param 'X12OneWayAgreementResponse' receive_agreement: The X12 one-way receive agreement.
         :param 'X12OneWayAgreementResponse' send_agreement: The X12 one-way send agreement.
         """
-        pulumi.set(__self__, "receive_agreement", receive_agreement)
-        pulumi.set(__self__, "send_agreement", send_agreement)
+        X12AgreementContentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            receive_agreement=receive_agreement,
+            send_agreement=send_agreement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             receive_agreement: 'outputs.X12OneWayAgreementResponse',
+             send_agreement: 'outputs.X12OneWayAgreementResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'receiveAgreement' in kwargs:
+            receive_agreement = kwargs['receiveAgreement']
+        if 'sendAgreement' in kwargs:
+            send_agreement = kwargs['sendAgreement']
+
+        _setter("receive_agreement", receive_agreement)
+        _setter("send_agreement", send_agreement)
 
     @property
     @pulumi.getter(name="receiveAgreement")
@@ -6570,18 +8559,63 @@ class X12DelimiterOverridesResponse(dict):
         :param str protocol_version: The protocol version.
         :param str target_namespace: The target namespace on which this delimiter settings has to be applied.
         """
-        pulumi.set(__self__, "component_separator", component_separator)
-        pulumi.set(__self__, "data_element_separator", data_element_separator)
-        pulumi.set(__self__, "replace_character", replace_character)
-        pulumi.set(__self__, "replace_separators_in_payload", replace_separators_in_payload)
-        pulumi.set(__self__, "segment_terminator", segment_terminator)
-        pulumi.set(__self__, "segment_terminator_suffix", segment_terminator_suffix)
+        X12DelimiterOverridesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_separator=component_separator,
+            data_element_separator=data_element_separator,
+            replace_character=replace_character,
+            replace_separators_in_payload=replace_separators_in_payload,
+            segment_terminator=segment_terminator,
+            segment_terminator_suffix=segment_terminator_suffix,
+            message_id=message_id,
+            protocol_version=protocol_version,
+            target_namespace=target_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_separator: int,
+             data_element_separator: int,
+             replace_character: int,
+             replace_separators_in_payload: bool,
+             segment_terminator: int,
+             segment_terminator_suffix: str,
+             message_id: Optional[str] = None,
+             protocol_version: Optional[str] = None,
+             target_namespace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'componentSeparator' in kwargs:
+            component_separator = kwargs['componentSeparator']
+        if 'dataElementSeparator' in kwargs:
+            data_element_separator = kwargs['dataElementSeparator']
+        if 'replaceCharacter' in kwargs:
+            replace_character = kwargs['replaceCharacter']
+        if 'replaceSeparatorsInPayload' in kwargs:
+            replace_separators_in_payload = kwargs['replaceSeparatorsInPayload']
+        if 'segmentTerminator' in kwargs:
+            segment_terminator = kwargs['segmentTerminator']
+        if 'segmentTerminatorSuffix' in kwargs:
+            segment_terminator_suffix = kwargs['segmentTerminatorSuffix']
+        if 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if 'protocolVersion' in kwargs:
+            protocol_version = kwargs['protocolVersion']
+        if 'targetNamespace' in kwargs:
+            target_namespace = kwargs['targetNamespace']
+
+        _setter("component_separator", component_separator)
+        _setter("data_element_separator", data_element_separator)
+        _setter("replace_character", replace_character)
+        _setter("replace_separators_in_payload", replace_separators_in_payload)
+        _setter("segment_terminator", segment_terminator)
+        _setter("segment_terminator_suffix", segment_terminator_suffix)
         if message_id is not None:
-            pulumi.set(__self__, "message_id", message_id)
+            _setter("message_id", message_id)
         if protocol_version is not None:
-            pulumi.set(__self__, "protocol_version", protocol_version)
+            _setter("protocol_version", protocol_version)
         if target_namespace is not None:
-            pulumi.set(__self__, "target_namespace", target_namespace)
+            _setter("target_namespace", target_namespace)
 
     @property
     @pulumi.getter(name="componentSeparator")
@@ -6720,17 +8754,66 @@ class X12EnvelopeOverrideResponse(dict):
         :param str time_format: The time format.
         :param str functional_identifier_code: The functional identifier code.
         """
-        pulumi.set(__self__, "date_format", date_format)
-        pulumi.set(__self__, "header_version", header_version)
-        pulumi.set(__self__, "message_id", message_id)
-        pulumi.set(__self__, "protocol_version", protocol_version)
-        pulumi.set(__self__, "receiver_application_id", receiver_application_id)
-        pulumi.set(__self__, "responsible_agency_code", responsible_agency_code)
-        pulumi.set(__self__, "sender_application_id", sender_application_id)
-        pulumi.set(__self__, "target_namespace", target_namespace)
-        pulumi.set(__self__, "time_format", time_format)
+        X12EnvelopeOverrideResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            date_format=date_format,
+            header_version=header_version,
+            message_id=message_id,
+            protocol_version=protocol_version,
+            receiver_application_id=receiver_application_id,
+            responsible_agency_code=responsible_agency_code,
+            sender_application_id=sender_application_id,
+            target_namespace=target_namespace,
+            time_format=time_format,
+            functional_identifier_code=functional_identifier_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             date_format: str,
+             header_version: str,
+             message_id: str,
+             protocol_version: str,
+             receiver_application_id: str,
+             responsible_agency_code: str,
+             sender_application_id: str,
+             target_namespace: str,
+             time_format: str,
+             functional_identifier_code: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dateFormat' in kwargs:
+            date_format = kwargs['dateFormat']
+        if 'headerVersion' in kwargs:
+            header_version = kwargs['headerVersion']
+        if 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if 'protocolVersion' in kwargs:
+            protocol_version = kwargs['protocolVersion']
+        if 'receiverApplicationId' in kwargs:
+            receiver_application_id = kwargs['receiverApplicationId']
+        if 'responsibleAgencyCode' in kwargs:
+            responsible_agency_code = kwargs['responsibleAgencyCode']
+        if 'senderApplicationId' in kwargs:
+            sender_application_id = kwargs['senderApplicationId']
+        if 'targetNamespace' in kwargs:
+            target_namespace = kwargs['targetNamespace']
+        if 'timeFormat' in kwargs:
+            time_format = kwargs['timeFormat']
+        if 'functionalIdentifierCode' in kwargs:
+            functional_identifier_code = kwargs['functionalIdentifierCode']
+
+        _setter("date_format", date_format)
+        _setter("header_version", header_version)
+        _setter("message_id", message_id)
+        _setter("protocol_version", protocol_version)
+        _setter("receiver_application_id", receiver_application_id)
+        _setter("responsible_agency_code", responsible_agency_code)
+        _setter("sender_application_id", sender_application_id)
+        _setter("target_namespace", target_namespace)
+        _setter("time_format", time_format)
         if functional_identifier_code is not None:
-            pulumi.set(__self__, "functional_identifier_code", functional_identifier_code)
+            _setter("functional_identifier_code", functional_identifier_code)
 
     @property
     @pulumi.getter(name="dateFormat")
@@ -6933,33 +9016,138 @@ class X12EnvelopeSettingsResponse(dict):
         :param str transaction_set_control_number_prefix: The transaction set control number prefix.
         :param str transaction_set_control_number_suffix: The transaction set control number suffix.
         """
-        pulumi.set(__self__, "control_standards_id", control_standards_id)
-        pulumi.set(__self__, "control_version_number", control_version_number)
-        pulumi.set(__self__, "enable_default_group_headers", enable_default_group_headers)
-        pulumi.set(__self__, "group_control_number_lower_bound", group_control_number_lower_bound)
-        pulumi.set(__self__, "group_control_number_upper_bound", group_control_number_upper_bound)
-        pulumi.set(__self__, "group_header_agency_code", group_header_agency_code)
-        pulumi.set(__self__, "group_header_date_format", group_header_date_format)
-        pulumi.set(__self__, "group_header_time_format", group_header_time_format)
-        pulumi.set(__self__, "group_header_version", group_header_version)
-        pulumi.set(__self__, "interchange_control_number_lower_bound", interchange_control_number_lower_bound)
-        pulumi.set(__self__, "interchange_control_number_upper_bound", interchange_control_number_upper_bound)
-        pulumi.set(__self__, "overwrite_existing_transaction_set_control_number", overwrite_existing_transaction_set_control_number)
-        pulumi.set(__self__, "receiver_application_id", receiver_application_id)
-        pulumi.set(__self__, "rollover_group_control_number", rollover_group_control_number)
-        pulumi.set(__self__, "rollover_interchange_control_number", rollover_interchange_control_number)
-        pulumi.set(__self__, "rollover_transaction_set_control_number", rollover_transaction_set_control_number)
-        pulumi.set(__self__, "sender_application_id", sender_application_id)
-        pulumi.set(__self__, "transaction_set_control_number_lower_bound", transaction_set_control_number_lower_bound)
-        pulumi.set(__self__, "transaction_set_control_number_upper_bound", transaction_set_control_number_upper_bound)
-        pulumi.set(__self__, "usage_indicator", usage_indicator)
-        pulumi.set(__self__, "use_control_standards_id_as_repetition_character", use_control_standards_id_as_repetition_character)
+        X12EnvelopeSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            control_standards_id=control_standards_id,
+            control_version_number=control_version_number,
+            enable_default_group_headers=enable_default_group_headers,
+            group_control_number_lower_bound=group_control_number_lower_bound,
+            group_control_number_upper_bound=group_control_number_upper_bound,
+            group_header_agency_code=group_header_agency_code,
+            group_header_date_format=group_header_date_format,
+            group_header_time_format=group_header_time_format,
+            group_header_version=group_header_version,
+            interchange_control_number_lower_bound=interchange_control_number_lower_bound,
+            interchange_control_number_upper_bound=interchange_control_number_upper_bound,
+            overwrite_existing_transaction_set_control_number=overwrite_existing_transaction_set_control_number,
+            receiver_application_id=receiver_application_id,
+            rollover_group_control_number=rollover_group_control_number,
+            rollover_interchange_control_number=rollover_interchange_control_number,
+            rollover_transaction_set_control_number=rollover_transaction_set_control_number,
+            sender_application_id=sender_application_id,
+            transaction_set_control_number_lower_bound=transaction_set_control_number_lower_bound,
+            transaction_set_control_number_upper_bound=transaction_set_control_number_upper_bound,
+            usage_indicator=usage_indicator,
+            use_control_standards_id_as_repetition_character=use_control_standards_id_as_repetition_character,
+            functional_group_id=functional_group_id,
+            transaction_set_control_number_prefix=transaction_set_control_number_prefix,
+            transaction_set_control_number_suffix=transaction_set_control_number_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             control_standards_id: int,
+             control_version_number: str,
+             enable_default_group_headers: bool,
+             group_control_number_lower_bound: int,
+             group_control_number_upper_bound: int,
+             group_header_agency_code: str,
+             group_header_date_format: str,
+             group_header_time_format: str,
+             group_header_version: str,
+             interchange_control_number_lower_bound: int,
+             interchange_control_number_upper_bound: int,
+             overwrite_existing_transaction_set_control_number: bool,
+             receiver_application_id: str,
+             rollover_group_control_number: bool,
+             rollover_interchange_control_number: bool,
+             rollover_transaction_set_control_number: bool,
+             sender_application_id: str,
+             transaction_set_control_number_lower_bound: int,
+             transaction_set_control_number_upper_bound: int,
+             usage_indicator: str,
+             use_control_standards_id_as_repetition_character: bool,
+             functional_group_id: Optional[str] = None,
+             transaction_set_control_number_prefix: Optional[str] = None,
+             transaction_set_control_number_suffix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'controlStandardsId' in kwargs:
+            control_standards_id = kwargs['controlStandardsId']
+        if 'controlVersionNumber' in kwargs:
+            control_version_number = kwargs['controlVersionNumber']
+        if 'enableDefaultGroupHeaders' in kwargs:
+            enable_default_group_headers = kwargs['enableDefaultGroupHeaders']
+        if 'groupControlNumberLowerBound' in kwargs:
+            group_control_number_lower_bound = kwargs['groupControlNumberLowerBound']
+        if 'groupControlNumberUpperBound' in kwargs:
+            group_control_number_upper_bound = kwargs['groupControlNumberUpperBound']
+        if 'groupHeaderAgencyCode' in kwargs:
+            group_header_agency_code = kwargs['groupHeaderAgencyCode']
+        if 'groupHeaderDateFormat' in kwargs:
+            group_header_date_format = kwargs['groupHeaderDateFormat']
+        if 'groupHeaderTimeFormat' in kwargs:
+            group_header_time_format = kwargs['groupHeaderTimeFormat']
+        if 'groupHeaderVersion' in kwargs:
+            group_header_version = kwargs['groupHeaderVersion']
+        if 'interchangeControlNumberLowerBound' in kwargs:
+            interchange_control_number_lower_bound = kwargs['interchangeControlNumberLowerBound']
+        if 'interchangeControlNumberUpperBound' in kwargs:
+            interchange_control_number_upper_bound = kwargs['interchangeControlNumberUpperBound']
+        if 'overwriteExistingTransactionSetControlNumber' in kwargs:
+            overwrite_existing_transaction_set_control_number = kwargs['overwriteExistingTransactionSetControlNumber']
+        if 'receiverApplicationId' in kwargs:
+            receiver_application_id = kwargs['receiverApplicationId']
+        if 'rolloverGroupControlNumber' in kwargs:
+            rollover_group_control_number = kwargs['rolloverGroupControlNumber']
+        if 'rolloverInterchangeControlNumber' in kwargs:
+            rollover_interchange_control_number = kwargs['rolloverInterchangeControlNumber']
+        if 'rolloverTransactionSetControlNumber' in kwargs:
+            rollover_transaction_set_control_number = kwargs['rolloverTransactionSetControlNumber']
+        if 'senderApplicationId' in kwargs:
+            sender_application_id = kwargs['senderApplicationId']
+        if 'transactionSetControlNumberLowerBound' in kwargs:
+            transaction_set_control_number_lower_bound = kwargs['transactionSetControlNumberLowerBound']
+        if 'transactionSetControlNumberUpperBound' in kwargs:
+            transaction_set_control_number_upper_bound = kwargs['transactionSetControlNumberUpperBound']
+        if 'usageIndicator' in kwargs:
+            usage_indicator = kwargs['usageIndicator']
+        if 'useControlStandardsIdAsRepetitionCharacter' in kwargs:
+            use_control_standards_id_as_repetition_character = kwargs['useControlStandardsIdAsRepetitionCharacter']
+        if 'functionalGroupId' in kwargs:
+            functional_group_id = kwargs['functionalGroupId']
+        if 'transactionSetControlNumberPrefix' in kwargs:
+            transaction_set_control_number_prefix = kwargs['transactionSetControlNumberPrefix']
+        if 'transactionSetControlNumberSuffix' in kwargs:
+            transaction_set_control_number_suffix = kwargs['transactionSetControlNumberSuffix']
+
+        _setter("control_standards_id", control_standards_id)
+        _setter("control_version_number", control_version_number)
+        _setter("enable_default_group_headers", enable_default_group_headers)
+        _setter("group_control_number_lower_bound", group_control_number_lower_bound)
+        _setter("group_control_number_upper_bound", group_control_number_upper_bound)
+        _setter("group_header_agency_code", group_header_agency_code)
+        _setter("group_header_date_format", group_header_date_format)
+        _setter("group_header_time_format", group_header_time_format)
+        _setter("group_header_version", group_header_version)
+        _setter("interchange_control_number_lower_bound", interchange_control_number_lower_bound)
+        _setter("interchange_control_number_upper_bound", interchange_control_number_upper_bound)
+        _setter("overwrite_existing_transaction_set_control_number", overwrite_existing_transaction_set_control_number)
+        _setter("receiver_application_id", receiver_application_id)
+        _setter("rollover_group_control_number", rollover_group_control_number)
+        _setter("rollover_interchange_control_number", rollover_interchange_control_number)
+        _setter("rollover_transaction_set_control_number", rollover_transaction_set_control_number)
+        _setter("sender_application_id", sender_application_id)
+        _setter("transaction_set_control_number_lower_bound", transaction_set_control_number_lower_bound)
+        _setter("transaction_set_control_number_upper_bound", transaction_set_control_number_upper_bound)
+        _setter("usage_indicator", usage_indicator)
+        _setter("use_control_standards_id_as_repetition_character", use_control_standards_id_as_repetition_character)
         if functional_group_id is not None:
-            pulumi.set(__self__, "functional_group_id", functional_group_id)
+            _setter("functional_group_id", functional_group_id)
         if transaction_set_control_number_prefix is not None:
-            pulumi.set(__self__, "transaction_set_control_number_prefix", transaction_set_control_number_prefix)
+            _setter("transaction_set_control_number_prefix", transaction_set_control_number_prefix)
         if transaction_set_control_number_suffix is not None:
-            pulumi.set(__self__, "transaction_set_control_number_suffix", transaction_set_control_number_suffix)
+            _setter("transaction_set_control_number_suffix", transaction_set_control_number_suffix)
 
     @property
     @pulumi.getter(name="controlStandardsId")
@@ -7206,13 +9394,50 @@ class X12FramingSettingsResponse(dict):
         :param int segment_terminator: The segment terminator.
         :param str segment_terminator_suffix: The segment terminator suffix.
         """
-        pulumi.set(__self__, "character_set", character_set)
-        pulumi.set(__self__, "component_separator", component_separator)
-        pulumi.set(__self__, "data_element_separator", data_element_separator)
-        pulumi.set(__self__, "replace_character", replace_character)
-        pulumi.set(__self__, "replace_separators_in_payload", replace_separators_in_payload)
-        pulumi.set(__self__, "segment_terminator", segment_terminator)
-        pulumi.set(__self__, "segment_terminator_suffix", segment_terminator_suffix)
+        X12FramingSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            character_set=character_set,
+            component_separator=component_separator,
+            data_element_separator=data_element_separator,
+            replace_character=replace_character,
+            replace_separators_in_payload=replace_separators_in_payload,
+            segment_terminator=segment_terminator,
+            segment_terminator_suffix=segment_terminator_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             character_set: str,
+             component_separator: int,
+             data_element_separator: int,
+             replace_character: int,
+             replace_separators_in_payload: bool,
+             segment_terminator: int,
+             segment_terminator_suffix: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'characterSet' in kwargs:
+            character_set = kwargs['characterSet']
+        if 'componentSeparator' in kwargs:
+            component_separator = kwargs['componentSeparator']
+        if 'dataElementSeparator' in kwargs:
+            data_element_separator = kwargs['dataElementSeparator']
+        if 'replaceCharacter' in kwargs:
+            replace_character = kwargs['replaceCharacter']
+        if 'replaceSeparatorsInPayload' in kwargs:
+            replace_separators_in_payload = kwargs['replaceSeparatorsInPayload']
+        if 'segmentTerminator' in kwargs:
+            segment_terminator = kwargs['segmentTerminator']
+        if 'segmentTerminatorSuffix' in kwargs:
+            segment_terminator_suffix = kwargs['segmentTerminatorSuffix']
+
+        _setter("character_set", character_set)
+        _setter("component_separator", component_separator)
+        _setter("data_element_separator", data_element_separator)
+        _setter("replace_character", replace_character)
+        _setter("replace_separators_in_payload", replace_separators_in_payload)
+        _setter("segment_terminator", segment_terminator)
+        _setter("segment_terminator_suffix", segment_terminator_suffix)
 
     @property
     @pulumi.getter(name="characterSet")
@@ -7299,7 +9524,20 @@ class X12MessageFilterResponse(dict):
         The X12 message filter for odata query.
         :param str message_filter_type: The message filter type.
         """
-        pulumi.set(__self__, "message_filter_type", message_filter_type)
+        X12MessageFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_filter_type=message_filter_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_filter_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'messageFilterType' in kwargs:
+            message_filter_type = kwargs['messageFilterType']
+
+        _setter("message_filter_type", message_filter_type)
 
     @property
     @pulumi.getter(name="messageFilterType")
@@ -7338,7 +9576,20 @@ class X12MessageIdentifierResponse(dict):
         The X12 message identifier.
         :param str message_id: The message id.
         """
-        pulumi.set(__self__, "message_id", message_id)
+        X12MessageIdentifierResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_id=message_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+
+        _setter("message_id", message_id)
 
     @property
     @pulumi.getter(name="messageId")
@@ -7385,9 +9636,30 @@ class X12OneWayAgreementResponse(dict):
         :param 'BusinessIdentityResponse' receiver_business_identity: The receiver business identity
         :param 'BusinessIdentityResponse' sender_business_identity: The sender business identity
         """
-        pulumi.set(__self__, "protocol_settings", protocol_settings)
-        pulumi.set(__self__, "receiver_business_identity", receiver_business_identity)
-        pulumi.set(__self__, "sender_business_identity", sender_business_identity)
+        X12OneWayAgreementResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol_settings=protocol_settings,
+            receiver_business_identity=receiver_business_identity,
+            sender_business_identity=sender_business_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol_settings: 'outputs.X12ProtocolSettingsResponse',
+             receiver_business_identity: 'outputs.BusinessIdentityResponse',
+             sender_business_identity: 'outputs.BusinessIdentityResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'protocolSettings' in kwargs:
+            protocol_settings = kwargs['protocolSettings']
+        if 'receiverBusinessIdentity' in kwargs:
+            receiver_business_identity = kwargs['receiverBusinessIdentity']
+        if 'senderBusinessIdentity' in kwargs:
+            sender_business_identity = kwargs['senderBusinessIdentity']
+
+        _setter("protocol_settings", protocol_settings)
+        _setter("receiver_business_identity", receiver_business_identity)
+        _setter("sender_business_identity", sender_business_identity)
 
     @property
     @pulumi.getter(name="protocolSettings")
@@ -7462,12 +9734,45 @@ class X12ProcessingSettingsResponse(dict):
         :param bool suspend_interchange_on_error: The value indicating whether to suspend interchange on error.
         :param bool use_dot_as_decimal_separator: The value indicating whether to use dot as decimal separator.
         """
-        pulumi.set(__self__, "convert_implied_decimal", convert_implied_decimal)
-        pulumi.set(__self__, "create_empty_xml_tags_for_trailing_separators", create_empty_xml_tags_for_trailing_separators)
-        pulumi.set(__self__, "mask_security_info", mask_security_info)
-        pulumi.set(__self__, "preserve_interchange", preserve_interchange)
-        pulumi.set(__self__, "suspend_interchange_on_error", suspend_interchange_on_error)
-        pulumi.set(__self__, "use_dot_as_decimal_separator", use_dot_as_decimal_separator)
+        X12ProcessingSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            convert_implied_decimal=convert_implied_decimal,
+            create_empty_xml_tags_for_trailing_separators=create_empty_xml_tags_for_trailing_separators,
+            mask_security_info=mask_security_info,
+            preserve_interchange=preserve_interchange,
+            suspend_interchange_on_error=suspend_interchange_on_error,
+            use_dot_as_decimal_separator=use_dot_as_decimal_separator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             convert_implied_decimal: bool,
+             create_empty_xml_tags_for_trailing_separators: bool,
+             mask_security_info: bool,
+             preserve_interchange: bool,
+             suspend_interchange_on_error: bool,
+             use_dot_as_decimal_separator: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'convertImpliedDecimal' in kwargs:
+            convert_implied_decimal = kwargs['convertImpliedDecimal']
+        if 'createEmptyXmlTagsForTrailingSeparators' in kwargs:
+            create_empty_xml_tags_for_trailing_separators = kwargs['createEmptyXmlTagsForTrailingSeparators']
+        if 'maskSecurityInfo' in kwargs:
+            mask_security_info = kwargs['maskSecurityInfo']
+        if 'preserveInterchange' in kwargs:
+            preserve_interchange = kwargs['preserveInterchange']
+        if 'suspendInterchangeOnError' in kwargs:
+            suspend_interchange_on_error = kwargs['suspendInterchangeOnError']
+        if 'useDotAsDecimalSeparator' in kwargs:
+            use_dot_as_decimal_separator = kwargs['useDotAsDecimalSeparator']
+
+        _setter("convert_implied_decimal", convert_implied_decimal)
+        _setter("create_empty_xml_tags_for_trailing_separators", create_empty_xml_tags_for_trailing_separators)
+        _setter("mask_security_info", mask_security_info)
+        _setter("preserve_interchange", preserve_interchange)
+        _setter("suspend_interchange_on_error", suspend_interchange_on_error)
+        _setter("use_dot_as_decimal_separator", use_dot_as_decimal_separator)
 
     @property
     @pulumi.getter(name="convertImpliedDecimal")
@@ -7590,22 +9895,79 @@ class X12ProtocolSettingsResponse(dict):
         :param Sequence['X12ValidationOverrideResponse'] validation_overrides: The X12 validation override settings.
         :param Sequence['X12DelimiterOverridesResponse'] x12_delimiter_overrides: The X12 delimiter override settings.
         """
-        pulumi.set(__self__, "acknowledgement_settings", acknowledgement_settings)
-        pulumi.set(__self__, "envelope_settings", envelope_settings)
-        pulumi.set(__self__, "framing_settings", framing_settings)
-        pulumi.set(__self__, "message_filter", message_filter)
-        pulumi.set(__self__, "processing_settings", processing_settings)
-        pulumi.set(__self__, "schema_references", schema_references)
-        pulumi.set(__self__, "security_settings", security_settings)
-        pulumi.set(__self__, "validation_settings", validation_settings)
+        X12ProtocolSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledgement_settings=acknowledgement_settings,
+            envelope_settings=envelope_settings,
+            framing_settings=framing_settings,
+            message_filter=message_filter,
+            processing_settings=processing_settings,
+            schema_references=schema_references,
+            security_settings=security_settings,
+            validation_settings=validation_settings,
+            envelope_overrides=envelope_overrides,
+            message_filter_list=message_filter_list,
+            validation_overrides=validation_overrides,
+            x12_delimiter_overrides=x12_delimiter_overrides,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledgement_settings: 'outputs.X12AcknowledgementSettingsResponse',
+             envelope_settings: 'outputs.X12EnvelopeSettingsResponse',
+             framing_settings: 'outputs.X12FramingSettingsResponse',
+             message_filter: 'outputs.X12MessageFilterResponse',
+             processing_settings: 'outputs.X12ProcessingSettingsResponse',
+             schema_references: Sequence['outputs.X12SchemaReferenceResponse'],
+             security_settings: 'outputs.X12SecuritySettingsResponse',
+             validation_settings: 'outputs.X12ValidationSettingsResponse',
+             envelope_overrides: Optional[Sequence['outputs.X12EnvelopeOverrideResponse']] = None,
+             message_filter_list: Optional[Sequence['outputs.X12MessageIdentifierResponse']] = None,
+             validation_overrides: Optional[Sequence['outputs.X12ValidationOverrideResponse']] = None,
+             x12_delimiter_overrides: Optional[Sequence['outputs.X12DelimiterOverridesResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acknowledgementSettings' in kwargs:
+            acknowledgement_settings = kwargs['acknowledgementSettings']
+        if 'envelopeSettings' in kwargs:
+            envelope_settings = kwargs['envelopeSettings']
+        if 'framingSettings' in kwargs:
+            framing_settings = kwargs['framingSettings']
+        if 'messageFilter' in kwargs:
+            message_filter = kwargs['messageFilter']
+        if 'processingSettings' in kwargs:
+            processing_settings = kwargs['processingSettings']
+        if 'schemaReferences' in kwargs:
+            schema_references = kwargs['schemaReferences']
+        if 'securitySettings' in kwargs:
+            security_settings = kwargs['securitySettings']
+        if 'validationSettings' in kwargs:
+            validation_settings = kwargs['validationSettings']
+        if 'envelopeOverrides' in kwargs:
+            envelope_overrides = kwargs['envelopeOverrides']
+        if 'messageFilterList' in kwargs:
+            message_filter_list = kwargs['messageFilterList']
+        if 'validationOverrides' in kwargs:
+            validation_overrides = kwargs['validationOverrides']
+        if 'x12DelimiterOverrides' in kwargs:
+            x12_delimiter_overrides = kwargs['x12DelimiterOverrides']
+
+        _setter("acknowledgement_settings", acknowledgement_settings)
+        _setter("envelope_settings", envelope_settings)
+        _setter("framing_settings", framing_settings)
+        _setter("message_filter", message_filter)
+        _setter("processing_settings", processing_settings)
+        _setter("schema_references", schema_references)
+        _setter("security_settings", security_settings)
+        _setter("validation_settings", validation_settings)
         if envelope_overrides is not None:
-            pulumi.set(__self__, "envelope_overrides", envelope_overrides)
+            _setter("envelope_overrides", envelope_overrides)
         if message_filter_list is not None:
-            pulumi.set(__self__, "message_filter_list", message_filter_list)
+            _setter("message_filter_list", message_filter_list)
         if validation_overrides is not None:
-            pulumi.set(__self__, "validation_overrides", validation_overrides)
+            _setter("validation_overrides", validation_overrides)
         if x12_delimiter_overrides is not None:
-            pulumi.set(__self__, "x12_delimiter_overrides", x12_delimiter_overrides)
+            _setter("x12_delimiter_overrides", x12_delimiter_overrides)
 
     @property
     @pulumi.getter(name="acknowledgementSettings")
@@ -7744,11 +10106,36 @@ class X12SchemaReferenceResponse(dict):
         :param str schema_version: The schema version.
         :param str sender_application_id: The sender application id.
         """
-        pulumi.set(__self__, "message_id", message_id)
-        pulumi.set(__self__, "schema_name", schema_name)
-        pulumi.set(__self__, "schema_version", schema_version)
+        X12SchemaReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_id=message_id,
+            schema_name=schema_name,
+            schema_version=schema_version,
+            sender_application_id=sender_application_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_id: str,
+             schema_name: str,
+             schema_version: str,
+             sender_application_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if 'schemaVersion' in kwargs:
+            schema_version = kwargs['schemaVersion']
+        if 'senderApplicationId' in kwargs:
+            sender_application_id = kwargs['senderApplicationId']
+
+        _setter("message_id", message_id)
+        _setter("schema_name", schema_name)
+        _setter("schema_version", schema_version)
         if sender_application_id is not None:
-            pulumi.set(__self__, "sender_application_id", sender_application_id)
+            _setter("sender_application_id", sender_application_id)
 
     @property
     @pulumi.getter(name="messageId")
@@ -7823,12 +10210,37 @@ class X12SecuritySettingsResponse(dict):
         :param str authorization_value: The authorization value.
         :param str password_value: The password value.
         """
-        pulumi.set(__self__, "authorization_qualifier", authorization_qualifier)
-        pulumi.set(__self__, "security_qualifier", security_qualifier)
+        X12SecuritySettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_qualifier=authorization_qualifier,
+            security_qualifier=security_qualifier,
+            authorization_value=authorization_value,
+            password_value=password_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_qualifier: str,
+             security_qualifier: str,
+             authorization_value: Optional[str] = None,
+             password_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizationQualifier' in kwargs:
+            authorization_qualifier = kwargs['authorizationQualifier']
+        if 'securityQualifier' in kwargs:
+            security_qualifier = kwargs['securityQualifier']
+        if 'authorizationValue' in kwargs:
+            authorization_value = kwargs['authorizationValue']
+        if 'passwordValue' in kwargs:
+            password_value = kwargs['passwordValue']
+
+        _setter("authorization_qualifier", authorization_qualifier)
+        _setter("security_qualifier", security_qualifier)
         if authorization_value is not None:
-            pulumi.set(__self__, "authorization_value", authorization_value)
+            _setter("authorization_value", authorization_value)
         if password_value is not None:
-            pulumi.set(__self__, "password_value", password_value)
+            _setter("password_value", password_value)
 
     @property
     @pulumi.getter(name="authorizationQualifier")
@@ -7915,13 +10327,50 @@ class X12ValidationOverrideResponse(dict):
         :param bool validate_edi_types: The value indicating whether to validate EDI types.
         :param bool validate_xsd_types: The value indicating whether to validate XSD types.
         """
-        pulumi.set(__self__, "allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "message_id", message_id)
-        pulumi.set(__self__, "trailing_separator_policy", trailing_separator_policy)
-        pulumi.set(__self__, "trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "validate_character_set", validate_character_set)
-        pulumi.set(__self__, "validate_edi_types", validate_edi_types)
-        pulumi.set(__self__, "validate_xsd_types", validate_xsd_types)
+        X12ValidationOverrideResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_leading_and_trailing_spaces_and_zeroes=allow_leading_and_trailing_spaces_and_zeroes,
+            message_id=message_id,
+            trailing_separator_policy=trailing_separator_policy,
+            trim_leading_and_trailing_spaces_and_zeroes=trim_leading_and_trailing_spaces_and_zeroes,
+            validate_character_set=validate_character_set,
+            validate_edi_types=validate_edi_types,
+            validate_xsd_types=validate_xsd_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_leading_and_trailing_spaces_and_zeroes: bool,
+             message_id: str,
+             trailing_separator_policy: str,
+             trim_leading_and_trailing_spaces_and_zeroes: bool,
+             validate_character_set: bool,
+             validate_edi_types: bool,
+             validate_xsd_types: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowLeadingAndTrailingSpacesAndZeroes' in kwargs:
+            allow_leading_and_trailing_spaces_and_zeroes = kwargs['allowLeadingAndTrailingSpacesAndZeroes']
+        if 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if 'trailingSeparatorPolicy' in kwargs:
+            trailing_separator_policy = kwargs['trailingSeparatorPolicy']
+        if 'trimLeadingAndTrailingSpacesAndZeroes' in kwargs:
+            trim_leading_and_trailing_spaces_and_zeroes = kwargs['trimLeadingAndTrailingSpacesAndZeroes']
+        if 'validateCharacterSet' in kwargs:
+            validate_character_set = kwargs['validateCharacterSet']
+        if 'validateEDITypes' in kwargs:
+            validate_edi_types = kwargs['validateEDITypes']
+        if 'validateXSDTypes' in kwargs:
+            validate_xsd_types = kwargs['validateXSDTypes']
+
+        _setter("allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
+        _setter("message_id", message_id)
+        _setter("trailing_separator_policy", trailing_separator_policy)
+        _setter("trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
+        _setter("validate_character_set", validate_character_set)
+        _setter("validate_edi_types", validate_edi_types)
+        _setter("validate_xsd_types", validate_xsd_types)
 
     @property
     @pulumi.getter(name="allowLeadingAndTrailingSpacesAndZeroes")
@@ -8044,16 +10493,65 @@ class X12ValidationSettingsResponse(dict):
         :param bool validate_edi_types: The value indicating whether to Whether to validate EDI types.
         :param bool validate_xsd_types: The value indicating whether to Whether to validate XSD types.
         """
-        pulumi.set(__self__, "allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "check_duplicate_group_control_number", check_duplicate_group_control_number)
-        pulumi.set(__self__, "check_duplicate_interchange_control_number", check_duplicate_interchange_control_number)
-        pulumi.set(__self__, "check_duplicate_transaction_set_control_number", check_duplicate_transaction_set_control_number)
-        pulumi.set(__self__, "interchange_control_number_validity_days", interchange_control_number_validity_days)
-        pulumi.set(__self__, "trailing_separator_policy", trailing_separator_policy)
-        pulumi.set(__self__, "trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "validate_character_set", validate_character_set)
-        pulumi.set(__self__, "validate_edi_types", validate_edi_types)
-        pulumi.set(__self__, "validate_xsd_types", validate_xsd_types)
+        X12ValidationSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_leading_and_trailing_spaces_and_zeroes=allow_leading_and_trailing_spaces_and_zeroes,
+            check_duplicate_group_control_number=check_duplicate_group_control_number,
+            check_duplicate_interchange_control_number=check_duplicate_interchange_control_number,
+            check_duplicate_transaction_set_control_number=check_duplicate_transaction_set_control_number,
+            interchange_control_number_validity_days=interchange_control_number_validity_days,
+            trailing_separator_policy=trailing_separator_policy,
+            trim_leading_and_trailing_spaces_and_zeroes=trim_leading_and_trailing_spaces_and_zeroes,
+            validate_character_set=validate_character_set,
+            validate_edi_types=validate_edi_types,
+            validate_xsd_types=validate_xsd_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_leading_and_trailing_spaces_and_zeroes: bool,
+             check_duplicate_group_control_number: bool,
+             check_duplicate_interchange_control_number: bool,
+             check_duplicate_transaction_set_control_number: bool,
+             interchange_control_number_validity_days: int,
+             trailing_separator_policy: str,
+             trim_leading_and_trailing_spaces_and_zeroes: bool,
+             validate_character_set: bool,
+             validate_edi_types: bool,
+             validate_xsd_types: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowLeadingAndTrailingSpacesAndZeroes' in kwargs:
+            allow_leading_and_trailing_spaces_and_zeroes = kwargs['allowLeadingAndTrailingSpacesAndZeroes']
+        if 'checkDuplicateGroupControlNumber' in kwargs:
+            check_duplicate_group_control_number = kwargs['checkDuplicateGroupControlNumber']
+        if 'checkDuplicateInterchangeControlNumber' in kwargs:
+            check_duplicate_interchange_control_number = kwargs['checkDuplicateInterchangeControlNumber']
+        if 'checkDuplicateTransactionSetControlNumber' in kwargs:
+            check_duplicate_transaction_set_control_number = kwargs['checkDuplicateTransactionSetControlNumber']
+        if 'interchangeControlNumberValidityDays' in kwargs:
+            interchange_control_number_validity_days = kwargs['interchangeControlNumberValidityDays']
+        if 'trailingSeparatorPolicy' in kwargs:
+            trailing_separator_policy = kwargs['trailingSeparatorPolicy']
+        if 'trimLeadingAndTrailingSpacesAndZeroes' in kwargs:
+            trim_leading_and_trailing_spaces_and_zeroes = kwargs['trimLeadingAndTrailingSpacesAndZeroes']
+        if 'validateCharacterSet' in kwargs:
+            validate_character_set = kwargs['validateCharacterSet']
+        if 'validateEDITypes' in kwargs:
+            validate_edi_types = kwargs['validateEDITypes']
+        if 'validateXSDTypes' in kwargs:
+            validate_xsd_types = kwargs['validateXSDTypes']
+
+        _setter("allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
+        _setter("check_duplicate_group_control_number", check_duplicate_group_control_number)
+        _setter("check_duplicate_interchange_control_number", check_duplicate_interchange_control_number)
+        _setter("check_duplicate_transaction_set_control_number", check_duplicate_transaction_set_control_number)
+        _setter("interchange_control_number_validity_days", interchange_control_number_validity_days)
+        _setter("trailing_separator_policy", trailing_separator_policy)
+        _setter("trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
+        _setter("validate_character_set", validate_character_set)
+        _setter("validate_edi_types", validate_edi_types)
+        _setter("validate_xsd_types", validate_xsd_types)
 
     @property
     @pulumi.getter(name="allowLeadingAndTrailingSpacesAndZeroes")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -34,20 +34,59 @@ class BackupArgs:
         :param pulumi.Input[str] snapshot_name: The name of the snapshot
         :param pulumi.Input[bool] use_existing_snapshot: Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "backup_vault_name", backup_vault_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "volume_resource_id", volume_resource_id)
+        BackupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            backup_vault_name=backup_vault_name,
+            resource_group_name=resource_group_name,
+            volume_resource_id=volume_resource_id,
+            backup_name=backup_name,
+            label=label,
+            snapshot_name=snapshot_name,
+            use_existing_snapshot=use_existing_snapshot,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             backup_vault_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             volume_resource_id: pulumi.Input[str],
+             backup_name: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             use_existing_snapshot: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'backupVaultName' in kwargs:
+            backup_vault_name = kwargs['backupVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'volumeResourceId' in kwargs:
+            volume_resource_id = kwargs['volumeResourceId']
+        if 'backupName' in kwargs:
+            backup_name = kwargs['backupName']
+        if 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+        if 'useExistingSnapshot' in kwargs:
+            use_existing_snapshot = kwargs['useExistingSnapshot']
+
+        _setter("account_name", account_name)
+        _setter("backup_vault_name", backup_vault_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("volume_resource_id", volume_resource_id)
         if backup_name is not None:
-            pulumi.set(__self__, "backup_name", backup_name)
+            _setter("backup_name", backup_name)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
         if use_existing_snapshot is None:
             use_existing_snapshot = False
         if use_existing_snapshot is not None:
-            pulumi.set(__self__, "use_existing_snapshot", use_existing_snapshot)
+            _setter("use_existing_snapshot", use_existing_snapshot)
 
     @property
     @pulumi.getter(name="accountName")
@@ -193,6 +232,10 @@ class Backup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

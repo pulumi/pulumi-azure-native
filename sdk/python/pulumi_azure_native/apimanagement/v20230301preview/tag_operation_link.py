@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['TagOperationLinkArgs', 'TagOperationLink']
@@ -27,12 +27,41 @@ class TagOperationLinkArgs:
         :param pulumi.Input[str] tag_id: Tag identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] operation_link_id: Tag-operation link identifier. Must be unique in the current API Management service instance.
         """
-        pulumi.set(__self__, "operation_id", operation_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "tag_id", tag_id)
+        TagOperationLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation_id=operation_id,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            tag_id=tag_id,
+            operation_link_id=operation_link_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             tag_id: pulumi.Input[str],
+             operation_link_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'operationId' in kwargs:
+            operation_id = kwargs['operationId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'tagId' in kwargs:
+            tag_id = kwargs['tagId']
+        if 'operationLinkId' in kwargs:
+            operation_link_id = kwargs['operationLinkId']
+
+        _setter("operation_id", operation_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("tag_id", tag_id)
         if operation_link_id is not None:
-            pulumi.set(__self__, "operation_link_id", operation_link_id)
+            _setter("operation_link_id", operation_link_id)
 
     @property
     @pulumi.getter(name="operationId")
@@ -136,6 +165,10 @@ class TagOperationLink(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TagOperationLinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

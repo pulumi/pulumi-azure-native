@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,21 +36,56 @@ class LogicalNetworkArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vm_switch_name: name of the network switch to be used for VMs
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        LogicalNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            dhcp_options=dhcp_options,
+            extended_location=extended_location,
+            location=location,
+            logical_network_name=logical_network_name,
+            subnets=subnets,
+            tags=tags,
+            vm_switch_name=vm_switch_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             dhcp_options: Optional[pulumi.Input['LogicalNetworkPropertiesDhcpOptionsArgs']] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             logical_network_name: Optional[pulumi.Input[str]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vm_switch_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'dhcpOptions' in kwargs:
+            dhcp_options = kwargs['dhcpOptions']
+        if 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if 'logicalNetworkName' in kwargs:
+            logical_network_name = kwargs['logicalNetworkName']
+        if 'vmSwitchName' in kwargs:
+            vm_switch_name = kwargs['vmSwitchName']
+
+        _setter("resource_group_name", resource_group_name)
         if dhcp_options is not None:
-            pulumi.set(__self__, "dhcp_options", dhcp_options)
+            _setter("dhcp_options", dhcp_options)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if logical_network_name is not None:
-            pulumi.set(__self__, "logical_network_name", logical_network_name)
+            _setter("logical_network_name", logical_network_name)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vm_switch_name is not None:
-            pulumi.set(__self__, "vm_switch_name", vm_switch_name)
+            _setter("vm_switch_name", vm_switch_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -196,6 +231,10 @@ class LogicalNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LogicalNetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -218,7 +257,17 @@ class LogicalNetwork(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LogicalNetworkArgs.__new__(LogicalNetworkArgs)
 
+            if dhcp_options is not None and not isinstance(dhcp_options, LogicalNetworkPropertiesDhcpOptionsArgs):
+                dhcp_options = dhcp_options or {}
+                def _setter(key, value):
+                    dhcp_options[key] = value
+                LogicalNetworkPropertiesDhcpOptionsArgs._configure(_setter, **dhcp_options)
             __props__.__dict__["dhcp_options"] = dhcp_options
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
             __props__.__dict__["logical_network_name"] = logical_network_name

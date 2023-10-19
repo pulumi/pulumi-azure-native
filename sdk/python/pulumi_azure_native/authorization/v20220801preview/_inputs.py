@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -22,7 +22,20 @@ class PolicyVariableColumnArgs:
         The variable column.
         :param pulumi.Input[str] column_name: The name of this policy variable column.
         """
-        pulumi.set(__self__, "column_name", column_name)
+        PolicyVariableColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+
+        _setter("column_name", column_name)
 
     @property
     @pulumi.getter(name="columnName")
@@ -47,8 +60,25 @@ class PolicyVariableValueColumnValueArgs:
         :param pulumi.Input[str] column_name: Column name for the variable value
         :param Any column_value: Column value for the variable value; this can be an integer, double, boolean, null or a string.
         """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "column_value", column_value)
+        PolicyVariableValueColumnValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            column_value=column_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: pulumi.Input[str],
+             column_value: Any,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+        if 'columnValue' in kwargs:
+            column_value = kwargs['columnValue']
+
+        _setter("column_name", column_name)
+        _setter("column_value", column_value)
 
     @property
     @pulumi.getter(name="columnName")

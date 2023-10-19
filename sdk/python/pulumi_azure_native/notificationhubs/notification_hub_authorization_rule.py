@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,17 +34,48 @@ class NotificationHubAuthorizationRuleArgs:
         :param pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs'] properties: SharedAccessAuthorizationRule properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Deprecated - only for compatibility.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "notification_hub_name", notification_hub_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NotificationHubAuthorizationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            notification_hub_name=notification_hub_name,
+            resource_group_name=resource_group_name,
+            authorization_rule_name=authorization_rule_name,
+            location=location,
+            properties=properties,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: pulumi.Input[str],
+             notification_hub_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             authorization_rule_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'notificationHubName' in kwargs:
+            notification_hub_name = kwargs['notificationHubName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'authorizationRuleName' in kwargs:
+            authorization_rule_name = kwargs['authorizationRuleName']
+
+        _setter("namespace_name", namespace_name)
+        _setter("notification_hub_name", notification_hub_name)
+        _setter("resource_group_name", resource_group_name)
         if authorization_rule_name is not None:
-            pulumi.set(__self__, "authorization_rule_name", authorization_rule_name)
+            _setter("authorization_rule_name", authorization_rule_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -178,6 +209,10 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NotificationHubAuthorizationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -207,6 +242,11 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
             if notification_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_hub_name'")
             __props__.__dict__["notification_hub_name"] = notification_hub_name
+            if properties is not None and not isinstance(properties, SharedAccessAuthorizationRulePropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                SharedAccessAuthorizationRulePropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

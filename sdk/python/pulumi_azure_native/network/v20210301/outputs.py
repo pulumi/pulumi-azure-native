@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -106,34 +106,99 @@ class CustomIpPrefixResponse(dict):
         :param Mapping[str, str] tags: Resource tags.
         :param Sequence[str] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
-        pulumi.set(__self__, "child_custom_ip_prefixes", child_custom_ip_prefixes)
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "failed_reason", failed_reason)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "public_ip_prefixes", public_ip_prefixes)
-        pulumi.set(__self__, "resource_guid", resource_guid)
-        pulumi.set(__self__, "type", type)
+        CustomIpPrefixResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            child_custom_ip_prefixes=child_custom_ip_prefixes,
+            etag=etag,
+            failed_reason=failed_reason,
+            name=name,
+            provisioning_state=provisioning_state,
+            public_ip_prefixes=public_ip_prefixes,
+            resource_guid=resource_guid,
+            type=type,
+            authorization_message=authorization_message,
+            cidr=cidr,
+            commissioned_state=commissioned_state,
+            custom_ip_prefix_parent=custom_ip_prefix_parent,
+            extended_location=extended_location,
+            id=id,
+            location=location,
+            signed_message=signed_message,
+            tags=tags,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             child_custom_ip_prefixes: Sequence['outputs.CustomIpPrefixResponse'],
+             etag: str,
+             failed_reason: str,
+             name: str,
+             provisioning_state: str,
+             public_ip_prefixes: Sequence['outputs.SubResourceResponse'],
+             resource_guid: str,
+             type: str,
+             authorization_message: Optional[str] = None,
+             cidr: Optional[str] = None,
+             commissioned_state: Optional[str] = None,
+             custom_ip_prefix_parent: Optional['outputs.CustomIpPrefixResponse'] = None,
+             extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             id: Optional[str] = None,
+             location: Optional[str] = None,
+             signed_message: Optional[str] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             zones: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'childCustomIpPrefixes' in kwargs:
+            child_custom_ip_prefixes = kwargs['childCustomIpPrefixes']
+        if 'failedReason' in kwargs:
+            failed_reason = kwargs['failedReason']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'publicIpPrefixes' in kwargs:
+            public_ip_prefixes = kwargs['publicIpPrefixes']
+        if 'resourceGuid' in kwargs:
+            resource_guid = kwargs['resourceGuid']
+        if 'authorizationMessage' in kwargs:
+            authorization_message = kwargs['authorizationMessage']
+        if 'commissionedState' in kwargs:
+            commissioned_state = kwargs['commissionedState']
+        if 'customIpPrefixParent' in kwargs:
+            custom_ip_prefix_parent = kwargs['customIpPrefixParent']
+        if 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if 'signedMessage' in kwargs:
+            signed_message = kwargs['signedMessage']
+
+        _setter("child_custom_ip_prefixes", child_custom_ip_prefixes)
+        _setter("etag", etag)
+        _setter("failed_reason", failed_reason)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("public_ip_prefixes", public_ip_prefixes)
+        _setter("resource_guid", resource_guid)
+        _setter("type", type)
         if authorization_message is not None:
-            pulumi.set(__self__, "authorization_message", authorization_message)
+            _setter("authorization_message", authorization_message)
         if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
+            _setter("cidr", cidr)
         if commissioned_state is not None:
-            pulumi.set(__self__, "commissioned_state", commissioned_state)
+            _setter("commissioned_state", commissioned_state)
         if custom_ip_prefix_parent is not None:
-            pulumi.set(__self__, "custom_ip_prefix_parent", custom_ip_prefix_parent)
+            _setter("custom_ip_prefix_parent", custom_ip_prefix_parent)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if signed_message is not None:
-            pulumi.set(__self__, "signed_message", signed_message)
+            _setter("signed_message", signed_message)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="childCustomIpPrefixes")
@@ -291,8 +356,19 @@ class ExpressRouteCircuitPeeringIdResponse(dict):
         ExpressRoute circuit peering identifier.
         :param str id: The ID of the ExpressRoute circuit peering.
         """
+        ExpressRouteCircuitPeeringIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -359,21 +435,62 @@ class ExpressRouteConnectionResponse(dict):
         :param 'RoutingConfigurationResponse' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param int routing_weight: The routing weight associated to the connection.
         """
-        pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        ExpressRouteConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            express_route_circuit_peering=express_route_circuit_peering,
+            name=name,
+            provisioning_state=provisioning_state,
+            authorization_key=authorization_key,
+            enable_internet_security=enable_internet_security,
+            express_route_gateway_bypass=express_route_gateway_bypass,
+            id=id,
+            routing_configuration=routing_configuration,
+            routing_weight=routing_weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             express_route_circuit_peering: 'outputs.ExpressRouteCircuitPeeringIdResponse',
+             name: str,
+             provisioning_state: str,
+             authorization_key: Optional[str] = None,
+             enable_internet_security: Optional[bool] = None,
+             express_route_gateway_bypass: Optional[bool] = None,
+             id: Optional[str] = None,
+             routing_configuration: Optional['outputs.RoutingConfigurationResponse'] = None,
+             routing_weight: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expressRouteCircuitPeering' in kwargs:
+            express_route_circuit_peering = kwargs['expressRouteCircuitPeering']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'authorizationKey' in kwargs:
+            authorization_key = kwargs['authorizationKey']
+        if 'enableInternetSecurity' in kwargs:
+            enable_internet_security = kwargs['enableInternetSecurity']
+        if 'expressRouteGatewayBypass' in kwargs:
+            express_route_gateway_bypass = kwargs['expressRouteGatewayBypass']
+        if 'routingConfiguration' in kwargs:
+            routing_configuration = kwargs['routingConfiguration']
+        if 'routingWeight' in kwargs:
+            routing_weight = kwargs['routingWeight']
+
+        _setter("express_route_circuit_peering", express_route_circuit_peering)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
         if authorization_key is not None:
-            pulumi.set(__self__, "authorization_key", authorization_key)
+            _setter("authorization_key", authorization_key)
         if enable_internet_security is not None:
-            pulumi.set(__self__, "enable_internet_security", enable_internet_security)
+            _setter("enable_internet_security", enable_internet_security)
         if express_route_gateway_bypass is not None:
-            pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
+            _setter("express_route_gateway_bypass", express_route_gateway_bypass)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if routing_configuration is not None:
-            pulumi.set(__self__, "routing_configuration", routing_configuration)
+            _setter("routing_configuration", routing_configuration)
         if routing_weight is not None:
-            pulumi.set(__self__, "routing_weight", routing_weight)
+            _setter("routing_weight", routing_weight)
 
     @property
     @pulumi.getter(name="expressRouteCircuitPeering")
@@ -459,8 +576,19 @@ class ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration(dict):
         Configuration for auto scaling.
         :param 'ExpressRouteGatewayPropertiesResponseBounds' bounds: Minimum and maximum number of scale units to deploy.
         """
+        ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bounds=bounds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bounds: Optional['outputs.ExpressRouteGatewayPropertiesResponseBounds'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if bounds is not None:
-            pulumi.set(__self__, "bounds", bounds)
+            _setter("bounds", bounds)
 
     @property
     @pulumi.getter
@@ -484,10 +612,23 @@ class ExpressRouteGatewayPropertiesResponseBounds(dict):
         :param int max: Maximum number of scale units deployed for ExpressRoute gateway.
         :param int min: Minimum number of scale units deployed for ExpressRoute gateway.
         """
+        ExpressRouteGatewayPropertiesResponseBounds._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max=max,
+            min=min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max: Optional[int] = None,
+             min: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
-            pulumi.set(__self__, "max", max)
+            _setter("max", max)
         if min is not None:
-            pulumi.set(__self__, "min", min)
+            _setter("min", min)
 
     @property
     @pulumi.getter
@@ -519,10 +660,23 @@ class ExtendedLocationResponse(dict):
         :param str name: The name of the extended location.
         :param str type: The type of the extended location.
         """
+        ExtendedLocationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -554,10 +708,23 @@ class PropagatedRouteTableResponse(dict):
         :param Sequence['SubResourceResponse'] ids: The list of resource ids of all the RouteTables.
         :param Sequence[str] labels: The list of labels.
         """
+        PropagatedRouteTableResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ids=ids,
+            labels=labels,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ids: Optional[Sequence['outputs.SubResourceResponse']] = None,
+             labels: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ids is not None:
-            pulumi.set(__self__, "ids", ids)
+            _setter("ids", ids)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
 
     @property
     @pulumi.getter
@@ -612,12 +779,33 @@ class RoutingConfigurationResponse(dict):
         :param 'PropagatedRouteTableResponse' propagated_route_tables: The list of RouteTables to advertise the routes to.
         :param 'VnetRouteResponse' vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
         """
+        RoutingConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            associated_route_table=associated_route_table,
+            propagated_route_tables=propagated_route_tables,
+            vnet_routes=vnet_routes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             associated_route_table: Optional['outputs.SubResourceResponse'] = None,
+             propagated_route_tables: Optional['outputs.PropagatedRouteTableResponse'] = None,
+             vnet_routes: Optional['outputs.VnetRouteResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associatedRouteTable' in kwargs:
+            associated_route_table = kwargs['associatedRouteTable']
+        if 'propagatedRouteTables' in kwargs:
+            propagated_route_tables = kwargs['propagatedRouteTables']
+        if 'vnetRoutes' in kwargs:
+            vnet_routes = kwargs['vnetRoutes']
+
         if associated_route_table is not None:
-            pulumi.set(__self__, "associated_route_table", associated_route_table)
+            _setter("associated_route_table", associated_route_table)
         if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
+            _setter("propagated_route_tables", propagated_route_tables)
         if vnet_routes is not None:
-            pulumi.set(__self__, "vnet_routes", vnet_routes)
+            _setter("vnet_routes", vnet_routes)
 
     @property
     @pulumi.getter(name="associatedRouteTable")
@@ -678,12 +866,31 @@ class StaticRouteResponse(dict):
         :param str name: The name of the StaticRoute that is unique within a VnetRoute.
         :param str next_hop_ip_address: The ip address of the next hop.
         """
+        StaticRouteResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_prefixes=address_prefixes,
+            name=name,
+            next_hop_ip_address=next_hop_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_prefixes: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             next_hop_ip_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefixes' in kwargs:
+            address_prefixes = kwargs['addressPrefixes']
+        if 'nextHopIpAddress' in kwargs:
+            next_hop_ip_address = kwargs['nextHopIpAddress']
+
         if address_prefixes is not None:
-            pulumi.set(__self__, "address_prefixes", address_prefixes)
+            _setter("address_prefixes", address_prefixes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if next_hop_ip_address is not None:
-            pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+            _setter("next_hop_ip_address", next_hop_ip_address)
 
     @property
     @pulumi.getter(name="addressPrefixes")
@@ -721,8 +928,19 @@ class SubResourceResponse(dict):
         Reference to another subresource.
         :param str id: Resource ID.
         """
+        SubResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -744,8 +962,19 @@ class VirtualHubIdResponse(dict):
         Virtual Hub identifier.
         :param str id: The resource URI for the Virtual Hub where the ExpressRoute gateway is or will be deployed. The Virtual Hub resource and the ExpressRoute gateway resource reside in the same subscription.
         """
+        VirtualHubIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -788,9 +1017,26 @@ class VnetRouteResponse(dict):
         :param Sequence['SubResourceResponse'] bgp_connections: The list of references to HubBgpConnection objects.
         :param Sequence['StaticRouteResponse'] static_routes: List of all Static Routes.
         """
-        pulumi.set(__self__, "bgp_connections", bgp_connections)
+        VnetRouteResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bgp_connections=bgp_connections,
+            static_routes=static_routes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bgp_connections: Sequence['outputs.SubResourceResponse'],
+             static_routes: Optional[Sequence['outputs.StaticRouteResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bgpConnections' in kwargs:
+            bgp_connections = kwargs['bgpConnections']
+        if 'staticRoutes' in kwargs:
+            static_routes = kwargs['staticRoutes']
+
+        _setter("bgp_connections", bgp_connections)
         if static_routes is not None:
-            pulumi.set(__self__, "static_routes", static_routes)
+            _setter("static_routes", static_routes)
 
     @property
     @pulumi.getter(name="bgpConnections")

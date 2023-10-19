@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -39,14 +39,33 @@ class CompatibilityResponse(dict):
         :param Sequence[str] issues: List of all issues found
         :param str message: Short error message if any compatibility issues are found
         """
+        CompatibilityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            is_compatible=is_compatible,
+            issues=issues,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             is_compatible: Optional[bool] = None,
+             issues: Optional[Sequence[str]] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isCompatible' in kwargs:
+            is_compatible = kwargs['isCompatible']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if is_compatible is not None:
-            pulumi.set(__self__, "is_compatible", is_compatible)
+            _setter("is_compatible", is_compatible)
         if issues is not None:
-            pulumi.set(__self__, "issues", issues)
+            _setter("issues", issues)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -94,8 +113,23 @@ class DataDiskImageResponse(dict):
         :param int lun: The LUN.
         :param str source_blob_sas_uri: SAS key for source blob.
         """
-        pulumi.set(__self__, "lun", lun)
-        pulumi.set(__self__, "source_blob_sas_uri", source_blob_sas_uri)
+        DataDiskImageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lun=lun,
+            source_blob_sas_uri=source_blob_sas_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lun: int,
+             source_blob_sas_uri: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceBlobSasUri' in kwargs:
+            source_blob_sas_uri = kwargs['sourceBlobSasUri']
+
+        _setter("lun", lun)
+        _setter("source_blob_sas_uri", source_blob_sas_uri)
 
     @property
     @pulumi.getter
@@ -133,16 +167,35 @@ class IconUrisResponse(dict):
         :param str small: URI to small icon.
         :param str wide: URI to wide icon.
         """
+        IconUrisResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hero=hero,
+            large=large,
+            medium=medium,
+            small=small,
+            wide=wide,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hero: Optional[str] = None,
+             large: Optional[str] = None,
+             medium: Optional[str] = None,
+             small: Optional[str] = None,
+             wide: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if hero is not None:
-            pulumi.set(__self__, "hero", hero)
+            _setter("hero", hero)
         if large is not None:
-            pulumi.set(__self__, "large", large)
+            _setter("large", large)
         if medium is not None:
-            pulumi.set(__self__, "medium", medium)
+            _setter("medium", medium)
         if small is not None:
-            pulumi.set(__self__, "small", small)
+            _setter("small", small)
         if wide is not None:
-            pulumi.set(__self__, "wide", wide)
+            _setter("wide", wide)
 
     @property
     @pulumi.getter
@@ -198,8 +251,25 @@ class OsDiskImageResponse(dict):
         :param str operating_system: OS operating system type.
         :param str source_blob_sas_uri: SAS key for source blob.
         """
-        pulumi.set(__self__, "operating_system", operating_system)
-        pulumi.set(__self__, "source_blob_sas_uri", source_blob_sas_uri)
+        OsDiskImageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operating_system=operating_system,
+            source_blob_sas_uri=source_blob_sas_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operating_system: str,
+             source_blob_sas_uri: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'operatingSystem' in kwargs:
+            operating_system = kwargs['operatingSystem']
+        if 'sourceBlobSasUri' in kwargs:
+            source_blob_sas_uri = kwargs['sourceBlobSasUri']
+
+        _setter("operating_system", operating_system)
+        _setter("source_blob_sas_uri", source_blob_sas_uri)
 
     @property
     @pulumi.getter(name="operatingSystem")
@@ -231,10 +301,25 @@ class ProductLinkResponse(dict):
         :param str display_name: The description of the link.
         :param str uri: The URI corresponding to the link.
         """
+        ProductLinkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="displayName")
@@ -264,8 +349,19 @@ class ProductPropertiesResponse(dict):
         Additional properties of the product
         :param str version: The version.
         """
+        ProductPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -331,48 +427,131 @@ class ProductResponse(dict):
         :param str sku: The product SKU.
         :param str vm_extension_type: The type of the Virtual Machine Extension.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        ProductResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            system_data=system_data,
+            type=type,
+            billing_part_number=billing_part_number,
+            compatibility=compatibility,
+            description=description,
+            display_name=display_name,
+            etag=etag,
+            gallery_item_identity=gallery_item_identity,
+            icon_uris=icon_uris,
+            legal_terms=legal_terms,
+            links=links,
+            offer=offer,
+            offer_version=offer_version,
+            payload_length=payload_length,
+            privacy_policy=privacy_policy,
+            product_kind=product_kind,
+            product_properties=product_properties,
+            publisher_display_name=publisher_display_name,
+            publisher_identifier=publisher_identifier,
+            sku=sku,
+            vm_extension_type=vm_extension_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             system_data: 'outputs.SystemDataResponse',
+             type: str,
+             billing_part_number: Optional[str] = None,
+             compatibility: Optional['outputs.CompatibilityResponse'] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             etag: Optional[str] = None,
+             gallery_item_identity: Optional[str] = None,
+             icon_uris: Optional['outputs.IconUrisResponse'] = None,
+             legal_terms: Optional[str] = None,
+             links: Optional[Sequence['outputs.ProductLinkResponse']] = None,
+             offer: Optional[str] = None,
+             offer_version: Optional[str] = None,
+             payload_length: Optional[float] = None,
+             privacy_policy: Optional[str] = None,
+             product_kind: Optional[str] = None,
+             product_properties: Optional['outputs.ProductPropertiesResponse'] = None,
+             publisher_display_name: Optional[str] = None,
+             publisher_identifier: Optional[str] = None,
+             sku: Optional[str] = None,
+             vm_extension_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if 'billingPartNumber' in kwargs:
+            billing_part_number = kwargs['billingPartNumber']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'galleryItemIdentity' in kwargs:
+            gallery_item_identity = kwargs['galleryItemIdentity']
+        if 'iconUris' in kwargs:
+            icon_uris = kwargs['iconUris']
+        if 'legalTerms' in kwargs:
+            legal_terms = kwargs['legalTerms']
+        if 'offerVersion' in kwargs:
+            offer_version = kwargs['offerVersion']
+        if 'payloadLength' in kwargs:
+            payload_length = kwargs['payloadLength']
+        if 'privacyPolicy' in kwargs:
+            privacy_policy = kwargs['privacyPolicy']
+        if 'productKind' in kwargs:
+            product_kind = kwargs['productKind']
+        if 'productProperties' in kwargs:
+            product_properties = kwargs['productProperties']
+        if 'publisherDisplayName' in kwargs:
+            publisher_display_name = kwargs['publisherDisplayName']
+        if 'publisherIdentifier' in kwargs:
+            publisher_identifier = kwargs['publisherIdentifier']
+        if 'vmExtensionType' in kwargs:
+            vm_extension_type = kwargs['vmExtensionType']
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if billing_part_number is not None:
-            pulumi.set(__self__, "billing_part_number", billing_part_number)
+            _setter("billing_part_number", billing_part_number)
         if compatibility is not None:
-            pulumi.set(__self__, "compatibility", compatibility)
+            _setter("compatibility", compatibility)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if gallery_item_identity is not None:
-            pulumi.set(__self__, "gallery_item_identity", gallery_item_identity)
+            _setter("gallery_item_identity", gallery_item_identity)
         if icon_uris is not None:
-            pulumi.set(__self__, "icon_uris", icon_uris)
+            _setter("icon_uris", icon_uris)
         if legal_terms is not None:
-            pulumi.set(__self__, "legal_terms", legal_terms)
+            _setter("legal_terms", legal_terms)
         if links is not None:
-            pulumi.set(__self__, "links", links)
+            _setter("links", links)
         if offer is not None:
-            pulumi.set(__self__, "offer", offer)
+            _setter("offer", offer)
         if offer_version is not None:
-            pulumi.set(__self__, "offer_version", offer_version)
+            _setter("offer_version", offer_version)
         if payload_length is not None:
-            pulumi.set(__self__, "payload_length", payload_length)
+            _setter("payload_length", payload_length)
         if privacy_policy is not None:
-            pulumi.set(__self__, "privacy_policy", privacy_policy)
+            _setter("privacy_policy", privacy_policy)
         if product_kind is not None:
-            pulumi.set(__self__, "product_kind", product_kind)
+            _setter("product_kind", product_kind)
         if product_properties is not None:
-            pulumi.set(__self__, "product_properties", product_properties)
+            _setter("product_properties", product_properties)
         if publisher_display_name is not None:
-            pulumi.set(__self__, "publisher_display_name", publisher_display_name)
+            _setter("publisher_display_name", publisher_display_name)
         if publisher_identifier is not None:
-            pulumi.set(__self__, "publisher_identifier", publisher_identifier)
+            _setter("publisher_identifier", publisher_identifier)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if vm_extension_type is not None:
-            pulumi.set(__self__, "vm_extension_type", vm_extension_type)
+            _setter("vm_extension_type", vm_extension_type)
 
     @property
     @pulumi.getter
@@ -607,18 +786,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

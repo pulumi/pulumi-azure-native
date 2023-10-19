@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,12 +28,35 @@ class MonitoredSubscriptionInitArgs:
         :param pulumi.Input[str] configuration_name: The configuration name. Only 'default' value is supported.
         :param pulumi.Input['SubscriptionListArgs'] properties: The request to update subscriptions needed to be monitored by the Datadog monitor resource.
         """
-        pulumi.set(__self__, "monitor_name", monitor_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MonitoredSubscriptionInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            monitor_name=monitor_name,
+            resource_group_name=resource_group_name,
+            configuration_name=configuration_name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             monitor_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             configuration_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['SubscriptionListArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monitorName' in kwargs:
+            monitor_name = kwargs['monitorName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'configurationName' in kwargs:
+            configuration_name = kwargs['configurationName']
+
+        _setter("monitor_name", monitor_name)
+        _setter("resource_group_name", resource_group_name)
         if configuration_name is not None:
-            pulumi.set(__self__, "configuration_name", configuration_name)
+            _setter("configuration_name", configuration_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="monitorName")
@@ -123,6 +146,10 @@ class MonitoredSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MonitoredSubscriptionInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -145,6 +172,11 @@ class MonitoredSubscription(pulumi.CustomResource):
             if monitor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_name'")
             __props__.__dict__["monitor_name"] = monitor_name
+            if properties is not None and not isinstance(properties, SubscriptionListArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                SubscriptionListArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

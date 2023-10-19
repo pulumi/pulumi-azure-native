@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WebAppPremierAddOnSlotArgs', 'WebAppPremierAddOnSlot']
@@ -41,27 +41,68 @@ class WebAppPremierAddOnSlotArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vendor: Premier add on Vendor.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "slot", slot)
+        WebAppPremierAddOnSlotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            slot=slot,
+            kind=kind,
+            location=location,
+            marketplace_offer=marketplace_offer,
+            marketplace_publisher=marketplace_publisher,
+            premier_add_on_name=premier_add_on_name,
+            product=product,
+            sku=sku,
+            tags=tags,
+            vendor=vendor,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             slot: pulumi.Input[str],
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             marketplace_offer: Optional[pulumi.Input[str]] = None,
+             marketplace_publisher: Optional[pulumi.Input[str]] = None,
+             premier_add_on_name: Optional[pulumi.Input[str]] = None,
+             product: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vendor: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'marketplaceOffer' in kwargs:
+            marketplace_offer = kwargs['marketplaceOffer']
+        if 'marketplacePublisher' in kwargs:
+            marketplace_publisher = kwargs['marketplacePublisher']
+        if 'premierAddOnName' in kwargs:
+            premier_add_on_name = kwargs['premierAddOnName']
+
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("slot", slot)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if marketplace_offer is not None:
-            pulumi.set(__self__, "marketplace_offer", marketplace_offer)
+            _setter("marketplace_offer", marketplace_offer)
         if marketplace_publisher is not None:
-            pulumi.set(__self__, "marketplace_publisher", marketplace_publisher)
+            _setter("marketplace_publisher", marketplace_publisher)
         if premier_add_on_name is not None:
-            pulumi.set(__self__, "premier_add_on_name", premier_add_on_name)
+            _setter("premier_add_on_name", premier_add_on_name)
         if product is not None:
-            pulumi.set(__self__, "product", product)
+            _setter("product", product)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vendor is not None:
-            pulumi.set(__self__, "vendor", vendor)
+            _setter("vendor", vendor)
 
     @property
     @pulumi.getter
@@ -265,6 +306,10 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppPremierAddOnSlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

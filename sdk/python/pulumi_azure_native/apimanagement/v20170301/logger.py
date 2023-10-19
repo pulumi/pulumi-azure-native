@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -37,18 +37,51 @@ class LoggerArgs:
         :param pulumi.Input[str] loggerid: Logger identifier. Must be unique in the API Management service instance.
         :param pulumi.Input['LoggerSamplingContractArgs'] sampling: Sampling settings for an ApplicationInsights logger.
         """
-        pulumi.set(__self__, "credentials", credentials)
-        pulumi.set(__self__, "logger_type", logger_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        LoggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+            logger_type=logger_type,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            description=description,
+            is_buffered=is_buffered,
+            loggerid=loggerid,
+            sampling=sampling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+             logger_type: pulumi.Input[Union[str, 'LoggerType']],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             is_buffered: Optional[pulumi.Input[bool]] = None,
+             loggerid: Optional[pulumi.Input[str]] = None,
+             sampling: Optional[pulumi.Input['LoggerSamplingContractArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loggerType' in kwargs:
+            logger_type = kwargs['loggerType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'isBuffered' in kwargs:
+            is_buffered = kwargs['isBuffered']
+
+        _setter("credentials", credentials)
+        _setter("logger_type", logger_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if is_buffered is not None:
-            pulumi.set(__self__, "is_buffered", is_buffered)
+            _setter("is_buffered", is_buffered)
         if loggerid is not None:
-            pulumi.set(__self__, "loggerid", loggerid)
+            _setter("loggerid", loggerid)
         if sampling is not None:
-            pulumi.set(__self__, "sampling", sampling)
+            _setter("sampling", sampling)
 
     @property
     @pulumi.getter
@@ -196,6 +229,10 @@ class Logger(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoggerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -230,6 +267,11 @@ class Logger(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sampling is not None and not isinstance(sampling, LoggerSamplingContractArgs):
+                sampling = sampling or {}
+                def _setter(key, value):
+                    sampling[key] = value
+                LoggerSamplingContractArgs._configure(_setter, **sampling)
             __props__.__dict__["sampling"] = sampling
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")

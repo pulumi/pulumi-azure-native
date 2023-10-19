@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -31,14 +31,33 @@ class AccountEncryptionArgs:
         :param pulumi.Input[Union[str, 'KeySource']] key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Properties provided by KeVault. Applicable if keySource is 'Microsoft.KeyVault'.
         """
+        AccountEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity=identity,
+            key_source=key_source,
+            key_vault_properties=key_vault_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity: Optional[pulumi.Input['EncryptionIdentityArgs']] = None,
+             key_source: Optional[pulumi.Input[Union[str, 'KeySource']]] = None,
+             key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keySource' in kwargs:
+            key_source = kwargs['keySource']
+        if 'keyVaultProperties' in kwargs:
+            key_vault_properties = kwargs['keyVaultProperties']
+
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_source is None:
             key_source = 'Microsoft.NetApp'
         if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
+            _setter("key_source", key_source)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
 
     @property
     @pulumi.getter
@@ -123,48 +142,125 @@ class ActiveDirectoryArgs:
         :param pulumi.Input[str] smb_server_name: NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
         :param pulumi.Input[str] username: A domain user account with permission to create machine accounts
         """
+        ActiveDirectoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_directory_id=active_directory_id,
+            ad_name=ad_name,
+            administrators=administrators,
+            aes_encryption=aes_encryption,
+            allow_local_nfs_users_with_ldap=allow_local_nfs_users_with_ldap,
+            backup_operators=backup_operators,
+            dns=dns,
+            domain=domain,
+            encrypt_dc_connections=encrypt_dc_connections,
+            kdc_ip=kdc_ip,
+            ldap_over_tls=ldap_over_tls,
+            ldap_search_scope=ldap_search_scope,
+            ldap_signing=ldap_signing,
+            organizational_unit=organizational_unit,
+            password=password,
+            security_operators=security_operators,
+            server_root_ca_certificate=server_root_ca_certificate,
+            site=site,
+            smb_server_name=smb_server_name,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_directory_id: Optional[pulumi.Input[str]] = None,
+             ad_name: Optional[pulumi.Input[str]] = None,
+             administrators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             aes_encryption: Optional[pulumi.Input[bool]] = None,
+             allow_local_nfs_users_with_ldap: Optional[pulumi.Input[bool]] = None,
+             backup_operators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             dns: Optional[pulumi.Input[str]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             encrypt_dc_connections: Optional[pulumi.Input[bool]] = None,
+             kdc_ip: Optional[pulumi.Input[str]] = None,
+             ldap_over_tls: Optional[pulumi.Input[bool]] = None,
+             ldap_search_scope: Optional[pulumi.Input['LdapSearchScopeOptArgs']] = None,
+             ldap_signing: Optional[pulumi.Input[bool]] = None,
+             organizational_unit: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             security_operators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             server_root_ca_certificate: Optional[pulumi.Input[str]] = None,
+             site: Optional[pulumi.Input[str]] = None,
+             smb_server_name: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectoryId' in kwargs:
+            active_directory_id = kwargs['activeDirectoryId']
+        if 'adName' in kwargs:
+            ad_name = kwargs['adName']
+        if 'aesEncryption' in kwargs:
+            aes_encryption = kwargs['aesEncryption']
+        if 'allowLocalNfsUsersWithLdap' in kwargs:
+            allow_local_nfs_users_with_ldap = kwargs['allowLocalNfsUsersWithLdap']
+        if 'backupOperators' in kwargs:
+            backup_operators = kwargs['backupOperators']
+        if 'encryptDCConnections' in kwargs:
+            encrypt_dc_connections = kwargs['encryptDCConnections']
+        if 'kdcIP' in kwargs:
+            kdc_ip = kwargs['kdcIP']
+        if 'ldapOverTLS' in kwargs:
+            ldap_over_tls = kwargs['ldapOverTLS']
+        if 'ldapSearchScope' in kwargs:
+            ldap_search_scope = kwargs['ldapSearchScope']
+        if 'ldapSigning' in kwargs:
+            ldap_signing = kwargs['ldapSigning']
+        if 'organizationalUnit' in kwargs:
+            organizational_unit = kwargs['organizationalUnit']
+        if 'securityOperators' in kwargs:
+            security_operators = kwargs['securityOperators']
+        if 'serverRootCACertificate' in kwargs:
+            server_root_ca_certificate = kwargs['serverRootCACertificate']
+        if 'smbServerName' in kwargs:
+            smb_server_name = kwargs['smbServerName']
+
         if active_directory_id is not None:
-            pulumi.set(__self__, "active_directory_id", active_directory_id)
+            _setter("active_directory_id", active_directory_id)
         if ad_name is not None:
-            pulumi.set(__self__, "ad_name", ad_name)
+            _setter("ad_name", ad_name)
         if administrators is not None:
-            pulumi.set(__self__, "administrators", administrators)
+            _setter("administrators", administrators)
         if aes_encryption is not None:
-            pulumi.set(__self__, "aes_encryption", aes_encryption)
+            _setter("aes_encryption", aes_encryption)
         if allow_local_nfs_users_with_ldap is not None:
-            pulumi.set(__self__, "allow_local_nfs_users_with_ldap", allow_local_nfs_users_with_ldap)
+            _setter("allow_local_nfs_users_with_ldap", allow_local_nfs_users_with_ldap)
         if backup_operators is not None:
-            pulumi.set(__self__, "backup_operators", backup_operators)
+            _setter("backup_operators", backup_operators)
         if dns is not None:
-            pulumi.set(__self__, "dns", dns)
+            _setter("dns", dns)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if encrypt_dc_connections is not None:
-            pulumi.set(__self__, "encrypt_dc_connections", encrypt_dc_connections)
+            _setter("encrypt_dc_connections", encrypt_dc_connections)
         if kdc_ip is not None:
-            pulumi.set(__self__, "kdc_ip", kdc_ip)
+            _setter("kdc_ip", kdc_ip)
         if ldap_over_tls is not None:
-            pulumi.set(__self__, "ldap_over_tls", ldap_over_tls)
+            _setter("ldap_over_tls", ldap_over_tls)
         if ldap_search_scope is not None:
-            pulumi.set(__self__, "ldap_search_scope", ldap_search_scope)
+            _setter("ldap_search_scope", ldap_search_scope)
         if ldap_signing is not None:
-            pulumi.set(__self__, "ldap_signing", ldap_signing)
+            _setter("ldap_signing", ldap_signing)
         if organizational_unit is None:
             organizational_unit = 'CN=Computers'
         if organizational_unit is not None:
-            pulumi.set(__self__, "organizational_unit", organizational_unit)
+            _setter("organizational_unit", organizational_unit)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if security_operators is not None:
-            pulumi.set(__self__, "security_operators", security_operators)
+            _setter("security_operators", security_operators)
         if server_root_ca_certificate is not None:
-            pulumi.set(__self__, "server_root_ca_certificate", server_root_ca_certificate)
+            _setter("server_root_ca_certificate", server_root_ca_certificate)
         if site is not None:
-            pulumi.set(__self__, "site", site)
+            _setter("site", site)
         if smb_server_name is not None:
-            pulumi.set(__self__, "smb_server_name", smb_server_name)
+            _setter("smb_server_name", smb_server_name)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="activeDirectoryId")
@@ -415,8 +511,21 @@ class EncryptionIdentityArgs:
         Identity used to authenticate with key vault.
         :param pulumi.Input[str] user_assigned_identity: The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
         """
+        EncryptionIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_assigned_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentity' in kwargs:
+            user_assigned_identity = kwargs['userAssignedIdentity']
+
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="userAssignedIdentity")
@@ -441,9 +550,24 @@ class IdentityArgs:
         :param pulumi.Input[Union[str, 'IdentityType']] type: The identity type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
         """
-        pulumi.set(__self__, "type", type)
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'IdentityType']],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -482,9 +606,30 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] key_vault_resource_id: The resource ID of KeyVault.
         :param pulumi.Input[str] key_vault_uri: The Uri of KeyVault.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_resource_id", key_vault_resource_id)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_resource_id=key_vault_resource_id,
+            key_vault_uri=key_vault_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: pulumi.Input[str],
+             key_vault_resource_id: pulumi.Input[str],
+             key_vault_uri: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'keyVaultResourceId' in kwargs:
+            key_vault_resource_id = kwargs['keyVaultResourceId']
+        if 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+
+        _setter("key_name", key_name)
+        _setter("key_vault_resource_id", key_vault_resource_id)
+        _setter("key_vault_uri", key_vault_uri)
 
     @property
     @pulumi.getter(name="keyName")
@@ -535,12 +680,33 @@ class LdapSearchScopeOptArgs:
         :param pulumi.Input[str] group_membership_filter: This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
         :param pulumi.Input[str] user_dn: This specifies the user DN, which overrides the base DN for user lookups.
         """
+        LdapSearchScopeOptArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_dn=group_dn,
+            group_membership_filter=group_membership_filter,
+            user_dn=user_dn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_dn: Optional[pulumi.Input[str]] = None,
+             group_membership_filter: Optional[pulumi.Input[str]] = None,
+             user_dn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupDN' in kwargs:
+            group_dn = kwargs['groupDN']
+        if 'groupMembershipFilter' in kwargs:
+            group_membership_filter = kwargs['groupMembershipFilter']
+        if 'userDN' in kwargs:
+            user_dn = kwargs['userDN']
+
         if group_dn is not None:
-            pulumi.set(__self__, "group_dn", group_dn)
+            _setter("group_dn", group_dn)
         if group_membership_filter is not None:
-            pulumi.set(__self__, "group_membership_filter", group_membership_filter)
+            _setter("group_membership_filter", group_membership_filter)
         if user_dn is not None:
-            pulumi.set(__self__, "user_dn", user_dn)
+            _setter("user_dn", user_dn)
 
     @property
     @pulumi.getter(name="groupDN")

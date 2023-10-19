@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -73,20 +73,55 @@ class GroupConnectivityInformationResponse(dict):
         """
         Defines Private link service group connectivity.
         """
+        GroupConnectivityInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_visible_fqdns=customer_visible_fqdns,
+            group_id=group_id,
+            id=id,
+            internal_fqdn=internal_fqdn,
+            member_name=member_name,
+            private_link_service_arm_region=private_link_service_arm_region,
+            redirect_map_id=redirect_map_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_visible_fqdns: Optional[Sequence[str]] = None,
+             group_id: Optional[str] = None,
+             id: Optional[str] = None,
+             internal_fqdn: Optional[str] = None,
+             member_name: Optional[str] = None,
+             private_link_service_arm_region: Optional[str] = None,
+             redirect_map_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerVisibleFqdns' in kwargs:
+            customer_visible_fqdns = kwargs['customerVisibleFqdns']
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'internalFqdn' in kwargs:
+            internal_fqdn = kwargs['internalFqdn']
+        if 'memberName' in kwargs:
+            member_name = kwargs['memberName']
+        if 'privateLinkServiceArmRegion' in kwargs:
+            private_link_service_arm_region = kwargs['privateLinkServiceArmRegion']
+        if 'redirectMapId' in kwargs:
+            redirect_map_id = kwargs['redirectMapId']
+
         if customer_visible_fqdns is not None:
-            pulumi.set(__self__, "customer_visible_fqdns", customer_visible_fqdns)
+            _setter("customer_visible_fqdns", customer_visible_fqdns)
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if internal_fqdn is not None:
-            pulumi.set(__self__, "internal_fqdn", internal_fqdn)
+            _setter("internal_fqdn", internal_fqdn)
         if member_name is not None:
-            pulumi.set(__self__, "member_name", member_name)
+            _setter("member_name", member_name)
         if private_link_service_arm_region is not None:
-            pulumi.set(__self__, "private_link_service_arm_region", private_link_service_arm_region)
+            _setter("private_link_service_arm_region", private_link_service_arm_region)
         if redirect_map_id is not None:
-            pulumi.set(__self__, "redirect_map_id", redirect_map_id)
+            _setter("redirect_map_id", redirect_map_id)
 
     @property
     @pulumi.getter(name="customerVisibleFqdns")
@@ -161,16 +196,43 @@ class IpConfigurationResponse(dict):
         """
         Defines Private link IP configuration.
         """
+        IpConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            id=id,
+            link_identifier=link_identifier,
+            member_name=member_name,
+            private_ip_address=private_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: Optional[str] = None,
+             id: Optional[str] = None,
+             link_identifier: Optional[str] = None,
+             member_name: Optional[str] = None,
+             private_ip_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'linkIdentifier' in kwargs:
+            link_identifier = kwargs['linkIdentifier']
+        if 'memberName' in kwargs:
+            member_name = kwargs['memberName']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if link_identifier is not None:
-            pulumi.set(__self__, "link_identifier", link_identifier)
+            _setter("link_identifier", link_identifier)
         if member_name is not None:
-            pulumi.set(__self__, "member_name", member_name)
+            _setter("member_name", member_name)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
 
     @property
     @pulumi.getter(name="groupId")
@@ -252,17 +314,56 @@ class MigrateProjectPropertiesResponse(dict):
         :param str service_endpoint: Service endpoint.
         :param str utility_storage_account_id: Utility storage account id.
         """
-        pulumi.set(__self__, "last_summary_refreshed_time", last_summary_refreshed_time)
-        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        pulumi.set(__self__, "refresh_summary_state", refresh_summary_state)
-        pulumi.set(__self__, "registered_tools", registered_tools)
-        pulumi.set(__self__, "summary", summary)
+        MigrateProjectPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_summary_refreshed_time=last_summary_refreshed_time,
+            private_endpoint_connections=private_endpoint_connections,
+            refresh_summary_state=refresh_summary_state,
+            registered_tools=registered_tools,
+            summary=summary,
+            public_network_access=public_network_access,
+            service_endpoint=service_endpoint,
+            utility_storage_account_id=utility_storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_summary_refreshed_time: str,
+             private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
+             refresh_summary_state: str,
+             registered_tools: Sequence[str],
+             summary: Mapping[str, 'outputs.ProjectSummaryResponse'],
+             public_network_access: Optional[str] = None,
+             service_endpoint: Optional[str] = None,
+             utility_storage_account_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastSummaryRefreshedTime' in kwargs:
+            last_summary_refreshed_time = kwargs['lastSummaryRefreshedTime']
+        if 'privateEndpointConnections' in kwargs:
+            private_endpoint_connections = kwargs['privateEndpointConnections']
+        if 'refreshSummaryState' in kwargs:
+            refresh_summary_state = kwargs['refreshSummaryState']
+        if 'registeredTools' in kwargs:
+            registered_tools = kwargs['registeredTools']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if 'serviceEndpoint' in kwargs:
+            service_endpoint = kwargs['serviceEndpoint']
+        if 'utilityStorageAccountId' in kwargs:
+            utility_storage_account_id = kwargs['utilityStorageAccountId']
+
+        _setter("last_summary_refreshed_time", last_summary_refreshed_time)
+        _setter("private_endpoint_connections", private_endpoint_connections)
+        _setter("refresh_summary_state", refresh_summary_state)
+        _setter("registered_tools", registered_tools)
+        _setter("summary", summary)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if service_endpoint is not None:
-            pulumi.set(__self__, "service_endpoint", service_endpoint)
+            _setter("service_endpoint", service_endpoint)
         if utility_storage_account_id is not None:
-            pulumi.set(__self__, "utility_storage_account_id", utility_storage_account_id)
+            _setter("utility_storage_account_id", utility_storage_account_id)
 
     @property
     @pulumi.getter(name="lastSummaryRefreshedTime")
@@ -365,10 +466,31 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         :param str provisioning_state: Provisioning state.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets the properties of the object.
         """
-        pulumi.set(__self__, "private_endpoint", private_endpoint)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        PrivateEndpointConnectionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_endpoint=private_endpoint,
+            provisioning_state=provisioning_state,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_endpoint: 'outputs.ResourceIdResponse',
+             provisioning_state: str,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
+        _setter("private_endpoint", private_endpoint)
+        _setter("provisioning_state", provisioning_state)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -424,8 +546,23 @@ class PrivateEndpointConnectionProxyPropertiesResponse(dict):
         Properties of a private endpoint connection proxy.
         :param 'PrivateEndpointDetailsResponse' remote_private_endpoint: Defines Private endpoint additional details.
         """
-        pulumi.set(__self__, "remote_private_endpoint", remote_private_endpoint)
-        pulumi.set(__self__, "status", status)
+        PrivateEndpointConnectionProxyPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            remote_private_endpoint=remote_private_endpoint,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             remote_private_endpoint: 'outputs.PrivateEndpointDetailsResponse',
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'remotePrivateEndpoint' in kwargs:
+            remote_private_endpoint = kwargs['remotePrivateEndpoint']
+
+        _setter("remote_private_endpoint", remote_private_endpoint)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="remotePrivateEndpoint")
@@ -481,13 +618,38 @@ class PrivateEndpointConnectionResponse(dict):
         :param str type: Gets the resource type.
         :param 'PrivateEndpointConnectionPropertiesResponse' properties: Gets the properties of the object.
         """
-        pulumi.set(__self__, "e_tag", e_tag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            e_tag=e_tag,
+            id=id,
+            name=name,
+            system_data=system_data,
+            type=type,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             e_tag: str,
+             id: str,
+             name: str,
+             system_data: 'outputs.SystemDataResponse',
+             type: str,
+             properties: Optional['outputs.PrivateEndpointConnectionPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+        if 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+
+        _setter("e_tag", e_tag)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="eTag")
@@ -575,16 +737,43 @@ class PrivateEndpointDetailsResponse(dict):
         """
         Defines Private endpoint additional details.
         """
+        PrivateEndpointDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_details=connection_details,
+            id=id,
+            manual_private_link_service_connections=manual_private_link_service_connections,
+            private_link_service_connections=private_link_service_connections,
+            private_link_service_proxies=private_link_service_proxies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_details: Optional[Sequence['outputs.IpConfigurationResponse']] = None,
+             id: Optional[str] = None,
+             manual_private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
+             private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
+             private_link_service_proxies: Optional[Sequence['outputs.PrivateLinkServiceProxyResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionDetails' in kwargs:
+            connection_details = kwargs['connectionDetails']
+        if 'manualPrivateLinkServiceConnections' in kwargs:
+            manual_private_link_service_connections = kwargs['manualPrivateLinkServiceConnections']
+        if 'privateLinkServiceConnections' in kwargs:
+            private_link_service_connections = kwargs['privateLinkServiceConnections']
+        if 'privateLinkServiceProxies' in kwargs:
+            private_link_service_proxies = kwargs['privateLinkServiceProxies']
+
         if connection_details is not None:
-            pulumi.set(__self__, "connection_details", connection_details)
+            _setter("connection_details", connection_details)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if manual_private_link_service_connections is not None:
-            pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
+            _setter("manual_private_link_service_connections", manual_private_link_service_connections)
         if private_link_service_connections is not None:
-            pulumi.set(__self__, "private_link_service_connections", private_link_service_connections)
+            _setter("private_link_service_connections", private_link_service_connections)
         if private_link_service_proxies is not None:
-            pulumi.set(__self__, "private_link_service_proxies", private_link_service_proxies)
+            _setter("private_link_service_proxies", private_link_service_proxies)
 
     @property
     @pulumi.getter(name="connectionDetails")
@@ -644,14 +833,35 @@ class PrivateLinkServiceConnectionResponse(dict):
         """
         Defines Private link service connection.
         """
+        PrivateLinkServiceConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ids=group_ids,
+            id=id,
+            name=name,
+            request_message=request_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ids: Optional[Sequence[str]] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             request_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+        if 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+
         if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
+            _setter("group_ids", group_ids)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
+            _setter("request_message", request_message)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -706,12 +916,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: Description of the object.
         :param str status: Private link connection state.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -774,14 +1001,37 @@ class PrivateLinkServiceProxyResponse(dict):
         :param 'ResourceIdResponse' remote_private_endpoint_connection: Defines resource ID of a private endpoint connection.
         :param 'PrivateLinkServiceConnectionStateResponse' remote_private_link_service_connection_state: Private endpoint connection state.
         """
+        PrivateLinkServiceProxyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_connectivity_information=group_connectivity_information,
+            id=id,
+            remote_private_endpoint_connection=remote_private_endpoint_connection,
+            remote_private_link_service_connection_state=remote_private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_connectivity_information: Optional[Sequence['outputs.GroupConnectivityInformationResponse']] = None,
+             id: Optional[str] = None,
+             remote_private_endpoint_connection: Optional['outputs.ResourceIdResponse'] = None,
+             remote_private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupConnectivityInformation' in kwargs:
+            group_connectivity_information = kwargs['groupConnectivityInformation']
+        if 'remotePrivateEndpointConnection' in kwargs:
+            remote_private_endpoint_connection = kwargs['remotePrivateEndpointConnection']
+        if 'remotePrivateLinkServiceConnectionState' in kwargs:
+            remote_private_link_service_connection_state = kwargs['remotePrivateLinkServiceConnectionState']
+
         if group_connectivity_information is not None:
-            pulumi.set(__self__, "group_connectivity_information", group_connectivity_information)
+            _setter("group_connectivity_information", group_connectivity_information)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if remote_private_endpoint_connection is not None:
-            pulumi.set(__self__, "remote_private_endpoint_connection", remote_private_endpoint_connection)
+            _setter("remote_private_endpoint_connection", remote_private_endpoint_connection)
         if remote_private_link_service_connection_state is not None:
-            pulumi.set(__self__, "remote_private_link_service_connection_state", remote_private_link_service_connection_state)
+            _setter("remote_private_link_service_connection_state", remote_private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="groupConnectivityInformation")
@@ -850,13 +1100,38 @@ class ProjectSummaryResponse(dict):
         :param str last_summary_refreshed_time: Last summary refresh time.
         :param str refresh_summary_state: Refresh summary state.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
+        ProjectSummaryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            extended_summary=extended_summary,
+            last_summary_refreshed_time=last_summary_refreshed_time,
+            refresh_summary_state=refresh_summary_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             extended_summary: Optional[Mapping[str, str]] = None,
+             last_summary_refreshed_time: Optional[str] = None,
+             refresh_summary_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'extendedSummary' in kwargs:
+            extended_summary = kwargs['extendedSummary']
+        if 'lastSummaryRefreshedTime' in kwargs:
+            last_summary_refreshed_time = kwargs['lastSummaryRefreshedTime']
+        if 'refreshSummaryState' in kwargs:
+            refresh_summary_state = kwargs['refreshSummaryState']
+
+        _setter("instance_type", instance_type)
         if extended_summary is not None:
-            pulumi.set(__self__, "extended_summary", extended_summary)
+            _setter("extended_summary", extended_summary)
         if last_summary_refreshed_time is not None:
-            pulumi.set(__self__, "last_summary_refreshed_time", last_summary_refreshed_time)
+            _setter("last_summary_refreshed_time", last_summary_refreshed_time)
         if refresh_summary_state is not None:
-            pulumi.set(__self__, "refresh_summary_state", refresh_summary_state)
+            _setter("refresh_summary_state", refresh_summary_state)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -901,7 +1176,18 @@ class ResourceIdResponse(dict):
         """
         Defines resource ID of a private endpoint connection.
         """
-        pulumi.set(__self__, "id", id)
+        ResourceIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -945,12 +1231,33 @@ class SolutionDetailsResponse(dict):
         :param Mapping[str, str] extended_details: Gets or sets the extended details reported by the solution.
         :param int group_count: Gets or sets the count of groups reported by the solution.
         """
+        SolutionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_count=assessment_count,
+            extended_details=extended_details,
+            group_count=group_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_count: Optional[int] = None,
+             extended_details: Optional[Mapping[str, str]] = None,
+             group_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assessmentCount' in kwargs:
+            assessment_count = kwargs['assessmentCount']
+        if 'extendedDetails' in kwargs:
+            extended_details = kwargs['extendedDetails']
+        if 'groupCount' in kwargs:
+            group_count = kwargs['groupCount']
+
         if assessment_count is not None:
-            pulumi.set(__self__, "assessment_count", assessment_count)
+            _setter("assessment_count", assessment_count)
         if extended_details is not None:
-            pulumi.set(__self__, "extended_details", extended_details)
+            _setter("extended_details", extended_details)
         if group_count is not None:
-            pulumi.set(__self__, "group_count", group_count)
+            _setter("group_count", group_count)
 
     @property
     @pulumi.getter(name="assessmentCount")
@@ -1017,20 +1324,45 @@ class SolutionPropertiesResponse(dict):
         :param 'SolutionSummaryResponse' summary: Gets or sets the summary of the solution.
         :param str tool: Gets or sets the tool being used in the solution.
         """
+        SolutionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cleanup_state=cleanup_state,
+            details=details,
+            goal=goal,
+            purpose=purpose,
+            status=status,
+            summary=summary,
+            tool=tool,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cleanup_state: Optional[str] = None,
+             details: Optional['outputs.SolutionDetailsResponse'] = None,
+             goal: Optional[str] = None,
+             purpose: Optional[str] = None,
+             status: Optional[str] = None,
+             summary: Optional['outputs.SolutionSummaryResponse'] = None,
+             tool: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cleanupState' in kwargs:
+            cleanup_state = kwargs['cleanupState']
+
         if cleanup_state is not None:
-            pulumi.set(__self__, "cleanup_state", cleanup_state)
+            _setter("cleanup_state", cleanup_state)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if goal is not None:
-            pulumi.set(__self__, "goal", goal)
+            _setter("goal", goal)
         if purpose is not None:
-            pulumi.set(__self__, "purpose", purpose)
+            _setter("purpose", purpose)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
         if tool is not None:
-            pulumi.set(__self__, "tool", tool)
+            _setter("tool", tool)
 
     @property
     @pulumi.getter(name="cleanupState")
@@ -1117,7 +1449,20 @@ class SolutionSummaryResponse(dict):
         The solution summary class.
         :param str instance_type: Gets the Instance type.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
+        SolutionSummaryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+
+        _setter("instance_type", instance_type)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -1176,18 +1521,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

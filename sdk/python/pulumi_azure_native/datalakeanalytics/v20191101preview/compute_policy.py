@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -32,16 +32,53 @@ class ComputePolicyArgs:
         :param pulumi.Input[int] max_degree_of_parallelism_per_job: The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
         :param pulumi.Input[int] min_priority_per_job: The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "object_type", object_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ComputePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            object_id=object_id,
+            object_type=object_type,
+            resource_group_name=resource_group_name,
+            compute_policy_name=compute_policy_name,
+            max_degree_of_parallelism_per_job=max_degree_of_parallelism_per_job,
+            min_priority_per_job=min_priority_per_job,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             object_id: pulumi.Input[str],
+             object_type: pulumi.Input[Union[str, 'AADObjectType']],
+             resource_group_name: pulumi.Input[str],
+             compute_policy_name: Optional[pulumi.Input[str]] = None,
+             max_degree_of_parallelism_per_job: Optional[pulumi.Input[int]] = None,
+             min_priority_per_job: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'computePolicyName' in kwargs:
+            compute_policy_name = kwargs['computePolicyName']
+        if 'maxDegreeOfParallelismPerJob' in kwargs:
+            max_degree_of_parallelism_per_job = kwargs['maxDegreeOfParallelismPerJob']
+        if 'minPriorityPerJob' in kwargs:
+            min_priority_per_job = kwargs['minPriorityPerJob']
+
+        _setter("account_name", account_name)
+        _setter("object_id", object_id)
+        _setter("object_type", object_type)
+        _setter("resource_group_name", resource_group_name)
         if compute_policy_name is not None:
-            pulumi.set(__self__, "compute_policy_name", compute_policy_name)
+            _setter("compute_policy_name", compute_policy_name)
         if max_degree_of_parallelism_per_job is not None:
-            pulumi.set(__self__, "max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
+            _setter("max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
         if min_priority_per_job is not None:
-            pulumi.set(__self__, "min_priority_per_job", min_priority_per_job)
+            _setter("min_priority_per_job", min_priority_per_job)
 
     @property
     @pulumi.getter(name="accountName")
@@ -173,6 +210,10 @@ class ComputePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ComputePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,26 +42,71 @@ class AttestationAtResourceGroupArgs:
         :param pulumi.Input[str] owner: The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
         :param pulumi.Input[str] policy_definition_reference_id: The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
         """
-        pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AttestationAtResourceGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_assignment_id=policy_assignment_id,
+            resource_group_name=resource_group_name,
+            assessment_date=assessment_date,
+            attestation_name=attestation_name,
+            comments=comments,
+            compliance_state=compliance_state,
+            evidence=evidence,
+            expires_on=expires_on,
+            metadata=metadata,
+            owner=owner,
+            policy_definition_reference_id=policy_definition_reference_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_assignment_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             assessment_date: Optional[pulumi.Input[str]] = None,
+             attestation_name: Optional[pulumi.Input[str]] = None,
+             comments: Optional[pulumi.Input[str]] = None,
+             compliance_state: Optional[pulumi.Input[Union[str, 'ComplianceState']]] = None,
+             evidence: Optional[pulumi.Input[Sequence[pulumi.Input['AttestationEvidenceArgs']]]] = None,
+             expires_on: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyAssignmentId' in kwargs:
+            policy_assignment_id = kwargs['policyAssignmentId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'assessmentDate' in kwargs:
+            assessment_date = kwargs['assessmentDate']
+        if 'attestationName' in kwargs:
+            attestation_name = kwargs['attestationName']
+        if 'complianceState' in kwargs:
+            compliance_state = kwargs['complianceState']
+        if 'expiresOn' in kwargs:
+            expires_on = kwargs['expiresOn']
+        if 'policyDefinitionReferenceId' in kwargs:
+            policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
+
+        _setter("policy_assignment_id", policy_assignment_id)
+        _setter("resource_group_name", resource_group_name)
         if assessment_date is not None:
-            pulumi.set(__self__, "assessment_date", assessment_date)
+            _setter("assessment_date", assessment_date)
         if attestation_name is not None:
-            pulumi.set(__self__, "attestation_name", attestation_name)
+            _setter("attestation_name", attestation_name)
         if comments is not None:
-            pulumi.set(__self__, "comments", comments)
+            _setter("comments", comments)
         if compliance_state is not None:
-            pulumi.set(__self__, "compliance_state", compliance_state)
+            _setter("compliance_state", compliance_state)
         if evidence is not None:
-            pulumi.set(__self__, "evidence", evidence)
+            _setter("evidence", evidence)
         if expires_on is not None:
-            pulumi.set(__self__, "expires_on", expires_on)
+            _setter("expires_on", expires_on)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if policy_definition_reference_id is not None:
-            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+            _setter("policy_definition_reference_id", policy_definition_reference_id)
 
     @property
     @pulumi.getter(name="policyAssignmentId")
@@ -251,6 +296,10 @@ class AttestationAtResourceGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AttestationAtResourceGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -77,24 +77,57 @@ class AutoShutdownProfileResponse(dict):
         :param str shutdown_on_idle: Whether a VM will get shutdown when it has idled for a period of time.
         :param str shutdown_when_not_connected: Whether a VM will get shutdown when it hasn't been connected to after a period of time.
         """
+        AutoShutdownProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disconnect_delay=disconnect_delay,
+            idle_delay=idle_delay,
+            no_connect_delay=no_connect_delay,
+            shutdown_on_disconnect=shutdown_on_disconnect,
+            shutdown_on_idle=shutdown_on_idle,
+            shutdown_when_not_connected=shutdown_when_not_connected,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disconnect_delay: Optional[str] = None,
+             idle_delay: Optional[str] = None,
+             no_connect_delay: Optional[str] = None,
+             shutdown_on_disconnect: Optional[str] = None,
+             shutdown_on_idle: Optional[str] = None,
+             shutdown_when_not_connected: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disconnectDelay' in kwargs:
+            disconnect_delay = kwargs['disconnectDelay']
+        if 'idleDelay' in kwargs:
+            idle_delay = kwargs['idleDelay']
+        if 'noConnectDelay' in kwargs:
+            no_connect_delay = kwargs['noConnectDelay']
+        if 'shutdownOnDisconnect' in kwargs:
+            shutdown_on_disconnect = kwargs['shutdownOnDisconnect']
+        if 'shutdownOnIdle' in kwargs:
+            shutdown_on_idle = kwargs['shutdownOnIdle']
+        if 'shutdownWhenNotConnected' in kwargs:
+            shutdown_when_not_connected = kwargs['shutdownWhenNotConnected']
+
         if disconnect_delay is not None:
-            pulumi.set(__self__, "disconnect_delay", disconnect_delay)
+            _setter("disconnect_delay", disconnect_delay)
         if idle_delay is not None:
-            pulumi.set(__self__, "idle_delay", idle_delay)
+            _setter("idle_delay", idle_delay)
         if no_connect_delay is not None:
-            pulumi.set(__self__, "no_connect_delay", no_connect_delay)
+            _setter("no_connect_delay", no_connect_delay)
         if shutdown_on_disconnect is None:
             shutdown_on_disconnect = 'Disabled'
         if shutdown_on_disconnect is not None:
-            pulumi.set(__self__, "shutdown_on_disconnect", shutdown_on_disconnect)
+            _setter("shutdown_on_disconnect", shutdown_on_disconnect)
         if shutdown_on_idle is None:
             shutdown_on_idle = 'None'
         if shutdown_on_idle is not None:
-            pulumi.set(__self__, "shutdown_on_idle", shutdown_on_idle)
+            _setter("shutdown_on_idle", shutdown_on_idle)
         if shutdown_when_not_connected is None:
             shutdown_when_not_connected = 'Disabled'
         if shutdown_when_not_connected is not None:
-            pulumi.set(__self__, "shutdown_when_not_connected", shutdown_when_not_connected)
+            _setter("shutdown_when_not_connected", shutdown_when_not_connected)
 
     @property
     @pulumi.getter(name="disconnectDelay")
@@ -185,22 +218,47 @@ class ConnectionProfileResponse(dict):
         :param str web_rdp_access: The enabled access level for Web Access over RDP.
         :param str web_ssh_access: The enabled access level for Web Access over SSH.
         """
+        ConnectionProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_rdp_access=client_rdp_access,
+            client_ssh_access=client_ssh_access,
+            web_rdp_access=web_rdp_access,
+            web_ssh_access=web_ssh_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_rdp_access: Optional[str] = None,
+             client_ssh_access: Optional[str] = None,
+             web_rdp_access: Optional[str] = None,
+             web_ssh_access: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientRdpAccess' in kwargs:
+            client_rdp_access = kwargs['clientRdpAccess']
+        if 'clientSshAccess' in kwargs:
+            client_ssh_access = kwargs['clientSshAccess']
+        if 'webRdpAccess' in kwargs:
+            web_rdp_access = kwargs['webRdpAccess']
+        if 'webSshAccess' in kwargs:
+            web_ssh_access = kwargs['webSshAccess']
+
         if client_rdp_access is None:
             client_rdp_access = 'None'
         if client_rdp_access is not None:
-            pulumi.set(__self__, "client_rdp_access", client_rdp_access)
+            _setter("client_rdp_access", client_rdp_access)
         if client_ssh_access is None:
             client_ssh_access = 'None'
         if client_ssh_access is not None:
-            pulumi.set(__self__, "client_ssh_access", client_ssh_access)
+            _setter("client_ssh_access", client_ssh_access)
         if web_rdp_access is None:
             web_rdp_access = 'None'
         if web_rdp_access is not None:
-            pulumi.set(__self__, "web_rdp_access", web_rdp_access)
+            _setter("web_rdp_access", web_rdp_access)
         if web_ssh_access is None:
             web_ssh_access = 'None'
         if web_ssh_access is not None:
-            pulumi.set(__self__, "web_ssh_access", web_ssh_access)
+            _setter("web_ssh_access", web_ssh_access)
 
     @property
     @pulumi.getter(name="clientRdpAccess")
@@ -246,7 +304,18 @@ class CredentialsResponse(dict):
         Credentials for a user on a lab VM.
         :param str username: The username to use when signing in to lab VMs.
         """
-        pulumi.set(__self__, "username", username)
+        CredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -291,10 +360,29 @@ class IdentityResponse(dict):
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -359,17 +447,40 @@ class ImageReferenceResponse(dict):
         :param str sku: The image SKU
         :param str version: The image version specified on creation.
         """
-        pulumi.set(__self__, "exact_version", exact_version)
+        ImageReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact_version=exact_version,
+            id=id,
+            offer=offer,
+            publisher=publisher,
+            sku=sku,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact_version: str,
+             id: Optional[str] = None,
+             offer: Optional[str] = None,
+             publisher: Optional[str] = None,
+             sku: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exactVersion' in kwargs:
+            exact_version = kwargs['exactVersion']
+
+        _setter("exact_version", exact_version)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if offer is not None:
-            pulumi.set(__self__, "offer", offer)
+            _setter("offer", offer)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="exactVersion")
@@ -456,12 +567,33 @@ class LabNetworkProfileResponse(dict):
         :param str public_ip_id: The external public IP resource id
         :param str subnet_id: The external subnet resource id
         """
+        LabNetworkProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_id=load_balancer_id,
+            public_ip_id=public_ip_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_id: Optional[str] = None,
+             public_ip_id: Optional[str] = None,
+             subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loadBalancerId' in kwargs:
+            load_balancer_id = kwargs['loadBalancerId']
+        if 'publicIpId' in kwargs:
+            public_ip_id = kwargs['publicIpId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if load_balancer_id is not None:
-            pulumi.set(__self__, "load_balancer_id", load_balancer_id)
+            _setter("load_balancer_id", load_balancer_id)
         if public_ip_id is not None:
-            pulumi.set(__self__, "public_ip_id", public_ip_id)
+            _setter("public_ip_id", public_ip_id)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="loadBalancerId")
@@ -516,8 +648,21 @@ class LabPlanNetworkProfileResponse(dict):
         Profile for how to handle networking for Lab Plans.
         :param str subnet_id: The external subnet resource id
         """
+        LabPlanNetworkProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -564,12 +709,33 @@ class RecurrencePatternResponse(dict):
         :param int interval: The interval to invoke the schedule on. For example, interval = 2 and RecurrenceFrequency.Daily will run every 2 days. When no interval is supplied, an interval of 1 is used.
         :param Sequence[str] week_days: The week days the schedule runs. Used for when the Frequency is set to Weekly.
         """
-        pulumi.set(__self__, "expiration_date", expiration_date)
-        pulumi.set(__self__, "frequency", frequency)
+        RecurrencePatternResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration_date=expiration_date,
+            frequency=frequency,
+            interval=interval,
+            week_days=week_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration_date: str,
+             frequency: str,
+             interval: Optional[int] = None,
+             week_days: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'weekDays' in kwargs:
+            week_days = kwargs['weekDays']
+
+        _setter("expiration_date", expiration_date)
+        _setter("frequency", frequency)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if week_days is not None:
-            pulumi.set(__self__, "week_days", week_days)
+            _setter("week_days", week_days)
 
     @property
     @pulumi.getter(name="expirationDate")
@@ -648,16 +814,45 @@ class RosterProfileResponse(dict):
         :param str lti_context_id: The unique context identifier for the lab in the lms.
         :param str lti_roster_endpoint: The uri of the names and roles service endpoint on the lms for the class attached to this lab.
         """
+        RosterProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_directory_group_id=active_directory_group_id,
+            lms_instance=lms_instance,
+            lti_client_id=lti_client_id,
+            lti_context_id=lti_context_id,
+            lti_roster_endpoint=lti_roster_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_directory_group_id: Optional[str] = None,
+             lms_instance: Optional[str] = None,
+             lti_client_id: Optional[str] = None,
+             lti_context_id: Optional[str] = None,
+             lti_roster_endpoint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectoryGroupId' in kwargs:
+            active_directory_group_id = kwargs['activeDirectoryGroupId']
+        if 'lmsInstance' in kwargs:
+            lms_instance = kwargs['lmsInstance']
+        if 'ltiClientId' in kwargs:
+            lti_client_id = kwargs['ltiClientId']
+        if 'ltiContextId' in kwargs:
+            lti_context_id = kwargs['ltiContextId']
+        if 'ltiRosterEndpoint' in kwargs:
+            lti_roster_endpoint = kwargs['ltiRosterEndpoint']
+
         if active_directory_group_id is not None:
-            pulumi.set(__self__, "active_directory_group_id", active_directory_group_id)
+            _setter("active_directory_group_id", active_directory_group_id)
         if lms_instance is not None:
-            pulumi.set(__self__, "lms_instance", lms_instance)
+            _setter("lms_instance", lms_instance)
         if lti_client_id is not None:
-            pulumi.set(__self__, "lti_client_id", lti_client_id)
+            _setter("lti_client_id", lti_client_id)
         if lti_context_id is not None:
-            pulumi.set(__self__, "lti_context_id", lti_context_id)
+            _setter("lti_context_id", lti_context_id)
         if lti_roster_endpoint is not None:
-            pulumi.set(__self__, "lti_roster_endpoint", lti_roster_endpoint)
+            _setter("lti_roster_endpoint", lti_roster_endpoint)
 
     @property
     @pulumi.getter(name="activeDirectoryGroupId")
@@ -732,9 +927,26 @@ class SecurityProfileResponse(dict):
         :param str registration_code: The registration code for the lab.
         :param str open_access: Whether any user or only specified users can register to a lab.
         """
-        pulumi.set(__self__, "registration_code", registration_code)
+        SecurityProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registration_code=registration_code,
+            open_access=open_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registration_code: str,
+             open_access: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'registrationCode' in kwargs:
+            registration_code = kwargs['registrationCode']
+        if 'openAccess' in kwargs:
+            open_access = kwargs['openAccess']
+
+        _setter("registration_code", registration_code)
         if open_access is not None:
-            pulumi.set(__self__, "open_access", open_access)
+            _setter("open_access", open_access)
 
     @property
     @pulumi.getter(name="registrationCode")
@@ -772,15 +984,34 @@ class SkuResponse(dict):
         :param str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
         :param str tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
-        pulumi.set(__self__, "name", name)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             capacity: Optional[int] = None,
+             family: Optional[str] = None,
+             size: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -840,14 +1071,31 @@ class SupportInfoResponse(dict):
         :param str phone: Support contact phone number.
         :param str url: Support web address.
         """
+        SupportInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            instructions=instructions,
+            phone=phone,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: Optional[str] = None,
+             instructions: Optional[str] = None,
+             phone: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if instructions is not None:
-            pulumi.set(__self__, "instructions", instructions)
+            _setter("instructions", instructions)
         if phone is not None:
-            pulumi.set(__self__, "phone", phone)
+            _setter("phone", phone)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -930,18 +1178,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1020,10 +1301,23 @@ class VirtualMachineAdditionalCapabilitiesResponse(dict):
         The additional capabilities for a lab VM.
         :param str install_gpu_drivers: Flag to pre-install dedicated GPU drivers.
         """
+        VirtualMachineAdditionalCapabilitiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            install_gpu_drivers=install_gpu_drivers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             install_gpu_drivers: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'installGpuDrivers' in kwargs:
+            install_gpu_drivers = kwargs['installGpuDrivers']
+
         if install_gpu_drivers is None:
             install_gpu_drivers = 'Disabled'
         if install_gpu_drivers is not None:
-            pulumi.set(__self__, "install_gpu_drivers", install_gpu_drivers)
+            _setter("install_gpu_drivers", install_gpu_drivers)
 
     @property
     @pulumi.getter(name="installGpuDrivers")
@@ -1092,20 +1386,63 @@ class VirtualMachineProfileResponse(dict):
         :param 'CredentialsResponse' non_admin_user: Credentials for the non-admin user on the VM, if one exists.
         :param str use_shared_password: Enabling this option will use the same password for all user VMs.
         """
-        pulumi.set(__self__, "admin_user", admin_user)
-        pulumi.set(__self__, "create_option", create_option)
-        pulumi.set(__self__, "image_reference", image_reference)
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "usage_quota", usage_quota)
+        VirtualMachineProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_user=admin_user,
+            create_option=create_option,
+            image_reference=image_reference,
+            os_type=os_type,
+            sku=sku,
+            usage_quota=usage_quota,
+            additional_capabilities=additional_capabilities,
+            non_admin_user=non_admin_user,
+            use_shared_password=use_shared_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_user: 'outputs.CredentialsResponse',
+             create_option: str,
+             image_reference: 'outputs.ImageReferenceResponse',
+             os_type: str,
+             sku: 'outputs.SkuResponse',
+             usage_quota: str,
+             additional_capabilities: Optional['outputs.VirtualMachineAdditionalCapabilitiesResponse'] = None,
+             non_admin_user: Optional['outputs.CredentialsResponse'] = None,
+             use_shared_password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUser' in kwargs:
+            admin_user = kwargs['adminUser']
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'imageReference' in kwargs:
+            image_reference = kwargs['imageReference']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'usageQuota' in kwargs:
+            usage_quota = kwargs['usageQuota']
+        if 'additionalCapabilities' in kwargs:
+            additional_capabilities = kwargs['additionalCapabilities']
+        if 'nonAdminUser' in kwargs:
+            non_admin_user = kwargs['nonAdminUser']
+        if 'useSharedPassword' in kwargs:
+            use_shared_password = kwargs['useSharedPassword']
+
+        _setter("admin_user", admin_user)
+        _setter("create_option", create_option)
+        _setter("image_reference", image_reference)
+        _setter("os_type", os_type)
+        _setter("sku", sku)
+        _setter("usage_quota", usage_quota)
         if additional_capabilities is not None:
-            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+            _setter("additional_capabilities", additional_capabilities)
         if non_admin_user is not None:
-            pulumi.set(__self__, "non_admin_user", non_admin_user)
+            _setter("non_admin_user", non_admin_user)
         if use_shared_password is None:
             use_shared_password = 'Disabled'
         if use_shared_password is not None:
-            pulumi.set(__self__, "use_shared_password", use_shared_password)
+            _setter("use_shared_password", use_shared_password)
 
     @property
     @pulumi.getter(name="adminUser")

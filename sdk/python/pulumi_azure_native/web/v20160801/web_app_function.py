@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['WebAppFunctionArgs', 'WebAppFunction']
@@ -41,28 +41,75 @@ class WebAppFunctionArgs:
         :param pulumi.Input[str] secrets_file_href: Secrets file URI.
         :param pulumi.Input[str] test_data: Test data used when testing via the Azure Portal.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WebAppFunctionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            config=config,
+            config_href=config_href,
+            files=files,
+            function_name=function_name,
+            href=href,
+            kind=kind,
+            script_href=script_href,
+            script_root_path_href=script_root_path_href,
+            secrets_file_href=secrets_file_href,
+            test_data=test_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             config: Optional[Any] = None,
+             config_href: Optional[pulumi.Input[str]] = None,
+             files: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             function_name: Optional[pulumi.Input[str]] = None,
+             href: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             script_href: Optional[pulumi.Input[str]] = None,
+             script_root_path_href: Optional[pulumi.Input[str]] = None,
+             secrets_file_href: Optional[pulumi.Input[str]] = None,
+             test_data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'configHref' in kwargs:
+            config_href = kwargs['configHref']
+        if 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if 'scriptHref' in kwargs:
+            script_href = kwargs['scriptHref']
+        if 'scriptRootPathHref' in kwargs:
+            script_root_path_href = kwargs['scriptRootPathHref']
+        if 'secretsFileHref' in kwargs:
+            secrets_file_href = kwargs['secretsFileHref']
+        if 'testData' in kwargs:
+            test_data = kwargs['testData']
+
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if config_href is not None:
-            pulumi.set(__self__, "config_href", config_href)
+            _setter("config_href", config_href)
         if files is not None:
-            pulumi.set(__self__, "files", files)
+            _setter("files", files)
         if function_name is not None:
-            pulumi.set(__self__, "function_name", function_name)
+            _setter("function_name", function_name)
         if href is not None:
-            pulumi.set(__self__, "href", href)
+            _setter("href", href)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if script_href is not None:
-            pulumi.set(__self__, "script_href", script_href)
+            _setter("script_href", script_href)
         if script_root_path_href is not None:
-            pulumi.set(__self__, "script_root_path_href", script_root_path_href)
+            _setter("script_root_path_href", script_root_path_href)
         if secrets_file_href is not None:
-            pulumi.set(__self__, "secrets_file_href", secrets_file_href)
+            _setter("secrets_file_href", secrets_file_href)
         if test_data is not None:
-            pulumi.set(__self__, "test_data", test_data)
+            _setter("test_data", test_data)
 
     @property
     @pulumi.getter
@@ -264,6 +311,10 @@ class WebAppFunction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppFunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,15 +34,48 @@ class FileEventTriggerArgs:
         :param pulumi.Input[str] custom_context_tag: A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
         :param pulumi.Input[str] name: The trigger name.
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "kind", 'FileEvent')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sink_info", sink_info)
-        pulumi.set(__self__, "source_info", source_info)
+        FileEventTriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            sink_info=sink_info,
+            source_info=source_info,
+            custom_context_tag=custom_context_tag,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             sink_info: pulumi.Input['RoleSinkInfoArgs'],
+             source_info: pulumi.Input['FileSourceInfoArgs'],
+             custom_context_tag: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sinkInfo' in kwargs:
+            sink_info = kwargs['sinkInfo']
+        if 'sourceInfo' in kwargs:
+            source_info = kwargs['sourceInfo']
+        if 'customContextTag' in kwargs:
+            custom_context_tag = kwargs['customContextTag']
+
+        _setter("device_name", device_name)
+        _setter("kind", 'FileEvent')
+        _setter("resource_group_name", resource_group_name)
+        _setter("sink_info", sink_info)
+        _setter("source_info", source_info)
         if custom_context_tag is not None:
-            pulumi.set(__self__, "custom_context_tag", custom_context_tag)
+            _setter("custom_context_tag", custom_context_tag)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -176,6 +209,10 @@ class FileEventTrigger(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FileEventTriggerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -208,9 +245,19 @@ class FileEventTrigger(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sink_info is not None and not isinstance(sink_info, RoleSinkInfoArgs):
+                sink_info = sink_info or {}
+                def _setter(key, value):
+                    sink_info[key] = value
+                RoleSinkInfoArgs._configure(_setter, **sink_info)
             if sink_info is None and not opts.urn:
                 raise TypeError("Missing required property 'sink_info'")
             __props__.__dict__["sink_info"] = sink_info
+            if source_info is not None and not isinstance(source_info, FileSourceInfoArgs):
+                source_info = source_info or {}
+                def _setter(key, value):
+                    source_info[key] = value
+                FileSourceInfoArgs._configure(_setter, **source_info)
             if source_info is None and not opts.urn:
                 raise TypeError("Missing required property 'source_info'")
             __props__.__dict__["source_info"] = source_info

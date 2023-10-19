@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,34 +44,81 @@ class ConfigurationStoreArgs:
         :param pulumi.Input[int] soft_delete_retention_in_days: The amount of time in days that the configuration store will be retained when it is soft deleted.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        ConfigurationStoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            config_store_name=config_store_name,
+            create_mode=create_mode,
+            disable_local_auth=disable_local_auth,
+            enable_purge_protection=enable_purge_protection,
+            encryption=encryption,
+            identity=identity,
+            location=location,
+            public_network_access=public_network_access,
+            soft_delete_retention_in_days=soft_delete_retention_in_days,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['SkuArgs'],
+             config_store_name: Optional[pulumi.Input[str]] = None,
+             create_mode: Optional[pulumi.Input['CreateMode']] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             enable_purge_protection: Optional[pulumi.Input[bool]] = None,
+             encryption: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
+             identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'configStoreName' in kwargs:
+            config_store_name = kwargs['configStoreName']
+        if 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if 'enablePurgeProtection' in kwargs:
+            enable_purge_protection = kwargs['enablePurgeProtection']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if 'softDeleteRetentionInDays' in kwargs:
+            soft_delete_retention_in_days = kwargs['softDeleteRetentionInDays']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if config_store_name is not None:
-            pulumi.set(__self__, "config_store_name", config_store_name)
+            _setter("config_store_name", config_store_name)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if disable_local_auth is None:
             disable_local_auth = False
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if enable_purge_protection is None:
             enable_purge_protection = False
         if enable_purge_protection is not None:
-            pulumi.set(__self__, "enable_purge_protection", enable_purge_protection)
+            _setter("enable_purge_protection", enable_purge_protection)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if soft_delete_retention_in_days is None:
             soft_delete_retention_in_days = 7
         if soft_delete_retention_in_days is not None:
-            pulumi.set(__self__, "soft_delete_retention_in_days", soft_delete_retention_in_days)
+            _setter("soft_delete_retention_in_days", soft_delete_retention_in_days)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -273,6 +320,10 @@ class ConfigurationStore(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationStoreArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -307,13 +358,28 @@ class ConfigurationStore(pulumi.CustomResource):
             if enable_purge_protection is None:
                 enable_purge_protection = False
             __props__.__dict__["enable_purge_protection"] = enable_purge_protection
+            if encryption is not None and not isinstance(encryption, EncryptionPropertiesArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                EncryptionPropertiesArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
+            if identity is not None and not isinstance(identity, ResourceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ResourceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -35,8 +35,21 @@ class ApiPropertiesArgs:
         """
         :param pulumi.Input[Union[str, 'ServerVersion']] server_version: Describes the ServerVersion of an a MongoDB account.
         """
+        ApiPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server_version=server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server_version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverVersion' in kwargs:
+            server_version = kwargs['serverVersion']
+
         if server_version is not None:
-            pulumi.set(__self__, "server_version", server_version)
+            _setter("server_version", server_version)
 
     @property
     @pulumi.getter(name="serverVersion")
@@ -59,8 +72,19 @@ class CapabilityArgs:
         Cosmos DB capability object
         :param pulumi.Input[str] name: Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
         """
+        CapabilityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -87,11 +111,32 @@ class ConsistencyPolicyArgs:
         :param pulumi.Input[int] max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         :param pulumi.Input[float] max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
-        pulumi.set(__self__, "default_consistency_level", default_consistency_level)
+        ConsistencyPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_consistency_level=default_consistency_level,
+            max_interval_in_seconds=max_interval_in_seconds,
+            max_staleness_prefix=max_staleness_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_consistency_level: pulumi.Input['DefaultConsistencyLevel'],
+             max_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+             max_staleness_prefix: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultConsistencyLevel' in kwargs:
+            default_consistency_level = kwargs['defaultConsistencyLevel']
+        if 'maxIntervalInSeconds' in kwargs:
+            max_interval_in_seconds = kwargs['maxIntervalInSeconds']
+        if 'maxStalenessPrefix' in kwargs:
+            max_staleness_prefix = kwargs['maxStalenessPrefix']
+
+        _setter("default_consistency_level", default_consistency_level)
         if max_interval_in_seconds is not None:
-            pulumi.set(__self__, "max_interval_in_seconds", max_interval_in_seconds)
+            _setter("max_interval_in_seconds", max_interval_in_seconds)
         if max_staleness_prefix is not None:
-            pulumi.set(__self__, "max_staleness_prefix", max_staleness_prefix)
+            _setter("max_staleness_prefix", max_staleness_prefix)
 
     @property
     @pulumi.getter(name="defaultConsistencyLevel")
@@ -139,7 +184,18 @@ class ContinuousModeBackupPolicyArgs:
         :param pulumi.Input[str] type: Describes the mode of backups.
                Expected value is 'Continuous'.
         """
-        pulumi.set(__self__, "type", 'Continuous')
+        ContinuousModeBackupPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("type", 'Continuous')
 
     @property
     @pulumi.getter
@@ -171,15 +227,44 @@ class CorsPolicyArgs:
         :param pulumi.Input[str] exposed_headers: The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
         :param pulumi.Input[float] max_age_in_seconds: The maximum amount time that a browser should cache the preflight OPTIONS request.
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        CorsPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_origins=allowed_origins,
+            allowed_headers=allowed_headers,
+            allowed_methods=allowed_methods,
+            exposed_headers=exposed_headers,
+            max_age_in_seconds=max_age_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_origins: pulumi.Input[str],
+             allowed_headers: Optional[pulumi.Input[str]] = None,
+             allowed_methods: Optional[pulumi.Input[str]] = None,
+             exposed_headers: Optional[pulumi.Input[str]] = None,
+             max_age_in_seconds: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'allowedHeaders' in kwargs:
+            allowed_headers = kwargs['allowedHeaders']
+        if 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if 'exposedHeaders' in kwargs:
+            exposed_headers = kwargs['exposedHeaders']
+        if 'maxAgeInSeconds' in kwargs:
+            max_age_in_seconds = kwargs['maxAgeInSeconds']
+
+        _setter("allowed_origins", allowed_origins)
         if allowed_headers is not None:
-            pulumi.set(__self__, "allowed_headers", allowed_headers)
+            _setter("allowed_headers", allowed_headers)
         if allowed_methods is not None:
-            pulumi.set(__self__, "allowed_methods", allowed_methods)
+            _setter("allowed_methods", allowed_methods)
         if exposed_headers is not None:
-            pulumi.set(__self__, "exposed_headers", exposed_headers)
+            _setter("exposed_headers", exposed_headers)
         if max_age_in_seconds is not None:
-            pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+            _setter("max_age_in_seconds", max_age_in_seconds)
 
     @property
     @pulumi.getter(name="allowedOrigins")
@@ -252,10 +337,27 @@ class DatabaseRestoreResourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] collection_names: The names of the collections available for restore.
         :param pulumi.Input[str] database_name: The name of the database available for restore.
         """
+        DatabaseRestoreResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            collection_names=collection_names,
+            database_name=database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             collection_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'collectionNames' in kwargs:
+            collection_names = kwargs['collectionNames']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         if collection_names is not None:
-            pulumi.set(__self__, "collection_names", collection_names)
+            _setter("collection_names", collection_names)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
 
     @property
     @pulumi.getter(name="collectionNames")
@@ -335,51 +437,146 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether requests from Public Network are allowed
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
+        DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_mode=create_mode,
+            database_account_offer_type=database_account_offer_type,
+            locations=locations,
+            api_properties=api_properties,
+            backup_policy=backup_policy,
+            capabilities=capabilities,
+            connector_offer=connector_offer,
+            consistency_policy=consistency_policy,
+            cors=cors,
+            default_identity=default_identity,
+            disable_key_based_metadata_write_access=disable_key_based_metadata_write_access,
+            enable_analytical_storage=enable_analytical_storage,
+            enable_automatic_failover=enable_automatic_failover,
+            enable_cassandra_connector=enable_cassandra_connector,
+            enable_free_tier=enable_free_tier,
+            enable_multiple_write_locations=enable_multiple_write_locations,
+            ip_rules=ip_rules,
+            is_virtual_network_filter_enabled=is_virtual_network_filter_enabled,
+            key_vault_key_uri=key_vault_key_uri,
+            network_acl_bypass=network_acl_bypass,
+            network_acl_bypass_resource_ids=network_acl_bypass_resource_ids,
+            public_network_access=public_network_access,
+            virtual_network_rules=virtual_network_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_mode: Optional[pulumi.Input[str]] = None,
+             database_account_offer_type: pulumi.Input['DatabaseAccountOfferType'],
+             locations: pulumi.Input[Sequence[pulumi.Input['LocationArgs']]],
+             api_properties: Optional[pulumi.Input['ApiPropertiesArgs']] = None,
+             backup_policy: Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]] = None,
+             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]] = None,
+             connector_offer: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]] = None,
+             consistency_policy: Optional[pulumi.Input['ConsistencyPolicyArgs']] = None,
+             cors: Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]] = None,
+             default_identity: Optional[pulumi.Input[str]] = None,
+             disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
+             enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
+             enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
+             enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
+             enable_free_tier: Optional[pulumi.Input[bool]] = None,
+             enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]] = None,
+             is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
+             key_vault_key_uri: Optional[pulumi.Input[str]] = None,
+             network_acl_bypass: Optional[pulumi.Input['NetworkAclBypass']] = None,
+             network_acl_bypass_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if 'databaseAccountOfferType' in kwargs:
+            database_account_offer_type = kwargs['databaseAccountOfferType']
+        if 'apiProperties' in kwargs:
+            api_properties = kwargs['apiProperties']
+        if 'backupPolicy' in kwargs:
+            backup_policy = kwargs['backupPolicy']
+        if 'connectorOffer' in kwargs:
+            connector_offer = kwargs['connectorOffer']
+        if 'consistencyPolicy' in kwargs:
+            consistency_policy = kwargs['consistencyPolicy']
+        if 'defaultIdentity' in kwargs:
+            default_identity = kwargs['defaultIdentity']
+        if 'disableKeyBasedMetadataWriteAccess' in kwargs:
+            disable_key_based_metadata_write_access = kwargs['disableKeyBasedMetadataWriteAccess']
+        if 'enableAnalyticalStorage' in kwargs:
+            enable_analytical_storage = kwargs['enableAnalyticalStorage']
+        if 'enableAutomaticFailover' in kwargs:
+            enable_automatic_failover = kwargs['enableAutomaticFailover']
+        if 'enableCassandraConnector' in kwargs:
+            enable_cassandra_connector = kwargs['enableCassandraConnector']
+        if 'enableFreeTier' in kwargs:
+            enable_free_tier = kwargs['enableFreeTier']
+        if 'enableMultipleWriteLocations' in kwargs:
+            enable_multiple_write_locations = kwargs['enableMultipleWriteLocations']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'isVirtualNetworkFilterEnabled' in kwargs:
+            is_virtual_network_filter_enabled = kwargs['isVirtualNetworkFilterEnabled']
+        if 'keyVaultKeyUri' in kwargs:
+            key_vault_key_uri = kwargs['keyVaultKeyUri']
+        if 'networkAclBypass' in kwargs:
+            network_acl_bypass = kwargs['networkAclBypass']
+        if 'networkAclBypassResourceIds' in kwargs:
+            network_acl_bypass_resource_ids = kwargs['networkAclBypassResourceIds']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if 'virtualNetworkRules' in kwargs:
+            virtual_network_rules = kwargs['virtualNetworkRules']
+
         if create_mode is None:
             create_mode = 'Default'
-        pulumi.set(__self__, "create_mode", 'Default')
-        pulumi.set(__self__, "database_account_offer_type", database_account_offer_type)
-        pulumi.set(__self__, "locations", locations)
+        _setter("create_mode", 'Default')
+        _setter("database_account_offer_type", database_account_offer_type)
+        _setter("locations", locations)
         if api_properties is not None:
-            pulumi.set(__self__, "api_properties", api_properties)
+            _setter("api_properties", api_properties)
         if backup_policy is not None:
-            pulumi.set(__self__, "backup_policy", backup_policy)
+            _setter("backup_policy", backup_policy)
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if connector_offer is not None:
-            pulumi.set(__self__, "connector_offer", connector_offer)
+            _setter("connector_offer", connector_offer)
         if consistency_policy is not None:
-            pulumi.set(__self__, "consistency_policy", consistency_policy)
+            _setter("consistency_policy", consistency_policy)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if default_identity is not None:
-            pulumi.set(__self__, "default_identity", default_identity)
+            _setter("default_identity", default_identity)
         if disable_key_based_metadata_write_access is not None:
-            pulumi.set(__self__, "disable_key_based_metadata_write_access", disable_key_based_metadata_write_access)
+            _setter("disable_key_based_metadata_write_access", disable_key_based_metadata_write_access)
         if enable_analytical_storage is not None:
-            pulumi.set(__self__, "enable_analytical_storage", enable_analytical_storage)
+            _setter("enable_analytical_storage", enable_analytical_storage)
         if enable_automatic_failover is not None:
-            pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
+            _setter("enable_automatic_failover", enable_automatic_failover)
         if enable_cassandra_connector is not None:
-            pulumi.set(__self__, "enable_cassandra_connector", enable_cassandra_connector)
+            _setter("enable_cassandra_connector", enable_cassandra_connector)
         if enable_free_tier is not None:
-            pulumi.set(__self__, "enable_free_tier", enable_free_tier)
+            _setter("enable_free_tier", enable_free_tier)
         if enable_multiple_write_locations is not None:
-            pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
+            _setter("enable_multiple_write_locations", enable_multiple_write_locations)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if is_virtual_network_filter_enabled is not None:
-            pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
+            _setter("is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
         if key_vault_key_uri is not None:
-            pulumi.set(__self__, "key_vault_key_uri", key_vault_key_uri)
+            _setter("key_vault_key_uri", key_vault_key_uri)
         if network_acl_bypass is not None:
-            pulumi.set(__self__, "network_acl_bypass", network_acl_bypass)
+            _setter("network_acl_bypass", network_acl_bypass)
         if network_acl_bypass_resource_ids is not None:
-            pulumi.set(__self__, "network_acl_bypass_resource_ids", network_acl_bypass_resource_ids)
+            _setter("network_acl_bypass_resource_ids", network_acl_bypass_resource_ids)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if virtual_network_rules is not None:
-            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+            _setter("virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="createMode")
@@ -667,8 +864,21 @@ class IpAddressOrRangeArgs:
         IpAddressOrRange object
         :param pulumi.Input[str] ip_address_or_range: A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
         """
+        IpAddressOrRangeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_address_or_range=ip_address_or_range,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_address_or_range: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddressOrRange' in kwargs:
+            ip_address_or_range = kwargs['ipAddressOrRange']
+
         if ip_address_or_range is not None:
-            pulumi.set(__self__, "ip_address_or_range", ip_address_or_range)
+            _setter("ip_address_or_range", ip_address_or_range)
 
     @property
     @pulumi.getter(name="ipAddressOrRange")
@@ -695,12 +905,33 @@ class LocationArgs:
         :param pulumi.Input[bool] is_zone_redundant: Flag to indicate whether or not this region is an AvailabilityZone region
         :param pulumi.Input[str] location_name: The name of the region.
         """
+        LocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failover_priority=failover_priority,
+            is_zone_redundant=is_zone_redundant,
+            location_name=location_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failover_priority: Optional[pulumi.Input[int]] = None,
+             is_zone_redundant: Optional[pulumi.Input[bool]] = None,
+             location_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failoverPriority' in kwargs:
+            failover_priority = kwargs['failoverPriority']
+        if 'isZoneRedundant' in kwargs:
+            is_zone_redundant = kwargs['isZoneRedundant']
+        if 'locationName' in kwargs:
+            location_name = kwargs['locationName']
+
         if failover_priority is not None:
-            pulumi.set(__self__, "failover_priority", failover_priority)
+            _setter("failover_priority", failover_priority)
         if is_zone_redundant is not None:
-            pulumi.set(__self__, "is_zone_redundant", is_zone_redundant)
+            _setter("is_zone_redundant", is_zone_redundant)
         if location_name is not None:
-            pulumi.set(__self__, "location_name", location_name)
+            _setter("location_name", location_name)
 
     @property
     @pulumi.getter(name="failoverPriority")
@@ -749,10 +980,25 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -790,9 +1036,24 @@ class PeriodicModeBackupPolicyArgs:
                Expected value is 'Periodic'.
         :param pulumi.Input['PeriodicModePropertiesArgs'] periodic_mode_properties: Configuration values for periodic mode backup
         """
-        pulumi.set(__self__, "type", 'Periodic')
+        PeriodicModeBackupPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            periodic_mode_properties=periodic_mode_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             periodic_mode_properties: Optional[pulumi.Input['PeriodicModePropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'periodicModeProperties' in kwargs:
+            periodic_mode_properties = kwargs['periodicModeProperties']
+
+        _setter("type", 'Periodic')
         if periodic_mode_properties is not None:
-            pulumi.set(__self__, "periodic_mode_properties", periodic_mode_properties)
+            _setter("periodic_mode_properties", periodic_mode_properties)
 
     @property
     @pulumi.getter
@@ -832,12 +1093,33 @@ class PeriodicModePropertiesArgs:
         :param pulumi.Input[int] backup_retention_interval_in_hours: An integer representing the time (in hours) that each backup is retained
         :param pulumi.Input[Union[str, 'BackupStorageRedundancy']] backup_storage_redundancy: Enum to indicate type of backup residency
         """
+        PeriodicModePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_interval_in_minutes=backup_interval_in_minutes,
+            backup_retention_interval_in_hours=backup_retention_interval_in_hours,
+            backup_storage_redundancy=backup_storage_redundancy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_interval_in_minutes: Optional[pulumi.Input[int]] = None,
+             backup_retention_interval_in_hours: Optional[pulumi.Input[int]] = None,
+             backup_storage_redundancy: Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupIntervalInMinutes' in kwargs:
+            backup_interval_in_minutes = kwargs['backupIntervalInMinutes']
+        if 'backupRetentionIntervalInHours' in kwargs:
+            backup_retention_interval_in_hours = kwargs['backupRetentionIntervalInHours']
+        if 'backupStorageRedundancy' in kwargs:
+            backup_storage_redundancy = kwargs['backupStorageRedundancy']
+
         if backup_interval_in_minutes is not None:
-            pulumi.set(__self__, "backup_interval_in_minutes", backup_interval_in_minutes)
+            _setter("backup_interval_in_minutes", backup_interval_in_minutes)
         if backup_retention_interval_in_hours is not None:
-            pulumi.set(__self__, "backup_retention_interval_in_hours", backup_retention_interval_in_hours)
+            _setter("backup_retention_interval_in_hours", backup_retention_interval_in_hours)
         if backup_storage_redundancy is not None:
-            pulumi.set(__self__, "backup_storage_redundancy", backup_storage_redundancy)
+            _setter("backup_storage_redundancy", backup_storage_redundancy)
 
     @property
     @pulumi.getter(name="backupIntervalInMinutes")
@@ -890,14 +1172,39 @@ class RestoreParametersArgs:
         :param pulumi.Input[str] restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
         :param pulumi.Input[str] restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
         """
+        RestoreParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases_to_restore=databases_to_restore,
+            restore_mode=restore_mode,
+            restore_source=restore_source,
+            restore_timestamp_in_utc=restore_timestamp_in_utc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases_to_restore: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgs']]]] = None,
+             restore_mode: Optional[pulumi.Input[Union[str, 'RestoreMode']]] = None,
+             restore_source: Optional[pulumi.Input[str]] = None,
+             restore_timestamp_in_utc: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databasesToRestore' in kwargs:
+            databases_to_restore = kwargs['databasesToRestore']
+        if 'restoreMode' in kwargs:
+            restore_mode = kwargs['restoreMode']
+        if 'restoreSource' in kwargs:
+            restore_source = kwargs['restoreSource']
+        if 'restoreTimestampInUtc' in kwargs:
+            restore_timestamp_in_utc = kwargs['restoreTimestampInUtc']
+
         if databases_to_restore is not None:
-            pulumi.set(__self__, "databases_to_restore", databases_to_restore)
+            _setter("databases_to_restore", databases_to_restore)
         if restore_mode is not None:
-            pulumi.set(__self__, "restore_mode", restore_mode)
+            _setter("restore_mode", restore_mode)
         if restore_source is not None:
-            pulumi.set(__self__, "restore_source", restore_source)
+            _setter("restore_source", restore_source)
         if restore_timestamp_in_utc is not None:
-            pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
+            _setter("restore_timestamp_in_utc", restore_timestamp_in_utc)
 
     @property
     @pulumi.getter(name="databasesToRestore")
@@ -1003,53 +1310,152 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
         :param pulumi.Input['RestoreParametersArgs'] restore_parameters: Parameters to indicate the information about the restore.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
+        RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_mode=create_mode,
+            database_account_offer_type=database_account_offer_type,
+            locations=locations,
+            api_properties=api_properties,
+            backup_policy=backup_policy,
+            capabilities=capabilities,
+            connector_offer=connector_offer,
+            consistency_policy=consistency_policy,
+            cors=cors,
+            default_identity=default_identity,
+            disable_key_based_metadata_write_access=disable_key_based_metadata_write_access,
+            enable_analytical_storage=enable_analytical_storage,
+            enable_automatic_failover=enable_automatic_failover,
+            enable_cassandra_connector=enable_cassandra_connector,
+            enable_free_tier=enable_free_tier,
+            enable_multiple_write_locations=enable_multiple_write_locations,
+            ip_rules=ip_rules,
+            is_virtual_network_filter_enabled=is_virtual_network_filter_enabled,
+            key_vault_key_uri=key_vault_key_uri,
+            network_acl_bypass=network_acl_bypass,
+            network_acl_bypass_resource_ids=network_acl_bypass_resource_ids,
+            public_network_access=public_network_access,
+            restore_parameters=restore_parameters,
+            virtual_network_rules=virtual_network_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_mode: Optional[pulumi.Input[str]] = None,
+             database_account_offer_type: pulumi.Input['DatabaseAccountOfferType'],
+             locations: pulumi.Input[Sequence[pulumi.Input['LocationArgs']]],
+             api_properties: Optional[pulumi.Input['ApiPropertiesArgs']] = None,
+             backup_policy: Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]] = None,
+             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]] = None,
+             connector_offer: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]] = None,
+             consistency_policy: Optional[pulumi.Input['ConsistencyPolicyArgs']] = None,
+             cors: Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]] = None,
+             default_identity: Optional[pulumi.Input[str]] = None,
+             disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
+             enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
+             enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
+             enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
+             enable_free_tier: Optional[pulumi.Input[bool]] = None,
+             enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]] = None,
+             is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
+             key_vault_key_uri: Optional[pulumi.Input[str]] = None,
+             network_acl_bypass: Optional[pulumi.Input['NetworkAclBypass']] = None,
+             network_acl_bypass_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             restore_parameters: Optional[pulumi.Input['RestoreParametersArgs']] = None,
+             virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if 'databaseAccountOfferType' in kwargs:
+            database_account_offer_type = kwargs['databaseAccountOfferType']
+        if 'apiProperties' in kwargs:
+            api_properties = kwargs['apiProperties']
+        if 'backupPolicy' in kwargs:
+            backup_policy = kwargs['backupPolicy']
+        if 'connectorOffer' in kwargs:
+            connector_offer = kwargs['connectorOffer']
+        if 'consistencyPolicy' in kwargs:
+            consistency_policy = kwargs['consistencyPolicy']
+        if 'defaultIdentity' in kwargs:
+            default_identity = kwargs['defaultIdentity']
+        if 'disableKeyBasedMetadataWriteAccess' in kwargs:
+            disable_key_based_metadata_write_access = kwargs['disableKeyBasedMetadataWriteAccess']
+        if 'enableAnalyticalStorage' in kwargs:
+            enable_analytical_storage = kwargs['enableAnalyticalStorage']
+        if 'enableAutomaticFailover' in kwargs:
+            enable_automatic_failover = kwargs['enableAutomaticFailover']
+        if 'enableCassandraConnector' in kwargs:
+            enable_cassandra_connector = kwargs['enableCassandraConnector']
+        if 'enableFreeTier' in kwargs:
+            enable_free_tier = kwargs['enableFreeTier']
+        if 'enableMultipleWriteLocations' in kwargs:
+            enable_multiple_write_locations = kwargs['enableMultipleWriteLocations']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'isVirtualNetworkFilterEnabled' in kwargs:
+            is_virtual_network_filter_enabled = kwargs['isVirtualNetworkFilterEnabled']
+        if 'keyVaultKeyUri' in kwargs:
+            key_vault_key_uri = kwargs['keyVaultKeyUri']
+        if 'networkAclBypass' in kwargs:
+            network_acl_bypass = kwargs['networkAclBypass']
+        if 'networkAclBypassResourceIds' in kwargs:
+            network_acl_bypass_resource_ids = kwargs['networkAclBypassResourceIds']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if 'restoreParameters' in kwargs:
+            restore_parameters = kwargs['restoreParameters']
+        if 'virtualNetworkRules' in kwargs:
+            virtual_network_rules = kwargs['virtualNetworkRules']
+
         if create_mode is None:
             create_mode = 'Default'
-        pulumi.set(__self__, "create_mode", 'Restore')
-        pulumi.set(__self__, "database_account_offer_type", database_account_offer_type)
-        pulumi.set(__self__, "locations", locations)
+        _setter("create_mode", 'Restore')
+        _setter("database_account_offer_type", database_account_offer_type)
+        _setter("locations", locations)
         if api_properties is not None:
-            pulumi.set(__self__, "api_properties", api_properties)
+            _setter("api_properties", api_properties)
         if backup_policy is not None:
-            pulumi.set(__self__, "backup_policy", backup_policy)
+            _setter("backup_policy", backup_policy)
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if connector_offer is not None:
-            pulumi.set(__self__, "connector_offer", connector_offer)
+            _setter("connector_offer", connector_offer)
         if consistency_policy is not None:
-            pulumi.set(__self__, "consistency_policy", consistency_policy)
+            _setter("consistency_policy", consistency_policy)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if default_identity is not None:
-            pulumi.set(__self__, "default_identity", default_identity)
+            _setter("default_identity", default_identity)
         if disable_key_based_metadata_write_access is not None:
-            pulumi.set(__self__, "disable_key_based_metadata_write_access", disable_key_based_metadata_write_access)
+            _setter("disable_key_based_metadata_write_access", disable_key_based_metadata_write_access)
         if enable_analytical_storage is not None:
-            pulumi.set(__self__, "enable_analytical_storage", enable_analytical_storage)
+            _setter("enable_analytical_storage", enable_analytical_storage)
         if enable_automatic_failover is not None:
-            pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
+            _setter("enable_automatic_failover", enable_automatic_failover)
         if enable_cassandra_connector is not None:
-            pulumi.set(__self__, "enable_cassandra_connector", enable_cassandra_connector)
+            _setter("enable_cassandra_connector", enable_cassandra_connector)
         if enable_free_tier is not None:
-            pulumi.set(__self__, "enable_free_tier", enable_free_tier)
+            _setter("enable_free_tier", enable_free_tier)
         if enable_multiple_write_locations is not None:
-            pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
+            _setter("enable_multiple_write_locations", enable_multiple_write_locations)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if is_virtual_network_filter_enabled is not None:
-            pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
+            _setter("is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
         if key_vault_key_uri is not None:
-            pulumi.set(__self__, "key_vault_key_uri", key_vault_key_uri)
+            _setter("key_vault_key_uri", key_vault_key_uri)
         if network_acl_bypass is not None:
-            pulumi.set(__self__, "network_acl_bypass", network_acl_bypass)
+            _setter("network_acl_bypass", network_acl_bypass)
         if network_acl_bypass_resource_ids is not None:
-            pulumi.set(__self__, "network_acl_bypass_resource_ids", network_acl_bypass_resource_ids)
+            _setter("network_acl_bypass_resource_ids", network_acl_bypass_resource_ids)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if restore_parameters is not None:
-            pulumi.set(__self__, "restore_parameters", restore_parameters)
+            _setter("restore_parameters", restore_parameters)
         if virtual_network_rules is not None:
-            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+            _setter("virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="createMode")
@@ -1351,10 +1757,25 @@ class VirtualNetworkRuleArgs:
         :param pulumi.Input[str] id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
         :param pulumi.Input[bool] ignore_missing_v_net_service_endpoint: Create firewall rule before the virtual network has vnet service endpoint enabled.
         """
+        VirtualNetworkRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            ignore_missing_v_net_service_endpoint=ignore_missing_v_net_service_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             ignore_missing_v_net_service_endpoint: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ignoreMissingVNetServiceEndpoint' in kwargs:
+            ignore_missing_v_net_service_endpoint = kwargs['ignoreMissingVNetServiceEndpoint']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ignore_missing_v_net_service_endpoint is not None:
-            pulumi.set(__self__, "ignore_missing_v_net_service_endpoint", ignore_missing_v_net_service_endpoint)
+            _setter("ignore_missing_v_net_service_endpoint", ignore_missing_v_net_service_endpoint)
 
     @property
     @pulumi.getter

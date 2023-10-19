@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,20 +38,61 @@ class ConnectivityConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['HubArgs']]] hubs: List of hubItems
         :param pulumi.Input[Union[str, 'IsGlobal']] is_global: Flag if global mesh is supported.
         """
-        pulumi.set(__self__, "applies_to_groups", applies_to_groups)
-        pulumi.set(__self__, "connectivity_topology", connectivity_topology)
-        pulumi.set(__self__, "network_manager_name", network_manager_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConnectivityConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            applies_to_groups=applies_to_groups,
+            connectivity_topology=connectivity_topology,
+            network_manager_name=network_manager_name,
+            resource_group_name=resource_group_name,
+            configuration_name=configuration_name,
+            delete_existing_peering=delete_existing_peering,
+            description=description,
+            hubs=hubs,
+            is_global=is_global,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             applies_to_groups: pulumi.Input[Sequence[pulumi.Input['ConnectivityGroupItemArgs']]],
+             connectivity_topology: pulumi.Input[Union[str, 'ConnectivityTopology']],
+             network_manager_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             configuration_name: Optional[pulumi.Input[str]] = None,
+             delete_existing_peering: Optional[pulumi.Input[Union[str, 'DeleteExistingPeering']]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             hubs: Optional[pulumi.Input[Sequence[pulumi.Input['HubArgs']]]] = None,
+             is_global: Optional[pulumi.Input[Union[str, 'IsGlobal']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appliesToGroups' in kwargs:
+            applies_to_groups = kwargs['appliesToGroups']
+        if 'connectivityTopology' in kwargs:
+            connectivity_topology = kwargs['connectivityTopology']
+        if 'networkManagerName' in kwargs:
+            network_manager_name = kwargs['networkManagerName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'configurationName' in kwargs:
+            configuration_name = kwargs['configurationName']
+        if 'deleteExistingPeering' in kwargs:
+            delete_existing_peering = kwargs['deleteExistingPeering']
+        if 'isGlobal' in kwargs:
+            is_global = kwargs['isGlobal']
+
+        _setter("applies_to_groups", applies_to_groups)
+        _setter("connectivity_topology", connectivity_topology)
+        _setter("network_manager_name", network_manager_name)
+        _setter("resource_group_name", resource_group_name)
         if configuration_name is not None:
-            pulumi.set(__self__, "configuration_name", configuration_name)
+            _setter("configuration_name", configuration_name)
         if delete_existing_peering is not None:
-            pulumi.set(__self__, "delete_existing_peering", delete_existing_peering)
+            _setter("delete_existing_peering", delete_existing_peering)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if hubs is not None:
-            pulumi.set(__self__, "hubs", hubs)
+            _setter("hubs", hubs)
         if is_global is not None:
-            pulumi.set(__self__, "is_global", is_global)
+            _setter("is_global", is_global)
 
     @property
     @pulumi.getter(name="appliesToGroups")
@@ -211,6 +252,10 @@ class ConnectivityConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectivityConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

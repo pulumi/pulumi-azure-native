@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -29,12 +29,41 @@ class DatabaseAdvisorArgs:
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] advisor_name: The name of the Database Advisor.
         """
-        pulumi.set(__self__, "auto_execute_status", auto_execute_status)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        DatabaseAdvisorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_execute_status=auto_execute_status,
+            database_name=database_name,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            advisor_name=advisor_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_execute_status: pulumi.Input['AutoExecuteStatus'],
+             database_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             advisor_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoExecuteStatus' in kwargs:
+            auto_execute_status = kwargs['autoExecuteStatus']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'advisorName' in kwargs:
+            advisor_name = kwargs['advisorName']
+
+        _setter("auto_execute_status", auto_execute_status)
+        _setter("database_name", database_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if advisor_name is not None:
-            pulumi.set(__self__, "advisor_name", advisor_name)
+            _setter("advisor_name", advisor_name)
 
     @property
     @pulumi.getter(name="autoExecuteStatus")
@@ -138,6 +167,10 @@ class DatabaseAdvisor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatabaseAdvisorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

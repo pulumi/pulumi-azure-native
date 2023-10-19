@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -61,8 +61,25 @@ class AccountPropertiesResponseAccountStatus(dict):
         :param str account_provisioning_state: Gets the account status code.
         :param 'AccountStatusResponseErrorDetails' error_details: Gets the account error details.
         """
-        pulumi.set(__self__, "account_provisioning_state", account_provisioning_state)
-        pulumi.set(__self__, "error_details", error_details)
+        AccountPropertiesResponseAccountStatus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_provisioning_state=account_provisioning_state,
+            error_details=error_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_provisioning_state: str,
+             error_details: 'outputs.AccountStatusResponseErrorDetails',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountProvisioningState' in kwargs:
+            account_provisioning_state = kwargs['accountProvisioningState']
+        if 'errorDetails' in kwargs:
+            error_details = kwargs['errorDetails']
+
+        _setter("account_provisioning_state", account_provisioning_state)
+        _setter("error_details", error_details)
 
     @property
     @pulumi.getter(name="accountProvisioningState")
@@ -96,9 +113,24 @@ class AccountPropertiesResponseEndpoints(dict):
         :param str guardian: Gets the guardian endpoint.
         :param str scan: Gets the scan endpoint.
         """
-        pulumi.set(__self__, "catalog", catalog)
-        pulumi.set(__self__, "guardian", guardian)
-        pulumi.set(__self__, "scan", scan)
+        AccountPropertiesResponseEndpoints._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog=catalog,
+            guardian=guardian,
+            scan=scan,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog: str,
+             guardian: str,
+             scan: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("catalog", catalog)
+        _setter("guardian", guardian)
+        _setter("scan", scan)
 
     @property
     @pulumi.getter
@@ -161,9 +193,30 @@ class AccountPropertiesResponseManagedResources(dict):
         :param str resource_group: Gets the managed resource group resource identifier. This resource group will host resource dependencies for the account.
         :param str storage_account: Gets the managed storage account resource identifier.
         """
-        pulumi.set(__self__, "event_hub_namespace", event_hub_namespace)
-        pulumi.set(__self__, "resource_group", resource_group)
-        pulumi.set(__self__, "storage_account", storage_account)
+        AccountPropertiesResponseManagedResources._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_hub_namespace=event_hub_namespace,
+            resource_group=resource_group,
+            storage_account=storage_account,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_hub_namespace: str,
+             resource_group: str,
+             storage_account: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventHubNamespace' in kwargs:
+            event_hub_namespace = kwargs['eventHubNamespace']
+        if 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+
+        _setter("event_hub_namespace", event_hub_namespace)
+        _setter("resource_group", resource_group)
+        _setter("storage_account", storage_account)
 
     @property
     @pulumi.getter(name="eventHubNamespace")
@@ -203,10 +256,23 @@ class AccountResponseSku(dict):
         :param int capacity: Gets or sets the sku capacity.
         :param str name: Gets or sets the sku name.
         """
+        AccountResponseSku._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[int] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -242,10 +308,27 @@ class AccountStatusResponseErrorDetails(dict):
         :param str message: Gets or sets the messages.
         :param str target: Gets or sets the target.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        AccountStatusResponseErrorDetails._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            details=details,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             details: Sequence['outputs.ErrorModelResponse'],
+             message: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("code", code)
+        _setter("details", details)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter
@@ -309,7 +392,20 @@ class CloudConnectorsResponse(dict):
         :param str aws_external_id: AWS external identifier.
                Configured in AWS to allow use of the role arn used for scanning
         """
-        pulumi.set(__self__, "aws_external_id", aws_external_id)
+        CloudConnectorsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_external_id=aws_external_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_external_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsExternalId' in kwargs:
+            aws_external_id = kwargs['awsExternalId']
+
+        _setter("aws_external_id", aws_external_id)
 
     @property
     @pulumi.getter(name="awsExternalId")
@@ -351,10 +447,25 @@ class CredentialsResponse(dict):
         :param str identity_id: Identity identifier for UserAssign type.
         :param str type: Identity Type.
         """
+        CredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_id=identity_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+
         if identity_id is not None:
-            pulumi.set(__self__, "identity_id", identity_id)
+            _setter("identity_id", identity_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="identityId")
@@ -390,10 +501,27 @@ class ErrorModelResponse(dict):
         :param str message: Gets or sets the messages.
         :param str target: Gets or sets the target.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        ErrorModelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            details=details,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             details: Sequence['outputs.ErrorModelResponse'],
+             message: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("code", code)
+        _setter("details", details)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter
@@ -466,12 +594,35 @@ class IdentityResponse(dict):
         :param str type: Identity Type
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: User Assigned Identities
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -552,15 +703,46 @@ class PrivateEndpointConnectionResponse(dict):
         :param 'PrivateEndpointResponse' private_endpoint: The private endpoint information.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The private link service connection state.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            private_endpoint=private_endpoint,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             provisioning_state: str,
+             system_data: 'outputs.ProxyResourceResponseSystemData',
+             type: str,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter
@@ -630,8 +812,19 @@ class PrivateEndpointResponse(dict):
         A private endpoint class.
         :param str id: The private endpoint identifier.
         """
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -674,12 +867,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The description.
         :param str status: The status.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -754,12 +964,45 @@ class ProxyResourceResponseSystemData(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
-        pulumi.set(__self__, "created_at", created_at)
-        pulumi.set(__self__, "created_by", created_by)
-        pulumi.set(__self__, "created_by_type", created_by_type)
-        pulumi.set(__self__, "last_modified_at", last_modified_at)
-        pulumi.set(__self__, "last_modified_by", last_modified_by)
-        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+        ProxyResourceResponseSystemData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: str,
+             created_by: str,
+             created_by_type: str,
+             last_modified_at: str,
+             last_modified_by: str,
+             last_modified_by_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
+        _setter("created_at", created_at)
+        _setter("created_by", created_by)
+        _setter("created_by_type", created_by_type)
+        _setter("last_modified_at", last_modified_at)
+        _setter("last_modified_by", last_modified_by)
+        _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -858,12 +1101,45 @@ class TrackedResourceResponseSystemData(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
-        pulumi.set(__self__, "created_at", created_at)
-        pulumi.set(__self__, "created_by", created_by)
-        pulumi.set(__self__, "created_by_type", created_by_type)
-        pulumi.set(__self__, "last_modified_at", last_modified_at)
-        pulumi.set(__self__, "last_modified_by", last_modified_by)
-        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+        TrackedResourceResponseSystemData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: str,
+             created_by: str,
+             created_by_type: str,
+             last_modified_at: str,
+             last_modified_by: str,
+             last_modified_by_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
+        _setter("created_at", created_at)
+        _setter("created_by", created_by)
+        _setter("created_by_type", created_by_type)
+        _setter("last_modified_at", last_modified_at)
+        _setter("last_modified_by", last_modified_by)
+        _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -946,8 +1222,25 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: Gets or Sets Client ID
         :param str principal_id: Gets or Sets Principal ID
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")

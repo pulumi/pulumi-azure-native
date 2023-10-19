@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -32,17 +32,50 @@ class DatabaseArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "soft_delete_period_in_days", soft_delete_period_in_days)
+        DatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            resource_group_name=resource_group_name,
+            soft_delete_period_in_days=soft_delete_period_in_days,
+            database_name=database_name,
+            hot_cache_period_in_days=hot_cache_period_in_days,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             soft_delete_period_in_days: pulumi.Input[int],
+             database_name: Optional[pulumi.Input[str]] = None,
+             hot_cache_period_in_days: Optional[pulumi.Input[int]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'softDeletePeriodInDays' in kwargs:
+            soft_delete_period_in_days = kwargs['softDeletePeriodInDays']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'hotCachePeriodInDays' in kwargs:
+            hot_cache_period_in_days = kwargs['hotCachePeriodInDays']
+
+        _setter("cluster_name", cluster_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("soft_delete_period_in_days", soft_delete_period_in_days)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if hot_cache_period_in_days is not None:
-            pulumi.set(__self__, "hot_cache_period_in_days", hot_cache_period_in_days)
+            _setter("hot_cache_period_in_days", hot_cache_period_in_days)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -174,6 +207,10 @@ class Database(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

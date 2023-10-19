@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['SqlServerArgs', 'SqlServer']
@@ -33,20 +33,55 @@ class SqlServerArgs:
         :param pulumi.Input[str] sql_server_name: Name of the SQL Server.
         :param pulumi.Input[str] version: Version of the Sql Server.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sql_server_registration_name", sql_server_registration_name)
+        SqlServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sql_server_registration_name=sql_server_registration_name,
+            cores=cores,
+            edition=edition,
+            property_bag=property_bag,
+            registration_id=registration_id,
+            sql_server_name=sql_server_name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sql_server_registration_name: pulumi.Input[str],
+             cores: Optional[pulumi.Input[int]] = None,
+             edition: Optional[pulumi.Input[str]] = None,
+             property_bag: Optional[pulumi.Input[str]] = None,
+             registration_id: Optional[pulumi.Input[str]] = None,
+             sql_server_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sqlServerRegistrationName' in kwargs:
+            sql_server_registration_name = kwargs['sqlServerRegistrationName']
+        if 'propertyBag' in kwargs:
+            property_bag = kwargs['propertyBag']
+        if 'registrationID' in kwargs:
+            registration_id = kwargs['registrationID']
+        if 'sqlServerName' in kwargs:
+            sql_server_name = kwargs['sqlServerName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sql_server_registration_name", sql_server_registration_name)
         if cores is not None:
-            pulumi.set(__self__, "cores", cores)
+            _setter("cores", cores)
         if edition is not None:
-            pulumi.set(__self__, "edition", edition)
+            _setter("edition", edition)
         if property_bag is not None:
-            pulumi.set(__self__, "property_bag", property_bag)
+            _setter("property_bag", property_bag)
         if registration_id is not None:
-            pulumi.set(__self__, "registration_id", registration_id)
+            _setter("registration_id", registration_id)
         if sql_server_name is not None:
-            pulumi.set(__self__, "sql_server_name", sql_server_name)
+            _setter("sql_server_name", sql_server_name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -192,6 +227,10 @@ class SqlServer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -37,8 +37,21 @@ class ARecordArgs:
         An A record.
         :param pulumi.Input[str] ipv4_address: The IPv4 address of this A record.
         """
+        ARecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipv4_address=ipv4_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipv4_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipv4Address' in kwargs:
+            ipv4_address = kwargs['ipv4Address']
+
         if ipv4_address is not None:
-            pulumi.set(__self__, "ipv4_address", ipv4_address)
+            _setter("ipv4_address", ipv4_address)
 
     @property
     @pulumi.getter(name="ipv4Address")
@@ -61,8 +74,21 @@ class AaaaRecordArgs:
         An AAAA record.
         :param pulumi.Input[str] ipv6_address: The IPv6 address of this AAAA record.
         """
+        AaaaRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipv6_address=ipv6_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipv6_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipv6Address' in kwargs:
+            ipv6_address = kwargs['ipv6Address']
+
         if ipv6_address is not None:
-            pulumi.set(__self__, "ipv6_address", ipv6_address)
+            _setter("ipv6_address", ipv6_address)
 
     @property
     @pulumi.getter(name="ipv6Address")
@@ -89,12 +115,27 @@ class CaaRecordArgs:
         :param pulumi.Input[str] tag: The tag for this CAA record.
         :param pulumi.Input[str] value: The value for this CAA record.
         """
+        CaaRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            flags=flags,
+            tag=tag,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             flags: Optional[pulumi.Input[int]] = None,
+             tag: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if flags is not None:
-            pulumi.set(__self__, "flags", flags)
+            _setter("flags", flags)
         if tag is not None:
-            pulumi.set(__self__, "tag", tag)
+            _setter("tag", tag)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -141,8 +182,19 @@ class CnameRecordArgs:
         A CNAME record.
         :param pulumi.Input[str] cname: The canonical name for this CNAME record.
         """
+        CnameRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cname=cname,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cname: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cname is not None:
-            pulumi.set(__self__, "cname", cname)
+            _setter("cname", cname)
 
     @property
     @pulumi.getter
@@ -167,10 +219,25 @@ class DigestArgs:
         :param pulumi.Input[int] algorithm_type: The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
         :param pulumi.Input[str] value: The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
         """
+        DigestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            algorithm_type=algorithm_type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             algorithm_type: Optional[pulumi.Input[int]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'algorithmType' in kwargs:
+            algorithm_type = kwargs['algorithmType']
+
         if algorithm_type is not None:
-            pulumi.set(__self__, "algorithm_type", algorithm_type)
+            _setter("algorithm_type", algorithm_type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="algorithmType")
@@ -209,12 +276,29 @@ class DsRecordArgs:
         :param pulumi.Input['DigestArgs'] digest: The digest entity.
         :param pulumi.Input[int] key_tag: The key tag value is used to determine which DNSKEY Resource Record is used for signature verification.
         """
+        DsRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            algorithm=algorithm,
+            digest=digest,
+            key_tag=key_tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             algorithm: Optional[pulumi.Input[int]] = None,
+             digest: Optional[pulumi.Input['DigestArgs']] = None,
+             key_tag: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyTag' in kwargs:
+            key_tag = kwargs['keyTag']
+
         if algorithm is not None:
-            pulumi.set(__self__, "algorithm", algorithm)
+            _setter("algorithm", algorithm)
         if digest is not None:
-            pulumi.set(__self__, "digest", digest)
+            _setter("digest", digest)
         if key_tag is not None:
-            pulumi.set(__self__, "key_tag", key_tag)
+            _setter("key_tag", key_tag)
 
     @property
     @pulumi.getter
@@ -263,10 +347,23 @@ class MxRecordArgs:
         :param pulumi.Input[str] exchange: The domain name of the mail host for this MX record.
         :param pulumi.Input[int] preference: The preference value for this MX record.
         """
+        MxRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exchange=exchange,
+            preference=preference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exchange: Optional[pulumi.Input[str]] = None,
+             preference: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if exchange is not None:
-            pulumi.set(__self__, "exchange", exchange)
+            _setter("exchange", exchange)
         if preference is not None:
-            pulumi.set(__self__, "preference", preference)
+            _setter("preference", preference)
 
     @property
     @pulumi.getter
@@ -311,18 +408,39 @@ class NaptrRecordArgs:
         :param pulumi.Input[str] replacement: The replacement is a fully qualified domain name (FQDN) of the next domain name that you want the DDDS application to submit a DNS query for. The DDDS application replaces the input value with the value specified for replacement. Specify either a value for 'regexp' or a value for 'replacement'. If you specify a value for 'regexp', specify a dot (.) for 'replacement'.
         :param pulumi.Input[str] services: The services specific to DDDS applications. Enclose Services in quotation marks.
         """
+        NaptrRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            flags=flags,
+            order=order,
+            preference=preference,
+            regexp=regexp,
+            replacement=replacement,
+            services=services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             flags: Optional[pulumi.Input[str]] = None,
+             order: Optional[pulumi.Input[int]] = None,
+             preference: Optional[pulumi.Input[int]] = None,
+             regexp: Optional[pulumi.Input[str]] = None,
+             replacement: Optional[pulumi.Input[str]] = None,
+             services: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if flags is not None:
-            pulumi.set(__self__, "flags", flags)
+            _setter("flags", flags)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if preference is not None:
-            pulumi.set(__self__, "preference", preference)
+            _setter("preference", preference)
         if regexp is not None:
-            pulumi.set(__self__, "regexp", regexp)
+            _setter("regexp", regexp)
         if replacement is not None:
-            pulumi.set(__self__, "replacement", replacement)
+            _setter("replacement", replacement)
         if services is not None:
-            pulumi.set(__self__, "services", services)
+            _setter("services", services)
 
     @property
     @pulumi.getter
@@ -405,8 +523,19 @@ class NsRecordArgs:
         An NS record.
         :param pulumi.Input[str] nsdname: The name server name for this NS record.
         """
+        NsRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nsdname=nsdname,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nsdname: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if nsdname is not None:
-            pulumi.set(__self__, "nsdname", nsdname)
+            _setter("nsdname", nsdname)
 
     @property
     @pulumi.getter
@@ -429,8 +558,19 @@ class PtrRecordArgs:
         A PTR record.
         :param pulumi.Input[str] ptrdname: The PTR target domain name for this PTR record.
         """
+        PtrRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ptrdname=ptrdname,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ptrdname: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ptrdname is not None:
-            pulumi.set(__self__, "ptrdname", ptrdname)
+            _setter("ptrdname", ptrdname)
 
     @property
     @pulumi.getter
@@ -465,20 +605,53 @@ class SoaRecordArgs:
         :param pulumi.Input[float] retry_time: The retry time for this SOA record.
         :param pulumi.Input[float] serial_number: The serial number for this SOA record.
         """
+        SoaRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            expire_time=expire_time,
+            host=host,
+            minimum_ttl=minimum_ttl,
+            refresh_time=refresh_time,
+            retry_time=retry_time,
+            serial_number=serial_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: Optional[pulumi.Input[str]] = None,
+             expire_time: Optional[pulumi.Input[float]] = None,
+             host: Optional[pulumi.Input[str]] = None,
+             minimum_ttl: Optional[pulumi.Input[float]] = None,
+             refresh_time: Optional[pulumi.Input[float]] = None,
+             retry_time: Optional[pulumi.Input[float]] = None,
+             serial_number: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expireTime' in kwargs:
+            expire_time = kwargs['expireTime']
+        if 'minimumTtl' in kwargs:
+            minimum_ttl = kwargs['minimumTtl']
+        if 'refreshTime' in kwargs:
+            refresh_time = kwargs['refreshTime']
+        if 'retryTime' in kwargs:
+            retry_time = kwargs['retryTime']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if expire_time is not None:
-            pulumi.set(__self__, "expire_time", expire_time)
+            _setter("expire_time", expire_time)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if minimum_ttl is not None:
-            pulumi.set(__self__, "minimum_ttl", minimum_ttl)
+            _setter("minimum_ttl", minimum_ttl)
         if refresh_time is not None:
-            pulumi.set(__self__, "refresh_time", refresh_time)
+            _setter("refresh_time", refresh_time)
         if retry_time is not None:
-            pulumi.set(__self__, "retry_time", retry_time)
+            _setter("retry_time", retry_time)
         if serial_number is not None:
-            pulumi.set(__self__, "serial_number", serial_number)
+            _setter("serial_number", serial_number)
 
     @property
     @pulumi.getter
@@ -579,14 +752,31 @@ class SrvRecordArgs:
         :param pulumi.Input[str] target: The target domain name for this SRV record.
         :param pulumi.Input[int] weight: The weight value for this SRV record.
         """
+        SrvRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            priority=priority,
+            target=target,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter
@@ -648,8 +838,19 @@ class SubResource:
                A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
                Example of a relative ID: $self/frontEndConfigurations/my-frontend.
         """
+        SubResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -678,8 +879,19 @@ class SubResourceArgs:
                A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
                Example of a relative ID: $self/frontEndConfigurations/my-frontend.
         """
+        SubResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -711,14 +923,35 @@ class TlsaRecordArgs:
         :param pulumi.Input[int] selector: The selector specifies which part of the TLS certificate presented by the server will be matched against the association data.
         :param pulumi.Input[int] usage: The usage specifies the provided association that will be used to match the certificate presented in the TLS handshake.
         """
+        TlsaRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cert_association_data=cert_association_data,
+            matching_type=matching_type,
+            selector=selector,
+            usage=usage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cert_association_data: Optional[pulumi.Input[str]] = None,
+             matching_type: Optional[pulumi.Input[int]] = None,
+             selector: Optional[pulumi.Input[int]] = None,
+             usage: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certAssociationData' in kwargs:
+            cert_association_data = kwargs['certAssociationData']
+        if 'matchingType' in kwargs:
+            matching_type = kwargs['matchingType']
+
         if cert_association_data is not None:
-            pulumi.set(__self__, "cert_association_data", cert_association_data)
+            _setter("cert_association_data", cert_association_data)
         if matching_type is not None:
-            pulumi.set(__self__, "matching_type", matching_type)
+            _setter("matching_type", matching_type)
         if selector is not None:
-            pulumi.set(__self__, "selector", selector)
+            _setter("selector", selector)
         if usage is not None:
-            pulumi.set(__self__, "usage", usage)
+            _setter("usage", usage)
 
     @property
     @pulumi.getter(name="certAssociationData")
@@ -777,8 +1010,19 @@ class TxtRecordArgs:
         A TXT record.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] value: The text value of this TXT record.
         """
+        TxtRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter

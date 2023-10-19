@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,34 +50,97 @@ class ExpressRouteCrossConnectionPeeringArgs:
         :param pulumi.Input[Union[str, 'ExpressRoutePeeringState']] state: The peering state.
         :param pulumi.Input[int] vlan_id: The VLAN ID.
         """
-        pulumi.set(__self__, "cross_connection_name", cross_connection_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ExpressRouteCrossConnectionPeeringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cross_connection_name=cross_connection_name,
+            resource_group_name=resource_group_name,
+            gateway_manager_etag=gateway_manager_etag,
+            id=id,
+            ipv6_peering_config=ipv6_peering_config,
+            microsoft_peering_config=microsoft_peering_config,
+            name=name,
+            peer_asn=peer_asn,
+            peering_name=peering_name,
+            peering_type=peering_type,
+            primary_peer_address_prefix=primary_peer_address_prefix,
+            secondary_peer_address_prefix=secondary_peer_address_prefix,
+            shared_key=shared_key,
+            state=state,
+            vlan_id=vlan_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cross_connection_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             gateway_manager_etag: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             ipv6_peering_config: Optional[pulumi.Input['Ipv6ExpressRouteCircuitPeeringConfigArgs']] = None,
+             microsoft_peering_config: Optional[pulumi.Input['ExpressRouteCircuitPeeringConfigArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             peer_asn: Optional[pulumi.Input[float]] = None,
+             peering_name: Optional[pulumi.Input[str]] = None,
+             peering_type: Optional[pulumi.Input[Union[str, 'ExpressRoutePeeringType']]] = None,
+             primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
+             secondary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
+             shared_key: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[Union[str, 'ExpressRoutePeeringState']]] = None,
+             vlan_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'crossConnectionName' in kwargs:
+            cross_connection_name = kwargs['crossConnectionName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'gatewayManagerEtag' in kwargs:
+            gateway_manager_etag = kwargs['gatewayManagerEtag']
+        if 'ipv6PeeringConfig' in kwargs:
+            ipv6_peering_config = kwargs['ipv6PeeringConfig']
+        if 'microsoftPeeringConfig' in kwargs:
+            microsoft_peering_config = kwargs['microsoftPeeringConfig']
+        if 'peerASN' in kwargs:
+            peer_asn = kwargs['peerASN']
+        if 'peeringName' in kwargs:
+            peering_name = kwargs['peeringName']
+        if 'peeringType' in kwargs:
+            peering_type = kwargs['peeringType']
+        if 'primaryPeerAddressPrefix' in kwargs:
+            primary_peer_address_prefix = kwargs['primaryPeerAddressPrefix']
+        if 'secondaryPeerAddressPrefix' in kwargs:
+            secondary_peer_address_prefix = kwargs['secondaryPeerAddressPrefix']
+        if 'sharedKey' in kwargs:
+            shared_key = kwargs['sharedKey']
+        if 'vlanId' in kwargs:
+            vlan_id = kwargs['vlanId']
+
+        _setter("cross_connection_name", cross_connection_name)
+        _setter("resource_group_name", resource_group_name)
         if gateway_manager_etag is not None:
-            pulumi.set(__self__, "gateway_manager_etag", gateway_manager_etag)
+            _setter("gateway_manager_etag", gateway_manager_etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ipv6_peering_config is not None:
-            pulumi.set(__self__, "ipv6_peering_config", ipv6_peering_config)
+            _setter("ipv6_peering_config", ipv6_peering_config)
         if microsoft_peering_config is not None:
-            pulumi.set(__self__, "microsoft_peering_config", microsoft_peering_config)
+            _setter("microsoft_peering_config", microsoft_peering_config)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if peer_asn is not None:
-            pulumi.set(__self__, "peer_asn", peer_asn)
+            _setter("peer_asn", peer_asn)
         if peering_name is not None:
-            pulumi.set(__self__, "peering_name", peering_name)
+            _setter("peering_name", peering_name)
         if peering_type is not None:
-            pulumi.set(__self__, "peering_type", peering_type)
+            _setter("peering_type", peering_type)
         if primary_peer_address_prefix is not None:
-            pulumi.set(__self__, "primary_peer_address_prefix", primary_peer_address_prefix)
+            _setter("primary_peer_address_prefix", primary_peer_address_prefix)
         if secondary_peer_address_prefix is not None:
-            pulumi.set(__self__, "secondary_peer_address_prefix", secondary_peer_address_prefix)
+            _setter("secondary_peer_address_prefix", secondary_peer_address_prefix)
         if shared_key is not None:
-            pulumi.set(__self__, "shared_key", shared_key)
+            _setter("shared_key", shared_key)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if vlan_id is not None:
-            pulumi.set(__self__, "vlan_id", vlan_id)
+            _setter("vlan_id", vlan_id)
 
     @property
     @pulumi.getter(name="crossConnectionName")
@@ -321,6 +384,10 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExpressRouteCrossConnectionPeeringArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -355,7 +422,17 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
             __props__.__dict__["cross_connection_name"] = cross_connection_name
             __props__.__dict__["gateway_manager_etag"] = gateway_manager_etag
             __props__.__dict__["id"] = id
+            if ipv6_peering_config is not None and not isinstance(ipv6_peering_config, Ipv6ExpressRouteCircuitPeeringConfigArgs):
+                ipv6_peering_config = ipv6_peering_config or {}
+                def _setter(key, value):
+                    ipv6_peering_config[key] = value
+                Ipv6ExpressRouteCircuitPeeringConfigArgs._configure(_setter, **ipv6_peering_config)
             __props__.__dict__["ipv6_peering_config"] = ipv6_peering_config
+            if microsoft_peering_config is not None and not isinstance(microsoft_peering_config, ExpressRouteCircuitPeeringConfigArgs):
+                microsoft_peering_config = microsoft_peering_config or {}
+                def _setter(key, value):
+                    microsoft_peering_config[key] = value
+                ExpressRouteCircuitPeeringConfigArgs._configure(_setter, **microsoft_peering_config)
             __props__.__dict__["microsoft_peering_config"] = microsoft_peering_config
             __props__.__dict__["name"] = name
             __props__.__dict__["peer_asn"] = peer_asn

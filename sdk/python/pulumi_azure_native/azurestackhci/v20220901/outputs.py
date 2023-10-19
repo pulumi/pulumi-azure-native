@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,10 +50,27 @@ class ClusterDesiredPropertiesResponse(dict):
         :param str diagnostic_level: Desired level of diagnostic data emitted by the cluster.
         :param str windows_server_subscription: Desired state of Windows Server Subscription.
         """
+        ClusterDesiredPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            diagnostic_level=diagnostic_level,
+            windows_server_subscription=windows_server_subscription,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             diagnostic_level: Optional[str] = None,
+             windows_server_subscription: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diagnosticLevel' in kwargs:
+            diagnostic_level = kwargs['diagnosticLevel']
+        if 'windowsServerSubscription' in kwargs:
+            windows_server_subscription = kwargs['windowsServerSubscription']
+
         if diagnostic_level is not None:
-            pulumi.set(__self__, "diagnostic_level", diagnostic_level)
+            _setter("diagnostic_level", diagnostic_level)
         if windows_server_subscription is not None:
-            pulumi.set(__self__, "windows_server_subscription", windows_server_subscription)
+            _setter("windows_server_subscription", windows_server_subscription)
 
     @property
     @pulumi.getter(name="diagnosticLevel")
@@ -136,18 +153,67 @@ class ClusterNodeResponse(dict):
         :param str serial_number: Immutable id of the cluster node.
         :param str windows_server_subscription: State of Windows Server Subscription.
         """
-        pulumi.set(__self__, "core_count", core_count)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "manufacturer", manufacturer)
-        pulumi.set(__self__, "memory_in_gi_b", memory_in_gi_b)
-        pulumi.set(__self__, "model", model)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "node_type", node_type)
-        pulumi.set(__self__, "os_display_version", os_display_version)
-        pulumi.set(__self__, "os_name", os_name)
-        pulumi.set(__self__, "os_version", os_version)
-        pulumi.set(__self__, "serial_number", serial_number)
-        pulumi.set(__self__, "windows_server_subscription", windows_server_subscription)
+        ClusterNodeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            core_count=core_count,
+            id=id,
+            manufacturer=manufacturer,
+            memory_in_gi_b=memory_in_gi_b,
+            model=model,
+            name=name,
+            node_type=node_type,
+            os_display_version=os_display_version,
+            os_name=os_name,
+            os_version=os_version,
+            serial_number=serial_number,
+            windows_server_subscription=windows_server_subscription,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             core_count: float,
+             id: float,
+             manufacturer: str,
+             memory_in_gi_b: float,
+             model: str,
+             name: str,
+             node_type: str,
+             os_display_version: str,
+             os_name: str,
+             os_version: str,
+             serial_number: str,
+             windows_server_subscription: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'coreCount' in kwargs:
+            core_count = kwargs['coreCount']
+        if 'memoryInGiB' in kwargs:
+            memory_in_gi_b = kwargs['memoryInGiB']
+        if 'nodeType' in kwargs:
+            node_type = kwargs['nodeType']
+        if 'osDisplayVersion' in kwargs:
+            os_display_version = kwargs['osDisplayVersion']
+        if 'osName' in kwargs:
+            os_name = kwargs['osName']
+        if 'osVersion' in kwargs:
+            os_version = kwargs['osVersion']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if 'windowsServerSubscription' in kwargs:
+            windows_server_subscription = kwargs['windowsServerSubscription']
+
+        _setter("core_count", core_count)
+        _setter("id", id)
+        _setter("manufacturer", manufacturer)
+        _setter("memory_in_gi_b", memory_in_gi_b)
+        _setter("model", model)
+        _setter("name", name)
+        _setter("node_type", node_type)
+        _setter("os_display_version", os_display_version)
+        _setter("os_name", os_name)
+        _setter("os_version", os_version)
+        _setter("serial_number", serial_number)
+        _setter("windows_server_subscription", windows_server_subscription)
 
     @property
     @pulumi.getter(name="coreCount")
@@ -296,14 +362,49 @@ class ClusterReportedPropertiesResponse(dict):
         :param Sequence['ClusterNodeResponse'] nodes: List of nodes reported by the cluster.
         :param str diagnostic_level: Level of diagnostic data emitted by the cluster.
         """
-        pulumi.set(__self__, "cluster_id", cluster_id)
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "cluster_version", cluster_version)
-        pulumi.set(__self__, "imds_attestation", imds_attestation)
-        pulumi.set(__self__, "last_updated", last_updated)
-        pulumi.set(__self__, "nodes", nodes)
+        ClusterReportedPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_id=cluster_id,
+            cluster_name=cluster_name,
+            cluster_version=cluster_version,
+            imds_attestation=imds_attestation,
+            last_updated=last_updated,
+            nodes=nodes,
+            diagnostic_level=diagnostic_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_id: str,
+             cluster_name: str,
+             cluster_version: str,
+             imds_attestation: str,
+             last_updated: str,
+             nodes: Sequence['outputs.ClusterNodeResponse'],
+             diagnostic_level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'clusterVersion' in kwargs:
+            cluster_version = kwargs['clusterVersion']
+        if 'imdsAttestation' in kwargs:
+            imds_attestation = kwargs['imdsAttestation']
+        if 'lastUpdated' in kwargs:
+            last_updated = kwargs['lastUpdated']
+        if 'diagnosticLevel' in kwargs:
+            diagnostic_level = kwargs['diagnosticLevel']
+
+        _setter("cluster_id", cluster_id)
+        _setter("cluster_name", cluster_name)
+        _setter("cluster_version", cluster_version)
+        _setter("imds_attestation", imds_attestation)
+        _setter("last_updated", last_updated)
+        _setter("nodes", nodes)
         if diagnostic_level is not None:
-            pulumi.set(__self__, "diagnostic_level", diagnostic_level)
+            _setter("diagnostic_level", diagnostic_level)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -398,11 +499,32 @@ class SoftwareAssurancePropertiesResponse(dict):
         :param str software_assurance_intent: Customer Intent for Software Assurance Benefit.
         :param str software_assurance_status: Status of the Software Assurance for the cluster.
         """
-        pulumi.set(__self__, "last_updated", last_updated)
+        SoftwareAssurancePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_updated=last_updated,
+            software_assurance_intent=software_assurance_intent,
+            software_assurance_status=software_assurance_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_updated: str,
+             software_assurance_intent: Optional[str] = None,
+             software_assurance_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastUpdated' in kwargs:
+            last_updated = kwargs['lastUpdated']
+        if 'softwareAssuranceIntent' in kwargs:
+            software_assurance_intent = kwargs['softwareAssuranceIntent']
+        if 'softwareAssuranceStatus' in kwargs:
+            software_assurance_status = kwargs['softwareAssuranceStatus']
+
+        _setter("last_updated", last_updated)
         if software_assurance_intent is not None:
-            pulumi.set(__self__, "software_assurance_intent", software_assurance_intent)
+            _setter("software_assurance_intent", software_assurance_intent)
         if software_assurance_status is not None:
-            pulumi.set(__self__, "software_assurance_status", software_assurance_status)
+            _setter("software_assurance_status", software_assurance_status)
 
     @property
     @pulumi.getter(name="lastUpdated")

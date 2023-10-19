@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -26,10 +26,27 @@ class OperationsDefinitionResponseDisplay(dict):
         """
         Display information of the operation.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "operation", operation)
-        pulumi.set(__self__, "provider", provider)
-        pulumi.set(__self__, "resource", resource)
+        OperationsDefinitionResponseDisplay._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            operation=operation,
+            provider=provider,
+            resource=resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: str,
+             operation: str,
+             provider: str,
+             resource: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("description", description)
+        _setter("operation", operation)
+        _setter("provider", provider)
+        _setter("resource", resource)
 
     @property
     @pulumi.getter

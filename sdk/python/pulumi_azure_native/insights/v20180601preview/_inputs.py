@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -30,12 +30,31 @@ class DataSourceConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PerformanceCounterConfigurationArgs']]] perf_counters: Performance counter configuration
         :param pulumi.Input[Sequence[pulumi.Input['EtwProviderConfigurationArgs']]] providers: ETW providers configuration
         """
+        DataSourceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_logs=event_logs,
+            perf_counters=perf_counters,
+            providers=providers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_logs: Optional[pulumi.Input[Sequence[pulumi.Input['EventLogConfigurationArgs']]]] = None,
+             perf_counters: Optional[pulumi.Input[Sequence[pulumi.Input['PerformanceCounterConfigurationArgs']]]] = None,
+             providers: Optional[pulumi.Input[Sequence[pulumi.Input['EtwProviderConfigurationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventLogs' in kwargs:
+            event_logs = kwargs['eventLogs']
+        if 'perfCounters' in kwargs:
+            perf_counters = kwargs['perfCounters']
+
         if event_logs is not None:
-            pulumi.set(__self__, "event_logs", event_logs)
+            _setter("event_logs", event_logs)
         if perf_counters is not None:
-            pulumi.set(__self__, "perf_counters", perf_counters)
+            _setter("perf_counters", perf_counters)
         if providers is not None:
-            pulumi.set(__self__, "providers", providers)
+            _setter("providers", providers)
 
     @property
     @pulumi.getter(name="eventLogs")
@@ -84,9 +103,24 @@ class DataSourceArgs:
         Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
         :param pulumi.Input[str] kind: Datasource kind
         """
-        pulumi.set(__self__, "configuration", configuration)
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "sinks", sinks)
+        DataSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration=configuration,
+            kind=kind,
+            sinks=sinks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration: pulumi.Input['DataSourceConfigurationArgs'],
+             kind: pulumi.Input[str],
+             sinks: pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("configuration", configuration)
+        _setter("kind", kind)
+        _setter("sinks", sinks)
 
     @property
     @pulumi.getter
@@ -125,10 +159,25 @@ class EtwEventConfigurationArgs:
                  id: pulumi.Input[int],
                  name: pulumi.Input[str],
                  filter: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        EtwEventConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            filter=filter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[int],
+             name: pulumi.Input[str],
+             filter: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
+        _setter("name", name)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
 
     @property
     @pulumi.getter
@@ -163,8 +212,21 @@ class EtwProviderConfigurationArgs:
     def __init__(__self__, *,
                  events: pulumi.Input[Sequence[pulumi.Input['EtwEventConfigurationArgs']]],
                  id: pulumi.Input[str]):
-        pulumi.set(__self__, "events", events)
-        pulumi.set(__self__, "id", id)
+        EtwProviderConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            events=events,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             events: pulumi.Input[Sequence[pulumi.Input['EtwEventConfigurationArgs']]],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("events", events)
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -190,9 +252,24 @@ class EventLogConfigurationArgs:
     def __init__(__self__, *,
                  log_name: pulumi.Input[str],
                  filter: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "log_name", log_name)
+        EventLogConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_name=log_name,
+            filter=filter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_name: pulumi.Input[str],
+             filter: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logName' in kwargs:
+            log_name = kwargs['logName']
+
+        _setter("log_name", log_name)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
 
     @property
     @pulumi.getter(name="logName")
@@ -219,10 +296,27 @@ class PerformanceCounterConfigurationArgs:
                  name: pulumi.Input[str],
                  sampling_period: pulumi.Input[str],
                  instance: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sampling_period", sampling_period)
+        PerformanceCounterConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            sampling_period=sampling_period,
+            instance=instance,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             sampling_period: pulumi.Input[str],
+             instance: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'samplingPeriod' in kwargs:
+            sampling_period = kwargs['samplingPeriod']
+
+        _setter("name", name)
+        _setter("sampling_period", sampling_period)
         if instance is not None:
-            pulumi.set(__self__, "instance", instance)
+            _setter("instance", instance)
 
     @property
     @pulumi.getter
@@ -256,7 +350,18 @@ class PerformanceCounterConfigurationArgs:
 class SinkConfigurationArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str]):
-        pulumi.set(__self__, "kind", kind)
+        SinkConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("kind", kind)
 
     @property
     @pulumi.getter

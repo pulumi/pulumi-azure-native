@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -62,46 +62,133 @@ class MigrationArgs:
         :param pulumi.Input[str] target_db_server_fully_qualified_domain_name: Target server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection
         :param pulumi.Input[Union[str, 'TriggerCutoverEnum']] trigger_cutover: To trigger cutover for entire migration we need to send this flag as True
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target_db_server_name", target_db_server_name)
+        MigrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            target_db_server_name=target_db_server_name,
+            cancel=cancel,
+            dbs_to_cancel_migration_on=dbs_to_cancel_migration_on,
+            dbs_to_migrate=dbs_to_migrate,
+            dbs_to_trigger_cutover_on=dbs_to_trigger_cutover_on,
+            location=location,
+            migration_mode=migration_mode,
+            migration_name=migration_name,
+            migration_window_end_time_in_utc=migration_window_end_time_in_utc,
+            migration_window_start_time_in_utc=migration_window_start_time_in_utc,
+            overwrite_dbs_in_target=overwrite_dbs_in_target,
+            secret_parameters=secret_parameters,
+            setup_logical_replication_on_source_db_if_needed=setup_logical_replication_on_source_db_if_needed,
+            source_db_server_fully_qualified_domain_name=source_db_server_fully_qualified_domain_name,
+            source_db_server_resource_id=source_db_server_resource_id,
+            start_data_migration=start_data_migration,
+            subscription_id=subscription_id,
+            tags=tags,
+            target_db_server_fully_qualified_domain_name=target_db_server_fully_qualified_domain_name,
+            trigger_cutover=trigger_cutover,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             target_db_server_name: pulumi.Input[str],
+             cancel: Optional[pulumi.Input[Union[str, 'CancelEnum']]] = None,
+             dbs_to_cancel_migration_on: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             dbs_to_migrate: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             dbs_to_trigger_cutover_on: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             migration_mode: Optional[pulumi.Input[Union[str, 'MigrationMode']]] = None,
+             migration_name: Optional[pulumi.Input[str]] = None,
+             migration_window_end_time_in_utc: Optional[pulumi.Input[str]] = None,
+             migration_window_start_time_in_utc: Optional[pulumi.Input[str]] = None,
+             overwrite_dbs_in_target: Optional[pulumi.Input[Union[str, 'OverwriteDbsInTargetEnum']]] = None,
+             secret_parameters: Optional[pulumi.Input['MigrationSecretParametersArgs']] = None,
+             setup_logical_replication_on_source_db_if_needed: Optional[pulumi.Input[Union[str, 'LogicalReplicationOnSourceDbEnum']]] = None,
+             source_db_server_fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
+             source_db_server_resource_id: Optional[pulumi.Input[str]] = None,
+             start_data_migration: Optional[pulumi.Input[Union[str, 'StartDataMigrationEnum']]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_db_server_fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
+             trigger_cutover: Optional[pulumi.Input[Union[str, 'TriggerCutoverEnum']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'targetDbServerName' in kwargs:
+            target_db_server_name = kwargs['targetDbServerName']
+        if 'dbsToCancelMigrationOn' in kwargs:
+            dbs_to_cancel_migration_on = kwargs['dbsToCancelMigrationOn']
+        if 'dbsToMigrate' in kwargs:
+            dbs_to_migrate = kwargs['dbsToMigrate']
+        if 'dbsToTriggerCutoverOn' in kwargs:
+            dbs_to_trigger_cutover_on = kwargs['dbsToTriggerCutoverOn']
+        if 'migrationMode' in kwargs:
+            migration_mode = kwargs['migrationMode']
+        if 'migrationName' in kwargs:
+            migration_name = kwargs['migrationName']
+        if 'migrationWindowEndTimeInUtc' in kwargs:
+            migration_window_end_time_in_utc = kwargs['migrationWindowEndTimeInUtc']
+        if 'migrationWindowStartTimeInUtc' in kwargs:
+            migration_window_start_time_in_utc = kwargs['migrationWindowStartTimeInUtc']
+        if 'overwriteDbsInTarget' in kwargs:
+            overwrite_dbs_in_target = kwargs['overwriteDbsInTarget']
+        if 'secretParameters' in kwargs:
+            secret_parameters = kwargs['secretParameters']
+        if 'setupLogicalReplicationOnSourceDbIfNeeded' in kwargs:
+            setup_logical_replication_on_source_db_if_needed = kwargs['setupLogicalReplicationOnSourceDbIfNeeded']
+        if 'sourceDbServerFullyQualifiedDomainName' in kwargs:
+            source_db_server_fully_qualified_domain_name = kwargs['sourceDbServerFullyQualifiedDomainName']
+        if 'sourceDbServerResourceId' in kwargs:
+            source_db_server_resource_id = kwargs['sourceDbServerResourceId']
+        if 'startDataMigration' in kwargs:
+            start_data_migration = kwargs['startDataMigration']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'targetDbServerFullyQualifiedDomainName' in kwargs:
+            target_db_server_fully_qualified_domain_name = kwargs['targetDbServerFullyQualifiedDomainName']
+        if 'triggerCutover' in kwargs:
+            trigger_cutover = kwargs['triggerCutover']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("target_db_server_name", target_db_server_name)
         if cancel is not None:
-            pulumi.set(__self__, "cancel", cancel)
+            _setter("cancel", cancel)
         if dbs_to_cancel_migration_on is not None:
-            pulumi.set(__self__, "dbs_to_cancel_migration_on", dbs_to_cancel_migration_on)
+            _setter("dbs_to_cancel_migration_on", dbs_to_cancel_migration_on)
         if dbs_to_migrate is not None:
-            pulumi.set(__self__, "dbs_to_migrate", dbs_to_migrate)
+            _setter("dbs_to_migrate", dbs_to_migrate)
         if dbs_to_trigger_cutover_on is not None:
-            pulumi.set(__self__, "dbs_to_trigger_cutover_on", dbs_to_trigger_cutover_on)
+            _setter("dbs_to_trigger_cutover_on", dbs_to_trigger_cutover_on)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if migration_mode is not None:
-            pulumi.set(__self__, "migration_mode", migration_mode)
+            _setter("migration_mode", migration_mode)
         if migration_name is not None:
-            pulumi.set(__self__, "migration_name", migration_name)
+            _setter("migration_name", migration_name)
         if migration_window_end_time_in_utc is not None:
-            pulumi.set(__self__, "migration_window_end_time_in_utc", migration_window_end_time_in_utc)
+            _setter("migration_window_end_time_in_utc", migration_window_end_time_in_utc)
         if migration_window_start_time_in_utc is not None:
-            pulumi.set(__self__, "migration_window_start_time_in_utc", migration_window_start_time_in_utc)
+            _setter("migration_window_start_time_in_utc", migration_window_start_time_in_utc)
         if overwrite_dbs_in_target is not None:
-            pulumi.set(__self__, "overwrite_dbs_in_target", overwrite_dbs_in_target)
+            _setter("overwrite_dbs_in_target", overwrite_dbs_in_target)
         if secret_parameters is not None:
-            pulumi.set(__self__, "secret_parameters", secret_parameters)
+            _setter("secret_parameters", secret_parameters)
         if setup_logical_replication_on_source_db_if_needed is not None:
-            pulumi.set(__self__, "setup_logical_replication_on_source_db_if_needed", setup_logical_replication_on_source_db_if_needed)
+            _setter("setup_logical_replication_on_source_db_if_needed", setup_logical_replication_on_source_db_if_needed)
         if source_db_server_fully_qualified_domain_name is not None:
-            pulumi.set(__self__, "source_db_server_fully_qualified_domain_name", source_db_server_fully_qualified_domain_name)
+            _setter("source_db_server_fully_qualified_domain_name", source_db_server_fully_qualified_domain_name)
         if source_db_server_resource_id is not None:
-            pulumi.set(__self__, "source_db_server_resource_id", source_db_server_resource_id)
+            _setter("source_db_server_resource_id", source_db_server_resource_id)
         if start_data_migration is not None:
-            pulumi.set(__self__, "start_data_migration", start_data_migration)
+            _setter("start_data_migration", start_data_migration)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_db_server_fully_qualified_domain_name is not None:
-            pulumi.set(__self__, "target_db_server_fully_qualified_domain_name", target_db_server_fully_qualified_domain_name)
+            _setter("target_db_server_fully_qualified_domain_name", target_db_server_fully_qualified_domain_name)
         if trigger_cutover is not None:
-            pulumi.set(__self__, "trigger_cutover", trigger_cutover)
+            _setter("trigger_cutover", trigger_cutover)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -431,6 +518,10 @@ class Migration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MigrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -479,6 +570,11 @@ class Migration(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if secret_parameters is not None and not isinstance(secret_parameters, MigrationSecretParametersArgs):
+                secret_parameters = secret_parameters or {}
+                def _setter(key, value):
+                    secret_parameters[key] = value
+                MigrationSecretParametersArgs._configure(_setter, **secret_parameters)
             __props__.__dict__["secret_parameters"] = secret_parameters
             __props__.__dict__["setup_logical_replication_on_source_db_if_needed"] = setup_logical_replication_on_source_db_if_needed
             __props__.__dict__["source_db_server_fully_qualified_domain_name"] = source_db_server_fully_qualified_domain_name

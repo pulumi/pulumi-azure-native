@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -43,31 +43,76 @@ class DomainArgs:
         :param pulumi.Input['ResourceSkuArgs'] sku: The Sku pricing tier for the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            domain_name=domain_name,
+            identity=identity,
+            inbound_ip_rules=inbound_ip_rules,
+            input_schema=input_schema,
+            input_schema_mapping=input_schema_mapping,
+            location=location,
+            private_endpoint_connections=private_endpoint_connections,
+            public_network_access=public_network_access,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['IdentityInfoArgs']] = None,
+             inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]]] = None,
+             input_schema: Optional[pulumi.Input[Union[str, 'InputSchema']]] = None,
+             input_schema_mapping: Optional[pulumi.Input['JsonInputSchemaMappingArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'inboundIpRules' in kwargs:
+            inbound_ip_rules = kwargs['inboundIpRules']
+        if 'inputSchema' in kwargs:
+            input_schema = kwargs['inputSchema']
+        if 'inputSchemaMapping' in kwargs:
+            input_schema_mapping = kwargs['inputSchemaMapping']
+        if 'privateEndpointConnections' in kwargs:
+            private_endpoint_connections = kwargs['privateEndpointConnections']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+
+        _setter("resource_group_name", resource_group_name)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if inbound_ip_rules is not None:
-            pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
+            _setter("inbound_ip_rules", inbound_ip_rules)
         if input_schema is None:
             input_schema = 'EventGridSchema'
         if input_schema is not None:
-            pulumi.set(__self__, "input_schema", input_schema)
+            _setter("input_schema", input_schema)
         if input_schema_mapping is not None:
-            pulumi.set(__self__, "input_schema_mapping", input_schema_mapping)
+            _setter("input_schema_mapping", input_schema_mapping)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if private_endpoint_connections is not None:
-            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+            _setter("private_endpoint_connections", private_endpoint_connections)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -257,6 +302,10 @@ class Domain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -283,11 +332,21 @@ class Domain(pulumi.CustomResource):
             __props__ = DomainArgs.__new__(DomainArgs)
 
             __props__.__dict__["domain_name"] = domain_name
+            if identity is not None and not isinstance(identity, IdentityInfoArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityInfoArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
             if input_schema is None:
                 input_schema = 'EventGridSchema'
             __props__.__dict__["input_schema"] = input_schema
+            if input_schema_mapping is not None and not isinstance(input_schema_mapping, JsonInputSchemaMappingArgs):
+                input_schema_mapping = input_schema_mapping or {}
+                def _setter(key, value):
+                    input_schema_mapping[key] = value
+                JsonInputSchemaMappingArgs._configure(_setter, **input_schema_mapping)
             __props__.__dict__["input_schema_mapping"] = input_schema_mapping
             __props__.__dict__["location"] = location
             __props__.__dict__["private_endpoint_connections"] = private_endpoint_connections
@@ -297,6 +356,11 @@ class Domain(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, ResourceSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                ResourceSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["endpoint"] = None

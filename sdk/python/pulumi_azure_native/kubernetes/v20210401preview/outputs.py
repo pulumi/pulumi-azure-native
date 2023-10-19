@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,8 +28,21 @@ class CredentialResultResponse(dict):
         :param str name: The name of the credential.
         :param str value: Base64-encoded Kubernetes configuration file.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        CredentialResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -65,10 +78,31 @@ class HybridConnectionConfigResponse(dict):
         :param str relay: Name of the relay.
         :param str token: Sender access token
         """
-        pulumi.set(__self__, "expiration_time", expiration_time)
-        pulumi.set(__self__, "hybrid_connection_name", hybrid_connection_name)
-        pulumi.set(__self__, "relay", relay)
-        pulumi.set(__self__, "token", token)
+        HybridConnectionConfigResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration_time=expiration_time,
+            hybrid_connection_name=hybrid_connection_name,
+            relay=relay,
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration_time: float,
+             hybrid_connection_name: str,
+             relay: str,
+             token: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expirationTime' in kwargs:
+            expiration_time = kwargs['expirationTime']
+        if 'hybridConnectionName' in kwargs:
+            hybrid_connection_name = kwargs['hybridConnectionName']
+
+        _setter("expiration_time", expiration_time)
+        _setter("hybrid_connection_name", hybrid_connection_name)
+        _setter("relay", relay)
+        _setter("token", token)
 
     @property
     @pulumi.getter(name="expirationTime")

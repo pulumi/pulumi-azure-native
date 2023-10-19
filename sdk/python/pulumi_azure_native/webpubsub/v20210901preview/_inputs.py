@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -33,8 +33,19 @@ class EventHandlerSettingsArgs:
         The settings for event handler in webpubsub service
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input['EventHandlerTemplateArgs']]]]] items: Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
         """
+        EventHandlerSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input['EventHandlerTemplateArgs']]]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
@@ -71,13 +82,36 @@ class EventHandlerTemplateArgs:
                    2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
                    3. The single event name, for example, "event1", it matches "event1"
         """
-        pulumi.set(__self__, "url_template", url_template)
+        EventHandlerTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url_template=url_template,
+            auth=auth,
+            system_event_pattern=system_event_pattern,
+            user_event_pattern=user_event_pattern,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url_template: pulumi.Input[str],
+             auth: Optional[pulumi.Input['UpstreamAuthSettingsArgs']] = None,
+             system_event_pattern: Optional[pulumi.Input[str]] = None,
+             user_event_pattern: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'urlTemplate' in kwargs:
+            url_template = kwargs['urlTemplate']
+        if 'systemEventPattern' in kwargs:
+            system_event_pattern = kwargs['systemEventPattern']
+        if 'userEventPattern' in kwargs:
+            user_event_pattern = kwargs['userEventPattern']
+
+        _setter("url_template", url_template)
         if auth is not None:
-            pulumi.set(__self__, "auth", auth)
+            _setter("auth", auth)
         if system_event_pattern is not None:
-            pulumi.set(__self__, "system_event_pattern", system_event_pattern)
+            _setter("system_event_pattern", system_event_pattern)
         if user_event_pattern is not None:
-            pulumi.set(__self__, "user_event_pattern", user_event_pattern)
+            _setter("user_event_pattern", user_event_pattern)
 
     @property
     @pulumi.getter(name="urlTemplate")
@@ -150,10 +184,23 @@ class LiveTraceCategoryArgs:
                Available values: ConnectivityLogs, MessagingLogs.
                Case insensitive.
         """
+        LiveTraceCategoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -198,12 +245,25 @@ class LiveTraceConfigurationArgs:
                Available values: true, false.
                Case insensitive.
         """
+        LiveTraceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            categories=categories,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             categories: Optional[pulumi.Input[Sequence[pulumi.Input['LiveTraceCategoryArgs']]]] = None,
+             enabled: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if categories is not None:
-            pulumi.set(__self__, "categories", categories)
+            _setter("categories", categories)
         if enabled is None:
             enabled = 'false'
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -243,8 +303,19 @@ class ManagedIdentitySettingsArgs:
         :param pulumi.Input[str] resource: The Resource indicating the App ID URI of the target resource.
                It also appears in the aud (audience) claim of the issued token.
         """
+        ManagedIdentitySettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource=resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if resource is not None:
-            pulumi.set(__self__, "resource", resource)
+            _setter("resource", resource)
 
     @property
     @pulumi.getter
@@ -270,10 +341,25 @@ class ManagedIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedIdentityType']] type: Represent the identity type: systemAssigned, userAssigned, None
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: Get or set the user assigned identities
         """
+        ManagedIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ManagedIdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -310,10 +396,23 @@ class NetworkACLArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebPubSubRequestType']]]] allow: Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebPubSubRequestType']]]] deny: Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
+        NetworkACLArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow=allow,
+            deny=deny,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebPubSubRequestType']]]]] = None,
+             deny: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebPubSubRequestType']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if allow is not None:
-            pulumi.set(__self__, "allow", allow)
+            _setter("allow", allow)
         if deny is not None:
-            pulumi.set(__self__, "deny", deny)
+            _setter("deny", deny)
 
     @property
     @pulumi.getter
@@ -352,11 +451,26 @@ class PrivateEndpointACLArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebPubSubRequestType']]]] allow: Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebPubSubRequestType']]]] deny: Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
-        pulumi.set(__self__, "name", name)
+        PrivateEndpointACLArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            allow=allow,
+            deny=deny,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             allow: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebPubSubRequestType']]]]] = None,
+             deny: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebPubSubRequestType']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
         if allow is not None:
-            pulumi.set(__self__, "allow", allow)
+            _setter("allow", allow)
         if deny is not None:
-            pulumi.set(__self__, "deny", deny)
+            _setter("deny", deny)
 
     @property
     @pulumi.getter
@@ -415,11 +529,26 @@ class ResourceSkuArgs:
                
                `Basic` is deprecated, use `Standard` instead.
         """
-        pulumi.set(__self__, "name", name)
+        ResourceSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             capacity: Optional[pulumi.Input[int]] = None,
+             tier: Optional[pulumi.Input[Union[str, 'WebPubSubSkuTier']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -476,10 +605,25 @@ class UpstreamAuthSettingsArgs:
         :param pulumi.Input['ManagedIdentitySettingsArgs'] managed_identity: Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
         :param pulumi.Input[Union[str, 'UpstreamAuthType']] type: Gets or sets the type of auth. None or ManagedIdentity is supported now.
         """
+        UpstreamAuthSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_identity=managed_identity,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_identity: Optional[pulumi.Input['ManagedIdentitySettingsArgs']] = None,
+             type: Optional[pulumi.Input[Union[str, 'UpstreamAuthType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedIdentity' in kwargs:
+            managed_identity = kwargs['managedIdentity']
+
         if managed_identity is not None:
-            pulumi.set(__self__, "managed_identity", managed_identity)
+            _setter("managed_identity", managed_identity)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="managedIdentity")
@@ -518,14 +662,35 @@ class WebPubSubNetworkACLsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]] private_endpoints: ACLs for requests from private endpoints
         :param pulumi.Input['NetworkACLArgs'] public_network: ACL for requests from public network
         """
+        WebPubSubNetworkACLsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            private_endpoints=private_endpoints,
+            public_network=public_network,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: Optional[pulumi.Input[Union[str, 'ACLAction']]] = None,
+             private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]]] = None,
+             public_network: Optional[pulumi.Input['NetworkACLArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'privateEndpoints' in kwargs:
+            private_endpoints = kwargs['privateEndpoints']
+        if 'publicNetwork' in kwargs:
+            public_network = kwargs['publicNetwork']
+
         if default_action is None:
             default_action = 'Deny'
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if private_endpoints is not None:
-            pulumi.set(__self__, "private_endpoints", private_endpoints)
+            _setter("private_endpoints", private_endpoints)
         if public_network is not None:
-            pulumi.set(__self__, "public_network", public_network)
+            _setter("public_network", public_network)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -572,10 +737,23 @@ class WebPubSubTlsSettingsArgs:
         TLS settings for the resource
         :param pulumi.Input[bool] client_cert_enabled: Request client certificate during TLS handshake if enabled
         """
+        WebPubSubTlsSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_cert_enabled=client_cert_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_cert_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientCertEnabled' in kwargs:
+            client_cert_enabled = kwargs['clientCertEnabled']
+
         if client_cert_enabled is None:
             client_cert_enabled = True
         if client_cert_enabled is not None:
-            pulumi.set(__self__, "client_cert_enabled", client_cert_enabled)
+            _setter("client_cert_enabled", client_cert_enabled)
 
     @property
     @pulumi.getter(name="clientCertEnabled")

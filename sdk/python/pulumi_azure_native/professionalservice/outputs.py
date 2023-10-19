@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -51,12 +51,33 @@ class ProfessionalServicePropertiesResponseTerm(dict):
         :param str start_date: The start date of the current term
         :param str term_unit: The unit term eg P1M,P1Y,P2Y,P3Y meaning month,1year,2year,3year respectively
         """
+        ProfessionalServicePropertiesResponseTerm._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_date=end_date,
+            start_date=start_date,
+            term_unit=term_unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_date: Optional[str] = None,
+             start_date: Optional[str] = None,
+             term_unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if 'termUnit' in kwargs:
+            term_unit = kwargs['termUnit']
+
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
         if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
+            _setter("start_date", start_date)
         if term_unit is not None:
-            pulumi.set(__self__, "term_unit", term_unit)
+            _setter("term_unit", term_unit)
 
     @property
     @pulumi.getter(name="endDate")
@@ -161,35 +182,98 @@ class ProfessionalServiceResourceResponseProperties(dict):
         :param 'ProfessionalServicePropertiesResponseTerm' term: The current Term object.
         :param str term_unit: The unit term eg P1M,P1Y,P2Y,P3Y meaning month,1year,2year,3year respectively
         """
-        pulumi.set(__self__, "created", created)
+        ProfessionalServiceResourceResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created=created,
+            auto_renew=auto_renew,
+            billing_period=billing_period,
+            is_free_trial=is_free_trial,
+            last_modified=last_modified,
+            offer_id=offer_id,
+            payment_channel_metadata=payment_channel_metadata,
+            payment_channel_type=payment_channel_type,
+            publisher_id=publisher_id,
+            quote_id=quote_id,
+            sku_id=sku_id,
+            status=status,
+            store_front=store_front,
+            term=term,
+            term_unit=term_unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created: str,
+             auto_renew: Optional[bool] = None,
+             billing_period: Optional[str] = None,
+             is_free_trial: Optional[bool] = None,
+             last_modified: Optional[str] = None,
+             offer_id: Optional[str] = None,
+             payment_channel_metadata: Optional[Mapping[str, str]] = None,
+             payment_channel_type: Optional[str] = None,
+             publisher_id: Optional[str] = None,
+             quote_id: Optional[str] = None,
+             sku_id: Optional[str] = None,
+             status: Optional[str] = None,
+             store_front: Optional[str] = None,
+             term: Optional['outputs.ProfessionalServicePropertiesResponseTerm'] = None,
+             term_unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoRenew' in kwargs:
+            auto_renew = kwargs['autoRenew']
+        if 'billingPeriod' in kwargs:
+            billing_period = kwargs['billingPeriod']
+        if 'isFreeTrial' in kwargs:
+            is_free_trial = kwargs['isFreeTrial']
+        if 'lastModified' in kwargs:
+            last_modified = kwargs['lastModified']
+        if 'offerId' in kwargs:
+            offer_id = kwargs['offerId']
+        if 'paymentChannelMetadata' in kwargs:
+            payment_channel_metadata = kwargs['paymentChannelMetadata']
+        if 'paymentChannelType' in kwargs:
+            payment_channel_type = kwargs['paymentChannelType']
+        if 'publisherId' in kwargs:
+            publisher_id = kwargs['publisherId']
+        if 'quoteId' in kwargs:
+            quote_id = kwargs['quoteId']
+        if 'skuId' in kwargs:
+            sku_id = kwargs['skuId']
+        if 'storeFront' in kwargs:
+            store_front = kwargs['storeFront']
+        if 'termUnit' in kwargs:
+            term_unit = kwargs['termUnit']
+
+        _setter("created", created)
         if auto_renew is not None:
-            pulumi.set(__self__, "auto_renew", auto_renew)
+            _setter("auto_renew", auto_renew)
         if billing_period is not None:
-            pulumi.set(__self__, "billing_period", billing_period)
+            _setter("billing_period", billing_period)
         if is_free_trial is not None:
-            pulumi.set(__self__, "is_free_trial", is_free_trial)
+            _setter("is_free_trial", is_free_trial)
         if last_modified is not None:
-            pulumi.set(__self__, "last_modified", last_modified)
+            _setter("last_modified", last_modified)
         if offer_id is not None:
-            pulumi.set(__self__, "offer_id", offer_id)
+            _setter("offer_id", offer_id)
         if payment_channel_metadata is not None:
-            pulumi.set(__self__, "payment_channel_metadata", payment_channel_metadata)
+            _setter("payment_channel_metadata", payment_channel_metadata)
         if payment_channel_type is not None:
-            pulumi.set(__self__, "payment_channel_type", payment_channel_type)
+            _setter("payment_channel_type", payment_channel_type)
         if publisher_id is not None:
-            pulumi.set(__self__, "publisher_id", publisher_id)
+            _setter("publisher_id", publisher_id)
         if quote_id is not None:
-            pulumi.set(__self__, "quote_id", quote_id)
+            _setter("quote_id", quote_id)
         if sku_id is not None:
-            pulumi.set(__self__, "sku_id", sku_id)
+            _setter("sku_id", sku_id)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if store_front is not None:
-            pulumi.set(__self__, "store_front", store_front)
+            _setter("store_front", store_front)
         if term is not None:
-            pulumi.set(__self__, "term", term)
+            _setter("term", term)
         if term_unit is not None:
-            pulumi.set(__self__, "term_unit", term_unit)
+            _setter("term_unit", term_unit)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,19 +34,50 @@ class SimGroupArgs:
         :param pulumi.Input[str] sim_group_name: The name of the SIM Group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SimGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            encryption_key=encryption_key,
+            identity=identity,
+            location=location,
+            mobile_network=mobile_network,
+            sim_group_name=sim_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             encryption_key: Optional[pulumi.Input['KeyVaultKeyArgs']] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mobile_network: Optional[pulumi.Input['MobileNetworkResourceIdArgs']] = None,
+             sim_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+        if 'mobileNetwork' in kwargs:
+            mobile_network = kwargs['mobileNetwork']
+        if 'simGroupName' in kwargs:
+            sim_group_name = kwargs['simGroupName']
+
+        _setter("resource_group_name", resource_group_name)
         if encryption_key is not None:
-            pulumi.set(__self__, "encryption_key", encryption_key)
+            _setter("encryption_key", encryption_key)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mobile_network is not None:
-            pulumi.set(__self__, "mobile_network", mobile_network)
+            _setter("mobile_network", mobile_network)
         if sim_group_name is not None:
-            pulumi.set(__self__, "sim_group_name", sim_group_name)
+            _setter("sim_group_name", sim_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -180,6 +211,10 @@ class SimGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SimGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -201,9 +236,24 @@ class SimGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SimGroupArgs.__new__(SimGroupArgs)
 
+            if encryption_key is not None and not isinstance(encryption_key, KeyVaultKeyArgs):
+                encryption_key = encryption_key or {}
+                def _setter(key, value):
+                    encryption_key[key] = value
+                KeyVaultKeyArgs._configure(_setter, **encryption_key)
             __props__.__dict__["encryption_key"] = encryption_key
+            if identity is not None and not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            if mobile_network is not None and not isinstance(mobile_network, MobileNetworkResourceIdArgs):
+                mobile_network = mobile_network or {}
+                def _setter(key, value):
+                    mobile_network[key] = value
+                MobileNetworkResourceIdArgs._configure(_setter, **mobile_network)
             __props__.__dict__["mobile_network"] = mobile_network
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

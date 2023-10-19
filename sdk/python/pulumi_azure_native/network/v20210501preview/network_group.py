@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -30,15 +30,46 @@ class NetworkGroupArgs:
         :param pulumi.Input[str] display_name: A friendly name for the network group.
         :param pulumi.Input[str] network_group_name: The name of the network group.
         """
-        pulumi.set(__self__, "member_type", member_type)
-        pulumi.set(__self__, "network_manager_name", network_manager_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NetworkGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            member_type=member_type,
+            network_manager_name=network_manager_name,
+            resource_group_name=resource_group_name,
+            description=description,
+            display_name=display_name,
+            network_group_name=network_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             member_type: pulumi.Input[str],
+             network_manager_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             network_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'memberType' in kwargs:
+            member_type = kwargs['memberType']
+        if 'networkManagerName' in kwargs:
+            network_manager_name = kwargs['networkManagerName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'networkGroupName' in kwargs:
+            network_group_name = kwargs['networkGroupName']
+
+        _setter("member_type", member_type)
+        _setter("network_manager_name", network_manager_name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if network_group_name is not None:
-            pulumi.set(__self__, "network_group_name", network_group_name)
+            _setter("network_group_name", network_group_name)
 
     @property
     @pulumi.getter(name="memberType")
@@ -156,6 +187,10 @@ class NetworkGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

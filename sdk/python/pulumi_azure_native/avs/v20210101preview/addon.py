@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,14 +28,43 @@ class AddonArgs:
         :param pulumi.Input[Union[str, 'AddonType']] addon_type: The type of private cloud addon
         :param pulumi.Input[str] license_key: The SRM license
         """
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AddonArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            addon_name=addon_name,
+            addon_type=addon_type,
+            license_key=license_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_cloud_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             addon_name: Optional[pulumi.Input[str]] = None,
+             addon_type: Optional[pulumi.Input[Union[str, 'AddonType']]] = None,
+             license_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateCloudName' in kwargs:
+            private_cloud_name = kwargs['privateCloudName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'addonName' in kwargs:
+            addon_name = kwargs['addonName']
+        if 'addonType' in kwargs:
+            addon_type = kwargs['addonType']
+        if 'licenseKey' in kwargs:
+            license_key = kwargs['licenseKey']
+
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
         if addon_name is not None:
-            pulumi.set(__self__, "addon_name", addon_name)
+            _setter("addon_name", addon_name)
         if addon_type is not None:
-            pulumi.set(__self__, "addon_type", addon_type)
+            _setter("addon_type", addon_type)
         if license_key is not None:
-            pulumi.set(__self__, "license_key", license_key)
+            _setter("license_key", license_key)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -139,6 +168,10 @@ class Addon(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AddonArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

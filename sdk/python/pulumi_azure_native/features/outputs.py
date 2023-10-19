@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -56,11 +56,36 @@ class AuthorizationProfileResponse(dict):
         :param str requester: The requester
         :param str requester_object_id: The requester object id
         """
-        pulumi.set(__self__, "approved_time", approved_time)
-        pulumi.set(__self__, "approver", approver)
-        pulumi.set(__self__, "requested_time", requested_time)
-        pulumi.set(__self__, "requester", requester)
-        pulumi.set(__self__, "requester_object_id", requester_object_id)
+        AuthorizationProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            approved_time=approved_time,
+            approver=approver,
+            requested_time=requested_time,
+            requester=requester,
+            requester_object_id=requester_object_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             approved_time: str,
+             approver: str,
+             requested_time: str,
+             requester: str,
+             requester_object_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'approvedTime' in kwargs:
+            approved_time = kwargs['approvedTime']
+        if 'requestedTime' in kwargs:
+            requested_time = kwargs['requestedTime']
+        if 'requesterObjectId' in kwargs:
+            requester_object_id = kwargs['requesterObjectId']
+
+        _setter("approved_time", approved_time)
+        _setter("approver", approver)
+        _setter("requested_time", requested_time)
+        _setter("requester", requester)
+        _setter("requester_object_id", requester_object_id)
 
     @property
     @pulumi.getter(name="approvedTime")
@@ -173,27 +198,86 @@ class SubscriptionFeatureRegistrationResponseProperties(dict):
         :param bool should_feature_display_in_portal: Indicates whether feature should be displayed in Portal.
         :param str state: The state.
         """
-        pulumi.set(__self__, "approval_type", approval_type)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "documentation_link", documentation_link)
-        pulumi.set(__self__, "feature_name", feature_name)
-        pulumi.set(__self__, "provider_namespace", provider_namespace)
-        pulumi.set(__self__, "registration_date", registration_date)
-        pulumi.set(__self__, "release_date", release_date)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        SubscriptionFeatureRegistrationResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            approval_type=approval_type,
+            display_name=display_name,
+            documentation_link=documentation_link,
+            feature_name=feature_name,
+            provider_namespace=provider_namespace,
+            registration_date=registration_date,
+            release_date=release_date,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+            authorization_profile=authorization_profile,
+            description=description,
+            metadata=metadata,
+            should_feature_display_in_portal=should_feature_display_in_portal,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             approval_type: str,
+             display_name: str,
+             documentation_link: str,
+             feature_name: str,
+             provider_namespace: str,
+             registration_date: str,
+             release_date: str,
+             subscription_id: str,
+             tenant_id: str,
+             authorization_profile: Optional['outputs.AuthorizationProfileResponse'] = None,
+             description: Optional[str] = None,
+             metadata: Optional[Mapping[str, str]] = None,
+             should_feature_display_in_portal: Optional[bool] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'approvalType' in kwargs:
+            approval_type = kwargs['approvalType']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'documentationLink' in kwargs:
+            documentation_link = kwargs['documentationLink']
+        if 'featureName' in kwargs:
+            feature_name = kwargs['featureName']
+        if 'providerNamespace' in kwargs:
+            provider_namespace = kwargs['providerNamespace']
+        if 'registrationDate' in kwargs:
+            registration_date = kwargs['registrationDate']
+        if 'releaseDate' in kwargs:
+            release_date = kwargs['releaseDate']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'authorizationProfile' in kwargs:
+            authorization_profile = kwargs['authorizationProfile']
+        if 'shouldFeatureDisplayInPortal' in kwargs:
+            should_feature_display_in_portal = kwargs['shouldFeatureDisplayInPortal']
+
+        _setter("approval_type", approval_type)
+        _setter("display_name", display_name)
+        _setter("documentation_link", documentation_link)
+        _setter("feature_name", feature_name)
+        _setter("provider_namespace", provider_namespace)
+        _setter("registration_date", registration_date)
+        _setter("release_date", release_date)
+        _setter("subscription_id", subscription_id)
+        _setter("tenant_id", tenant_id)
         if authorization_profile is not None:
-            pulumi.set(__self__, "authorization_profile", authorization_profile)
+            _setter("authorization_profile", authorization_profile)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if should_feature_display_in_portal is None:
             should_feature_display_in_portal = False
         if should_feature_display_in_portal is not None:
-            pulumi.set(__self__, "should_feature_display_in_portal", should_feature_display_in_portal)
+            _setter("should_feature_display_in_portal", should_feature_display_in_portal)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="approvalType")

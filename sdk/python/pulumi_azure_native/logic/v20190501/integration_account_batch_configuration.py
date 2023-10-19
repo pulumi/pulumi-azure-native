@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,15 +32,42 @@ class IntegrationAccountBatchConfigurationArgs:
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "integration_account_name", integration_account_name)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        IntegrationAccountBatchConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            integration_account_name=integration_account_name,
+            properties=properties,
+            resource_group_name=resource_group_name,
+            batch_configuration_name=batch_configuration_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             integration_account_name: pulumi.Input[str],
+             properties: pulumi.Input['BatchConfigurationPropertiesArgs'],
+             resource_group_name: pulumi.Input[str],
+             batch_configuration_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'integrationAccountName' in kwargs:
+            integration_account_name = kwargs['integrationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'batchConfigurationName' in kwargs:
+            batch_configuration_name = kwargs['batchConfigurationName']
+
+        _setter("integration_account_name", integration_account_name)
+        _setter("properties", properties)
+        _setter("resource_group_name", resource_group_name)
         if batch_configuration_name is not None:
-            pulumi.set(__self__, "batch_configuration_name", batch_configuration_name)
+            _setter("batch_configuration_name", batch_configuration_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="integrationAccountName")
@@ -158,6 +185,10 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationAccountBatchConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -183,6 +214,11 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__.__dict__["integration_account_name"] = integration_account_name
             __props__.__dict__["location"] = location
+            if properties is not None and not isinstance(properties, BatchConfigurationPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                BatchConfigurationPropertiesArgs._configure(_setter, **properties)
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties

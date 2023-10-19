@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -41,28 +41,71 @@ class FirmwareArgs:
         :param pulumi.Input[str] vendor: Firmware vendor.
         :param pulumi.Input[str] version: Firmware version.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        FirmwareArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            description=description,
+            file_name=file_name,
+            file_size=file_size,
+            firmware_id=firmware_id,
+            model=model,
+            status=status,
+            status_messages=status_messages,
+            vendor=vendor,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             file_name: Optional[pulumi.Input[str]] = None,
+             file_size: Optional[pulumi.Input[float]] = None,
+             firmware_id: Optional[pulumi.Input[str]] = None,
+             model: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
+             status_messages: Optional[pulumi.Input[Sequence[Any]]] = None,
+             vendor: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'fileName' in kwargs:
+            file_name = kwargs['fileName']
+        if 'fileSize' in kwargs:
+            file_size = kwargs['fileSize']
+        if 'firmwareId' in kwargs:
+            firmware_id = kwargs['firmwareId']
+        if 'statusMessages' in kwargs:
+            status_messages = kwargs['statusMessages']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if file_name is not None:
-            pulumi.set(__self__, "file_name", file_name)
+            _setter("file_name", file_name)
         if file_size is not None:
-            pulumi.set(__self__, "file_size", file_size)
+            _setter("file_size", file_size)
         if firmware_id is not None:
-            pulumi.set(__self__, "firmware_id", firmware_id)
+            _setter("firmware_id", firmware_id)
         if model is not None:
-            pulumi.set(__self__, "model", model)
+            _setter("model", model)
         if status is None:
             status = 'Pending'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if status_messages is not None:
-            pulumi.set(__self__, "status_messages", status_messages)
+            _setter("status_messages", status_messages)
         if vendor is not None:
-            pulumi.set(__self__, "vendor", vendor)
+            _setter("vendor", vendor)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -250,6 +293,10 @@ class Firmware(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirmwareArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

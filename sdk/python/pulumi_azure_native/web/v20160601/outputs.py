@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -81,24 +81,65 @@ class ApiConnectionDefinitionResponseProperties(dict):
         :param Sequence['ConnectionStatusDefinitionResponse'] statuses: Status of the connection
         :param Sequence['ApiConnectionTestLinkResponse'] test_links: Links to test the API connection
         """
+        ApiConnectionDefinitionResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api=api,
+            changed_time=changed_time,
+            created_time=created_time,
+            custom_parameter_values=custom_parameter_values,
+            display_name=display_name,
+            non_secret_parameter_values=non_secret_parameter_values,
+            parameter_values=parameter_values,
+            statuses=statuses,
+            test_links=test_links,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api: Optional['outputs.ApiReferenceResponse'] = None,
+             changed_time: Optional[str] = None,
+             created_time: Optional[str] = None,
+             custom_parameter_values: Optional[Mapping[str, str]] = None,
+             display_name: Optional[str] = None,
+             non_secret_parameter_values: Optional[Mapping[str, str]] = None,
+             parameter_values: Optional[Mapping[str, str]] = None,
+             statuses: Optional[Sequence['outputs.ConnectionStatusDefinitionResponse']] = None,
+             test_links: Optional[Sequence['outputs.ApiConnectionTestLinkResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'changedTime' in kwargs:
+            changed_time = kwargs['changedTime']
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if 'customParameterValues' in kwargs:
+            custom_parameter_values = kwargs['customParameterValues']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'nonSecretParameterValues' in kwargs:
+            non_secret_parameter_values = kwargs['nonSecretParameterValues']
+        if 'parameterValues' in kwargs:
+            parameter_values = kwargs['parameterValues']
+        if 'testLinks' in kwargs:
+            test_links = kwargs['testLinks']
+
         if api is not None:
-            pulumi.set(__self__, "api", api)
+            _setter("api", api)
         if changed_time is not None:
-            pulumi.set(__self__, "changed_time", changed_time)
+            _setter("changed_time", changed_time)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if custom_parameter_values is not None:
-            pulumi.set(__self__, "custom_parameter_values", custom_parameter_values)
+            _setter("custom_parameter_values", custom_parameter_values)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if non_secret_parameter_values is not None:
-            pulumi.set(__self__, "non_secret_parameter_values", non_secret_parameter_values)
+            _setter("non_secret_parameter_values", non_secret_parameter_values)
         if parameter_values is not None:
-            pulumi.set(__self__, "parameter_values", parameter_values)
+            _setter("parameter_values", parameter_values)
         if statuses is not None:
-            pulumi.set(__self__, "statuses", statuses)
+            _setter("statuses", statuses)
         if test_links is not None:
-            pulumi.set(__self__, "test_links", test_links)
+            _setter("test_links", test_links)
 
     @property
     @pulumi.getter
@@ -200,10 +241,25 @@ class ApiConnectionTestLinkResponse(dict):
         :param str method: HTTP Method
         :param str request_uri: Test link request URI
         """
+        ApiConnectionTestLinkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            method=method,
+            request_uri=request_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             method: Optional[str] = None,
+             request_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'requestUri' in kwargs:
+            request_uri = kwargs['requestUri']
+
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if request_uri is not None:
-            pulumi.set(__self__, "request_uri", request_uri)
+            _setter("request_uri", request_uri)
 
     @property
     @pulumi.getter
@@ -254,12 +310,29 @@ class ApiOAuthSettingsParameterResponse(dict):
         :param Any ui_definition: UI definitions per culture as caller can specify the culture
         :param str value: Value of the setting
         """
+        ApiOAuthSettingsParameterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            options=options,
+            ui_definition=ui_definition,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             options: Optional[Any] = None,
+             ui_definition: Optional[Any] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'uiDefinition' in kwargs:
+            ui_definition = kwargs['uiDefinition']
+
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if ui_definition is not None:
-            pulumi.set(__self__, "ui_definition", ui_definition)
+            _setter("ui_definition", ui_definition)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -334,20 +407,53 @@ class ApiOAuthSettingsResponse(dict):
         :param str redirect_url: Url
         :param Sequence[str] scopes: OAuth scopes
         """
+        ApiOAuthSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            custom_parameters=custom_parameters,
+            identity_provider=identity_provider,
+            properties=properties,
+            redirect_url=redirect_url,
+            scopes=scopes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             custom_parameters: Optional[Mapping[str, 'outputs.ApiOAuthSettingsParameterResponse']] = None,
+             identity_provider: Optional[str] = None,
+             properties: Optional[Any] = None,
+             redirect_url: Optional[str] = None,
+             scopes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'customParameters' in kwargs:
+            custom_parameters = kwargs['customParameters']
+        if 'identityProvider' in kwargs:
+            identity_provider = kwargs['identityProvider']
+        if 'redirectUrl' in kwargs:
+            redirect_url = kwargs['redirectUrl']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if custom_parameters is not None:
-            pulumi.set(__self__, "custom_parameters", custom_parameters)
+            _setter("custom_parameters", custom_parameters)
         if identity_provider is not None:
-            pulumi.set(__self__, "identity_provider", identity_provider)
+            _setter("identity_provider", identity_provider)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if redirect_url is not None:
-            pulumi.set(__self__, "redirect_url", redirect_url)
+            _setter("redirect_url", redirect_url)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
 
     @property
     @pulumi.getter(name="clientId")
@@ -448,22 +554,53 @@ class ApiReferenceResponse(dict):
         :param Any swagger: The JSON representation of the swagger
         :param str type: Resource reference type
         """
+        ApiReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            brand_color=brand_color,
+            description=description,
+            display_name=display_name,
+            icon_uri=icon_uri,
+            id=id,
+            name=name,
+            swagger=swagger,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             brand_color: Optional[str] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             icon_uri: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             swagger: Optional[Any] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'brandColor' in kwargs:
+            brand_color = kwargs['brandColor']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'iconUri' in kwargs:
+            icon_uri = kwargs['iconUri']
+
         if brand_color is not None:
-            pulumi.set(__self__, "brand_color", brand_color)
+            _setter("brand_color", brand_color)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if icon_uri is not None:
-            pulumi.set(__self__, "icon_uri", icon_uri)
+            _setter("icon_uri", icon_uri)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if swagger is not None:
-            pulumi.set(__self__, "swagger", swagger)
+            _setter("swagger", swagger)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="brandColor")
@@ -558,8 +695,21 @@ class ApiResourceBackendServiceResponse(dict):
         The API backend service
         :param str service_url: The service URL
         """
+        ApiResourceBackendServiceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_url=service_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceUrl' in kwargs:
+            service_url = kwargs['serviceUrl']
+
         if service_url is not None:
-            pulumi.set(__self__, "service_url", service_url)
+            _setter("service_url", service_url)
 
     @property
     @pulumi.getter(name="serviceUrl")
@@ -602,10 +752,27 @@ class ApiResourceDefinitionsResponse(dict):
         :param str modified_swagger_url: The modified swagger URL
         :param str original_swagger_url: The original swagger URL
         """
+        ApiResourceDefinitionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            modified_swagger_url=modified_swagger_url,
+            original_swagger_url=original_swagger_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             modified_swagger_url: Optional[str] = None,
+             original_swagger_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'modifiedSwaggerUrl' in kwargs:
+            modified_swagger_url = kwargs['modifiedSwaggerUrl']
+        if 'originalSwaggerUrl' in kwargs:
+            original_swagger_url = kwargs['originalSwaggerUrl']
+
         if modified_swagger_url is not None:
-            pulumi.set(__self__, "modified_swagger_url", modified_swagger_url)
+            _setter("modified_swagger_url", modified_swagger_url)
         if original_swagger_url is not None:
-            pulumi.set(__self__, "original_swagger_url", original_swagger_url)
+            _setter("original_swagger_url", original_swagger_url)
 
     @property
     @pulumi.getter(name="modifiedSwaggerUrl")
@@ -649,19 +816,44 @@ class ConnectionErrorResponse(dict):
         :param str message: Description of the status
         :param Mapping[str, str] tags: Resource tags
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ConnectionErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            type=type,
+            code=code,
+            etag=etag,
+            location=location,
+            message=message,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             type: str,
+             code: Optional[str] = None,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             message: Optional[str] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("type", type)
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -772,20 +964,53 @@ class ConnectionGatewayDefinitionResponseProperties(dict):
         :param str machine_name: The machine name of the gateway
         :param Any status: The gateway status
         """
+        ConnectionGatewayDefinitionResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_uri=backend_uri,
+            connection_gateway_installation=connection_gateway_installation,
+            contact_information=contact_information,
+            description=description,
+            display_name=display_name,
+            machine_name=machine_name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_uri: Optional[str] = None,
+             connection_gateway_installation: Optional['outputs.ConnectionGatewayReferenceResponse'] = None,
+             contact_information: Optional[Sequence[str]] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             machine_name: Optional[str] = None,
+             status: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendUri' in kwargs:
+            backend_uri = kwargs['backendUri']
+        if 'connectionGatewayInstallation' in kwargs:
+            connection_gateway_installation = kwargs['connectionGatewayInstallation']
+        if 'contactInformation' in kwargs:
+            contact_information = kwargs['contactInformation']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'machineName' in kwargs:
+            machine_name = kwargs['machineName']
+
         if backend_uri is not None:
-            pulumi.set(__self__, "backend_uri", backend_uri)
+            _setter("backend_uri", backend_uri)
         if connection_gateway_installation is not None:
-            pulumi.set(__self__, "connection_gateway_installation", connection_gateway_installation)
+            _setter("connection_gateway_installation", connection_gateway_installation)
         if contact_information is not None:
-            pulumi.set(__self__, "contact_information", contact_information)
+            _setter("contact_information", contact_information)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if machine_name is not None:
-            pulumi.set(__self__, "machine_name", machine_name)
+            _setter("machine_name", machine_name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="backendUri")
@@ -861,14 +1086,31 @@ class ConnectionGatewayReferenceResponse(dict):
         :param str name: Resource reference name
         :param str type: Resource reference type
         """
+        ConnectionGatewayReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            location=location,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             location: Optional[str] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -933,10 +1175,25 @@ class ConnectionParameterResponse(dict):
         :param 'ApiOAuthSettingsResponse' o_auth_settings: OAuth settings for the connection provider
         :param str type: Type of the parameter
         """
+        ConnectionParameterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            o_auth_settings=o_auth_settings,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             o_auth_settings: Optional['outputs.ApiOAuthSettingsResponse'] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'oAuthSettings' in kwargs:
+            o_auth_settings = kwargs['oAuthSettings']
+
         if o_auth_settings is not None:
-            pulumi.set(__self__, "o_auth_settings", o_auth_settings)
+            _setter("o_auth_settings", o_auth_settings)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="oAuthSettings")
@@ -970,12 +1227,27 @@ class ConnectionStatusDefinitionResponse(dict):
         :param str status: The gateway status
         :param str target: Target of the error
         """
+        ConnectionStatusDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            status=status,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.ConnectionErrorResponse'] = None,
+             status: Optional[str] = None,
+             target: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter
@@ -1019,14 +1291,35 @@ class ConsentLinkDefinitionResponse(dict):
         :param str link: URI for the consent link
         :param str status: Status of the link
         """
+        ConsentLinkDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            first_party_login_uri=first_party_login_uri,
+            link=link,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             first_party_login_uri: Optional[str] = None,
+             link: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'firstPartyLoginUri' in kwargs:
+            first_party_login_uri = kwargs['firstPartyLoginUri']
+
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if first_party_login_uri is not None:
-            pulumi.set(__self__, "first_party_login_uri", first_party_login_uri)
+            _setter("first_party_login_uri", first_party_login_uri)
         if link is not None:
-            pulumi.set(__self__, "link", link)
+            _setter("link", link)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="displayName")
@@ -1127,30 +1420,81 @@ class CustomApiPropertiesDefinitionResponse(dict):
         :param Any swagger: The JSON representation of the swagger
         :param 'WsdlDefinitionResponse' wsdl_definition: The WSDL definition
         """
+        CustomApiPropertiesDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_definitions=api_definitions,
+            api_type=api_type,
+            backend_service=backend_service,
+            brand_color=brand_color,
+            capabilities=capabilities,
+            connection_parameters=connection_parameters,
+            description=description,
+            display_name=display_name,
+            icon_uri=icon_uri,
+            runtime_urls=runtime_urls,
+            swagger=swagger,
+            wsdl_definition=wsdl_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_definitions: Optional['outputs.ApiResourceDefinitionsResponse'] = None,
+             api_type: Optional[str] = None,
+             backend_service: Optional['outputs.ApiResourceBackendServiceResponse'] = None,
+             brand_color: Optional[str] = None,
+             capabilities: Optional[Sequence[str]] = None,
+             connection_parameters: Optional[Mapping[str, 'outputs.ConnectionParameterResponse']] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             icon_uri: Optional[str] = None,
+             runtime_urls: Optional[Sequence[str]] = None,
+             swagger: Optional[Any] = None,
+             wsdl_definition: Optional['outputs.WsdlDefinitionResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiDefinitions' in kwargs:
+            api_definitions = kwargs['apiDefinitions']
+        if 'apiType' in kwargs:
+            api_type = kwargs['apiType']
+        if 'backendService' in kwargs:
+            backend_service = kwargs['backendService']
+        if 'brandColor' in kwargs:
+            brand_color = kwargs['brandColor']
+        if 'connectionParameters' in kwargs:
+            connection_parameters = kwargs['connectionParameters']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'iconUri' in kwargs:
+            icon_uri = kwargs['iconUri']
+        if 'runtimeUrls' in kwargs:
+            runtime_urls = kwargs['runtimeUrls']
+        if 'wsdlDefinition' in kwargs:
+            wsdl_definition = kwargs['wsdlDefinition']
+
         if api_definitions is not None:
-            pulumi.set(__self__, "api_definitions", api_definitions)
+            _setter("api_definitions", api_definitions)
         if api_type is not None:
-            pulumi.set(__self__, "api_type", api_type)
+            _setter("api_type", api_type)
         if backend_service is not None:
-            pulumi.set(__self__, "backend_service", backend_service)
+            _setter("backend_service", backend_service)
         if brand_color is not None:
-            pulumi.set(__self__, "brand_color", brand_color)
+            _setter("brand_color", brand_color)
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if connection_parameters is not None:
-            pulumi.set(__self__, "connection_parameters", connection_parameters)
+            _setter("connection_parameters", connection_parameters)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if icon_uri is not None:
-            pulumi.set(__self__, "icon_uri", icon_uri)
+            _setter("icon_uri", icon_uri)
         if runtime_urls is not None:
-            pulumi.set(__self__, "runtime_urls", runtime_urls)
+            _setter("runtime_urls", runtime_urls)
         if swagger is not None:
-            pulumi.set(__self__, "swagger", swagger)
+            _setter("swagger", swagger)
         if wsdl_definition is not None:
-            pulumi.set(__self__, "wsdl_definition", wsdl_definition)
+            _setter("wsdl_definition", wsdl_definition)
 
     @property
     @pulumi.getter(name="apiDefinitions")
@@ -1283,14 +1627,33 @@ class WsdlDefinitionResponse(dict):
         :param 'WsdlServiceResponse' service: The service with name and endpoint names
         :param str url: The WSDL URL
         """
+        WsdlDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            import_method=import_method,
+            service=service,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[str] = None,
+             import_method: Optional[str] = None,
+             service: Optional['outputs.WsdlServiceResponse'] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'importMethod' in kwargs:
+            import_method = kwargs['importMethod']
+
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if import_method is not None:
-            pulumi.set(__self__, "import_method", import_method)
+            _setter("import_method", import_method)
         if service is not None:
-            pulumi.set(__self__, "service", service)
+            _setter("service", service)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -1357,9 +1720,26 @@ class WsdlServiceResponse(dict):
         :param str qualified_name: The service's qualified name
         :param Sequence[str] endpoint_qualified_names: List of the endpoints' qualified names
         """
-        pulumi.set(__self__, "qualified_name", qualified_name)
+        WsdlServiceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            qualified_name=qualified_name,
+            endpoint_qualified_names=endpoint_qualified_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             qualified_name: str,
+             endpoint_qualified_names: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'qualifiedName' in kwargs:
+            qualified_name = kwargs['qualifiedName']
+        if 'endpointQualifiedNames' in kwargs:
+            endpoint_qualified_names = kwargs['endpointQualifiedNames']
+
+        _setter("qualified_name", qualified_name)
         if endpoint_qualified_names is not None:
-            pulumi.set(__self__, "endpoint_qualified_names", endpoint_qualified_names)
+            _setter("endpoint_qualified_names", endpoint_qualified_names)
 
     @property
     @pulumi.getter(name="qualifiedName")

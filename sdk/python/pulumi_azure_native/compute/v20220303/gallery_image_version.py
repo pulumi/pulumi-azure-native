@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,20 +38,61 @@ class GalleryImageVersionArgs:
         :param pulumi.Input['GalleryImageVersionSafetyProfileArgs'] safety_profile: This is the safety profile of the Gallery Image Version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "gallery_image_name", gallery_image_name)
-        pulumi.set(__self__, "gallery_name", gallery_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_profile", storage_profile)
+        GalleryImageVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gallery_image_name=gallery_image_name,
+            gallery_name=gallery_name,
+            resource_group_name=resource_group_name,
+            storage_profile=storage_profile,
+            gallery_image_version_name=gallery_image_version_name,
+            location=location,
+            publishing_profile=publishing_profile,
+            safety_profile=safety_profile,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gallery_image_name: pulumi.Input[str],
+             gallery_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             storage_profile: pulumi.Input['GalleryImageVersionStorageProfileArgs'],
+             gallery_image_version_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             publishing_profile: Optional[pulumi.Input['GalleryImageVersionPublishingProfileArgs']] = None,
+             safety_profile: Optional[pulumi.Input['GalleryImageVersionSafetyProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'galleryImageName' in kwargs:
+            gallery_image_name = kwargs['galleryImageName']
+        if 'galleryName' in kwargs:
+            gallery_name = kwargs['galleryName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageProfile' in kwargs:
+            storage_profile = kwargs['storageProfile']
+        if 'galleryImageVersionName' in kwargs:
+            gallery_image_version_name = kwargs['galleryImageVersionName']
+        if 'publishingProfile' in kwargs:
+            publishing_profile = kwargs['publishingProfile']
+        if 'safetyProfile' in kwargs:
+            safety_profile = kwargs['safetyProfile']
+
+        _setter("gallery_image_name", gallery_image_name)
+        _setter("gallery_name", gallery_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_profile", storage_profile)
         if gallery_image_version_name is not None:
-            pulumi.set(__self__, "gallery_image_version_name", gallery_image_version_name)
+            _setter("gallery_image_version_name", gallery_image_version_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if publishing_profile is not None:
-            pulumi.set(__self__, "publishing_profile", publishing_profile)
+            _setter("publishing_profile", publishing_profile)
         if safety_profile is not None:
-            pulumi.set(__self__, "safety_profile", safety_profile)
+            _setter("safety_profile", safety_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="galleryImageName")
@@ -211,6 +252,10 @@ class GalleryImageVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GalleryImageVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -242,11 +287,26 @@ class GalleryImageVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'gallery_name'")
             __props__.__dict__["gallery_name"] = gallery_name
             __props__.__dict__["location"] = location
+            if publishing_profile is not None and not isinstance(publishing_profile, GalleryImageVersionPublishingProfileArgs):
+                publishing_profile = publishing_profile or {}
+                def _setter(key, value):
+                    publishing_profile[key] = value
+                GalleryImageVersionPublishingProfileArgs._configure(_setter, **publishing_profile)
             __props__.__dict__["publishing_profile"] = publishing_profile
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if safety_profile is not None and not isinstance(safety_profile, GalleryImageVersionSafetyProfileArgs):
+                safety_profile = safety_profile or {}
+                def _setter(key, value):
+                    safety_profile[key] = value
+                GalleryImageVersionSafetyProfileArgs._configure(_setter, **safety_profile)
             __props__.__dict__["safety_profile"] = safety_profile
+            if storage_profile is not None and not isinstance(storage_profile, GalleryImageVersionStorageProfileArgs):
+                storage_profile = storage_profile or {}
+                def _setter(key, value):
+                    storage_profile[key] = value
+                GalleryImageVersionStorageProfileArgs._configure(_setter, **storage_profile)
             if storage_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_profile'")
             __props__.__dict__["storage_profile"] = storage_profile

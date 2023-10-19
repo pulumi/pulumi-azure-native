@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -26,10 +26,23 @@ class ConfigurationParameterArgs:
         :param pulumi.Input[str] name: Name of the configuration parameter.
         :param pulumi.Input[str] value: Value of the configuration parameter.
         """
+        ConfigurationParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -66,10 +79,25 @@ class GuestConfigurationAssignmentPropertiesArgs:
         :param pulumi.Input[str] context: The source which initiated the guest configuration assignment. Ex: Azure Policy
         :param pulumi.Input['GuestConfigurationNavigationArgs'] guest_configuration: The guest configuration to assign.
         """
+        GuestConfigurationAssignmentPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            context=context,
+            guest_configuration=guest_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             context: Optional[pulumi.Input[str]] = None,
+             guest_configuration: Optional[pulumi.Input['GuestConfigurationNavigationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'guestConfiguration' in kwargs:
+            guest_configuration = kwargs['guestConfiguration']
+
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if guest_configuration is not None:
-            pulumi.set(__self__, "guest_configuration", guest_configuration)
+            _setter("guest_configuration", guest_configuration)
 
     @property
     @pulumi.getter
@@ -118,22 +146,57 @@ class GuestConfigurationNavigationArgs:
         :param pulumi.Input[str] name: Name of the guest configuration.
         :param pulumi.Input[str] version: Version of the guest configuration.
         """
+        GuestConfigurationNavigationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assignment_type=assignment_type,
+            configuration_parameter=configuration_parameter,
+            configuration_protected_parameter=configuration_protected_parameter,
+            content_hash=content_hash,
+            content_uri=content_uri,
+            kind=kind,
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assignment_type: Optional[pulumi.Input[Union[str, 'AssignmentType']]] = None,
+             configuration_parameter: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]] = None,
+             configuration_protected_parameter: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]] = None,
+             content_hash: Optional[pulumi.Input[str]] = None,
+             content_uri: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignmentType' in kwargs:
+            assignment_type = kwargs['assignmentType']
+        if 'configurationParameter' in kwargs:
+            configuration_parameter = kwargs['configurationParameter']
+        if 'configurationProtectedParameter' in kwargs:
+            configuration_protected_parameter = kwargs['configurationProtectedParameter']
+        if 'contentHash' in kwargs:
+            content_hash = kwargs['contentHash']
+        if 'contentUri' in kwargs:
+            content_uri = kwargs['contentUri']
+
         if assignment_type is not None:
-            pulumi.set(__self__, "assignment_type", assignment_type)
+            _setter("assignment_type", assignment_type)
         if configuration_parameter is not None:
-            pulumi.set(__self__, "configuration_parameter", configuration_parameter)
+            _setter("configuration_parameter", configuration_parameter)
         if configuration_protected_parameter is not None:
-            pulumi.set(__self__, "configuration_protected_parameter", configuration_protected_parameter)
+            _setter("configuration_protected_parameter", configuration_protected_parameter)
         if content_hash is not None:
-            pulumi.set(__self__, "content_hash", content_hash)
+            _setter("content_hash", content_hash)
         if content_uri is not None:
-            pulumi.set(__self__, "content_uri", content_uri)
+            _setter("content_uri", content_uri)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="assignmentType")

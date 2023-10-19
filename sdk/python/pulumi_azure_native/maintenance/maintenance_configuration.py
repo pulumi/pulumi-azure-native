@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -50,35 +50,92 @@ class MaintenanceConfigurationArgs:
         :param pulumi.Input[str] time_zone: Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time.
         :param pulumi.Input[Union[str, 'Visibility']] visibility: Gets or sets the visibility of the configuration. The default value is 'Custom'
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MaintenanceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            duration=duration,
+            expiration_date_time=expiration_date_time,
+            extension_properties=extension_properties,
+            install_patches=install_patches,
+            location=location,
+            maintenance_scope=maintenance_scope,
+            namespace=namespace,
+            overrides=overrides,
+            recur_every=recur_every,
+            resource_name=resource_name,
+            start_date_time=start_date_time,
+            tags=tags,
+            time_zone=time_zone,
+            visibility=visibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             duration: Optional[pulumi.Input[str]] = None,
+             expiration_date_time: Optional[pulumi.Input[str]] = None,
+             extension_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             install_patches: Optional[pulumi.Input['InputPatchConfigurationArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maintenance_scope: Optional[pulumi.Input[Union[str, 'MaintenanceScope']]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             overrides: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceOverridePropertiesArgs']]]] = None,
+             recur_every: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             start_date_time: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             visibility: Optional[pulumi.Input[Union[str, 'Visibility']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'expirationDateTime' in kwargs:
+            expiration_date_time = kwargs['expirationDateTime']
+        if 'extensionProperties' in kwargs:
+            extension_properties = kwargs['extensionProperties']
+        if 'installPatches' in kwargs:
+            install_patches = kwargs['installPatches']
+        if 'maintenanceScope' in kwargs:
+            maintenance_scope = kwargs['maintenanceScope']
+        if 'recurEvery' in kwargs:
+            recur_every = kwargs['recurEvery']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if 'startDateTime' in kwargs:
+            start_date_time = kwargs['startDateTime']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("resource_group_name", resource_group_name)
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
         if expiration_date_time is not None:
-            pulumi.set(__self__, "expiration_date_time", expiration_date_time)
+            _setter("expiration_date_time", expiration_date_time)
         if extension_properties is not None:
-            pulumi.set(__self__, "extension_properties", extension_properties)
+            _setter("extension_properties", extension_properties)
         if install_patches is not None:
-            pulumi.set(__self__, "install_patches", install_patches)
+            _setter("install_patches", install_patches)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maintenance_scope is not None:
-            pulumi.set(__self__, "maintenance_scope", maintenance_scope)
+            _setter("maintenance_scope", maintenance_scope)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if overrides is not None:
-            pulumi.set(__self__, "overrides", overrides)
+            _setter("overrides", overrides)
         if recur_every is not None:
-            pulumi.set(__self__, "recur_every", recur_every)
+            _setter("recur_every", recur_every)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if start_date_time is not None:
-            pulumi.set(__self__, "start_date_time", start_date_time)
+            _setter("start_date_time", start_date_time)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -324,6 +381,10 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MaintenanceConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -356,6 +417,11 @@ class MaintenanceConfiguration(pulumi.CustomResource):
             __props__.__dict__["duration"] = duration
             __props__.__dict__["expiration_date_time"] = expiration_date_time
             __props__.__dict__["extension_properties"] = extension_properties
+            if install_patches is not None and not isinstance(install_patches, InputPatchConfigurationArgs):
+                install_patches = install_patches or {}
+                def _setter(key, value):
+                    install_patches[key] = value
+                InputPatchConfigurationArgs._configure(_setter, **install_patches)
             __props__.__dict__["install_patches"] = install_patches
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_scope"] = maintenance_scope

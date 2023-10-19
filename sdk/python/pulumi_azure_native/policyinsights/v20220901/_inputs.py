@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -24,10 +24,25 @@ class AttestationEvidenceArgs:
         :param pulumi.Input[str] description: The description for this piece of evidence.
         :param pulumi.Input[str] source_uri: The URI location of the evidence.
         """
+        AttestationEvidenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            source_uri=source_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             source_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceUri' in kwargs:
+            source_uri = kwargs['sourceUri']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if source_uri is not None:
-            pulumi.set(__self__, "source_uri", source_uri)
+            _setter("source_uri", source_uri)
 
     @property
     @pulumi.getter

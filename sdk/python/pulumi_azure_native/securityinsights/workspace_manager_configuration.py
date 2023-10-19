@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -27,11 +27,34 @@ class WorkspaceManagerConfigurationArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] workspace_manager_configuration_name: The name of the workspace manager configuration
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        WorkspaceManagerConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            workspace_manager_configuration_name=workspace_manager_configuration_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: pulumi.Input[Union[str, 'Mode']],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             workspace_manager_configuration_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'workspaceManagerConfigurationName' in kwargs:
+            workspace_manager_configuration_name = kwargs['workspaceManagerConfigurationName']
+
+        _setter("mode", mode)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if workspace_manager_configuration_name is not None:
-            pulumi.set(__self__, "workspace_manager_configuration_name", workspace_manager_configuration_name)
+            _setter("workspace_manager_configuration_name", workspace_manager_configuration_name)
 
     @property
     @pulumi.getter
@@ -123,6 +146,10 @@ class WorkspaceManagerConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceManagerConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

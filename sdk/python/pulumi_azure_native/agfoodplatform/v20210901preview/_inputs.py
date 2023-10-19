@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -26,8 +26,21 @@ class ApiPropertiesArgs:
         Api properties.
         :param pulumi.Input[int] api_freshness_time_in_minutes: Interval in minutes for which the weather data for the api needs to be refreshed.
         """
+        ApiPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_freshness_time_in_minutes=api_freshness_time_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_freshness_time_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiFreshnessTimeInMinutes' in kwargs:
+            api_freshness_time_in_minutes = kwargs['apiFreshnessTimeInMinutes']
+
         if api_freshness_time_in_minutes is not None:
-            pulumi.set(__self__, "api_freshness_time_in_minutes", api_freshness_time_in_minutes)
+            _setter("api_freshness_time_in_minutes", api_freshness_time_in_minutes)
 
     @property
     @pulumi.getter(name="apiFreshnessTimeInMinutes")
@@ -50,8 +63,19 @@ class IdentityArgs:
         Identity for the resource.
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -78,12 +102,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -130,8 +171,19 @@ class SensorIntegrationArgs:
         Sensor integration request model.
         :param pulumi.Input[str] enabled: Sensor integration enable state. Allowed values are True, None
         """
+        SensorIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -164,12 +216,45 @@ class SolutionPropertiesArgs:
         :param pulumi.Input[str] saas_subscription_name: SaaS subscription name of the installed SaaS application.
         :param pulumi.Input[str] term_id: SaaS application Term Id.
         """
-        pulumi.set(__self__, "marketplace_publisher_id", marketplace_publisher_id)
-        pulumi.set(__self__, "offer_id", offer_id)
-        pulumi.set(__self__, "plan_id", plan_id)
-        pulumi.set(__self__, "saas_subscription_id", saas_subscription_id)
-        pulumi.set(__self__, "saas_subscription_name", saas_subscription_name)
-        pulumi.set(__self__, "term_id", term_id)
+        SolutionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            marketplace_publisher_id=marketplace_publisher_id,
+            offer_id=offer_id,
+            plan_id=plan_id,
+            saas_subscription_id=saas_subscription_id,
+            saas_subscription_name=saas_subscription_name,
+            term_id=term_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             marketplace_publisher_id: pulumi.Input[str],
+             offer_id: pulumi.Input[str],
+             plan_id: pulumi.Input[str],
+             saas_subscription_id: pulumi.Input[str],
+             saas_subscription_name: pulumi.Input[str],
+             term_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'marketplacePublisherId' in kwargs:
+            marketplace_publisher_id = kwargs['marketplacePublisherId']
+        if 'offerId' in kwargs:
+            offer_id = kwargs['offerId']
+        if 'planId' in kwargs:
+            plan_id = kwargs['planId']
+        if 'saasSubscriptionId' in kwargs:
+            saas_subscription_id = kwargs['saasSubscriptionId']
+        if 'saasSubscriptionName' in kwargs:
+            saas_subscription_name = kwargs['saasSubscriptionName']
+        if 'termId' in kwargs:
+            term_id = kwargs['termId']
+
+        _setter("marketplace_publisher_id", marketplace_publisher_id)
+        _setter("offer_id", offer_id)
+        _setter("plan_id", plan_id)
+        _setter("saas_subscription_id", saas_subscription_id)
+        _setter("saas_subscription_name", saas_subscription_name)
+        _setter("term_id", term_id)
 
     @property
     @pulumi.getter(name="marketplacePublisherId")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -31,9 +31,28 @@ class CreateFirewallRuleWithAccountParametersArgs:
         :param pulumi.Input[str] name: The unique name of the firewall rule to create.
         :param pulumi.Input[str] start_ip_address: The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         """
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
+        CreateFirewallRuleWithAccountParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_ip_address=end_ip_address,
+            name=name,
+            start_ip_address=start_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_ip_address: pulumi.Input[str],
+             name: pulumi.Input[str],
+             start_ip_address: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+
+        _setter("end_ip_address", end_ip_address)
+        _setter("name", name)
+        _setter("start_ip_address", start_ip_address)
 
     @property
     @pulumi.getter(name="endIpAddress")
@@ -82,8 +101,23 @@ class CreateTrustedIdProviderWithAccountParametersArgs:
         :param pulumi.Input[str] id_provider: The URL of this trusted identity provider.
         :param pulumi.Input[str] name: The unique name of the trusted identity provider to create.
         """
-        pulumi.set(__self__, "id_provider", id_provider)
-        pulumi.set(__self__, "name", name)
+        CreateTrustedIdProviderWithAccountParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id_provider=id_provider,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id_provider: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'idProvider' in kwargs:
+            id_provider = kwargs['idProvider']
+
+        _setter("id_provider", id_provider)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="idProvider")
@@ -120,8 +154,23 @@ class CreateVirtualNetworkRuleWithAccountParametersArgs:
         :param pulumi.Input[str] name: The unique name of the virtual network rule to create.
         :param pulumi.Input[str] subnet_id: The resource identifier for the subnet.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        CreateVirtualNetworkRuleWithAccountParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             subnet_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
+        _setter("name", name)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter
@@ -158,9 +207,24 @@ class EncryptionConfigArgs:
         :param pulumi.Input['EncryptionConfigType'] type: The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
         :param pulumi.Input['KeyVaultMetaInfoArgs'] key_vault_meta_info: The Key Vault information for connecting to user managed encryption keys.
         """
-        pulumi.set(__self__, "type", type)
+        EncryptionConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            key_vault_meta_info=key_vault_meta_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input['EncryptionConfigType'],
+             key_vault_meta_info: Optional[pulumi.Input['KeyVaultMetaInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultMetaInfo' in kwargs:
+            key_vault_meta_info = kwargs['keyVaultMetaInfo']
+
+        _setter("type", type)
         if key_vault_meta_info is not None:
-            pulumi.set(__self__, "key_vault_meta_info", key_vault_meta_info)
+            _setter("key_vault_meta_info", key_vault_meta_info)
 
     @property
     @pulumi.getter
@@ -195,7 +259,18 @@ class EncryptionIdentityArgs:
         The encryption identity properties.
         :param pulumi.Input['EncryptionIdentityType'] type: The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
         """
-        pulumi.set(__self__, "type", type)
+        EncryptionIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input['EncryptionIdentityType'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -222,9 +297,30 @@ class KeyVaultMetaInfoArgs:
         :param pulumi.Input[str] encryption_key_version: The version of the user managed encryption key.
         :param pulumi.Input[str] key_vault_resource_id: The resource identifier for the user managed Key Vault being used to encrypt.
         """
-        pulumi.set(__self__, "encryption_key_name", encryption_key_name)
-        pulumi.set(__self__, "encryption_key_version", encryption_key_version)
-        pulumi.set(__self__, "key_vault_resource_id", key_vault_resource_id)
+        KeyVaultMetaInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_key_name=encryption_key_name,
+            encryption_key_version=encryption_key_version,
+            key_vault_resource_id=key_vault_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_key_name: pulumi.Input[str],
+             encryption_key_version: pulumi.Input[str],
+             key_vault_resource_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionKeyName' in kwargs:
+            encryption_key_name = kwargs['encryptionKeyName']
+        if 'encryptionKeyVersion' in kwargs:
+            encryption_key_version = kwargs['encryptionKeyVersion']
+        if 'keyVaultResourceId' in kwargs:
+            key_vault_resource_id = kwargs['keyVaultResourceId']
+
+        _setter("encryption_key_name", encryption_key_name)
+        _setter("encryption_key_version", encryption_key_version)
+        _setter("key_vault_resource_id", key_vault_resource_id)
 
     @property
     @pulumi.getter(name="encryptionKeyName")

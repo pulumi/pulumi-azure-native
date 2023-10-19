@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,14 +28,39 @@ class NetworkPacketBrokerArgs:
         :param pulumi.Input[str] network_packet_broker_name: Name of the Network Packet Broker.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_fabric_id", network_fabric_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NetworkPacketBrokerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_fabric_id=network_fabric_id,
+            resource_group_name=resource_group_name,
+            location=location,
+            network_packet_broker_name=network_packet_broker_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_fabric_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             network_packet_broker_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkFabricId' in kwargs:
+            network_fabric_id = kwargs['networkFabricId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'networkPacketBrokerName' in kwargs:
+            network_packet_broker_name = kwargs['networkPacketBrokerName']
+
+        _setter("network_fabric_id", network_fabric_id)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_packet_broker_name is not None:
-            pulumi.set(__self__, "network_packet_broker_name", network_packet_broker_name)
+            _setter("network_packet_broker_name", network_packet_broker_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="networkFabricId")
@@ -141,6 +166,10 @@ class NetworkPacketBroker(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkPacketBrokerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

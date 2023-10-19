@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -30,14 +30,47 @@ class DataMaskingPolicyArgs:
         :param pulumi.Input[str] data_masking_policy_name: The name of the database for which the data masking policy applies.
         :param pulumi.Input[str] exempt_principals: The list of the exempt principals. Specifies the semicolon-separated list of database users for which the data masking policy does not apply. The specified users receive data results without masking for all of the database queries.
         """
-        pulumi.set(__self__, "data_masking_state", data_masking_state)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        DataMaskingPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_masking_state=data_masking_state,
+            database_name=database_name,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            data_masking_policy_name=data_masking_policy_name,
+            exempt_principals=exempt_principals,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_masking_state: pulumi.Input['DataMaskingState'],
+             database_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             data_masking_policy_name: Optional[pulumi.Input[str]] = None,
+             exempt_principals: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataMaskingState' in kwargs:
+            data_masking_state = kwargs['dataMaskingState']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'dataMaskingPolicyName' in kwargs:
+            data_masking_policy_name = kwargs['dataMaskingPolicyName']
+        if 'exemptPrincipals' in kwargs:
+            exempt_principals = kwargs['exemptPrincipals']
+
+        _setter("data_masking_state", data_masking_state)
+        _setter("database_name", database_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if data_masking_policy_name is not None:
-            pulumi.set(__self__, "data_masking_policy_name", data_masking_policy_name)
+            _setter("data_masking_policy_name", data_masking_policy_name)
         if exempt_principals is not None:
-            pulumi.set(__self__, "exempt_principals", exempt_principals)
+            _setter("exempt_principals", exempt_principals)
 
     @property
     @pulumi.getter(name="dataMaskingState")
@@ -157,6 +190,10 @@ class DataMaskingPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataMaskingPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

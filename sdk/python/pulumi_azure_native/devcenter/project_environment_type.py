@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,65 @@ class ProjectEnvironmentTypeArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Mapping[str, pulumi.Input['UserRoleAssignmentArgs']]] user_role_assignments: Role Assignments created on environment backing resources. This is a mapping from a user object ID to an object of role definition IDs.
         """
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ProjectEnvironmentTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_name=project_name,
+            resource_group_name=resource_group_name,
+            creator_role_assignment=creator_role_assignment,
+            deployment_target_id=deployment_target_id,
+            environment_type_name=environment_type_name,
+            identity=identity,
+            location=location,
+            status=status,
+            tags=tags,
+            user_role_assignments=user_role_assignments,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             creator_role_assignment: Optional[pulumi.Input['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs']] = None,
+             deployment_target_id: Optional[pulumi.Input[str]] = None,
+             environment_type_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'EnvironmentTypeEnableStatus']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_role_assignments: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserRoleAssignmentArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'creatorRoleAssignment' in kwargs:
+            creator_role_assignment = kwargs['creatorRoleAssignment']
+        if 'deploymentTargetId' in kwargs:
+            deployment_target_id = kwargs['deploymentTargetId']
+        if 'environmentTypeName' in kwargs:
+            environment_type_name = kwargs['environmentTypeName']
+        if 'userRoleAssignments' in kwargs:
+            user_role_assignments = kwargs['userRoleAssignments']
+
+        _setter("project_name", project_name)
+        _setter("resource_group_name", resource_group_name)
         if creator_role_assignment is not None:
-            pulumi.set(__self__, "creator_role_assignment", creator_role_assignment)
+            _setter("creator_role_assignment", creator_role_assignment)
         if deployment_target_id is not None:
-            pulumi.set(__self__, "deployment_target_id", deployment_target_id)
+            _setter("deployment_target_id", deployment_target_id)
         if environment_type_name is not None:
-            pulumi.set(__self__, "environment_type_name", environment_type_name)
+            _setter("environment_type_name", environment_type_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_role_assignments is not None:
-            pulumi.set(__self__, "user_role_assignments", user_role_assignments)
+            _setter("user_role_assignments", user_role_assignments)
 
     @property
     @pulumi.getter(name="projectName")
@@ -233,6 +274,10 @@ class ProjectEnvironmentType(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectEnvironmentTypeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -257,9 +302,19 @@ class ProjectEnvironmentType(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProjectEnvironmentTypeArgs.__new__(ProjectEnvironmentTypeArgs)
 
+            if creator_role_assignment is not None and not isinstance(creator_role_assignment, ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs):
+                creator_role_assignment = creator_role_assignment or {}
+                def _setter(key, value):
+                    creator_role_assignment[key] = value
+                ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs._configure(_setter, **creator_role_assignment)
             __props__.__dict__["creator_role_assignment"] = creator_role_assignment
             __props__.__dict__["deployment_target_id"] = deployment_target_id
             __props__.__dict__["environment_type_name"] = environment_type_name
+            if identity is not None and not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if project_name is None and not opts.urn:

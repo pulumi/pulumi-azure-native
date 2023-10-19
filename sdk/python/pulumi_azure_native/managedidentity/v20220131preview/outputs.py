@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -34,12 +34,39 @@ class AzureResourceResponse(dict):
         :param str subscription_id: The ID of the subscription this resource belongs to.
         :param str type: The type of this resource.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group", resource_group)
-        pulumi.set(__self__, "subscription_display_name", subscription_display_name)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-        pulumi.set(__self__, "type", type)
+        AzureResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            resource_group=resource_group,
+            subscription_display_name=subscription_display_name,
+            subscription_id=subscription_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             resource_group: str,
+             subscription_display_name: str,
+             subscription_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if 'subscriptionDisplayName' in kwargs:
+            subscription_display_name = kwargs['subscriptionDisplayName']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("resource_group", resource_group)
+        _setter("subscription_display_name", subscription_display_name)
+        _setter("subscription_id", subscription_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter

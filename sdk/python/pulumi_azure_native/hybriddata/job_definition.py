@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -46,28 +46,85 @@ class JobDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleArgs']]] schedules: Schedule for running the job definition
         :param pulumi.Input['UserConfirmation'] user_confirmation: Enum to detect if user confirmation is required. If not passed will default to NotRequired.
         """
-        pulumi.set(__self__, "data_manager_name", data_manager_name)
-        pulumi.set(__self__, "data_service_name", data_service_name)
-        pulumi.set(__self__, "data_sink_id", data_sink_id)
-        pulumi.set(__self__, "data_source_id", data_source_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "state", state)
+        JobDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_manager_name=data_manager_name,
+            data_service_name=data_service_name,
+            data_sink_id=data_sink_id,
+            data_source_id=data_source_id,
+            resource_group_name=resource_group_name,
+            state=state,
+            customer_secrets=customer_secrets,
+            data_service_input=data_service_input,
+            job_definition_name=job_definition_name,
+            last_modified_time=last_modified_time,
+            run_location=run_location,
+            schedules=schedules,
+            user_confirmation=user_confirmation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_manager_name: pulumi.Input[str],
+             data_service_name: pulumi.Input[str],
+             data_sink_id: pulumi.Input[str],
+             data_source_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             state: pulumi.Input['State'],
+             customer_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['CustomerSecretArgs']]]] = None,
+             data_service_input: Optional[Any] = None,
+             job_definition_name: Optional[pulumi.Input[str]] = None,
+             last_modified_time: Optional[pulumi.Input[str]] = None,
+             run_location: Optional[pulumi.Input['RunLocation']] = None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleArgs']]]] = None,
+             user_confirmation: Optional[pulumi.Input['UserConfirmation']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataManagerName' in kwargs:
+            data_manager_name = kwargs['dataManagerName']
+        if 'dataServiceName' in kwargs:
+            data_service_name = kwargs['dataServiceName']
+        if 'dataSinkId' in kwargs:
+            data_sink_id = kwargs['dataSinkId']
+        if 'dataSourceId' in kwargs:
+            data_source_id = kwargs['dataSourceId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'customerSecrets' in kwargs:
+            customer_secrets = kwargs['customerSecrets']
+        if 'dataServiceInput' in kwargs:
+            data_service_input = kwargs['dataServiceInput']
+        if 'jobDefinitionName' in kwargs:
+            job_definition_name = kwargs['jobDefinitionName']
+        if 'lastModifiedTime' in kwargs:
+            last_modified_time = kwargs['lastModifiedTime']
+        if 'runLocation' in kwargs:
+            run_location = kwargs['runLocation']
+        if 'userConfirmation' in kwargs:
+            user_confirmation = kwargs['userConfirmation']
+
+        _setter("data_manager_name", data_manager_name)
+        _setter("data_service_name", data_service_name)
+        _setter("data_sink_id", data_sink_id)
+        _setter("data_source_id", data_source_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("state", state)
         if customer_secrets is not None:
-            pulumi.set(__self__, "customer_secrets", customer_secrets)
+            _setter("customer_secrets", customer_secrets)
         if data_service_input is not None:
-            pulumi.set(__self__, "data_service_input", data_service_input)
+            _setter("data_service_input", data_service_input)
         if job_definition_name is not None:
-            pulumi.set(__self__, "job_definition_name", job_definition_name)
+            _setter("job_definition_name", job_definition_name)
         if last_modified_time is not None:
-            pulumi.set(__self__, "last_modified_time", last_modified_time)
+            _setter("last_modified_time", last_modified_time)
         if run_location is not None:
-            pulumi.set(__self__, "run_location", run_location)
+            _setter("run_location", run_location)
         if schedules is not None:
-            pulumi.set(__self__, "schedules", schedules)
+            _setter("schedules", schedules)
         if user_confirmation is None:
             user_confirmation = 'NotRequired'
         if user_confirmation is not None:
-            pulumi.set(__self__, "user_confirmation", user_confirmation)
+            _setter("user_confirmation", user_confirmation)
 
     @property
     @pulumi.getter(name="dataManagerName")
@@ -285,6 +342,10 @@ class JobDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

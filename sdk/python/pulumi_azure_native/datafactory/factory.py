@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,25 +40,66 @@ class FactoryArgs:
         :param pulumi.Input[Union['FactoryGitHubConfigurationArgs', 'FactoryVSTSConfigurationArgs']] repo_configuration: Git repo information of the factory.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FactoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            encryption=encryption,
+            factory_name=factory_name,
+            global_parameters=global_parameters,
+            identity=identity,
+            location=location,
+            public_network_access=public_network_access,
+            purview_configuration=purview_configuration,
+            repo_configuration=repo_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             encryption: Optional[pulumi.Input['EncryptionConfigurationArgs']] = None,
+             factory_name: Optional[pulumi.Input[str]] = None,
+             global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['GlobalParameterSpecificationArgs']]]] = None,
+             identity: Optional[pulumi.Input['FactoryIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             purview_configuration: Optional[pulumi.Input['PurviewConfigurationArgs']] = None,
+             repo_configuration: Optional[pulumi.Input[Union['FactoryGitHubConfigurationArgs', 'FactoryVSTSConfigurationArgs']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'factoryName' in kwargs:
+            factory_name = kwargs['factoryName']
+        if 'globalParameters' in kwargs:
+            global_parameters = kwargs['globalParameters']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if 'purviewConfiguration' in kwargs:
+            purview_configuration = kwargs['purviewConfiguration']
+        if 'repoConfiguration' in kwargs:
+            repo_configuration = kwargs['repoConfiguration']
+
+        _setter("resource_group_name", resource_group_name)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if factory_name is not None:
-            pulumi.set(__self__, "factory_name", factory_name)
+            _setter("factory_name", factory_name)
         if global_parameters is not None:
-            pulumi.set(__self__, "global_parameters", global_parameters)
+            _setter("global_parameters", global_parameters)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if purview_configuration is not None:
-            pulumi.set(__self__, "purview_configuration", purview_configuration)
+            _setter("purview_configuration", purview_configuration)
         if repo_configuration is not None:
-            pulumi.set(__self__, "repo_configuration", repo_configuration)
+            _setter("repo_configuration", repo_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -234,6 +275,10 @@ class Factory(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FactoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -258,12 +303,27 @@ class Factory(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FactoryArgs.__new__(FactoryArgs)
 
+            if encryption is not None and not isinstance(encryption, EncryptionConfigurationArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                EncryptionConfigurationArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["factory_name"] = factory_name
             __props__.__dict__["global_parameters"] = global_parameters
+            if identity is not None and not isinstance(identity, FactoryIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                FactoryIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["public_network_access"] = public_network_access
+            if purview_configuration is not None and not isinstance(purview_configuration, PurviewConfigurationArgs):
+                purview_configuration = purview_configuration or {}
+                def _setter(key, value):
+                    purview_configuration[key] = value
+                PurviewConfigurationArgs._configure(_setter, **purview_configuration)
             __props__.__dict__["purview_configuration"] = purview_configuration
             __props__.__dict__["repo_configuration"] = repo_configuration
             if resource_group_name is None and not opts.urn:

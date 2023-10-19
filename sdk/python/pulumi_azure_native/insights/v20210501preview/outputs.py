@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -55,13 +55,34 @@ class LogSettingsResponse(dict):
         :param str category_group: Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         :param 'RetentionPolicyResponse' retention_policy: the retention policy for this log.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        LogSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            category=category,
+            category_group=category_group,
+            retention_policy=retention_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             category: Optional[str] = None,
+             category_group: Optional[str] = None,
+             retention_policy: Optional['outputs.RetentionPolicyResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'categoryGroup' in kwargs:
+            category_group = kwargs['categoryGroup']
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+
+        _setter("enabled", enabled)
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if category_group is not None:
-            pulumi.set(__self__, "category_group", category_group)
+            _setter("category_group", category_group)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
 
     @property
     @pulumi.getter
@@ -128,11 +149,28 @@ class ManagementGroupLogSettingsResponse(dict):
         :param str category: Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
         :param str category_group: Name of a Management Group Diagnostic Log category group for a resource type this setting is applied to.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        ManagementGroupLogSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            category=category,
+            category_group=category_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             category: Optional[str] = None,
+             category_group: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'categoryGroup' in kwargs:
+            category_group = kwargs['categoryGroup']
+
+        _setter("enabled", enabled)
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if category_group is not None:
-            pulumi.set(__self__, "category_group", category_group)
+            _setter("category_group", category_group)
 
     @property
     @pulumi.getter
@@ -195,13 +233,34 @@ class MetricSettingsResponse(dict):
         :param 'RetentionPolicyResponse' retention_policy: the retention policy for this category.
         :param str time_grain: the timegrain of the metric in ISO8601 format.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        MetricSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            category=category,
+            retention_policy=retention_policy,
+            time_grain=time_grain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             category: Optional[str] = None,
+             retention_policy: Optional['outputs.RetentionPolicyResponse'] = None,
+             time_grain: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if 'timeGrain' in kwargs:
+            time_grain = kwargs['timeGrain']
+
+        _setter("enabled", enabled)
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
         if time_grain is not None:
-            pulumi.set(__self__, "time_grain", time_grain)
+            _setter("time_grain", time_grain)
 
     @property
     @pulumi.getter
@@ -249,8 +308,21 @@ class RetentionPolicyResponse(dict):
         :param int days: the number of days for the retention in days. A value of 0 will retain the events indefinitely.
         :param bool enabled: a value indicating whether the retention policy is enabled.
         """
-        pulumi.set(__self__, "days", days)
-        pulumi.set(__self__, "enabled", enabled)
+        RetentionPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: int,
+             enabled: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("days", days)
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -301,11 +373,28 @@ class SubscriptionLogSettingsResponse(dict):
         :param str category: Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
         :param str category_group: Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        SubscriptionLogSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            category=category,
+            category_group=category_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             category: Optional[str] = None,
+             category_group: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'categoryGroup' in kwargs:
+            category_group = kwargs['categoryGroup']
+
+        _setter("enabled", enabled)
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if category_group is not None:
-            pulumi.set(__self__, "category_group", category_group)
+            _setter("category_group", category_group)
 
     @property
     @pulumi.getter
@@ -380,18 +469,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

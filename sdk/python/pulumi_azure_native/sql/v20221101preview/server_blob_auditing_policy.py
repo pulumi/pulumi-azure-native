@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -131,31 +131,94 @@ class ServerBlobAuditingPolicyArgs:
         :param pulumi.Input[str] storage_account_subscription_id: Specifies the blob storage subscription Id.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled is required.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "state", state)
+        ServerBlobAuditingPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            state=state,
+            audit_actions_and_groups=audit_actions_and_groups,
+            blob_auditing_policy_name=blob_auditing_policy_name,
+            is_azure_monitor_target_enabled=is_azure_monitor_target_enabled,
+            is_devops_audit_enabled=is_devops_audit_enabled,
+            is_managed_identity_in_use=is_managed_identity_in_use,
+            is_storage_secondary_key_in_use=is_storage_secondary_key_in_use,
+            queue_delay_ms=queue_delay_ms,
+            retention_days=retention_days,
+            storage_account_access_key=storage_account_access_key,
+            storage_account_subscription_id=storage_account_subscription_id,
+            storage_endpoint=storage_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             state: pulumi.Input['BlobAuditingPolicyState'],
+             audit_actions_and_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             blob_auditing_policy_name: Optional[pulumi.Input[str]] = None,
+             is_azure_monitor_target_enabled: Optional[pulumi.Input[bool]] = None,
+             is_devops_audit_enabled: Optional[pulumi.Input[bool]] = None,
+             is_managed_identity_in_use: Optional[pulumi.Input[bool]] = None,
+             is_storage_secondary_key_in_use: Optional[pulumi.Input[bool]] = None,
+             queue_delay_ms: Optional[pulumi.Input[int]] = None,
+             retention_days: Optional[pulumi.Input[int]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
+             storage_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'auditActionsAndGroups' in kwargs:
+            audit_actions_and_groups = kwargs['auditActionsAndGroups']
+        if 'blobAuditingPolicyName' in kwargs:
+            blob_auditing_policy_name = kwargs['blobAuditingPolicyName']
+        if 'isAzureMonitorTargetEnabled' in kwargs:
+            is_azure_monitor_target_enabled = kwargs['isAzureMonitorTargetEnabled']
+        if 'isDevopsAuditEnabled' in kwargs:
+            is_devops_audit_enabled = kwargs['isDevopsAuditEnabled']
+        if 'isManagedIdentityInUse' in kwargs:
+            is_managed_identity_in_use = kwargs['isManagedIdentityInUse']
+        if 'isStorageSecondaryKeyInUse' in kwargs:
+            is_storage_secondary_key_in_use = kwargs['isStorageSecondaryKeyInUse']
+        if 'queueDelayMs' in kwargs:
+            queue_delay_ms = kwargs['queueDelayMs']
+        if 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageAccountSubscriptionId' in kwargs:
+            storage_account_subscription_id = kwargs['storageAccountSubscriptionId']
+        if 'storageEndpoint' in kwargs:
+            storage_endpoint = kwargs['storageEndpoint']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
+        _setter("state", state)
         if audit_actions_and_groups is not None:
-            pulumi.set(__self__, "audit_actions_and_groups", audit_actions_and_groups)
+            _setter("audit_actions_and_groups", audit_actions_and_groups)
         if blob_auditing_policy_name is not None:
-            pulumi.set(__self__, "blob_auditing_policy_name", blob_auditing_policy_name)
+            _setter("blob_auditing_policy_name", blob_auditing_policy_name)
         if is_azure_monitor_target_enabled is not None:
-            pulumi.set(__self__, "is_azure_monitor_target_enabled", is_azure_monitor_target_enabled)
+            _setter("is_azure_monitor_target_enabled", is_azure_monitor_target_enabled)
         if is_devops_audit_enabled is not None:
-            pulumi.set(__self__, "is_devops_audit_enabled", is_devops_audit_enabled)
+            _setter("is_devops_audit_enabled", is_devops_audit_enabled)
         if is_managed_identity_in_use is not None:
-            pulumi.set(__self__, "is_managed_identity_in_use", is_managed_identity_in_use)
+            _setter("is_managed_identity_in_use", is_managed_identity_in_use)
         if is_storage_secondary_key_in_use is not None:
-            pulumi.set(__self__, "is_storage_secondary_key_in_use", is_storage_secondary_key_in_use)
+            _setter("is_storage_secondary_key_in_use", is_storage_secondary_key_in_use)
         if queue_delay_ms is not None:
-            pulumi.set(__self__, "queue_delay_ms", queue_delay_ms)
+            _setter("queue_delay_ms", queue_delay_ms)
         if retention_days is not None:
-            pulumi.set(__self__, "retention_days", retention_days)
+            _setter("retention_days", retention_days)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_account_subscription_id is not None:
-            pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
+            _setter("storage_account_subscription_id", storage_account_subscription_id)
         if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+            _setter("storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -555,6 +618,10 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerBlobAuditingPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

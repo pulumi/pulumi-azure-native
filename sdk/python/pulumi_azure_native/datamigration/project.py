@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,22 +40,67 @@ class ProjectArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']] target_connection_info: Information for connecting to target
         """
-        pulumi.set(__self__, "group_name", group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "source_platform", source_platform)
-        pulumi.set(__self__, "target_platform", target_platform)
+        ProjectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_name=group_name,
+            service_name=service_name,
+            source_platform=source_platform,
+            target_platform=target_platform,
+            databases_info=databases_info,
+            location=location,
+            project_name=project_name,
+            source_connection_info=source_connection_info,
+            tags=tags,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             source_platform: pulumi.Input[Union[str, 'ProjectSourcePlatform']],
+             target_platform: pulumi.Input[Union[str, 'ProjectTargetPlatform']],
+             databases_info: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseInfoArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             source_connection_info: Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_connection_info: Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'sourcePlatform' in kwargs:
+            source_platform = kwargs['sourcePlatform']
+        if 'targetPlatform' in kwargs:
+            target_platform = kwargs['targetPlatform']
+        if 'databasesInfo' in kwargs:
+            databases_info = kwargs['databasesInfo']
+        if 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+
+        _setter("group_name", group_name)
+        _setter("service_name", service_name)
+        _setter("source_platform", source_platform)
+        _setter("target_platform", target_platform)
         if databases_info is not None:
-            pulumi.set(__self__, "databases_info", databases_info)
+            _setter("databases_info", databases_info)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if project_name is not None:
-            pulumi.set(__self__, "project_name", project_name)
+            _setter("project_name", project_name)
         if source_connection_info is not None:
-            pulumi.set(__self__, "source_connection_info", source_connection_info)
+            _setter("source_connection_info", source_connection_info)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_connection_info is not None:
-            pulumi.set(__self__, "target_connection_info", target_connection_info)
+            _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="groupName")
@@ -231,6 +276,10 @@ class Project(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

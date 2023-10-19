@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -88,14 +88,55 @@ class AgentConfigurationResponse(dict):
         :param Sequence[str] proxy_bypass: List of service names which should not use the specified proxy server.
         :param str proxy_url: Specifies the URL of the proxy to be used.
         """
-        pulumi.set(__self__, "config_mode", config_mode)
-        pulumi.set(__self__, "extensions_allow_list", extensions_allow_list)
-        pulumi.set(__self__, "extensions_block_list", extensions_block_list)
-        pulumi.set(__self__, "extensions_enabled", extensions_enabled)
-        pulumi.set(__self__, "guest_configuration_enabled", guest_configuration_enabled)
-        pulumi.set(__self__, "incoming_connections_ports", incoming_connections_ports)
-        pulumi.set(__self__, "proxy_bypass", proxy_bypass)
-        pulumi.set(__self__, "proxy_url", proxy_url)
+        AgentConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config_mode=config_mode,
+            extensions_allow_list=extensions_allow_list,
+            extensions_block_list=extensions_block_list,
+            extensions_enabled=extensions_enabled,
+            guest_configuration_enabled=guest_configuration_enabled,
+            incoming_connections_ports=incoming_connections_ports,
+            proxy_bypass=proxy_bypass,
+            proxy_url=proxy_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config_mode: str,
+             extensions_allow_list: Sequence['outputs.ConfigurationExtensionResponse'],
+             extensions_block_list: Sequence['outputs.ConfigurationExtensionResponse'],
+             extensions_enabled: str,
+             guest_configuration_enabled: str,
+             incoming_connections_ports: Sequence[str],
+             proxy_bypass: Sequence[str],
+             proxy_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configMode' in kwargs:
+            config_mode = kwargs['configMode']
+        if 'extensionsAllowList' in kwargs:
+            extensions_allow_list = kwargs['extensionsAllowList']
+        if 'extensionsBlockList' in kwargs:
+            extensions_block_list = kwargs['extensionsBlockList']
+        if 'extensionsEnabled' in kwargs:
+            extensions_enabled = kwargs['extensionsEnabled']
+        if 'guestConfigurationEnabled' in kwargs:
+            guest_configuration_enabled = kwargs['guestConfigurationEnabled']
+        if 'incomingConnectionsPorts' in kwargs:
+            incoming_connections_ports = kwargs['incomingConnectionsPorts']
+        if 'proxyBypass' in kwargs:
+            proxy_bypass = kwargs['proxyBypass']
+        if 'proxyUrl' in kwargs:
+            proxy_url = kwargs['proxyUrl']
+
+        _setter("config_mode", config_mode)
+        _setter("extensions_allow_list", extensions_allow_list)
+        _setter("extensions_block_list", extensions_block_list)
+        _setter("extensions_enabled", extensions_enabled)
+        _setter("guest_configuration_enabled", guest_configuration_enabled)
+        _setter("incoming_connections_ports", incoming_connections_ports)
+        _setter("proxy_bypass", proxy_bypass)
+        _setter("proxy_url", proxy_url)
 
     @property
     @pulumi.getter(name="configMode")
@@ -173,7 +214,18 @@ class CloudMetadataResponse(dict):
         The metadata of the cloud environment (Azure/GCP/AWS/OCI...).
         :param str provider: Specifies the cloud provider (Azure/AWS/GCP...).
         """
-        pulumi.set(__self__, "provider", provider)
+        CloudMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider=provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("provider", provider)
 
     @property
     @pulumi.getter
@@ -197,8 +249,21 @@ class ConfigurationExtensionResponse(dict):
         :param str publisher: Publisher of the extension.
         :param str type: Type of the extension.
         """
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "type", type)
+        ConfigurationExtensionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            publisher=publisher,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             publisher: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("publisher", publisher)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -230,8 +295,21 @@ class ErrorAdditionalInfoResponse(dict):
         :param Any info: The additional info.
         :param str type: The additional info type.
         """
-        pulumi.set(__self__, "info", info)
-        pulumi.set(__self__, "type", type)
+        ErrorAdditionalInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            info=info,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             info: Any,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("info", info)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -286,11 +364,32 @@ class ErrorDetailResponse(dict):
         :param str message: The error message.
         :param str target: The error target.
         """
-        pulumi.set(__self__, "additional_info", additional_info)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        ErrorDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_info=additional_info,
+            code=code,
+            details=details,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+             code: str,
+             details: Sequence['outputs.ErrorDetailResponse'],
+             message: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalInfo' in kwargs:
+            additional_info = kwargs['additionalInfo']
+
+        _setter("additional_info", additional_info)
+        _setter("code", code)
+        _setter("details", details)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter(name="additionalInfo")
@@ -367,10 +466,29 @@ class IdentityResponse(dict):
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -431,13 +549,32 @@ class LocationDataResponse(dict):
         :param str country_or_region: The country or region where the resource is located
         :param str district: The district, state, or province where the resource is located.
         """
-        pulumi.set(__self__, "name", name)
+        LocationDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            city=city,
+            country_or_region=country_or_region,
+            district=district,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             city: Optional[str] = None,
+             country_or_region: Optional[str] = None,
+             district: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryOrRegion' in kwargs:
+            country_or_region = kwargs['countryOrRegion']
+
+        _setter("name", name)
         if city is not None:
-            pulumi.set(__self__, "city", city)
+            _setter("city", city)
         if country_or_region is not None:
-            pulumi.set(__self__, "country_or_region", country_or_region)
+            _setter("country_or_region", country_or_region)
         if district is not None:
-            pulumi.set(__self__, "district", district)
+            _setter("district", district)
 
     @property
     @pulumi.getter
@@ -506,14 +643,33 @@ class MachineExtensionInstanceViewResponse(dict):
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
         """
+        MachineExtensionInstanceViewResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            status=status,
+            type=type,
+            type_handler_version=type_handler_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             status: Optional['outputs.MachineExtensionInstanceViewResponseStatus'] = None,
+             type: Optional[str] = None,
+             type_handler_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if type_handler_version is not None:
-            pulumi.set(__self__, "type_handler_version", type_handler_version)
+            _setter("type_handler_version", type_handler_version)
 
     @property
     @pulumi.getter
@@ -584,16 +740,37 @@ class MachineExtensionInstanceViewResponseStatus(dict):
         :param str message: The detailed status message, including for alerts and error messages.
         :param str time: The time of the status.
         """
+        MachineExtensionInstanceViewResponseStatus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            display_status=display_status,
+            level=level,
+            message=message,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             display_status: Optional[str] = None,
+             level: Optional[str] = None,
+             message: Optional[str] = None,
+             time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayStatus' in kwargs:
+            display_status = kwargs['displayStatus']
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if display_status is not None:
-            pulumi.set(__self__, "display_status", display_status)
+            _setter("display_status", display_status)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if time is not None:
-            pulumi.set(__self__, "time", time)
+            _setter("time", time)
 
     @property
     @pulumi.getter
@@ -694,25 +871,68 @@ class MachineExtensionPropertiesResponse(dict):
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        MachineExtensionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            auto_upgrade_minor_version=auto_upgrade_minor_version,
+            enable_automatic_upgrade=enable_automatic_upgrade,
+            force_update_tag=force_update_tag,
+            instance_view=instance_view,
+            protected_settings=protected_settings,
+            publisher=publisher,
+            settings=settings,
+            type=type,
+            type_handler_version=type_handler_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: str,
+             auto_upgrade_minor_version: Optional[bool] = None,
+             enable_automatic_upgrade: Optional[bool] = None,
+             force_update_tag: Optional[str] = None,
+             instance_view: Optional['outputs.MachineExtensionInstanceViewResponse'] = None,
+             protected_settings: Optional[Any] = None,
+             publisher: Optional[str] = None,
+             settings: Optional[Any] = None,
+             type: Optional[str] = None,
+             type_handler_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'autoUpgradeMinorVersion' in kwargs:
+            auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
+        if 'enableAutomaticUpgrade' in kwargs:
+            enable_automatic_upgrade = kwargs['enableAutomaticUpgrade']
+        if 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if 'instanceView' in kwargs:
+            instance_view = kwargs['instanceView']
+        if 'protectedSettings' in kwargs:
+            protected_settings = kwargs['protectedSettings']
+        if 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+
+        _setter("provisioning_state", provisioning_state)
         if auto_upgrade_minor_version is not None:
-            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+            _setter("auto_upgrade_minor_version", auto_upgrade_minor_version)
         if enable_automatic_upgrade is not None:
-            pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
+            _setter("enable_automatic_upgrade", enable_automatic_upgrade)
         if force_update_tag is not None:
-            pulumi.set(__self__, "force_update_tag", force_update_tag)
+            _setter("force_update_tag", force_update_tag)
         if instance_view is not None:
-            pulumi.set(__self__, "instance_view", instance_view)
+            _setter("instance_view", instance_view)
         if protected_settings is not None:
-            pulumi.set(__self__, "protected_settings", protected_settings)
+            _setter("protected_settings", protected_settings)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if type_handler_version is not None:
-            pulumi.set(__self__, "type_handler_version", type_handler_version)
+            _setter("type_handler_version", type_handler_version)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -835,15 +1055,40 @@ class MachineExtensionResponse(dict):
         :param 'MachineExtensionPropertiesResponse' properties: Describes Machine Extension Properties.
         :param Mapping[str, str] tags: Resource tags.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        MachineExtensionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            location=location,
+            name=name,
+            system_data=system_data,
+            type=type,
+            properties=properties,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             location: str,
+             name: str,
+             system_data: 'outputs.SystemDataResponse',
+             type: str,
+             properties: Optional['outputs.MachineExtensionPropertiesResponse'] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+
+        _setter("id", id)
+        _setter("location", location)
+        _setter("name", name)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -1028,42 +1273,153 @@ class MachinePropertiesResponse(dict):
         :param 'ServiceStatusesResponse' service_statuses: Statuses of dependent services that are reported back to ARM.
         :param str vm_id: Specifies the hybrid machine unique ID.
         """
-        pulumi.set(__self__, "ad_fqdn", ad_fqdn)
-        pulumi.set(__self__, "agent_configuration", agent_configuration)
-        pulumi.set(__self__, "agent_version", agent_version)
-        pulumi.set(__self__, "detected_properties", detected_properties)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "dns_fqdn", dns_fqdn)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "error_details", error_details)
-        pulumi.set(__self__, "last_status_change", last_status_change)
-        pulumi.set(__self__, "machine_fqdn", machine_fqdn)
-        pulumi.set(__self__, "os_name", os_name)
-        pulumi.set(__self__, "os_sku", os_sku)
-        pulumi.set(__self__, "os_version", os_version)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "vm_uuid", vm_uuid)
+        MachinePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ad_fqdn=ad_fqdn,
+            agent_configuration=agent_configuration,
+            agent_version=agent_version,
+            detected_properties=detected_properties,
+            display_name=display_name,
+            dns_fqdn=dns_fqdn,
+            domain_name=domain_name,
+            error_details=error_details,
+            last_status_change=last_status_change,
+            machine_fqdn=machine_fqdn,
+            os_name=os_name,
+            os_sku=os_sku,
+            os_version=os_version,
+            provisioning_state=provisioning_state,
+            status=status,
+            vm_uuid=vm_uuid,
+            client_public_key=client_public_key,
+            cloud_metadata=cloud_metadata,
+            location_data=location_data,
+            mssql_discovered=mssql_discovered,
+            os_profile=os_profile,
+            os_type=os_type,
+            parent_cluster_resource_id=parent_cluster_resource_id,
+            private_link_scope_resource_id=private_link_scope_resource_id,
+            service_statuses=service_statuses,
+            vm_id=vm_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ad_fqdn: str,
+             agent_configuration: 'outputs.AgentConfigurationResponse',
+             agent_version: str,
+             detected_properties: Mapping[str, str],
+             display_name: str,
+             dns_fqdn: str,
+             domain_name: str,
+             error_details: Sequence['outputs.ErrorDetailResponse'],
+             last_status_change: str,
+             machine_fqdn: str,
+             os_name: str,
+             os_sku: str,
+             os_version: str,
+             provisioning_state: str,
+             status: str,
+             vm_uuid: str,
+             client_public_key: Optional[str] = None,
+             cloud_metadata: Optional['outputs.CloudMetadataResponse'] = None,
+             location_data: Optional['outputs.LocationDataResponse'] = None,
+             mssql_discovered: Optional[str] = None,
+             os_profile: Optional['outputs.OSProfileResponse'] = None,
+             os_type: Optional[str] = None,
+             parent_cluster_resource_id: Optional[str] = None,
+             private_link_scope_resource_id: Optional[str] = None,
+             service_statuses: Optional['outputs.ServiceStatusesResponse'] = None,
+             vm_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adFqdn' in kwargs:
+            ad_fqdn = kwargs['adFqdn']
+        if 'agentConfiguration' in kwargs:
+            agent_configuration = kwargs['agentConfiguration']
+        if 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if 'detectedProperties' in kwargs:
+            detected_properties = kwargs['detectedProperties']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'dnsFqdn' in kwargs:
+            dns_fqdn = kwargs['dnsFqdn']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'errorDetails' in kwargs:
+            error_details = kwargs['errorDetails']
+        if 'lastStatusChange' in kwargs:
+            last_status_change = kwargs['lastStatusChange']
+        if 'machineFqdn' in kwargs:
+            machine_fqdn = kwargs['machineFqdn']
+        if 'osName' in kwargs:
+            os_name = kwargs['osName']
+        if 'osSku' in kwargs:
+            os_sku = kwargs['osSku']
+        if 'osVersion' in kwargs:
+            os_version = kwargs['osVersion']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'vmUuid' in kwargs:
+            vm_uuid = kwargs['vmUuid']
+        if 'clientPublicKey' in kwargs:
+            client_public_key = kwargs['clientPublicKey']
+        if 'cloudMetadata' in kwargs:
+            cloud_metadata = kwargs['cloudMetadata']
+        if 'locationData' in kwargs:
+            location_data = kwargs['locationData']
+        if 'mssqlDiscovered' in kwargs:
+            mssql_discovered = kwargs['mssqlDiscovered']
+        if 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'parentClusterResourceId' in kwargs:
+            parent_cluster_resource_id = kwargs['parentClusterResourceId']
+        if 'privateLinkScopeResourceId' in kwargs:
+            private_link_scope_resource_id = kwargs['privateLinkScopeResourceId']
+        if 'serviceStatuses' in kwargs:
+            service_statuses = kwargs['serviceStatuses']
+        if 'vmId' in kwargs:
+            vm_id = kwargs['vmId']
+
+        _setter("ad_fqdn", ad_fqdn)
+        _setter("agent_configuration", agent_configuration)
+        _setter("agent_version", agent_version)
+        _setter("detected_properties", detected_properties)
+        _setter("display_name", display_name)
+        _setter("dns_fqdn", dns_fqdn)
+        _setter("domain_name", domain_name)
+        _setter("error_details", error_details)
+        _setter("last_status_change", last_status_change)
+        _setter("machine_fqdn", machine_fqdn)
+        _setter("os_name", os_name)
+        _setter("os_sku", os_sku)
+        _setter("os_version", os_version)
+        _setter("provisioning_state", provisioning_state)
+        _setter("status", status)
+        _setter("vm_uuid", vm_uuid)
         if client_public_key is not None:
-            pulumi.set(__self__, "client_public_key", client_public_key)
+            _setter("client_public_key", client_public_key)
         if cloud_metadata is not None:
-            pulumi.set(__self__, "cloud_metadata", cloud_metadata)
+            _setter("cloud_metadata", cloud_metadata)
         if location_data is not None:
-            pulumi.set(__self__, "location_data", location_data)
+            _setter("location_data", location_data)
         if mssql_discovered is not None:
-            pulumi.set(__self__, "mssql_discovered", mssql_discovered)
+            _setter("mssql_discovered", mssql_discovered)
         if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
+            _setter("os_profile", os_profile)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if parent_cluster_resource_id is not None:
-            pulumi.set(__self__, "parent_cluster_resource_id", parent_cluster_resource_id)
+            _setter("parent_cluster_resource_id", parent_cluster_resource_id)
         if private_link_scope_resource_id is not None:
-            pulumi.set(__self__, "private_link_scope_resource_id", private_link_scope_resource_id)
+            _setter("private_link_scope_resource_id", private_link_scope_resource_id)
         if service_statuses is not None:
-            pulumi.set(__self__, "service_statuses", service_statuses)
+            _setter("service_statuses", service_statuses)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
 
     @property
     @pulumi.getter(name="adFqdn")
@@ -1310,11 +1666,32 @@ class OSProfileResponse(dict):
         :param 'OSProfileResponseLinuxConfiguration' linux_configuration: Specifies the linux configuration for update management.
         :param 'OSProfileResponseWindowsConfiguration' windows_configuration: Specifies the windows configuration for update management.
         """
-        pulumi.set(__self__, "computer_name", computer_name)
+        OSProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            computer_name=computer_name,
+            linux_configuration=linux_configuration,
+            windows_configuration=windows_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             computer_name: str,
+             linux_configuration: Optional['outputs.OSProfileResponseLinuxConfiguration'] = None,
+             windows_configuration: Optional['outputs.OSProfileResponseWindowsConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computerName' in kwargs:
+            computer_name = kwargs['computerName']
+        if 'linuxConfiguration' in kwargs:
+            linux_configuration = kwargs['linuxConfiguration']
+        if 'windowsConfiguration' in kwargs:
+            windows_configuration = kwargs['windowsConfiguration']
+
+        _setter("computer_name", computer_name)
         if linux_configuration is not None:
-            pulumi.set(__self__, "linux_configuration", linux_configuration)
+            _setter("linux_configuration", linux_configuration)
         if windows_configuration is not None:
-            pulumi.set(__self__, "windows_configuration", windows_configuration)
+            _setter("windows_configuration", windows_configuration)
 
     @property
     @pulumi.getter(name="computerName")
@@ -1373,10 +1750,27 @@ class OSProfileResponseLinuxConfiguration(dict):
         :param str assessment_mode: Specifies the assessment mode.
         :param str patch_mode: Specifies the patch mode.
         """
+        OSProfileResponseLinuxConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_mode=assessment_mode,
+            patch_mode=patch_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_mode: Optional[str] = None,
+             patch_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assessmentMode' in kwargs:
+            assessment_mode = kwargs['assessmentMode']
+        if 'patchMode' in kwargs:
+            patch_mode = kwargs['patchMode']
+
         if assessment_mode is not None:
-            pulumi.set(__self__, "assessment_mode", assessment_mode)
+            _setter("assessment_mode", assessment_mode)
         if patch_mode is not None:
-            pulumi.set(__self__, "patch_mode", patch_mode)
+            _setter("patch_mode", patch_mode)
 
     @property
     @pulumi.getter(name="assessmentMode")
@@ -1427,10 +1821,27 @@ class OSProfileResponseWindowsConfiguration(dict):
         :param str assessment_mode: Specifies the assessment mode.
         :param str patch_mode: Specifies the patch mode.
         """
+        OSProfileResponseWindowsConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_mode=assessment_mode,
+            patch_mode=patch_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_mode: Optional[str] = None,
+             patch_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assessmentMode' in kwargs:
+            assessment_mode = kwargs['assessmentMode']
+        if 'patchMode' in kwargs:
+            patch_mode = kwargs['patchMode']
+
         if assessment_mode is not None:
-            pulumi.set(__self__, "assessment_mode", assessment_mode)
+            _setter("assessment_mode", assessment_mode)
         if patch_mode is not None:
-            pulumi.set(__self__, "patch_mode", patch_mode)
+            _setter("patch_mode", patch_mode)
 
     @property
     @pulumi.getter(name="assessmentMode")
@@ -1479,10 +1890,25 @@ class ServiceStatusResponse(dict):
         :param str startup_type: The behavior of the service when the Arc-enabled machine starts up.
         :param str status: The current status of the service.
         """
+        ServiceStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            startup_type=startup_type,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             startup_type: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startupType' in kwargs:
+            startup_type = kwargs['startupType']
+
         if startup_type is not None:
-            pulumi.set(__self__, "startup_type", startup_type)
+            _setter("startup_type", startup_type)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="startupType")
@@ -1533,10 +1959,27 @@ class ServiceStatusesResponse(dict):
         :param 'ServiceStatusResponse' extension_service: The state of the extension service on the Arc-enabled machine.
         :param 'ServiceStatusResponse' guest_configuration_service: The state of the guest configuration service on the Arc-enabled machine.
         """
+        ServiceStatusesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extension_service=extension_service,
+            guest_configuration_service=guest_configuration_service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extension_service: Optional['outputs.ServiceStatusResponse'] = None,
+             guest_configuration_service: Optional['outputs.ServiceStatusResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'extensionService' in kwargs:
+            extension_service = kwargs['extensionService']
+        if 'guestConfigurationService' in kwargs:
+            guest_configuration_service = kwargs['guestConfigurationService']
+
         if extension_service is not None:
-            pulumi.set(__self__, "extension_service", extension_service)
+            _setter("extension_service", extension_service)
         if guest_configuration_service is not None:
-            pulumi.set(__self__, "guest_configuration_service", guest_configuration_service)
+            _setter("guest_configuration_service", guest_configuration_service)
 
     @property
     @pulumi.getter(name="extensionService")
@@ -1603,18 +2046,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

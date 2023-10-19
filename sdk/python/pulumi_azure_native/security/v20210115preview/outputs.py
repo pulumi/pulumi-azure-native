@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -26,8 +26,21 @@ class IngestionConnectionStringResponse(dict):
         :param str location: The region where ingested logs and data resides
         :param str value: Connection string value
         """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "value", value)
+        IngestionConnectionStringResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("location", location)
+        _setter("value", value)
 
     @property
     @pulumi.getter

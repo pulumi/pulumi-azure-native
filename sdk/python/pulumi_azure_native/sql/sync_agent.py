@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SyncAgentArgs', 'SyncAgent']
@@ -25,12 +25,37 @@ class SyncAgentArgs:
         :param pulumi.Input[str] sync_agent_name: The name of the sync agent.
         :param pulumi.Input[str] sync_database_id: ARM resource id of the sync database in the sync agent.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        SyncAgentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            sync_agent_name=sync_agent_name,
+            sync_database_id=sync_database_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             sync_agent_name: Optional[pulumi.Input[str]] = None,
+             sync_database_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'syncAgentName' in kwargs:
+            sync_agent_name = kwargs['syncAgentName']
+        if 'syncDatabaseId' in kwargs:
+            sync_database_id = kwargs['syncDatabaseId']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if sync_agent_name is not None:
-            pulumi.set(__self__, "sync_agent_name", sync_agent_name)
+            _setter("sync_agent_name", sync_agent_name)
         if sync_database_id is not None:
-            pulumi.set(__self__, "sync_database_id", sync_database_id)
+            _setter("sync_database_id", sync_database_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -122,6 +147,10 @@ class SyncAgent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SyncAgentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -36,19 +36,60 @@ class SuppressionListAddressArgs:
         :param pulumi.Input[str] last_name: The last name of the email recipient.
         :param pulumi.Input[str] notes: An optional property to provide contextual notes or a description for an address.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "email_service_name", email_service_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "suppression_list_name", suppression_list_name)
+        SuppressionListAddressArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            email=email,
+            email_service_name=email_service_name,
+            resource_group_name=resource_group_name,
+            suppression_list_name=suppression_list_name,
+            address_id=address_id,
+            first_name=first_name,
+            last_name=last_name,
+            notes=notes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: pulumi.Input[str],
+             email: pulumi.Input[str],
+             email_service_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             suppression_list_name: pulumi.Input[str],
+             address_id: Optional[pulumi.Input[str]] = None,
+             first_name: Optional[pulumi.Input[str]] = None,
+             last_name: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'emailServiceName' in kwargs:
+            email_service_name = kwargs['emailServiceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'suppressionListName' in kwargs:
+            suppression_list_name = kwargs['suppressionListName']
+        if 'addressId' in kwargs:
+            address_id = kwargs['addressId']
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+
+        _setter("domain_name", domain_name)
+        _setter("email", email)
+        _setter("email_service_name", email_service_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("suppression_list_name", suppression_list_name)
         if address_id is not None:
-            pulumi.set(__self__, "address_id", address_id)
+            _setter("address_id", address_id)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
 
     @property
     @pulumi.getter(name="domainName")
@@ -208,6 +249,10 @@ class SuppressionListAddress(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SuppressionListAddressArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

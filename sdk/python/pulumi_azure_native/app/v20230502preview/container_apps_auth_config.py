@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,22 +38,63 @@ class ContainerAppsAuthConfigArgs:
         :param pulumi.Input['LoginArgs'] login: The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
         :param pulumi.Input['AuthPlatformArgs'] platform: The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
         """
-        pulumi.set(__self__, "container_app_name", container_app_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ContainerAppsAuthConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_app_name=container_app_name,
+            resource_group_name=resource_group_name,
+            auth_config_name=auth_config_name,
+            encryption_settings=encryption_settings,
+            global_validation=global_validation,
+            http_settings=http_settings,
+            identity_providers=identity_providers,
+            login=login,
+            platform=platform,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_app_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             auth_config_name: Optional[pulumi.Input[str]] = None,
+             encryption_settings: Optional[pulumi.Input['EncryptionSettingsArgs']] = None,
+             global_validation: Optional[pulumi.Input['GlobalValidationArgs']] = None,
+             http_settings: Optional[pulumi.Input['HttpSettingsArgs']] = None,
+             identity_providers: Optional[pulumi.Input['IdentityProvidersArgs']] = None,
+             login: Optional[pulumi.Input['LoginArgs']] = None,
+             platform: Optional[pulumi.Input['AuthPlatformArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerAppName' in kwargs:
+            container_app_name = kwargs['containerAppName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'authConfigName' in kwargs:
+            auth_config_name = kwargs['authConfigName']
+        if 'encryptionSettings' in kwargs:
+            encryption_settings = kwargs['encryptionSettings']
+        if 'globalValidation' in kwargs:
+            global_validation = kwargs['globalValidation']
+        if 'httpSettings' in kwargs:
+            http_settings = kwargs['httpSettings']
+        if 'identityProviders' in kwargs:
+            identity_providers = kwargs['identityProviders']
+
+        _setter("container_app_name", container_app_name)
+        _setter("resource_group_name", resource_group_name)
         if auth_config_name is not None:
-            pulumi.set(__self__, "auth_config_name", auth_config_name)
+            _setter("auth_config_name", auth_config_name)
         if encryption_settings is not None:
-            pulumi.set(__self__, "encryption_settings", encryption_settings)
+            _setter("encryption_settings", encryption_settings)
         if global_validation is not None:
-            pulumi.set(__self__, "global_validation", global_validation)
+            _setter("global_validation", global_validation)
         if http_settings is not None:
-            pulumi.set(__self__, "http_settings", http_settings)
+            _setter("http_settings", http_settings)
         if identity_providers is not None:
-            pulumi.set(__self__, "identity_providers", identity_providers)
+            _setter("identity_providers", identity_providers)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
 
     @property
     @pulumi.getter(name="containerAppName")
@@ -213,6 +254,10 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContainerAppsAuthConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -240,11 +285,41 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
             if container_app_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_app_name'")
             __props__.__dict__["container_app_name"] = container_app_name
+            if encryption_settings is not None and not isinstance(encryption_settings, EncryptionSettingsArgs):
+                encryption_settings = encryption_settings or {}
+                def _setter(key, value):
+                    encryption_settings[key] = value
+                EncryptionSettingsArgs._configure(_setter, **encryption_settings)
             __props__.__dict__["encryption_settings"] = encryption_settings
+            if global_validation is not None and not isinstance(global_validation, GlobalValidationArgs):
+                global_validation = global_validation or {}
+                def _setter(key, value):
+                    global_validation[key] = value
+                GlobalValidationArgs._configure(_setter, **global_validation)
             __props__.__dict__["global_validation"] = global_validation
+            if http_settings is not None and not isinstance(http_settings, HttpSettingsArgs):
+                http_settings = http_settings or {}
+                def _setter(key, value):
+                    http_settings[key] = value
+                HttpSettingsArgs._configure(_setter, **http_settings)
             __props__.__dict__["http_settings"] = http_settings
+            if identity_providers is not None and not isinstance(identity_providers, IdentityProvidersArgs):
+                identity_providers = identity_providers or {}
+                def _setter(key, value):
+                    identity_providers[key] = value
+                IdentityProvidersArgs._configure(_setter, **identity_providers)
             __props__.__dict__["identity_providers"] = identity_providers
+            if login is not None and not isinstance(login, LoginArgs):
+                login = login or {}
+                def _setter(key, value):
+                    login[key] = value
+                LoginArgs._configure(_setter, **login)
             __props__.__dict__["login"] = login
+            if platform is not None and not isinstance(platform, AuthPlatformArgs):
+                platform = platform or {}
+                def _setter(key, value):
+                    platform[key] = value
+                AuthPlatformArgs._configure(_setter, **platform)
             __props__.__dict__["platform"] = platform
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

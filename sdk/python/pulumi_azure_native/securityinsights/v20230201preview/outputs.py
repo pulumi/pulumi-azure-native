@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -65,14 +65,49 @@ class ActivityTimelineItemResponse(dict):
         :param str query_id: The activity query id.
         :param str title: The activity timeline title.
         """
-        pulumi.set(__self__, "bucket_end_time_utc", bucket_end_time_utc)
-        pulumi.set(__self__, "bucket_start_time_utc", bucket_start_time_utc)
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "first_activity_time_utc", first_activity_time_utc)
-        pulumi.set(__self__, "kind", 'Activity')
-        pulumi.set(__self__, "last_activity_time_utc", last_activity_time_utc)
-        pulumi.set(__self__, "query_id", query_id)
-        pulumi.set(__self__, "title", title)
+        ActivityTimelineItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_end_time_utc=bucket_end_time_utc,
+            bucket_start_time_utc=bucket_start_time_utc,
+            content=content,
+            first_activity_time_utc=first_activity_time_utc,
+            kind=kind,
+            last_activity_time_utc=last_activity_time_utc,
+            query_id=query_id,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_end_time_utc: str,
+             bucket_start_time_utc: str,
+             content: str,
+             first_activity_time_utc: str,
+             kind: str,
+             last_activity_time_utc: str,
+             query_id: str,
+             title: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketEndTimeUTC' in kwargs:
+            bucket_end_time_utc = kwargs['bucketEndTimeUTC']
+        if 'bucketStartTimeUTC' in kwargs:
+            bucket_start_time_utc = kwargs['bucketStartTimeUTC']
+        if 'firstActivityTimeUTC' in kwargs:
+            first_activity_time_utc = kwargs['firstActivityTimeUTC']
+        if 'lastActivityTimeUTC' in kwargs:
+            last_activity_time_utc = kwargs['lastActivityTimeUTC']
+        if 'queryId' in kwargs:
+            query_id = kwargs['queryId']
+
+        _setter("bucket_end_time_utc", bucket_end_time_utc)
+        _setter("bucket_start_time_utc", bucket_start_time_utc)
+        _setter("content", content)
+        _setter("first_activity_time_utc", first_activity_time_utc)
+        _setter("kind", 'Activity')
+        _setter("last_activity_time_utc", last_activity_time_utc)
+        _setter("query_id", query_id)
+        _setter("title", title)
 
     @property
     @pulumi.getter(name="bucketEndTimeUTC")
@@ -174,24 +209,69 @@ class AnomalyTimelineItemResponse(dict):
         :param Sequence[str] techniques: The techniques of the anomaly.
         :param str vendor: The name of the anomaly vendor.
         """
-        pulumi.set(__self__, "azure_resource_id", azure_resource_id)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "end_time_utc", end_time_utc)
-        pulumi.set(__self__, "kind", 'Anomaly')
-        pulumi.set(__self__, "start_time_utc", start_time_utc)
-        pulumi.set(__self__, "time_generated", time_generated)
+        AnomalyTimelineItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_resource_id=azure_resource_id,
+            display_name=display_name,
+            end_time_utc=end_time_utc,
+            kind=kind,
+            start_time_utc=start_time_utc,
+            time_generated=time_generated,
+            description=description,
+            intent=intent,
+            product_name=product_name,
+            reasons=reasons,
+            techniques=techniques,
+            vendor=vendor,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_resource_id: str,
+             display_name: str,
+             end_time_utc: str,
+             kind: str,
+             start_time_utc: str,
+             time_generated: str,
+             description: Optional[str] = None,
+             intent: Optional[str] = None,
+             product_name: Optional[str] = None,
+             reasons: Optional[Sequence[str]] = None,
+             techniques: Optional[Sequence[str]] = None,
+             vendor: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureResourceId' in kwargs:
+            azure_resource_id = kwargs['azureResourceId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'endTimeUtc' in kwargs:
+            end_time_utc = kwargs['endTimeUtc']
+        if 'startTimeUtc' in kwargs:
+            start_time_utc = kwargs['startTimeUtc']
+        if 'timeGenerated' in kwargs:
+            time_generated = kwargs['timeGenerated']
+        if 'productName' in kwargs:
+            product_name = kwargs['productName']
+
+        _setter("azure_resource_id", azure_resource_id)
+        _setter("display_name", display_name)
+        _setter("end_time_utc", end_time_utc)
+        _setter("kind", 'Anomaly')
+        _setter("start_time_utc", start_time_utc)
+        _setter("time_generated", time_generated)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if intent is not None:
-            pulumi.set(__self__, "intent", intent)
+            _setter("intent", intent)
         if product_name is not None:
-            pulumi.set(__self__, "product_name", product_name)
+            _setter("product_name", product_name)
         if reasons is not None:
-            pulumi.set(__self__, "reasons", reasons)
+            _setter("reasons", reasons)
         if techniques is not None:
-            pulumi.set(__self__, "techniques", techniques)
+            _setter("techniques", techniques)
         if vendor is not None:
-            pulumi.set(__self__, "vendor", vendor)
+            _setter("vendor", vendor)
 
     @property
     @pulumi.getter(name="azureResourceId")
@@ -319,22 +399,61 @@ class BookmarkTimelineItemResponse(dict):
         :param str notes: The notes of the bookmark
         :param str start_time_utc: The bookmark start time.
         """
-        pulumi.set(__self__, "azure_resource_id", azure_resource_id)
-        pulumi.set(__self__, "kind", 'Bookmark')
+        BookmarkTimelineItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_resource_id=azure_resource_id,
+            kind=kind,
+            created_by=created_by,
+            display_name=display_name,
+            end_time_utc=end_time_utc,
+            event_time=event_time,
+            labels=labels,
+            notes=notes,
+            start_time_utc=start_time_utc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_resource_id: str,
+             kind: str,
+             created_by: Optional['outputs.UserInfoResponse'] = None,
+             display_name: Optional[str] = None,
+             end_time_utc: Optional[str] = None,
+             event_time: Optional[str] = None,
+             labels: Optional[Sequence[str]] = None,
+             notes: Optional[str] = None,
+             start_time_utc: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureResourceId' in kwargs:
+            azure_resource_id = kwargs['azureResourceId']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'endTimeUtc' in kwargs:
+            end_time_utc = kwargs['endTimeUtc']
+        if 'eventTime' in kwargs:
+            event_time = kwargs['eventTime']
+        if 'startTimeUtc' in kwargs:
+            start_time_utc = kwargs['startTimeUtc']
+
+        _setter("azure_resource_id", azure_resource_id)
+        _setter("kind", 'Bookmark')
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if end_time_utc is not None:
-            pulumi.set(__self__, "end_time_utc", end_time_utc)
+            _setter("end_time_utc", end_time_utc)
         if event_time is not None:
-            pulumi.set(__self__, "event_time", event_time)
+            _setter("event_time", event_time)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if start_time_utc is not None:
-            pulumi.set(__self__, "start_time_utc", start_time_utc)
+            _setter("start_time_utc", start_time_utc)
 
     @property
     @pulumi.getter(name="azureResourceId")
@@ -427,14 +546,39 @@ class EntityInsightItemResponse(dict):
         :param 'EntityInsightItemResponseQueryTimeInterval' query_time_interval: The Time interval that the query actually executed on.
         :param 'InsightsTableResultResponse' table_query_results: Query results for table insights query.
         """
+        EntityInsightItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            chart_query_results=chart_query_results,
+            query_id=query_id,
+            query_time_interval=query_time_interval,
+            table_query_results=table_query_results,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             chart_query_results: Optional[Sequence['outputs.InsightsTableResultResponse']] = None,
+             query_id: Optional[str] = None,
+             query_time_interval: Optional['outputs.EntityInsightItemResponseQueryTimeInterval'] = None,
+             table_query_results: Optional['outputs.InsightsTableResultResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'chartQueryResults' in kwargs:
+            chart_query_results = kwargs['chartQueryResults']
+        if 'queryId' in kwargs:
+            query_id = kwargs['queryId']
+        if 'queryTimeInterval' in kwargs:
+            query_time_interval = kwargs['queryTimeInterval']
+        if 'tableQueryResults' in kwargs:
+            table_query_results = kwargs['tableQueryResults']
+
         if chart_query_results is not None:
-            pulumi.set(__self__, "chart_query_results", chart_query_results)
+            _setter("chart_query_results", chart_query_results)
         if query_id is not None:
-            pulumi.set(__self__, "query_id", query_id)
+            _setter("query_id", query_id)
         if query_time_interval is not None:
-            pulumi.set(__self__, "query_time_interval", query_time_interval)
+            _setter("query_time_interval", query_time_interval)
         if table_query_results is not None:
-            pulumi.set(__self__, "table_query_results", table_query_results)
+            _setter("table_query_results", table_query_results)
 
     @property
     @pulumi.getter(name="chartQueryResults")
@@ -482,10 +626,27 @@ class EntityInsightItemResponseQueryTimeInterval(dict):
         :param str end_time: Insight query end time
         :param str start_time: Insight query start time
         """
+        EntityInsightItemResponseQueryTimeInterval._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time=end_time,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time: Optional[str] = None,
+             start_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="endTime")
@@ -519,10 +680,29 @@ class GetInsightsErrorKindResponse(dict):
         :param str kind: the query kind
         :param str query_id: the query id
         """
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "kind", kind)
+        GetInsightsErrorKindResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_message=error_message,
+            kind=kind,
+            query_id=query_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_message: str,
+             kind: str,
+             query_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if 'queryId' in kwargs:
+            query_id = kwargs['queryId']
+
+        _setter("error_message", error_message)
+        _setter("kind", kind)
         if query_id is not None:
-            pulumi.set(__self__, "query_id", query_id)
+            _setter("query_id", query_id)
 
     @property
     @pulumi.getter(name="errorMessage")
@@ -562,9 +742,24 @@ class GetInsightsResultsMetadataResponse(dict):
         :param int total_count: the total items found for the insights request
         :param Sequence['GetInsightsErrorKindResponse'] errors: information about the failed queries
         """
-        pulumi.set(__self__, "total_count", total_count)
+        GetInsightsResultsMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            total_count=total_count,
+            errors=errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             total_count: int,
+             errors: Optional[Sequence['outputs.GetInsightsErrorKindResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'totalCount' in kwargs:
+            total_count = kwargs['totalCount']
+
+        _setter("total_count", total_count)
         if errors is not None:
-            pulumi.set(__self__, "errors", errors)
+            _setter("errors", errors)
 
     @property
     @pulumi.getter(name="totalCount")
@@ -631,13 +826,46 @@ class IncidentAdditionalDataResponse(dict):
         :param Sequence[str] tactics: The tactics associated with incident
         :param Sequence[str] techniques: The techniques associated with incident's tactics
         """
-        pulumi.set(__self__, "alert_product_names", alert_product_names)
-        pulumi.set(__self__, "alerts_count", alerts_count)
-        pulumi.set(__self__, "bookmarks_count", bookmarks_count)
-        pulumi.set(__self__, "comments_count", comments_count)
-        pulumi.set(__self__, "provider_incident_url", provider_incident_url)
-        pulumi.set(__self__, "tactics", tactics)
-        pulumi.set(__self__, "techniques", techniques)
+        IncidentAdditionalDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_product_names=alert_product_names,
+            alerts_count=alerts_count,
+            bookmarks_count=bookmarks_count,
+            comments_count=comments_count,
+            provider_incident_url=provider_incident_url,
+            tactics=tactics,
+            techniques=techniques,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_product_names: Sequence[str],
+             alerts_count: int,
+             bookmarks_count: int,
+             comments_count: int,
+             provider_incident_url: str,
+             tactics: Sequence[str],
+             techniques: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertProductNames' in kwargs:
+            alert_product_names = kwargs['alertProductNames']
+        if 'alertsCount' in kwargs:
+            alerts_count = kwargs['alertsCount']
+        if 'bookmarksCount' in kwargs:
+            bookmarks_count = kwargs['bookmarksCount']
+        if 'commentsCount' in kwargs:
+            comments_count = kwargs['commentsCount']
+        if 'providerIncidentUrl' in kwargs:
+            provider_incident_url = kwargs['providerIncidentUrl']
+
+        _setter("alert_product_names", alert_product_names)
+        _setter("alerts_count", alerts_count)
+        _setter("bookmarks_count", bookmarks_count)
+        _setter("comments_count", comments_count)
+        _setter("provider_incident_url", provider_incident_url)
+        _setter("tactics", tactics)
+        _setter("techniques", techniques)
 
     @property
     @pulumi.getter(name="alertProductNames")
@@ -728,8 +956,25 @@ class IncidentLabelResponse(dict):
         :param str label_name: The name of the label
         :param str label_type: The type of the label
         """
-        pulumi.set(__self__, "label_name", label_name)
-        pulumi.set(__self__, "label_type", label_type)
+        IncidentLabelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label_name=label_name,
+            label_type=label_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label_name: str,
+             label_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labelName' in kwargs:
+            label_name = kwargs['labelName']
+        if 'labelType' in kwargs:
+            label_type = kwargs['labelType']
+
+        _setter("label_name", label_name)
+        _setter("label_type", label_type)
 
     @property
     @pulumi.getter(name="labelName")
@@ -790,16 +1035,43 @@ class IncidentOwnerInfoResponse(dict):
         :param str owner_type: The type of the owner the incident is assigned to.
         :param str user_principal_name: The user principal name of the user the incident is assigned to.
         """
+        IncidentOwnerInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assigned_to=assigned_to,
+            email=email,
+            object_id=object_id,
+            owner_type=owner_type,
+            user_principal_name=user_principal_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assigned_to: Optional[str] = None,
+             email: Optional[str] = None,
+             object_id: Optional[str] = None,
+             owner_type: Optional[str] = None,
+             user_principal_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignedTo' in kwargs:
+            assigned_to = kwargs['assignedTo']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'ownerType' in kwargs:
+            owner_type = kwargs['ownerType']
+        if 'userPrincipalName' in kwargs:
+            user_principal_name = kwargs['userPrincipalName']
+
         if assigned_to is not None:
-            pulumi.set(__self__, "assigned_to", assigned_to)
+            _setter("assigned_to", assigned_to)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if owner_type is not None:
-            pulumi.set(__self__, "owner_type", owner_type)
+            _setter("owner_type", owner_type)
         if user_principal_name is not None:
-            pulumi.set(__self__, "user_principal_name", user_principal_name)
+            _setter("user_principal_name", user_principal_name)
 
     @property
     @pulumi.getter(name="assignedTo")
@@ -855,10 +1127,23 @@ class InsightsTableResultResponse(dict):
         :param Sequence['InsightsTableResultResponseColumns'] columns: Columns Metadata of the table
         :param Sequence[Sequence[str]] rows: Rows data of the table
         """
+        InsightsTableResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+            rows=rows,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Optional[Sequence['outputs.InsightsTableResultResponseColumns']] = None,
+             rows: Optional[Sequence[Sequence[str]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
         if rows is not None:
-            pulumi.set(__self__, "rows", rows)
+            _setter("rows", rows)
 
     @property
     @pulumi.getter
@@ -886,10 +1171,23 @@ class InsightsTableResultResponseColumns(dict):
         :param str name: the name of the colum
         :param str type: the type of the colum
         """
+        InsightsTableResultResponseColumns._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -923,12 +1221,27 @@ class MetadataAuthorResponse(dict):
         :param str link: Link for author/vendor page
         :param str name: Name of the author. Company or person.
         """
+        MetadataAuthorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            link=link,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: Optional[str] = None,
+             link: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if link is not None:
-            pulumi.set(__self__, "link", link)
+            _setter("link", link)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -968,10 +1281,23 @@ class MetadataCategoriesResponse(dict):
         :param Sequence[str] domains: domain for the solution content item
         :param Sequence[str] verticals: Industry verticals for the solution content item
         """
+        MetadataCategoriesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domains=domains,
+            verticals=verticals,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domains: Optional[Sequence[str]] = None,
+             verticals: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if domains is not None:
-            pulumi.set(__self__, "domains", domains)
+            _setter("domains", domains)
         if verticals is not None:
-            pulumi.set(__self__, "verticals", verticals)
+            _setter("verticals", verticals)
 
     @property
     @pulumi.getter
@@ -1028,18 +1354,41 @@ class MetadataDependenciesResponse(dict):
         :param str operator: Operator used for list of dependencies in criteria array.
         :param str version: Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
         """
+        MetadataDependenciesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_id=content_id,
+            criteria=criteria,
+            kind=kind,
+            name=name,
+            operator=operator,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_id: Optional[str] = None,
+             criteria: Optional[Sequence['outputs.MetadataDependenciesResponse']] = None,
+             kind: Optional[str] = None,
+             name: Optional[str] = None,
+             operator: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentId' in kwargs:
+            content_id = kwargs['contentId']
+
         if content_id is not None:
-            pulumi.set(__self__, "content_id", content_id)
+            _setter("content_id", content_id)
         if criteria is not None:
-            pulumi.set(__self__, "criteria", criteria)
+            _setter("criteria", criteria)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if operator is not None:
-            pulumi.set(__self__, "operator", operator)
+            _setter("operator", operator)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="contentId")
@@ -1122,11 +1471,28 @@ class MetadataSourceResponse(dict):
         :param str name: Name of the content source.  The repo name, solution name, LA workspace name etc.
         :param str source_id: ID of the content source.  The solution ID, workspace ID, etc
         """
-        pulumi.set(__self__, "kind", kind)
+        MetadataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            name=name,
+            source_id=source_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: str,
+             name: Optional[str] = None,
+             source_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+
+        _setter("kind", kind)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_id is not None:
-            pulumi.set(__self__, "source_id", source_id)
+            _setter("source_id", source_id)
 
     @property
     @pulumi.getter
@@ -1170,13 +1536,30 @@ class MetadataSupportResponse(dict):
         :param str link: Link for support help, like to support page to open a ticket etc.
         :param str name: Name of the support contact. Company or person.
         """
-        pulumi.set(__self__, "tier", tier)
+        MetadataSupportResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tier=tier,
+            email=email,
+            link=link,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tier: str,
+             email: Optional[str] = None,
+             link: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("tier", tier)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if link is not None:
-            pulumi.set(__self__, "link", link)
+            _setter("link", link)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1226,12 +1609,29 @@ class RepoResponse(dict):
         :param str full_name: The name of the repository.
         :param str url: The url to access the repository.
         """
+        RepoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branches=branches,
+            full_name=full_name,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branches: Optional[Sequence[str]] = None,
+             full_name: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fullName' in kwargs:
+            full_name = kwargs['fullName']
+
         if branches is not None:
-            pulumi.set(__self__, "branches", branches)
+            _setter("branches", branches)
         if full_name is not None:
-            pulumi.set(__self__, "full_name", full_name)
+            _setter("full_name", full_name)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -1292,21 +1692,68 @@ class SecurityAlertTimelineItemResponse(dict):
         :param str product_name: The alert product name.
         :param Sequence[str] techniques: The techniques of the alert.
         """
-        pulumi.set(__self__, "alert_type", alert_type)
-        pulumi.set(__self__, "azure_resource_id", azure_resource_id)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "end_time_utc", end_time_utc)
-        pulumi.set(__self__, "intent", intent)
-        pulumi.set(__self__, "kind", 'SecurityAlert')
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "start_time_utc", start_time_utc)
-        pulumi.set(__self__, "time_generated", time_generated)
+        SecurityAlertTimelineItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_type=alert_type,
+            azure_resource_id=azure_resource_id,
+            display_name=display_name,
+            end_time_utc=end_time_utc,
+            intent=intent,
+            kind=kind,
+            severity=severity,
+            start_time_utc=start_time_utc,
+            time_generated=time_generated,
+            description=description,
+            product_name=product_name,
+            techniques=techniques,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_type: str,
+             azure_resource_id: str,
+             display_name: str,
+             end_time_utc: str,
+             intent: str,
+             kind: str,
+             severity: str,
+             start_time_utc: str,
+             time_generated: str,
+             description: Optional[str] = None,
+             product_name: Optional[str] = None,
+             techniques: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertType' in kwargs:
+            alert_type = kwargs['alertType']
+        if 'azureResourceId' in kwargs:
+            azure_resource_id = kwargs['azureResourceId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'endTimeUtc' in kwargs:
+            end_time_utc = kwargs['endTimeUtc']
+        if 'startTimeUtc' in kwargs:
+            start_time_utc = kwargs['startTimeUtc']
+        if 'timeGenerated' in kwargs:
+            time_generated = kwargs['timeGenerated']
+        if 'productName' in kwargs:
+            product_name = kwargs['productName']
+
+        _setter("alert_type", alert_type)
+        _setter("azure_resource_id", azure_resource_id)
+        _setter("display_name", display_name)
+        _setter("end_time_utc", end_time_utc)
+        _setter("intent", intent)
+        _setter("kind", 'SecurityAlert')
+        _setter("severity", severity)
+        _setter("start_time_utc", start_time_utc)
+        _setter("time_generated", time_generated)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if product_name is not None:
-            pulumi.set(__self__, "product_name", product_name)
+            _setter("product_name", product_name)
         if techniques is not None:
-            pulumi.set(__self__, "techniques", techniques)
+            _setter("techniques", techniques)
 
     @property
     @pulumi.getter(name="alertType")
@@ -1454,18 +1901,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1556,11 +2036,36 @@ class TeamInformationResponse(dict):
         :param str team_creation_time_utc: The time the team was created
         :param str team_id: Team ID
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "primary_channel_url", primary_channel_url)
-        pulumi.set(__self__, "team_creation_time_utc", team_creation_time_utc)
-        pulumi.set(__self__, "team_id", team_id)
+        TeamInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            primary_channel_url=primary_channel_url,
+            team_creation_time_utc=team_creation_time_utc,
+            team_id=team_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: str,
+             name: str,
+             primary_channel_url: str,
+             team_creation_time_utc: str,
+             team_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'primaryChannelUrl' in kwargs:
+            primary_channel_url = kwargs['primaryChannelUrl']
+        if 'teamCreationTimeUtc' in kwargs:
+            team_creation_time_utc = kwargs['teamCreationTimeUtc']
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
+        _setter("description", description)
+        _setter("name", name)
+        _setter("primary_channel_url", primary_channel_url)
+        _setter("team_creation_time_utc", team_creation_time_utc)
+        _setter("team_id", team_id)
 
     @property
     @pulumi.getter
@@ -1616,8 +2121,21 @@ class TimelineAggregationResponse(dict):
         :param int count: the total items found for a kind
         :param str kind: the query kind
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "kind", kind)
+        TimelineAggregationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: int,
+             kind: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("count", count)
+        _setter("kind", kind)
 
     @property
     @pulumi.getter
@@ -1651,10 +2169,29 @@ class TimelineErrorResponse(dict):
         :param str kind: the query kind
         :param str query_id: the query id
         """
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "kind", kind)
+        TimelineErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_message=error_message,
+            kind=kind,
+            query_id=query_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_message: str,
+             kind: str,
+             query_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if 'queryId' in kwargs:
+            query_id = kwargs['queryId']
+
+        _setter("error_message", error_message)
+        _setter("kind", kind)
         if query_id is not None:
-            pulumi.set(__self__, "query_id", query_id)
+            _setter("query_id", query_id)
 
     @property
     @pulumi.getter(name="errorMessage")
@@ -1696,10 +2233,27 @@ class TimelineResultsMetadataResponse(dict):
         :param int total_count: the total items found for the timeline request
         :param Sequence['TimelineErrorResponse'] errors: information about the failure queries
         """
-        pulumi.set(__self__, "aggregations", aggregations)
-        pulumi.set(__self__, "total_count", total_count)
+        TimelineResultsMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregations=aggregations,
+            total_count=total_count,
+            errors=errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregations: Sequence['outputs.TimelineAggregationResponse'],
+             total_count: int,
+             errors: Optional[Sequence['outputs.TimelineErrorResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'totalCount' in kwargs:
+            total_count = kwargs['totalCount']
+
+        _setter("aggregations", aggregations)
+        _setter("total_count", total_count)
         if errors is not None:
-            pulumi.set(__self__, "errors", errors)
+            _setter("errors", errors)
 
     @property
     @pulumi.getter
@@ -1741,10 +2295,27 @@ class UserInfoResponse(dict):
         :param str name: The name of the user.
         :param str object_id: The object id of the user.
         """
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "name", name)
+        UserInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            name=name,
+            object_id=object_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: str,
+             name: str,
+             object_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+
+        _setter("email", email)
+        _setter("name", name)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
 
     @property
     @pulumi.getter

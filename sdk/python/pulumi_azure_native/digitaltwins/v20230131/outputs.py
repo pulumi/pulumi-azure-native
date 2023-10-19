@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -105,32 +105,95 @@ class AzureDataExplorerConnectionPropertiesResponse(dict):
         :param 'ManagedIdentityReferenceResponse' identity: Managed identity properties for the time series database connection resource.
         :param str record_property_and_item_removals: Specifies whether or not to record twin / relationship property and item removals, including removals of indexed or keyed values (such as map entries, array elements, etc.). This feature is de-activated unless explicitly set to 'true'. Setting this property to 'true' will generate an additional column in the property events table in ADX.
         """
-        pulumi.set(__self__, "adx_database_name", adx_database_name)
-        pulumi.set(__self__, "adx_endpoint_uri", adx_endpoint_uri)
-        pulumi.set(__self__, "adx_resource_id", adx_resource_id)
-        pulumi.set(__self__, "connection_type", 'AzureDataExplorer')
-        pulumi.set(__self__, "event_hub_endpoint_uri", event_hub_endpoint_uri)
-        pulumi.set(__self__, "event_hub_entity_path", event_hub_entity_path)
-        pulumi.set(__self__, "event_hub_namespace_resource_id", event_hub_namespace_resource_id)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        AzureDataExplorerConnectionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            adx_database_name=adx_database_name,
+            adx_endpoint_uri=adx_endpoint_uri,
+            adx_resource_id=adx_resource_id,
+            connection_type=connection_type,
+            event_hub_endpoint_uri=event_hub_endpoint_uri,
+            event_hub_entity_path=event_hub_entity_path,
+            event_hub_namespace_resource_id=event_hub_namespace_resource_id,
+            provisioning_state=provisioning_state,
+            adx_relationship_lifecycle_events_table_name=adx_relationship_lifecycle_events_table_name,
+            adx_table_name=adx_table_name,
+            adx_twin_lifecycle_events_table_name=adx_twin_lifecycle_events_table_name,
+            event_hub_consumer_group=event_hub_consumer_group,
+            identity=identity,
+            record_property_and_item_removals=record_property_and_item_removals,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             adx_database_name: str,
+             adx_endpoint_uri: str,
+             adx_resource_id: str,
+             connection_type: str,
+             event_hub_endpoint_uri: str,
+             event_hub_entity_path: str,
+             event_hub_namespace_resource_id: str,
+             provisioning_state: str,
+             adx_relationship_lifecycle_events_table_name: Optional[str] = None,
+             adx_table_name: Optional[str] = None,
+             adx_twin_lifecycle_events_table_name: Optional[str] = None,
+             event_hub_consumer_group: Optional[str] = None,
+             identity: Optional['outputs.ManagedIdentityReferenceResponse'] = None,
+             record_property_and_item_removals: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adxDatabaseName' in kwargs:
+            adx_database_name = kwargs['adxDatabaseName']
+        if 'adxEndpointUri' in kwargs:
+            adx_endpoint_uri = kwargs['adxEndpointUri']
+        if 'adxResourceId' in kwargs:
+            adx_resource_id = kwargs['adxResourceId']
+        if 'connectionType' in kwargs:
+            connection_type = kwargs['connectionType']
+        if 'eventHubEndpointUri' in kwargs:
+            event_hub_endpoint_uri = kwargs['eventHubEndpointUri']
+        if 'eventHubEntityPath' in kwargs:
+            event_hub_entity_path = kwargs['eventHubEntityPath']
+        if 'eventHubNamespaceResourceId' in kwargs:
+            event_hub_namespace_resource_id = kwargs['eventHubNamespaceResourceId']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'adxRelationshipLifecycleEventsTableName' in kwargs:
+            adx_relationship_lifecycle_events_table_name = kwargs['adxRelationshipLifecycleEventsTableName']
+        if 'adxTableName' in kwargs:
+            adx_table_name = kwargs['adxTableName']
+        if 'adxTwinLifecycleEventsTableName' in kwargs:
+            adx_twin_lifecycle_events_table_name = kwargs['adxTwinLifecycleEventsTableName']
+        if 'eventHubConsumerGroup' in kwargs:
+            event_hub_consumer_group = kwargs['eventHubConsumerGroup']
+        if 'recordPropertyAndItemRemovals' in kwargs:
+            record_property_and_item_removals = kwargs['recordPropertyAndItemRemovals']
+
+        _setter("adx_database_name", adx_database_name)
+        _setter("adx_endpoint_uri", adx_endpoint_uri)
+        _setter("adx_resource_id", adx_resource_id)
+        _setter("connection_type", 'AzureDataExplorer')
+        _setter("event_hub_endpoint_uri", event_hub_endpoint_uri)
+        _setter("event_hub_entity_path", event_hub_entity_path)
+        _setter("event_hub_namespace_resource_id", event_hub_namespace_resource_id)
+        _setter("provisioning_state", provisioning_state)
         if adx_relationship_lifecycle_events_table_name is not None:
-            pulumi.set(__self__, "adx_relationship_lifecycle_events_table_name", adx_relationship_lifecycle_events_table_name)
+            _setter("adx_relationship_lifecycle_events_table_name", adx_relationship_lifecycle_events_table_name)
         if adx_table_name is None:
             adx_table_name = 'AdtPropertyEvents'
         if adx_table_name is not None:
-            pulumi.set(__self__, "adx_table_name", adx_table_name)
+            _setter("adx_table_name", adx_table_name)
         if adx_twin_lifecycle_events_table_name is not None:
-            pulumi.set(__self__, "adx_twin_lifecycle_events_table_name", adx_twin_lifecycle_events_table_name)
+            _setter("adx_twin_lifecycle_events_table_name", adx_twin_lifecycle_events_table_name)
         if event_hub_consumer_group is None:
             event_hub_consumer_group = '$Default'
         if event_hub_consumer_group is not None:
-            pulumi.set(__self__, "event_hub_consumer_group", event_hub_consumer_group)
+            _setter("event_hub_consumer_group", event_hub_consumer_group)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if record_property_and_item_removals is None:
             record_property_and_item_removals = 'false'
         if record_property_and_item_removals is not None:
-            pulumi.set(__self__, "record_property_and_item_removals", record_property_and_item_removals)
+            _setter("record_property_and_item_removals", record_property_and_item_removals)
 
     @property
     @pulumi.getter(name="adxDatabaseName")
@@ -286,13 +349,38 @@ class ConnectionPropertiesResponse(dict):
         :param 'PrivateEndpointResponse' private_endpoint: The private endpoint.
         :param 'ConnectionPropertiesResponsePrivateLinkServiceConnectionState' private_link_service_connection_state: The connection state.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        ConnectionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            group_ids=group_ids,
+            private_endpoint=private_endpoint,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: str,
+             group_ids: Optional[Sequence[str]] = None,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             private_link_service_connection_state: Optional['outputs.ConnectionPropertiesResponsePrivateLinkServiceConnectionState'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+        if 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
+        _setter("provisioning_state", provisioning_state)
         if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
+            _setter("group_ids", group_ids)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -359,10 +447,27 @@ class ConnectionPropertiesResponsePrivateLinkServiceConnectionState(dict):
         :param str status: The status of a private endpoint connection.
         :param str actions_required: Actions required for a private endpoint connection.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
+        ConnectionPropertiesResponsePrivateLinkServiceConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            status=status,
+            actions_required=actions_required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: str,
+             status: str,
+             actions_required: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
+        _setter("description", description)
+        _setter("status", status)
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
 
     @property
     @pulumi.getter
@@ -429,12 +534,35 @@ class DigitalTwinsIdentityResponse(dict):
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
                .
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        DigitalTwinsIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -534,21 +662,68 @@ class EventGridResponse(dict):
         :param str dead_letter_uri: Dead letter storage URL for identity-based authentication.
         :param 'ManagedIdentityReferenceResponse' identity: Managed identity properties for the endpoint.
         """
-        pulumi.set(__self__, "access_key1", access_key1)
-        pulumi.set(__self__, "created_time", created_time)
-        pulumi.set(__self__, "endpoint_type", 'EventGrid')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "topic_endpoint", topic_endpoint)
+        EventGridResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key1=access_key1,
+            created_time=created_time,
+            endpoint_type=endpoint_type,
+            provisioning_state=provisioning_state,
+            topic_endpoint=topic_endpoint,
+            access_key2=access_key2,
+            authentication_type=authentication_type,
+            dead_letter_secret=dead_letter_secret,
+            dead_letter_uri=dead_letter_uri,
+            identity=identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key1: str,
+             created_time: str,
+             endpoint_type: str,
+             provisioning_state: str,
+             topic_endpoint: str,
+             access_key2: Optional[str] = None,
+             authentication_type: Optional[str] = None,
+             dead_letter_secret: Optional[str] = None,
+             dead_letter_uri: Optional[str] = None,
+             identity: Optional['outputs.ManagedIdentityReferenceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey1' in kwargs:
+            access_key1 = kwargs['accessKey1']
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'topicEndpoint' in kwargs:
+            topic_endpoint = kwargs['topicEndpoint']
+        if 'accessKey2' in kwargs:
+            access_key2 = kwargs['accessKey2']
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'deadLetterSecret' in kwargs:
+            dead_letter_secret = kwargs['deadLetterSecret']
+        if 'deadLetterUri' in kwargs:
+            dead_letter_uri = kwargs['deadLetterUri']
+
+        _setter("access_key1", access_key1)
+        _setter("created_time", created_time)
+        _setter("endpoint_type", 'EventGrid')
+        _setter("provisioning_state", provisioning_state)
+        _setter("topic_endpoint", topic_endpoint)
         if access_key2 is not None:
-            pulumi.set(__self__, "access_key2", access_key2)
+            _setter("access_key2", access_key2)
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if dead_letter_secret is not None:
-            pulumi.set(__self__, "dead_letter_secret", dead_letter_secret)
+            _setter("dead_letter_secret", dead_letter_secret)
         if dead_letter_uri is not None:
-            pulumi.set(__self__, "dead_letter_uri", dead_letter_uri)
+            _setter("dead_letter_uri", dead_letter_uri)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
 
     @property
     @pulumi.getter(name="accessKey1")
@@ -699,25 +874,76 @@ class EventHubResponse(dict):
         :param str entity_path: The EventHub name in the EventHub namespace for identity-based authentication.
         :param 'ManagedIdentityReferenceResponse' identity: Managed identity properties for the endpoint.
         """
-        pulumi.set(__self__, "created_time", created_time)
-        pulumi.set(__self__, "endpoint_type", 'EventHub')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        EventHubResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_time=created_time,
+            endpoint_type=endpoint_type,
+            provisioning_state=provisioning_state,
+            authentication_type=authentication_type,
+            connection_string_primary_key=connection_string_primary_key,
+            connection_string_secondary_key=connection_string_secondary_key,
+            dead_letter_secret=dead_letter_secret,
+            dead_letter_uri=dead_letter_uri,
+            endpoint_uri=endpoint_uri,
+            entity_path=entity_path,
+            identity=identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_time: str,
+             endpoint_type: str,
+             provisioning_state: str,
+             authentication_type: Optional[str] = None,
+             connection_string_primary_key: Optional[str] = None,
+             connection_string_secondary_key: Optional[str] = None,
+             dead_letter_secret: Optional[str] = None,
+             dead_letter_uri: Optional[str] = None,
+             endpoint_uri: Optional[str] = None,
+             entity_path: Optional[str] = None,
+             identity: Optional['outputs.ManagedIdentityReferenceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'connectionStringPrimaryKey' in kwargs:
+            connection_string_primary_key = kwargs['connectionStringPrimaryKey']
+        if 'connectionStringSecondaryKey' in kwargs:
+            connection_string_secondary_key = kwargs['connectionStringSecondaryKey']
+        if 'deadLetterSecret' in kwargs:
+            dead_letter_secret = kwargs['deadLetterSecret']
+        if 'deadLetterUri' in kwargs:
+            dead_letter_uri = kwargs['deadLetterUri']
+        if 'endpointUri' in kwargs:
+            endpoint_uri = kwargs['endpointUri']
+        if 'entityPath' in kwargs:
+            entity_path = kwargs['entityPath']
+
+        _setter("created_time", created_time)
+        _setter("endpoint_type", 'EventHub')
+        _setter("provisioning_state", provisioning_state)
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if connection_string_primary_key is not None:
-            pulumi.set(__self__, "connection_string_primary_key", connection_string_primary_key)
+            _setter("connection_string_primary_key", connection_string_primary_key)
         if connection_string_secondary_key is not None:
-            pulumi.set(__self__, "connection_string_secondary_key", connection_string_secondary_key)
+            _setter("connection_string_secondary_key", connection_string_secondary_key)
         if dead_letter_secret is not None:
-            pulumi.set(__self__, "dead_letter_secret", dead_letter_secret)
+            _setter("dead_letter_secret", dead_letter_secret)
         if dead_letter_uri is not None:
-            pulumi.set(__self__, "dead_letter_uri", dead_letter_uri)
+            _setter("dead_letter_uri", dead_letter_uri)
         if endpoint_uri is not None:
-            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+            _setter("endpoint_uri", endpoint_uri)
         if entity_path is not None:
-            pulumi.set(__self__, "entity_path", entity_path)
+            _setter("entity_path", entity_path)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
 
     @property
     @pulumi.getter(name="createdTime")
@@ -839,10 +1065,25 @@ class ManagedIdentityReferenceResponse(dict):
         :param str type: The type of managed identity used.
         :param str user_assigned_identity: The user identity ARM resource id if the managed identity type is 'UserAssigned'.
         """
+        ManagedIdentityReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             user_assigned_identity: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentity' in kwargs:
+            user_assigned_identity = kwargs['userAssignedIdentity']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter
@@ -897,11 +1138,32 @@ class PrivateEndpointConnectionResponse(dict):
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the private endpoint connection.
         :param str type: The resource type.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            properties=properties,
+            system_data=system_data,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             properties: 'outputs.ConnectionPropertiesResponse',
+             system_data: 'outputs.SystemDataResponse',
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("properties", properties)
+        _setter("system_data", system_data)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -955,7 +1217,18 @@ class PrivateEndpointResponse(dict):
         The private endpoint property of a private endpoint connection.
         :param str id: The resource identifier.
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1033,25 +1306,76 @@ class ServiceBusResponse(dict):
         :param str primary_connection_string: PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
         :param str secondary_connection_string: SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
         """
-        pulumi.set(__self__, "created_time", created_time)
-        pulumi.set(__self__, "endpoint_type", 'ServiceBus')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        ServiceBusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_time=created_time,
+            endpoint_type=endpoint_type,
+            provisioning_state=provisioning_state,
+            authentication_type=authentication_type,
+            dead_letter_secret=dead_letter_secret,
+            dead_letter_uri=dead_letter_uri,
+            endpoint_uri=endpoint_uri,
+            entity_path=entity_path,
+            identity=identity,
+            primary_connection_string=primary_connection_string,
+            secondary_connection_string=secondary_connection_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_time: str,
+             endpoint_type: str,
+             provisioning_state: str,
+             authentication_type: Optional[str] = None,
+             dead_letter_secret: Optional[str] = None,
+             dead_letter_uri: Optional[str] = None,
+             endpoint_uri: Optional[str] = None,
+             entity_path: Optional[str] = None,
+             identity: Optional['outputs.ManagedIdentityReferenceResponse'] = None,
+             primary_connection_string: Optional[str] = None,
+             secondary_connection_string: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'deadLetterSecret' in kwargs:
+            dead_letter_secret = kwargs['deadLetterSecret']
+        if 'deadLetterUri' in kwargs:
+            dead_letter_uri = kwargs['deadLetterUri']
+        if 'endpointUri' in kwargs:
+            endpoint_uri = kwargs['endpointUri']
+        if 'entityPath' in kwargs:
+            entity_path = kwargs['entityPath']
+        if 'primaryConnectionString' in kwargs:
+            primary_connection_string = kwargs['primaryConnectionString']
+        if 'secondaryConnectionString' in kwargs:
+            secondary_connection_string = kwargs['secondaryConnectionString']
+
+        _setter("created_time", created_time)
+        _setter("endpoint_type", 'ServiceBus')
+        _setter("provisioning_state", provisioning_state)
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if dead_letter_secret is not None:
-            pulumi.set(__self__, "dead_letter_secret", dead_letter_secret)
+            _setter("dead_letter_secret", dead_letter_secret)
         if dead_letter_uri is not None:
-            pulumi.set(__self__, "dead_letter_uri", dead_letter_uri)
+            _setter("dead_letter_uri", dead_letter_uri)
         if endpoint_uri is not None:
-            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+            _setter("endpoint_uri", endpoint_uri)
         if entity_path is not None:
-            pulumi.set(__self__, "entity_path", entity_path)
+            _setter("entity_path", entity_path)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if primary_connection_string is not None:
-            pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+            _setter("primary_connection_string", primary_connection_string)
         if secondary_connection_string is not None:
-            pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+            _setter("secondary_connection_string", secondary_connection_string)
 
     @property
     @pulumi.getter(name="createdTime")
@@ -1191,18 +1515,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1285,8 +1642,25 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: The client id of the User Assigned Identity Resource.
         :param str principal_id: The object id of the User Assigned Identity Resource.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")

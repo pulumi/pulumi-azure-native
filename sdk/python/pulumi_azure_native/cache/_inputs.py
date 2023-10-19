@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -36,10 +36,27 @@ class ClusterPropertiesCustomerManagedKeyEncryptionArgs:
         :param pulumi.Input['ClusterPropertiesKeyEncryptionKeyIdentityArgs'] key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         :param pulumi.Input[str] key_encryption_key_url: Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
         """
+        ClusterPropertiesCustomerManagedKeyEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_encryption_key_identity=key_encryption_key_identity,
+            key_encryption_key_url=key_encryption_key_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_encryption_key_identity: Optional[pulumi.Input['ClusterPropertiesKeyEncryptionKeyIdentityArgs']] = None,
+             key_encryption_key_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyEncryptionKeyIdentity' in kwargs:
+            key_encryption_key_identity = kwargs['keyEncryptionKeyIdentity']
+        if 'keyEncryptionKeyUrl' in kwargs:
+            key_encryption_key_url = kwargs['keyEncryptionKeyUrl']
+
         if key_encryption_key_identity is not None:
-            pulumi.set(__self__, "key_encryption_key_identity", key_encryption_key_identity)
+            _setter("key_encryption_key_identity", key_encryption_key_identity)
         if key_encryption_key_url is not None:
-            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
+            _setter("key_encryption_key_url", key_encryption_key_url)
 
     @property
     @pulumi.getter(name="keyEncryptionKeyIdentity")
@@ -74,8 +91,21 @@ class ClusterPropertiesEncryptionArgs:
         Encryption-at-rest configuration for the cluster.
         :param pulumi.Input['ClusterPropertiesCustomerManagedKeyEncryptionArgs'] customer_managed_key_encryption: All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
         """
+        ClusterPropertiesEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_managed_key_encryption=customer_managed_key_encryption,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_managed_key_encryption: Optional[pulumi.Input['ClusterPropertiesCustomerManagedKeyEncryptionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerManagedKeyEncryption' in kwargs:
+            customer_managed_key_encryption = kwargs['customerManagedKeyEncryption']
+
         if customer_managed_key_encryption is not None:
-            pulumi.set(__self__, "customer_managed_key_encryption", customer_managed_key_encryption)
+            _setter("customer_managed_key_encryption", customer_managed_key_encryption)
 
     @property
     @pulumi.getter(name="customerManagedKeyEncryption")
@@ -100,10 +130,27 @@ class ClusterPropertiesKeyEncryptionKeyIdentityArgs:
         :param pulumi.Input[Union[str, 'CmkIdentityType']] identity_type: Only userAssignedIdentity is supported in this API version; other types may be supported in the future
         :param pulumi.Input[str] user_assigned_identity_resource_id: User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/<sub uuid>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
         """
+        ClusterPropertiesKeyEncryptionKeyIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_type=identity_type,
+            user_assigned_identity_resource_id=user_assigned_identity_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_type: Optional[pulumi.Input[Union[str, 'CmkIdentityType']]] = None,
+             user_assigned_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityType' in kwargs:
+            identity_type = kwargs['identityType']
+        if 'userAssignedIdentityResourceId' in kwargs:
+            user_assigned_identity_resource_id = kwargs['userAssignedIdentityResourceId']
+
         if identity_type is not None:
-            pulumi.set(__self__, "identity_type", identity_type)
+            _setter("identity_type", identity_type)
         if user_assigned_identity_resource_id is not None:
-            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+            _setter("user_assigned_identity_resource_id", user_assigned_identity_resource_id)
 
     @property
     @pulumi.getter(name="identityType")
@@ -140,10 +187,27 @@ class DatabasePropertiesGeoReplicationArgs:
         :param pulumi.Input[str] group_nickname: Name for the group of linked database resources
         :param pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgs']]] linked_databases: List of database resources to link with this database
         """
+        DatabasePropertiesGeoReplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_nickname=group_nickname,
+            linked_databases=linked_databases,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_nickname: Optional[pulumi.Input[str]] = None,
+             linked_databases: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupNickname' in kwargs:
+            group_nickname = kwargs['groupNickname']
+        if 'linkedDatabases' in kwargs:
+            linked_databases = kwargs['linkedDatabases']
+
         if group_nickname is not None:
-            pulumi.set(__self__, "group_nickname", group_nickname)
+            _setter("group_nickname", group_nickname)
         if linked_databases is not None:
-            pulumi.set(__self__, "linked_databases", linked_databases)
+            _setter("linked_databases", linked_databases)
 
     @property
     @pulumi.getter(name="groupNickname")
@@ -180,9 +244,22 @@ class EnterpriseSkuArgs:
         :param pulumi.Input[Union[str, 'SkuName']] name: The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
         :param pulumi.Input[int] capacity: The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
         """
-        pulumi.set(__self__, "name", name)
+        EnterpriseSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'SkuName']],
+             capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -217,8 +294,19 @@ class LinkedDatabaseArgs:
         Specifies details of a linked database resource.
         :param pulumi.Input[str] id: Resource ID of a database resource to link with this database.
         """
+        LinkedDatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -243,9 +331,24 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -282,9 +385,22 @@ class ModuleArgs:
         :param pulumi.Input[str] name: The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
         :param pulumi.Input[str] args: Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
         """
-        pulumi.set(__self__, "name", name)
+        ModuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            args=args,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             args: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
         if args is not None:
-            pulumi.set(__self__, "args", args)
+            _setter("args", args)
 
     @property
     @pulumi.getter
@@ -325,14 +441,39 @@ class PersistenceArgs:
         :param pulumi.Input[bool] rdb_enabled: Sets whether RDB is enabled.
         :param pulumi.Input[Union[str, 'RdbFrequency']] rdb_frequency: Sets the frequency at which a snapshot of the database is created.
         """
+        PersistenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aof_enabled=aof_enabled,
+            aof_frequency=aof_frequency,
+            rdb_enabled=rdb_enabled,
+            rdb_frequency=rdb_frequency,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aof_enabled: Optional[pulumi.Input[bool]] = None,
+             aof_frequency: Optional[pulumi.Input[Union[str, 'AofFrequency']]] = None,
+             rdb_enabled: Optional[pulumi.Input[bool]] = None,
+             rdb_frequency: Optional[pulumi.Input[Union[str, 'RdbFrequency']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aofEnabled' in kwargs:
+            aof_enabled = kwargs['aofEnabled']
+        if 'aofFrequency' in kwargs:
+            aof_frequency = kwargs['aofFrequency']
+        if 'rdbEnabled' in kwargs:
+            rdb_enabled = kwargs['rdbEnabled']
+        if 'rdbFrequency' in kwargs:
+            rdb_frequency = kwargs['rdbFrequency']
+
         if aof_enabled is not None:
-            pulumi.set(__self__, "aof_enabled", aof_enabled)
+            _setter("aof_enabled", aof_enabled)
         if aof_frequency is not None:
-            pulumi.set(__self__, "aof_frequency", aof_frequency)
+            _setter("aof_frequency", aof_frequency)
         if rdb_enabled is not None:
-            pulumi.set(__self__, "rdb_enabled", rdb_enabled)
+            _setter("rdb_enabled", rdb_enabled)
         if rdb_frequency is not None:
-            pulumi.set(__self__, "rdb_frequency", rdb_frequency)
+            _setter("rdb_frequency", rdb_frequency)
 
     @property
     @pulumi.getter(name="aofEnabled")
@@ -395,12 +536,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -473,34 +631,97 @@ class RedisCommonPropertiesRedisConfigurationArgs:
         :param pulumi.Input[str] rdb_storage_connection_string: The storage account connection string for storing rdb file
         :param pulumi.Input[str] storage_subscription_id: SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.
         """
+        RedisCommonPropertiesRedisConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aof_backup_enabled=aof_backup_enabled,
+            aof_storage_connection_string0=aof_storage_connection_string0,
+            aof_storage_connection_string1=aof_storage_connection_string1,
+            authnotrequired=authnotrequired,
+            maxfragmentationmemory_reserved=maxfragmentationmemory_reserved,
+            maxmemory_delta=maxmemory_delta,
+            maxmemory_policy=maxmemory_policy,
+            maxmemory_reserved=maxmemory_reserved,
+            preferred_data_persistence_auth_method=preferred_data_persistence_auth_method,
+            rdb_backup_enabled=rdb_backup_enabled,
+            rdb_backup_frequency=rdb_backup_frequency,
+            rdb_backup_max_snapshot_count=rdb_backup_max_snapshot_count,
+            rdb_storage_connection_string=rdb_storage_connection_string,
+            storage_subscription_id=storage_subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aof_backup_enabled: Optional[pulumi.Input[str]] = None,
+             aof_storage_connection_string0: Optional[pulumi.Input[str]] = None,
+             aof_storage_connection_string1: Optional[pulumi.Input[str]] = None,
+             authnotrequired: Optional[pulumi.Input[str]] = None,
+             maxfragmentationmemory_reserved: Optional[pulumi.Input[str]] = None,
+             maxmemory_delta: Optional[pulumi.Input[str]] = None,
+             maxmemory_policy: Optional[pulumi.Input[str]] = None,
+             maxmemory_reserved: Optional[pulumi.Input[str]] = None,
+             preferred_data_persistence_auth_method: Optional[pulumi.Input[str]] = None,
+             rdb_backup_enabled: Optional[pulumi.Input[str]] = None,
+             rdb_backup_frequency: Optional[pulumi.Input[str]] = None,
+             rdb_backup_max_snapshot_count: Optional[pulumi.Input[str]] = None,
+             rdb_storage_connection_string: Optional[pulumi.Input[str]] = None,
+             storage_subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aofBackupEnabled' in kwargs:
+            aof_backup_enabled = kwargs['aofBackupEnabled']
+        if 'aofStorageConnectionString0' in kwargs:
+            aof_storage_connection_string0 = kwargs['aofStorageConnectionString0']
+        if 'aofStorageConnectionString1' in kwargs:
+            aof_storage_connection_string1 = kwargs['aofStorageConnectionString1']
+        if 'maxfragmentationmemoryReserved' in kwargs:
+            maxfragmentationmemory_reserved = kwargs['maxfragmentationmemoryReserved']
+        if 'maxmemoryDelta' in kwargs:
+            maxmemory_delta = kwargs['maxmemoryDelta']
+        if 'maxmemoryPolicy' in kwargs:
+            maxmemory_policy = kwargs['maxmemoryPolicy']
+        if 'maxmemoryReserved' in kwargs:
+            maxmemory_reserved = kwargs['maxmemoryReserved']
+        if 'preferredDataPersistenceAuthMethod' in kwargs:
+            preferred_data_persistence_auth_method = kwargs['preferredDataPersistenceAuthMethod']
+        if 'rdbBackupEnabled' in kwargs:
+            rdb_backup_enabled = kwargs['rdbBackupEnabled']
+        if 'rdbBackupFrequency' in kwargs:
+            rdb_backup_frequency = kwargs['rdbBackupFrequency']
+        if 'rdbBackupMaxSnapshotCount' in kwargs:
+            rdb_backup_max_snapshot_count = kwargs['rdbBackupMaxSnapshotCount']
+        if 'rdbStorageConnectionString' in kwargs:
+            rdb_storage_connection_string = kwargs['rdbStorageConnectionString']
+        if 'storageSubscriptionId' in kwargs:
+            storage_subscription_id = kwargs['storageSubscriptionId']
+
         if aof_backup_enabled is not None:
-            pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
+            _setter("aof_backup_enabled", aof_backup_enabled)
         if aof_storage_connection_string0 is not None:
-            pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
+            _setter("aof_storage_connection_string0", aof_storage_connection_string0)
         if aof_storage_connection_string1 is not None:
-            pulumi.set(__self__, "aof_storage_connection_string1", aof_storage_connection_string1)
+            _setter("aof_storage_connection_string1", aof_storage_connection_string1)
         if authnotrequired is not None:
-            pulumi.set(__self__, "authnotrequired", authnotrequired)
+            _setter("authnotrequired", authnotrequired)
         if maxfragmentationmemory_reserved is not None:
-            pulumi.set(__self__, "maxfragmentationmemory_reserved", maxfragmentationmemory_reserved)
+            _setter("maxfragmentationmemory_reserved", maxfragmentationmemory_reserved)
         if maxmemory_delta is not None:
-            pulumi.set(__self__, "maxmemory_delta", maxmemory_delta)
+            _setter("maxmemory_delta", maxmemory_delta)
         if maxmemory_policy is not None:
-            pulumi.set(__self__, "maxmemory_policy", maxmemory_policy)
+            _setter("maxmemory_policy", maxmemory_policy)
         if maxmemory_reserved is not None:
-            pulumi.set(__self__, "maxmemory_reserved", maxmemory_reserved)
+            _setter("maxmemory_reserved", maxmemory_reserved)
         if preferred_data_persistence_auth_method is not None:
-            pulumi.set(__self__, "preferred_data_persistence_auth_method", preferred_data_persistence_auth_method)
+            _setter("preferred_data_persistence_auth_method", preferred_data_persistence_auth_method)
         if rdb_backup_enabled is not None:
-            pulumi.set(__self__, "rdb_backup_enabled", rdb_backup_enabled)
+            _setter("rdb_backup_enabled", rdb_backup_enabled)
         if rdb_backup_frequency is not None:
-            pulumi.set(__self__, "rdb_backup_frequency", rdb_backup_frequency)
+            _setter("rdb_backup_frequency", rdb_backup_frequency)
         if rdb_backup_max_snapshot_count is not None:
-            pulumi.set(__self__, "rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
+            _setter("rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
         if rdb_storage_connection_string is not None:
-            pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
+            _setter("rdb_storage_connection_string", rdb_storage_connection_string)
         if storage_subscription_id is not None:
-            pulumi.set(__self__, "storage_subscription_id", storage_subscription_id)
+            _setter("storage_subscription_id", storage_subscription_id)
 
     @property
     @pulumi.getter(name="aofBackupEnabled")
@@ -683,10 +904,31 @@ class ScheduleEntryArgs:
         :param pulumi.Input[int] start_hour_utc: Start hour after which cache patching can start.
         :param pulumi.Input[str] maintenance_window: ISO8601 timespan specifying how much time cache patching can take. 
         """
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "start_hour_utc", start_hour_utc)
+        ScheduleEntryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            start_hour_utc=start_hour_utc,
+            maintenance_window=maintenance_window,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: pulumi.Input['DayOfWeek'],
+             start_hour_utc: pulumi.Input[int],
+             maintenance_window: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'startHourUtc' in kwargs:
+            start_hour_utc = kwargs['startHourUtc']
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+
+        _setter("day_of_week", day_of_week)
+        _setter("start_hour_utc", start_hour_utc)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -737,9 +979,24 @@ class SkuArgs:
         :param pulumi.Input[Union[str, 'SkuFamily']] family: The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
         :param pulumi.Input[Union[str, 'SkuName']] name: The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "family", family)
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            family=family,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: pulumi.Input[int],
+             family: pulumi.Input[Union[str, 'SkuFamily']],
+             name: pulumi.Input[Union[str, 'SkuName']],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("capacity", capacity)
+        _setter("family", family)
+        _setter("name", name)
 
     @property
     @pulumi.getter

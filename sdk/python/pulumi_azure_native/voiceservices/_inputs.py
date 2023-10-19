@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -26,9 +26,24 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -69,13 +84,38 @@ class PrimaryRegionPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_signaling_source_address_prefixes: The allowed source IP address or CIDR ranges for signaling
         :param pulumi.Input[Sequence[pulumi.Input[str]]] esrp_addresses: IP address to use to contact the ESRP from this region
         """
-        pulumi.set(__self__, "operator_addresses", operator_addresses)
+        PrimaryRegionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_addresses=operator_addresses,
+            allowed_media_source_address_prefixes=allowed_media_source_address_prefixes,
+            allowed_signaling_source_address_prefixes=allowed_signaling_source_address_prefixes,
+            esrp_addresses=esrp_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
+             allowed_media_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_signaling_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             esrp_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'operatorAddresses' in kwargs:
+            operator_addresses = kwargs['operatorAddresses']
+        if 'allowedMediaSourceAddressPrefixes' in kwargs:
+            allowed_media_source_address_prefixes = kwargs['allowedMediaSourceAddressPrefixes']
+        if 'allowedSignalingSourceAddressPrefixes' in kwargs:
+            allowed_signaling_source_address_prefixes = kwargs['allowedSignalingSourceAddressPrefixes']
+        if 'esrpAddresses' in kwargs:
+            esrp_addresses = kwargs['esrpAddresses']
+
+        _setter("operator_addresses", operator_addresses)
         if allowed_media_source_address_prefixes is not None:
-            pulumi.set(__self__, "allowed_media_source_address_prefixes", allowed_media_source_address_prefixes)
+            _setter("allowed_media_source_address_prefixes", allowed_media_source_address_prefixes)
         if allowed_signaling_source_address_prefixes is not None:
-            pulumi.set(__self__, "allowed_signaling_source_address_prefixes", allowed_signaling_source_address_prefixes)
+            _setter("allowed_signaling_source_address_prefixes", allowed_signaling_source_address_prefixes)
         if esrp_addresses is not None:
-            pulumi.set(__self__, "esrp_addresses", esrp_addresses)
+            _setter("esrp_addresses", esrp_addresses)
 
     @property
     @pulumi.getter(name="operatorAddresses")
@@ -136,8 +176,23 @@ class ServiceRegionPropertiesArgs:
         :param pulumi.Input[str] name: The name of the region in which the resources needed for Teams Calling will be deployed.
         :param pulumi.Input['PrimaryRegionPropertiesArgs'] primary_region_properties: The configuration used in this region as primary, and other regions as backup.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "primary_region_properties", primary_region_properties)
+        ServiceRegionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            primary_region_properties=primary_region_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             primary_region_properties: pulumi.Input['PrimaryRegionPropertiesArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'primaryRegionProperties' in kwargs:
+            primary_region_properties = kwargs['primaryRegionProperties']
+
+        _setter("name", name)
+        _setter("primary_region_properties", primary_region_properties)
 
     @property
     @pulumi.getter

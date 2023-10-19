@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -65,45 +65,118 @@ class ContainerGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]] volumes: The list of volumes that can be mounted by containers in this container group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The zones for the container group.
         """
-        pulumi.set(__self__, "containers", containers)
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ContainerGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            containers=containers,
+            os_type=os_type,
+            resource_group_name=resource_group_name,
+            confidential_compute_properties=confidential_compute_properties,
+            container_group_name=container_group_name,
+            diagnostics=diagnostics,
+            dns_config=dns_config,
+            encryption_properties=encryption_properties,
+            extensions=extensions,
+            identity=identity,
+            image_registry_credentials=image_registry_credentials,
+            init_containers=init_containers,
+            ip_address=ip_address,
+            location=location,
+            priority=priority,
+            restart_policy=restart_policy,
+            sku=sku,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            volumes=volumes,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             containers: pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]],
+             os_type: pulumi.Input[Union[str, 'OperatingSystemTypes']],
+             resource_group_name: pulumi.Input[str],
+             confidential_compute_properties: Optional[pulumi.Input['ConfidentialComputePropertiesArgs']] = None,
+             container_group_name: Optional[pulumi.Input[str]] = None,
+             diagnostics: Optional[pulumi.Input['ContainerGroupDiagnosticsArgs']] = None,
+             dns_config: Optional[pulumi.Input['DnsConfigurationArgs']] = None,
+             encryption_properties: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
+             extensions: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentExtensionSpecArgs']]]] = None,
+             identity: Optional[pulumi.Input['ContainerGroupIdentityArgs']] = None,
+             image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRegistryCredentialArgs']]]] = None,
+             init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['InitContainerDefinitionArgs']]]] = None,
+             ip_address: Optional[pulumi.Input['IpAddressArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[Union[str, 'ContainerGroupPriority']]] = None,
+             restart_policy: Optional[pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']]] = None,
+             sku: Optional[pulumi.Input[Union[str, 'ContainerGroupSku']]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'confidentialComputeProperties' in kwargs:
+            confidential_compute_properties = kwargs['confidentialComputeProperties']
+        if 'containerGroupName' in kwargs:
+            container_group_name = kwargs['containerGroupName']
+        if 'dnsConfig' in kwargs:
+            dns_config = kwargs['dnsConfig']
+        if 'encryptionProperties' in kwargs:
+            encryption_properties = kwargs['encryptionProperties']
+        if 'imageRegistryCredentials' in kwargs:
+            image_registry_credentials = kwargs['imageRegistryCredentials']
+        if 'initContainers' in kwargs:
+            init_containers = kwargs['initContainers']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'restartPolicy' in kwargs:
+            restart_policy = kwargs['restartPolicy']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
+        _setter("containers", containers)
+        _setter("os_type", os_type)
+        _setter("resource_group_name", resource_group_name)
         if confidential_compute_properties is not None:
-            pulumi.set(__self__, "confidential_compute_properties", confidential_compute_properties)
+            _setter("confidential_compute_properties", confidential_compute_properties)
         if container_group_name is not None:
-            pulumi.set(__self__, "container_group_name", container_group_name)
+            _setter("container_group_name", container_group_name)
         if diagnostics is not None:
-            pulumi.set(__self__, "diagnostics", diagnostics)
+            _setter("diagnostics", diagnostics)
         if dns_config is not None:
-            pulumi.set(__self__, "dns_config", dns_config)
+            _setter("dns_config", dns_config)
         if encryption_properties is not None:
-            pulumi.set(__self__, "encryption_properties", encryption_properties)
+            _setter("encryption_properties", encryption_properties)
         if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
+            _setter("extensions", extensions)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if image_registry_credentials is not None:
-            pulumi.set(__self__, "image_registry_credentials", image_registry_credentials)
+            _setter("image_registry_credentials", image_registry_credentials)
         if init_containers is not None:
-            pulumi.set(__self__, "init_containers", init_containers)
+            _setter("init_containers", init_containers)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if restart_policy is not None:
-            pulumi.set(__self__, "restart_policy", restart_policy)
+            _setter("restart_policy", restart_policy)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if volumes is not None:
-            pulumi.set(__self__, "volumes", volumes)
+            _setter("volumes", volumes)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter
@@ -439,6 +512,10 @@ class ContainerGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContainerGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -474,18 +551,48 @@ class ContainerGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContainerGroupArgs.__new__(ContainerGroupArgs)
 
+            if confidential_compute_properties is not None and not isinstance(confidential_compute_properties, ConfidentialComputePropertiesArgs):
+                confidential_compute_properties = confidential_compute_properties or {}
+                def _setter(key, value):
+                    confidential_compute_properties[key] = value
+                ConfidentialComputePropertiesArgs._configure(_setter, **confidential_compute_properties)
             __props__.__dict__["confidential_compute_properties"] = confidential_compute_properties
             __props__.__dict__["container_group_name"] = container_group_name
             if containers is None and not opts.urn:
                 raise TypeError("Missing required property 'containers'")
             __props__.__dict__["containers"] = containers
+            if diagnostics is not None and not isinstance(diagnostics, ContainerGroupDiagnosticsArgs):
+                diagnostics = diagnostics or {}
+                def _setter(key, value):
+                    diagnostics[key] = value
+                ContainerGroupDiagnosticsArgs._configure(_setter, **diagnostics)
             __props__.__dict__["diagnostics"] = diagnostics
+            if dns_config is not None and not isinstance(dns_config, DnsConfigurationArgs):
+                dns_config = dns_config or {}
+                def _setter(key, value):
+                    dns_config[key] = value
+                DnsConfigurationArgs._configure(_setter, **dns_config)
             __props__.__dict__["dns_config"] = dns_config
+            if encryption_properties is not None and not isinstance(encryption_properties, EncryptionPropertiesArgs):
+                encryption_properties = encryption_properties or {}
+                def _setter(key, value):
+                    encryption_properties[key] = value
+                EncryptionPropertiesArgs._configure(_setter, **encryption_properties)
             __props__.__dict__["encryption_properties"] = encryption_properties
             __props__.__dict__["extensions"] = extensions
+            if identity is not None and not isinstance(identity, ContainerGroupIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ContainerGroupIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["image_registry_credentials"] = image_registry_credentials
             __props__.__dict__["init_containers"] = init_containers
+            if ip_address is not None and not isinstance(ip_address, IpAddressArgs):
+                ip_address = ip_address or {}
+                def _setter(key, value):
+                    ip_address[key] = value
+                IpAddressArgs._configure(_setter, **ip_address)
             __props__.__dict__["ip_address"] = ip_address
             __props__.__dict__["location"] = location
             if os_type is None and not opts.urn:

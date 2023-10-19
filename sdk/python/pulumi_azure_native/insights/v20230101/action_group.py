@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,39 +53,110 @@ class ActionGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VoiceReceiverArgs']]] voice_receivers: The list of voice receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookReceiverArgs']]] webhook_receivers: The list of webhook receivers that are part of this action group.
         """
+        ActionGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            group_short_name=group_short_name,
+            resource_group_name=resource_group_name,
+            action_group_name=action_group_name,
+            arm_role_receivers=arm_role_receivers,
+            automation_runbook_receivers=automation_runbook_receivers,
+            azure_app_push_receivers=azure_app_push_receivers,
+            azure_function_receivers=azure_function_receivers,
+            email_receivers=email_receivers,
+            event_hub_receivers=event_hub_receivers,
+            itsm_receivers=itsm_receivers,
+            location=location,
+            logic_app_receivers=logic_app_receivers,
+            sms_receivers=sms_receivers,
+            tags=tags,
+            voice_receivers=voice_receivers,
+            webhook_receivers=webhook_receivers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             group_short_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             action_group_name: Optional[pulumi.Input[str]] = None,
+             arm_role_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ArmRoleReceiverArgs']]]] = None,
+             automation_runbook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRunbookReceiverArgs']]]] = None,
+             azure_app_push_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['AzureAppPushReceiverArgs']]]] = None,
+             azure_function_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFunctionReceiverArgs']]]] = None,
+             email_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['EmailReceiverArgs']]]] = None,
+             event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['EventHubReceiverArgs']]]] = None,
+             itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ItsmReceiverArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             logic_app_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['LogicAppReceiverArgs']]]] = None,
+             sms_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['SmsReceiverArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             voice_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['VoiceReceiverArgs']]]] = None,
+             webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookReceiverArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupShortName' in kwargs:
+            group_short_name = kwargs['groupShortName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'actionGroupName' in kwargs:
+            action_group_name = kwargs['actionGroupName']
+        if 'armRoleReceivers' in kwargs:
+            arm_role_receivers = kwargs['armRoleReceivers']
+        if 'automationRunbookReceivers' in kwargs:
+            automation_runbook_receivers = kwargs['automationRunbookReceivers']
+        if 'azureAppPushReceivers' in kwargs:
+            azure_app_push_receivers = kwargs['azureAppPushReceivers']
+        if 'azureFunctionReceivers' in kwargs:
+            azure_function_receivers = kwargs['azureFunctionReceivers']
+        if 'emailReceivers' in kwargs:
+            email_receivers = kwargs['emailReceivers']
+        if 'eventHubReceivers' in kwargs:
+            event_hub_receivers = kwargs['eventHubReceivers']
+        if 'itsmReceivers' in kwargs:
+            itsm_receivers = kwargs['itsmReceivers']
+        if 'logicAppReceivers' in kwargs:
+            logic_app_receivers = kwargs['logicAppReceivers']
+        if 'smsReceivers' in kwargs:
+            sms_receivers = kwargs['smsReceivers']
+        if 'voiceReceivers' in kwargs:
+            voice_receivers = kwargs['voiceReceivers']
+        if 'webhookReceivers' in kwargs:
+            webhook_receivers = kwargs['webhookReceivers']
+
         if enabled is None:
             enabled = True
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "group_short_name", group_short_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        _setter("enabled", enabled)
+        _setter("group_short_name", group_short_name)
+        _setter("resource_group_name", resource_group_name)
         if action_group_name is not None:
-            pulumi.set(__self__, "action_group_name", action_group_name)
+            _setter("action_group_name", action_group_name)
         if arm_role_receivers is not None:
-            pulumi.set(__self__, "arm_role_receivers", arm_role_receivers)
+            _setter("arm_role_receivers", arm_role_receivers)
         if automation_runbook_receivers is not None:
-            pulumi.set(__self__, "automation_runbook_receivers", automation_runbook_receivers)
+            _setter("automation_runbook_receivers", automation_runbook_receivers)
         if azure_app_push_receivers is not None:
-            pulumi.set(__self__, "azure_app_push_receivers", azure_app_push_receivers)
+            _setter("azure_app_push_receivers", azure_app_push_receivers)
         if azure_function_receivers is not None:
-            pulumi.set(__self__, "azure_function_receivers", azure_function_receivers)
+            _setter("azure_function_receivers", azure_function_receivers)
         if email_receivers is not None:
-            pulumi.set(__self__, "email_receivers", email_receivers)
+            _setter("email_receivers", email_receivers)
         if event_hub_receivers is not None:
-            pulumi.set(__self__, "event_hub_receivers", event_hub_receivers)
+            _setter("event_hub_receivers", event_hub_receivers)
         if itsm_receivers is not None:
-            pulumi.set(__self__, "itsm_receivers", itsm_receivers)
+            _setter("itsm_receivers", itsm_receivers)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if logic_app_receivers is not None:
-            pulumi.set(__self__, "logic_app_receivers", logic_app_receivers)
+            _setter("logic_app_receivers", logic_app_receivers)
         if sms_receivers is not None:
-            pulumi.set(__self__, "sms_receivers", sms_receivers)
+            _setter("sms_receivers", sms_receivers)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if voice_receivers is not None:
-            pulumi.set(__self__, "voice_receivers", voice_receivers)
+            _setter("voice_receivers", voice_receivers)
         if webhook_receivers is not None:
-            pulumi.set(__self__, "webhook_receivers", webhook_receivers)
+            _setter("webhook_receivers", webhook_receivers)
 
     @property
     @pulumi.getter
@@ -357,6 +428,10 @@ class ActionGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ActionGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -36,22 +36,65 @@ class WorkloadNetworkDnsServiceArgs:
         :param pulumi.Input[Union[str, 'DnsServiceLogLevelEnum']] log_level: DNS Service log level.
         :param pulumi.Input[float] revision: NSX revision number.
         """
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkloadNetworkDnsServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            default_dns_zone=default_dns_zone,
+            display_name=display_name,
+            dns_service_id=dns_service_id,
+            dns_service_ip=dns_service_ip,
+            fqdn_zones=fqdn_zones,
+            log_level=log_level,
+            revision=revision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_cloud_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             default_dns_zone: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             dns_service_id: Optional[pulumi.Input[str]] = None,
+             dns_service_ip: Optional[pulumi.Input[str]] = None,
+             fqdn_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             log_level: Optional[pulumi.Input[Union[str, 'DnsServiceLogLevelEnum']]] = None,
+             revision: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateCloudName' in kwargs:
+            private_cloud_name = kwargs['privateCloudName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'defaultDnsZone' in kwargs:
+            default_dns_zone = kwargs['defaultDnsZone']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'dnsServiceId' in kwargs:
+            dns_service_id = kwargs['dnsServiceId']
+        if 'dnsServiceIp' in kwargs:
+            dns_service_ip = kwargs['dnsServiceIp']
+        if 'fqdnZones' in kwargs:
+            fqdn_zones = kwargs['fqdnZones']
+        if 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
         if default_dns_zone is not None:
-            pulumi.set(__self__, "default_dns_zone", default_dns_zone)
+            _setter("default_dns_zone", default_dns_zone)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if dns_service_id is not None:
-            pulumi.set(__self__, "dns_service_id", dns_service_id)
+            _setter("dns_service_id", dns_service_id)
         if dns_service_ip is not None:
-            pulumi.set(__self__, "dns_service_ip", dns_service_ip)
+            _setter("dns_service_ip", dns_service_ip)
         if fqdn_zones is not None:
-            pulumi.set(__self__, "fqdn_zones", fqdn_zones)
+            _setter("fqdn_zones", fqdn_zones)
         if log_level is not None:
-            pulumi.set(__self__, "log_level", log_level)
+            _setter("log_level", log_level)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -213,6 +256,10 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkloadNetworkDnsServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

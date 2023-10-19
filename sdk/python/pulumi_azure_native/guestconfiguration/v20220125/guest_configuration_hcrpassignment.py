@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,43 @@ class GuestConfigurationHCRPAssignmentArgs:
         :param pulumi.Input[str] name: Name of the guest configuration assignment.
         :param pulumi.Input['GuestConfigurationAssignmentPropertiesArgs'] properties: Properties of the Guest configuration assignment.
         """
-        pulumi.set(__self__, "machine_name", machine_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        GuestConfigurationHCRPAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            machine_name=machine_name,
+            resource_group_name=resource_group_name,
+            guest_configuration_assignment_name=guest_configuration_assignment_name,
+            location=location,
+            name=name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             machine_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             guest_configuration_assignment_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['GuestConfigurationAssignmentPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'machineName' in kwargs:
+            machine_name = kwargs['machineName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'guestConfigurationAssignmentName' in kwargs:
+            guest_configuration_assignment_name = kwargs['guestConfigurationAssignmentName']
+
+        _setter("machine_name", machine_name)
+        _setter("resource_group_name", resource_group_name)
         if guest_configuration_assignment_name is not None:
-            pulumi.set(__self__, "guest_configuration_assignment_name", guest_configuration_assignment_name)
+            _setter("guest_configuration_assignment_name", guest_configuration_assignment_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="machineName")
@@ -159,6 +186,10 @@ class GuestConfigurationHCRPAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GuestConfigurationHCRPAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -185,6 +216,11 @@ class GuestConfigurationHCRPAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'machine_name'")
             __props__.__dict__["machine_name"] = machine_name
             __props__.__dict__["name"] = name
+            if properties is not None and not isinstance(properties, GuestConfigurationAssignmentPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                GuestConfigurationAssignmentPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

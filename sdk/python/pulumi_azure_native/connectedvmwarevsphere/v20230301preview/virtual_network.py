@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,23 +37,62 @@ class VirtualNetworkArgs:
         :param pulumi.Input[str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this template resides.
         :param pulumi.Input[str] virtual_network_name: Name of the virtual network resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            extended_location=extended_location,
+            inventory_item_id=inventory_item_id,
+            kind=kind,
+            location=location,
+            mo_ref_id=mo_ref_id,
+            tags=tags,
+            v_center_id=v_center_id,
+            virtual_network_name=virtual_network_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             inventory_item_id: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mo_ref_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             v_center_id: Optional[pulumi.Input[str]] = None,
+             virtual_network_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if 'inventoryItemId' in kwargs:
+            inventory_item_id = kwargs['inventoryItemId']
+        if 'moRefId' in kwargs:
+            mo_ref_id = kwargs['moRefId']
+        if 'vCenterId' in kwargs:
+            v_center_id = kwargs['vCenterId']
+        if 'virtualNetworkName' in kwargs:
+            virtual_network_name = kwargs['virtualNetworkName']
+
+        _setter("resource_group_name", resource_group_name)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if inventory_item_id is not None:
-            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+            _setter("inventory_item_id", inventory_item_id)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mo_ref_id is not None:
-            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+            _setter("mo_ref_id", mo_ref_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if v_center_id is not None:
-            pulumi.set(__self__, "v_center_id", v_center_id)
+            _setter("v_center_id", v_center_id)
         if virtual_network_name is not None:
-            pulumi.set(__self__, "virtual_network_name", virtual_network_name)
+            _setter("virtual_network_name", virtual_network_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -213,6 +252,10 @@ class VirtualNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualNetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -236,6 +279,11 @@ class VirtualNetwork(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualNetworkArgs.__new__(VirtualNetworkArgs)
 
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["inventory_item_id"] = inventory_item_id
             __props__.__dict__["kind"] = kind

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -30,7 +30,20 @@ class PrivateEndpointConnectionArgs:
         The Private Endpoint Connection resource.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         """
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        PrivateEndpointConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -57,12 +70,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -109,7 +139,20 @@ class ServiceAccessPolicyEntryArgs:
         An access policy entry.
         :param pulumi.Input[str] object_id: An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
         """
-        pulumi.set(__self__, "object_id", object_id)
+        ServiceAccessPolicyEntryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_id=object_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+
+        _setter("object_id", object_id)
 
     @property
     @pulumi.getter(name="objectId")
@@ -136,12 +179,29 @@ class ServiceAuthenticationConfigurationInfoArgs:
         :param pulumi.Input[str] authority: The authority url for the service
         :param pulumi.Input[bool] smart_proxy_enabled: If the SMART on FHIR proxy is enabled
         """
+        ServiceAuthenticationConfigurationInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audience=audience,
+            authority=authority,
+            smart_proxy_enabled=smart_proxy_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audience: Optional[pulumi.Input[str]] = None,
+             authority: Optional[pulumi.Input[str]] = None,
+             smart_proxy_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'smartProxyEnabled' in kwargs:
+            smart_proxy_enabled = kwargs['smartProxyEnabled']
+
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if authority is not None:
-            pulumi.set(__self__, "authority", authority)
+            _setter("authority", authority)
         if smart_proxy_enabled is not None:
-            pulumi.set(__self__, "smart_proxy_enabled", smart_proxy_enabled)
+            _setter("smart_proxy_enabled", smart_proxy_enabled)
 
     @property
     @pulumi.getter
@@ -196,16 +256,39 @@ class ServiceCorsConfigurationInfoArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] methods: The methods to be allowed via CORS.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] origins: The origins to be allowed via CORS.
         """
+        ServiceCorsConfigurationInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_credentials=allow_credentials,
+            headers=headers,
+            max_age=max_age,
+            methods=methods,
+            origins=origins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_credentials: Optional[pulumi.Input[bool]] = None,
+             headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             max_age: Optional[pulumi.Input[float]] = None,
+             methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowCredentials' in kwargs:
+            allow_credentials = kwargs['allowCredentials']
+        if 'maxAge' in kwargs:
+            max_age = kwargs['maxAge']
+
         if allow_credentials is not None:
-            pulumi.set(__self__, "allow_credentials", allow_credentials)
+            _setter("allow_credentials", allow_credentials)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if max_age is not None:
-            pulumi.set(__self__, "max_age", max_age)
+            _setter("max_age", max_age)
         if methods is not None:
-            pulumi.set(__self__, "methods", methods)
+            _setter("methods", methods)
         if origins is not None:
-            pulumi.set(__self__, "origins", origins)
+            _setter("origins", origins)
 
     @property
     @pulumi.getter(name="allowCredentials")
@@ -278,10 +361,27 @@ class ServiceCosmosDbConfigurationInfoArgs:
         :param pulumi.Input[str] key_vault_key_uri: The URI of the customer-managed key for the backing database.
         :param pulumi.Input[float] offer_throughput: The provisioned throughput for the backing database.
         """
+        ServiceCosmosDbConfigurationInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_key_uri=key_vault_key_uri,
+            offer_throughput=offer_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_key_uri: Optional[pulumi.Input[str]] = None,
+             offer_throughput: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultKeyUri' in kwargs:
+            key_vault_key_uri = kwargs['keyVaultKeyUri']
+        if 'offerThroughput' in kwargs:
+            offer_throughput = kwargs['offerThroughput']
+
         if key_vault_key_uri is not None:
-            pulumi.set(__self__, "key_vault_key_uri", key_vault_key_uri)
+            _setter("key_vault_key_uri", key_vault_key_uri)
         if offer_throughput is not None:
-            pulumi.set(__self__, "offer_throughput", offer_throughput)
+            _setter("offer_throughput", offer_throughput)
 
     @property
     @pulumi.getter(name="keyVaultKeyUri")
@@ -316,8 +416,21 @@ class ServiceExportConfigurationInfoArgs:
         Export operation configuration information
         :param pulumi.Input[str] storage_account_name: The name of the default export storage account.
         """
+        ServiceExportConfigurationInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_account_name=storage_account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
 
     @property
     @pulumi.getter(name="storageAccountName")
@@ -352,20 +465,57 @@ class ServicesPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: The list of private endpoint connections that are set up for this resource.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         """
+        ServicesPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policies=access_policies,
+            authentication_configuration=authentication_configuration,
+            cors_configuration=cors_configuration,
+            cosmos_db_configuration=cosmos_db_configuration,
+            export_configuration=export_configuration,
+            private_endpoint_connections=private_endpoint_connections,
+            public_network_access=public_network_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgs']]]] = None,
+             authentication_configuration: Optional[pulumi.Input['ServiceAuthenticationConfigurationInfoArgs']] = None,
+             cors_configuration: Optional[pulumi.Input['ServiceCorsConfigurationInfoArgs']] = None,
+             cosmos_db_configuration: Optional[pulumi.Input['ServiceCosmosDbConfigurationInfoArgs']] = None,
+             export_configuration: Optional[pulumi.Input['ServiceExportConfigurationInfoArgs']] = None,
+             private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPolicies' in kwargs:
+            access_policies = kwargs['accessPolicies']
+        if 'authenticationConfiguration' in kwargs:
+            authentication_configuration = kwargs['authenticationConfiguration']
+        if 'corsConfiguration' in kwargs:
+            cors_configuration = kwargs['corsConfiguration']
+        if 'cosmosDbConfiguration' in kwargs:
+            cosmos_db_configuration = kwargs['cosmosDbConfiguration']
+        if 'exportConfiguration' in kwargs:
+            export_configuration = kwargs['exportConfiguration']
+        if 'privateEndpointConnections' in kwargs:
+            private_endpoint_connections = kwargs['privateEndpointConnections']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+
         if access_policies is not None:
-            pulumi.set(__self__, "access_policies", access_policies)
+            _setter("access_policies", access_policies)
         if authentication_configuration is not None:
-            pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+            _setter("authentication_configuration", authentication_configuration)
         if cors_configuration is not None:
-            pulumi.set(__self__, "cors_configuration", cors_configuration)
+            _setter("cors_configuration", cors_configuration)
         if cosmos_db_configuration is not None:
-            pulumi.set(__self__, "cosmos_db_configuration", cosmos_db_configuration)
+            _setter("cosmos_db_configuration", cosmos_db_configuration)
         if export_configuration is not None:
-            pulumi.set(__self__, "export_configuration", export_configuration)
+            _setter("export_configuration", export_configuration)
         if private_endpoint_connections is not None:
-            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+            _setter("private_endpoint_connections", private_endpoint_connections)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
 
     @property
     @pulumi.getter(name="accessPolicies")
@@ -460,8 +610,19 @@ class ServicesResourceIdentityArgs:
         Setting indicating whether the service has a managed identity associated with it.
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of identity being specified, currently SystemAssigned and None are allowed.
         """
+        ServicesResourceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter

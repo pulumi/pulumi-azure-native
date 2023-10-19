@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,18 +37,59 @@ class RackArgs:
         :param pulumi.Input[str] rack_name: The name of the rack.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "availability_zone", availability_zone)
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "rack_location", rack_location)
-        pulumi.set(__self__, "rack_serial_number", rack_serial_number)
-        pulumi.set(__self__, "rack_sku_id", rack_sku_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        RackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone=availability_zone,
+            extended_location=extended_location,
+            rack_location=rack_location,
+            rack_serial_number=rack_serial_number,
+            rack_sku_id=rack_sku_id,
+            resource_group_name=resource_group_name,
+            location=location,
+            rack_name=rack_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone: pulumi.Input[str],
+             extended_location: pulumi.Input['ExtendedLocationArgs'],
+             rack_location: pulumi.Input[str],
+             rack_serial_number: pulumi.Input[str],
+             rack_sku_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             rack_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if 'rackLocation' in kwargs:
+            rack_location = kwargs['rackLocation']
+        if 'rackSerialNumber' in kwargs:
+            rack_serial_number = kwargs['rackSerialNumber']
+        if 'rackSkuId' in kwargs:
+            rack_sku_id = kwargs['rackSkuId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'rackName' in kwargs:
+            rack_name = kwargs['rackName']
+
+        _setter("availability_zone", availability_zone)
+        _setter("extended_location", extended_location)
+        _setter("rack_location", rack_location)
+        _setter("rack_serial_number", rack_serial_number)
+        _setter("rack_sku_id", rack_sku_id)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if rack_name is not None:
-            pulumi.set(__self__, "rack_name", rack_name)
+            _setter("rack_name", rack_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -208,6 +249,10 @@ class Rack(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RackArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -234,6 +279,11 @@ class Rack(pulumi.CustomResource):
             if availability_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone'")
             __props__.__dict__["availability_zone"] = availability_zone
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location

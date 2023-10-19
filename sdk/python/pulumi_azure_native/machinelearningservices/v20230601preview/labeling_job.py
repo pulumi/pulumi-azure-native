@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,11 +28,34 @@ class LabelingJobInitArgs:
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] id: The name and identifier for the LabelingJob.
         """
-        pulumi.set(__self__, "labeling_job_properties", labeling_job_properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        LabelingJobInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            labeling_job_properties=labeling_job_properties,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             labeling_job_properties: pulumi.Input['LabelingJobArgs'],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labelingJobProperties' in kwargs:
+            labeling_job_properties = kwargs['labelingJobProperties']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+
+        _setter("labeling_job_properties", labeling_job_properties)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter(name="labelingJobProperties")
@@ -122,6 +145,10 @@ class LabelingJob(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LabelingJobInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -141,6 +168,11 @@ class LabelingJob(pulumi.CustomResource):
             __props__ = LabelingJobInitArgs.__new__(LabelingJobInitArgs)
 
             __props__.__dict__["id"] = id
+            if labeling_job_properties is not None and not isinstance(labeling_job_properties, LabelingJobArgs):
+                labeling_job_properties = labeling_job_properties or {}
+                def _setter(key, value):
+                    labeling_job_properties[key] = value
+                LabelingJobArgs._configure(_setter, **labeling_job_properties)
             if labeling_job_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'labeling_job_properties'")
             __props__.__dict__["labeling_job_properties"] = labeling_job_properties

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -48,30 +48,91 @@ class ServiceArgs:
         :param pulumi.Input['QosPolicyArgs'] service_qos_policy: The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "mobile_network_name", mobile_network_name)
-        pulumi.set(__self__, "pcc_rules", pcc_rules)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_precedence", service_precedence)
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mobile_network_name=mobile_network_name,
+            pcc_rules=pcc_rules,
+            resource_group_name=resource_group_name,
+            service_precedence=service_precedence,
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+            location=location,
+            service_name=service_name,
+            service_qos_policy=service_qos_policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mobile_network_name: pulumi.Input[str],
+             pcc_rules: pulumi.Input[Sequence[pulumi.Input['PccRuleConfigurationArgs']]],
+             resource_group_name: pulumi.Input[str],
+             service_precedence: pulumi.Input[int],
+             created_at: Optional[pulumi.Input[str]] = None,
+             created_by: Optional[pulumi.Input[str]] = None,
+             created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+             last_modified_at: Optional[pulumi.Input[str]] = None,
+             last_modified_by: Optional[pulumi.Input[str]] = None,
+             last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             service_qos_policy: Optional[pulumi.Input['QosPolicyArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mobileNetworkName' in kwargs:
+            mobile_network_name = kwargs['mobileNetworkName']
+        if 'pccRules' in kwargs:
+            pcc_rules = kwargs['pccRules']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'servicePrecedence' in kwargs:
+            service_precedence = kwargs['servicePrecedence']
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'serviceQosPolicy' in kwargs:
+            service_qos_policy = kwargs['serviceQosPolicy']
+
+        _setter("mobile_network_name", mobile_network_name)
+        _setter("pcc_rules", pcc_rules)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_precedence", service_precedence)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if service_qos_policy is not None:
-            pulumi.set(__self__, "service_qos_policy", service_qos_policy)
+            _setter("service_qos_policy", service_qos_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="mobileNetworkName")
@@ -301,6 +362,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -349,6 +414,11 @@ class Service(pulumi.CustomResource):
             if service_precedence is None and not opts.urn:
                 raise TypeError("Missing required property 'service_precedence'")
             __props__.__dict__["service_precedence"] = service_precedence
+            if service_qos_policy is not None and not isinstance(service_qos_policy, QosPolicyArgs):
+                service_qos_policy = service_qos_policy or {}
+                def _setter(key, value):
+                    service_qos_policy[key] = value
+                QosPolicyArgs._configure(_setter, **service_qos_policy)
             __props__.__dict__["service_qos_policy"] = service_qos_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None

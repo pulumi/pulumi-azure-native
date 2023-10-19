@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -52,11 +52,32 @@ class AppServiceCertificateResponse(dict):
         :param str key_vault_id: Key Vault resource Id.
         :param str key_vault_secret_name: Key Vault secret name.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        AppServiceCertificateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            key_vault_id=key_vault_id,
+            key_vault_secret_name=key_vault_secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: str,
+             key_vault_id: Optional[str] = None,
+             key_vault_secret_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'keyVaultSecretName' in kwargs:
+            key_vault_secret_name = kwargs['keyVaultSecretName']
+
+        _setter("provisioning_state", provisioning_state)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if key_vault_secret_name is not None:
-            pulumi.set(__self__, "key_vault_secret_name", key_vault_secret_name)
+            _setter("key_vault_secret_name", key_vault_secret_name)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -135,15 +156,52 @@ class CertificateDetailsResponse(dict):
         :param str thumbprint: Certificate Thumbprint.
         :param int version: Certificate Version.
         """
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "not_after", not_after)
-        pulumi.set(__self__, "not_before", not_before)
-        pulumi.set(__self__, "raw_data", raw_data)
-        pulumi.set(__self__, "serial_number", serial_number)
-        pulumi.set(__self__, "signature_algorithm", signature_algorithm)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "thumbprint", thumbprint)
-        pulumi.set(__self__, "version", version)
+        CertificateDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            issuer=issuer,
+            not_after=not_after,
+            not_before=not_before,
+            raw_data=raw_data,
+            serial_number=serial_number,
+            signature_algorithm=signature_algorithm,
+            subject=subject,
+            thumbprint=thumbprint,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             issuer: str,
+             not_after: str,
+             not_before: str,
+             raw_data: str,
+             serial_number: str,
+             signature_algorithm: str,
+             subject: str,
+             thumbprint: str,
+             version: int,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notAfter' in kwargs:
+            not_after = kwargs['notAfter']
+        if 'notBefore' in kwargs:
+            not_before = kwargs['notBefore']
+        if 'rawData' in kwargs:
+            raw_data = kwargs['rawData']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if 'signatureAlgorithm' in kwargs:
+            signature_algorithm = kwargs['signatureAlgorithm']
+
+        _setter("issuer", issuer)
+        _setter("not_after", not_after)
+        _setter("not_before", not_before)
+        _setter("raw_data", raw_data)
+        _setter("serial_number", serial_number)
+        _setter("signature_algorithm", signature_algorithm)
+        _setter("subject", subject)
+        _setter("thumbprint", thumbprint)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -244,14 +302,35 @@ class CertificateOrderContactResponse(dict):
                  name_first: Optional[str] = None,
                  name_last: Optional[str] = None,
                  phone: Optional[str] = None):
+        CertificateOrderContactResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            name_first=name_first,
+            name_last=name_last,
+            phone=phone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: Optional[str] = None,
+             name_first: Optional[str] = None,
+             name_last: Optional[str] = None,
+             phone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nameFirst' in kwargs:
+            name_first = kwargs['nameFirst']
+        if 'nameLast' in kwargs:
+            name_last = kwargs['nameLast']
+
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if name_first is not None:
-            pulumi.set(__self__, "name_first", name_first)
+            _setter("name_first", name_first)
         if name_last is not None:
-            pulumi.set(__self__, "name_last", name_last)
+            _setter("name_last", name_last)
         if phone is not None:
-            pulumi.set(__self__, "phone", phone)
+            _setter("phone", phone)
 
     @property
     @pulumi.getter

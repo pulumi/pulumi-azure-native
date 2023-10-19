@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,27 +42,74 @@ class MonitorArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] zone_redundancy_preference: Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MonitorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            app_location=app_location,
+            identity=identity,
+            location=location,
+            log_analytics_workspace_arm_id=log_analytics_workspace_arm_id,
+            managed_resource_group_configuration=managed_resource_group_configuration,
+            monitor_name=monitor_name,
+            monitor_subnet=monitor_subnet,
+            routing_preference=routing_preference,
+            tags=tags,
+            zone_redundancy_preference=zone_redundancy_preference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             app_location: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['UserAssignedServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_arm_id: Optional[pulumi.Input[str]] = None,
+             managed_resource_group_configuration: Optional[pulumi.Input['ManagedRGConfigurationArgs']] = None,
+             monitor_name: Optional[pulumi.Input[str]] = None,
+             monitor_subnet: Optional[pulumi.Input[str]] = None,
+             routing_preference: Optional[pulumi.Input[Union[str, 'RoutingPreference']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone_redundancy_preference: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'appLocation' in kwargs:
+            app_location = kwargs['appLocation']
+        if 'logAnalyticsWorkspaceArmId' in kwargs:
+            log_analytics_workspace_arm_id = kwargs['logAnalyticsWorkspaceArmId']
+        if 'managedResourceGroupConfiguration' in kwargs:
+            managed_resource_group_configuration = kwargs['managedResourceGroupConfiguration']
+        if 'monitorName' in kwargs:
+            monitor_name = kwargs['monitorName']
+        if 'monitorSubnet' in kwargs:
+            monitor_subnet = kwargs['monitorSubnet']
+        if 'routingPreference' in kwargs:
+            routing_preference = kwargs['routingPreference']
+        if 'zoneRedundancyPreference' in kwargs:
+            zone_redundancy_preference = kwargs['zoneRedundancyPreference']
+
+        _setter("resource_group_name", resource_group_name)
         if app_location is not None:
-            pulumi.set(__self__, "app_location", app_location)
+            _setter("app_location", app_location)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if log_analytics_workspace_arm_id is not None:
-            pulumi.set(__self__, "log_analytics_workspace_arm_id", log_analytics_workspace_arm_id)
+            _setter("log_analytics_workspace_arm_id", log_analytics_workspace_arm_id)
         if managed_resource_group_configuration is not None:
-            pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+            _setter("managed_resource_group_configuration", managed_resource_group_configuration)
         if monitor_name is not None:
-            pulumi.set(__self__, "monitor_name", monitor_name)
+            _setter("monitor_name", monitor_name)
         if monitor_subnet is not None:
-            pulumi.set(__self__, "monitor_subnet", monitor_subnet)
+            _setter("monitor_subnet", monitor_subnet)
         if routing_preference is not None:
-            pulumi.set(__self__, "routing_preference", routing_preference)
+            _setter("routing_preference", routing_preference)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone_redundancy_preference is not None:
-            pulumi.set(__self__, "zone_redundancy_preference", zone_redundancy_preference)
+            _setter("zone_redundancy_preference", zone_redundancy_preference)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -252,6 +299,10 @@ class Monitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -278,9 +329,19 @@ class Monitor(pulumi.CustomResource):
             __props__ = MonitorArgs.__new__(MonitorArgs)
 
             __props__.__dict__["app_location"] = app_location
+            if identity is not None and not isinstance(identity, UserAssignedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                UserAssignedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["log_analytics_workspace_arm_id"] = log_analytics_workspace_arm_id
+            if managed_resource_group_configuration is not None and not isinstance(managed_resource_group_configuration, ManagedRGConfigurationArgs):
+                managed_resource_group_configuration = managed_resource_group_configuration or {}
+                def _setter(key, value):
+                    managed_resource_group_configuration[key] = value
+                ManagedRGConfigurationArgs._configure(_setter, **managed_resource_group_configuration)
             __props__.__dict__["managed_resource_group_configuration"] = managed_resource_group_configuration
             __props__.__dict__["monitor_name"] = monitor_name
             __props__.__dict__["monitor_subnet"] = monitor_subnet

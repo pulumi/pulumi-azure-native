@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -68,28 +68,77 @@ class ActiveConnectivityConfigurationResponse(dict):
         :param str is_global: Flag if global mesh is supported.
         :param str region: Deployment region.
         """
-        pulumi.set(__self__, "connectivity_topology", connectivity_topology)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        ActiveConnectivityConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connectivity_topology=connectivity_topology,
+            provisioning_state=provisioning_state,
+            applies_to_groups=applies_to_groups,
+            commit_time=commit_time,
+            configuration_groups=configuration_groups,
+            delete_existing_peering=delete_existing_peering,
+            description=description,
+            display_name=display_name,
+            hubs=hubs,
+            id=id,
+            is_global=is_global,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connectivity_topology: str,
+             provisioning_state: str,
+             applies_to_groups: Optional[Sequence['outputs.ConnectivityGroupItemResponse']] = None,
+             commit_time: Optional[str] = None,
+             configuration_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None,
+             delete_existing_peering: Optional[str] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             hubs: Optional[Sequence['outputs.HubResponse']] = None,
+             id: Optional[str] = None,
+             is_global: Optional[str] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectivityTopology' in kwargs:
+            connectivity_topology = kwargs['connectivityTopology']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'appliesToGroups' in kwargs:
+            applies_to_groups = kwargs['appliesToGroups']
+        if 'commitTime' in kwargs:
+            commit_time = kwargs['commitTime']
+        if 'configurationGroups' in kwargs:
+            configuration_groups = kwargs['configurationGroups']
+        if 'deleteExistingPeering' in kwargs:
+            delete_existing_peering = kwargs['deleteExistingPeering']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'isGlobal' in kwargs:
+            is_global = kwargs['isGlobal']
+
+        _setter("connectivity_topology", connectivity_topology)
+        _setter("provisioning_state", provisioning_state)
         if applies_to_groups is not None:
-            pulumi.set(__self__, "applies_to_groups", applies_to_groups)
+            _setter("applies_to_groups", applies_to_groups)
         if commit_time is not None:
-            pulumi.set(__self__, "commit_time", commit_time)
+            _setter("commit_time", commit_time)
         if configuration_groups is not None:
-            pulumi.set(__self__, "configuration_groups", configuration_groups)
+            _setter("configuration_groups", configuration_groups)
         if delete_existing_peering is not None:
-            pulumi.set(__self__, "delete_existing_peering", delete_existing_peering)
+            _setter("delete_existing_peering", delete_existing_peering)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if hubs is not None:
-            pulumi.set(__self__, "hubs", hubs)
+            _setter("hubs", hubs)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if is_global is not None:
-            pulumi.set(__self__, "is_global", is_global)
+            _setter("is_global", is_global)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter(name="connectivityTopology")
@@ -242,38 +291,113 @@ class ActiveDefaultSecurityAdminRuleResponse(dict):
         :param str rule_collection_display_name: A display name of the rule collection.
         :param Sequence['ConfigurationGroupResponse'] rule_groups: Effective configuration groups.
         """
-        pulumi.set(__self__, "access", access)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
-        pulumi.set(__self__, "destinations", destinations)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "kind", 'Default')
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "source_port_ranges", source_port_ranges)
-        pulumi.set(__self__, "sources", sources)
+        ActiveDefaultSecurityAdminRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            description=description,
+            destination_port_ranges=destination_port_ranges,
+            destinations=destinations,
+            direction=direction,
+            display_name=display_name,
+            kind=kind,
+            priority=priority,
+            protocol=protocol,
+            provisioning_state=provisioning_state,
+            source_port_ranges=source_port_ranges,
+            sources=sources,
+            commit_time=commit_time,
+            configuration_description=configuration_description,
+            configuration_display_name=configuration_display_name,
+            flag=flag,
+            id=id,
+            region=region,
+            rule_collection_applies_to_groups=rule_collection_applies_to_groups,
+            rule_collection_description=rule_collection_description,
+            rule_collection_display_name=rule_collection_display_name,
+            rule_groups=rule_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: str,
+             description: str,
+             destination_port_ranges: Sequence[str],
+             destinations: Sequence['outputs.AddressPrefixItemResponse'],
+             direction: str,
+             display_name: str,
+             kind: str,
+             priority: int,
+             protocol: str,
+             provisioning_state: str,
+             source_port_ranges: Sequence[str],
+             sources: Sequence['outputs.AddressPrefixItemResponse'],
+             commit_time: Optional[str] = None,
+             configuration_description: Optional[str] = None,
+             configuration_display_name: Optional[str] = None,
+             flag: Optional[str] = None,
+             id: Optional[str] = None,
+             region: Optional[str] = None,
+             rule_collection_applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']] = None,
+             rule_collection_description: Optional[str] = None,
+             rule_collection_display_name: Optional[str] = None,
+             rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+        if 'commitTime' in kwargs:
+            commit_time = kwargs['commitTime']
+        if 'configurationDescription' in kwargs:
+            configuration_description = kwargs['configurationDescription']
+        if 'configurationDisplayName' in kwargs:
+            configuration_display_name = kwargs['configurationDisplayName']
+        if 'ruleCollectionAppliesToGroups' in kwargs:
+            rule_collection_applies_to_groups = kwargs['ruleCollectionAppliesToGroups']
+        if 'ruleCollectionDescription' in kwargs:
+            rule_collection_description = kwargs['ruleCollectionDescription']
+        if 'ruleCollectionDisplayName' in kwargs:
+            rule_collection_display_name = kwargs['ruleCollectionDisplayName']
+        if 'ruleGroups' in kwargs:
+            rule_groups = kwargs['ruleGroups']
+
+        _setter("access", access)
+        _setter("description", description)
+        _setter("destination_port_ranges", destination_port_ranges)
+        _setter("destinations", destinations)
+        _setter("direction", direction)
+        _setter("display_name", display_name)
+        _setter("kind", 'Default')
+        _setter("priority", priority)
+        _setter("protocol", protocol)
+        _setter("provisioning_state", provisioning_state)
+        _setter("source_port_ranges", source_port_ranges)
+        _setter("sources", sources)
         if commit_time is not None:
-            pulumi.set(__self__, "commit_time", commit_time)
+            _setter("commit_time", commit_time)
         if configuration_description is not None:
-            pulumi.set(__self__, "configuration_description", configuration_description)
+            _setter("configuration_description", configuration_description)
         if configuration_display_name is not None:
-            pulumi.set(__self__, "configuration_display_name", configuration_display_name)
+            _setter("configuration_display_name", configuration_display_name)
         if flag is not None:
-            pulumi.set(__self__, "flag", flag)
+            _setter("flag", flag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if rule_collection_applies_to_groups is not None:
-            pulumi.set(__self__, "rule_collection_applies_to_groups", rule_collection_applies_to_groups)
+            _setter("rule_collection_applies_to_groups", rule_collection_applies_to_groups)
         if rule_collection_description is not None:
-            pulumi.set(__self__, "rule_collection_description", rule_collection_description)
+            _setter("rule_collection_description", rule_collection_description)
         if rule_collection_display_name is not None:
-            pulumi.set(__self__, "rule_collection_display_name", rule_collection_display_name)
+            _setter("rule_collection_display_name", rule_collection_display_name)
         if rule_groups is not None:
-            pulumi.set(__self__, "rule_groups", rule_groups)
+            _setter("rule_groups", rule_groups)
 
     @property
     @pulumi.getter
@@ -503,36 +627,107 @@ class ActiveDefaultSecurityUserRuleResponse(dict):
         :param str rule_collection_display_name: A display name of the rule collection.
         :param Sequence['ConfigurationGroupResponse'] rule_groups: Effective configuration groups.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
-        pulumi.set(__self__, "destinations", destinations)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "kind", 'Default')
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "source_port_ranges", source_port_ranges)
-        pulumi.set(__self__, "sources", sources)
+        ActiveDefaultSecurityUserRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            destination_port_ranges=destination_port_ranges,
+            destinations=destinations,
+            direction=direction,
+            display_name=display_name,
+            kind=kind,
+            protocol=protocol,
+            provisioning_state=provisioning_state,
+            source_port_ranges=source_port_ranges,
+            sources=sources,
+            commit_time=commit_time,
+            configuration_description=configuration_description,
+            configuration_display_name=configuration_display_name,
+            flag=flag,
+            id=id,
+            region=region,
+            rule_collection_applies_to_groups=rule_collection_applies_to_groups,
+            rule_collection_description=rule_collection_description,
+            rule_collection_display_name=rule_collection_display_name,
+            rule_groups=rule_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: str,
+             destination_port_ranges: Sequence[str],
+             destinations: Sequence['outputs.AddressPrefixItemResponse'],
+             direction: str,
+             display_name: str,
+             kind: str,
+             protocol: str,
+             provisioning_state: str,
+             source_port_ranges: Sequence[str],
+             sources: Sequence['outputs.AddressPrefixItemResponse'],
+             commit_time: Optional[str] = None,
+             configuration_description: Optional[str] = None,
+             configuration_display_name: Optional[str] = None,
+             flag: Optional[str] = None,
+             id: Optional[str] = None,
+             region: Optional[str] = None,
+             rule_collection_applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']] = None,
+             rule_collection_description: Optional[str] = None,
+             rule_collection_display_name: Optional[str] = None,
+             rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+        if 'commitTime' in kwargs:
+            commit_time = kwargs['commitTime']
+        if 'configurationDescription' in kwargs:
+            configuration_description = kwargs['configurationDescription']
+        if 'configurationDisplayName' in kwargs:
+            configuration_display_name = kwargs['configurationDisplayName']
+        if 'ruleCollectionAppliesToGroups' in kwargs:
+            rule_collection_applies_to_groups = kwargs['ruleCollectionAppliesToGroups']
+        if 'ruleCollectionDescription' in kwargs:
+            rule_collection_description = kwargs['ruleCollectionDescription']
+        if 'ruleCollectionDisplayName' in kwargs:
+            rule_collection_display_name = kwargs['ruleCollectionDisplayName']
+        if 'ruleGroups' in kwargs:
+            rule_groups = kwargs['ruleGroups']
+
+        _setter("description", description)
+        _setter("destination_port_ranges", destination_port_ranges)
+        _setter("destinations", destinations)
+        _setter("direction", direction)
+        _setter("display_name", display_name)
+        _setter("kind", 'Default')
+        _setter("protocol", protocol)
+        _setter("provisioning_state", provisioning_state)
+        _setter("source_port_ranges", source_port_ranges)
+        _setter("sources", sources)
         if commit_time is not None:
-            pulumi.set(__self__, "commit_time", commit_time)
+            _setter("commit_time", commit_time)
         if configuration_description is not None:
-            pulumi.set(__self__, "configuration_description", configuration_description)
+            _setter("configuration_description", configuration_description)
         if configuration_display_name is not None:
-            pulumi.set(__self__, "configuration_display_name", configuration_display_name)
+            _setter("configuration_display_name", configuration_display_name)
         if flag is not None:
-            pulumi.set(__self__, "flag", flag)
+            _setter("flag", flag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if rule_collection_applies_to_groups is not None:
-            pulumi.set(__self__, "rule_collection_applies_to_groups", rule_collection_applies_to_groups)
+            _setter("rule_collection_applies_to_groups", rule_collection_applies_to_groups)
         if rule_collection_description is not None:
-            pulumi.set(__self__, "rule_collection_description", rule_collection_description)
+            _setter("rule_collection_description", rule_collection_description)
         if rule_collection_display_name is not None:
-            pulumi.set(__self__, "rule_collection_display_name", rule_collection_display_name)
+            _setter("rule_collection_display_name", rule_collection_display_name)
         if rule_groups is not None:
-            pulumi.set(__self__, "rule_groups", rule_groups)
+            _setter("rule_groups", rule_groups)
 
     @property
     @pulumi.getter
@@ -748,43 +943,116 @@ class ActiveSecurityAdminRuleResponse(dict):
         :param Sequence[str] source_port_ranges: The source port ranges.
         :param Sequence['AddressPrefixItemResponse'] sources: The CIDR or source IP ranges.
         """
-        pulumi.set(__self__, "access", access)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "kind", 'Custom')
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        ActiveSecurityAdminRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            direction=direction,
+            kind=kind,
+            protocol=protocol,
+            provisioning_state=provisioning_state,
+            commit_time=commit_time,
+            configuration_description=configuration_description,
+            configuration_display_name=configuration_display_name,
+            description=description,
+            destination_port_ranges=destination_port_ranges,
+            destinations=destinations,
+            display_name=display_name,
+            id=id,
+            priority=priority,
+            region=region,
+            rule_collection_applies_to_groups=rule_collection_applies_to_groups,
+            rule_collection_description=rule_collection_description,
+            rule_collection_display_name=rule_collection_display_name,
+            rule_groups=rule_groups,
+            source_port_ranges=source_port_ranges,
+            sources=sources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: str,
+             direction: str,
+             kind: str,
+             protocol: str,
+             provisioning_state: str,
+             commit_time: Optional[str] = None,
+             configuration_description: Optional[str] = None,
+             configuration_display_name: Optional[str] = None,
+             description: Optional[str] = None,
+             destination_port_ranges: Optional[Sequence[str]] = None,
+             destinations: Optional[Sequence['outputs.AddressPrefixItemResponse']] = None,
+             display_name: Optional[str] = None,
+             id: Optional[str] = None,
+             priority: Optional[int] = None,
+             region: Optional[str] = None,
+             rule_collection_applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']] = None,
+             rule_collection_description: Optional[str] = None,
+             rule_collection_display_name: Optional[str] = None,
+             rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None,
+             source_port_ranges: Optional[Sequence[str]] = None,
+             sources: Optional[Sequence['outputs.AddressPrefixItemResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'commitTime' in kwargs:
+            commit_time = kwargs['commitTime']
+        if 'configurationDescription' in kwargs:
+            configuration_description = kwargs['configurationDescription']
+        if 'configurationDisplayName' in kwargs:
+            configuration_display_name = kwargs['configurationDisplayName']
+        if 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'ruleCollectionAppliesToGroups' in kwargs:
+            rule_collection_applies_to_groups = kwargs['ruleCollectionAppliesToGroups']
+        if 'ruleCollectionDescription' in kwargs:
+            rule_collection_description = kwargs['ruleCollectionDescription']
+        if 'ruleCollectionDisplayName' in kwargs:
+            rule_collection_display_name = kwargs['ruleCollectionDisplayName']
+        if 'ruleGroups' in kwargs:
+            rule_groups = kwargs['ruleGroups']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+
+        _setter("access", access)
+        _setter("direction", direction)
+        _setter("kind", 'Custom')
+        _setter("protocol", protocol)
+        _setter("provisioning_state", provisioning_state)
         if commit_time is not None:
-            pulumi.set(__self__, "commit_time", commit_time)
+            _setter("commit_time", commit_time)
         if configuration_description is not None:
-            pulumi.set(__self__, "configuration_description", configuration_description)
+            _setter("configuration_description", configuration_description)
         if configuration_display_name is not None:
-            pulumi.set(__self__, "configuration_display_name", configuration_display_name)
+            _setter("configuration_display_name", configuration_display_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_port_ranges is not None:
-            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+            _setter("destination_port_ranges", destination_port_ranges)
         if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+            _setter("destinations", destinations)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if rule_collection_applies_to_groups is not None:
-            pulumi.set(__self__, "rule_collection_applies_to_groups", rule_collection_applies_to_groups)
+            _setter("rule_collection_applies_to_groups", rule_collection_applies_to_groups)
         if rule_collection_description is not None:
-            pulumi.set(__self__, "rule_collection_description", rule_collection_description)
+            _setter("rule_collection_description", rule_collection_description)
         if rule_collection_display_name is not None:
-            pulumi.set(__self__, "rule_collection_display_name", rule_collection_display_name)
+            _setter("rule_collection_display_name", rule_collection_display_name)
         if rule_groups is not None:
-            pulumi.set(__self__, "rule_groups", rule_groups)
+            _setter("rule_groups", rule_groups)
         if source_port_ranges is not None:
-            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+            _setter("source_port_ranges", source_port_ranges)
         if sources is not None:
-            pulumi.set(__self__, "sources", sources)
+            _setter("sources", sources)
 
     @property
     @pulumi.getter
@@ -1004,40 +1272,109 @@ class ActiveSecurityUserRuleResponse(dict):
         :param Sequence[str] source_port_ranges: The source port ranges.
         :param Sequence['AddressPrefixItemResponse'] sources: The CIDR or source IP ranges.
         """
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "kind", 'Custom')
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        ActiveSecurityUserRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            direction=direction,
+            kind=kind,
+            protocol=protocol,
+            provisioning_state=provisioning_state,
+            commit_time=commit_time,
+            configuration_description=configuration_description,
+            configuration_display_name=configuration_display_name,
+            description=description,
+            destination_port_ranges=destination_port_ranges,
+            destinations=destinations,
+            display_name=display_name,
+            id=id,
+            region=region,
+            rule_collection_applies_to_groups=rule_collection_applies_to_groups,
+            rule_collection_description=rule_collection_description,
+            rule_collection_display_name=rule_collection_display_name,
+            rule_groups=rule_groups,
+            source_port_ranges=source_port_ranges,
+            sources=sources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             direction: str,
+             kind: str,
+             protocol: str,
+             provisioning_state: str,
+             commit_time: Optional[str] = None,
+             configuration_description: Optional[str] = None,
+             configuration_display_name: Optional[str] = None,
+             description: Optional[str] = None,
+             destination_port_ranges: Optional[Sequence[str]] = None,
+             destinations: Optional[Sequence['outputs.AddressPrefixItemResponse']] = None,
+             display_name: Optional[str] = None,
+             id: Optional[str] = None,
+             region: Optional[str] = None,
+             rule_collection_applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']] = None,
+             rule_collection_description: Optional[str] = None,
+             rule_collection_display_name: Optional[str] = None,
+             rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None,
+             source_port_ranges: Optional[Sequence[str]] = None,
+             sources: Optional[Sequence['outputs.AddressPrefixItemResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'commitTime' in kwargs:
+            commit_time = kwargs['commitTime']
+        if 'configurationDescription' in kwargs:
+            configuration_description = kwargs['configurationDescription']
+        if 'configurationDisplayName' in kwargs:
+            configuration_display_name = kwargs['configurationDisplayName']
+        if 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'ruleCollectionAppliesToGroups' in kwargs:
+            rule_collection_applies_to_groups = kwargs['ruleCollectionAppliesToGroups']
+        if 'ruleCollectionDescription' in kwargs:
+            rule_collection_description = kwargs['ruleCollectionDescription']
+        if 'ruleCollectionDisplayName' in kwargs:
+            rule_collection_display_name = kwargs['ruleCollectionDisplayName']
+        if 'ruleGroups' in kwargs:
+            rule_groups = kwargs['ruleGroups']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+
+        _setter("direction", direction)
+        _setter("kind", 'Custom')
+        _setter("protocol", protocol)
+        _setter("provisioning_state", provisioning_state)
         if commit_time is not None:
-            pulumi.set(__self__, "commit_time", commit_time)
+            _setter("commit_time", commit_time)
         if configuration_description is not None:
-            pulumi.set(__self__, "configuration_description", configuration_description)
+            _setter("configuration_description", configuration_description)
         if configuration_display_name is not None:
-            pulumi.set(__self__, "configuration_display_name", configuration_display_name)
+            _setter("configuration_display_name", configuration_display_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_port_ranges is not None:
-            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+            _setter("destination_port_ranges", destination_port_ranges)
         if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+            _setter("destinations", destinations)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if rule_collection_applies_to_groups is not None:
-            pulumi.set(__self__, "rule_collection_applies_to_groups", rule_collection_applies_to_groups)
+            _setter("rule_collection_applies_to_groups", rule_collection_applies_to_groups)
         if rule_collection_description is not None:
-            pulumi.set(__self__, "rule_collection_description", rule_collection_description)
+            _setter("rule_collection_description", rule_collection_description)
         if rule_collection_display_name is not None:
-            pulumi.set(__self__, "rule_collection_display_name", rule_collection_display_name)
+            _setter("rule_collection_display_name", rule_collection_display_name)
         if rule_groups is not None:
-            pulumi.set(__self__, "rule_groups", rule_groups)
+            _setter("rule_groups", rule_groups)
         if source_port_ranges is not None:
-            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+            _setter("source_port_ranges", source_port_ranges)
         if sources is not None:
-            pulumi.set(__self__, "sources", sources)
+            _setter("sources", sources)
 
     @property
     @pulumi.getter
@@ -1225,10 +1562,27 @@ class AddressPrefixItemResponse(dict):
         :param str address_prefix: Address prefix.
         :param str address_prefix_type: Address prefix type.
         """
+        AddressPrefixItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_prefix=address_prefix,
+            address_prefix_type=address_prefix_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_prefix: Optional[str] = None,
+             address_prefix_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if 'addressPrefixType' in kwargs:
+            address_prefix_type = kwargs['addressPrefixType']
+
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if address_prefix_type is not None:
-            pulumi.set(__self__, "address_prefix_type", address_prefix_type)
+            _setter("address_prefix_type", address_prefix_type)
 
     @property
     @pulumi.getter(name="addressPrefix")
@@ -1270,19 +1624,52 @@ class ConfigurationGroupResponse(dict):
         :param str id: Resource ID.
         :param str member_type: Group member type.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        ConfigurationGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            conditional_membership=conditional_membership,
+            description=description,
+            display_name=display_name,
+            group_members=group_members,
+            id=id,
+            member_type=member_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: str,
+             conditional_membership: Optional[str] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             group_members: Optional[Sequence['outputs.GroupMembersItemResponse']] = None,
+             id: Optional[str] = None,
+             member_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'conditionalMembership' in kwargs:
+            conditional_membership = kwargs['conditionalMembership']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'groupMembers' in kwargs:
+            group_members = kwargs['groupMembers']
+        if 'memberType' in kwargs:
+            member_type = kwargs['memberType']
+
+        _setter("provisioning_state", provisioning_state)
         if conditional_membership is not None:
-            pulumi.set(__self__, "conditional_membership", conditional_membership)
+            _setter("conditional_membership", conditional_membership)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if group_members is not None:
-            pulumi.set(__self__, "group_members", group_members)
+            _setter("group_members", group_members)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if member_type is not None:
-            pulumi.set(__self__, "member_type", member_type)
+            _setter("member_type", member_type)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -1377,14 +1764,39 @@ class ConnectivityGroupItemResponse(dict):
         :param str network_group_id: Network group Id.
         :param str use_hub_gateway: Flag if need to use hub gateway.
         """
+        ConnectivityGroupItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_connectivity=group_connectivity,
+            is_global=is_global,
+            network_group_id=network_group_id,
+            use_hub_gateway=use_hub_gateway,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_connectivity: Optional[str] = None,
+             is_global: Optional[str] = None,
+             network_group_id: Optional[str] = None,
+             use_hub_gateway: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupConnectivity' in kwargs:
+            group_connectivity = kwargs['groupConnectivity']
+        if 'isGlobal' in kwargs:
+            is_global = kwargs['isGlobal']
+        if 'networkGroupId' in kwargs:
+            network_group_id = kwargs['networkGroupId']
+        if 'useHubGateway' in kwargs:
+            use_hub_gateway = kwargs['useHubGateway']
+
         if group_connectivity is not None:
-            pulumi.set(__self__, "group_connectivity", group_connectivity)
+            _setter("group_connectivity", group_connectivity)
         if is_global is not None:
-            pulumi.set(__self__, "is_global", is_global)
+            _setter("is_global", is_global)
         if network_group_id is not None:
-            pulumi.set(__self__, "network_group_id", network_group_id)
+            _setter("network_group_id", network_group_id)
         if use_hub_gateway is not None:
-            pulumi.set(__self__, "use_hub_gateway", use_hub_gateway)
+            _setter("use_hub_gateway", use_hub_gateway)
 
     @property
     @pulumi.getter(name="groupConnectivity")
@@ -1448,24 +1860,67 @@ class EffectiveConnectivityConfigurationResponse(dict):
         :param str id: Resource ID.
         :param str is_global: Flag if global mesh is supported.
         """
-        pulumi.set(__self__, "connectivity_topology", connectivity_topology)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        EffectiveConnectivityConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connectivity_topology=connectivity_topology,
+            provisioning_state=provisioning_state,
+            applies_to_groups=applies_to_groups,
+            configuration_groups=configuration_groups,
+            delete_existing_peering=delete_existing_peering,
+            description=description,
+            display_name=display_name,
+            hubs=hubs,
+            id=id,
+            is_global=is_global,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connectivity_topology: str,
+             provisioning_state: str,
+             applies_to_groups: Optional[Sequence['outputs.ConnectivityGroupItemResponse']] = None,
+             configuration_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None,
+             delete_existing_peering: Optional[str] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             hubs: Optional[Sequence['outputs.HubResponse']] = None,
+             id: Optional[str] = None,
+             is_global: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectivityTopology' in kwargs:
+            connectivity_topology = kwargs['connectivityTopology']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'appliesToGroups' in kwargs:
+            applies_to_groups = kwargs['appliesToGroups']
+        if 'configurationGroups' in kwargs:
+            configuration_groups = kwargs['configurationGroups']
+        if 'deleteExistingPeering' in kwargs:
+            delete_existing_peering = kwargs['deleteExistingPeering']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'isGlobal' in kwargs:
+            is_global = kwargs['isGlobal']
+
+        _setter("connectivity_topology", connectivity_topology)
+        _setter("provisioning_state", provisioning_state)
         if applies_to_groups is not None:
-            pulumi.set(__self__, "applies_to_groups", applies_to_groups)
+            _setter("applies_to_groups", applies_to_groups)
         if configuration_groups is not None:
-            pulumi.set(__self__, "configuration_groups", configuration_groups)
+            _setter("configuration_groups", configuration_groups)
         if delete_existing_peering is not None:
-            pulumi.set(__self__, "delete_existing_peering", delete_existing_peering)
+            _setter("delete_existing_peering", delete_existing_peering)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if hubs is not None:
-            pulumi.set(__self__, "hubs", hubs)
+            _setter("hubs", hubs)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if is_global is not None:
-            pulumi.set(__self__, "is_global", is_global)
+            _setter("is_global", is_global)
 
     @property
     @pulumi.getter(name="connectivityTopology")
@@ -1598,34 +2053,103 @@ class EffectiveDefaultSecurityAdminRuleResponse(dict):
         :param str rule_collection_display_name: A display name of the rule collection.
         :param Sequence['ConfigurationGroupResponse'] rule_groups: Effective configuration groups.
         """
-        pulumi.set(__self__, "access", access)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
-        pulumi.set(__self__, "destinations", destinations)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "kind", 'Default')
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "source_port_ranges", source_port_ranges)
-        pulumi.set(__self__, "sources", sources)
+        EffectiveDefaultSecurityAdminRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            description=description,
+            destination_port_ranges=destination_port_ranges,
+            destinations=destinations,
+            direction=direction,
+            display_name=display_name,
+            kind=kind,
+            priority=priority,
+            protocol=protocol,
+            provisioning_state=provisioning_state,
+            source_port_ranges=source_port_ranges,
+            sources=sources,
+            configuration_description=configuration_description,
+            configuration_display_name=configuration_display_name,
+            flag=flag,
+            id=id,
+            rule_collection_applies_to_groups=rule_collection_applies_to_groups,
+            rule_collection_description=rule_collection_description,
+            rule_collection_display_name=rule_collection_display_name,
+            rule_groups=rule_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: str,
+             description: str,
+             destination_port_ranges: Sequence[str],
+             destinations: Sequence['outputs.AddressPrefixItemResponse'],
+             direction: str,
+             display_name: str,
+             kind: str,
+             priority: int,
+             protocol: str,
+             provisioning_state: str,
+             source_port_ranges: Sequence[str],
+             sources: Sequence['outputs.AddressPrefixItemResponse'],
+             configuration_description: Optional[str] = None,
+             configuration_display_name: Optional[str] = None,
+             flag: Optional[str] = None,
+             id: Optional[str] = None,
+             rule_collection_applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']] = None,
+             rule_collection_description: Optional[str] = None,
+             rule_collection_display_name: Optional[str] = None,
+             rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+        if 'configurationDescription' in kwargs:
+            configuration_description = kwargs['configurationDescription']
+        if 'configurationDisplayName' in kwargs:
+            configuration_display_name = kwargs['configurationDisplayName']
+        if 'ruleCollectionAppliesToGroups' in kwargs:
+            rule_collection_applies_to_groups = kwargs['ruleCollectionAppliesToGroups']
+        if 'ruleCollectionDescription' in kwargs:
+            rule_collection_description = kwargs['ruleCollectionDescription']
+        if 'ruleCollectionDisplayName' in kwargs:
+            rule_collection_display_name = kwargs['ruleCollectionDisplayName']
+        if 'ruleGroups' in kwargs:
+            rule_groups = kwargs['ruleGroups']
+
+        _setter("access", access)
+        _setter("description", description)
+        _setter("destination_port_ranges", destination_port_ranges)
+        _setter("destinations", destinations)
+        _setter("direction", direction)
+        _setter("display_name", display_name)
+        _setter("kind", 'Default')
+        _setter("priority", priority)
+        _setter("protocol", protocol)
+        _setter("provisioning_state", provisioning_state)
+        _setter("source_port_ranges", source_port_ranges)
+        _setter("sources", sources)
         if configuration_description is not None:
-            pulumi.set(__self__, "configuration_description", configuration_description)
+            _setter("configuration_description", configuration_description)
         if configuration_display_name is not None:
-            pulumi.set(__self__, "configuration_display_name", configuration_display_name)
+            _setter("configuration_display_name", configuration_display_name)
         if flag is not None:
-            pulumi.set(__self__, "flag", flag)
+            _setter("flag", flag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if rule_collection_applies_to_groups is not None:
-            pulumi.set(__self__, "rule_collection_applies_to_groups", rule_collection_applies_to_groups)
+            _setter("rule_collection_applies_to_groups", rule_collection_applies_to_groups)
         if rule_collection_description is not None:
-            pulumi.set(__self__, "rule_collection_description", rule_collection_description)
+            _setter("rule_collection_description", rule_collection_description)
         if rule_collection_display_name is not None:
-            pulumi.set(__self__, "rule_collection_display_name", rule_collection_display_name)
+            _setter("rule_collection_display_name", rule_collection_display_name)
         if rule_groups is not None:
-            pulumi.set(__self__, "rule_groups", rule_groups)
+            _setter("rule_groups", rule_groups)
 
     @property
     @pulumi.getter
@@ -1837,39 +2361,106 @@ class EffectiveSecurityAdminRuleResponse(dict):
         :param Sequence[str] source_port_ranges: The source port ranges.
         :param Sequence['AddressPrefixItemResponse'] sources: The CIDR or source IP ranges.
         """
-        pulumi.set(__self__, "access", access)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "kind", 'Custom')
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        EffectiveSecurityAdminRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            direction=direction,
+            kind=kind,
+            protocol=protocol,
+            provisioning_state=provisioning_state,
+            configuration_description=configuration_description,
+            configuration_display_name=configuration_display_name,
+            description=description,
+            destination_port_ranges=destination_port_ranges,
+            destinations=destinations,
+            display_name=display_name,
+            id=id,
+            priority=priority,
+            rule_collection_applies_to_groups=rule_collection_applies_to_groups,
+            rule_collection_description=rule_collection_description,
+            rule_collection_display_name=rule_collection_display_name,
+            rule_groups=rule_groups,
+            source_port_ranges=source_port_ranges,
+            sources=sources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: str,
+             direction: str,
+             kind: str,
+             protocol: str,
+             provisioning_state: str,
+             configuration_description: Optional[str] = None,
+             configuration_display_name: Optional[str] = None,
+             description: Optional[str] = None,
+             destination_port_ranges: Optional[Sequence[str]] = None,
+             destinations: Optional[Sequence['outputs.AddressPrefixItemResponse']] = None,
+             display_name: Optional[str] = None,
+             id: Optional[str] = None,
+             priority: Optional[int] = None,
+             rule_collection_applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']] = None,
+             rule_collection_description: Optional[str] = None,
+             rule_collection_display_name: Optional[str] = None,
+             rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None,
+             source_port_ranges: Optional[Sequence[str]] = None,
+             sources: Optional[Sequence['outputs.AddressPrefixItemResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'configurationDescription' in kwargs:
+            configuration_description = kwargs['configurationDescription']
+        if 'configurationDisplayName' in kwargs:
+            configuration_display_name = kwargs['configurationDisplayName']
+        if 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'ruleCollectionAppliesToGroups' in kwargs:
+            rule_collection_applies_to_groups = kwargs['ruleCollectionAppliesToGroups']
+        if 'ruleCollectionDescription' in kwargs:
+            rule_collection_description = kwargs['ruleCollectionDescription']
+        if 'ruleCollectionDisplayName' in kwargs:
+            rule_collection_display_name = kwargs['ruleCollectionDisplayName']
+        if 'ruleGroups' in kwargs:
+            rule_groups = kwargs['ruleGroups']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+
+        _setter("access", access)
+        _setter("direction", direction)
+        _setter("kind", 'Custom')
+        _setter("protocol", protocol)
+        _setter("provisioning_state", provisioning_state)
         if configuration_description is not None:
-            pulumi.set(__self__, "configuration_description", configuration_description)
+            _setter("configuration_description", configuration_description)
         if configuration_display_name is not None:
-            pulumi.set(__self__, "configuration_display_name", configuration_display_name)
+            _setter("configuration_display_name", configuration_display_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_port_ranges is not None:
-            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+            _setter("destination_port_ranges", destination_port_ranges)
         if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+            _setter("destinations", destinations)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if rule_collection_applies_to_groups is not None:
-            pulumi.set(__self__, "rule_collection_applies_to_groups", rule_collection_applies_to_groups)
+            _setter("rule_collection_applies_to_groups", rule_collection_applies_to_groups)
         if rule_collection_description is not None:
-            pulumi.set(__self__, "rule_collection_description", rule_collection_description)
+            _setter("rule_collection_description", rule_collection_description)
         if rule_collection_display_name is not None:
-            pulumi.set(__self__, "rule_collection_display_name", rule_collection_display_name)
+            _setter("rule_collection_display_name", rule_collection_display_name)
         if rule_groups is not None:
-            pulumi.set(__self__, "rule_groups", rule_groups)
+            _setter("rule_groups", rule_groups)
         if source_port_ranges is not None:
-            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+            _setter("source_port_ranges", source_port_ranges)
         if sources is not None:
-            pulumi.set(__self__, "sources", sources)
+            _setter("sources", sources)
 
     @property
     @pulumi.getter
@@ -2040,12 +2631,29 @@ class EffectiveVirtualNetworkResponse(dict):
         :param str location: Location of vnet.
         :param str membership_type: Membership Type.
         """
+        EffectiveVirtualNetworkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            location=location,
+            membership_type=membership_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             location: Optional[str] = None,
+             membership_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'membershipType' in kwargs:
+            membership_type = kwargs['membershipType']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if membership_type is not None:
-            pulumi.set(__self__, "membership_type", membership_type)
+            _setter("membership_type", membership_type)
 
     @property
     @pulumi.getter
@@ -2100,8 +2708,21 @@ class GroupMembersItemResponse(dict):
         GroupMembers Item.
         :param str resource_id: Resource Id.
         """
+        GroupMembersItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -2144,10 +2765,27 @@ class HubResponse(dict):
         :param str resource_id: Resource Id.
         :param str resource_type: Resource Type.
         """
+        HubResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            resource_type=resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[str] = None,
+             resource_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -2187,18 +2825,49 @@ class NetworkManagerDeploymentStatusResponse(dict):
         :param str error_message: Error Message.
         :param str region: Region Name.
         """
+        NetworkManagerDeploymentStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commit_time=commit_time,
+            configuration_ids=configuration_ids,
+            deployment_status=deployment_status,
+            deployment_type=deployment_type,
+            error_message=error_message,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commit_time: Optional[str] = None,
+             configuration_ids: Optional[Sequence[str]] = None,
+             deployment_status: Optional[str] = None,
+             deployment_type: Optional[str] = None,
+             error_message: Optional[str] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'commitTime' in kwargs:
+            commit_time = kwargs['commitTime']
+        if 'configurationIds' in kwargs:
+            configuration_ids = kwargs['configurationIds']
+        if 'deploymentStatus' in kwargs:
+            deployment_status = kwargs['deploymentStatus']
+        if 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+        if 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+
         if commit_time is not None:
-            pulumi.set(__self__, "commit_time", commit_time)
+            _setter("commit_time", commit_time)
         if configuration_ids is not None:
-            pulumi.set(__self__, "configuration_ids", configuration_ids)
+            _setter("configuration_ids", configuration_ids)
         if deployment_status is not None:
-            pulumi.set(__self__, "deployment_status", deployment_status)
+            _setter("deployment_status", deployment_status)
         if deployment_type is not None:
-            pulumi.set(__self__, "deployment_type", deployment_type)
+            _setter("deployment_type", deployment_type)
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter(name="commitTime")
@@ -2279,10 +2948,25 @@ class NetworkManagerPropertiesResponseNetworkManagerScopes(dict):
         :param Sequence[str] management_groups: List of management groups.
         :param Sequence[str] subscriptions: List of subscriptions.
         """
+        NetworkManagerPropertiesResponseNetworkManagerScopes._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_groups=management_groups,
+            subscriptions=subscriptions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_groups: Optional[Sequence[str]] = None,
+             subscriptions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementGroups' in kwargs:
+            management_groups = kwargs['managementGroups']
+
         if management_groups is not None:
-            pulumi.set(__self__, "management_groups", management_groups)
+            _setter("management_groups", management_groups)
         if subscriptions is not None:
-            pulumi.set(__self__, "subscriptions", subscriptions)
+            _setter("subscriptions", subscriptions)
 
     @property
     @pulumi.getter(name="managementGroups")
@@ -2329,8 +3013,21 @@ class NetworkManagerSecurityGroupItemResponse(dict):
         Network manager security group item.
         :param str network_group_id: Network manager group Id.
         """
+        NetworkManagerSecurityGroupItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_group_id=network_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_group_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkGroupId' in kwargs:
+            network_group_id = kwargs['networkGroupId']
+
         if network_group_id is not None:
-            pulumi.set(__self__, "network_group_id", network_group_id)
+            _setter("network_group_id", network_group_id)
 
     @property
     @pulumi.getter(name="networkGroupId")
@@ -2369,9 +3066,26 @@ class PerimeterBasedAccessRuleResponse(dict):
         :param str location: Location of the NSP supplied.
         :param str perimeter_guid: Resource guid of the NSP supplied.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "perimeter_guid", perimeter_guid)
+        PerimeterBasedAccessRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            location=location,
+            perimeter_guid=perimeter_guid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             location: str,
+             perimeter_guid: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'perimeterGuid' in kwargs:
+            perimeter_guid = kwargs['perimeterGuid']
+
+        _setter("id", id)
+        _setter("location", location)
+        _setter("perimeter_guid", perimeter_guid)
 
     @property
     @pulumi.getter
@@ -2409,8 +3123,19 @@ class SubResourceResponse(dict):
         Reference to another subresource.
         :param str id: Resource ID.
         """
+        SubResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2428,8 +3153,19 @@ class SubscriptionIdResponse(dict):
         """
         :param str id: Subscription id in the ARM id format.
         """
+        SubscriptionIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2488,18 +3224,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

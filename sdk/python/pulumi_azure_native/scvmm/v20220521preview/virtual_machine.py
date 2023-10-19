@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -62,46 +62,127 @@ class VirtualMachineArgs:
         :param pulumi.Input[str] vm_name: VMName is the name of VM on the SCVMM server.
         :param pulumi.Input[str] vmm_server_id: ARM Id of the vmmServer resource in which this resource resides.
         """
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extended_location=extended_location,
+            resource_group_name=resource_group_name,
+            availability_sets=availability_sets,
+            checkpoint_type=checkpoint_type,
+            checkpoints=checkpoints,
+            cloud_id=cloud_id,
+            generation=generation,
+            guest_agent_profile=guest_agent_profile,
+            hardware_profile=hardware_profile,
+            identity=identity,
+            inventory_item_id=inventory_item_id,
+            location=location,
+            network_profile=network_profile,
+            os_profile=os_profile,
+            storage_profile=storage_profile,
+            tags=tags,
+            template_id=template_id,
+            uuid=uuid,
+            virtual_machine_name=virtual_machine_name,
+            vm_name=vm_name,
+            vmm_server_id=vmm_server_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extended_location: pulumi.Input['ExtendedLocationArgs'],
+             resource_group_name: pulumi.Input[str],
+             availability_sets: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesAvailabilitySetsArgs']]]] = None,
+             checkpoint_type: Optional[pulumi.Input[str]] = None,
+             checkpoints: Optional[pulumi.Input[Sequence[pulumi.Input['CheckpointArgs']]]] = None,
+             cloud_id: Optional[pulumi.Input[str]] = None,
+             generation: Optional[pulumi.Input[int]] = None,
+             guest_agent_profile: Optional[pulumi.Input['GuestAgentProfileArgs']] = None,
+             hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             inventory_item_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+             os_profile: Optional[pulumi.Input['OsProfileArgs']] = None,
+             storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template_id: Optional[pulumi.Input[str]] = None,
+             uuid: Optional[pulumi.Input[str]] = None,
+             virtual_machine_name: Optional[pulumi.Input[str]] = None,
+             vm_name: Optional[pulumi.Input[str]] = None,
+             vmm_server_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'availabilitySets' in kwargs:
+            availability_sets = kwargs['availabilitySets']
+        if 'checkpointType' in kwargs:
+            checkpoint_type = kwargs['checkpointType']
+        if 'cloudId' in kwargs:
+            cloud_id = kwargs['cloudId']
+        if 'guestAgentProfile' in kwargs:
+            guest_agent_profile = kwargs['guestAgentProfile']
+        if 'hardwareProfile' in kwargs:
+            hardware_profile = kwargs['hardwareProfile']
+        if 'inventoryItemId' in kwargs:
+            inventory_item_id = kwargs['inventoryItemId']
+        if 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if 'storageProfile' in kwargs:
+            storage_profile = kwargs['storageProfile']
+        if 'templateId' in kwargs:
+            template_id = kwargs['templateId']
+        if 'virtualMachineName' in kwargs:
+            virtual_machine_name = kwargs['virtualMachineName']
+        if 'vmName' in kwargs:
+            vm_name = kwargs['vmName']
+        if 'vmmServerId' in kwargs:
+            vmm_server_id = kwargs['vmmServerId']
+
+        _setter("extended_location", extended_location)
+        _setter("resource_group_name", resource_group_name)
         if availability_sets is not None:
-            pulumi.set(__self__, "availability_sets", availability_sets)
+            _setter("availability_sets", availability_sets)
         if checkpoint_type is not None:
-            pulumi.set(__self__, "checkpoint_type", checkpoint_type)
+            _setter("checkpoint_type", checkpoint_type)
         if checkpoints is not None:
-            pulumi.set(__self__, "checkpoints", checkpoints)
+            _setter("checkpoints", checkpoints)
         if cloud_id is not None:
-            pulumi.set(__self__, "cloud_id", cloud_id)
+            _setter("cloud_id", cloud_id)
         if generation is not None:
-            pulumi.set(__self__, "generation", generation)
+            _setter("generation", generation)
         if guest_agent_profile is not None:
-            pulumi.set(__self__, "guest_agent_profile", guest_agent_profile)
+            _setter("guest_agent_profile", guest_agent_profile)
         if hardware_profile is not None:
-            pulumi.set(__self__, "hardware_profile", hardware_profile)
+            _setter("hardware_profile", hardware_profile)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if inventory_item_id is not None:
-            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+            _setter("inventory_item_id", inventory_item_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
+            _setter("os_profile", os_profile)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template_id is not None:
-            pulumi.set(__self__, "template_id", template_id)
+            _setter("template_id", template_id)
         if uuid is not None:
-            pulumi.set(__self__, "uuid", uuid)
+            _setter("uuid", uuid)
         if virtual_machine_name is not None:
-            pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
+            _setter("virtual_machine_name", virtual_machine_name)
         if vm_name is not None:
-            pulumi.set(__self__, "vm_name", vm_name)
+            _setter("vm_name", vm_name)
         if vmm_server_id is not None:
-            pulumi.set(__self__, "vmm_server_id", vmm_server_id)
+            _setter("vmm_server_id", vmm_server_id)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -429,6 +510,10 @@ class VirtualMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -468,20 +553,55 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["checkpoint_type"] = checkpoint_type
             __props__.__dict__["checkpoints"] = checkpoints
             __props__.__dict__["cloud_id"] = cloud_id
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["generation"] = generation
+            if guest_agent_profile is not None and not isinstance(guest_agent_profile, GuestAgentProfileArgs):
+                guest_agent_profile = guest_agent_profile or {}
+                def _setter(key, value):
+                    guest_agent_profile[key] = value
+                GuestAgentProfileArgs._configure(_setter, **guest_agent_profile)
             __props__.__dict__["guest_agent_profile"] = guest_agent_profile
+            if hardware_profile is not None and not isinstance(hardware_profile, HardwareProfileArgs):
+                hardware_profile = hardware_profile or {}
+                def _setter(key, value):
+                    hardware_profile[key] = value
+                HardwareProfileArgs._configure(_setter, **hardware_profile)
             __props__.__dict__["hardware_profile"] = hardware_profile
+            if identity is not None and not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inventory_item_id"] = inventory_item_id
             __props__.__dict__["location"] = location
+            if network_profile is not None and not isinstance(network_profile, NetworkProfileArgs):
+                network_profile = network_profile or {}
+                def _setter(key, value):
+                    network_profile[key] = value
+                NetworkProfileArgs._configure(_setter, **network_profile)
             __props__.__dict__["network_profile"] = network_profile
+            if os_profile is not None and not isinstance(os_profile, OsProfileArgs):
+                os_profile = os_profile or {}
+                def _setter(key, value):
+                    os_profile[key] = value
+                OsProfileArgs._configure(_setter, **os_profile)
             __props__.__dict__["os_profile"] = os_profile
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if storage_profile is not None and not isinstance(storage_profile, StorageProfileArgs):
+                storage_profile = storage_profile or {}
+                def _setter(key, value):
+                    storage_profile[key] = value
+                StorageProfileArgs._configure(_setter, **storage_profile)
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_id"] = template_id

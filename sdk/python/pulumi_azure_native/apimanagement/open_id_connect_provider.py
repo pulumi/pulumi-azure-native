@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OpenIdConnectProviderArgs', 'OpenIdConnectProvider']
@@ -37,21 +37,66 @@ class OpenIdConnectProviderArgs:
         :param pulumi.Input[bool] use_in_api_documentation: If true, the Open ID Connect provider will be used in the API documentation in the developer portal. False by default if no value is provided.
         :param pulumi.Input[bool] use_in_test_console: If true, the Open ID Connect provider may be used in the developer portal test console. True by default if no value is provided.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "metadata_endpoint", metadata_endpoint)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        OpenIdConnectProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            display_name=display_name,
+            metadata_endpoint=metadata_endpoint,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            client_secret=client_secret,
+            description=description,
+            opid=opid,
+            use_in_api_documentation=use_in_api_documentation,
+            use_in_test_console=use_in_test_console,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: pulumi.Input[str],
+             display_name: pulumi.Input[str],
+             metadata_endpoint: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             client_secret: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opid: Optional[pulumi.Input[str]] = None,
+             use_in_api_documentation: Optional[pulumi.Input[bool]] = None,
+             use_in_test_console: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'metadataEndpoint' in kwargs:
+            metadata_endpoint = kwargs['metadataEndpoint']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'useInApiDocumentation' in kwargs:
+            use_in_api_documentation = kwargs['useInApiDocumentation']
+        if 'useInTestConsole' in kwargs:
+            use_in_test_console = kwargs['useInTestConsole']
+
+        _setter("client_id", client_id)
+        _setter("display_name", display_name)
+        _setter("metadata_endpoint", metadata_endpoint)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if opid is not None:
-            pulumi.set(__self__, "opid", opid)
+            _setter("opid", opid)
         if use_in_api_documentation is not None:
-            pulumi.set(__self__, "use_in_api_documentation", use_in_api_documentation)
+            _setter("use_in_api_documentation", use_in_api_documentation)
         if use_in_test_console is not None:
-            pulumi.set(__self__, "use_in_test_console", use_in_test_console)
+            _setter("use_in_test_console", use_in_test_console)
 
     @property
     @pulumi.getter(name="clientId")
@@ -227,6 +272,10 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OpenIdConnectProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

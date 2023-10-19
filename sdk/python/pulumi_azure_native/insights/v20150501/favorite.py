@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -40,26 +40,69 @@ class FavoriteArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of 0 or more tags that are associated with this favorite definition
         :param pulumi.Input[str] version: This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        FavoriteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            category=category,
+            config=config,
+            favorite_id=favorite_id,
+            favorite_type=favorite_type,
+            is_generated_from_template=is_generated_from_template,
+            name=name,
+            source_type=source_type,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             resource_name: pulumi.Input[str],
+             category: Optional[pulumi.Input[str]] = None,
+             config: Optional[pulumi.Input[str]] = None,
+             favorite_id: Optional[pulumi.Input[str]] = None,
+             favorite_type: Optional[pulumi.Input['FavoriteType']] = None,
+             is_generated_from_template: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             source_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if 'favoriteId' in kwargs:
+            favorite_id = kwargs['favoriteId']
+        if 'favoriteType' in kwargs:
+            favorite_type = kwargs['favoriteType']
+        if 'isGeneratedFromTemplate' in kwargs:
+            is_generated_from_template = kwargs['isGeneratedFromTemplate']
+        if 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if favorite_id is not None:
-            pulumi.set(__self__, "favorite_id", favorite_id)
+            _setter("favorite_id", favorite_id)
         if favorite_type is not None:
-            pulumi.set(__self__, "favorite_type", favorite_type)
+            _setter("favorite_type", favorite_type)
         if is_generated_from_template is not None:
-            pulumi.set(__self__, "is_generated_from_template", is_generated_from_template)
+            _setter("is_generated_from_template", is_generated_from_template)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -247,6 +290,10 @@ class Favorite(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FavoriteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

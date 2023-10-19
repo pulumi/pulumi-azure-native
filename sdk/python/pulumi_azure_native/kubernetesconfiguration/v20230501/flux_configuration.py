@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -52,40 +52,103 @@ class FluxConfigurationArgs:
         :param pulumi.Input[bool] suspend: Whether this configuration should suspend its reconciliation of its kustomizations and sources.
         :param pulumi.Input[bool] wait_for_reconciliation: Whether flux configuration deployment should wait for cluster to reconcile the kustomizations.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "cluster_resource_name", cluster_resource_name)
-        pulumi.set(__self__, "cluster_rp", cluster_rp)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FluxConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            cluster_resource_name=cluster_resource_name,
+            cluster_rp=cluster_rp,
+            resource_group_name=resource_group_name,
+            azure_blob=azure_blob,
+            bucket=bucket,
+            configuration_protected_settings=configuration_protected_settings,
+            flux_configuration_name=flux_configuration_name,
+            git_repository=git_repository,
+            kustomizations=kustomizations,
+            namespace=namespace,
+            reconciliation_wait_duration=reconciliation_wait_duration,
+            scope=scope,
+            source_kind=source_kind,
+            suspend=suspend,
+            wait_for_reconciliation=wait_for_reconciliation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             cluster_resource_name: pulumi.Input[str],
+             cluster_rp: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             azure_blob: Optional[pulumi.Input['AzureBlobDefinitionArgs']] = None,
+             bucket: Optional[pulumi.Input['BucketDefinitionArgs']] = None,
+             configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             flux_configuration_name: Optional[pulumi.Input[str]] = None,
+             git_repository: Optional[pulumi.Input['GitRepositoryDefinitionArgs']] = None,
+             kustomizations: Optional[pulumi.Input[Mapping[str, pulumi.Input['KustomizationDefinitionArgs']]]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             reconciliation_wait_duration: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[Union[str, 'ScopeType']]] = None,
+             source_kind: Optional[pulumi.Input[Union[str, 'SourceKindType']]] = None,
+             suspend: Optional[pulumi.Input[bool]] = None,
+             wait_for_reconciliation: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'clusterResourceName' in kwargs:
+            cluster_resource_name = kwargs['clusterResourceName']
+        if 'clusterRp' in kwargs:
+            cluster_rp = kwargs['clusterRp']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'azureBlob' in kwargs:
+            azure_blob = kwargs['azureBlob']
+        if 'configurationProtectedSettings' in kwargs:
+            configuration_protected_settings = kwargs['configurationProtectedSettings']
+        if 'fluxConfigurationName' in kwargs:
+            flux_configuration_name = kwargs['fluxConfigurationName']
+        if 'gitRepository' in kwargs:
+            git_repository = kwargs['gitRepository']
+        if 'reconciliationWaitDuration' in kwargs:
+            reconciliation_wait_duration = kwargs['reconciliationWaitDuration']
+        if 'sourceKind' in kwargs:
+            source_kind = kwargs['sourceKind']
+        if 'waitForReconciliation' in kwargs:
+            wait_for_reconciliation = kwargs['waitForReconciliation']
+
+        _setter("cluster_name", cluster_name)
+        _setter("cluster_resource_name", cluster_resource_name)
+        _setter("cluster_rp", cluster_rp)
+        _setter("resource_group_name", resource_group_name)
         if azure_blob is not None:
-            pulumi.set(__self__, "azure_blob", azure_blob)
+            _setter("azure_blob", azure_blob)
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if configuration_protected_settings is not None:
-            pulumi.set(__self__, "configuration_protected_settings", configuration_protected_settings)
+            _setter("configuration_protected_settings", configuration_protected_settings)
         if flux_configuration_name is not None:
-            pulumi.set(__self__, "flux_configuration_name", flux_configuration_name)
+            _setter("flux_configuration_name", flux_configuration_name)
         if git_repository is not None:
-            pulumi.set(__self__, "git_repository", git_repository)
+            _setter("git_repository", git_repository)
         if kustomizations is not None:
-            pulumi.set(__self__, "kustomizations", kustomizations)
+            _setter("kustomizations", kustomizations)
         if namespace is None:
             namespace = 'default'
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if reconciliation_wait_duration is not None:
-            pulumi.set(__self__, "reconciliation_wait_duration", reconciliation_wait_duration)
+            _setter("reconciliation_wait_duration", reconciliation_wait_duration)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if source_kind is None:
             source_kind = 'GitRepository'
         if source_kind is not None:
-            pulumi.set(__self__, "source_kind", source_kind)
+            _setter("source_kind", source_kind)
         if suspend is None:
             suspend = False
         if suspend is not None:
-            pulumi.set(__self__, "suspend", suspend)
+            _setter("suspend", suspend)
         if wait_for_reconciliation is not None:
-            pulumi.set(__self__, "wait_for_reconciliation", wait_for_reconciliation)
+            _setter("wait_for_reconciliation", wait_for_reconciliation)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -343,6 +406,10 @@ class FluxConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FluxConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -373,7 +440,17 @@ class FluxConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FluxConfigurationArgs.__new__(FluxConfigurationArgs)
 
+            if azure_blob is not None and not isinstance(azure_blob, AzureBlobDefinitionArgs):
+                azure_blob = azure_blob or {}
+                def _setter(key, value):
+                    azure_blob[key] = value
+                AzureBlobDefinitionArgs._configure(_setter, **azure_blob)
             __props__.__dict__["azure_blob"] = azure_blob
+            if bucket is not None and not isinstance(bucket, BucketDefinitionArgs):
+                bucket = bucket or {}
+                def _setter(key, value):
+                    bucket[key] = value
+                BucketDefinitionArgs._configure(_setter, **bucket)
             __props__.__dict__["bucket"] = bucket
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
@@ -386,6 +463,11 @@ class FluxConfiguration(pulumi.CustomResource):
             __props__.__dict__["cluster_rp"] = cluster_rp
             __props__.__dict__["configuration_protected_settings"] = configuration_protected_settings
             __props__.__dict__["flux_configuration_name"] = flux_configuration_name
+            if git_repository is not None and not isinstance(git_repository, GitRepositoryDefinitionArgs):
+                git_repository = git_repository or {}
+                def _setter(key, value):
+                    git_repository[key] = value
+                GitRepositoryDefinitionArgs._configure(_setter, **git_repository)
             __props__.__dict__["git_repository"] = git_repository
             __props__.__dict__["kustomizations"] = kustomizations
             if namespace is None:

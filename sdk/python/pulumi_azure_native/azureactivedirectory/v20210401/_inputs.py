@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -24,10 +24,23 @@ class B2CResourceSKUArgs:
         :param pulumi.Input[Union[str, 'B2CResourceSKUName']] name: The name of the SKU for the tenant.
         :param pulumi.Input[Union[str, 'B2CResourceSKUTier']] tier: The tier of the tenant.
         """
+        B2CResourceSKUArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'B2CResourceSKUName']]] = None,
+             tier: Optional[pulumi.Input[Union[str, 'B2CResourceSKUTier']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter

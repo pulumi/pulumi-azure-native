@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -60,45 +60,118 @@ class ServerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: Server version.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            availability_zone=availability_zone,
+            backup=backup,
+            create_mode=create_mode,
+            data_encryption=data_encryption,
+            high_availability=high_availability,
+            identity=identity,
+            location=location,
+            maintenance_window=maintenance_window,
+            network=network,
+            replication_role=replication_role,
+            restore_point_in_time=restore_point_in_time,
+            server_name=server_name,
+            sku=sku,
+            source_server_resource_id=source_server_resource_id,
+            storage=storage,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             backup: Optional[pulumi.Input['BackupArgs']] = None,
+             create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+             data_encryption: Optional[pulumi.Input['DataEncryptionArgs']] = None,
+             high_availability: Optional[pulumi.Input['HighAvailabilityArgs']] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
+             network: Optional[pulumi.Input['NetworkArgs']] = None,
+             replication_role: Optional[pulumi.Input[Union[str, 'ReplicationRole']]] = None,
+             restore_point_in_time: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             source_server_resource_id: Optional[pulumi.Input[str]] = None,
+             storage: Optional[pulumi.Input['StorageArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if 'dataEncryption' in kwargs:
+            data_encryption = kwargs['dataEncryption']
+        if 'highAvailability' in kwargs:
+            high_availability = kwargs['highAvailability']
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'replicationRole' in kwargs:
+            replication_role = kwargs['replicationRole']
+        if 'restorePointInTime' in kwargs:
+            restore_point_in_time = kwargs['restorePointInTime']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'sourceServerResourceId' in kwargs:
+            source_server_resource_id = kwargs['sourceServerResourceId']
+
+        _setter("resource_group_name", resource_group_name)
         if administrator_login is not None:
-            pulumi.set(__self__, "administrator_login", administrator_login)
+            _setter("administrator_login", administrator_login)
         if administrator_login_password is not None:
-            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+            _setter("administrator_login_password", administrator_login_password)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if backup is not None:
-            pulumi.set(__self__, "backup", backup)
+            _setter("backup", backup)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if data_encryption is not None:
-            pulumi.set(__self__, "data_encryption", data_encryption)
+            _setter("data_encryption", data_encryption)
         if high_availability is not None:
-            pulumi.set(__self__, "high_availability", high_availability)
+            _setter("high_availability", high_availability)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
         if replication_role is not None:
-            pulumi.set(__self__, "replication_role", replication_role)
+            _setter("replication_role", replication_role)
         if restore_point_in_time is not None:
-            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+            _setter("restore_point_in_time", restore_point_in_time)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if source_server_resource_id is not None:
-            pulumi.set(__self__, "source_server_resource_id", source_server_resource_id)
+            _setter("source_server_resource_id", source_server_resource_id)
         if storage is not None:
-            pulumi.set(__self__, "storage", storage)
+            _setter("storage", storage)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -412,6 +485,10 @@ class Server(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -449,13 +526,43 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["administrator_login"] = administrator_login
             __props__.__dict__["administrator_login_password"] = administrator_login_password
             __props__.__dict__["availability_zone"] = availability_zone
+            if backup is not None and not isinstance(backup, BackupArgs):
+                backup = backup or {}
+                def _setter(key, value):
+                    backup[key] = value
+                BackupArgs._configure(_setter, **backup)
             __props__.__dict__["backup"] = backup
             __props__.__dict__["create_mode"] = create_mode
+            if data_encryption is not None and not isinstance(data_encryption, DataEncryptionArgs):
+                data_encryption = data_encryption or {}
+                def _setter(key, value):
+                    data_encryption[key] = value
+                DataEncryptionArgs._configure(_setter, **data_encryption)
             __props__.__dict__["data_encryption"] = data_encryption
+            if high_availability is not None and not isinstance(high_availability, HighAvailabilityArgs):
+                high_availability = high_availability or {}
+                def _setter(key, value):
+                    high_availability[key] = value
+                HighAvailabilityArgs._configure(_setter, **high_availability)
             __props__.__dict__["high_availability"] = high_availability
+            if identity is not None and not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            if maintenance_window is not None and not isinstance(maintenance_window, MaintenanceWindowArgs):
+                maintenance_window = maintenance_window or {}
+                def _setter(key, value):
+                    maintenance_window[key] = value
+                MaintenanceWindowArgs._configure(_setter, **maintenance_window)
             __props__.__dict__["maintenance_window"] = maintenance_window
+            if network is not None and not isinstance(network, NetworkArgs):
+                network = network or {}
+                def _setter(key, value):
+                    network[key] = value
+                NetworkArgs._configure(_setter, **network)
             __props__.__dict__["network"] = network
             __props__.__dict__["replication_role"] = replication_role
             if resource_group_name is None and not opts.urn:
@@ -463,8 +570,18 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["restore_point_in_time"] = restore_point_in_time
             __props__.__dict__["server_name"] = server_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["source_server_resource_id"] = source_server_resource_id
+            if storage is not None and not isinstance(storage, StorageArgs):
+                storage = storage or {}
+                def _setter(key, value):
+                    storage[key] = value
+                StorageArgs._configure(_setter, **storage)
             __props__.__dict__["storage"] = storage
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version

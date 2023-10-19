@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -30,12 +30,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: description string
         :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStateStatus']] status: state status
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStateStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -84,10 +101,27 @@ class SiteAgentPropertiesArgs:
         :param pulumi.Input[str] key_vault_id: Gets or sets the key vault ARM Id.
         :param pulumi.Input[str] key_vault_uri: Gets or sets the key vault URI.
         """
+        SiteAgentPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_id=key_vault_id,
+            key_vault_uri=key_vault_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             key_vault_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+            _setter("key_vault_uri", key_vault_uri)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -126,12 +160,33 @@ class SiteAppliancePropertiesArgs:
         :param pulumi.Input[str] appliance_name: Gets or sets the Appliance Name.
         :param pulumi.Input['SiteSpnPropertiesArgs'] service_principal_identity_details:  Gets or sets the service principal identity details used by agent for  communication              to the service.  
         """
+        SiteAppliancePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_details=agent_details,
+            appliance_name=appliance_name,
+            service_principal_identity_details=service_principal_identity_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_details: Optional[pulumi.Input['SiteAgentPropertiesArgs']] = None,
+             appliance_name: Optional[pulumi.Input[str]] = None,
+             service_principal_identity_details: Optional[pulumi.Input['SiteSpnPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentDetails' in kwargs:
+            agent_details = kwargs['agentDetails']
+        if 'applianceName' in kwargs:
+            appliance_name = kwargs['applianceName']
+        if 'servicePrincipalIdentityDetails' in kwargs:
+            service_principal_identity_details = kwargs['servicePrincipalIdentityDetails']
+
         if agent_details is not None:
-            pulumi.set(__self__, "agent_details", agent_details)
+            _setter("agent_details", agent_details)
         if appliance_name is not None:
-            pulumi.set(__self__, "appliance_name", appliance_name)
+            _setter("appliance_name", appliance_name)
         if service_principal_identity_details is not None:
-            pulumi.set(__self__, "service_principal_identity_details", service_principal_identity_details)
+            _setter("service_principal_identity_details", service_principal_identity_details)
 
     @property
     @pulumi.getter(name="agentDetails")
@@ -184,14 +239,39 @@ class SitePropertiesArgs:
         :param pulumi.Input[str] discovery_solution_id: ARM ID of migration hub solution for SDS.
         :param pulumi.Input['SiteSpnPropertiesArgs'] service_principal_identity_details: Service principal identity details used by agent for communication to the service.
         """
+        SitePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_details=agent_details,
+            appliance_name=appliance_name,
+            discovery_solution_id=discovery_solution_id,
+            service_principal_identity_details=service_principal_identity_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_details: Optional[pulumi.Input['SiteAgentPropertiesArgs']] = None,
+             appliance_name: Optional[pulumi.Input[str]] = None,
+             discovery_solution_id: Optional[pulumi.Input[str]] = None,
+             service_principal_identity_details: Optional[pulumi.Input['SiteSpnPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentDetails' in kwargs:
+            agent_details = kwargs['agentDetails']
+        if 'applianceName' in kwargs:
+            appliance_name = kwargs['applianceName']
+        if 'discoverySolutionId' in kwargs:
+            discovery_solution_id = kwargs['discoverySolutionId']
+        if 'servicePrincipalIdentityDetails' in kwargs:
+            service_principal_identity_details = kwargs['servicePrincipalIdentityDetails']
+
         if agent_details is not None:
-            pulumi.set(__self__, "agent_details", agent_details)
+            _setter("agent_details", agent_details)
         if appliance_name is not None:
-            pulumi.set(__self__, "appliance_name", appliance_name)
+            _setter("appliance_name", appliance_name)
         if discovery_solution_id is not None:
-            pulumi.set(__self__, "discovery_solution_id", discovery_solution_id)
+            _setter("discovery_solution_id", discovery_solution_id)
         if service_principal_identity_details is not None:
-            pulumi.set(__self__, "service_principal_identity_details", service_principal_identity_details)
+            _setter("service_principal_identity_details", service_principal_identity_details)
 
     @property
     @pulumi.getter(name="agentDetails")
@@ -272,18 +352,49 @@ class SiteSpnPropertiesArgs:
                            management/data plane components would communicate with
                our Azure services.
         """
+        SiteSpnPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_authority=aad_authority,
+            application_id=application_id,
+            audience=audience,
+            object_id=object_id,
+            raw_cert_data=raw_cert_data,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_authority: Optional[pulumi.Input[str]] = None,
+             application_id: Optional[pulumi.Input[str]] = None,
+             audience: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             raw_cert_data: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aadAuthority' in kwargs:
+            aad_authority = kwargs['aadAuthority']
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'rawCertData' in kwargs:
+            raw_cert_data = kwargs['rawCertData']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if aad_authority is not None:
-            pulumi.set(__self__, "aad_authority", aad_authority)
+            _setter("aad_authority", aad_authority)
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if raw_cert_data is not None:
-            pulumi.set(__self__, "raw_cert_data", raw_cert_data)
+            _setter("raw_cert_data", raw_cert_data)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="aadAuthority")

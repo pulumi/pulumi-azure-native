@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -93,8 +93,23 @@ class AbsoluteDeleteOptionResponse(dict):
         :param str object_type: Type of the specific object - used for deserializing
                Expected value is 'AbsoluteDeleteOption'.
         """
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "object_type", 'AbsoluteDeleteOption')
+        AbsoluteDeleteOptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+            object_type=object_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: str,
+             object_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+
+        _setter("duration", duration)
+        _setter("object_type", 'AbsoluteDeleteOption')
 
     @property
     @pulumi.getter
@@ -142,8 +157,21 @@ class AdhocBasedTaggingCriteriaResponse(dict):
         Adhoc backup tagging criteria
         :param 'RetentionTagResponse' tag_info: Retention tag information
         """
+        AdhocBasedTaggingCriteriaResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tag_info=tag_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tag_info: Optional['outputs.RetentionTagResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tagInfo' in kwargs:
+            tag_info = kwargs['tagInfo']
+
         if tag_info is not None:
-            pulumi.set(__self__, "tag_info", tag_info)
+            _setter("tag_info", tag_info)
 
     @property
     @pulumi.getter(name="tagInfo")
@@ -187,8 +215,25 @@ class AdhocBasedTriggerContextResponse(dict):
                Expected value is 'AdhocBasedTriggerContext'.
         :param 'AdhocBasedTaggingCriteriaResponse' tagging_criteria: Tagging Criteria containing retention tag for adhoc backup.
         """
-        pulumi.set(__self__, "object_type", 'AdhocBasedTriggerContext')
-        pulumi.set(__self__, "tagging_criteria", tagging_criteria)
+        AdhocBasedTriggerContextResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_type=object_type,
+            tagging_criteria=tagging_criteria,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_type: str,
+             tagging_criteria: 'outputs.AdhocBasedTaggingCriteriaResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'taggingCriteria' in kwargs:
+            tagging_criteria = kwargs['taggingCriteria']
+
+        _setter("object_type", 'AdhocBasedTriggerContext')
+        _setter("tagging_criteria", tagging_criteria)
 
     @property
     @pulumi.getter(name="objectType")
@@ -241,8 +286,25 @@ class AzureBackupParamsResponse(dict):
         :param str object_type: Type of the specific object - used for deserializing
                Expected value is 'AzureBackupParams'.
         """
-        pulumi.set(__self__, "backup_type", backup_type)
-        pulumi.set(__self__, "object_type", 'AzureBackupParams')
+        AzureBackupParamsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_type=backup_type,
+            object_type=object_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_type: str,
+             object_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupType' in kwargs:
+            backup_type = kwargs['backupType']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+
+        _setter("backup_type", backup_type)
+        _setter("object_type", 'AzureBackupParams')
 
     @property
     @pulumi.getter(name="backupType")
@@ -302,12 +364,37 @@ class AzureBackupRuleResponse(dict):
         :param Union['AdhocBasedTriggerContextResponse', 'ScheduleBasedTriggerContextResponse'] trigger: Trigger context
         :param 'AzureBackupParamsResponse' backup_parameters: BackupParameters base
         """
-        pulumi.set(__self__, "data_store", data_store)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "object_type", 'AzureBackupRule')
-        pulumi.set(__self__, "trigger", trigger)
+        AzureBackupRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_store=data_store,
+            name=name,
+            object_type=object_type,
+            trigger=trigger,
+            backup_parameters=backup_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_store: 'outputs.DataStoreInfoBaseResponse',
+             name: str,
+             object_type: str,
+             trigger: Any,
+             backup_parameters: Optional['outputs.AzureBackupParamsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataStore' in kwargs:
+            data_store = kwargs['dataStore']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'backupParameters' in kwargs:
+            backup_parameters = kwargs['backupParameters']
+
+        _setter("data_store", data_store)
+        _setter("name", name)
+        _setter("object_type", 'AzureBackupRule')
+        _setter("trigger", trigger)
         if backup_parameters is not None:
-            pulumi.set(__self__, "backup_parameters", backup_parameters)
+            _setter("backup_parameters", backup_parameters)
 
     @property
     @pulumi.getter(name="dataStore")
@@ -375,8 +462,21 @@ class AzureMonitorAlertSettingsResponse(dict):
         """
         Settings for Azure Monitor based alerts
         """
+        AzureMonitorAlertSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alerts_for_all_job_failures=alerts_for_all_job_failures,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alerts_for_all_job_failures: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertsForAllJobFailures' in kwargs:
+            alerts_for_all_job_failures = kwargs['alertsForAllJobFailures']
+
         if alerts_for_all_job_failures is not None:
-            pulumi.set(__self__, "alerts_for_all_job_failures", alerts_for_all_job_failures)
+            _setter("alerts_for_all_job_failures", alerts_for_all_job_failures)
 
     @property
     @pulumi.getter(name="alertsForAllJobFailures")
@@ -421,10 +521,31 @@ class AzureOperationalStoreParametersResponse(dict):
                Expected value is 'AzureOperationalStoreParameters'.
         :param str resource_group_id: Gets or sets the Snapshot Resource Group Uri.
         """
-        pulumi.set(__self__, "data_store_type", data_store_type)
-        pulumi.set(__self__, "object_type", 'AzureOperationalStoreParameters')
+        AzureOperationalStoreParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_store_type=data_store_type,
+            object_type=object_type,
+            resource_group_id=resource_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_store_type: str,
+             object_type: str,
+             resource_group_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataStoreType' in kwargs:
+            data_store_type = kwargs['dataStoreType']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'resourceGroupId' in kwargs:
+            resource_group_id = kwargs['resourceGroupId']
+
+        _setter("data_store_type", data_store_type)
+        _setter("object_type", 'AzureOperationalStoreParameters')
         if resource_group_id is not None:
-            pulumi.set(__self__, "resource_group_id", resource_group_id)
+            _setter("resource_group_id", resource_group_id)
 
     @property
     @pulumi.getter(name="dataStoreType")
@@ -486,11 +607,32 @@ class AzureRetentionRuleResponse(dict):
         :param str object_type: 
                Expected value is 'AzureRetentionRule'.
         """
-        pulumi.set(__self__, "lifecycles", lifecycles)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "object_type", 'AzureRetentionRule')
+        AzureRetentionRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lifecycles=lifecycles,
+            name=name,
+            object_type=object_type,
+            is_default=is_default,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lifecycles: Sequence['outputs.SourceLifeCycleResponse'],
+             name: str,
+             object_type: str,
+             is_default: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+
+        _setter("lifecycles", lifecycles)
+        _setter("name", name)
+        _setter("object_type", 'AzureRetentionRule')
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
 
     @property
     @pulumi.getter
@@ -584,21 +726,74 @@ class BackupInstanceResponse(dict):
         :param str friendly_name: Gets or sets the Backup Instance friendly name.
         :param str validation_type: Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
         """
-        pulumi.set(__self__, "current_protection_state", current_protection_state)
-        pulumi.set(__self__, "data_source_info", data_source_info)
-        pulumi.set(__self__, "object_type", object_type)
-        pulumi.set(__self__, "policy_info", policy_info)
-        pulumi.set(__self__, "protection_error_details", protection_error_details)
-        pulumi.set(__self__, "protection_status", protection_status)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        BackupInstanceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_protection_state=current_protection_state,
+            data_source_info=data_source_info,
+            object_type=object_type,
+            policy_info=policy_info,
+            protection_error_details=protection_error_details,
+            protection_status=protection_status,
+            provisioning_state=provisioning_state,
+            data_source_set_info=data_source_set_info,
+            datasource_auth_credentials=datasource_auth_credentials,
+            friendly_name=friendly_name,
+            validation_type=validation_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_protection_state: str,
+             data_source_info: 'outputs.DatasourceResponse',
+             object_type: str,
+             policy_info: 'outputs.PolicyInfoResponse',
+             protection_error_details: 'outputs.UserFacingErrorResponse',
+             protection_status: 'outputs.ProtectionStatusDetailsResponse',
+             provisioning_state: str,
+             data_source_set_info: Optional['outputs.DatasourceSetResponse'] = None,
+             datasource_auth_credentials: Optional['outputs.SecretStoreBasedAuthCredentialsResponse'] = None,
+             friendly_name: Optional[str] = None,
+             validation_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'currentProtectionState' in kwargs:
+            current_protection_state = kwargs['currentProtectionState']
+        if 'dataSourceInfo' in kwargs:
+            data_source_info = kwargs['dataSourceInfo']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'policyInfo' in kwargs:
+            policy_info = kwargs['policyInfo']
+        if 'protectionErrorDetails' in kwargs:
+            protection_error_details = kwargs['protectionErrorDetails']
+        if 'protectionStatus' in kwargs:
+            protection_status = kwargs['protectionStatus']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'dataSourceSetInfo' in kwargs:
+            data_source_set_info = kwargs['dataSourceSetInfo']
+        if 'datasourceAuthCredentials' in kwargs:
+            datasource_auth_credentials = kwargs['datasourceAuthCredentials']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'validationType' in kwargs:
+            validation_type = kwargs['validationType']
+
+        _setter("current_protection_state", current_protection_state)
+        _setter("data_source_info", data_source_info)
+        _setter("object_type", object_type)
+        _setter("policy_info", policy_info)
+        _setter("protection_error_details", protection_error_details)
+        _setter("protection_status", protection_status)
+        _setter("provisioning_state", provisioning_state)
         if data_source_set_info is not None:
-            pulumi.set(__self__, "data_source_set_info", data_source_set_info)
+            _setter("data_source_set_info", data_source_set_info)
         if datasource_auth_credentials is not None:
-            pulumi.set(__self__, "datasource_auth_credentials", datasource_auth_credentials)
+            _setter("datasource_auth_credentials", datasource_auth_credentials)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if validation_type is not None:
-            pulumi.set(__self__, "validation_type", validation_type)
+            _setter("validation_type", validation_type)
 
     @property
     @pulumi.getter(name="currentProtectionState")
@@ -723,9 +918,30 @@ class BackupPolicyResponse(dict):
                Expected value is 'BackupPolicy'.
         :param Sequence[Union['AzureBackupRuleResponse', 'AzureRetentionRuleResponse']] policy_rules: Policy rule dictionary that contains rules for each backuptype i.e Full/Incremental/Logs etc
         """
-        pulumi.set(__self__, "datasource_types", datasource_types)
-        pulumi.set(__self__, "object_type", 'BackupPolicy')
-        pulumi.set(__self__, "policy_rules", policy_rules)
+        BackupPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datasource_types=datasource_types,
+            object_type=object_type,
+            policy_rules=policy_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datasource_types: Sequence[str],
+             object_type: str,
+             policy_rules: Sequence[Any],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datasourceTypes' in kwargs:
+            datasource_types = kwargs['datasourceTypes']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'policyRules' in kwargs:
+            policy_rules = kwargs['policyRules']
+
+        _setter("datasource_types", datasource_types)
+        _setter("object_type", 'BackupPolicy')
+        _setter("policy_rules", policy_rules)
 
     @property
     @pulumi.getter(name="datasourceTypes")
@@ -785,9 +1001,26 @@ class BackupScheduleResponse(dict):
         :param Sequence[str] repeating_time_intervals: ISO 8601 repeating time interval format
         :param str time_zone: Time zone for a schedule. Example: Pacific Standard Time
         """
-        pulumi.set(__self__, "repeating_time_intervals", repeating_time_intervals)
+        BackupScheduleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repeating_time_intervals=repeating_time_intervals,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repeating_time_intervals: Sequence[str],
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'repeatingTimeIntervals' in kwargs:
+            repeating_time_intervals = kwargs['repeatingTimeIntervals']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("repeating_time_intervals", repeating_time_intervals)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="repeatingTimeIntervals")
@@ -862,17 +1095,58 @@ class BackupVaultResponse(dict):
         :param 'MonitoringSettingsResponse' monitoring_settings: Monitoring Settings
         :param 'SecuritySettingsResponse' security_settings: Security Settings
         """
-        pulumi.set(__self__, "is_vault_protected_by_resource_guard", is_vault_protected_by_resource_guard)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "resource_move_details", resource_move_details)
-        pulumi.set(__self__, "resource_move_state", resource_move_state)
-        pulumi.set(__self__, "storage_settings", storage_settings)
+        BackupVaultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_vault_protected_by_resource_guard=is_vault_protected_by_resource_guard,
+            provisioning_state=provisioning_state,
+            resource_move_details=resource_move_details,
+            resource_move_state=resource_move_state,
+            storage_settings=storage_settings,
+            feature_settings=feature_settings,
+            monitoring_settings=monitoring_settings,
+            security_settings=security_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_vault_protected_by_resource_guard: bool,
+             provisioning_state: str,
+             resource_move_details: 'outputs.ResourceMoveDetailsResponse',
+             resource_move_state: str,
+             storage_settings: Sequence['outputs.StorageSettingResponse'],
+             feature_settings: Optional['outputs.FeatureSettingsResponse'] = None,
+             monitoring_settings: Optional['outputs.MonitoringSettingsResponse'] = None,
+             security_settings: Optional['outputs.SecuritySettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isVaultProtectedByResourceGuard' in kwargs:
+            is_vault_protected_by_resource_guard = kwargs['isVaultProtectedByResourceGuard']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'resourceMoveDetails' in kwargs:
+            resource_move_details = kwargs['resourceMoveDetails']
+        if 'resourceMoveState' in kwargs:
+            resource_move_state = kwargs['resourceMoveState']
+        if 'storageSettings' in kwargs:
+            storage_settings = kwargs['storageSettings']
+        if 'featureSettings' in kwargs:
+            feature_settings = kwargs['featureSettings']
+        if 'monitoringSettings' in kwargs:
+            monitoring_settings = kwargs['monitoringSettings']
+        if 'securitySettings' in kwargs:
+            security_settings = kwargs['securitySettings']
+
+        _setter("is_vault_protected_by_resource_guard", is_vault_protected_by_resource_guard)
+        _setter("provisioning_state", provisioning_state)
+        _setter("resource_move_details", resource_move_details)
+        _setter("resource_move_state", resource_move_state)
+        _setter("storage_settings", storage_settings)
         if feature_settings is not None:
-            pulumi.set(__self__, "feature_settings", feature_settings)
+            _setter("feature_settings", feature_settings)
         if monitoring_settings is not None:
-            pulumi.set(__self__, "monitoring_settings", monitoring_settings)
+            _setter("monitoring_settings", monitoring_settings)
         if security_settings is not None:
-            pulumi.set(__self__, "security_settings", security_settings)
+            _setter("security_settings", security_settings)
 
     @property
     @pulumi.getter(name="isVaultProtectedByResourceGuard")
@@ -972,8 +1246,25 @@ class BlobBackupDatasourceParametersResponse(dict):
         :param str object_type: Type of the specific object - used for deserializing
                Expected value is 'BlobBackupDatasourceParameters'.
         """
-        pulumi.set(__self__, "containers_list", containers_list)
-        pulumi.set(__self__, "object_type", 'BlobBackupDatasourceParameters')
+        BlobBackupDatasourceParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            containers_list=containers_list,
+            object_type=object_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             containers_list: Sequence[str],
+             object_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containersList' in kwargs:
+            containers_list = kwargs['containersList']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+
+        _setter("containers_list", containers_list)
+        _setter("object_type", 'BlobBackupDatasourceParameters')
 
     @property
     @pulumi.getter(name="containersList")
@@ -1022,7 +1313,20 @@ class CopyOnExpiryOptionResponse(dict):
         :param str object_type: Type of the specific object - used for deserializing
                Expected value is 'CopyOnExpiryOption'.
         """
-        pulumi.set(__self__, "object_type", 'CopyOnExpiryOption')
+        CopyOnExpiryOptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_type=object_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+
+        _setter("object_type", 'CopyOnExpiryOption')
 
     @property
     @pulumi.getter(name="objectType")
@@ -1045,8 +1349,19 @@ class CrossSubscriptionRestoreSettingsResponse(dict):
         CrossSubscriptionRestore Settings
         :param str state: CrossSubscriptionRestore state
         """
+        CrossSubscriptionRestoreSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -1088,9 +1403,24 @@ class CustomCopyOptionResponse(dict):
                Expected value is 'CustomCopyOption'.
         :param str duration: Data copied after given timespan
         """
-        pulumi.set(__self__, "object_type", 'CustomCopyOption')
+        CustomCopyOptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_type=object_type,
+            duration=duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_type: str,
+             duration: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+
+        _setter("object_type", 'CustomCopyOption')
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
 
     @property
     @pulumi.getter(name="objectType")
@@ -1142,8 +1472,25 @@ class DataStoreInfoBaseResponse(dict):
         :param str data_store_type: type of datastore; Operational/Vault/Archive
         :param str object_type: Type of Datasource object, used to initialize the right inherited type
         """
-        pulumi.set(__self__, "data_store_type", data_store_type)
-        pulumi.set(__self__, "object_type", object_type)
+        DataStoreInfoBaseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_store_type=data_store_type,
+            object_type=object_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_store_type: str,
+             object_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataStoreType' in kwargs:
+            data_store_type = kwargs['dataStoreType']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+
+        _setter("data_store_type", data_store_type)
+        _setter("object_type", object_type)
 
     @property
     @pulumi.getter(name="dataStoreType")
@@ -1214,19 +1561,56 @@ class DatasourceResponse(dict):
         :param str resource_type: Resource Type of Datasource.
         :param str resource_uri: Uri of the resource.
         """
-        pulumi.set(__self__, "resource_id", resource_id)
+        DatasourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            datasource_type=datasource_type,
+            object_type=object_type,
+            resource_location=resource_location,
+            resource_name=resource_name,
+            resource_type=resource_type,
+            resource_uri=resource_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: str,
+             datasource_type: Optional[str] = None,
+             object_type: Optional[str] = None,
+             resource_location: Optional[str] = None,
+             resource_name: Optional[str] = None,
+             resource_type: Optional[str] = None,
+             resource_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceID' in kwargs:
+            resource_id = kwargs['resourceID']
+        if 'datasourceType' in kwargs:
+            datasource_type = kwargs['datasourceType']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'resourceLocation' in kwargs:
+            resource_location = kwargs['resourceLocation']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'resourceUri' in kwargs:
+            resource_uri = kwargs['resourceUri']
+
+        _setter("resource_id", resource_id)
         if datasource_type is not None:
-            pulumi.set(__self__, "datasource_type", datasource_type)
+            _setter("datasource_type", datasource_type)
         if object_type is not None:
-            pulumi.set(__self__, "object_type", object_type)
+            _setter("object_type", object_type)
         if resource_location is not None:
-            pulumi.set(__self__, "resource_location", resource_location)
+            _setter("resource_location", resource_location)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if resource_uri is not None:
-            pulumi.set(__self__, "resource_uri", resource_uri)
+            _setter("resource_uri", resource_uri)
 
     @property
     @pulumi.getter(name="resourceID")
@@ -1337,19 +1721,56 @@ class DatasourceSetResponse(dict):
         :param str resource_type: Resource Type of Datasource.
         :param str resource_uri: Uri of the resource.
         """
-        pulumi.set(__self__, "resource_id", resource_id)
+        DatasourceSetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            datasource_type=datasource_type,
+            object_type=object_type,
+            resource_location=resource_location,
+            resource_name=resource_name,
+            resource_type=resource_type,
+            resource_uri=resource_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: str,
+             datasource_type: Optional[str] = None,
+             object_type: Optional[str] = None,
+             resource_location: Optional[str] = None,
+             resource_name: Optional[str] = None,
+             resource_type: Optional[str] = None,
+             resource_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceID' in kwargs:
+            resource_id = kwargs['resourceID']
+        if 'datasourceType' in kwargs:
+            datasource_type = kwargs['datasourceType']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'resourceLocation' in kwargs:
+            resource_location = kwargs['resourceLocation']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'resourceUri' in kwargs:
+            resource_uri = kwargs['resourceUri']
+
+        _setter("resource_id", resource_id)
         if datasource_type is not None:
-            pulumi.set(__self__, "datasource_type", datasource_type)
+            _setter("datasource_type", datasource_type)
         if object_type is not None:
-            pulumi.set(__self__, "object_type", object_type)
+            _setter("object_type", object_type)
         if resource_location is not None:
-            pulumi.set(__self__, "resource_location", resource_location)
+            _setter("resource_location", resource_location)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if resource_uri is not None:
-            pulumi.set(__self__, "resource_uri", resource_uri)
+            _setter("resource_uri", resource_uri)
 
     @property
     @pulumi.getter(name="resourceID")
@@ -1438,10 +1859,25 @@ class DayResponse(dict):
         :param int date: Date of the month
         :param bool is_last: Whether Date is last date of month
         """
+        DayResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            date=date,
+            is_last=is_last,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             date: Optional[int] = None,
+             is_last: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isLast' in kwargs:
+            is_last = kwargs['isLast']
+
         if date is not None:
-            pulumi.set(__self__, "date", date)
+            _setter("date", date)
         if is_last is not None:
-            pulumi.set(__self__, "is_last", is_last)
+            _setter("is_last", is_last)
 
     @property
     @pulumi.getter
@@ -1494,10 +1930,29 @@ class DppIdentityDetailsResponse(dict):
         :param str tenant_id: A Globally Unique Identifier (GUID) that represents the Azure AD tenant where the resource is now a member.
         :param str type: The identityType which can be either SystemAssigned or None
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        DppIdentityDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -1552,8 +2007,21 @@ class FeatureSettingsResponse(dict):
         Class containing feature settings of vault
         :param 'CrossSubscriptionRestoreSettingsResponse' cross_subscription_restore_settings: CrossSubscriptionRestore Settings
         """
+        FeatureSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cross_subscription_restore_settings=cross_subscription_restore_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cross_subscription_restore_settings: Optional['outputs.CrossSubscriptionRestoreSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'crossSubscriptionRestoreSettings' in kwargs:
+            cross_subscription_restore_settings = kwargs['crossSubscriptionRestoreSettings']
+
         if cross_subscription_restore_settings is not None:
-            pulumi.set(__self__, "cross_subscription_restore_settings", cross_subscription_restore_settings)
+            _setter("cross_subscription_restore_settings", cross_subscription_restore_settings)
 
     @property
     @pulumi.getter(name="crossSubscriptionRestoreSettings")
@@ -1593,7 +2061,20 @@ class ImmediateCopyOptionResponse(dict):
         :param str object_type: Type of the specific object - used for deserializing
                Expected value is 'ImmediateCopyOption'.
         """
-        pulumi.set(__self__, "object_type", 'ImmediateCopyOption')
+        ImmediateCopyOptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_type=object_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+
+        _setter("object_type", 'ImmediateCopyOption')
 
     @property
     @pulumi.getter(name="objectType")
@@ -1616,8 +2097,19 @@ class ImmutabilitySettingsResponse(dict):
         Immutability Settings at vault level
         :param str state: Immutability state
         """
+        ImmutabilitySettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -1662,12 +2154,31 @@ class InnerErrorResponse(dict):
         :param str code: Unique code for this error
         :param 'InnerErrorResponse' embedded_inner_error: Child Inner Error, to allow Nesting.
         """
+        InnerErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_info=additional_info,
+            code=code,
+            embedded_inner_error=embedded_inner_error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_info: Optional[Mapping[str, str]] = None,
+             code: Optional[str] = None,
+             embedded_inner_error: Optional['outputs.InnerErrorResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalInfo' in kwargs:
+            additional_info = kwargs['additionalInfo']
+        if 'embeddedInnerError' in kwargs:
+            embedded_inner_error = kwargs['embeddedInnerError']
+
         if additional_info is not None:
-            pulumi.set(__self__, "additional_info", additional_info)
+            _setter("additional_info", additional_info)
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if embedded_inner_error is not None:
-            pulumi.set(__self__, "embedded_inner_error", embedded_inner_error)
+            _setter("embedded_inner_error", embedded_inner_error)
 
     @property
     @pulumi.getter(name="additionalInfo")
@@ -1751,19 +2262,60 @@ class KubernetesClusterBackupDatasourceParametersResponse(dict):
         :param Sequence[str] included_resource_types: Gets or sets the include resource types property. This property sets the resource types to be included during restore.
         :param Sequence[str] label_selectors: Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during restore.
         """
-        pulumi.set(__self__, "include_cluster_scope_resources", include_cluster_scope_resources)
-        pulumi.set(__self__, "object_type", 'KubernetesClusterBackupDatasourceParameters')
-        pulumi.set(__self__, "snapshot_volumes", snapshot_volumes)
+        KubernetesClusterBackupDatasourceParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            include_cluster_scope_resources=include_cluster_scope_resources,
+            object_type=object_type,
+            snapshot_volumes=snapshot_volumes,
+            excluded_namespaces=excluded_namespaces,
+            excluded_resource_types=excluded_resource_types,
+            included_namespaces=included_namespaces,
+            included_resource_types=included_resource_types,
+            label_selectors=label_selectors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             include_cluster_scope_resources: bool,
+             object_type: str,
+             snapshot_volumes: bool,
+             excluded_namespaces: Optional[Sequence[str]] = None,
+             excluded_resource_types: Optional[Sequence[str]] = None,
+             included_namespaces: Optional[Sequence[str]] = None,
+             included_resource_types: Optional[Sequence[str]] = None,
+             label_selectors: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includeClusterScopeResources' in kwargs:
+            include_cluster_scope_resources = kwargs['includeClusterScopeResources']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'snapshotVolumes' in kwargs:
+            snapshot_volumes = kwargs['snapshotVolumes']
+        if 'excludedNamespaces' in kwargs:
+            excluded_namespaces = kwargs['excludedNamespaces']
+        if 'excludedResourceTypes' in kwargs:
+            excluded_resource_types = kwargs['excludedResourceTypes']
+        if 'includedNamespaces' in kwargs:
+            included_namespaces = kwargs['includedNamespaces']
+        if 'includedResourceTypes' in kwargs:
+            included_resource_types = kwargs['includedResourceTypes']
+        if 'labelSelectors' in kwargs:
+            label_selectors = kwargs['labelSelectors']
+
+        _setter("include_cluster_scope_resources", include_cluster_scope_resources)
+        _setter("object_type", 'KubernetesClusterBackupDatasourceParameters')
+        _setter("snapshot_volumes", snapshot_volumes)
         if excluded_namespaces is not None:
-            pulumi.set(__self__, "excluded_namespaces", excluded_namespaces)
+            _setter("excluded_namespaces", excluded_namespaces)
         if excluded_resource_types is not None:
-            pulumi.set(__self__, "excluded_resource_types", excluded_resource_types)
+            _setter("excluded_resource_types", excluded_resource_types)
         if included_namespaces is not None:
-            pulumi.set(__self__, "included_namespaces", included_namespaces)
+            _setter("included_namespaces", included_namespaces)
         if included_resource_types is not None:
-            pulumi.set(__self__, "included_resource_types", included_resource_types)
+            _setter("included_resource_types", included_resource_types)
         if label_selectors is not None:
-            pulumi.set(__self__, "label_selectors", label_selectors)
+            _setter("label_selectors", label_selectors)
 
     @property
     @pulumi.getter(name="includeClusterScopeResources")
@@ -1859,8 +2411,21 @@ class MonitoringSettingsResponse(dict):
         Monitoring Settings
         :param 'AzureMonitorAlertSettingsResponse' azure_monitor_alert_settings: Settings for Azure Monitor based alerts
         """
+        MonitoringSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_monitor_alert_settings=azure_monitor_alert_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_monitor_alert_settings: Optional['outputs.AzureMonitorAlertSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureMonitorAlertSettings' in kwargs:
+            azure_monitor_alert_settings = kwargs['azureMonitorAlertSettings']
+
         if azure_monitor_alert_settings is not None:
-            pulumi.set(__self__, "azure_monitor_alert_settings", azure_monitor_alert_settings)
+            _setter("azure_monitor_alert_settings", azure_monitor_alert_settings)
 
     @property
     @pulumi.getter(name="azureMonitorAlertSettings")
@@ -1905,10 +2470,31 @@ class PolicyInfoResponse(dict):
         Policy Info in backupInstance
         :param 'PolicyParametersResponse' policy_parameters: Policy parameters for the backup instance
         """
-        pulumi.set(__self__, "policy_id", policy_id)
-        pulumi.set(__self__, "policy_version", policy_version)
+        PolicyInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_id=policy_id,
+            policy_version=policy_version,
+            policy_parameters=policy_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_id: str,
+             policy_version: str,
+             policy_parameters: Optional['outputs.PolicyParametersResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'policyVersion' in kwargs:
+            policy_version = kwargs['policyVersion']
+        if 'policyParameters' in kwargs:
+            policy_parameters = kwargs['policyParameters']
+
+        _setter("policy_id", policy_id)
+        _setter("policy_version", policy_version)
         if policy_parameters is not None:
-            pulumi.set(__self__, "policy_parameters", policy_parameters)
+            _setter("policy_parameters", policy_parameters)
 
     @property
     @pulumi.getter(name="policyId")
@@ -1961,10 +2547,27 @@ class PolicyParametersResponse(dict):
         :param Sequence[Union['BlobBackupDatasourceParametersResponse', 'KubernetesClusterBackupDatasourceParametersResponse']] backup_datasource_parameters_list: Gets or sets the Backup Data Source Parameters
         :param Sequence['AzureOperationalStoreParametersResponse'] data_store_parameters_list: Gets or sets the DataStore Parameters
         """
+        PolicyParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_datasource_parameters_list=backup_datasource_parameters_list,
+            data_store_parameters_list=data_store_parameters_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_datasource_parameters_list: Optional[Sequence[Any]] = None,
+             data_store_parameters_list: Optional[Sequence['outputs.AzureOperationalStoreParametersResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupDatasourceParametersList' in kwargs:
+            backup_datasource_parameters_list = kwargs['backupDatasourceParametersList']
+        if 'dataStoreParametersList' in kwargs:
+            data_store_parameters_list = kwargs['dataStoreParametersList']
+
         if backup_datasource_parameters_list is not None:
-            pulumi.set(__self__, "backup_datasource_parameters_list", backup_datasource_parameters_list)
+            _setter("backup_datasource_parameters_list", backup_datasource_parameters_list)
         if data_store_parameters_list is not None:
-            pulumi.set(__self__, "data_store_parameters_list", data_store_parameters_list)
+            _setter("data_store_parameters_list", data_store_parameters_list)
 
     @property
     @pulumi.getter(name="backupDatasourceParametersList")
@@ -2013,10 +2616,25 @@ class ProtectionStatusDetailsResponse(dict):
         :param 'UserFacingErrorResponse' error_details: Specifies the protection status error of the resource
         :param str status: Specifies the protection status of the resource
         """
+        ProtectionStatusDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_details=error_details,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_details: Optional['outputs.UserFacingErrorResponse'] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorDetails' in kwargs:
+            error_details = kwargs['errorDetails']
+
         if error_details is not None:
-            pulumi.set(__self__, "error_details", error_details)
+            _setter("error_details", error_details)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="errorDetails")
@@ -2065,10 +2683,27 @@ class ResourceGuardOperationDetailResponse(dict):
         """
         VaultCritical Operation protected by a resource guard
         """
+        ResourceGuardOperationDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_resource_request=default_resource_request,
+            vault_critical_operation=vault_critical_operation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_resource_request: Optional[str] = None,
+             vault_critical_operation: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultResourceRequest' in kwargs:
+            default_resource_request = kwargs['defaultResourceRequest']
+        if 'vaultCriticalOperation' in kwargs:
+            vault_critical_operation = kwargs['vaultCriticalOperation']
+
         if default_resource_request is not None:
-            pulumi.set(__self__, "default_resource_request", default_resource_request)
+            _setter("default_resource_request", default_resource_request)
         if vault_critical_operation is not None:
-            pulumi.set(__self__, "vault_critical_operation", vault_critical_operation)
+            _setter("vault_critical_operation", vault_critical_operation)
 
     @property
     @pulumi.getter(name="defaultResourceRequest")
@@ -2113,8 +2748,25 @@ class ResourceGuardOperationResponse(dict):
         :param str request_resource_type: Type of resource request.
         :param str vault_critical_operation: Name of the critical operation.
         """
-        pulumi.set(__self__, "request_resource_type", request_resource_type)
-        pulumi.set(__self__, "vault_critical_operation", vault_critical_operation)
+        ResourceGuardOperationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            request_resource_type=request_resource_type,
+            vault_critical_operation=vault_critical_operation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             request_resource_type: str,
+             vault_critical_operation: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'requestResourceType' in kwargs:
+            request_resource_type = kwargs['requestResourceType']
+        if 'vaultCriticalOperation' in kwargs:
+            vault_critical_operation = kwargs['vaultCriticalOperation']
+
+        _setter("request_resource_type", request_resource_type)
+        _setter("vault_critical_operation", vault_critical_operation)
 
     @property
     @pulumi.getter(name="requestResourceType")
@@ -2167,14 +2819,37 @@ class ResourceGuardProxyBaseResponse(dict):
         """
         ResourceGuardProxyBase object, used in ResourceGuardProxyBaseResource
         """
+        ResourceGuardProxyBaseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            last_updated_time=last_updated_time,
+            resource_guard_operation_details=resource_guard_operation_details,
+            resource_guard_resource_id=resource_guard_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             last_updated_time: Optional[str] = None,
+             resource_guard_operation_details: Optional[Sequence['outputs.ResourceGuardOperationDetailResponse']] = None,
+             resource_guard_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+        if 'resourceGuardOperationDetails' in kwargs:
+            resource_guard_operation_details = kwargs['resourceGuardOperationDetails']
+        if 'resourceGuardResourceId' in kwargs:
+            resource_guard_resource_id = kwargs['resourceGuardResourceId']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if last_updated_time is not None:
-            pulumi.set(__self__, "last_updated_time", last_updated_time)
+            _setter("last_updated_time", last_updated_time)
         if resource_guard_operation_details is not None:
-            pulumi.set(__self__, "resource_guard_operation_details", resource_guard_operation_details)
+            _setter("resource_guard_operation_details", resource_guard_operation_details)
         if resource_guard_resource_id is not None:
-            pulumi.set(__self__, "resource_guard_resource_id", resource_guard_resource_id)
+            _setter("resource_guard_resource_id", resource_guard_resource_id)
 
     @property
     @pulumi.getter
@@ -2235,12 +2910,39 @@ class ResourceGuardResponse(dict):
         :param Sequence['ResourceGuardOperationResponse'] resource_guard_operations: {readonly} List of operation details those are protected by the ResourceGuard resource
         :param Sequence[str] vault_critical_operation_exclusion_list: List of critical operations which are not protected by this resourceGuard
         """
-        pulumi.set(__self__, "allow_auto_approvals", allow_auto_approvals)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "resource_guard_operations", resource_guard_operations)
+        ResourceGuardResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_auto_approvals=allow_auto_approvals,
+            description=description,
+            provisioning_state=provisioning_state,
+            resource_guard_operations=resource_guard_operations,
+            vault_critical_operation_exclusion_list=vault_critical_operation_exclusion_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_auto_approvals: bool,
+             description: str,
+             provisioning_state: str,
+             resource_guard_operations: Sequence['outputs.ResourceGuardOperationResponse'],
+             vault_critical_operation_exclusion_list: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowAutoApprovals' in kwargs:
+            allow_auto_approvals = kwargs['allowAutoApprovals']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'resourceGuardOperations' in kwargs:
+            resource_guard_operations = kwargs['resourceGuardOperations']
+        if 'vaultCriticalOperationExclusionList' in kwargs:
+            vault_critical_operation_exclusion_list = kwargs['vaultCriticalOperationExclusionList']
+
+        _setter("allow_auto_approvals", allow_auto_approvals)
+        _setter("description", description)
+        _setter("provisioning_state", provisioning_state)
+        _setter("resource_guard_operations", resource_guard_operations)
         if vault_critical_operation_exclusion_list is not None:
-            pulumi.set(__self__, "vault_critical_operation_exclusion_list", vault_critical_operation_exclusion_list)
+            _setter("vault_critical_operation_exclusion_list", vault_critical_operation_exclusion_list)
 
     @property
     @pulumi.getter(name="allowAutoApprovals")
@@ -2327,16 +3029,45 @@ class ResourceMoveDetailsResponse(dict):
         :param str start_time_utc: Start time in UTC of latest ResourceMove operation attempted. ISO 8601 format.
         :param str target_resource_path: ARM resource path of target resource used in latest ResourceMove operation
         """
+        ResourceMoveDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            completion_time_utc=completion_time_utc,
+            operation_id=operation_id,
+            source_resource_path=source_resource_path,
+            start_time_utc=start_time_utc,
+            target_resource_path=target_resource_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             completion_time_utc: Optional[str] = None,
+             operation_id: Optional[str] = None,
+             source_resource_path: Optional[str] = None,
+             start_time_utc: Optional[str] = None,
+             target_resource_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'completionTimeUtc' in kwargs:
+            completion_time_utc = kwargs['completionTimeUtc']
+        if 'operationId' in kwargs:
+            operation_id = kwargs['operationId']
+        if 'sourceResourcePath' in kwargs:
+            source_resource_path = kwargs['sourceResourcePath']
+        if 'startTimeUtc' in kwargs:
+            start_time_utc = kwargs['startTimeUtc']
+        if 'targetResourcePath' in kwargs:
+            target_resource_path = kwargs['targetResourcePath']
+
         if completion_time_utc is not None:
-            pulumi.set(__self__, "completion_time_utc", completion_time_utc)
+            _setter("completion_time_utc", completion_time_utc)
         if operation_id is not None:
-            pulumi.set(__self__, "operation_id", operation_id)
+            _setter("operation_id", operation_id)
         if source_resource_path is not None:
-            pulumi.set(__self__, "source_resource_path", source_resource_path)
+            _setter("source_resource_path", source_resource_path)
         if start_time_utc is not None:
-            pulumi.set(__self__, "start_time_utc", start_time_utc)
+            _setter("start_time_utc", start_time_utc)
         if target_resource_path is not None:
-            pulumi.set(__self__, "target_resource_path", target_resource_path)
+            _setter("target_resource_path", target_resource_path)
 
     @property
     @pulumi.getter(name="completionTimeUtc")
@@ -2413,9 +3144,28 @@ class RetentionTagResponse(dict):
         :param str id: Retention Tag version.
         :param str tag_name: Retention Tag Name to relate it to retention rule.
         """
-        pulumi.set(__self__, "e_tag", e_tag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "tag_name", tag_name)
+        RetentionTagResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            e_tag=e_tag,
+            id=id,
+            tag_name=tag_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             e_tag: str,
+             id: str,
+             tag_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+        if 'tagName' in kwargs:
+            tag_name = kwargs['tagName']
+
+        _setter("e_tag", e_tag)
+        _setter("id", id)
+        _setter("tag_name", tag_name)
 
     @property
     @pulumi.getter(name="eTag")
@@ -2496,19 +3246,56 @@ class ScheduleBasedBackupCriteriaResponse(dict):
         :param Sequence[str] schedule_times: List of schedule times for backup
         :param Sequence[str] weeks_of_the_month: It should be First/Second/Third/Fourth/Last
         """
-        pulumi.set(__self__, "object_type", 'ScheduleBasedBackupCriteria')
+        ScheduleBasedBackupCriteriaResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_type=object_type,
+            absolute_criteria=absolute_criteria,
+            days_of_month=days_of_month,
+            days_of_the_week=days_of_the_week,
+            months_of_year=months_of_year,
+            schedule_times=schedule_times,
+            weeks_of_the_month=weeks_of_the_month,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_type: str,
+             absolute_criteria: Optional[Sequence[str]] = None,
+             days_of_month: Optional[Sequence['outputs.DayResponse']] = None,
+             days_of_the_week: Optional[Sequence[str]] = None,
+             months_of_year: Optional[Sequence[str]] = None,
+             schedule_times: Optional[Sequence[str]] = None,
+             weeks_of_the_month: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'absoluteCriteria' in kwargs:
+            absolute_criteria = kwargs['absoluteCriteria']
+        if 'daysOfMonth' in kwargs:
+            days_of_month = kwargs['daysOfMonth']
+        if 'daysOfTheWeek' in kwargs:
+            days_of_the_week = kwargs['daysOfTheWeek']
+        if 'monthsOfYear' in kwargs:
+            months_of_year = kwargs['monthsOfYear']
+        if 'scheduleTimes' in kwargs:
+            schedule_times = kwargs['scheduleTimes']
+        if 'weeksOfTheMonth' in kwargs:
+            weeks_of_the_month = kwargs['weeksOfTheMonth']
+
+        _setter("object_type", 'ScheduleBasedBackupCriteria')
         if absolute_criteria is not None:
-            pulumi.set(__self__, "absolute_criteria", absolute_criteria)
+            _setter("absolute_criteria", absolute_criteria)
         if days_of_month is not None:
-            pulumi.set(__self__, "days_of_month", days_of_month)
+            _setter("days_of_month", days_of_month)
         if days_of_the_week is not None:
-            pulumi.set(__self__, "days_of_the_week", days_of_the_week)
+            _setter("days_of_the_week", days_of_the_week)
         if months_of_year is not None:
-            pulumi.set(__self__, "months_of_year", months_of_year)
+            _setter("months_of_year", months_of_year)
         if schedule_times is not None:
-            pulumi.set(__self__, "schedule_times", schedule_times)
+            _setter("schedule_times", schedule_times)
         if weeks_of_the_month is not None:
-            pulumi.set(__self__, "weeks_of_the_month", weeks_of_the_month)
+            _setter("weeks_of_the_month", weeks_of_the_month)
 
     @property
     @pulumi.getter(name="objectType")
@@ -2604,9 +3391,28 @@ class ScheduleBasedTriggerContextResponse(dict):
         :param 'BackupScheduleResponse' schedule: Schedule for this backup
         :param Sequence['TaggingCriteriaResponse'] tagging_criteria: List of tags that can be applicable for given schedule.
         """
-        pulumi.set(__self__, "object_type", 'ScheduleBasedTriggerContext')
-        pulumi.set(__self__, "schedule", schedule)
-        pulumi.set(__self__, "tagging_criteria", tagging_criteria)
+        ScheduleBasedTriggerContextResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_type=object_type,
+            schedule=schedule,
+            tagging_criteria=tagging_criteria,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_type: str,
+             schedule: 'outputs.BackupScheduleResponse',
+             tagging_criteria: Sequence['outputs.TaggingCriteriaResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'taggingCriteria' in kwargs:
+            tagging_criteria = kwargs['taggingCriteria']
+
+        _setter("object_type", 'ScheduleBasedTriggerContext')
+        _setter("schedule", schedule)
+        _setter("tagging_criteria", tagging_criteria)
 
     @property
     @pulumi.getter(name="objectType")
@@ -2667,9 +3473,26 @@ class SecretStoreBasedAuthCredentialsResponse(dict):
                Expected value is 'SecretStoreBasedAuthCredentials'.
         :param 'SecretStoreResourceResponse' secret_store_resource: Secret store resource
         """
-        pulumi.set(__self__, "object_type", 'SecretStoreBasedAuthCredentials')
+        SecretStoreBasedAuthCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_type=object_type,
+            secret_store_resource=secret_store_resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_type: str,
+             secret_store_resource: Optional['outputs.SecretStoreResourceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'secretStoreResource' in kwargs:
+            secret_store_resource = kwargs['secretStoreResource']
+
+        _setter("object_type", 'SecretStoreBasedAuthCredentials')
         if secret_store_resource is not None:
-            pulumi.set(__self__, "secret_store_resource", secret_store_resource)
+            _setter("secret_store_resource", secret_store_resource)
 
     @property
     @pulumi.getter(name="objectType")
@@ -2721,11 +3544,28 @@ class SecretStoreResourceResponse(dict):
         :param str uri: Uri to get to the resource
         :param str value: Gets or sets value stored in secret store resource
         """
-        pulumi.set(__self__, "secret_store_type", secret_store_type)
+        SecretStoreResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_store_type=secret_store_type,
+            uri=uri,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_store_type: str,
+             uri: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretStoreType' in kwargs:
+            secret_store_type = kwargs['secretStoreType']
+
+        _setter("secret_store_type", secret_store_type)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="secretStoreType")
@@ -2784,10 +3624,27 @@ class SecuritySettingsResponse(dict):
         :param 'ImmutabilitySettingsResponse' immutability_settings: Immutability Settings at vault level
         :param 'SoftDeleteSettingsResponse' soft_delete_settings: Soft delete related settings
         """
+        SecuritySettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            immutability_settings=immutability_settings,
+            soft_delete_settings=soft_delete_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             immutability_settings: Optional['outputs.ImmutabilitySettingsResponse'] = None,
+             soft_delete_settings: Optional['outputs.SoftDeleteSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'immutabilitySettings' in kwargs:
+            immutability_settings = kwargs['immutabilitySettings']
+        if 'softDeleteSettings' in kwargs:
+            soft_delete_settings = kwargs['softDeleteSettings']
+
         if immutability_settings is not None:
-            pulumi.set(__self__, "immutability_settings", immutability_settings)
+            _setter("immutability_settings", immutability_settings)
         if soft_delete_settings is not None:
-            pulumi.set(__self__, "soft_delete_settings", soft_delete_settings)
+            _setter("soft_delete_settings", soft_delete_settings)
 
     @property
     @pulumi.getter(name="immutabilitySettings")
@@ -2836,10 +3693,25 @@ class SoftDeleteSettingsResponse(dict):
         :param float retention_duration_in_days: Soft delete retention duration
         :param str state: State of soft delete
         """
+        SoftDeleteSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            retention_duration_in_days=retention_duration_in_days,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             retention_duration_in_days: Optional[float] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionDurationInDays' in kwargs:
+            retention_duration_in_days = kwargs['retentionDurationInDays']
+
         if retention_duration_in_days is not None:
-            pulumi.set(__self__, "retention_duration_in_days", retention_duration_in_days)
+            _setter("retention_duration_in_days", retention_duration_in_days)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="retentionDurationInDays")
@@ -2893,10 +3765,31 @@ class SourceLifeCycleResponse(dict):
         :param 'AbsoluteDeleteOptionResponse' delete_after: Delete Option
         :param 'DataStoreInfoBaseResponse' source_data_store: DataStoreInfo base
         """
-        pulumi.set(__self__, "delete_after", delete_after)
-        pulumi.set(__self__, "source_data_store", source_data_store)
+        SourceLifeCycleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_after=delete_after,
+            source_data_store=source_data_store,
+            target_data_store_copy_settings=target_data_store_copy_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_after: 'outputs.AbsoluteDeleteOptionResponse',
+             source_data_store: 'outputs.DataStoreInfoBaseResponse',
+             target_data_store_copy_settings: Optional[Sequence['outputs.TargetCopySettingResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deleteAfter' in kwargs:
+            delete_after = kwargs['deleteAfter']
+        if 'sourceDataStore' in kwargs:
+            source_data_store = kwargs['sourceDataStore']
+        if 'targetDataStoreCopySettings' in kwargs:
+            target_data_store_copy_settings = kwargs['targetDataStoreCopySettings']
+
+        _setter("delete_after", delete_after)
+        _setter("source_data_store", source_data_store)
         if target_data_store_copy_settings is not None:
-            pulumi.set(__self__, "target_data_store_copy_settings", target_data_store_copy_settings)
+            _setter("target_data_store_copy_settings", target_data_store_copy_settings)
 
     @property
     @pulumi.getter(name="deleteAfter")
@@ -2950,10 +3843,25 @@ class StorageSettingResponse(dict):
         :param str datastore_type: Gets or sets the type of the datastore.
         :param str type: Gets or sets the type.
         """
+        StorageSettingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datastore_type=datastore_type,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datastore_type: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datastoreType' in kwargs:
+            datastore_type = kwargs['datastoreType']
+
         if datastore_type is not None:
-            pulumi.set(__self__, "datastore_type", datastore_type)
+            _setter("datastore_type", datastore_type)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="datastoreType")
@@ -3020,18 +3928,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -3120,11 +4061,34 @@ class TaggingCriteriaResponse(dict):
         :param float tagging_priority: Retention Tag priority.
         :param Sequence['ScheduleBasedBackupCriteriaResponse'] criteria: Criteria which decides whether the tag can be applied to a triggered backup.
         """
-        pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "tag_info", tag_info)
-        pulumi.set(__self__, "tagging_priority", tagging_priority)
+        TaggingCriteriaResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_default=is_default,
+            tag_info=tag_info,
+            tagging_priority=tagging_priority,
+            criteria=criteria,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_default: bool,
+             tag_info: 'outputs.RetentionTagResponse',
+             tagging_priority: float,
+             criteria: Optional[Sequence['outputs.ScheduleBasedBackupCriteriaResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'tagInfo' in kwargs:
+            tag_info = kwargs['tagInfo']
+        if 'taggingPriority' in kwargs:
+            tagging_priority = kwargs['taggingPriority']
+
+        _setter("is_default", is_default)
+        _setter("tag_info", tag_info)
+        _setter("tagging_priority", tagging_priority)
         if criteria is not None:
-            pulumi.set(__self__, "criteria", criteria)
+            _setter("criteria", criteria)
 
     @property
     @pulumi.getter(name="isDefault")
@@ -3191,8 +4155,25 @@ class TargetCopySettingResponse(dict):
         :param Union['CopyOnExpiryOptionResponse', 'CustomCopyOptionResponse', 'ImmediateCopyOptionResponse'] copy_after: It can be CustomCopyOption or ImmediateCopyOption.
         :param 'DataStoreInfoBaseResponse' data_store: Info of target datastore
         """
-        pulumi.set(__self__, "copy_after", copy_after)
-        pulumi.set(__self__, "data_store", data_store)
+        TargetCopySettingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            copy_after=copy_after,
+            data_store=data_store,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             copy_after: Any,
+             data_store: 'outputs.DataStoreInfoBaseResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'copyAfter' in kwargs:
+            copy_after = kwargs['copyAfter']
+        if 'dataStore' in kwargs:
+            data_store = kwargs['dataStore']
+
+        _setter("copy_after", copy_after)
+        _setter("data_store", data_store)
 
     @property
     @pulumi.getter(name="copyAfter")
@@ -3260,24 +4241,59 @@ class UserFacingErrorResponse(dict):
         :param Sequence[str] recommended_action: RecommendedAction � localized.
         :param str target: Target of the error.
         """
+        UserFacingErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            details=details,
+            inner_error=inner_error,
+            is_retryable=is_retryable,
+            is_user_error=is_user_error,
+            message=message,
+            properties=properties,
+            recommended_action=recommended_action,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             details: Optional[Sequence['outputs.UserFacingErrorResponse']] = None,
+             inner_error: Optional['outputs.InnerErrorResponse'] = None,
+             is_retryable: Optional[bool] = None,
+             is_user_error: Optional[bool] = None,
+             message: Optional[str] = None,
+             properties: Optional[Mapping[str, str]] = None,
+             recommended_action: Optional[Sequence[str]] = None,
+             target: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'innerError' in kwargs:
+            inner_error = kwargs['innerError']
+        if 'isRetryable' in kwargs:
+            is_retryable = kwargs['isRetryable']
+        if 'isUserError' in kwargs:
+            is_user_error = kwargs['isUserError']
+        if 'recommendedAction' in kwargs:
+            recommended_action = kwargs['recommendedAction']
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if inner_error is not None:
-            pulumi.set(__self__, "inner_error", inner_error)
+            _setter("inner_error", inner_error)
         if is_retryable is not None:
-            pulumi.set(__self__, "is_retryable", is_retryable)
+            _setter("is_retryable", is_retryable)
         if is_user_error is not None:
-            pulumi.set(__self__, "is_user_error", is_user_error)
+            _setter("is_user_error", is_user_error)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if recommended_action is not None:
-            pulumi.set(__self__, "recommended_action", recommended_action)
+            _setter("recommended_action", recommended_action)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter

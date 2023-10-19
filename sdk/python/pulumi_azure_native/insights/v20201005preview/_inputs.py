@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -29,10 +29,27 @@ class HeaderFieldArgs:
         :param pulumi.Input[str] header_field_name: The name of the header.
         :param pulumi.Input[str] header_field_value: The value of the header.
         """
+        HeaderFieldArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_field_name=header_field_name,
+            header_field_value=header_field_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_field_name: Optional[pulumi.Input[str]] = None,
+             header_field_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerFieldName' in kwargs:
+            header_field_name = kwargs['headerFieldName']
+        if 'headerFieldValue' in kwargs:
+            header_field_value = kwargs['headerFieldValue']
+
         if header_field_name is not None:
-            pulumi.set(__self__, "header_field_name", header_field_name)
+            _setter("header_field_name", header_field_name)
         if header_field_value is not None:
-            pulumi.set(__self__, "header_field_value", header_field_value)
+            _setter("header_field_value", header_field_value)
 
     @property
     @pulumi.getter(name="headerFieldName")
@@ -67,8 +84,19 @@ class WebTestGeolocationArgs:
         Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
         :param pulumi.Input[str] location: Location ID for the WebTest to run from.
         """
+        WebTestGeolocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter
@@ -91,8 +119,21 @@ class WebTestPropertiesConfigurationArgs:
         An XML configuration specification for a WebTest.
         :param pulumi.Input[str] web_test: The XML specification of a WebTest to run against an application.
         """
+        WebTestPropertiesConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            web_test=web_test,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             web_test: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'webTest' in kwargs:
+            web_test = kwargs['webTest']
+
         if web_test is not None:
-            pulumi.set(__self__, "web_test", web_test)
+            _setter("web_test", web_test)
 
     @property
     @pulumi.getter(name="webTest")
@@ -119,12 +160,33 @@ class WebTestPropertiesContentValidationArgs:
         :param pulumi.Input[bool] ignore_case: When set, this value makes the ContentMatch validation case insensitive.
         :param pulumi.Input[bool] pass_if_text_found: When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
         """
+        WebTestPropertiesContentValidationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_match=content_match,
+            ignore_case=ignore_case,
+            pass_if_text_found=pass_if_text_found,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_match: Optional[pulumi.Input[str]] = None,
+             ignore_case: Optional[pulumi.Input[bool]] = None,
+             pass_if_text_found: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentMatch' in kwargs:
+            content_match = kwargs['contentMatch']
+        if 'ignoreCase' in kwargs:
+            ignore_case = kwargs['ignoreCase']
+        if 'passIfTextFound' in kwargs:
+            pass_if_text_found = kwargs['passIfTextFound']
+
         if content_match is not None:
-            pulumi.set(__self__, "content_match", content_match)
+            _setter("content_match", content_match)
         if ignore_case is not None:
-            pulumi.set(__self__, "ignore_case", ignore_case)
+            _setter("ignore_case", ignore_case)
         if pass_if_text_found is not None:
-            pulumi.set(__self__, "pass_if_text_found", pass_if_text_found)
+            _setter("pass_if_text_found", pass_if_text_found)
 
     @property
     @pulumi.getter(name="contentMatch")
@@ -181,18 +243,49 @@ class WebTestPropertiesRequestArgs:
         :param pulumi.Input[str] request_body: Base64 encoded string body to send with this web test.
         :param pulumi.Input[str] request_url: Url location to test.
         """
+        WebTestPropertiesRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            follow_redirects=follow_redirects,
+            headers=headers,
+            http_verb=http_verb,
+            parse_dependent_requests=parse_dependent_requests,
+            request_body=request_body,
+            request_url=request_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             follow_redirects: Optional[pulumi.Input[bool]] = None,
+             headers: Optional[pulumi.Input[Sequence[pulumi.Input['HeaderFieldArgs']]]] = None,
+             http_verb: Optional[pulumi.Input[str]] = None,
+             parse_dependent_requests: Optional[pulumi.Input[bool]] = None,
+             request_body: Optional[pulumi.Input[str]] = None,
+             request_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'followRedirects' in kwargs:
+            follow_redirects = kwargs['followRedirects']
+        if 'httpVerb' in kwargs:
+            http_verb = kwargs['httpVerb']
+        if 'parseDependentRequests' in kwargs:
+            parse_dependent_requests = kwargs['parseDependentRequests']
+        if 'requestBody' in kwargs:
+            request_body = kwargs['requestBody']
+        if 'requestUrl' in kwargs:
+            request_url = kwargs['requestUrl']
+
         if follow_redirects is not None:
-            pulumi.set(__self__, "follow_redirects", follow_redirects)
+            _setter("follow_redirects", follow_redirects)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if http_verb is not None:
-            pulumi.set(__self__, "http_verb", http_verb)
+            _setter("http_verb", http_verb)
         if parse_dependent_requests is not None:
-            pulumi.set(__self__, "parse_dependent_requests", parse_dependent_requests)
+            _setter("parse_dependent_requests", parse_dependent_requests)
         if request_body is not None:
-            pulumi.set(__self__, "request_body", request_body)
+            _setter("request_body", request_body)
         if request_url is not None:
-            pulumi.set(__self__, "request_url", request_url)
+            _setter("request_url", request_url)
 
     @property
     @pulumi.getter(name="followRedirects")
@@ -283,16 +376,45 @@ class WebTestPropertiesValidationRulesArgs:
         :param pulumi.Input[int] s_sl_cert_remaining_lifetime_check: A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
         :param pulumi.Input[bool] s_sl_check: Checks to see if the SSL cert is still valid.
         """
+        WebTestPropertiesValidationRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_validation=content_validation,
+            expected_http_status_code=expected_http_status_code,
+            ignore_https_status_code=ignore_https_status_code,
+            s_sl_cert_remaining_lifetime_check=s_sl_cert_remaining_lifetime_check,
+            s_sl_check=s_sl_check,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_validation: Optional[pulumi.Input['WebTestPropertiesContentValidationArgs']] = None,
+             expected_http_status_code: Optional[pulumi.Input[int]] = None,
+             ignore_https_status_code: Optional[pulumi.Input[bool]] = None,
+             s_sl_cert_remaining_lifetime_check: Optional[pulumi.Input[int]] = None,
+             s_sl_check: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentValidation' in kwargs:
+            content_validation = kwargs['contentValidation']
+        if 'expectedHttpStatusCode' in kwargs:
+            expected_http_status_code = kwargs['expectedHttpStatusCode']
+        if 'ignoreHttpsStatusCode' in kwargs:
+            ignore_https_status_code = kwargs['ignoreHttpsStatusCode']
+        if 'sSLCertRemainingLifetimeCheck' in kwargs:
+            s_sl_cert_remaining_lifetime_check = kwargs['sSLCertRemainingLifetimeCheck']
+        if 'sSLCheck' in kwargs:
+            s_sl_check = kwargs['sSLCheck']
+
         if content_validation is not None:
-            pulumi.set(__self__, "content_validation", content_validation)
+            _setter("content_validation", content_validation)
         if expected_http_status_code is not None:
-            pulumi.set(__self__, "expected_http_status_code", expected_http_status_code)
+            _setter("expected_http_status_code", expected_http_status_code)
         if ignore_https_status_code is not None:
-            pulumi.set(__self__, "ignore_https_status_code", ignore_https_status_code)
+            _setter("ignore_https_status_code", ignore_https_status_code)
         if s_sl_cert_remaining_lifetime_check is not None:
-            pulumi.set(__self__, "s_sl_cert_remaining_lifetime_check", s_sl_cert_remaining_lifetime_check)
+            _setter("s_sl_cert_remaining_lifetime_check", s_sl_cert_remaining_lifetime_check)
         if s_sl_check is not None:
-            pulumi.set(__self__, "s_sl_check", s_sl_check)
+            _setter("s_sl_check", s_sl_check)
 
     @property
     @pulumi.getter(name="contentValidation")

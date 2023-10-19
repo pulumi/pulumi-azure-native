@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,23 +37,62 @@ class AvailabilitySetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] virtual_machines: A list of references to all virtual machines in the availability set.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AvailabilitySetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            availability_set_name=availability_set_name,
+            location=location,
+            platform_fault_domain_count=platform_fault_domain_count,
+            platform_update_domain_count=platform_update_domain_count,
+            proximity_placement_group=proximity_placement_group,
+            sku=sku,
+            tags=tags,
+            virtual_machines=virtual_machines,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             availability_set_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
+             platform_update_domain_count: Optional[pulumi.Input[int]] = None,
+             proximity_placement_group: Optional[pulumi.Input['SubResourceArgs']] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'availabilitySetName' in kwargs:
+            availability_set_name = kwargs['availabilitySetName']
+        if 'platformFaultDomainCount' in kwargs:
+            platform_fault_domain_count = kwargs['platformFaultDomainCount']
+        if 'platformUpdateDomainCount' in kwargs:
+            platform_update_domain_count = kwargs['platformUpdateDomainCount']
+        if 'proximityPlacementGroup' in kwargs:
+            proximity_placement_group = kwargs['proximityPlacementGroup']
+        if 'virtualMachines' in kwargs:
+            virtual_machines = kwargs['virtualMachines']
+
+        _setter("resource_group_name", resource_group_name)
         if availability_set_name is not None:
-            pulumi.set(__self__, "availability_set_name", availability_set_name)
+            _setter("availability_set_name", availability_set_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if platform_fault_domain_count is not None:
-            pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
+            _setter("platform_fault_domain_count", platform_fault_domain_count)
         if platform_update_domain_count is not None:
-            pulumi.set(__self__, "platform_update_domain_count", platform_update_domain_count)
+            _setter("platform_update_domain_count", platform_update_domain_count)
         if proximity_placement_group is not None:
-            pulumi.set(__self__, "proximity_placement_group", proximity_placement_group)
+            _setter("proximity_placement_group", proximity_placement_group)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_machines is not None:
-            pulumi.set(__self__, "virtual_machines", virtual_machines)
+            _setter("virtual_machines", virtual_machines)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -215,6 +254,10 @@ class AvailabilitySet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AvailabilitySetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -242,10 +285,20 @@ class AvailabilitySet(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["platform_fault_domain_count"] = platform_fault_domain_count
             __props__.__dict__["platform_update_domain_count"] = platform_update_domain_count
+            if proximity_placement_group is not None and not isinstance(proximity_placement_group, SubResourceArgs):
+                proximity_placement_group = proximity_placement_group or {}
+                def _setter(key, value):
+                    proximity_placement_group[key] = value
+                SubResourceArgs._configure(_setter, **proximity_placement_group)
             __props__.__dict__["proximity_placement_group"] = proximity_placement_group
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_machines"] = virtual_machines

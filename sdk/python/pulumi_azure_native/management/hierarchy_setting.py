@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HierarchySettingArgs', 'HierarchySetting']
@@ -23,11 +23,32 @@ class HierarchySettingArgs:
         :param pulumi.Input[str] default_management_group: Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
         :param pulumi.Input[bool] require_authorization_for_group_creation: Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
         """
-        pulumi.set(__self__, "group_id", group_id)
+        HierarchySettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            default_management_group=default_management_group,
+            require_authorization_for_group_creation=require_authorization_for_group_creation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: pulumi.Input[str],
+             default_management_group: Optional[pulumi.Input[str]] = None,
+             require_authorization_for_group_creation: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'defaultManagementGroup' in kwargs:
+            default_management_group = kwargs['defaultManagementGroup']
+        if 'requireAuthorizationForGroupCreation' in kwargs:
+            require_authorization_for_group_creation = kwargs['requireAuthorizationForGroupCreation']
+
+        _setter("group_id", group_id)
         if default_management_group is not None:
-            pulumi.set(__self__, "default_management_group", default_management_group)
+            _setter("default_management_group", default_management_group)
         if require_authorization_for_group_creation is not None:
-            pulumi.set(__self__, "require_authorization_for_group_creation", require_authorization_for_group_creation)
+            _setter("require_authorization_for_group_creation", require_authorization_for_group_creation)
 
     @property
     @pulumi.getter(name="groupId")
@@ -105,6 +126,10 @@ class HierarchySetting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HierarchySettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

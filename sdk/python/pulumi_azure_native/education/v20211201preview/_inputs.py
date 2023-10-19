@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -24,10 +24,23 @@ class AmountArgs:
         :param pulumi.Input[str] currency: The type of currency being used for the value.
         :param pulumi.Input[float] value: Amount value.
         """
+        AmountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            currency=currency,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             currency: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if currency is not None:
-            pulumi.set(__self__, "currency", currency)
+            _setter("currency", currency)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter

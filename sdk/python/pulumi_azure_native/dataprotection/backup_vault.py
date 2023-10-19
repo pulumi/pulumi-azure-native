@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,18 +34,47 @@ class BackupVaultInitArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
         """
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        BackupVaultInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            resource_group_name=resource_group_name,
+            e_tag=e_tag,
+            identity=identity,
+            location=location,
+            tags=tags,
+            vault_name=vault_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: pulumi.Input['BackupVaultArgs'],
+             resource_group_name: pulumi.Input[str],
+             e_tag: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['DppIdentityDetailsArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vault_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+        if 'vaultName' in kwargs:
+            vault_name = kwargs['vaultName']
+
+        _setter("properties", properties)
+        _setter("resource_group_name", resource_group_name)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vault_name is not None:
-            pulumi.set(__self__, "vault_name", vault_name)
+            _setter("vault_name", vault_name)
 
     @property
     @pulumi.getter
@@ -179,6 +208,10 @@ class BackupVault(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackupVaultInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -201,8 +234,18 @@ class BackupVault(pulumi.CustomResource):
             __props__ = BackupVaultInitArgs.__new__(BackupVaultInitArgs)
 
             __props__.__dict__["e_tag"] = e_tag
+            if identity is not None and not isinstance(identity, DppIdentityDetailsArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                DppIdentityDetailsArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            if properties is not None and not isinstance(properties, BackupVaultArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                BackupVaultArgs._configure(_setter, **properties)
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -114,102 +114,291 @@ class NodeTypeArgs:
         :param pulumi.Input[str] vm_size: The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies the availability zones where the node type would span across. If the cluster is not spanning across availability zones, initiates az migration for the cluster.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "is_primary", is_primary)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vm_instance_count", vm_instance_count)
+        NodeTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            is_primary=is_primary,
+            resource_group_name=resource_group_name,
+            vm_instance_count=vm_instance_count,
+            additional_data_disks=additional_data_disks,
+            application_ports=application_ports,
+            capacities=capacities,
+            data_disk_letter=data_disk_letter,
+            data_disk_size_gb=data_disk_size_gb,
+            data_disk_type=data_disk_type,
+            enable_accelerated_networking=enable_accelerated_networking,
+            enable_encryption_at_host=enable_encryption_at_host,
+            enable_node_public_ip=enable_node_public_ip,
+            enable_over_provisioning=enable_over_provisioning,
+            ephemeral_ports=ephemeral_ports,
+            eviction_policy=eviction_policy,
+            frontend_configurations=frontend_configurations,
+            host_group_id=host_group_id,
+            is_spot_vm=is_spot_vm,
+            is_stateless=is_stateless,
+            multiple_placement_groups=multiple_placement_groups,
+            nat_gateway_id=nat_gateway_id,
+            network_security_rules=network_security_rules,
+            node_type_name=node_type_name,
+            placement_properties=placement_properties,
+            secure_boot_enabled=secure_boot_enabled,
+            security_type=security_type,
+            sku=sku,
+            spot_restore_timeout=spot_restore_timeout,
+            subnet_id=subnet_id,
+            tags=tags,
+            use_default_public_load_balancer=use_default_public_load_balancer,
+            use_ephemeral_os_disk=use_ephemeral_os_disk,
+            use_temp_data_disk=use_temp_data_disk,
+            vm_extensions=vm_extensions,
+            vm_image_offer=vm_image_offer,
+            vm_image_plan=vm_image_plan,
+            vm_image_publisher=vm_image_publisher,
+            vm_image_resource_id=vm_image_resource_id,
+            vm_image_sku=vm_image_sku,
+            vm_image_version=vm_image_version,
+            vm_managed_identity=vm_managed_identity,
+            vm_secrets=vm_secrets,
+            vm_setup_actions=vm_setup_actions,
+            vm_shared_gallery_image_id=vm_shared_gallery_image_id,
+            vm_size=vm_size,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             is_primary: pulumi.Input[bool],
+             resource_group_name: pulumi.Input[str],
+             vm_instance_count: pulumi.Input[int],
+             additional_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['VmssDataDiskArgs']]]] = None,
+             application_ports: Optional[pulumi.Input['EndpointRangeDescriptionArgs']] = None,
+             capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             data_disk_letter: Optional[pulumi.Input[str]] = None,
+             data_disk_size_gb: Optional[pulumi.Input[int]] = None,
+             data_disk_type: Optional[pulumi.Input[Union[str, 'DiskType']]] = None,
+             enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
+             enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
+             enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+             enable_over_provisioning: Optional[pulumi.Input[bool]] = None,
+             ephemeral_ports: Optional[pulumi.Input['EndpointRangeDescriptionArgs']] = None,
+             eviction_policy: Optional[pulumi.Input[Union[str, 'EvictionPolicyType']]] = None,
+             frontend_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FrontendConfigurationArgs']]]] = None,
+             host_group_id: Optional[pulumi.Input[str]] = None,
+             is_spot_vm: Optional[pulumi.Input[bool]] = None,
+             is_stateless: Optional[pulumi.Input[bool]] = None,
+             multiple_placement_groups: Optional[pulumi.Input[bool]] = None,
+             nat_gateway_id: Optional[pulumi.Input[str]] = None,
+             network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]] = None,
+             node_type_name: Optional[pulumi.Input[str]] = None,
+             placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
+             security_type: Optional[pulumi.Input[Union[str, 'SecurityType']]] = None,
+             sku: Optional[pulumi.Input['NodeTypeSkuArgs']] = None,
+             spot_restore_timeout: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             use_default_public_load_balancer: Optional[pulumi.Input[bool]] = None,
+             use_ephemeral_os_disk: Optional[pulumi.Input[bool]] = None,
+             use_temp_data_disk: Optional[pulumi.Input[bool]] = None,
+             vm_extensions: Optional[pulumi.Input[Sequence[pulumi.Input['VMSSExtensionArgs']]]] = None,
+             vm_image_offer: Optional[pulumi.Input[str]] = None,
+             vm_image_plan: Optional[pulumi.Input['VmImagePlanArgs']] = None,
+             vm_image_publisher: Optional[pulumi.Input[str]] = None,
+             vm_image_resource_id: Optional[pulumi.Input[str]] = None,
+             vm_image_sku: Optional[pulumi.Input[str]] = None,
+             vm_image_version: Optional[pulumi.Input[str]] = None,
+             vm_managed_identity: Optional[pulumi.Input['VmManagedIdentityArgs']] = None,
+             vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]]] = None,
+             vm_setup_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VmSetupAction']]]]] = None,
+             vm_shared_gallery_image_id: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'isPrimary' in kwargs:
+            is_primary = kwargs['isPrimary']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'vmInstanceCount' in kwargs:
+            vm_instance_count = kwargs['vmInstanceCount']
+        if 'additionalDataDisks' in kwargs:
+            additional_data_disks = kwargs['additionalDataDisks']
+        if 'applicationPorts' in kwargs:
+            application_ports = kwargs['applicationPorts']
+        if 'dataDiskLetter' in kwargs:
+            data_disk_letter = kwargs['dataDiskLetter']
+        if 'dataDiskSizeGB' in kwargs:
+            data_disk_size_gb = kwargs['dataDiskSizeGB']
+        if 'dataDiskType' in kwargs:
+            data_disk_type = kwargs['dataDiskType']
+        if 'enableAcceleratedNetworking' in kwargs:
+            enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
+        if 'enableEncryptionAtHost' in kwargs:
+            enable_encryption_at_host = kwargs['enableEncryptionAtHost']
+        if 'enableNodePublicIP' in kwargs:
+            enable_node_public_ip = kwargs['enableNodePublicIP']
+        if 'enableOverProvisioning' in kwargs:
+            enable_over_provisioning = kwargs['enableOverProvisioning']
+        if 'ephemeralPorts' in kwargs:
+            ephemeral_ports = kwargs['ephemeralPorts']
+        if 'evictionPolicy' in kwargs:
+            eviction_policy = kwargs['evictionPolicy']
+        if 'frontendConfigurations' in kwargs:
+            frontend_configurations = kwargs['frontendConfigurations']
+        if 'hostGroupId' in kwargs:
+            host_group_id = kwargs['hostGroupId']
+        if 'isSpotVM' in kwargs:
+            is_spot_vm = kwargs['isSpotVM']
+        if 'isStateless' in kwargs:
+            is_stateless = kwargs['isStateless']
+        if 'multiplePlacementGroups' in kwargs:
+            multiple_placement_groups = kwargs['multiplePlacementGroups']
+        if 'natGatewayId' in kwargs:
+            nat_gateway_id = kwargs['natGatewayId']
+        if 'networkSecurityRules' in kwargs:
+            network_security_rules = kwargs['networkSecurityRules']
+        if 'nodeTypeName' in kwargs:
+            node_type_name = kwargs['nodeTypeName']
+        if 'placementProperties' in kwargs:
+            placement_properties = kwargs['placementProperties']
+        if 'secureBootEnabled' in kwargs:
+            secure_boot_enabled = kwargs['secureBootEnabled']
+        if 'securityType' in kwargs:
+            security_type = kwargs['securityType']
+        if 'spotRestoreTimeout' in kwargs:
+            spot_restore_timeout = kwargs['spotRestoreTimeout']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'useDefaultPublicLoadBalancer' in kwargs:
+            use_default_public_load_balancer = kwargs['useDefaultPublicLoadBalancer']
+        if 'useEphemeralOSDisk' in kwargs:
+            use_ephemeral_os_disk = kwargs['useEphemeralOSDisk']
+        if 'useTempDataDisk' in kwargs:
+            use_temp_data_disk = kwargs['useTempDataDisk']
+        if 'vmExtensions' in kwargs:
+            vm_extensions = kwargs['vmExtensions']
+        if 'vmImageOffer' in kwargs:
+            vm_image_offer = kwargs['vmImageOffer']
+        if 'vmImagePlan' in kwargs:
+            vm_image_plan = kwargs['vmImagePlan']
+        if 'vmImagePublisher' in kwargs:
+            vm_image_publisher = kwargs['vmImagePublisher']
+        if 'vmImageResourceId' in kwargs:
+            vm_image_resource_id = kwargs['vmImageResourceId']
+        if 'vmImageSku' in kwargs:
+            vm_image_sku = kwargs['vmImageSku']
+        if 'vmImageVersion' in kwargs:
+            vm_image_version = kwargs['vmImageVersion']
+        if 'vmManagedIdentity' in kwargs:
+            vm_managed_identity = kwargs['vmManagedIdentity']
+        if 'vmSecrets' in kwargs:
+            vm_secrets = kwargs['vmSecrets']
+        if 'vmSetupActions' in kwargs:
+            vm_setup_actions = kwargs['vmSetupActions']
+        if 'vmSharedGalleryImageId' in kwargs:
+            vm_shared_gallery_image_id = kwargs['vmSharedGalleryImageId']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+
+        _setter("cluster_name", cluster_name)
+        _setter("is_primary", is_primary)
+        _setter("resource_group_name", resource_group_name)
+        _setter("vm_instance_count", vm_instance_count)
         if additional_data_disks is not None:
-            pulumi.set(__self__, "additional_data_disks", additional_data_disks)
+            _setter("additional_data_disks", additional_data_disks)
         if application_ports is not None:
-            pulumi.set(__self__, "application_ports", application_ports)
+            _setter("application_ports", application_ports)
         if capacities is not None:
-            pulumi.set(__self__, "capacities", capacities)
+            _setter("capacities", capacities)
         if data_disk_letter is not None:
-            pulumi.set(__self__, "data_disk_letter", data_disk_letter)
+            _setter("data_disk_letter", data_disk_letter)
         if data_disk_size_gb is not None:
-            pulumi.set(__self__, "data_disk_size_gb", data_disk_size_gb)
+            _setter("data_disk_size_gb", data_disk_size_gb)
         if data_disk_type is not None:
-            pulumi.set(__self__, "data_disk_type", data_disk_type)
+            _setter("data_disk_type", data_disk_type)
         if enable_accelerated_networking is not None:
-            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+            _setter("enable_accelerated_networking", enable_accelerated_networking)
         if enable_encryption_at_host is None:
             enable_encryption_at_host = False
         if enable_encryption_at_host is not None:
-            pulumi.set(__self__, "enable_encryption_at_host", enable_encryption_at_host)
+            _setter("enable_encryption_at_host", enable_encryption_at_host)
         if enable_node_public_ip is not None:
-            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+            _setter("enable_node_public_ip", enable_node_public_ip)
         if enable_over_provisioning is not None:
-            pulumi.set(__self__, "enable_over_provisioning", enable_over_provisioning)
+            _setter("enable_over_provisioning", enable_over_provisioning)
         if ephemeral_ports is not None:
-            pulumi.set(__self__, "ephemeral_ports", ephemeral_ports)
+            _setter("ephemeral_ports", ephemeral_ports)
         if eviction_policy is not None:
-            pulumi.set(__self__, "eviction_policy", eviction_policy)
+            _setter("eviction_policy", eviction_policy)
         if frontend_configurations is not None:
-            pulumi.set(__self__, "frontend_configurations", frontend_configurations)
+            _setter("frontend_configurations", frontend_configurations)
         if host_group_id is not None:
-            pulumi.set(__self__, "host_group_id", host_group_id)
+            _setter("host_group_id", host_group_id)
         if is_spot_vm is not None:
-            pulumi.set(__self__, "is_spot_vm", is_spot_vm)
+            _setter("is_spot_vm", is_spot_vm)
         if is_stateless is None:
             is_stateless = False
         if is_stateless is not None:
-            pulumi.set(__self__, "is_stateless", is_stateless)
+            _setter("is_stateless", is_stateless)
         if multiple_placement_groups is None:
             multiple_placement_groups = False
         if multiple_placement_groups is not None:
-            pulumi.set(__self__, "multiple_placement_groups", multiple_placement_groups)
+            _setter("multiple_placement_groups", multiple_placement_groups)
         if nat_gateway_id is not None:
-            pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
+            _setter("nat_gateway_id", nat_gateway_id)
         if network_security_rules is not None:
-            pulumi.set(__self__, "network_security_rules", network_security_rules)
+            _setter("network_security_rules", network_security_rules)
         if node_type_name is not None:
-            pulumi.set(__self__, "node_type_name", node_type_name)
+            _setter("node_type_name", node_type_name)
         if placement_properties is not None:
-            pulumi.set(__self__, "placement_properties", placement_properties)
+            _setter("placement_properties", placement_properties)
         if secure_boot_enabled is not None:
-            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
+            _setter("secure_boot_enabled", secure_boot_enabled)
         if security_type is not None:
-            pulumi.set(__self__, "security_type", security_type)
+            _setter("security_type", security_type)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if spot_restore_timeout is not None:
-            pulumi.set(__self__, "spot_restore_timeout", spot_restore_timeout)
+            _setter("spot_restore_timeout", spot_restore_timeout)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if use_default_public_load_balancer is not None:
-            pulumi.set(__self__, "use_default_public_load_balancer", use_default_public_load_balancer)
+            _setter("use_default_public_load_balancer", use_default_public_load_balancer)
         if use_ephemeral_os_disk is not None:
-            pulumi.set(__self__, "use_ephemeral_os_disk", use_ephemeral_os_disk)
+            _setter("use_ephemeral_os_disk", use_ephemeral_os_disk)
         if use_temp_data_disk is not None:
-            pulumi.set(__self__, "use_temp_data_disk", use_temp_data_disk)
+            _setter("use_temp_data_disk", use_temp_data_disk)
         if vm_extensions is not None:
-            pulumi.set(__self__, "vm_extensions", vm_extensions)
+            _setter("vm_extensions", vm_extensions)
         if vm_image_offer is not None:
-            pulumi.set(__self__, "vm_image_offer", vm_image_offer)
+            _setter("vm_image_offer", vm_image_offer)
         if vm_image_plan is not None:
-            pulumi.set(__self__, "vm_image_plan", vm_image_plan)
+            _setter("vm_image_plan", vm_image_plan)
         if vm_image_publisher is not None:
-            pulumi.set(__self__, "vm_image_publisher", vm_image_publisher)
+            _setter("vm_image_publisher", vm_image_publisher)
         if vm_image_resource_id is not None:
-            pulumi.set(__self__, "vm_image_resource_id", vm_image_resource_id)
+            _setter("vm_image_resource_id", vm_image_resource_id)
         if vm_image_sku is not None:
-            pulumi.set(__self__, "vm_image_sku", vm_image_sku)
+            _setter("vm_image_sku", vm_image_sku)
         if vm_image_version is not None:
-            pulumi.set(__self__, "vm_image_version", vm_image_version)
+            _setter("vm_image_version", vm_image_version)
         if vm_managed_identity is not None:
-            pulumi.set(__self__, "vm_managed_identity", vm_managed_identity)
+            _setter("vm_managed_identity", vm_managed_identity)
         if vm_secrets is not None:
-            pulumi.set(__self__, "vm_secrets", vm_secrets)
+            _setter("vm_secrets", vm_secrets)
         if vm_setup_actions is not None:
-            pulumi.set(__self__, "vm_setup_actions", vm_setup_actions)
+            _setter("vm_setup_actions", vm_setup_actions)
         if vm_shared_gallery_image_id is not None:
-            pulumi.set(__self__, "vm_shared_gallery_image_id", vm_shared_gallery_image_id)
+            _setter("vm_shared_gallery_image_id", vm_shared_gallery_image_id)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -903,6 +1092,10 @@ class NodeType(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NodeTypeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -965,6 +1158,11 @@ class NodeType(pulumi.CustomResource):
             __props__ = NodeTypeArgs.__new__(NodeTypeArgs)
 
             __props__.__dict__["additional_data_disks"] = additional_data_disks
+            if application_ports is not None and not isinstance(application_ports, EndpointRangeDescriptionArgs):
+                application_ports = application_ports or {}
+                def _setter(key, value):
+                    application_ports[key] = value
+                EndpointRangeDescriptionArgs._configure(_setter, **application_ports)
             __props__.__dict__["application_ports"] = application_ports
             __props__.__dict__["capacities"] = capacities
             if cluster_name is None and not opts.urn:
@@ -979,6 +1177,11 @@ class NodeType(pulumi.CustomResource):
             __props__.__dict__["enable_encryption_at_host"] = enable_encryption_at_host
             __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
             __props__.__dict__["enable_over_provisioning"] = enable_over_provisioning
+            if ephemeral_ports is not None and not isinstance(ephemeral_ports, EndpointRangeDescriptionArgs):
+                ephemeral_ports = ephemeral_ports or {}
+                def _setter(key, value):
+                    ephemeral_ports[key] = value
+                EndpointRangeDescriptionArgs._configure(_setter, **ephemeral_ports)
             __props__.__dict__["ephemeral_ports"] = ephemeral_ports
             __props__.__dict__["eviction_policy"] = eviction_policy
             __props__.__dict__["frontend_configurations"] = frontend_configurations
@@ -1002,6 +1205,11 @@ class NodeType(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["secure_boot_enabled"] = secure_boot_enabled
             __props__.__dict__["security_type"] = security_type
+            if sku is not None and not isinstance(sku, NodeTypeSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                NodeTypeSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["spot_restore_timeout"] = spot_restore_timeout
             __props__.__dict__["subnet_id"] = subnet_id
@@ -1011,6 +1219,11 @@ class NodeType(pulumi.CustomResource):
             __props__.__dict__["use_temp_data_disk"] = use_temp_data_disk
             __props__.__dict__["vm_extensions"] = vm_extensions
             __props__.__dict__["vm_image_offer"] = vm_image_offer
+            if vm_image_plan is not None and not isinstance(vm_image_plan, VmImagePlanArgs):
+                vm_image_plan = vm_image_plan or {}
+                def _setter(key, value):
+                    vm_image_plan[key] = value
+                VmImagePlanArgs._configure(_setter, **vm_image_plan)
             __props__.__dict__["vm_image_plan"] = vm_image_plan
             __props__.__dict__["vm_image_publisher"] = vm_image_publisher
             __props__.__dict__["vm_image_resource_id"] = vm_image_resource_id
@@ -1019,6 +1232,11 @@ class NodeType(pulumi.CustomResource):
             if vm_instance_count is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_instance_count'")
             __props__.__dict__["vm_instance_count"] = vm_instance_count
+            if vm_managed_identity is not None and not isinstance(vm_managed_identity, VmManagedIdentityArgs):
+                vm_managed_identity = vm_managed_identity or {}
+                def _setter(key, value):
+                    vm_managed_identity[key] = value
+                VmManagedIdentityArgs._configure(_setter, **vm_managed_identity)
             __props__.__dict__["vm_managed_identity"] = vm_managed_identity
             __props__.__dict__["vm_secrets"] = vm_secrets
             __props__.__dict__["vm_setup_actions"] = vm_setup_actions

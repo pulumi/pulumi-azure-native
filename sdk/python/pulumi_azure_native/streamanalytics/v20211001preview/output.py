@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,22 +38,61 @@ class OutputInitArgs:
         :param pulumi.Input[str] time_window: The time frame for filtering Stream Analytics job outputs.
         :param pulumi.Input['OutputWatermarkPropertiesArgs'] watermark_settings: Settings which determine whether to send watermarks to downstream.
         """
-        pulumi.set(__self__, "job_name", job_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        OutputInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_name=job_name,
+            resource_group_name=resource_group_name,
+            datasource=datasource,
+            name=name,
+            output_name=output_name,
+            serialization=serialization,
+            size_window=size_window,
+            time_window=time_window,
+            watermark_settings=watermark_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             datasource: Optional[pulumi.Input[Union['AzureDataExplorerOutputDataSourceArgs', 'AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             output_name: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
+             size_window: Optional[pulumi.Input[int]] = None,
+             time_window: Optional[pulumi.Input[str]] = None,
+             watermark_settings: Optional[pulumi.Input['OutputWatermarkPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'outputName' in kwargs:
+            output_name = kwargs['outputName']
+        if 'sizeWindow' in kwargs:
+            size_window = kwargs['sizeWindow']
+        if 'timeWindow' in kwargs:
+            time_window = kwargs['timeWindow']
+        if 'watermarkSettings' in kwargs:
+            watermark_settings = kwargs['watermarkSettings']
+
+        _setter("job_name", job_name)
+        _setter("resource_group_name", resource_group_name)
         if datasource is not None:
-            pulumi.set(__self__, "datasource", datasource)
+            _setter("datasource", datasource)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if output_name is not None:
-            pulumi.set(__self__, "output_name", output_name)
+            _setter("output_name", output_name)
         if serialization is not None:
-            pulumi.set(__self__, "serialization", serialization)
+            _setter("serialization", serialization)
         if size_window is not None:
-            pulumi.set(__self__, "size_window", size_window)
+            _setter("size_window", size_window)
         if time_window is not None:
-            pulumi.set(__self__, "time_window", time_window)
+            _setter("time_window", time_window)
         if watermark_settings is not None:
-            pulumi.set(__self__, "watermark_settings", watermark_settings)
+            _setter("watermark_settings", watermark_settings)
 
     @property
     @pulumi.getter(name="jobName")
@@ -213,6 +252,10 @@ class Output(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OutputInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -248,6 +291,11 @@ class Output(pulumi.CustomResource):
             __props__.__dict__["serialization"] = serialization
             __props__.__dict__["size_window"] = size_window
             __props__.__dict__["time_window"] = time_window
+            if watermark_settings is not None and not isinstance(watermark_settings, OutputWatermarkPropertiesArgs):
+                watermark_settings = watermark_settings or {}
+                def _setter(key, value):
+                    watermark_settings[key] = value
+                OutputWatermarkPropertiesArgs._configure(_setter, **watermark_settings)
             __props__.__dict__["watermark_settings"] = watermark_settings
             __props__.__dict__["diagnostics"] = None
             __props__.__dict__["etag"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,23 +38,56 @@ class SpatialAnchorsAccountArgs:
         :param pulumi.Input[str] storage_account_name: The name of the storage account associated with this accountId
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SpatialAnchorsAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            account_name=account_name,
+            identity=identity,
+            kind=kind,
+            location=location,
+            plan=plan,
+            sku=sku,
+            storage_account_name=storage_account_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             kind: Optional[pulumi.Input['SkuArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             plan: Optional[pulumi.Input['IdentityArgs']] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
+        _setter("resource_group_name", resource_group_name)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -216,6 +249,10 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpatialAnchorsAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -240,13 +277,33 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
             __props__ = SpatialAnchorsAccountArgs.__new__(SpatialAnchorsAccountArgs)
 
             __props__.__dict__["account_name"] = account_name
+            if identity is not None and not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if kind is not None and not isinstance(kind, SkuArgs):
+                kind = kind or {}
+                def _setter(key, value):
+                    kind[key] = value
+                SkuArgs._configure(_setter, **kind)
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
+            if plan is not None and not isinstance(plan, IdentityArgs):
+                plan = plan or {}
+                def _setter(key, value):
+                    plan[key] = value
+                IdentityArgs._configure(_setter, **plan)
             __props__.__dict__["plan"] = plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["storage_account_name"] = storage_account_name
             __props__.__dict__["tags"] = tags

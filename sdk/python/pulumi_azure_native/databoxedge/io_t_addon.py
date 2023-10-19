@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -35,14 +35,49 @@ class IoTAddonArgs:
         :param pulumi.Input[str] role_name: The role name.
         :param pulumi.Input[str] addon_name: The addon name.
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "io_t_device_details", io_t_device_details)
-        pulumi.set(__self__, "io_t_edge_device_details", io_t_edge_device_details)
-        pulumi.set(__self__, "kind", 'IotEdge')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "role_name", role_name)
+        IoTAddonArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            io_t_device_details=io_t_device_details,
+            io_t_edge_device_details=io_t_edge_device_details,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            role_name=role_name,
+            addon_name=addon_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: pulumi.Input[str],
+             io_t_device_details: pulumi.Input['IoTDeviceInfoArgs'],
+             io_t_edge_device_details: pulumi.Input['IoTDeviceInfoArgs'],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             role_name: pulumi.Input[str],
+             addon_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'ioTDeviceDetails' in kwargs:
+            io_t_device_details = kwargs['ioTDeviceDetails']
+        if 'ioTEdgeDeviceDetails' in kwargs:
+            io_t_edge_device_details = kwargs['ioTEdgeDeviceDetails']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if 'addonName' in kwargs:
+            addon_name = kwargs['addonName']
+
+        _setter("device_name", device_name)
+        _setter("io_t_device_details", io_t_device_details)
+        _setter("io_t_edge_device_details", io_t_edge_device_details)
+        _setter("kind", 'IotEdge')
+        _setter("resource_group_name", resource_group_name)
+        _setter("role_name", role_name)
         if addon_name is not None:
-            pulumi.set(__self__, "addon_name", addon_name)
+            _setter("addon_name", addon_name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -178,6 +213,10 @@ class IoTAddon(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IoTAddonArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -203,9 +242,19 @@ class IoTAddon(pulumi.CustomResource):
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
+            if io_t_device_details is not None and not isinstance(io_t_device_details, IoTDeviceInfoArgs):
+                io_t_device_details = io_t_device_details or {}
+                def _setter(key, value):
+                    io_t_device_details[key] = value
+                IoTDeviceInfoArgs._configure(_setter, **io_t_device_details)
             if io_t_device_details is None and not opts.urn:
                 raise TypeError("Missing required property 'io_t_device_details'")
             __props__.__dict__["io_t_device_details"] = io_t_device_details
+            if io_t_edge_device_details is not None and not isinstance(io_t_edge_device_details, IoTDeviceInfoArgs):
+                io_t_edge_device_details = io_t_edge_device_details or {}
+                def _setter(key, value):
+                    io_t_edge_device_details[key] = value
+                IoTDeviceInfoArgs._configure(_setter, **io_t_edge_device_details)
             if io_t_edge_device_details is None and not opts.urn:
                 raise TypeError("Missing required property 'io_t_edge_device_details'")
             __props__.__dict__["io_t_edge_device_details"] = io_t_edge_device_details

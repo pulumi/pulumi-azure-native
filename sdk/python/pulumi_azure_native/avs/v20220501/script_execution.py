@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,25 +41,70 @@ class ScriptExecutionArgs:
         :param pulumi.Input[str] script_cmdlet_id: A reference to the script cmdlet resource if user is running a AVS script
         :param pulumi.Input[str] script_execution_name: Name of the user-invoked script execution resource
         """
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "timeout", timeout)
+        ScriptExecutionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            timeout=timeout,
+            failure_reason=failure_reason,
+            hidden_parameters=hidden_parameters,
+            named_outputs=named_outputs,
+            output=output,
+            parameters=parameters,
+            retention=retention,
+            script_cmdlet_id=script_cmdlet_id,
+            script_execution_name=script_execution_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_cloud_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             timeout: pulumi.Input[str],
+             failure_reason: Optional[pulumi.Input[str]] = None,
+             hidden_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]] = None,
+             named_outputs: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             output: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]] = None,
+             retention: Optional[pulumi.Input[str]] = None,
+             script_cmdlet_id: Optional[pulumi.Input[str]] = None,
+             script_execution_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateCloudName' in kwargs:
+            private_cloud_name = kwargs['privateCloudName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'failureReason' in kwargs:
+            failure_reason = kwargs['failureReason']
+        if 'hiddenParameters' in kwargs:
+            hidden_parameters = kwargs['hiddenParameters']
+        if 'namedOutputs' in kwargs:
+            named_outputs = kwargs['namedOutputs']
+        if 'scriptCmdletId' in kwargs:
+            script_cmdlet_id = kwargs['scriptCmdletId']
+        if 'scriptExecutionName' in kwargs:
+            script_execution_name = kwargs['scriptExecutionName']
+
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("timeout", timeout)
         if failure_reason is not None:
-            pulumi.set(__self__, "failure_reason", failure_reason)
+            _setter("failure_reason", failure_reason)
         if hidden_parameters is not None:
-            pulumi.set(__self__, "hidden_parameters", hidden_parameters)
+            _setter("hidden_parameters", hidden_parameters)
         if named_outputs is not None:
-            pulumi.set(__self__, "named_outputs", named_outputs)
+            _setter("named_outputs", named_outputs)
         if output is not None:
-            pulumi.set(__self__, "output", output)
+            _setter("output", output)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if retention is not None:
-            pulumi.set(__self__, "retention", retention)
+            _setter("retention", retention)
         if script_cmdlet_id is not None:
-            pulumi.set(__self__, "script_cmdlet_id", script_cmdlet_id)
+            _setter("script_cmdlet_id", script_cmdlet_id)
         if script_execution_name is not None:
-            pulumi.set(__self__, "script_execution_name", script_execution_name)
+            _setter("script_execution_name", script_execution_name)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -247,6 +292,10 @@ class ScriptExecution(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScriptExecutionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['FirewallRuleArgs', 'FirewallRule']
@@ -27,12 +27,41 @@ class FirewallRuleArgs:
         :param pulumi.Input[str] start_ip_address: The start IP address of the server firewall rule. Must be IPv4 format.
         :param pulumi.Input[str] firewall_rule_name: The name of the server firewall rule.
         """
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
+        FirewallRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_ip_address=end_ip_address,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            start_ip_address=start_ip_address,
+            firewall_rule_name=firewall_rule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_ip_address: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             start_ip_address: pulumi.Input[str],
+             firewall_rule_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+        if 'firewallRuleName' in kwargs:
+            firewall_rule_name = kwargs['firewallRuleName']
+
+        _setter("end_ip_address", end_ip_address)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
+        _setter("start_ip_address", start_ip_address)
         if firewall_rule_name is not None:
-            pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
+            _setter("firewall_rule_name", firewall_rule_name)
 
     @property
     @pulumi.getter(name="endIpAddress")
@@ -136,6 +165,10 @@ class FirewallRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

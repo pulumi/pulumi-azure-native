@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,8 +54,19 @@ class ActorResponse(dict):
         The agent that initiated the event. For most situations, this could be from the authorization context of the request.
         :param str name: The subject or username associated with the request context that generated the event.
         """
+        ActorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -92,10 +103,25 @@ class EncryptionPropertyResponse(dict):
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Key vault properties.
         :param str status: Indicates whether or not the encryption is enabled for container registry.
         """
+        EncryptionPropertyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_properties=key_vault_properties,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultProperties' in kwargs:
+            key_vault_properties = kwargs['keyVaultProperties']
+
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="keyVaultProperties")
@@ -137,20 +163,43 @@ class EventContentResponse(dict):
         :param 'TargetResponse' target: The target of the event.
         :param str timestamp: The time at which the event occurred.
         """
+        EventContentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            actor=actor,
+            id=id,
+            request=request,
+            source=source,
+            target=target,
+            timestamp=timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[str] = None,
+             actor: Optional['outputs.ActorResponse'] = None,
+             id: Optional[str] = None,
+             request: Optional['outputs.RequestResponse'] = None,
+             source: Optional['outputs.SourceResponse'] = None,
+             target: Optional['outputs.TargetResponse'] = None,
+             timestamp: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if actor is not None:
-            pulumi.set(__self__, "actor", actor)
+            _setter("actor", actor)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if request is not None:
-            pulumi.set(__self__, "request", request)
+            _setter("request", request)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
         if timestamp is not None:
-            pulumi.set(__self__, "timestamp", timestamp)
+            _setter("timestamp", timestamp)
 
     @property
     @pulumi.getter
@@ -228,16 +277,37 @@ class EventRequestMessageResponse(dict):
         :param str request_uri: The URI used to send the event request message.
         :param str version: The HTTP message version.
         """
+        EventRequestMessageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            headers=headers,
+            method=method,
+            request_uri=request_uri,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional['outputs.EventContentResponse'] = None,
+             headers: Optional[Mapping[str, str]] = None,
+             method: Optional[str] = None,
+             request_uri: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'requestUri' in kwargs:
+            request_uri = kwargs['requestUri']
+
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if request_uri is not None:
-            pulumi.set(__self__, "request_uri", request_uri)
+            _setter("request_uri", request_uri)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -295,12 +365,31 @@ class EventResponse(dict):
         :param 'EventResponseMessageResponse' event_response_message: The event response message received from the service URI.
         :param str id: The event ID.
         """
+        EventResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_request_message=event_request_message,
+            event_response_message=event_response_message,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_request_message: Optional['outputs.EventRequestMessageResponse'] = None,
+             event_response_message: Optional['outputs.EventResponseMessageResponse'] = None,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventRequestMessage' in kwargs:
+            event_request_message = kwargs['eventRequestMessage']
+        if 'eventResponseMessage' in kwargs:
+            event_response_message = kwargs['eventResponseMessage']
+
         if event_request_message is not None:
-            pulumi.set(__self__, "event_request_message", event_request_message)
+            _setter("event_request_message", event_request_message)
         if event_response_message is not None:
-            pulumi.set(__self__, "event_response_message", event_response_message)
+            _setter("event_response_message", event_response_message)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter(name="eventRequestMessage")
@@ -346,16 +435,39 @@ class EventResponseMessageResponse(dict):
         :param str status_code: The status code of the event response message.
         :param str version: The HTTP message version.
         """
+        EventResponseMessageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            headers=headers,
+            reason_phrase=reason_phrase,
+            status_code=status_code,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[str] = None,
+             headers: Optional[Mapping[str, str]] = None,
+             reason_phrase: Optional[str] = None,
+             status_code: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'reasonPhrase' in kwargs:
+            reason_phrase = kwargs['reasonPhrase']
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if reason_phrase is not None:
-            pulumi.set(__self__, "reason_phrase", reason_phrase)
+            _setter("reason_phrase", reason_phrase)
         if status_code is not None:
-            pulumi.set(__self__, "status_code", status_code)
+            _setter("status_code", status_code)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -409,10 +521,21 @@ class ExportPolicyResponse(dict):
         The export policy for a container registry.
         :param str status: The value that indicates whether the policy is enabled or not.
         """
+        ExportPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if status is None:
             status = 'enabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -453,11 +576,26 @@ class IPRuleResponse(dict):
         :param str i_p_address_or_range: Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
         :param str action: The action of IP ACL rule.
         """
-        pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
+        IPRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            i_p_address_or_range=i_p_address_or_range,
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             i_p_address_or_range: str,
+             action: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'iPAddressOrRange' in kwargs:
+            i_p_address_or_range = kwargs['iPAddressOrRange']
+
+        _setter("i_p_address_or_range", i_p_address_or_range)
         if action is None:
             action = 'Allow'
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
 
     @property
     @pulumi.getter(name="iPAddressOrRange")
@@ -517,14 +655,37 @@ class IdentityPropertiesResponse(dict):
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
                    providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
+        IdentityPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -600,13 +761,40 @@ class KeyVaultPropertiesResponse(dict):
         :param str identity: The client id of the identity which will be used to access key vault.
         :param str key_identifier: Key vault uri to access the encryption key.
         """
-        pulumi.set(__self__, "key_rotation_enabled", key_rotation_enabled)
-        pulumi.set(__self__, "last_key_rotation_timestamp", last_key_rotation_timestamp)
-        pulumi.set(__self__, "versioned_key_identifier", versioned_key_identifier)
+        KeyVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_rotation_enabled=key_rotation_enabled,
+            last_key_rotation_timestamp=last_key_rotation_timestamp,
+            versioned_key_identifier=versioned_key_identifier,
+            identity=identity,
+            key_identifier=key_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_rotation_enabled: bool,
+             last_key_rotation_timestamp: str,
+             versioned_key_identifier: str,
+             identity: Optional[str] = None,
+             key_identifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyRotationEnabled' in kwargs:
+            key_rotation_enabled = kwargs['keyRotationEnabled']
+        if 'lastKeyRotationTimestamp' in kwargs:
+            last_key_rotation_timestamp = kwargs['lastKeyRotationTimestamp']
+        if 'versionedKeyIdentifier' in kwargs:
+            versioned_key_identifier = kwargs['versionedKeyIdentifier']
+        if 'keyIdentifier' in kwargs:
+            key_identifier = kwargs['keyIdentifier']
+
+        _setter("key_rotation_enabled", key_rotation_enabled)
+        _setter("last_key_rotation_timestamp", last_key_rotation_timestamp)
+        _setter("versioned_key_identifier", versioned_key_identifier)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_identifier is not None:
-            pulumi.set(__self__, "key_identifier", key_identifier)
+            _setter("key_identifier", key_identifier)
 
     @property
     @pulumi.getter(name="keyRotationEnabled")
@@ -681,11 +869,28 @@ class NetworkRuleSetResponse(dict):
         :param str default_action: The default action of allow or deny when no other rules match.
         :param Sequence['IPRuleResponse'] ip_rules: The IP ACL rules.
         """
+        NetworkRuleSetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            ip_rules=ip_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: Optional[str] = None,
+             ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+
         if default_action is None:
             default_action = 'Allow'
-        pulumi.set(__self__, "default_action", default_action)
+        _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -744,14 +949,39 @@ class PoliciesResponse(dict):
         :param 'RetentionPolicyResponse' retention_policy: The retention policy for a container registry.
         :param 'TrustPolicyResponse' trust_policy: The content trust policy for a container registry.
         """
+        PoliciesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            export_policy=export_policy,
+            quarantine_policy=quarantine_policy,
+            retention_policy=retention_policy,
+            trust_policy=trust_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             export_policy: Optional['outputs.ExportPolicyResponse'] = None,
+             quarantine_policy: Optional['outputs.QuarantinePolicyResponse'] = None,
+             retention_policy: Optional['outputs.RetentionPolicyResponse'] = None,
+             trust_policy: Optional['outputs.TrustPolicyResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exportPolicy' in kwargs:
+            export_policy = kwargs['exportPolicy']
+        if 'quarantinePolicy' in kwargs:
+            quarantine_policy = kwargs['quarantinePolicy']
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if 'trustPolicy' in kwargs:
+            trust_policy = kwargs['trustPolicy']
+
         if export_policy is not None:
-            pulumi.set(__self__, "export_policy", export_policy)
+            _setter("export_policy", export_policy)
         if quarantine_policy is not None:
-            pulumi.set(__self__, "quarantine_policy", quarantine_policy)
+            _setter("quarantine_policy", quarantine_policy)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
         if trust_policy is not None:
-            pulumi.set(__self__, "trust_policy", trust_policy)
+            _setter("trust_policy", trust_policy)
 
     @property
     @pulumi.getter(name="exportPolicy")
@@ -832,15 +1062,46 @@ class PrivateEndpointConnectionResponse(dict):
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private endpoint.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            private_endpoint=private_endpoint,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             provisioning_state: str,
+             system_data: 'outputs.SystemDataResponse',
+             type: str,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter
@@ -910,8 +1171,19 @@ class PrivateEndpointResponse(dict):
         The Private Endpoint resource.
         :param str id: This is private endpoint resource created with Microsoft.Network resource provider.
         """
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -954,12 +1226,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The description for connection status. For example if connection is rejected it can indicate reason for rejection.
         :param str status: The private link service connection status.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -997,10 +1286,21 @@ class QuarantinePolicyResponse(dict):
         The quarantine policy for a container registry.
         :param str status: The value that indicates whether the policy is enabled or not.
         """
+        QuarantinePolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if status is None:
             status = 'disabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -1024,10 +1324,23 @@ class RegistryPasswordResponse(dict):
         :param str name: The password name.
         :param str value: The password value.
         """
+        RegistryPasswordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1065,16 +1378,35 @@ class RequestResponse(dict):
         :param str method: The request method that generated the event.
         :param str useragent: The user agent header of the request.
         """
+        RequestResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            addr=addr,
+            host=host,
+            id=id,
+            method=method,
+            useragent=useragent,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             addr: Optional[str] = None,
+             host: Optional[str] = None,
+             id: Optional[str] = None,
+             method: Optional[str] = None,
+             useragent: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if addr is not None:
-            pulumi.set(__self__, "addr", addr)
+            _setter("addr", addr)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if useragent is not None:
-            pulumi.set(__self__, "useragent", useragent)
+            _setter("useragent", useragent)
 
     @property
     @pulumi.getter
@@ -1149,15 +1481,32 @@ class RetentionPolicyResponse(dict):
         :param int days: The number of days to retain an untagged manifest after which it gets purged.
         :param str status: The value that indicates whether the policy is enabled or not.
         """
-        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        RetentionPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_updated_time=last_updated_time,
+            days=days,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_updated_time: str,
+             days: Optional[int] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+
+        _setter("last_updated_time", last_updated_time)
         if days is None:
             days = 7
         if days is not None:
-            pulumi.set(__self__, "days", days)
+            _setter("days", days)
         if status is None:
             status = 'disabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
@@ -1197,8 +1546,21 @@ class SkuResponse(dict):
         :param str name: The SKU name of the container registry. Required for registry creation.
         :param str tier: The SKU tier based on the SKU name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             tier: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -1230,10 +1592,25 @@ class SourceResponse(dict):
         :param str addr: The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
         :param str instance_id: The running instance of an application. Changes after each restart.
         """
+        SourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            addr=addr,
+            instance_id=instance_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             addr: Optional[str] = None,
+             instance_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceID' in kwargs:
+            instance_id = kwargs['instanceID']
+
         if addr is not None:
-            pulumi.set(__self__, "addr", addr)
+            _setter("addr", addr)
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
 
     @property
     @pulumi.getter
@@ -1284,9 +1661,26 @@ class StatusResponse(dict):
         :param str message: The detailed message for the status, including alerts and error messages.
         :param str timestamp: The timestamp when the status was changed to the current value.
         """
-        pulumi.set(__self__, "display_status", display_status)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "timestamp", timestamp)
+        StatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_status=display_status,
+            message=message,
+            timestamp=timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_status: str,
+             message: str,
+             timestamp: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayStatus' in kwargs:
+            display_status = kwargs['displayStatus']
+
+        _setter("display_status", display_status)
+        _setter("message", message)
+        _setter("timestamp", timestamp)
 
     @property
     @pulumi.getter(name="displayStatus")
@@ -1361,18 +1755,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1450,24 +1877,53 @@ class TargetResponse(dict):
         :param str url: The direct URL to the content.
         :param str version: The version of the artifact.
         """
+        TargetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            digest=digest,
+            length=length,
+            media_type=media_type,
+            name=name,
+            repository=repository,
+            size=size,
+            tag=tag,
+            url=url,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             digest: Optional[str] = None,
+             length: Optional[float] = None,
+             media_type: Optional[str] = None,
+             name: Optional[str] = None,
+             repository: Optional[str] = None,
+             size: Optional[float] = None,
+             tag: Optional[str] = None,
+             url: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mediaType' in kwargs:
+            media_type = kwargs['mediaType']
+
         if digest is not None:
-            pulumi.set(__self__, "digest", digest)
+            _setter("digest", digest)
         if length is not None:
-            pulumi.set(__self__, "length", length)
+            _setter("length", length)
         if media_type is not None:
-            pulumi.set(__self__, "media_type", media_type)
+            _setter("media_type", media_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tag is not None:
-            pulumi.set(__self__, "tag", tag)
+            _setter("tag", tag)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -1575,14 +2031,33 @@ class TokenCertificateResponse(dict):
         :param str expiry: The expiry datetime of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
+        TokenCertificateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encoded_pem_certificate=encoded_pem_certificate,
+            expiry=expiry,
+            name=name,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encoded_pem_certificate: Optional[str] = None,
+             expiry: Optional[str] = None,
+             name: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encodedPemCertificate' in kwargs:
+            encoded_pem_certificate = kwargs['encodedPemCertificate']
+
         if encoded_pem_certificate is not None:
-            pulumi.set(__self__, "encoded_pem_certificate", encoded_pem_certificate)
+            _setter("encoded_pem_certificate", encoded_pem_certificate)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="encodedPemCertificate")
@@ -1625,10 +2100,23 @@ class TokenCredentialsPropertiesResponse(dict):
         """
         The properties of the credentials that can be used for authenticating the token.
         """
+        TokenCredentialsPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            passwords=passwords,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: Optional[Sequence['outputs.TokenCertificateResponse']] = None,
+             passwords: Optional[Sequence['outputs.TokenPasswordResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
+            _setter("certificates", certificates)
         if passwords is not None:
-            pulumi.set(__self__, "passwords", passwords)
+            _setter("passwords", passwords)
 
     @property
     @pulumi.getter
@@ -1675,13 +2163,32 @@ class TokenPasswordResponse(dict):
         :param str expiry: The expiry datetime of the password.
         :param str name: The password name "password1" or "password2"
         """
-        pulumi.set(__self__, "value", value)
+        TokenPasswordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            creation_time=creation_time,
+            expiry=expiry,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: str,
+             creation_time: Optional[str] = None,
+             expiry: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+
+        _setter("value", value)
         if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+            _setter("creation_time", creation_time)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1729,14 +2236,27 @@ class TrustPolicyResponse(dict):
         :param str status: The value that indicates whether the policy is enabled or not.
         :param str type: The type of trust policy.
         """
+        TrustPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if status is None:
             status = 'disabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is None:
             type = 'Notary'
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1783,10 +2303,27 @@ class UserIdentityPropertiesResponse(dict):
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
+        UserIdentityPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")

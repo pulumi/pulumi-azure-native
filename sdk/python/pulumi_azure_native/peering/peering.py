@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,21 +38,54 @@ class PeeringArgs:
         :param pulumi.Input[str] peering_name: The name of the peering.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        PeeringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            direct=direct,
+            exchange=exchange,
+            location=location,
+            peering_location=peering_location,
+            peering_name=peering_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[Union[str, 'Kind']],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['PeeringSkuArgs'],
+             direct: Optional[pulumi.Input['PeeringPropertiesDirectArgs']] = None,
+             exchange: Optional[pulumi.Input['PeeringPropertiesExchangeArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             peering_location: Optional[pulumi.Input[str]] = None,
+             peering_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'peeringLocation' in kwargs:
+            peering_location = kwargs['peeringLocation']
+        if 'peeringName' in kwargs:
+            peering_name = kwargs['peeringName']
+
+        _setter("kind", kind)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if direct is not None:
-            pulumi.set(__self__, "direct", direct)
+            _setter("direct", direct)
         if exchange is not None:
-            pulumi.set(__self__, "exchange", exchange)
+            _setter("exchange", exchange)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if peering_location is not None:
-            pulumi.set(__self__, "peering_location", peering_location)
+            _setter("peering_location", peering_location)
         if peering_name is not None:
-            pulumi.set(__self__, "peering_name", peering_name)
+            _setter("peering_name", peering_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -214,6 +247,10 @@ class Peering(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PeeringArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -237,7 +274,17 @@ class Peering(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PeeringArgs.__new__(PeeringArgs)
 
+            if direct is not None and not isinstance(direct, PeeringPropertiesDirectArgs):
+                direct = direct or {}
+                def _setter(key, value):
+                    direct[key] = value
+                PeeringPropertiesDirectArgs._configure(_setter, **direct)
             __props__.__dict__["direct"] = direct
+            if exchange is not None and not isinstance(exchange, PeeringPropertiesExchangeArgs):
+                exchange = exchange or {}
+                def _setter(key, value):
+                    exchange[key] = value
+                PeeringPropertiesExchangeArgs._configure(_setter, **exchange)
             __props__.__dict__["exchange"] = exchange
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -248,6 +295,11 @@ class Peering(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, PeeringSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                PeeringSkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

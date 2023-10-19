@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -41,29 +41,74 @@ class MediaServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]] storage_accounts: The storage accounts for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MediaServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            account_name=account_name,
+            encryption=encryption,
+            identity=identity,
+            key_delivery=key_delivery,
+            location=location,
+            minimum_tls_version=minimum_tls_version,
+            public_network_access=public_network_access,
+            storage_accounts=storage_accounts,
+            storage_authentication=storage_authentication,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             encryption: Optional[pulumi.Input['AccountEncryptionArgs']] = None,
+             identity: Optional[pulumi.Input['MediaServiceIdentityArgs']] = None,
+             key_delivery: Optional[pulumi.Input['KeyDeliveryArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             minimum_tls_version: Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]] = None,
+             storage_authentication: Optional[pulumi.Input[Union[str, 'StorageAuthentication']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'keyDelivery' in kwargs:
+            key_delivery = kwargs['keyDelivery']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if 'storageAuthentication' in kwargs:
+            storage_authentication = kwargs['storageAuthentication']
+
+        _setter("resource_group_name", resource_group_name)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_delivery is not None:
-            pulumi.set(__self__, "key_delivery", key_delivery)
+            _setter("key_delivery", key_delivery)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if minimum_tls_version is None:
             minimum_tls_version = 'Tls12'
         if minimum_tls_version is not None:
-            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+            _setter("minimum_tls_version", minimum_tls_version)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if storage_accounts is not None:
-            pulumi.set(__self__, "storage_accounts", storage_accounts)
+            _setter("storage_accounts", storage_accounts)
         if storage_authentication is not None:
-            pulumi.set(__self__, "storage_authentication", storage_authentication)
+            _setter("storage_authentication", storage_authentication)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -249,6 +294,10 @@ class MediaService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MediaServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -275,8 +324,23 @@ class MediaService(pulumi.CustomResource):
             __props__ = MediaServiceArgs.__new__(MediaServiceArgs)
 
             __props__.__dict__["account_name"] = account_name
+            if encryption is not None and not isinstance(encryption, AccountEncryptionArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                AccountEncryptionArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
+            if identity is not None and not isinstance(identity, MediaServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                MediaServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if key_delivery is not None and not isinstance(key_delivery, KeyDeliveryArgs):
+                key_delivery = key_delivery or {}
+                def _setter(key, value):
+                    key_delivery[key] = value
+                KeyDeliveryArgs._configure(_setter, **key_delivery)
             __props__.__dict__["key_delivery"] = key_delivery
             __props__.__dict__["location"] = location
             if minimum_tls_version is None:

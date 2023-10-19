@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -22,9 +22,24 @@ class ConsoleWithLocationArgs:
         :param pulumi.Input[str] location: The provider location
         :param pulumi.Input[str] console_name: The name of the console
         """
-        pulumi.set(__self__, "location", location)
+        ConsoleWithLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            console_name=console_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: pulumi.Input[str],
+             console_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consoleName' in kwargs:
+            console_name = kwargs['consoleName']
+
+        _setter("location", location)
         if console_name is not None:
-            pulumi.set(__self__, "console_name", console_name)
+            _setter("console_name", console_name)
 
     @property
     @pulumi.getter
@@ -86,6 +101,10 @@ class ConsoleWithLocation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConsoleWithLocationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
