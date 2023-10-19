@@ -206,5 +206,9 @@
   {
     "Provider": "ServiceFabric",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "Workloads",
+    "Detail": "expected no additions but found some"
   }
 ]

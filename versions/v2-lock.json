@@ -2545,6 +2545,8 @@
   },
   "WorkloadMonitor": {},
   "Workloads": {
+    "ACSSBackupConnection": "2023-10-01-preview",
+    "Connector": "2023-10-01-preview",
     "ProviderInstance": "2023-04-01",
     "SAPApplicationServerInstance": "2023-04-01",
     "SAPCentralInstance": "2023-04-01",

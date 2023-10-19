@@ -1574,3 +1574,6 @@ WindowsIoT:
 WorkloadMonitor: {}
 Workloads:
     tracking: "2023-04-01"
+    additions:
+        ACSSBackupConnection: 2023-10-01-preview
+        Connector: 2023-10-01-preview

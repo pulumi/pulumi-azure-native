@@ -546,10 +546,12 @@
     "2023-04-01",
     "2023-04-01-preview",
     "2023-06-01-preview",
-    "2023-08-01-preview"
+    "2023-08-01-preview",
+    "2023-10-01"
   ],
   "Maintenance": [
-    "2023-04-01"
+    "2023-04-01",
+    "2023-09-01-preview"
   ],
   "ManagedIdentity": [
     "2023-01-31"
@@ -870,7 +872,9 @@
   ],
   "VMwareCloudSimple": [],
   "VideoAnalyzer": [],
-  "VideoIndexer": [],
+  "VideoIndexer": [
+    "2024-01-01"
+  ],
   "VirtualMachineImages": [],
   "VisualStudio": [],
   "VoiceServices": [
