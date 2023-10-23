@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -50,9 +50,26 @@ class ActionGroupResponse(dict):
         :param str action_group_id: The resource ID of the Action Group. This cannot be null or empty.
         :param Mapping[str, str] webhook_properties: the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
         """
-        pulumi.set(__self__, "action_group_id", action_group_id)
+        ActionGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_group_id=action_group_id,
+            webhook_properties=webhook_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_group_id: str,
+             webhook_properties: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionGroupId' in kwargs:
+            action_group_id = kwargs['actionGroupId']
+        if 'webhookProperties' in kwargs:
+            webhook_properties = kwargs['webhookProperties']
+
+        _setter("action_group_id", action_group_id)
         if webhook_properties is not None:
-            pulumi.set(__self__, "webhook_properties", webhook_properties)
+            _setter("webhook_properties", webhook_properties)
 
     @property
     @pulumi.getter(name="actionGroupId")
@@ -99,8 +116,21 @@ class ActionListResponse(dict):
         A list of Activity Log Alert rule actions.
         :param Sequence['ActionGroupResponse'] action_groups: The list of the Action Groups.
         """
+        ActionListResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_groups=action_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_groups: Optional[Sequence['outputs.ActionGroupResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionGroups' in kwargs:
+            action_groups = kwargs['actionGroups']
+
         if action_groups is not None:
-            pulumi.set(__self__, "action_groups", action_groups)
+            _setter("action_groups", action_groups)
 
     @property
     @pulumi.getter(name="actionGroups")
@@ -139,7 +169,20 @@ class AlertRuleAllOfConditionResponse(dict):
         An Activity Log Alert rule condition that is met when all its member conditions are met.
         :param Sequence['AlertRuleAnyOfOrLeafConditionResponse'] all_of: The list of Activity Log Alert rule conditions.
         """
-        pulumi.set(__self__, "all_of", all_of)
+        AlertRuleAllOfConditionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_of=all_of,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_of: Sequence['outputs.AlertRuleAnyOfOrLeafConditionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allOf' in kwargs:
+            all_of = kwargs['allOf']
+
+        _setter("all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")
@@ -200,14 +243,35 @@ class AlertRuleAnyOfOrLeafConditionResponse(dict):
         :param str field: The name of the Activity Log event's field that this condition will examine.
                The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
         """
+        AlertRuleAnyOfOrLeafConditionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            any_of=any_of,
+            contains_any=contains_any,
+            equals=equals,
+            field=field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             any_of: Optional[Sequence['outputs.AlertRuleLeafConditionResponse']] = None,
+             contains_any: Optional[Sequence[str]] = None,
+             equals: Optional[str] = None,
+             field: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anyOf' in kwargs:
+            any_of = kwargs['anyOf']
+        if 'containsAny' in kwargs:
+            contains_any = kwargs['containsAny']
+
         if any_of is not None:
-            pulumi.set(__self__, "any_of", any_of)
+            _setter("any_of", any_of)
         if contains_any is not None:
-            pulumi.set(__self__, "contains_any", contains_any)
+            _setter("contains_any", contains_any)
         if equals is not None:
-            pulumi.set(__self__, "equals", equals)
+            _setter("equals", equals)
         if field is not None:
-            pulumi.set(__self__, "field", field)
+            _setter("field", field)
 
     @property
     @pulumi.getter(name="anyOf")
@@ -278,12 +342,29 @@ class AlertRuleLeafConditionResponse(dict):
         :param str field: The name of the Activity Log event's field that this condition will examine.
                The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
         """
+        AlertRuleLeafConditionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contains_any=contains_any,
+            equals=equals,
+            field=field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contains_any: Optional[Sequence[str]] = None,
+             equals: Optional[str] = None,
+             field: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containsAny' in kwargs:
+            contains_any = kwargs['containsAny']
+
         if contains_any is not None:
-            pulumi.set(__self__, "contains_any", contains_any)
+            _setter("contains_any", contains_any)
         if equals is not None:
-            pulumi.set(__self__, "equals", equals)
+            _setter("equals", equals)
         if field is not None:
-            pulumi.set(__self__, "field", field)
+            _setter("field", field)
 
     @property
     @pulumi.getter(name="containsAny")

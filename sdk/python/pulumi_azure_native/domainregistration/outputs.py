@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -62,18 +62,49 @@ class HostNameResponse(dict):
         :param str name: Name of the hostname.
         :param Sequence[str] site_names: List of apps the hostname is assigned to. This list will have more than one app only if the hostname is pointing to a Traffic Manager.
         """
+        HostNameResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_resource_name=azure_resource_name,
+            azure_resource_type=azure_resource_type,
+            custom_host_name_dns_record_type=custom_host_name_dns_record_type,
+            host_name_type=host_name_type,
+            name=name,
+            site_names=site_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_resource_name: Optional[str] = None,
+             azure_resource_type: Optional[str] = None,
+             custom_host_name_dns_record_type: Optional[str] = None,
+             host_name_type: Optional[str] = None,
+             name: Optional[str] = None,
+             site_names: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureResourceName' in kwargs:
+            azure_resource_name = kwargs['azureResourceName']
+        if 'azureResourceType' in kwargs:
+            azure_resource_type = kwargs['azureResourceType']
+        if 'customHostNameDnsRecordType' in kwargs:
+            custom_host_name_dns_record_type = kwargs['customHostNameDnsRecordType']
+        if 'hostNameType' in kwargs:
+            host_name_type = kwargs['hostNameType']
+        if 'siteNames' in kwargs:
+            site_names = kwargs['siteNames']
+
         if azure_resource_name is not None:
-            pulumi.set(__self__, "azure_resource_name", azure_resource_name)
+            _setter("azure_resource_name", azure_resource_name)
         if azure_resource_type is not None:
-            pulumi.set(__self__, "azure_resource_type", azure_resource_type)
+            _setter("azure_resource_type", azure_resource_type)
         if custom_host_name_dns_record_type is not None:
-            pulumi.set(__self__, "custom_host_name_dns_record_type", custom_host_name_dns_record_type)
+            _setter("custom_host_name_dns_record_type", custom_host_name_dns_record_type)
         if host_name_type is not None:
-            pulumi.set(__self__, "host_name_type", host_name_type)
+            _setter("host_name_type", host_name_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if site_names is not None:
-            pulumi.set(__self__, "site_names", site_names)
+            _setter("site_names", site_names)
 
     @property
     @pulumi.getter(name="azureResourceName")
@@ -135,8 +166,19 @@ class NameIdentifierResponse(dict):
         Identifies an object.
         :param str name: Name of the object.
         """
+        NameIdentifierResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -164,11 +206,30 @@ class TldLegalAgreementResponse(dict):
         :param str title: Agreement title.
         :param str url: URL where a copy of the agreement details is hosted.
         """
-        pulumi.set(__self__, "agreement_key", agreement_key)
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "title", title)
+        TldLegalAgreementResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agreement_key=agreement_key,
+            content=content,
+            title=title,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agreement_key: str,
+             content: str,
+             title: str,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agreementKey' in kwargs:
+            agreement_key = kwargs['agreementKey']
+
+        _setter("agreement_key", agreement_key)
+        _setter("content", content)
+        _setter("title", title)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="agreementKey")

@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
     'ListEASubscriptionListMigrationDatePostResult',
     'AwaitableListEASubscriptionListMigrationDatePostResult',
     'list_ea_subscription_list_migration_date_post',
+    'list_ea_subscription_list_migration_date_post_output',
 ]
 
 @pulumi.output_type
@@ -66,3 +67,11 @@ def list_ea_subscription_list_migration_date_post(opts: Optional[pulumi.InvokeOp
     return AwaitableListEASubscriptionListMigrationDatePostResult(
         is_grand_fatherable_subscription=pulumi.get(__ret__, 'is_grand_fatherable_subscription'),
         opted_in_date=pulumi.get(__ret__, 'opted_in_date'))
+
+
+@_utilities.lift_output_func(list_ea_subscription_list_migration_date_post)
+def list_ea_subscription_list_migration_date_post_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEASubscriptionListMigrationDatePostResult]:
+    """
+    list date to migrate to new pricing model.
+    """
+    ...

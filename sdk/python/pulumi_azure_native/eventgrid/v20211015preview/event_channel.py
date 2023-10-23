@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,20 +37,55 @@ class EventChannelArgs:
                This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
         :param pulumi.Input['EventChannelSourceArgs'] source: Source of the event channel. This represents a unique resource in the partner's resource model.
         """
-        pulumi.set(__self__, "partner_namespace_name", partner_namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        EventChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partner_namespace_name=partner_namespace_name,
+            resource_group_name=resource_group_name,
+            destination=destination,
+            event_channel_name=event_channel_name,
+            expiration_time_if_not_activated_utc=expiration_time_if_not_activated_utc,
+            filter=filter,
+            partner_topic_friendly_description=partner_topic_friendly_description,
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partner_namespace_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             destination: Optional[pulumi.Input['EventChannelDestinationArgs']] = None,
+             event_channel_name: Optional[pulumi.Input[str]] = None,
+             expiration_time_if_not_activated_utc: Optional[pulumi.Input[str]] = None,
+             filter: Optional[pulumi.Input['EventChannelFilterArgs']] = None,
+             partner_topic_friendly_description: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input['EventChannelSourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partnerNamespaceName' in kwargs:
+            partner_namespace_name = kwargs['partnerNamespaceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'eventChannelName' in kwargs:
+            event_channel_name = kwargs['eventChannelName']
+        if 'expirationTimeIfNotActivatedUtc' in kwargs:
+            expiration_time_if_not_activated_utc = kwargs['expirationTimeIfNotActivatedUtc']
+        if 'partnerTopicFriendlyDescription' in kwargs:
+            partner_topic_friendly_description = kwargs['partnerTopicFriendlyDescription']
+
+        _setter("partner_namespace_name", partner_namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if event_channel_name is not None:
-            pulumi.set(__self__, "event_channel_name", event_channel_name)
+            _setter("event_channel_name", event_channel_name)
         if expiration_time_if_not_activated_utc is not None:
-            pulumi.set(__self__, "expiration_time_if_not_activated_utc", expiration_time_if_not_activated_utc)
+            _setter("expiration_time_if_not_activated_utc", expiration_time_if_not_activated_utc)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if partner_topic_friendly_description is not None:
-            pulumi.set(__self__, "partner_topic_friendly_description", partner_topic_friendly_description)
+            _setter("partner_topic_friendly_description", partner_topic_friendly_description)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
 
     @property
     @pulumi.getter(name="partnerNamespaceName")
@@ -200,6 +235,10 @@ class EventChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -222,9 +261,19 @@ class EventChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventChannelArgs.__new__(EventChannelArgs)
 
+            if destination is not None and not isinstance(destination, EventChannelDestinationArgs):
+                destination = destination or {}
+                def _setter(key, value):
+                    destination[key] = value
+                EventChannelDestinationArgs._configure(_setter, **destination)
             __props__.__dict__["destination"] = destination
             __props__.__dict__["event_channel_name"] = event_channel_name
             __props__.__dict__["expiration_time_if_not_activated_utc"] = expiration_time_if_not_activated_utc
+            if filter is not None and not isinstance(filter, EventChannelFilterArgs):
+                filter = filter or {}
+                def _setter(key, value):
+                    filter[key] = value
+                EventChannelFilterArgs._configure(_setter, **filter)
             __props__.__dict__["filter"] = filter
             if partner_namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_namespace_name'")
@@ -233,6 +282,11 @@ class EventChannel(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if source is not None and not isinstance(source, EventChannelSourceArgs):
+                source = source or {}
+                def _setter(key, value):
+                    source[key] = value
+                EventChannelSourceArgs._configure(_setter, **source)
             __props__.__dict__["source"] = source
             __props__.__dict__["name"] = None
             __props__.__dict__["partner_topic_readiness_state"] = None

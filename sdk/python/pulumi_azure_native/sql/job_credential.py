@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['JobCredentialArgs', 'JobCredential']
@@ -29,13 +29,42 @@ class JobCredentialArgs:
         :param pulumi.Input[str] username: The credential user name.
         :param pulumi.Input[str] credential_name: The name of the credential.
         """
-        pulumi.set(__self__, "job_agent_name", job_agent_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "username", username)
+        JobCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_agent_name=job_agent_name,
+            password=password,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            username=username,
+            credential_name=credential_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_agent_name: pulumi.Input[str],
+             password: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             username: pulumi.Input[str],
+             credential_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jobAgentName' in kwargs:
+            job_agent_name = kwargs['jobAgentName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'credentialName' in kwargs:
+            credential_name = kwargs['credentialName']
+
+        _setter("job_agent_name", job_agent_name)
+        _setter("password", password)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
+        _setter("username", username)
         if credential_name is not None:
-            pulumi.set(__self__, "credential_name", credential_name)
+            _setter("credential_name", credential_name)
 
     @property
     @pulumi.getter(name="jobAgentName")
@@ -159,6 +188,10 @@ class JobCredential(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobCredentialArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

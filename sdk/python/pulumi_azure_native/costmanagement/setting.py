@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,13 +27,34 @@ class SettingArgs:
         :param pulumi.Input[str] setting_name: Name of the setting. Allowed values: myscope
         :param pulumi.Input[str] start_on: Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
         """
-        pulumi.set(__self__, "scope", scope)
+        SettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+            cache=cache,
+            setting_name=setting_name,
+            start_on=start_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: pulumi.Input[str],
+             cache: Optional[pulumi.Input[Sequence[pulumi.Input['SettingsPropertiesCacheArgs']]]] = None,
+             setting_name: Optional[pulumi.Input[str]] = None,
+             start_on: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'settingName' in kwargs:
+            setting_name = kwargs['settingName']
+        if 'startOn' in kwargs:
+            start_on = kwargs['startOn']
+
+        _setter("scope", scope)
         if cache is not None:
-            pulumi.set(__self__, "cache", cache)
+            _setter("cache", cache)
         if setting_name is not None:
-            pulumi.set(__self__, "setting_name", setting_name)
+            _setter("setting_name", setting_name)
         if start_on is not None:
-            pulumi.set(__self__, "start_on", start_on)
+            _setter("start_on", start_on)
 
     @property
     @pulumi.getter
@@ -125,6 +146,10 @@ class Setting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

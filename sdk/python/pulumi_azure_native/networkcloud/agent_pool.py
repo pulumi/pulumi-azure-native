@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -52,33 +52,94 @@ class AgentPoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]] taints: The taints applied to the nodes in this agent pool.
         :param pulumi.Input['AgentPoolUpgradeSettingsArgs'] upgrade_settings: The configuration of the agent pool.
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "kubernetes_cluster_name", kubernetes_cluster_name)
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vm_sku_name", vm_sku_name)
+        AgentPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            kubernetes_cluster_name=kubernetes_cluster_name,
+            mode=mode,
+            resource_group_name=resource_group_name,
+            vm_sku_name=vm_sku_name,
+            administrator_configuration=administrator_configuration,
+            agent_options=agent_options,
+            agent_pool_name=agent_pool_name,
+            attached_network_configuration=attached_network_configuration,
+            availability_zones=availability_zones,
+            extended_location=extended_location,
+            labels=labels,
+            location=location,
+            tags=tags,
+            taints=taints,
+            upgrade_settings=upgrade_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: pulumi.Input[float],
+             kubernetes_cluster_name: pulumi.Input[str],
+             mode: pulumi.Input[Union[str, 'AgentPoolMode']],
+             resource_group_name: pulumi.Input[str],
+             vm_sku_name: pulumi.Input[str],
+             administrator_configuration: Optional[pulumi.Input['AdministratorConfigurationArgs']] = None,
+             agent_options: Optional[pulumi.Input['AgentOptionsArgs']] = None,
+             agent_pool_name: Optional[pulumi.Input[str]] = None,
+             attached_network_configuration: Optional[pulumi.Input['AttachedNetworkConfigurationArgs']] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             taints: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]]] = None,
+             upgrade_settings: Optional[pulumi.Input['AgentPoolUpgradeSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kubernetesClusterName' in kwargs:
+            kubernetes_cluster_name = kwargs['kubernetesClusterName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'vmSkuName' in kwargs:
+            vm_sku_name = kwargs['vmSkuName']
+        if 'administratorConfiguration' in kwargs:
+            administrator_configuration = kwargs['administratorConfiguration']
+        if 'agentOptions' in kwargs:
+            agent_options = kwargs['agentOptions']
+        if 'agentPoolName' in kwargs:
+            agent_pool_name = kwargs['agentPoolName']
+        if 'attachedNetworkConfiguration' in kwargs:
+            attached_network_configuration = kwargs['attachedNetworkConfiguration']
+        if 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if 'upgradeSettings' in kwargs:
+            upgrade_settings = kwargs['upgradeSettings']
+
+        _setter("count", count)
+        _setter("kubernetes_cluster_name", kubernetes_cluster_name)
+        _setter("mode", mode)
+        _setter("resource_group_name", resource_group_name)
+        _setter("vm_sku_name", vm_sku_name)
         if administrator_configuration is not None:
-            pulumi.set(__self__, "administrator_configuration", administrator_configuration)
+            _setter("administrator_configuration", administrator_configuration)
         if agent_options is not None:
-            pulumi.set(__self__, "agent_options", agent_options)
+            _setter("agent_options", agent_options)
         if agent_pool_name is not None:
-            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+            _setter("agent_pool_name", agent_pool_name)
         if attached_network_configuration is not None:
-            pulumi.set(__self__, "attached_network_configuration", attached_network_configuration)
+            _setter("attached_network_configuration", attached_network_configuration)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if taints is not None:
-            pulumi.set(__self__, "taints", taints)
+            _setter("taints", taints)
         if upgrade_settings is not None:
-            pulumi.set(__self__, "upgrade_settings", upgrade_settings)
+            _setter("upgrade_settings", upgrade_settings)
 
     @property
     @pulumi.getter
@@ -340,6 +401,10 @@ class AgentPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AgentPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -370,14 +435,34 @@ class AgentPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AgentPoolArgs.__new__(AgentPoolArgs)
 
+            if administrator_configuration is not None and not isinstance(administrator_configuration, AdministratorConfigurationArgs):
+                administrator_configuration = administrator_configuration or {}
+                def _setter(key, value):
+                    administrator_configuration[key] = value
+                AdministratorConfigurationArgs._configure(_setter, **administrator_configuration)
             __props__.__dict__["administrator_configuration"] = administrator_configuration
+            if agent_options is not None and not isinstance(agent_options, AgentOptionsArgs):
+                agent_options = agent_options or {}
+                def _setter(key, value):
+                    agent_options[key] = value
+                AgentOptionsArgs._configure(_setter, **agent_options)
             __props__.__dict__["agent_options"] = agent_options
             __props__.__dict__["agent_pool_name"] = agent_pool_name
+            if attached_network_configuration is not None and not isinstance(attached_network_configuration, AttachedNetworkConfigurationArgs):
+                attached_network_configuration = attached_network_configuration or {}
+                def _setter(key, value):
+                    attached_network_configuration[key] = value
+                AttachedNetworkConfigurationArgs._configure(_setter, **attached_network_configuration)
             __props__.__dict__["attached_network_configuration"] = attached_network_configuration
             __props__.__dict__["availability_zones"] = availability_zones
             if count is None and not opts.urn:
                 raise TypeError("Missing required property 'count'")
             __props__.__dict__["count"] = count
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
             if kubernetes_cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'kubernetes_cluster_name'")
@@ -392,6 +477,11 @@ class AgentPool(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["taints"] = taints
+            if upgrade_settings is not None and not isinstance(upgrade_settings, AgentPoolUpgradeSettingsArgs):
+                upgrade_settings = upgrade_settings or {}
+                def _setter(key, value):
+                    upgrade_settings[key] = value
+                AgentPoolUpgradeSettingsArgs._configure(_setter, **upgrade_settings)
             __props__.__dict__["upgrade_settings"] = upgrade_settings
             if vm_sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_sku_name'")

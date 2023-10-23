@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,15 +32,42 @@ class ReportByResourceGroupNameArgs:
         :param pulumi.Input[str] report_name: Report Name.
         :param pulumi.Input['ReportScheduleArgs'] schedule: Has schedule information for the report.
         """
-        pulumi.set(__self__, "definition", definition)
-        pulumi.set(__self__, "delivery_info", delivery_info)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ReportByResourceGroupNameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            definition=definition,
+            delivery_info=delivery_info,
+            resource_group_name=resource_group_name,
+            format=format,
+            report_name=report_name,
+            schedule=schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             definition: pulumi.Input['ReportDefinitionArgs'],
+             delivery_info: pulumi.Input['ReportDeliveryInfoArgs'],
+             resource_group_name: pulumi.Input[str],
+             format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
+             report_name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['ReportScheduleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryInfo' in kwargs:
+            delivery_info = kwargs['deliveryInfo']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'reportName' in kwargs:
+            report_name = kwargs['reportName']
+
+        _setter("definition", definition)
+        _setter("delivery_info", delivery_info)
+        _setter("resource_group_name", resource_group_name)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if report_name is not None:
-            pulumi.set(__self__, "report_name", report_name)
+            _setter("report_name", report_name)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
 
     @property
     @pulumi.getter
@@ -158,6 +185,10 @@ class ReportByResourceGroupName(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReportByResourceGroupNameArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -178,9 +209,19 @@ class ReportByResourceGroupName(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReportByResourceGroupNameArgs.__new__(ReportByResourceGroupNameArgs)
 
+            if definition is not None and not isinstance(definition, ReportDefinitionArgs):
+                definition = definition or {}
+                def _setter(key, value):
+                    definition[key] = value
+                ReportDefinitionArgs._configure(_setter, **definition)
             if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
             __props__.__dict__["definition"] = definition
+            if delivery_info is not None and not isinstance(delivery_info, ReportDeliveryInfoArgs):
+                delivery_info = delivery_info or {}
+                def _setter(key, value):
+                    delivery_info[key] = value
+                ReportDeliveryInfoArgs._configure(_setter, **delivery_info)
             if delivery_info is None and not opts.urn:
                 raise TypeError("Missing required property 'delivery_info'")
             __props__.__dict__["delivery_info"] = delivery_info
@@ -189,6 +230,11 @@ class ReportByResourceGroupName(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if schedule is not None and not isinstance(schedule, ReportScheduleArgs):
+                schedule = schedule or {}
+                def _setter(key, value):
+                    schedule[key] = value
+                ReportScheduleArgs._configure(_setter, **schedule)
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["name"] = None
             __props__.__dict__["tags"] = None

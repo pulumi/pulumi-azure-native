@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -44,30 +44,81 @@ class ArtifactSourceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] uri: The artifact source's URI.
         """
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ArtifactSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_name=lab_name,
+            resource_group_name=resource_group_name,
+            arm_template_folder_path=arm_template_folder_path,
+            branch_ref=branch_ref,
+            display_name=display_name,
+            folder_path=folder_path,
+            location=location,
+            name=name,
+            security_token=security_token,
+            source_type=source_type,
+            status=status,
+            tags=tags,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             arm_template_folder_path: Optional[pulumi.Input[str]] = None,
+             branch_ref: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             folder_path: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             security_token: Optional[pulumi.Input[str]] = None,
+             source_type: Optional[pulumi.Input[Union[str, 'SourceControlType']]] = None,
+             status: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'armTemplateFolderPath' in kwargs:
+            arm_template_folder_path = kwargs['armTemplateFolderPath']
+        if 'branchRef' in kwargs:
+            branch_ref = kwargs['branchRef']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'folderPath' in kwargs:
+            folder_path = kwargs['folderPath']
+        if 'securityToken' in kwargs:
+            security_token = kwargs['securityToken']
+        if 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+
+        _setter("lab_name", lab_name)
+        _setter("resource_group_name", resource_group_name)
         if arm_template_folder_path is not None:
-            pulumi.set(__self__, "arm_template_folder_path", arm_template_folder_path)
+            _setter("arm_template_folder_path", arm_template_folder_path)
         if branch_ref is not None:
-            pulumi.set(__self__, "branch_ref", branch_ref)
+            _setter("branch_ref", branch_ref)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if folder_path is not None:
-            pulumi.set(__self__, "folder_path", folder_path)
+            _setter("folder_path", folder_path)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if security_token is not None:
-            pulumi.set(__self__, "security_token", security_token)
+            _setter("security_token", security_token)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="labName")
@@ -283,6 +334,10 @@ class ArtifactSource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ArtifactSourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

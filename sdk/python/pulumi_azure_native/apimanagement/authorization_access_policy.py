@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AuthorizationAccessPolicyArgs', 'AuthorizationAccessPolicy']
@@ -31,16 +31,53 @@ class AuthorizationAccessPolicyArgs:
         :param pulumi.Input[str] object_id: The Object Id
         :param pulumi.Input[str] tenant_id: The Tenant Id
         """
-        pulumi.set(__self__, "authorization_id", authorization_id)
-        pulumi.set(__self__, "authorization_provider_id", authorization_provider_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        AuthorizationAccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_id=authorization_id,
+            authorization_provider_id=authorization_provider_id,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            authorization_access_policy_id=authorization_access_policy_id,
+            object_id=object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_id: pulumi.Input[str],
+             authorization_provider_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             authorization_access_policy_id: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizationId' in kwargs:
+            authorization_id = kwargs['authorizationId']
+        if 'authorizationProviderId' in kwargs:
+            authorization_provider_id = kwargs['authorizationProviderId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'authorizationAccessPolicyId' in kwargs:
+            authorization_access_policy_id = kwargs['authorizationAccessPolicyId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("authorization_id", authorization_id)
+        _setter("authorization_provider_id", authorization_provider_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if authorization_access_policy_id is not None:
-            pulumi.set(__self__, "authorization_access_policy_id", authorization_access_policy_id)
+            _setter("authorization_access_policy_id", authorization_access_policy_id)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="authorizationId")
@@ -178,6 +215,10 @@ class AuthorizationAccessPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AuthorizationAccessPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

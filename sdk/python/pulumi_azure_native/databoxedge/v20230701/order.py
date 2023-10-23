@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,13 +30,42 @@ class OrderArgs:
         :param pulumi.Input[Union[str, 'ShipmentType']] shipment_type: ShipmentType of the order
         :param pulumi.Input['AddressArgs'] shipping_address: The shipping address.
         """
-        pulumi.set(__self__, "contact_information", contact_information)
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        OrderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_information=contact_information,
+            device_name=device_name,
+            resource_group_name=resource_group_name,
+            shipment_type=shipment_type,
+            shipping_address=shipping_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_information: pulumi.Input['ContactDetailsArgs'],
+             device_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             shipment_type: Optional[pulumi.Input[Union[str, 'ShipmentType']]] = None,
+             shipping_address: Optional[pulumi.Input['AddressArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactInformation' in kwargs:
+            contact_information = kwargs['contactInformation']
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'shipmentType' in kwargs:
+            shipment_type = kwargs['shipmentType']
+        if 'shippingAddress' in kwargs:
+            shipping_address = kwargs['shippingAddress']
+
+        _setter("contact_information", contact_information)
+        _setter("device_name", device_name)
+        _setter("resource_group_name", resource_group_name)
         if shipment_type is not None:
-            pulumi.set(__self__, "shipment_type", shipment_type)
+            _setter("shipment_type", shipment_type)
         if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+            _setter("shipping_address", shipping_address)
 
     @property
     @pulumi.getter(name="contactInformation")
@@ -140,6 +169,10 @@ class Order(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -159,6 +192,11 @@ class Order(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OrderArgs.__new__(OrderArgs)
 
+            if contact_information is not None and not isinstance(contact_information, ContactDetailsArgs):
+                contact_information = contact_information or {}
+                def _setter(key, value):
+                    contact_information[key] = value
+                ContactDetailsArgs._configure(_setter, **contact_information)
             if contact_information is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_information'")
             __props__.__dict__["contact_information"] = contact_information
@@ -169,6 +207,11 @@ class Order(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["shipment_type"] = shipment_type
+            if shipping_address is not None and not isinstance(shipping_address, AddressArgs):
+                shipping_address = shipping_address or {}
+                def _setter(key, value):
+                    shipping_address[key] = value
+                AddressArgs._configure(_setter, **shipping_address)
             __props__.__dict__["shipping_address"] = shipping_address
             __props__.__dict__["current_status"] = None
             __props__.__dict__["delivery_tracking_info"] = None

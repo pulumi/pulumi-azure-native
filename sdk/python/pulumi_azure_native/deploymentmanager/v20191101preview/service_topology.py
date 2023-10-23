@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['ServiceTopologyArgs', 'ServiceTopology']
@@ -27,15 +27,40 @@ class ServiceTopologyArgs:
         :param pulumi.Input[str] service_topology_name: The name of the service topology .
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ServiceTopologyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            artifact_source_id=artifact_source_id,
+            location=location,
+            service_topology_name=service_topology_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             artifact_source_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             service_topology_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'artifactSourceId' in kwargs:
+            artifact_source_id = kwargs['artifactSourceId']
+        if 'serviceTopologyName' in kwargs:
+            service_topology_name = kwargs['serviceTopologyName']
+
+        _setter("resource_group_name", resource_group_name)
         if artifact_source_id is not None:
-            pulumi.set(__self__, "artifact_source_id", artifact_source_id)
+            _setter("artifact_source_id", artifact_source_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if service_topology_name is not None:
-            pulumi.set(__self__, "service_topology_name", service_topology_name)
+            _setter("service_topology_name", service_topology_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -139,6 +164,10 @@ class ServiceTopology(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceTopologyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

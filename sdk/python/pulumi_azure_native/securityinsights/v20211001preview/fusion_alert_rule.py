@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -37,16 +37,53 @@ class FusionAlertRuleArgs:
         :param pulumi.Input[str] rule_id: Alert rule ID
         :param pulumi.Input[Sequence[pulumi.Input['FusionScenarioExclusionPatternArgs']]] scenario_exclusion_patterns: Configuration to exclude scenarios in fusion detection.
         """
-        pulumi.set(__self__, "alert_rule_template_name", alert_rule_template_name)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "kind", 'Fusion')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_settings", source_settings)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        FusionAlertRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_rule_template_name=alert_rule_template_name,
+            enabled=enabled,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            source_settings=source_settings,
+            workspace_name=workspace_name,
+            rule_id=rule_id,
+            scenario_exclusion_patterns=scenario_exclusion_patterns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_rule_template_name: pulumi.Input[str],
+             enabled: pulumi.Input[bool],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             source_settings: pulumi.Input[Sequence[pulumi.Input['FusionSourceSettingsArgs']]],
+             workspace_name: pulumi.Input[str],
+             rule_id: Optional[pulumi.Input[str]] = None,
+             scenario_exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input['FusionScenarioExclusionPatternArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertRuleTemplateName' in kwargs:
+            alert_rule_template_name = kwargs['alertRuleTemplateName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sourceSettings' in kwargs:
+            source_settings = kwargs['sourceSettings']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'ruleId' in kwargs:
+            rule_id = kwargs['ruleId']
+        if 'scenarioExclusionPatterns' in kwargs:
+            scenario_exclusion_patterns = kwargs['scenarioExclusionPatterns']
+
+        _setter("alert_rule_template_name", alert_rule_template_name)
+        _setter("enabled", enabled)
+        _setter("kind", 'Fusion')
+        _setter("resource_group_name", resource_group_name)
+        _setter("source_settings", source_settings)
+        _setter("workspace_name", workspace_name)
         if rule_id is not None:
-            pulumi.set(__self__, "rule_id", rule_id)
+            _setter("rule_id", rule_id)
         if scenario_exclusion_patterns is not None:
-            pulumi.set(__self__, "scenario_exclusion_patterns", scenario_exclusion_patterns)
+            _setter("scenario_exclusion_patterns", scenario_exclusion_patterns)
 
     @property
     @pulumi.getter(name="alertRuleTemplateName")
@@ -194,6 +231,10 @@ class FusionAlertRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FusionAlertRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

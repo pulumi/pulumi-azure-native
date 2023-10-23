@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,14 +30,37 @@ class DeploymentAtManagementGroupScopeArgs:
         :param pulumi.Input[str] location: The location to store the deployment data.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Deployment tags
         """
-        pulumi.set(__self__, "group_id", group_id)
-        pulumi.set(__self__, "properties", properties)
+        DeploymentAtManagementGroupScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            properties=properties,
+            deployment_name=deployment_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: pulumi.Input[str],
+             properties: pulumi.Input['DeploymentPropertiesArgs'],
+             deployment_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'deploymentName' in kwargs:
+            deployment_name = kwargs['deploymentName']
+
+        _setter("group_id", group_id)
+        _setter("properties", properties)
         if deployment_name is not None:
-            pulumi.set(__self__, "deployment_name", deployment_name)
+            _setter("deployment_name", deployment_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="groupId")
@@ -147,6 +170,10 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeploymentAtManagementGroupScopeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -171,6 +198,11 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
                 raise TypeError("Missing required property 'group_id'")
             __props__.__dict__["group_id"] = group_id
             __props__.__dict__["location"] = location
+            if properties is not None and not isinstance(properties, DeploymentPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                DeploymentPropertiesArgs._configure(_setter, **properties)
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties

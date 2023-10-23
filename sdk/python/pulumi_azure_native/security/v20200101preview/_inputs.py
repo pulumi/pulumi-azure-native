@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -34,9 +34,30 @@ class AwAssumeRoleAuthenticationDetailsPropertiesArgs:
         :param pulumi.Input[str] aws_assume_role_arn: Assumed role ID is an identifier that you can use to create temporary security credentials.
         :param pulumi.Input[str] aws_external_id: A unique identifier that is required when you assume a role in another account.
         """
-        pulumi.set(__self__, "authentication_type", 'awsAssumeRole')
-        pulumi.set(__self__, "aws_assume_role_arn", aws_assume_role_arn)
-        pulumi.set(__self__, "aws_external_id", aws_external_id)
+        AwAssumeRoleAuthenticationDetailsPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_type=authentication_type,
+            aws_assume_role_arn=aws_assume_role_arn,
+            aws_external_id=aws_external_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_type: pulumi.Input[str],
+             aws_assume_role_arn: pulumi.Input[str],
+             aws_external_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'awsAssumeRoleArn' in kwargs:
+            aws_assume_role_arn = kwargs['awsAssumeRoleArn']
+        if 'awsExternalId' in kwargs:
+            aws_external_id = kwargs['awsExternalId']
+
+        _setter("authentication_type", 'awsAssumeRole')
+        _setter("aws_assume_role_arn", aws_assume_role_arn)
+        _setter("aws_external_id", aws_external_id)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -89,9 +110,30 @@ class AwsCredsAuthenticationDetailsPropertiesArgs:
         :param pulumi.Input[str] aws_access_key_id: Public key element of the AWS credential object (write only)
         :param pulumi.Input[str] aws_secret_access_key: Secret key element of the AWS credential object (write only)
         """
-        pulumi.set(__self__, "authentication_type", 'awsCreds')
-        pulumi.set(__self__, "aws_access_key_id", aws_access_key_id)
-        pulumi.set(__self__, "aws_secret_access_key", aws_secret_access_key)
+        AwsCredsAuthenticationDetailsPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_type=authentication_type,
+            aws_access_key_id=aws_access_key_id,
+            aws_secret_access_key=aws_secret_access_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_type: pulumi.Input[str],
+             aws_access_key_id: pulumi.Input[str],
+             aws_secret_access_key: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'awsAccessKeyId' in kwargs:
+            aws_access_key_id = kwargs['awsAccessKeyId']
+        if 'awsSecretAccessKey' in kwargs:
+            aws_secret_access_key = kwargs['awsSecretAccessKey']
+
+        _setter("authentication_type", 'awsCreds')
+        _setter("aws_access_key_id", aws_access_key_id)
+        _setter("aws_secret_access_key", aws_secret_access_key)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -162,18 +204,73 @@ class GcpCredentialsDetailsPropertiesArgs:
         :param pulumi.Input[str] token_uri: Token URI field of the API key (write only)
         :param pulumi.Input[str] type: Type field of the API key (write only)
         """
-        pulumi.set(__self__, "auth_provider_x509_cert_url", auth_provider_x509_cert_url)
-        pulumi.set(__self__, "auth_uri", auth_uri)
-        pulumi.set(__self__, "authentication_type", 'gcpCredentials')
-        pulumi.set(__self__, "client_email", client_email)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_x509_cert_url", client_x509_cert_url)
-        pulumi.set(__self__, "organization_id", organization_id)
-        pulumi.set(__self__, "private_key", private_key)
-        pulumi.set(__self__, "private_key_id", private_key_id)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "token_uri", token_uri)
-        pulumi.set(__self__, "type", type)
+        GcpCredentialsDetailsPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_provider_x509_cert_url=auth_provider_x509_cert_url,
+            auth_uri=auth_uri,
+            authentication_type=authentication_type,
+            client_email=client_email,
+            client_id=client_id,
+            client_x509_cert_url=client_x509_cert_url,
+            organization_id=organization_id,
+            private_key=private_key,
+            private_key_id=private_key_id,
+            project_id=project_id,
+            token_uri=token_uri,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_provider_x509_cert_url: pulumi.Input[str],
+             auth_uri: pulumi.Input[str],
+             authentication_type: pulumi.Input[str],
+             client_email: pulumi.Input[str],
+             client_id: pulumi.Input[str],
+             client_x509_cert_url: pulumi.Input[str],
+             organization_id: pulumi.Input[str],
+             private_key: pulumi.Input[str],
+             private_key_id: pulumi.Input[str],
+             project_id: pulumi.Input[str],
+             token_uri: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authProviderX509CertUrl' in kwargs:
+            auth_provider_x509_cert_url = kwargs['authProviderX509CertUrl']
+        if 'authUri' in kwargs:
+            auth_uri = kwargs['authUri']
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'clientEmail' in kwargs:
+            client_email = kwargs['clientEmail']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientX509CertUrl' in kwargs:
+            client_x509_cert_url = kwargs['clientX509CertUrl']
+        if 'organizationId' in kwargs:
+            organization_id = kwargs['organizationId']
+        if 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if 'privateKeyId' in kwargs:
+            private_key_id = kwargs['privateKeyId']
+        if 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if 'tokenUri' in kwargs:
+            token_uri = kwargs['tokenUri']
+
+        _setter("auth_provider_x509_cert_url", auth_provider_x509_cert_url)
+        _setter("auth_uri", auth_uri)
+        _setter("authentication_type", 'gcpCredentials')
+        _setter("client_email", client_email)
+        _setter("client_id", client_id)
+        _setter("client_x509_cert_url", client_x509_cert_url)
+        _setter("organization_id", organization_id)
+        _setter("private_key", private_key)
+        _setter("private_key_id", private_key_id)
+        _setter("project_id", project_id)
+        _setter("token_uri", token_uri)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="authProviderX509CertUrl")
@@ -337,15 +434,42 @@ class HybridComputeSettingsPropertiesArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group where Arc (Hybrid Compute) connectors are connected.
         :param pulumi.Input['ServicePrincipalPropertiesArgs'] service_principal: An object to access resources that are secured by an Azure AD tenant.
         """
-        pulumi.set(__self__, "auto_provision", auto_provision)
+        HybridComputeSettingsPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_provision=auto_provision,
+            proxy_server=proxy_server,
+            region=region,
+            resource_group_name=resource_group_name,
+            service_principal=service_principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_provision: pulumi.Input[Union[str, 'AutoProvision']],
+             proxy_server: Optional[pulumi.Input['ProxyServerPropertiesArgs']] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_principal: Optional[pulumi.Input['ServicePrincipalPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoProvision' in kwargs:
+            auto_provision = kwargs['autoProvision']
+        if 'proxyServer' in kwargs:
+            proxy_server = kwargs['proxyServer']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'servicePrincipal' in kwargs:
+            service_principal = kwargs['servicePrincipal']
+
+        _setter("auto_provision", auto_provision)
         if proxy_server is not None:
-            pulumi.set(__self__, "proxy_server", proxy_server)
+            _setter("proxy_server", proxy_server)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if service_principal is not None:
-            pulumi.set(__self__, "service_principal", service_principal)
+            _setter("service_principal", service_principal)
 
     @property
     @pulumi.getter(name="autoProvision")
@@ -418,10 +542,23 @@ class ProxyServerPropertiesArgs:
         :param pulumi.Input[str] ip: Proxy server IP
         :param pulumi.Input[str] port: Proxy server port
         """
+        ProxyServerPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter
@@ -458,10 +595,25 @@ class SecurityContactPropertiesAlertNotificationsArgs:
         :param pulumi.Input[Union[str, 'MinimalSeverity']] minimal_severity: Defines the minimal alert severity which will be sent as email notifications
         :param pulumi.Input[Union[str, 'State']] state: Defines if email notifications will be sent about new security alerts
         """
+        SecurityContactPropertiesAlertNotificationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            minimal_severity=minimal_severity,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             minimal_severity: Optional[pulumi.Input[Union[str, 'MinimalSeverity']]] = None,
+             state: Optional[pulumi.Input[Union[str, 'State']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'minimalSeverity' in kwargs:
+            minimal_severity = kwargs['minimalSeverity']
+
         if minimal_severity is not None:
-            pulumi.set(__self__, "minimal_severity", minimal_severity)
+            _setter("minimal_severity", minimal_severity)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="minimalSeverity")
@@ -498,10 +650,23 @@ class SecurityContactPropertiesNotificationsByRoleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Roles']]]] roles: Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
         :param pulumi.Input[Union[str, 'State']] state: Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         """
+        SecurityContactPropertiesNotificationsByRoleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            roles=roles,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Roles']]]]] = None,
+             state: Optional[pulumi.Input[Union[str, 'State']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -538,10 +703,25 @@ class ServicePrincipalPropertiesArgs:
         :param pulumi.Input[str] application_id: Application ID of service principal.
         :param pulumi.Input[str] secret: A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
         """
+        ServicePrincipalPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
 
     @property
     @pulumi.getter(name="applicationId")

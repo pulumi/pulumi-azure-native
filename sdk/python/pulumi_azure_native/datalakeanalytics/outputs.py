@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -66,13 +66,44 @@ class ComputePolicyResponse(dict):
         :param str object_type: The type of AAD object the object identifier refers to.
         :param str type: The resource type.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
-        pulumi.set(__self__, "min_priority_per_job", min_priority_per_job)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "object_type", object_type)
-        pulumi.set(__self__, "type", type)
+        ComputePolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            max_degree_of_parallelism_per_job=max_degree_of_parallelism_per_job,
+            min_priority_per_job=min_priority_per_job,
+            name=name,
+            object_id=object_id,
+            object_type=object_type,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             max_degree_of_parallelism_per_job: int,
+             min_priority_per_job: int,
+             name: str,
+             object_id: str,
+             object_type: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxDegreeOfParallelismPerJob' in kwargs:
+            max_degree_of_parallelism_per_job = kwargs['maxDegreeOfParallelismPerJob']
+        if 'minPriorityPerJob' in kwargs:
+            min_priority_per_job = kwargs['minPriorityPerJob']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+
+        _setter("id", id)
+        _setter("max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
+        _setter("min_priority_per_job", min_priority_per_job)
+        _setter("name", name)
+        _setter("object_id", object_id)
+        _setter("object_type", object_type)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -148,10 +179,27 @@ class DataLakeStoreAccountInformationResponse(dict):
         :param str suffix: The optional suffix for the Data Lake Store account.
         :param str type: The resource type.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "suffix", suffix)
-        pulumi.set(__self__, "type", type)
+        DataLakeStoreAccountInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            suffix=suffix,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             suffix: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("suffix", suffix)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -224,11 +272,34 @@ class FirewallRuleResponse(dict):
         :param str start_ip_address: The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         :param str type: The resource type.
         """
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
-        pulumi.set(__self__, "type", type)
+        FirewallRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_ip_address=end_ip_address,
+            id=id,
+            name=name,
+            start_ip_address=start_ip_address,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_ip_address: str,
+             id: str,
+             name: str,
+             start_ip_address: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+
+        _setter("end_ip_address", end_ip_address)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("start_ip_address", start_ip_address)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="endIpAddress")
@@ -319,15 +390,52 @@ class HiveMetastoreResponse(dict):
         :param str type: The resource type.
         :param str user_name: The userName for the Hive MetaStore
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "nested_resource_provisioning_state", nested_resource_provisioning_state)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "runtime_version", runtime_version)
-        pulumi.set(__self__, "server_uri", server_uri)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "user_name", user_name)
+        HiveMetastoreResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            id=id,
+            name=name,
+            nested_resource_provisioning_state=nested_resource_provisioning_state,
+            password=password,
+            runtime_version=runtime_version,
+            server_uri=server_uri,
+            type=type,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             id: str,
+             name: str,
+             nested_resource_provisioning_state: str,
+             password: str,
+             runtime_version: str,
+             server_uri: str,
+             type: str,
+             user_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'nestedResourceProvisioningState' in kwargs:
+            nested_resource_provisioning_state = kwargs['nestedResourceProvisioningState']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'serverUri' in kwargs:
+            server_uri = kwargs['serverUri']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("database_name", database_name)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("nested_resource_provisioning_state", nested_resource_provisioning_state)
+        _setter("password", password)
+        _setter("runtime_version", runtime_version)
+        _setter("server_uri", server_uri)
+        _setter("type", type)
+        _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -413,7 +521,20 @@ class SasTokenInformationResponse(dict):
         SAS token information.
         :param str access_token: The access token for the associated Azure Storage Container.
         """
-        pulumi.set(__self__, "access_token", access_token)
+        SasTokenInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_token=access_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_token: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+
+        _setter("access_token", access_token)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -441,10 +562,27 @@ class StorageAccountInformationResponse(dict):
         :param str suffix: The optional suffix for the storage account.
         :param str type: The resource type.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "suffix", suffix)
-        pulumi.set(__self__, "type", type)
+        StorageAccountInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            suffix=suffix,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             suffix: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("suffix", suffix)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -517,11 +655,34 @@ class VirtualNetworkRuleResponse(dict):
         :param str type: The resource type.
         :param str virtual_network_rule_state: The current state of the VirtualNetwork Rule
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "virtual_network_rule_state", virtual_network_rule_state)
+        VirtualNetworkRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            subnet_id=subnet_id,
+            type=type,
+            virtual_network_rule_state=virtual_network_rule_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             subnet_id: str,
+             type: str,
+             virtual_network_rule_state: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkRuleState' in kwargs:
+            virtual_network_rule_state = kwargs['virtualNetworkRuleState']
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("subnet_id", subnet_id)
+        _setter("type", type)
+        _setter("virtual_network_rule_state", virtual_network_rule_state)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -48,31 +48,92 @@ class ClusterArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "aad_client_id", aad_client_id)
-        pulumi.set(__self__, "aad_tenant_id", aad_tenant_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_client_id=aad_client_id,
+            aad_tenant_id=aad_tenant_id,
+            resource_group_name=resource_group_name,
+            cloud_management_endpoint=cloud_management_endpoint,
+            cluster_name=cluster_name,
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            desired_properties=desired_properties,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_client_id: pulumi.Input[str],
+             aad_tenant_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             cloud_management_endpoint: Optional[pulumi.Input[str]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             created_by: Optional[pulumi.Input[str]] = None,
+             created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+             desired_properties: Optional[pulumi.Input['ClusterDesiredPropertiesArgs']] = None,
+             last_modified_at: Optional[pulumi.Input[str]] = None,
+             last_modified_by: Optional[pulumi.Input[str]] = None,
+             last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aadClientId' in kwargs:
+            aad_client_id = kwargs['aadClientId']
+        if 'aadTenantId' in kwargs:
+            aad_tenant_id = kwargs['aadTenantId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'cloudManagementEndpoint' in kwargs:
+            cloud_management_endpoint = kwargs['cloudManagementEndpoint']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'desiredProperties' in kwargs:
+            desired_properties = kwargs['desiredProperties']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
+        _setter("aad_client_id", aad_client_id)
+        _setter("aad_tenant_id", aad_tenant_id)
+        _setter("resource_group_name", resource_group_name)
         if cloud_management_endpoint is not None:
-            pulumi.set(__self__, "cloud_management_endpoint", cloud_management_endpoint)
+            _setter("cloud_management_endpoint", cloud_management_endpoint)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if desired_properties is not None:
-            pulumi.set(__self__, "desired_properties", desired_properties)
+            _setter("desired_properties", desired_properties)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="aadClientId")
@@ -302,6 +363,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -341,6 +406,11 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["created_at"] = created_at
             __props__.__dict__["created_by"] = created_by
             __props__.__dict__["created_by_type"] = created_by_type
+            if desired_properties is not None and not isinstance(desired_properties, ClusterDesiredPropertiesArgs):
+                desired_properties = desired_properties or {}
+                def _setter(key, value):
+                    desired_properties[key] = value
+                ClusterDesiredPropertiesArgs._configure(_setter, **desired_properties)
             __props__.__dict__["desired_properties"] = desired_properties
             __props__.__dict__["last_modified_at"] = last_modified_at
             __props__.__dict__["last_modified_by"] = last_modified_by

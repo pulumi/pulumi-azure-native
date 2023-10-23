@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -36,18 +36,57 @@ class ApiIssueArgs:
         :param pulumi.Input[str] issue_id: Issue identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[Union[str, 'State']] state: Status of the issue.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "title", title)
-        pulumi.set(__self__, "user_id", user_id)
+        ApiIssueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            description=description,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            title=title,
+            user_id=user_id,
+            created_date=created_date,
+            issue_id=issue_id,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: pulumi.Input[str],
+             description: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             title: pulumi.Input[str],
+             user_id: pulumi.Input[str],
+             created_date: Optional[pulumi.Input[str]] = None,
+             issue_id: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[Union[str, 'State']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if 'issueId' in kwargs:
+            issue_id = kwargs['issueId']
+
+        _setter("api_id", api_id)
+        _setter("description", description)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("title", title)
+        _setter("user_id", user_id)
         if created_date is not None:
-            pulumi.set(__self__, "created_date", created_date)
+            _setter("created_date", created_date)
         if issue_id is not None:
-            pulumi.set(__self__, "issue_id", issue_id)
+            _setter("issue_id", issue_id)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="apiId")
@@ -213,6 +252,10 @@ class ApiIssue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiIssueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

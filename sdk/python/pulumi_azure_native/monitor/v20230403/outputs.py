@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -51,8 +51,25 @@ class AzureMonitorWorkspaceResponseDefaultIngestionSettings(dict):
         :param str data_collection_endpoint_resource_id: The Azure resource Id of the default data collection endpoint for this Azure Monitor Workspace.
         :param str data_collection_rule_resource_id: The Azure resource Id of the default data collection rule for this Azure Monitor Workspace.
         """
-        pulumi.set(__self__, "data_collection_endpoint_resource_id", data_collection_endpoint_resource_id)
-        pulumi.set(__self__, "data_collection_rule_resource_id", data_collection_rule_resource_id)
+        AzureMonitorWorkspaceResponseDefaultIngestionSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_collection_endpoint_resource_id=data_collection_endpoint_resource_id,
+            data_collection_rule_resource_id=data_collection_rule_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_collection_endpoint_resource_id: str,
+             data_collection_rule_resource_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataCollectionEndpointResourceId' in kwargs:
+            data_collection_endpoint_resource_id = kwargs['dataCollectionEndpointResourceId']
+        if 'dataCollectionRuleResourceId' in kwargs:
+            data_collection_rule_resource_id = kwargs['dataCollectionRuleResourceId']
+
+        _setter("data_collection_endpoint_resource_id", data_collection_endpoint_resource_id)
+        _setter("data_collection_rule_resource_id", data_collection_rule_resource_id)
 
     @property
     @pulumi.getter(name="dataCollectionEndpointResourceId")
@@ -103,8 +120,25 @@ class AzureMonitorWorkspaceResponseMetrics(dict):
         :param str internal_id: An internal identifier for the metrics container. Only to be used by the system
         :param str prometheus_query_endpoint: The Prometheus query endpoint for the Azure Monitor Workspace
         """
-        pulumi.set(__self__, "internal_id", internal_id)
-        pulumi.set(__self__, "prometheus_query_endpoint", prometheus_query_endpoint)
+        AzureMonitorWorkspaceResponseMetrics._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            internal_id=internal_id,
+            prometheus_query_endpoint=prometheus_query_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             internal_id: str,
+             prometheus_query_endpoint: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'internalId' in kwargs:
+            internal_id = kwargs['internalId']
+        if 'prometheusQueryEndpoint' in kwargs:
+            prometheus_query_endpoint = kwargs['prometheusQueryEndpoint']
+
+        _setter("internal_id", internal_id)
+        _setter("prometheus_query_endpoint", prometheus_query_endpoint)
 
     @property
     @pulumi.getter(name="internalId")
@@ -173,15 +207,50 @@ class PrivateEndpointConnectionResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
         """
-        pulumi.set(__self__, "group_ids", group_ids)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ids=group_ids,
+            id=id,
+            name=name,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            private_endpoint=private_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ids: Sequence[str],
+             id: str,
+             name: str,
+             private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+             provisioning_state: str,
+             system_data: 'outputs.SystemDataResponse',
+             type: str,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+        if 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+
+        _setter("group_ids", group_ids)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -259,7 +328,18 @@ class PrivateEndpointResponse(dict):
         The private endpoint resource.
         :param str id: The ARM identifier for private endpoint.
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -302,12 +382,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -382,18 +479,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

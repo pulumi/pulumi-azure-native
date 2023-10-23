@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -30,15 +30,46 @@ class HybridRunbookWorkerArgs:
         :param pulumi.Input[str] name: Gets or sets the name of the resource.
         :param pulumi.Input[str] vm_resource_id: Azure Resource Manager Id for a virtual machine.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "hybrid_runbook_worker_group_name", hybrid_runbook_worker_group_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        HybridRunbookWorkerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            hybrid_runbook_worker_group_name=hybrid_runbook_worker_group_name,
+            resource_group_name=resource_group_name,
+            hybrid_runbook_worker_id=hybrid_runbook_worker_id,
+            name=name,
+            vm_resource_id=vm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: pulumi.Input[str],
+             hybrid_runbook_worker_group_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             hybrid_runbook_worker_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             vm_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'hybridRunbookWorkerGroupName' in kwargs:
+            hybrid_runbook_worker_group_name = kwargs['hybridRunbookWorkerGroupName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'hybridRunbookWorkerId' in kwargs:
+            hybrid_runbook_worker_id = kwargs['hybridRunbookWorkerId']
+        if 'vmResourceId' in kwargs:
+            vm_resource_id = kwargs['vmResourceId']
+
+        _setter("automation_account_name", automation_account_name)
+        _setter("hybrid_runbook_worker_group_name", hybrid_runbook_worker_group_name)
+        _setter("resource_group_name", resource_group_name)
         if hybrid_runbook_worker_id is not None:
-            pulumi.set(__self__, "hybrid_runbook_worker_id", hybrid_runbook_worker_id)
+            _setter("hybrid_runbook_worker_id", hybrid_runbook_worker_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if vm_resource_id is not None:
-            pulumi.set(__self__, "vm_resource_id", vm_resource_id)
+            _setter("vm_resource_id", vm_resource_id)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -156,6 +187,10 @@ class HybridRunbookWorker(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HybridRunbookWorkerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

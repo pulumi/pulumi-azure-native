@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -73,9 +73,24 @@ class AccessKeyInfoBaseResponse(dict):
                Expected value is 'accessKey'.
         :param Sequence[str] permissions: Permissions of the accessKey. `Read` and `Write` are for Azure Cosmos DB and Azure App Configuration, `Listen`, `Send` and `Manage` are for Azure Event Hub and Azure Service Bus.
         """
-        pulumi.set(__self__, "auth_type", 'accessKey')
+        AccessKeyInfoBaseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            permissions=permissions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: str,
+             permissions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+
+        _setter("auth_type", 'accessKey')
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
 
     @property
     @pulumi.getter(name="authType")
@@ -126,9 +141,24 @@ class AzureKeyVaultPropertiesResponse(dict):
                Expected value is 'KeyVault'.
         :param bool connect_as_kubernetes_csi_driver: True if connect via Kubernetes CSI Driver.
         """
-        pulumi.set(__self__, "type", 'KeyVault')
+        AzureKeyVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            connect_as_kubernetes_csi_driver=connect_as_kubernetes_csi_driver,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             connect_as_kubernetes_csi_driver: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectAsKubernetesCsiDriver' in kwargs:
+            connect_as_kubernetes_csi_driver = kwargs['connectAsKubernetesCsiDriver']
+
+        _setter("type", 'KeyVault')
         if connect_as_kubernetes_csi_driver is not None:
-            pulumi.set(__self__, "connect_as_kubernetes_csi_driver", connect_as_kubernetes_csi_driver)
+            _setter("connect_as_kubernetes_csi_driver", connect_as_kubernetes_csi_driver)
 
     @property
     @pulumi.getter
@@ -181,11 +211,28 @@ class AzureResourceResponse(dict):
         :param str id: The Id of azure resource.
         :param 'AzureKeyVaultPropertiesResponse' resource_properties: The azure resource connection related properties.
         """
-        pulumi.set(__self__, "type", 'AzureResource')
+        AzureResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            id=id,
+            resource_properties=resource_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             id: Optional[str] = None,
+             resource_properties: Optional['outputs.AzureKeyVaultPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceProperties' in kwargs:
+            resource_properties = kwargs['resourceProperties']
+
+        _setter("type", 'AzureResource')
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if resource_properties is not None:
-            pulumi.set(__self__, "resource_properties", resource_properties)
+            _setter("resource_properties", resource_properties)
 
     @property
     @pulumi.getter
@@ -229,11 +276,26 @@ class BasicErrorDryrunPrerequisiteResultResponse(dict):
         :param str code: The error code.
         :param str message: The error message.
         """
-        pulumi.set(__self__, "type", 'basicError')
+        BasicErrorDryrunPrerequisiteResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            code=code,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             code: Optional[str] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("type", 'basicError')
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -303,16 +365,43 @@ class ConfigurationInfoResponse(dict):
         :param 'DaprPropertiesResponse' dapr_properties: Indicates some additional properties for dapr client type
         :param str delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
         """
+        ConfigurationInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            additional_configurations=additional_configurations,
+            customized_keys=customized_keys,
+            dapr_properties=dapr_properties,
+            delete_or_update_behavior=delete_or_update_behavior,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[str] = None,
+             additional_configurations: Optional[Mapping[str, str]] = None,
+             customized_keys: Optional[Mapping[str, str]] = None,
+             dapr_properties: Optional['outputs.DaprPropertiesResponse'] = None,
+             delete_or_update_behavior: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalConfigurations' in kwargs:
+            additional_configurations = kwargs['additionalConfigurations']
+        if 'customizedKeys' in kwargs:
+            customized_keys = kwargs['customizedKeys']
+        if 'daprProperties' in kwargs:
+            dapr_properties = kwargs['daprProperties']
+        if 'deleteOrUpdateBehavior' in kwargs:
+            delete_or_update_behavior = kwargs['deleteOrUpdateBehavior']
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if additional_configurations is not None:
-            pulumi.set(__self__, "additional_configurations", additional_configurations)
+            _setter("additional_configurations", additional_configurations)
         if customized_keys is not None:
-            pulumi.set(__self__, "customized_keys", customized_keys)
+            _setter("customized_keys", customized_keys)
         if dapr_properties is not None:
-            pulumi.set(__self__, "dapr_properties", dapr_properties)
+            _setter("dapr_properties", dapr_properties)
         if delete_or_update_behavior is not None:
-            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+            _setter("delete_or_update_behavior", delete_or_update_behavior)
 
     @property
     @pulumi.getter
@@ -369,9 +458,22 @@ class ConfluentBootstrapServerResponse(dict):
                Expected value is 'ConfluentBootstrapServer'.
         :param str endpoint: The endpoint of service.
         """
-        pulumi.set(__self__, "type", 'ConfluentBootstrapServer')
+        ConfluentBootstrapServerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            endpoint=endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             endpoint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("type", 'ConfluentBootstrapServer')
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
 
     @property
     @pulumi.getter
@@ -405,9 +507,22 @@ class ConfluentSchemaRegistryResponse(dict):
                Expected value is 'ConfluentSchemaRegistry'.
         :param str endpoint: The endpoint of service.
         """
-        pulumi.set(__self__, "type", 'ConfluentSchemaRegistry')
+        ConfluentSchemaRegistryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            endpoint=endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             endpoint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("type", 'ConfluentSchemaRegistry')
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
 
     @property
     @pulumi.getter
@@ -490,24 +605,71 @@ class CreateOrUpdateDryrunParametersResponse(dict):
         :param Union['AzureResourceResponse', 'ConfluentBootstrapServerResponse', 'ConfluentSchemaRegistryResponse', 'SelfHostedServerResponse'] target_service: The target service properties
         :param 'VNetSolutionResponse' v_net_solution: The VNet solution.
         """
-        pulumi.set(__self__, "action_name", 'createOrUpdate')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        CreateOrUpdateDryrunParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_name=action_name,
+            provisioning_state=provisioning_state,
+            auth_info=auth_info,
+            client_type=client_type,
+            configuration_info=configuration_info,
+            public_network_solution=public_network_solution,
+            scope=scope,
+            secret_store=secret_store,
+            target_service=target_service,
+            v_net_solution=v_net_solution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_name: str,
+             provisioning_state: str,
+             auth_info: Optional[Any] = None,
+             client_type: Optional[str] = None,
+             configuration_info: Optional['outputs.ConfigurationInfoResponse'] = None,
+             public_network_solution: Optional['outputs.PublicNetworkSolutionResponse'] = None,
+             scope: Optional[str] = None,
+             secret_store: Optional['outputs.SecretStoreResponse'] = None,
+             target_service: Optional[Any] = None,
+             v_net_solution: Optional['outputs.VNetSolutionResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionName' in kwargs:
+            action_name = kwargs['actionName']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'authInfo' in kwargs:
+            auth_info = kwargs['authInfo']
+        if 'clientType' in kwargs:
+            client_type = kwargs['clientType']
+        if 'configurationInfo' in kwargs:
+            configuration_info = kwargs['configurationInfo']
+        if 'publicNetworkSolution' in kwargs:
+            public_network_solution = kwargs['publicNetworkSolution']
+        if 'secretStore' in kwargs:
+            secret_store = kwargs['secretStore']
+        if 'targetService' in kwargs:
+            target_service = kwargs['targetService']
+        if 'vNetSolution' in kwargs:
+            v_net_solution = kwargs['vNetSolution']
+
+        _setter("action_name", 'createOrUpdate')
+        _setter("provisioning_state", provisioning_state)
         if auth_info is not None:
-            pulumi.set(__self__, "auth_info", auth_info)
+            _setter("auth_info", auth_info)
         if client_type is not None:
-            pulumi.set(__self__, "client_type", client_type)
+            _setter("client_type", client_type)
         if configuration_info is not None:
-            pulumi.set(__self__, "configuration_info", configuration_info)
+            _setter("configuration_info", configuration_info)
         if public_network_solution is not None:
-            pulumi.set(__self__, "public_network_solution", public_network_solution)
+            _setter("public_network_solution", public_network_solution)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if secret_store is not None:
-            pulumi.set(__self__, "secret_store", secret_store)
+            _setter("secret_store", secret_store)
         if target_service is not None:
-            pulumi.set(__self__, "target_service", target_service)
+            _setter("target_service", target_service)
         if v_net_solution is not None:
-            pulumi.set(__self__, "v_net_solution", v_net_solution)
+            _setter("v_net_solution", v_net_solution)
 
     @property
     @pulumi.getter(name="actionName")
@@ -623,12 +785,29 @@ class DaprMetadataResponse(dict):
         :param str secret_ref: The secret name where dapr could get value
         :param str value: Metadata property value.
         """
+        DaprMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secret_ref=secret_ref,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             secret_ref: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretRef' in kwargs:
+            secret_ref = kwargs['secretRef']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if secret_ref is not None:
-            pulumi.set(__self__, "secret_ref", secret_ref)
+            _setter("secret_ref", secret_ref)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -693,16 +872,39 @@ class DaprPropertiesResponse(dict):
         :param str secret_store_component: The name of a secret store dapr to retrieve secret
         :param str version: The dapr component version
         """
+        DaprPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_type=component_type,
+            metadata=metadata,
+            scopes=scopes,
+            secret_store_component=secret_store_component,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_type: Optional[str] = None,
+             metadata: Optional[Sequence['outputs.DaprMetadataResponse']] = None,
+             scopes: Optional[Sequence[str]] = None,
+             secret_store_component: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'componentType' in kwargs:
+            component_type = kwargs['componentType']
+        if 'secretStoreComponent' in kwargs:
+            secret_store_component = kwargs['secretStoreComponent']
+
         if component_type is not None:
-            pulumi.set(__self__, "component_type", component_type)
+            _setter("component_type", component_type)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
         if secret_store_component is not None:
-            pulumi.set(__self__, "secret_store_component", secret_store_component)
+            _setter("secret_store_component", secret_store_component)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="componentType")
@@ -781,16 +983,37 @@ class DryrunOperationPreviewResponse(dict):
         :param str operation_type: The operation type
         :param str scope: The scope of the operation, refer https://docs.microsoft.com/azure/role-based-access-control/scope-overview
         """
+        DryrunOperationPreviewResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            description=description,
+            name=name,
+            operation_type=operation_type,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[str] = None,
+             description: Optional[str] = None,
+             name: Optional[str] = None,
+             operation_type: Optional[str] = None,
+             scope: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'operationType' in kwargs:
+            operation_type = kwargs['operationType']
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if operation_type is not None:
-            pulumi.set(__self__, "operation_type", operation_type)
+            _setter("operation_type", operation_type)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -869,12 +1092,33 @@ class FirewallRulesResponse(dict):
         :param str caller_client_ip: Allow caller client IP to access the target service if true. the property is used when connecting local application to target service.
         :param Sequence[str] ip_ranges: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account.
         """
+        FirewallRulesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_services=azure_services,
+            caller_client_ip=caller_client_ip,
+            ip_ranges=ip_ranges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_services: Optional[str] = None,
+             caller_client_ip: Optional[str] = None,
+             ip_ranges: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureServices' in kwargs:
+            azure_services = kwargs['azureServices']
+        if 'callerClientIP' in kwargs:
+            caller_client_ip = kwargs['callerClientIP']
+        if 'ipRanges' in kwargs:
+            ip_ranges = kwargs['ipRanges']
+
         if azure_services is not None:
-            pulumi.set(__self__, "azure_services", azure_services)
+            _setter("azure_services", azure_services)
         if caller_client_ip is not None:
-            pulumi.set(__self__, "caller_client_ip", caller_client_ip)
+            _setter("caller_client_ip", caller_client_ip)
         if ip_ranges is not None:
-            pulumi.set(__self__, "ip_ranges", ip_ranges)
+            _setter("ip_ranges", ip_ranges)
 
     @property
     @pulumi.getter(name="azureServices")
@@ -934,11 +1178,28 @@ class KeyVaultSecretReferenceSecretInfoResponse(dict):
         :param str name: Name of the Key Vault secret.
         :param str version: Version of the Key Vault secret.
         """
-        pulumi.set(__self__, "secret_type", 'keyVaultSecretReference')
+        KeyVaultSecretReferenceSecretInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_type=secret_type,
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_type: str,
+             name: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretType' in kwargs:
+            secret_type = kwargs['secretType']
+
+        _setter("secret_type", 'keyVaultSecretReference')
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="secretType")
@@ -997,9 +1258,24 @@ class KeyVaultSecretUriSecretInfoResponse(dict):
                Expected value is 'keyVaultSecretUri'.
         :param str value: URI to the keyvault secret
         """
-        pulumi.set(__self__, "secret_type", 'keyVaultSecretUri')
+        KeyVaultSecretUriSecretInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_type=secret_type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_type: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretType' in kwargs:
+            secret_type = kwargs['secretType']
+
+        _setter("secret_type", 'keyVaultSecretUri')
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="secretType")
@@ -1054,13 +1330,32 @@ class PermissionsMissingDryrunPrerequisiteResultResponse(dict):
         :param str recommended_role: The recommended role to resolve permissions missing
         :param str scope: The permission scope
         """
-        pulumi.set(__self__, "type", 'permissionsMissing')
+        PermissionsMissingDryrunPrerequisiteResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            permissions=permissions,
+            recommended_role=recommended_role,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             permissions: Optional[Sequence[str]] = None,
+             recommended_role: Optional[str] = None,
+             scope: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recommendedRole' in kwargs:
+            recommended_role = kwargs['recommendedRole']
+
+        _setter("type", 'permissionsMissing')
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if recommended_role is not None:
-            pulumi.set(__self__, "recommended_role", recommended_role)
+            _setter("recommended_role", recommended_role)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -1130,12 +1425,31 @@ class PublicNetworkSolutionResponse(dict):
         :param str delete_or_update_behavior: Indicates whether to clean up previous operation(such as firewall rules) when Linker is updating or deleting
         :param 'FirewallRulesResponse' firewall_rules: Describe firewall rules of target service to make sure source application could connect to the target.
         """
+        PublicNetworkSolutionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            delete_or_update_behavior=delete_or_update_behavior,
+            firewall_rules=firewall_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[str] = None,
+             delete_or_update_behavior: Optional[str] = None,
+             firewall_rules: Optional['outputs.FirewallRulesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deleteOrUpdateBehavior' in kwargs:
+            delete_or_update_behavior = kwargs['deleteOrUpdateBehavior']
+        if 'firewallRules' in kwargs:
+            firewall_rules = kwargs['firewallRules']
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if delete_or_update_behavior is not None:
-            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+            _setter("delete_or_update_behavior", delete_or_update_behavior)
         if firewall_rules is not None:
-            pulumi.set(__self__, "firewall_rules", firewall_rules)
+            _setter("firewall_rules", firewall_rules)
 
     @property
     @pulumi.getter
@@ -1197,11 +1511,30 @@ class SecretAuthInfoResponse(dict):
         :param str name: Username or account name for secret auth.
         :param Union['KeyVaultSecretReferenceSecretInfoResponse', 'KeyVaultSecretUriSecretInfoResponse', 'ValueSecretInfoResponse'] secret_info: Password or key vault secret for secret auth.
         """
-        pulumi.set(__self__, "auth_type", 'secret')
+        SecretAuthInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            name=name,
+            secret_info=secret_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: str,
+             name: Optional[str] = None,
+             secret_info: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'secretInfo' in kwargs:
+            secret_info = kwargs['secretInfo']
+
+        _setter("auth_type", 'secret')
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if secret_info is not None:
-            pulumi.set(__self__, "secret_info", secret_info)
+            _setter("secret_info", secret_info)
 
     @property
     @pulumi.getter(name="authType")
@@ -1261,10 +1594,27 @@ class SecretStoreResponse(dict):
         :param str key_vault_id: The key vault id to store secret
         :param str key_vault_secret_name: The key vault secret name to store secret, only valid when storing one secret
         """
+        SecretStoreResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_id=key_vault_id,
+            key_vault_secret_name=key_vault_secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_id: Optional[str] = None,
+             key_vault_secret_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'keyVaultSecretName' in kwargs:
+            key_vault_secret_name = kwargs['keyVaultSecretName']
+
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if key_vault_secret_name is not None:
-            pulumi.set(__self__, "key_vault_secret_name", key_vault_secret_name)
+            _setter("key_vault_secret_name", key_vault_secret_name)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -1297,9 +1647,22 @@ class SelfHostedServerResponse(dict):
                Expected value is 'SelfHostedServer'.
         :param str endpoint: The endpoint of service.
         """
-        pulumi.set(__self__, "type", 'SelfHostedServer')
+        SelfHostedServerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            endpoint=endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             endpoint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("type", 'SelfHostedServer')
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
 
     @property
     @pulumi.getter
@@ -1364,14 +1727,43 @@ class ServicePrincipalCertificateAuthInfoResponse(dict):
         :param str delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
         :param Sequence[str] roles: Optional, this value specifies the Azure roles to be assigned. Automatically 
         """
-        pulumi.set(__self__, "auth_type", 'servicePrincipalCertificate')
-        pulumi.set(__self__, "certificate", certificate)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        ServicePrincipalCertificateAuthInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            certificate=certificate,
+            client_id=client_id,
+            principal_id=principal_id,
+            delete_or_update_behavior=delete_or_update_behavior,
+            roles=roles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: str,
+             certificate: str,
+             client_id: str,
+             principal_id: str,
+             delete_or_update_behavior: Optional[str] = None,
+             roles: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'deleteOrUpdateBehavior' in kwargs:
+            delete_or_update_behavior = kwargs['deleteOrUpdateBehavior']
+
+        _setter("auth_type", 'servicePrincipalCertificate')
+        _setter("certificate", certificate)
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
         if delete_or_update_behavior is not None:
-            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+            _setter("delete_or_update_behavior", delete_or_update_behavior)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
 
     @property
     @pulumi.getter(name="authType")
@@ -1472,16 +1864,49 @@ class ServicePrincipalSecretAuthInfoResponse(dict):
         :param Sequence[str] roles: Optional, this value specifies the Azure roles to be assigned. Automatically 
         :param str user_name: Username created in the database which is mapped to a user in AAD.
         """
-        pulumi.set(__self__, "auth_type", 'servicePrincipalSecret')
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "secret", secret)
+        ServicePrincipalSecretAuthInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            client_id=client_id,
+            principal_id=principal_id,
+            secret=secret,
+            delete_or_update_behavior=delete_or_update_behavior,
+            roles=roles,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: str,
+             client_id: str,
+             principal_id: str,
+             secret: str,
+             delete_or_update_behavior: Optional[str] = None,
+             roles: Optional[Sequence[str]] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'deleteOrUpdateBehavior' in kwargs:
+            delete_or_update_behavior = kwargs['deleteOrUpdateBehavior']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("auth_type", 'servicePrincipalSecret')
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
+        _setter("secret", secret)
         if delete_or_update_behavior is not None:
-            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+            _setter("delete_or_update_behavior", delete_or_update_behavior)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="authType")
@@ -1554,10 +1979,23 @@ class SourceConfigurationResponse(dict):
         :param str name: The name of setting.
         :param str value: The value of setting
         """
+        SourceConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1615,13 +2053,36 @@ class SystemAssignedIdentityAuthInfoResponse(dict):
         :param Sequence[str] roles: Optional, this value specifies the Azure role to be assigned
         :param str user_name: Username created in the database which is mapped to a user in AAD.
         """
-        pulumi.set(__self__, "auth_type", 'systemAssignedIdentity')
+        SystemAssignedIdentityAuthInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            delete_or_update_behavior=delete_or_update_behavior,
+            roles=roles,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: str,
+             delete_or_update_behavior: Optional[str] = None,
+             roles: Optional[Sequence[str]] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'deleteOrUpdateBehavior' in kwargs:
+            delete_or_update_behavior = kwargs['deleteOrUpdateBehavior']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("auth_type", 'systemAssignedIdentity')
         if delete_or_update_behavior is not None:
-            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+            _setter("delete_or_update_behavior", delete_or_update_behavior)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="authType")
@@ -1705,18 +2166,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1810,15 +2304,42 @@ class UserAccountAuthInfoResponse(dict):
         :param Sequence[str] roles: Optional, this value specifies the Azure roles to be assigned. Automatically 
         :param str user_name: Username created in the database which is mapped to a user in AAD.
         """
-        pulumi.set(__self__, "auth_type", 'userAccount')
+        UserAccountAuthInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            delete_or_update_behavior=delete_or_update_behavior,
+            principal_id=principal_id,
+            roles=roles,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: str,
+             delete_or_update_behavior: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             roles: Optional[Sequence[str]] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'deleteOrUpdateBehavior' in kwargs:
+            delete_or_update_behavior = kwargs['deleteOrUpdateBehavior']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("auth_type", 'userAccount')
         if delete_or_update_behavior is not None:
-            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+            _setter("delete_or_update_behavior", delete_or_update_behavior)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="authType")
@@ -1909,17 +2430,48 @@ class UserAssignedIdentityAuthInfoResponse(dict):
         :param str subscription_id: Subscription id for userAssignedIdentity.
         :param str user_name: Username created in the database which is mapped to a user in AAD.
         """
-        pulumi.set(__self__, "auth_type", 'userAssignedIdentity')
+        UserAssignedIdentityAuthInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            client_id=client_id,
+            delete_or_update_behavior=delete_or_update_behavior,
+            roles=roles,
+            subscription_id=subscription_id,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: str,
+             client_id: Optional[str] = None,
+             delete_or_update_behavior: Optional[str] = None,
+             roles: Optional[Sequence[str]] = None,
+             subscription_id: Optional[str] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'deleteOrUpdateBehavior' in kwargs:
+            delete_or_update_behavior = kwargs['deleteOrUpdateBehavior']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("auth_type", 'userAssignedIdentity')
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if delete_or_update_behavior is not None:
-            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+            _setter("delete_or_update_behavior", delete_or_update_behavior)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="authType")
@@ -2001,10 +2553,25 @@ class VNetSolutionResponse(dict):
         :param str delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
         :param str type: Type of VNet solution.
         """
+        VNetSolutionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_or_update_behavior=delete_or_update_behavior,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_or_update_behavior: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deleteOrUpdateBehavior' in kwargs:
+            delete_or_update_behavior = kwargs['deleteOrUpdateBehavior']
+
         if delete_or_update_behavior is not None:
-            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+            _setter("delete_or_update_behavior", delete_or_update_behavior)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="deleteOrUpdateBehavior")
@@ -2054,9 +2621,24 @@ class ValueSecretInfoResponse(dict):
                Expected value is 'rawValue'.
         :param str value: The actual value of the secret.
         """
-        pulumi.set(__self__, "secret_type", 'rawValue')
+        ValueSecretInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_type=secret_type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_type: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretType' in kwargs:
+            secret_type = kwargs['secretType']
+
+        _setter("secret_type", 'rawValue')
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="secretType")

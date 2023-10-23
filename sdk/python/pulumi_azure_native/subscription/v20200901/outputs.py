@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -46,9 +46,26 @@ class PutAliasResponsePropertiesResponse(dict):
         :param str subscription_id: Newly created subscription Id.
         :param str provisioning_state: The provisioning state of the resource.
         """
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        PutAliasResponsePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subscription_id=subscription_id,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subscription_id: str,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("subscription_id", subscription_id)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="subscriptionId")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -42,8 +42,21 @@ class MapsAccountPropertiesResponse(dict):
         Additional Map account properties
         :param str x_ms_client_id: A unique identifier for the maps account
         """
+        MapsAccountPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            x_ms_client_id=x_ms_client_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             x_ms_client_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xMsClientId' in kwargs:
+            x_ms_client_id = kwargs['xMsClientId']
+
         if x_ms_client_id is not None:
-            pulumi.set(__self__, "x_ms_client_id", x_ms_client_id)
+            _setter("x_ms_client_id", x_ms_client_id)
 
     @property
     @pulumi.getter(name="xMsClientId")
@@ -67,8 +80,21 @@ class SkuResponse(dict):
         :param str name: The name of the SKU, in standard format (such as S0).
         :param str tier: Gets the sku tier. This is based on the SKU name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             tier: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("tier", tier)
 
     @property
     @pulumi.getter

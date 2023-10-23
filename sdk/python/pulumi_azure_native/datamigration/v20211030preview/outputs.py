@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -49,7 +49,20 @@ class DatabaseInfoResponse(dict):
         Project Database Details
         :param str source_database_name: Name of the database
         """
-        pulumi.set(__self__, "source_database_name", source_database_name)
+        DatabaseInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_database_name=source_database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_database_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceDatabaseName' in kwargs:
+            source_database_name = kwargs['sourceDatabaseName']
+
+        _setter("source_database_name", source_database_name)
 
     @property
     @pulumi.getter(name="sourceDatabaseName")
@@ -97,12 +110,33 @@ class MiSqlConnectionInfoResponse(dict):
         :param str password: Password credential.
         :param str user_name: User name
         """
-        pulumi.set(__self__, "managed_instance_resource_id", managed_instance_resource_id)
-        pulumi.set(__self__, "type", 'MiSqlConnectionInfo')
+        MiSqlConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_instance_resource_id=managed_instance_resource_id,
+            type=type,
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_instance_resource_id: str,
+             type: str,
+             password: Optional[str] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedInstanceResourceId' in kwargs:
+            managed_instance_resource_id = kwargs['managedInstanceResourceId']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("managed_instance_resource_id", managed_instance_resource_id)
+        _setter("type", 'MiSqlConnectionInfo')
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="managedInstanceResourceId")
@@ -196,24 +230,67 @@ class MongoDbConnectionInfoResponse(dict):
         :param str server_brand_version: server brand version
         :param str user_name: User name
         """
-        pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "type", 'MongoDbConnectionInfo')
+        MongoDbConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            type=type,
+            additional_settings=additional_settings,
+            data_source=data_source,
+            encrypt_connection=encrypt_connection,
+            enforce_ssl=enforce_ssl,
+            password=password,
+            port=port,
+            server_brand_version=server_brand_version,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: str,
+             type: str,
+             additional_settings: Optional[str] = None,
+             data_source: Optional[str] = None,
+             encrypt_connection: Optional[bool] = None,
+             enforce_ssl: Optional[bool] = None,
+             password: Optional[str] = None,
+             port: Optional[int] = None,
+             server_brand_version: Optional[str] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'additionalSettings' in kwargs:
+            additional_settings = kwargs['additionalSettings']
+        if 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if 'encryptConnection' in kwargs:
+            encrypt_connection = kwargs['encryptConnection']
+        if 'enforceSSL' in kwargs:
+            enforce_ssl = kwargs['enforceSSL']
+        if 'serverBrandVersion' in kwargs:
+            server_brand_version = kwargs['serverBrandVersion']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("connection_string", connection_string)
+        _setter("type", 'MongoDbConnectionInfo')
         if additional_settings is not None:
-            pulumi.set(__self__, "additional_settings", additional_settings)
+            _setter("additional_settings", additional_settings)
         if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+            _setter("data_source", data_source)
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if enforce_ssl is not None:
-            pulumi.set(__self__, "enforce_ssl", enforce_ssl)
+            _setter("enforce_ssl", enforce_ssl)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if server_brand_version is not None:
-            pulumi.set(__self__, "server_brand_version", server_brand_version)
+            _setter("server_brand_version", server_brand_version)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -341,19 +418,50 @@ class MySqlConnectionInfoResponse(dict):
         :param str password: Password credential.
         :param str user_name: User name
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "type", 'MySqlConnectionInfo')
+        MySqlConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            server_name=server_name,
+            type=type,
+            data_source=data_source,
+            encrypt_connection=encrypt_connection,
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             server_name: str,
+             type: str,
+             data_source: Optional[str] = None,
+             encrypt_connection: Optional[bool] = None,
+             password: Optional[str] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if 'encryptConnection' in kwargs:
+            encrypt_connection = kwargs['encryptConnection']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("port", port)
+        _setter("server_name", server_name)
+        _setter("type", 'MySqlConnectionInfo')
         if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+            _setter("data_source", data_source)
         if encrypt_connection is None:
             encrypt_connection = True
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -450,12 +558,33 @@ class OracleConnectionInfoResponse(dict):
         :param str password: Password credential.
         :param str user_name: User name
         """
-        pulumi.set(__self__, "data_source", data_source)
-        pulumi.set(__self__, "type", 'OracleConnectionInfo')
+        OracleConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source=data_source,
+            type=type,
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source: str,
+             type: str,
+             password: Optional[str] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("data_source", data_source)
+        _setter("type", 'OracleConnectionInfo')
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -550,27 +679,70 @@ class PostgreSqlConnectionInfoResponse(dict):
         :param bool trust_server_certificate: Whether to trust the server certificate
         :param str user_name: User name
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "type", 'PostgreSqlConnectionInfo')
+        PostgreSqlConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            server_name=server_name,
+            type=type,
+            data_source=data_source,
+            database_name=database_name,
+            encrypt_connection=encrypt_connection,
+            password=password,
+            server_version=server_version,
+            trust_server_certificate=trust_server_certificate,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             server_name: str,
+             type: str,
+             data_source: Optional[str] = None,
+             database_name: Optional[str] = None,
+             encrypt_connection: Optional[bool] = None,
+             password: Optional[str] = None,
+             server_version: Optional[str] = None,
+             trust_server_certificate: Optional[bool] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'encryptConnection' in kwargs:
+            encrypt_connection = kwargs['encryptConnection']
+        if 'serverVersion' in kwargs:
+            server_version = kwargs['serverVersion']
+        if 'trustServerCertificate' in kwargs:
+            trust_server_certificate = kwargs['trustServerCertificate']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("port", port)
+        _setter("server_name", server_name)
+        _setter("type", 'PostgreSqlConnectionInfo')
         if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+            _setter("data_source", data_source)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if encrypt_connection is None:
             encrypt_connection = True
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if server_version is not None:
-            pulumi.set(__self__, "server_version", server_version)
+            _setter("server_version", server_version)
         if trust_server_certificate is None:
             trust_server_certificate = False
         if trust_server_certificate is not None:
-            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+            _setter("trust_server_certificate", trust_server_certificate)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -717,32 +889,79 @@ class SqlConnectionInfoResponse(dict):
         :param bool trust_server_certificate: Whether to trust the server certificate
         :param str user_name: User name
         """
-        pulumi.set(__self__, "data_source", data_source)
-        pulumi.set(__self__, "type", 'SqlConnectionInfo')
+        SqlConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source=data_source,
+            type=type,
+            additional_settings=additional_settings,
+            authentication=authentication,
+            encrypt_connection=encrypt_connection,
+            password=password,
+            platform=platform,
+            port=port,
+            resource_id=resource_id,
+            server_name=server_name,
+            trust_server_certificate=trust_server_certificate,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source: str,
+             type: str,
+             additional_settings: Optional[str] = None,
+             authentication: Optional[str] = None,
+             encrypt_connection: Optional[bool] = None,
+             password: Optional[str] = None,
+             platform: Optional[str] = None,
+             port: Optional[str] = None,
+             resource_id: Optional[str] = None,
+             server_name: Optional[str] = None,
+             trust_server_certificate: Optional[bool] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if 'additionalSettings' in kwargs:
+            additional_settings = kwargs['additionalSettings']
+        if 'encryptConnection' in kwargs:
+            encrypt_connection = kwargs['encryptConnection']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'trustServerCertificate' in kwargs:
+            trust_server_certificate = kwargs['trustServerCertificate']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("data_source", data_source)
+        _setter("type", 'SqlConnectionInfo')
         if additional_settings is not None:
-            pulumi.set(__self__, "additional_settings", additional_settings)
+            _setter("additional_settings", additional_settings)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if encrypt_connection is None:
             encrypt_connection = True
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if trust_server_certificate is None:
             trust_server_certificate = False
         if trust_server_certificate is not None:
-            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+            _setter("trust_server_certificate", trust_server_certificate)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -878,18 +1097,51 @@ class SystemDataResponse(dict):
                  last_modified_at: Optional[str] = None,
                  last_modified_by: Optional[str] = None,
                  last_modified_by_type: Optional[str] = None):
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

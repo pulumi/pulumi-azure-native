@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,19 +35,54 @@ class EnvironmentArgs:
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_name", user_name)
+        EnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_name=lab_name,
+            resource_group_name=resource_group_name,
+            user_name=user_name,
+            arm_template_display_name=arm_template_display_name,
+            deployment_properties=deployment_properties,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             user_name: pulumi.Input[str],
+             arm_template_display_name: Optional[pulumi.Input[str]] = None,
+             deployment_properties: Optional[pulumi.Input['EnvironmentDeploymentPropertiesArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if 'armTemplateDisplayName' in kwargs:
+            arm_template_display_name = kwargs['armTemplateDisplayName']
+        if 'deploymentProperties' in kwargs:
+            deployment_properties = kwargs['deploymentProperties']
+
+        _setter("lab_name", lab_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("user_name", user_name)
         if arm_template_display_name is not None:
-            pulumi.set(__self__, "arm_template_display_name", arm_template_display_name)
+            _setter("arm_template_display_name", arm_template_display_name)
         if deployment_properties is not None:
-            pulumi.set(__self__, "deployment_properties", deployment_properties)
+            _setter("deployment_properties", deployment_properties)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="labName")
@@ -193,6 +228,10 @@ class Environment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -216,6 +255,11 @@ class Environment(pulumi.CustomResource):
             __props__ = EnvironmentArgs.__new__(EnvironmentArgs)
 
             __props__.__dict__["arm_template_display_name"] = arm_template_display_name
+            if deployment_properties is not None and not isinstance(deployment_properties, EnvironmentDeploymentPropertiesArgs):
+                deployment_properties = deployment_properties or {}
+                def _setter(key, value):
+                    deployment_properties[key] = value
+                EnvironmentDeploymentPropertiesArgs._configure(_setter, **deployment_properties)
             __props__.__dict__["deployment_properties"] = deployment_properties
             if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")

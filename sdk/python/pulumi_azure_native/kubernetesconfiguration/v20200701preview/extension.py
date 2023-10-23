@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -48,30 +48,87 @@ class ExtensionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ExtensionStatusArgs']]] statuses: Status from this instance of the extension.
         :param pulumi.Input[str] version: Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "cluster_resource_name", cluster_resource_name)
-        pulumi.set(__self__, "cluster_rp", cluster_rp)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ExtensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            cluster_resource_name=cluster_resource_name,
+            cluster_rp=cluster_rp,
+            resource_group_name=resource_group_name,
+            auto_upgrade_minor_version=auto_upgrade_minor_version,
+            configuration_protected_settings=configuration_protected_settings,
+            configuration_settings=configuration_settings,
+            extension_instance_name=extension_instance_name,
+            extension_type=extension_type,
+            identity=identity,
+            release_train=release_train,
+            scope=scope,
+            statuses=statuses,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             cluster_resource_name: pulumi.Input[str],
+             cluster_rp: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+             configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             extension_instance_name: Optional[pulumi.Input[str]] = None,
+             extension_type: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ConfigurationIdentityArgs']] = None,
+             release_train: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input['ScopeArgs']] = None,
+             statuses: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionStatusArgs']]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'clusterResourceName' in kwargs:
+            cluster_resource_name = kwargs['clusterResourceName']
+        if 'clusterRp' in kwargs:
+            cluster_rp = kwargs['clusterRp']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'autoUpgradeMinorVersion' in kwargs:
+            auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
+        if 'configurationProtectedSettings' in kwargs:
+            configuration_protected_settings = kwargs['configurationProtectedSettings']
+        if 'configurationSettings' in kwargs:
+            configuration_settings = kwargs['configurationSettings']
+        if 'extensionInstanceName' in kwargs:
+            extension_instance_name = kwargs['extensionInstanceName']
+        if 'extensionType' in kwargs:
+            extension_type = kwargs['extensionType']
+        if 'releaseTrain' in kwargs:
+            release_train = kwargs['releaseTrain']
+
+        _setter("cluster_name", cluster_name)
+        _setter("cluster_resource_name", cluster_resource_name)
+        _setter("cluster_rp", cluster_rp)
+        _setter("resource_group_name", resource_group_name)
         if auto_upgrade_minor_version is not None:
-            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+            _setter("auto_upgrade_minor_version", auto_upgrade_minor_version)
         if configuration_protected_settings is not None:
-            pulumi.set(__self__, "configuration_protected_settings", configuration_protected_settings)
+            _setter("configuration_protected_settings", configuration_protected_settings)
         if configuration_settings is not None:
-            pulumi.set(__self__, "configuration_settings", configuration_settings)
+            _setter("configuration_settings", configuration_settings)
         if extension_instance_name is not None:
-            pulumi.set(__self__, "extension_instance_name", extension_instance_name)
+            _setter("extension_instance_name", extension_instance_name)
         if extension_type is not None:
-            pulumi.set(__self__, "extension_type", extension_type)
+            _setter("extension_type", extension_type)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if release_train is not None:
-            pulumi.set(__self__, "release_train", release_train)
+            _setter("release_train", release_train)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if statuses is not None:
-            pulumi.set(__self__, "statuses", statuses)
+            _setter("statuses", statuses)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -301,6 +358,10 @@ class Extension(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExtensionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -343,11 +404,21 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["configuration_settings"] = configuration_settings
             __props__.__dict__["extension_instance_name"] = extension_instance_name
             __props__.__dict__["extension_type"] = extension_type
+            if identity is not None and not isinstance(identity, ConfigurationIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ConfigurationIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["release_train"] = release_train
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if scope is not None and not isinstance(scope, ScopeArgs):
+                scope = scope or {}
+                def _setter(key, value):
+                    scope[key] = value
+                ScopeArgs._configure(_setter, **scope)
             __props__.__dict__["scope"] = scope
             __props__.__dict__["statuses"] = statuses
             __props__.__dict__["version"] = version

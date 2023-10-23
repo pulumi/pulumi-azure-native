@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -56,28 +56,71 @@ class AzureBlobDefinitionArgs:
         :param pulumi.Input[float] timeout_in_seconds: The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
         :param pulumi.Input[str] url: The URL to sync for the flux configuration Azure Blob storage account.
         """
+        AzureBlobDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_key=account_key,
+            container_name=container_name,
+            local_auth_ref=local_auth_ref,
+            managed_identity=managed_identity,
+            sas_token=sas_token,
+            service_principal=service_principal,
+            sync_interval_in_seconds=sync_interval_in_seconds,
+            timeout_in_seconds=timeout_in_seconds,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_key: Optional[pulumi.Input[str]] = None,
+             container_name: Optional[pulumi.Input[str]] = None,
+             local_auth_ref: Optional[pulumi.Input[str]] = None,
+             managed_identity: Optional[pulumi.Input['ManagedIdentityDefinitionArgs']] = None,
+             sas_token: Optional[pulumi.Input[str]] = None,
+             service_principal: Optional[pulumi.Input['ServicePrincipalDefinitionArgs']] = None,
+             sync_interval_in_seconds: Optional[pulumi.Input[float]] = None,
+             timeout_in_seconds: Optional[pulumi.Input[float]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'localAuthRef' in kwargs:
+            local_auth_ref = kwargs['localAuthRef']
+        if 'managedIdentity' in kwargs:
+            managed_identity = kwargs['managedIdentity']
+        if 'sasToken' in kwargs:
+            sas_token = kwargs['sasToken']
+        if 'servicePrincipal' in kwargs:
+            service_principal = kwargs['servicePrincipal']
+        if 'syncIntervalInSeconds' in kwargs:
+            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         if account_key is not None:
-            pulumi.set(__self__, "account_key", account_key)
+            _setter("account_key", account_key)
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if local_auth_ref is not None:
-            pulumi.set(__self__, "local_auth_ref", local_auth_ref)
+            _setter("local_auth_ref", local_auth_ref)
         if managed_identity is not None:
-            pulumi.set(__self__, "managed_identity", managed_identity)
+            _setter("managed_identity", managed_identity)
         if sas_token is not None:
-            pulumi.set(__self__, "sas_token", sas_token)
+            _setter("sas_token", sas_token)
         if service_principal is not None:
-            pulumi.set(__self__, "service_principal", service_principal)
+            _setter("service_principal", service_principal)
         if sync_interval_in_seconds is None:
             sync_interval_in_seconds = 600
         if sync_interval_in_seconds is not None:
-            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+            _setter("sync_interval_in_seconds", sync_interval_in_seconds)
         if timeout_in_seconds is None:
             timeout_in_seconds = 600
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="accountKey")
@@ -208,26 +251,59 @@ class BucketDefinitionArgs:
         :param pulumi.Input[float] timeout_in_seconds: The maximum time to attempt to reconcile the cluster bucket source with the remote.
         :param pulumi.Input[str] url: The URL to sync for the flux configuration S3 bucket.
         """
+        BucketDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key=access_key,
+            bucket_name=bucket_name,
+            insecure=insecure,
+            local_auth_ref=local_auth_ref,
+            sync_interval_in_seconds=sync_interval_in_seconds,
+            timeout_in_seconds=timeout_in_seconds,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key: Optional[pulumi.Input[str]] = None,
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             insecure: Optional[pulumi.Input[bool]] = None,
+             local_auth_ref: Optional[pulumi.Input[str]] = None,
+             sync_interval_in_seconds: Optional[pulumi.Input[float]] = None,
+             timeout_in_seconds: Optional[pulumi.Input[float]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'localAuthRef' in kwargs:
+            local_auth_ref = kwargs['localAuthRef']
+        if 'syncIntervalInSeconds' in kwargs:
+            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         if access_key is not None:
-            pulumi.set(__self__, "access_key", access_key)
+            _setter("access_key", access_key)
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if insecure is None:
             insecure = True
         if insecure is not None:
-            pulumi.set(__self__, "insecure", insecure)
+            _setter("insecure", insecure)
         if local_auth_ref is not None:
-            pulumi.set(__self__, "local_auth_ref", local_auth_ref)
+            _setter("local_auth_ref", local_auth_ref)
         if sync_interval_in_seconds is None:
             sync_interval_in_seconds = 600
         if sync_interval_in_seconds is not None:
-            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+            _setter("sync_interval_in_seconds", sync_interval_in_seconds)
         if timeout_in_seconds is None:
             timeout_in_seconds = 600
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="accessKey")
@@ -322,8 +398,19 @@ class ExtensionAksAssignedIdentityArgs:
         Identity of the Extension resource in an AKS cluster
         :param pulumi.Input['AKSIdentityType'] type: The identity type.
         """
+        ExtensionAksAssignedIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['AKSIdentityType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -354,18 +441,39 @@ class ExtensionStatusArgs:
         :param pulumi.Input[str] message: Detailed message of the status from the Extension.
         :param pulumi.Input[str] time: DateLiteral (per ISO8601) noting the time of installation status.
         """
+        ExtensionStatusArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            display_status=display_status,
+            level=level,
+            message=message,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[pulumi.Input[str]] = None,
+             display_status: Optional[pulumi.Input[str]] = None,
+             level: Optional[pulumi.Input[Union[str, 'LevelType']]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayStatus' in kwargs:
+            display_status = kwargs['displayStatus']
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if display_status is not None:
-            pulumi.set(__self__, "display_status", display_status)
+            _setter("display_status", display_status)
         if level is None:
             level = 'Information'
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if time is not None:
-            pulumi.set(__self__, "time", time)
+            _setter("time", time)
 
     @property
     @pulumi.getter
@@ -450,26 +558,65 @@ class GitRepositoryDefinitionArgs:
         :param pulumi.Input[float] timeout_in_seconds: The maximum time to attempt to reconcile the cluster git repository source with the remote.
         :param pulumi.Input[str] url: The URL to sync for the flux configuration git repository.
         """
+        GitRepositoryDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            https_ca_cert=https_ca_cert,
+            https_user=https_user,
+            local_auth_ref=local_auth_ref,
+            repository_ref=repository_ref,
+            ssh_known_hosts=ssh_known_hosts,
+            sync_interval_in_seconds=sync_interval_in_seconds,
+            timeout_in_seconds=timeout_in_seconds,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             https_ca_cert: Optional[pulumi.Input[str]] = None,
+             https_user: Optional[pulumi.Input[str]] = None,
+             local_auth_ref: Optional[pulumi.Input[str]] = None,
+             repository_ref: Optional[pulumi.Input['RepositoryRefDefinitionArgs']] = None,
+             ssh_known_hosts: Optional[pulumi.Input[str]] = None,
+             sync_interval_in_seconds: Optional[pulumi.Input[float]] = None,
+             timeout_in_seconds: Optional[pulumi.Input[float]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpsCACert' in kwargs:
+            https_ca_cert = kwargs['httpsCACert']
+        if 'httpsUser' in kwargs:
+            https_user = kwargs['httpsUser']
+        if 'localAuthRef' in kwargs:
+            local_auth_ref = kwargs['localAuthRef']
+        if 'repositoryRef' in kwargs:
+            repository_ref = kwargs['repositoryRef']
+        if 'sshKnownHosts' in kwargs:
+            ssh_known_hosts = kwargs['sshKnownHosts']
+        if 'syncIntervalInSeconds' in kwargs:
+            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         if https_ca_cert is not None:
-            pulumi.set(__self__, "https_ca_cert", https_ca_cert)
+            _setter("https_ca_cert", https_ca_cert)
         if https_user is not None:
-            pulumi.set(__self__, "https_user", https_user)
+            _setter("https_user", https_user)
         if local_auth_ref is not None:
-            pulumi.set(__self__, "local_auth_ref", local_auth_ref)
+            _setter("local_auth_ref", local_auth_ref)
         if repository_ref is not None:
-            pulumi.set(__self__, "repository_ref", repository_ref)
+            _setter("repository_ref", repository_ref)
         if ssh_known_hosts is not None:
-            pulumi.set(__self__, "ssh_known_hosts", ssh_known_hosts)
+            _setter("ssh_known_hosts", ssh_known_hosts)
         if sync_interval_in_seconds is None:
             sync_interval_in_seconds = 600
         if sync_interval_in_seconds is not None:
-            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+            _setter("sync_interval_in_seconds", sync_interval_in_seconds)
         if timeout_in_seconds is None:
             timeout_in_seconds = 600
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="httpsCACert")
@@ -578,10 +725,27 @@ class HelmOperatorPropertiesArgs:
         :param pulumi.Input[str] chart_values: Values override for the operator Helm chart.
         :param pulumi.Input[str] chart_version: Version of the operator Helm chart.
         """
+        HelmOperatorPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            chart_values=chart_values,
+            chart_version=chart_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             chart_values: Optional[pulumi.Input[str]] = None,
+             chart_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'chartValues' in kwargs:
+            chart_values = kwargs['chartValues']
+        if 'chartVersion' in kwargs:
+            chart_version = kwargs['chartVersion']
+
         if chart_values is not None:
-            pulumi.set(__self__, "chart_values", chart_values)
+            _setter("chart_values", chart_values)
         if chart_version is not None:
-            pulumi.set(__self__, "chart_version", chart_version)
+            _setter("chart_version", chart_version)
 
     @property
     @pulumi.getter(name="chartValues")
@@ -616,8 +780,19 @@ class IdentityArgs:
         Identity for the resource.
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -642,9 +817,26 @@ class KubernetesConfigurationPrivateLinkScopePropertiesArgs:
         :param pulumi.Input[str] cluster_resource_id: Managed Cluster ARM ID for the private link scope  (Required)
         :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access: Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
         """
-        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+        KubernetesConfigurationPrivateLinkScopePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_resource_id=cluster_resource_id,
+            public_network_access=public_network_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_resource_id: pulumi.Input[str],
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterResourceId' in kwargs:
+            cluster_resource_id = kwargs['clusterResourceId']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+
+        _setter("cluster_resource_id", cluster_resource_id)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
 
     @property
     @pulumi.getter(name="clusterResourceId")
@@ -695,36 +887,73 @@ class KustomizationDefinitionArgs:
         :param pulumi.Input[float] timeout_in_seconds: The maximum time to attempt to reconcile the Kustomization on the cluster.
         :param pulumi.Input[bool] wait: Enable/disable health check for all Kubernetes objects created by this Kustomization.
         """
+        KustomizationDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            depends_on=depends_on,
+            force=force,
+            path=path,
+            post_build=post_build,
+            prune=prune,
+            retry_interval_in_seconds=retry_interval_in_seconds,
+            sync_interval_in_seconds=sync_interval_in_seconds,
+            timeout_in_seconds=timeout_in_seconds,
+            wait=wait,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             force: Optional[pulumi.Input[bool]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             post_build: Optional[pulumi.Input['PostBuildDefinitionArgs']] = None,
+             prune: Optional[pulumi.Input[bool]] = None,
+             retry_interval_in_seconds: Optional[pulumi.Input[float]] = None,
+             sync_interval_in_seconds: Optional[pulumi.Input[float]] = None,
+             timeout_in_seconds: Optional[pulumi.Input[float]] = None,
+             wait: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dependsOn' in kwargs:
+            depends_on = kwargs['dependsOn']
+        if 'postBuild' in kwargs:
+            post_build = kwargs['postBuild']
+        if 'retryIntervalInSeconds' in kwargs:
+            retry_interval_in_seconds = kwargs['retryIntervalInSeconds']
+        if 'syncIntervalInSeconds' in kwargs:
+            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         if depends_on is not None:
-            pulumi.set(__self__, "depends_on", depends_on)
+            _setter("depends_on", depends_on)
         if force is None:
             force = False
         if force is not None:
-            pulumi.set(__self__, "force", force)
+            _setter("force", force)
         if path is None:
             path = ''
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if post_build is not None:
-            pulumi.set(__self__, "post_build", post_build)
+            _setter("post_build", post_build)
         if prune is None:
             prune = False
         if prune is not None:
-            pulumi.set(__self__, "prune", prune)
+            _setter("prune", prune)
         if retry_interval_in_seconds is not None:
-            pulumi.set(__self__, "retry_interval_in_seconds", retry_interval_in_seconds)
+            _setter("retry_interval_in_seconds", retry_interval_in_seconds)
         if sync_interval_in_seconds is None:
             sync_interval_in_seconds = 600
         if sync_interval_in_seconds is not None:
-            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+            _setter("sync_interval_in_seconds", sync_interval_in_seconds)
         if timeout_in_seconds is None:
             timeout_in_seconds = 600
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
         if wait is None:
             wait = True
         if wait is not None:
-            pulumi.set(__self__, "wait", wait)
+            _setter("wait", wait)
 
     @property
     @pulumi.getter(name="dependsOn")
@@ -843,8 +1072,21 @@ class ManagedIdentityDefinitionArgs:
         Parameters to authenticate using a Managed Identity.
         :param pulumi.Input[str] client_id: The client Id for authenticating a Managed Identity.
         """
+        ManagedIdentityDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -875,13 +1117,34 @@ class PlanArgs:
         :param pulumi.Input[str] promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param pulumi.Input[str] version: The version of the desired product/artifact.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
+        PlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            product=product,
+            publisher=publisher,
+            promotion_code=promotion_code,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             product: pulumi.Input[str],
+             publisher: pulumi.Input[str],
+             promotion_code: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'promotionCode' in kwargs:
+            promotion_code = kwargs['promotionCode']
+
+        _setter("name", name)
+        _setter("product", product)
+        _setter("publisher", publisher)
         if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
+            _setter("promotion_code", promotion_code)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -954,10 +1217,25 @@ class PostBuildDefinitionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] substitute: Key/value pairs holding the variables to be substituted in this Kustomization.
         :param pulumi.Input[Sequence[pulumi.Input['SubstituteFromDefinitionArgs']]] substitute_from: Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
         """
+        PostBuildDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            substitute=substitute,
+            substitute_from=substitute_from,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             substitute: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             substitute_from: Optional[pulumi.Input[Sequence[pulumi.Input['SubstituteFromDefinitionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'substituteFrom' in kwargs:
+            substitute_from = kwargs['substituteFrom']
+
         if substitute is not None:
-            pulumi.set(__self__, "substitute", substitute)
+            _setter("substitute", substitute)
         if substitute_from is not None:
-            pulumi.set(__self__, "substitute_from", substitute_from)
+            _setter("substitute_from", substitute_from)
 
     @property
     @pulumi.getter
@@ -996,12 +1274,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -1054,14 +1349,31 @@ class RepositoryRefDefinitionArgs:
         :param pulumi.Input[str] semver: The semver range used to match against git repository tags. This takes precedence over tag.
         :param pulumi.Input[str] tag: The git repository tag name to checkout. This takes precedence over branch.
         """
+        RepositoryRefDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch=branch,
+            commit=commit,
+            semver=semver,
+            tag=tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch: Optional[pulumi.Input[str]] = None,
+             commit: Optional[pulumi.Input[str]] = None,
+             semver: Optional[pulumi.Input[str]] = None,
+             tag: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if commit is not None:
-            pulumi.set(__self__, "commit", commit)
+            _setter("commit", commit)
         if semver is not None:
-            pulumi.set(__self__, "semver", semver)
+            _setter("semver", semver)
         if tag is not None:
-            pulumi.set(__self__, "tag", tag)
+            _setter("tag", tag)
 
     @property
     @pulumi.getter
@@ -1120,8 +1432,21 @@ class ScopeClusterArgs:
         Specifies that the scope of the extension is Cluster
         :param pulumi.Input[str] release_namespace: Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
         """
+        ScopeClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            release_namespace=release_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             release_namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'releaseNamespace' in kwargs:
+            release_namespace = kwargs['releaseNamespace']
+
         if release_namespace is not None:
-            pulumi.set(__self__, "release_namespace", release_namespace)
+            _setter("release_namespace", release_namespace)
 
     @property
     @pulumi.getter(name="releaseNamespace")
@@ -1144,8 +1469,21 @@ class ScopeNamespaceArgs:
         Specifies that the scope of the extension is Namespace
         :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
         """
+        ScopeNamespaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_namespace=target_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetNamespace' in kwargs:
+            target_namespace = kwargs['targetNamespace']
+
         if target_namespace is not None:
-            pulumi.set(__self__, "target_namespace", target_namespace)
+            _setter("target_namespace", target_namespace)
 
     @property
     @pulumi.getter(name="targetNamespace")
@@ -1170,10 +1508,23 @@ class ScopeArgs:
         :param pulumi.Input['ScopeClusterArgs'] cluster: Specifies that the scope of the extension is Cluster
         :param pulumi.Input['ScopeNamespaceArgs'] namespace: Specifies that the scope of the extension is Namespace
         """
+        ScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster=cluster,
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster: Optional[pulumi.Input['ScopeClusterArgs']] = None,
+             namespace: Optional[pulumi.Input['ScopeNamespaceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cluster is not None:
-            pulumi.set(__self__, "cluster", cluster)
+            _setter("cluster", cluster)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
 
     @property
     @pulumi.getter
@@ -1218,20 +1569,53 @@ class ServicePrincipalDefinitionArgs:
         :param pulumi.Input[str] client_secret: The client secret for authenticating a Service Principal
         :param pulumi.Input[str] tenant_id: The tenant Id for authenticating a Service Principal
         """
+        ServicePrincipalDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_certificate=client_certificate,
+            client_certificate_password=client_certificate_password,
+            client_certificate_send_chain=client_certificate_send_chain,
+            client_id=client_id,
+            client_secret=client_secret,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_certificate: Optional[pulumi.Input[str]] = None,
+             client_certificate_password: Optional[pulumi.Input[str]] = None,
+             client_certificate_send_chain: Optional[pulumi.Input[bool]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientCertificate' in kwargs:
+            client_certificate = kwargs['clientCertificate']
+        if 'clientCertificatePassword' in kwargs:
+            client_certificate_password = kwargs['clientCertificatePassword']
+        if 'clientCertificateSendChain' in kwargs:
+            client_certificate_send_chain = kwargs['clientCertificateSendChain']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if client_certificate is not None:
-            pulumi.set(__self__, "client_certificate", client_certificate)
+            _setter("client_certificate", client_certificate)
         if client_certificate_password is not None:
-            pulumi.set(__self__, "client_certificate_password", client_certificate_password)
+            _setter("client_certificate_password", client_certificate_password)
         if client_certificate_send_chain is None:
             client_certificate_send_chain = False
         if client_certificate_send_chain is not None:
-            pulumi.set(__self__, "client_certificate_send_chain", client_certificate_send_chain)
+            _setter("client_certificate_send_chain", client_certificate_send_chain)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientCertificate")
@@ -1318,14 +1702,29 @@ class SubstituteFromDefinitionArgs:
         :param pulumi.Input[str] name: Name of the ConfigMap/Secret that holds the variables to be used in substitution.
         :param pulumi.Input[bool] optional: Set to True to proceed without ConfigMap/Secret, if it is not present.
         """
+        SubstituteFromDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            name=name,
+            optional=optional,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             optional: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if optional is None:
             optional = False
         if optional is not None:
-            pulumi.set(__self__, "optional", optional)
+            _setter("optional", optional)
 
     @property
     @pulumi.getter

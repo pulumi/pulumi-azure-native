@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['GlobalReachConnectionArgs', 'GlobalReachConnection']
@@ -29,16 +29,49 @@ class GlobalReachConnectionArgs:
         :param pulumi.Input[str] global_reach_connection_name: Name of the global reach connection in the private cloud
         :param pulumi.Input[str] peer_express_route_circuit: Identifier of the ExpressRoute Circuit to peer with in the global reach connection
         """
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        GlobalReachConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            authorization_key=authorization_key,
+            express_route_id=express_route_id,
+            global_reach_connection_name=global_reach_connection_name,
+            peer_express_route_circuit=peer_express_route_circuit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_cloud_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             authorization_key: Optional[pulumi.Input[str]] = None,
+             express_route_id: Optional[pulumi.Input[str]] = None,
+             global_reach_connection_name: Optional[pulumi.Input[str]] = None,
+             peer_express_route_circuit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateCloudName' in kwargs:
+            private_cloud_name = kwargs['privateCloudName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'authorizationKey' in kwargs:
+            authorization_key = kwargs['authorizationKey']
+        if 'expressRouteId' in kwargs:
+            express_route_id = kwargs['expressRouteId']
+        if 'globalReachConnectionName' in kwargs:
+            global_reach_connection_name = kwargs['globalReachConnectionName']
+        if 'peerExpressRouteCircuit' in kwargs:
+            peer_express_route_circuit = kwargs['peerExpressRouteCircuit']
+
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
         if authorization_key is not None:
-            pulumi.set(__self__, "authorization_key", authorization_key)
+            _setter("authorization_key", authorization_key)
         if express_route_id is not None:
-            pulumi.set(__self__, "express_route_id", express_route_id)
+            _setter("express_route_id", express_route_id)
         if global_reach_connection_name is not None:
-            pulumi.set(__self__, "global_reach_connection_name", global_reach_connection_name)
+            _setter("global_reach_connection_name", global_reach_connection_name)
         if peer_express_route_circuit is not None:
-            pulumi.set(__self__, "peer_express_route_circuit", peer_express_route_circuit)
+            _setter("peer_express_route_circuit", peer_express_route_circuit)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -156,6 +189,10 @@ class GlobalReachConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GlobalReachConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

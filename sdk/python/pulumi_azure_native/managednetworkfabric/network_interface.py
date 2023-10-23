@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -26,12 +26,35 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[str] annotation: Switch configuration description.
         :param pulumi.Input[str] network_interface_name: Name of the NetworkInterface
         """
-        pulumi.set(__self__, "network_device_name", network_device_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NetworkInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_device_name=network_device_name,
+            resource_group_name=resource_group_name,
+            annotation=annotation,
+            network_interface_name=network_interface_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_device_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             annotation: Optional[pulumi.Input[str]] = None,
+             network_interface_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkDeviceName' in kwargs:
+            network_device_name = kwargs['networkDeviceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'networkInterfaceName' in kwargs:
+            network_interface_name = kwargs['networkInterfaceName']
+
+        _setter("network_device_name", network_device_name)
+        _setter("resource_group_name", resource_group_name)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if network_interface_name is not None:
-            pulumi.set(__self__, "network_interface_name", network_interface_name)
+            _setter("network_interface_name", network_interface_name)
 
     @property
     @pulumi.getter(name="networkDeviceName")
@@ -127,6 +150,10 @@ class NetworkInterface(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkInterfaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

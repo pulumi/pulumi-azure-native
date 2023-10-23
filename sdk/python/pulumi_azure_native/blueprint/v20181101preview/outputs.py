@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -59,12 +59,31 @@ class AssignmentLockSettingsResponse(dict):
         :param Sequence[str] excluded_principals: List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
         :param str mode: Lock mode.
         """
+        AssignmentLockSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excluded_actions=excluded_actions,
+            excluded_principals=excluded_principals,
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excluded_actions: Optional[Sequence[str]] = None,
+             excluded_principals: Optional[Sequence[str]] = None,
+             mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedActions' in kwargs:
+            excluded_actions = kwargs['excludedActions']
+        if 'excludedPrincipals' in kwargs:
+            excluded_principals = kwargs['excludedPrincipals']
+
         if excluded_actions is not None:
-            pulumi.set(__self__, "excluded_actions", excluded_actions)
+            _setter("excluded_actions", excluded_actions)
         if excluded_principals is not None:
-            pulumi.set(__self__, "excluded_principals", excluded_principals)
+            _setter("excluded_principals", excluded_principals)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
 
     @property
     @pulumi.getter(name="excludedActions")
@@ -127,9 +146,30 @@ class AssignmentStatusResponse(dict):
         :param Sequence[str] managed_resources: List of resources that were created by the blueprint assignment.
         :param str time_created: Creation time of this blueprint definition.
         """
-        pulumi.set(__self__, "last_modified", last_modified)
-        pulumi.set(__self__, "managed_resources", managed_resources)
-        pulumi.set(__self__, "time_created", time_created)
+        AssignmentStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_modified=last_modified,
+            managed_resources=managed_resources,
+            time_created=time_created,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_modified: str,
+             managed_resources: Sequence[str],
+             time_created: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastModified' in kwargs:
+            last_modified = kwargs['lastModified']
+        if 'managedResources' in kwargs:
+            managed_resources = kwargs['managedResources']
+        if 'timeCreated' in kwargs:
+            time_created = kwargs['timeCreated']
+
+        _setter("last_modified", last_modified)
+        _setter("managed_resources", managed_resources)
+        _setter("time_created", time_created)
 
     @property
     @pulumi.getter(name="lastModified")
@@ -188,8 +228,25 @@ class BlueprintStatusResponse(dict):
         :param str last_modified: Last modified time of this blueprint definition.
         :param str time_created: Creation time of this blueprint definition.
         """
-        pulumi.set(__self__, "last_modified", last_modified)
-        pulumi.set(__self__, "time_created", time_created)
+        BlueprintStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_modified=last_modified,
+            time_created=time_created,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_modified: str,
+             time_created: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastModified' in kwargs:
+            last_modified = kwargs['lastModified']
+        if 'timeCreated' in kwargs:
+            time_created = kwargs['timeCreated']
+
+        _setter("last_modified", last_modified)
+        _setter("time_created", time_created)
 
     @property
     @pulumi.getter(name="lastModified")
@@ -219,7 +276,18 @@ class KeyVaultReferenceResponse(dict):
         Specifies the link to a Key Vault.
         :param str id: Azure resource ID of the Key Vault.
         """
-        pulumi.set(__self__, "id", id)
+        KeyVaultReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -268,13 +336,36 @@ class ManagedServiceIdentityResponse(dict):
         :param str tenant_id: ID of the Azure Active Directory.
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -353,17 +444,46 @@ class ParameterDefinitionResponse(dict):
         :param str display_name: DisplayName of this parameter/resourceGroup.
         :param str strong_type: StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
         """
-        pulumi.set(__self__, "type", type)
+        ParameterDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            allowed_values=allowed_values,
+            default_value=default_value,
+            description=description,
+            display_name=display_name,
+            strong_type=strong_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             allowed_values: Optional[Sequence[Any]] = None,
+             default_value: Optional[Any] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             strong_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedValues' in kwargs:
+            allowed_values = kwargs['allowedValues']
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'strongType' in kwargs:
+            strong_type = kwargs['strongType']
+
+        _setter("type", type)
         if allowed_values is not None:
-            pulumi.set(__self__, "allowed_values", allowed_values)
+            _setter("allowed_values", allowed_values)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if strong_type is not None:
-            pulumi.set(__self__, "strong_type", strong_type)
+            _setter("strong_type", strong_type)
 
     @property
     @pulumi.getter
@@ -427,10 +547,23 @@ class ParameterValueResponse(dict):
         :param 'SecretValueReferenceResponse' reference: Parameter value as reference type.
         :param Any value: Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
         """
+        ParameterValueResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            reference=reference,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             reference: Optional['outputs.SecretValueReferenceResponse'] = None,
+             value: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if reference is not None:
-            pulumi.set(__self__, "reference", reference)
+            _setter("reference", reference)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -493,20 +626,49 @@ class ResourceGroupDefinitionResponse(dict):
         :param str strong_type: StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
         :param Mapping[str, str] tags: Tags to be assigned to this resource group.
         """
+        ResourceGroupDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            depends_on=depends_on,
+            description=description,
+            display_name=display_name,
+            location=location,
+            name=name,
+            strong_type=strong_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             depends_on: Optional[Sequence[str]] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             location: Optional[str] = None,
+             name: Optional[str] = None,
+             strong_type: Optional[str] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dependsOn' in kwargs:
+            depends_on = kwargs['dependsOn']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'strongType' in kwargs:
+            strong_type = kwargs['strongType']
+
         if depends_on is not None:
-            pulumi.set(__self__, "depends_on", depends_on)
+            _setter("depends_on", depends_on)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if strong_type is not None:
-            pulumi.set(__self__, "strong_type", strong_type)
+            _setter("strong_type", strong_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dependsOn")
@@ -578,10 +740,23 @@ class ResourceGroupValueResponse(dict):
         :param str location: Location of the resource group.
         :param str name: Name of the resource group.
         """
+        ResourceGroupValueResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -636,10 +811,31 @@ class SecretValueReferenceResponse(dict):
         :param str secret_name: Name of the secret.
         :param str secret_version: The version of the secret to use. If left blank, the latest version of the secret is used.
         """
-        pulumi.set(__self__, "key_vault", key_vault)
-        pulumi.set(__self__, "secret_name", secret_name)
+        SecretValueReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault=key_vault,
+            secret_name=secret_name,
+            secret_version=secret_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault: 'outputs.KeyVaultReferenceResponse',
+             secret_name: str,
+             secret_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVault' in kwargs:
+            key_vault = kwargs['keyVault']
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if 'secretVersion' in kwargs:
+            secret_version = kwargs['secretVersion']
+
+        _setter("key_vault", key_vault)
+        _setter("secret_name", secret_name)
         if secret_version is not None:
-            pulumi.set(__self__, "secret_version", secret_version)
+            _setter("secret_version", secret_version)
 
     @property
     @pulumi.getter(name="keyVault")
@@ -698,10 +894,27 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: Client App Id associated with this identity.
         :param str principal_id: Azure Active Directory principal ID associated with this Identity.
         """
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")

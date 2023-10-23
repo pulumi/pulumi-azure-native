@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -34,20 +34,57 @@ class AssetArgs:
         :param pulumi.Input[str] encryption_scope: The Asset container encryption scope in the storage account.
         :param pulumi.Input[str] storage_account_name: The name of the storage account.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AssetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            alternate_id=alternate_id,
+            asset_name=asset_name,
+            container=container,
+            description=description,
+            encryption_scope=encryption_scope,
+            storage_account_name=storage_account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             alternate_id: Optional[pulumi.Input[str]] = None,
+             asset_name: Optional[pulumi.Input[str]] = None,
+             container: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             encryption_scope: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'alternateId' in kwargs:
+            alternate_id = kwargs['alternateId']
+        if 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if 'encryptionScope' in kwargs:
+            encryption_scope = kwargs['encryptionScope']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if alternate_id is not None:
-            pulumi.set(__self__, "alternate_id", alternate_id)
+            _setter("alternate_id", alternate_id)
         if asset_name is not None:
-            pulumi.set(__self__, "asset_name", asset_name)
+            _setter("asset_name", asset_name)
         if container is not None:
-            pulumi.set(__self__, "container", container)
+            _setter("container", container)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encryption_scope is not None:
-            pulumi.set(__self__, "encryption_scope", encryption_scope)
+            _setter("encryption_scope", encryption_scope)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -195,6 +232,10 @@ class Asset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

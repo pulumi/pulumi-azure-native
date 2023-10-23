@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,21 +40,58 @@ class WebAppBackupConfigurationSlotArgs:
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input['BackupRestoreOperationType'] type: Type of the backup.
         """
-        pulumi.set(__self__, "backup_request_name", backup_request_name)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "slot", slot)
-        pulumi.set(__self__, "storage_account_url", storage_account_url)
+        WebAppBackupConfigurationSlotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_request_name=backup_request_name,
+            name=name,
+            resource_group_name=resource_group_name,
+            slot=slot,
+            storage_account_url=storage_account_url,
+            backup_schedule=backup_schedule,
+            databases=databases,
+            enabled=enabled,
+            kind=kind,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_request_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             slot: pulumi.Input[str],
+             storage_account_url: pulumi.Input[str],
+             backup_schedule: Optional[pulumi.Input['BackupScheduleArgs']] = None,
+             databases: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseBackupSettingArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['BackupRestoreOperationType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupRequestName' in kwargs:
+            backup_request_name = kwargs['backupRequestName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountUrl' in kwargs:
+            storage_account_url = kwargs['storageAccountUrl']
+        if 'backupSchedule' in kwargs:
+            backup_schedule = kwargs['backupSchedule']
+
+        _setter("backup_request_name", backup_request_name)
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("slot", slot)
+        _setter("storage_account_url", storage_account_url)
         if backup_schedule is not None:
-            pulumi.set(__self__, "backup_schedule", backup_schedule)
+            _setter("backup_schedule", backup_schedule)
         if databases is not None:
-            pulumi.set(__self__, "databases", databases)
+            _setter("databases", databases)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="backupRequestName")
@@ -228,6 +265,10 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppBackupConfigurationSlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -255,6 +296,11 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
             if backup_request_name is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_request_name'")
             __props__.__dict__["backup_request_name"] = backup_request_name
+            if backup_schedule is not None and not isinstance(backup_schedule, BackupScheduleArgs):
+                backup_schedule = backup_schedule or {}
+                def _setter(key, value):
+                    backup_schedule[key] = value
+                BackupScheduleArgs._configure(_setter, **backup_schedule)
             __props__.__dict__["backup_schedule"] = backup_schedule
             __props__.__dict__["databases"] = databases
             __props__.__dict__["enabled"] = enabled

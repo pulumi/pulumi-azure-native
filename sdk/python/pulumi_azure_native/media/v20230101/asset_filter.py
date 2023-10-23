@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,17 +34,52 @@ class AssetFilterArgs:
         :param pulumi.Input['PresentationTimeRangeArgs'] presentation_time_range: The presentation time range.
         :param pulumi.Input[Sequence[pulumi.Input['FilterTrackSelectionArgs']]] tracks: The tracks selection conditions.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "asset_name", asset_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AssetFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            asset_name=asset_name,
+            resource_group_name=resource_group_name,
+            filter_name=filter_name,
+            first_quality=first_quality,
+            presentation_time_range=presentation_time_range,
+            tracks=tracks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             asset_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             filter_name: Optional[pulumi.Input[str]] = None,
+             first_quality: Optional[pulumi.Input['FirstQualityArgs']] = None,
+             presentation_time_range: Optional[pulumi.Input['PresentationTimeRangeArgs']] = None,
+             tracks: Optional[pulumi.Input[Sequence[pulumi.Input['FilterTrackSelectionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'filterName' in kwargs:
+            filter_name = kwargs['filterName']
+        if 'firstQuality' in kwargs:
+            first_quality = kwargs['firstQuality']
+        if 'presentationTimeRange' in kwargs:
+            presentation_time_range = kwargs['presentationTimeRange']
+
+        _setter("account_name", account_name)
+        _setter("asset_name", asset_name)
+        _setter("resource_group_name", resource_group_name)
         if filter_name is not None:
-            pulumi.set(__self__, "filter_name", filter_name)
+            _setter("filter_name", filter_name)
         if first_quality is not None:
-            pulumi.set(__self__, "first_quality", first_quality)
+            _setter("first_quality", first_quality)
         if presentation_time_range is not None:
-            pulumi.set(__self__, "presentation_time_range", presentation_time_range)
+            _setter("presentation_time_range", presentation_time_range)
         if tracks is not None:
-            pulumi.set(__self__, "tracks", tracks)
+            _setter("tracks", tracks)
 
     @property
     @pulumi.getter(name="accountName")
@@ -176,6 +211,10 @@ class AssetFilter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssetFilterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -204,7 +243,17 @@ class AssetFilter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'asset_name'")
             __props__.__dict__["asset_name"] = asset_name
             __props__.__dict__["filter_name"] = filter_name
+            if first_quality is not None and not isinstance(first_quality, FirstQualityArgs):
+                first_quality = first_quality or {}
+                def _setter(key, value):
+                    first_quality[key] = value
+                FirstQualityArgs._configure(_setter, **first_quality)
             __props__.__dict__["first_quality"] = first_quality
+            if presentation_time_range is not None and not isinstance(presentation_time_range, PresentationTimeRangeArgs):
+                presentation_time_range = presentation_time_range or {}
+                def _setter(key, value):
+                    presentation_time_range[key] = value
+                PresentationTimeRangeArgs._configure(_setter, **presentation_time_range)
             __props__.__dict__["presentation_time_range"] = presentation_time_range
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

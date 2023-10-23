@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -34,18 +34,57 @@ class ApiVersionSetArgs:
         :param pulumi.Input[str] version_query_name: Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
         :param pulumi.Input[str] version_set_id: Api Version Set identifier. Must be unique in the current API Management service instance.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "versioning_scheme", versioning_scheme)
+        ApiVersionSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            versioning_scheme=versioning_scheme,
+            description=description,
+            version_header_name=version_header_name,
+            version_query_name=version_query_name,
+            version_set_id=version_set_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             versioning_scheme: pulumi.Input[Union[str, 'VersioningScheme']],
+             description: Optional[pulumi.Input[str]] = None,
+             version_header_name: Optional[pulumi.Input[str]] = None,
+             version_query_name: Optional[pulumi.Input[str]] = None,
+             version_set_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'versioningScheme' in kwargs:
+            versioning_scheme = kwargs['versioningScheme']
+        if 'versionHeaderName' in kwargs:
+            version_header_name = kwargs['versionHeaderName']
+        if 'versionQueryName' in kwargs:
+            version_query_name = kwargs['versionQueryName']
+        if 'versionSetId' in kwargs:
+            version_set_id = kwargs['versionSetId']
+
+        _setter("display_name", display_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("versioning_scheme", versioning_scheme)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if version_header_name is not None:
-            pulumi.set(__self__, "version_header_name", version_header_name)
+            _setter("version_header_name", version_header_name)
         if version_query_name is not None:
-            pulumi.set(__self__, "version_query_name", version_query_name)
+            _setter("version_query_name", version_query_name)
         if version_set_id is not None:
-            pulumi.set(__self__, "version_set_id", version_set_id)
+            _setter("version_set_id", version_set_id)
 
     @property
     @pulumi.getter(name="displayName")
@@ -197,6 +236,10 @@ class ApiVersionSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiVersionSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,27 +44,80 @@ class PacketCoreDataPlaneArgs:
         :param pulumi.Input[str] packet_core_data_plane_name: The name of the packet core data plane.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "packet_core_control_plane_name", packet_core_control_plane_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_plane_access_interface", user_plane_access_interface)
+        PacketCoreDataPlaneArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            packet_core_control_plane_name=packet_core_control_plane_name,
+            resource_group_name=resource_group_name,
+            user_plane_access_interface=user_plane_access_interface,
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+            location=location,
+            packet_core_data_plane_name=packet_core_data_plane_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             packet_core_control_plane_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             user_plane_access_interface: pulumi.Input['InterfacePropertiesArgs'],
+             created_at: Optional[pulumi.Input[str]] = None,
+             created_by: Optional[pulumi.Input[str]] = None,
+             created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+             last_modified_at: Optional[pulumi.Input[str]] = None,
+             last_modified_by: Optional[pulumi.Input[str]] = None,
+             last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             packet_core_data_plane_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'packetCoreControlPlaneName' in kwargs:
+            packet_core_control_plane_name = kwargs['packetCoreControlPlaneName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'userPlaneAccessInterface' in kwargs:
+            user_plane_access_interface = kwargs['userPlaneAccessInterface']
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+        if 'packetCoreDataPlaneName' in kwargs:
+            packet_core_data_plane_name = kwargs['packetCoreDataPlaneName']
+
+        _setter("packet_core_control_plane_name", packet_core_control_plane_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("user_plane_access_interface", user_plane_access_interface)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if packet_core_data_plane_name is not None:
-            pulumi.set(__self__, "packet_core_data_plane_name", packet_core_data_plane_name)
+            _setter("packet_core_data_plane_name", packet_core_data_plane_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="packetCoreControlPlaneName")
@@ -266,6 +319,10 @@ class PacketCoreDataPlane(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PacketCoreDataPlaneArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -307,6 +364,11 @@ class PacketCoreDataPlane(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if user_plane_access_interface is not None and not isinstance(user_plane_access_interface, InterfacePropertiesArgs):
+                user_plane_access_interface = user_plane_access_interface or {}
+                def _setter(key, value):
+                    user_plane_access_interface[key] = value
+                InterfacePropertiesArgs._configure(_setter, **user_plane_access_interface)
             if user_plane_access_interface is None and not opts.urn:
                 raise TypeError("Missing required property 'user_plane_access_interface'")
             __props__.__dict__["user_plane_access_interface"] = user_plane_access_interface

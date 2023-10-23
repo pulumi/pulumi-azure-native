@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['KeyValueArgs', 'KeyValue']
@@ -30,16 +30,45 @@ class KeyValueArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A dictionary of tags that can help identify what a key-value may be applicable for.
         :param pulumi.Input[str] value: The value of the key-value.
         """
-        pulumi.set(__self__, "config_store_name", config_store_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        KeyValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config_store_name=config_store_name,
+            resource_group_name=resource_group_name,
+            content_type=content_type,
+            key_value_name=key_value_name,
+            tags=tags,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config_store_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             content_type: Optional[pulumi.Input[str]] = None,
+             key_value_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configStoreName' in kwargs:
+            config_store_name = kwargs['configStoreName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'keyValueName' in kwargs:
+            key_value_name = kwargs['keyValueName']
+
+        _setter("config_store_name", config_store_name)
+        _setter("resource_group_name", resource_group_name)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if key_value_name is not None:
-            pulumi.set(__self__, "key_value_name", key_value_name)
+            _setter("key_value_name", key_value_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="configStoreName")
@@ -161,6 +190,10 @@ class KeyValue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KeyValueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

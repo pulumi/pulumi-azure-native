@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,27 +40,66 @@ class PolicyDefinitionVersionArgs:
         :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         :param pulumi.Input[str] version: The policy definition version in #.#.# format.
         """
-        pulumi.set(__self__, "policy_definition_name", policy_definition_name)
+        PolicyDefinitionVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_definition_name=policy_definition_name,
+            description=description,
+            display_name=display_name,
+            metadata=metadata,
+            mode=mode,
+            parameters=parameters,
+            policy_definition_version=policy_definition_version,
+            policy_rule=policy_rule,
+            policy_type=policy_type,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_definition_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]]] = None,
+             policy_definition_version: Optional[pulumi.Input[str]] = None,
+             policy_rule: Optional[Any] = None,
+             policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDefinitionName' in kwargs:
+            policy_definition_name = kwargs['policyDefinitionName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'policyDefinitionVersion' in kwargs:
+            policy_definition_version = kwargs['policyDefinitionVersion']
+        if 'policyRule' in kwargs:
+            policy_rule = kwargs['policyRule']
+        if 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+
+        _setter("policy_definition_name", policy_definition_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if mode is None:
             mode = 'Indexed'
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_definition_version is not None:
-            pulumi.set(__self__, "policy_definition_version", policy_definition_version)
+            _setter("policy_definition_version", policy_definition_version)
         if policy_rule is not None:
-            pulumi.set(__self__, "policy_rule", policy_rule)
+            _setter("policy_rule", policy_rule)
         if policy_type is not None:
-            pulumi.set(__self__, "policy_type", policy_type)
+            _setter("policy_type", policy_type)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="policyDefinitionName")
@@ -236,6 +275,10 @@ class PolicyDefinitionVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyDefinitionVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

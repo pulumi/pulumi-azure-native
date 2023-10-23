@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -26,12 +26,27 @@ class ContactDetailArgs:
         :param pulumi.Input[str] phone: The phone number of the contact.
         :param pulumi.Input[Union[str, 'Role']] role: The role of the contact.
         """
+        ContactDetailArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            phone=phone,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: Optional[pulumi.Input[str]] = None,
+             phone: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[Union[str, 'Role']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if phone is not None:
-            pulumi.set(__self__, "phone", phone)
+            _setter("phone", phone)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter

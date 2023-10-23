@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,29 +44,74 @@ class WorkflowArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[str] workflow_name: The workflow name.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkflowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            access_control=access_control,
+            definition=definition,
+            endpoints_configuration=endpoints_configuration,
+            identity=identity,
+            integration_account=integration_account,
+            integration_service_environment=integration_service_environment,
+            location=location,
+            parameters=parameters,
+            state=state,
+            tags=tags,
+            workflow_name=workflow_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             access_control: Optional[pulumi.Input['FlowAccessControlConfigurationArgs']] = None,
+             definition: Optional[Any] = None,
+             endpoints_configuration: Optional[pulumi.Input['FlowEndpointsConfigurationArgs']] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             integration_account: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+             integration_service_environment: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['WorkflowParameterArgs']]]] = None,
+             state: Optional[pulumi.Input[Union[str, 'WorkflowState']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workflow_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'accessControl' in kwargs:
+            access_control = kwargs['accessControl']
+        if 'endpointsConfiguration' in kwargs:
+            endpoints_configuration = kwargs['endpointsConfiguration']
+        if 'integrationAccount' in kwargs:
+            integration_account = kwargs['integrationAccount']
+        if 'integrationServiceEnvironment' in kwargs:
+            integration_service_environment = kwargs['integrationServiceEnvironment']
+        if 'workflowName' in kwargs:
+            workflow_name = kwargs['workflowName']
+
+        _setter("resource_group_name", resource_group_name)
         if access_control is not None:
-            pulumi.set(__self__, "access_control", access_control)
+            _setter("access_control", access_control)
         if definition is not None:
-            pulumi.set(__self__, "definition", definition)
+            _setter("definition", definition)
         if endpoints_configuration is not None:
-            pulumi.set(__self__, "endpoints_configuration", endpoints_configuration)
+            _setter("endpoints_configuration", endpoints_configuration)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if integration_account is not None:
-            pulumi.set(__self__, "integration_account", integration_account)
+            _setter("integration_account", integration_account)
         if integration_service_environment is not None:
-            pulumi.set(__self__, "integration_service_environment", integration_service_environment)
+            _setter("integration_service_environment", integration_service_environment)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workflow_name is not None:
-            pulumi.set(__self__, "workflow_name", workflow_name)
+            _setter("workflow_name", workflow_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -274,6 +319,10 @@ class Workflow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkflowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -300,11 +349,36 @@ class Workflow(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkflowArgs.__new__(WorkflowArgs)
 
+            if access_control is not None and not isinstance(access_control, FlowAccessControlConfigurationArgs):
+                access_control = access_control or {}
+                def _setter(key, value):
+                    access_control[key] = value
+                FlowAccessControlConfigurationArgs._configure(_setter, **access_control)
             __props__.__dict__["access_control"] = access_control
             __props__.__dict__["definition"] = definition
+            if endpoints_configuration is not None and not isinstance(endpoints_configuration, FlowEndpointsConfigurationArgs):
+                endpoints_configuration = endpoints_configuration or {}
+                def _setter(key, value):
+                    endpoints_configuration[key] = value
+                FlowEndpointsConfigurationArgs._configure(_setter, **endpoints_configuration)
             __props__.__dict__["endpoints_configuration"] = endpoints_configuration
+            if identity is not None and not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if integration_account is not None and not isinstance(integration_account, ResourceReferenceArgs):
+                integration_account = integration_account or {}
+                def _setter(key, value):
+                    integration_account[key] = value
+                ResourceReferenceArgs._configure(_setter, **integration_account)
             __props__.__dict__["integration_account"] = integration_account
+            if integration_service_environment is not None and not isinstance(integration_service_environment, ResourceReferenceArgs):
+                integration_service_environment = integration_service_environment or {}
+                def _setter(key, value):
+                    integration_service_environment[key] = value
+                ResourceReferenceArgs._configure(_setter, **integration_service_environment)
             __props__.__dict__["integration_service_environment"] = integration_service_environment
             __props__.__dict__["location"] = location
             __props__.__dict__["parameters"] = parameters

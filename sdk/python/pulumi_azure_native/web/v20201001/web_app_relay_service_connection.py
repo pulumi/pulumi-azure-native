@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -31,24 +31,65 @@ class WebAppRelayServiceConnectionArgs:
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] kind: Kind of resource.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WebAppRelayServiceConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            biztalk_uri=biztalk_uri,
+            entity_connection_string=entity_connection_string,
+            entity_name=entity_name,
+            hostname=hostname,
+            kind=kind,
+            port=port,
+            resource_connection_string=resource_connection_string,
+            resource_type=resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             biztalk_uri: Optional[pulumi.Input[str]] = None,
+             entity_connection_string: Optional[pulumi.Input[str]] = None,
+             entity_name: Optional[pulumi.Input[str]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             resource_connection_string: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'biztalkUri' in kwargs:
+            biztalk_uri = kwargs['biztalkUri']
+        if 'entityConnectionString' in kwargs:
+            entity_connection_string = kwargs['entityConnectionString']
+        if 'entityName' in kwargs:
+            entity_name = kwargs['entityName']
+        if 'resourceConnectionString' in kwargs:
+            resource_connection_string = kwargs['resourceConnectionString']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if biztalk_uri is not None:
-            pulumi.set(__self__, "biztalk_uri", biztalk_uri)
+            _setter("biztalk_uri", biztalk_uri)
         if entity_connection_string is not None:
-            pulumi.set(__self__, "entity_connection_string", entity_connection_string)
+            _setter("entity_connection_string", entity_connection_string)
         if entity_name is not None:
-            pulumi.set(__self__, "entity_name", entity_name)
+            _setter("entity_name", entity_name)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if resource_connection_string is not None:
-            pulumi.set(__self__, "resource_connection_string", resource_connection_string)
+            _setter("resource_connection_string", resource_connection_string)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
 
     @property
     @pulumi.getter
@@ -194,6 +235,10 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppRelayServiceConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

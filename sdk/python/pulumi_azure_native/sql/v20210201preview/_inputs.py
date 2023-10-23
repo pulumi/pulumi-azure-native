@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -34,18 +34,47 @@ class ManagedInstanceExternalAdministratorArgs:
         :param pulumi.Input[str] sid: SID (object ID) of the server administrator.
         :param pulumi.Input[str] tenant_id: Tenant ID of the administrator.
         """
+        ManagedInstanceExternalAdministratorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_type=administrator_type,
+            azure_ad_only_authentication=azure_ad_only_authentication,
+            login=login,
+            principal_type=principal_type,
+            sid=sid,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_type: Optional[pulumi.Input[Union[str, 'AdministratorType']]] = None,
+             azure_ad_only_authentication: Optional[pulumi.Input[bool]] = None,
+             login: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input[Union[str, 'PrincipalType']]] = None,
+             sid: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorType' in kwargs:
+            administrator_type = kwargs['administratorType']
+        if 'azureADOnlyAuthentication' in kwargs:
+            azure_ad_only_authentication = kwargs['azureADOnlyAuthentication']
+        if 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if administrator_type is not None:
-            pulumi.set(__self__, "administrator_type", administrator_type)
+            _setter("administrator_type", administrator_type)
         if azure_ad_only_authentication is not None:
-            pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
+            _setter("azure_ad_only_authentication", azure_ad_only_authentication)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if principal_type is not None:
-            pulumi.set(__self__, "principal_type", principal_type)
+            _setter("principal_type", principal_type)
         if sid is not None:
-            pulumi.set(__self__, "sid", sid)
+            _setter("sid", sid)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="administratorType")
@@ -130,10 +159,25 @@ class ResourceIdentityArgs:
         :param pulumi.Input[Union[str, 'IdentityType']] type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The resource ids of the user assigned identities to use
         """
+        ResourceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -176,15 +220,34 @@ class SkuArgs:
         :param pulumi.Input[str] size: Size of the particular SKU
         :param pulumi.Input[str] tier: The tier or edition of the particular SKU, e.g. Basic, Premium.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             capacity: Optional[pulumi.Input[int]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter

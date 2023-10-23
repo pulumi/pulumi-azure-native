@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -42,24 +42,65 @@ class AssignmentArgs:
         :param pulumi.Input['AssignmentLockSettingsArgs'] locks: Defines how resources deployed by a blueprint assignment are locked.
         :param pulumi.Input[str] scope: The target subscription scope of the blueprint assignment (format: '/subscriptions/{subscriptionId}'). For management group level assignments, the property is required.
         """
-        pulumi.set(__self__, "identity", identity)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "resource_groups", resource_groups)
-        pulumi.set(__self__, "resource_scope", resource_scope)
+        AssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity=identity,
+            parameters=parameters,
+            resource_groups=resource_groups,
+            resource_scope=resource_scope,
+            assignment_name=assignment_name,
+            blueprint_id=blueprint_id,
+            description=description,
+            display_name=display_name,
+            location=location,
+            locks=locks,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity: pulumi.Input['ManagedServiceIdentityArgs'],
+             parameters: pulumi.Input[Mapping[str, pulumi.Input['ParameterValueArgs']]],
+             resource_groups: pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupValueArgs']]],
+             resource_scope: pulumi.Input[str],
+             assignment_name: Optional[pulumi.Input[str]] = None,
+             blueprint_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             locks: Optional[pulumi.Input['AssignmentLockSettingsArgs']] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+        if 'resourceScope' in kwargs:
+            resource_scope = kwargs['resourceScope']
+        if 'assignmentName' in kwargs:
+            assignment_name = kwargs['assignmentName']
+        if 'blueprintId' in kwargs:
+            blueprint_id = kwargs['blueprintId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("identity", identity)
+        _setter("parameters", parameters)
+        _setter("resource_groups", resource_groups)
+        _setter("resource_scope", resource_scope)
         if assignment_name is not None:
-            pulumi.set(__self__, "assignment_name", assignment_name)
+            _setter("assignment_name", assignment_name)
         if blueprint_id is not None:
-            pulumi.set(__self__, "blueprint_id", blueprint_id)
+            _setter("blueprint_id", blueprint_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if locks is not None:
-            pulumi.set(__self__, "locks", locks)
+            _setter("locks", locks)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -247,6 +288,10 @@ class Assignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -276,10 +321,20 @@ class Assignment(pulumi.CustomResource):
             __props__.__dict__["blueprint_id"] = blueprint_id
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
+            if identity is not None and not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            if locks is not None and not isinstance(locks, AssignmentLockSettingsArgs):
+                locks = locks or {}
+                def _setter(key, value):
+                    locks[key] = value
+                AssignmentLockSettingsArgs._configure(_setter, **locks)
             __props__.__dict__["locks"] = locks
             if parameters is None and not opts.urn:
                 raise TypeError("Missing required property 'parameters'")

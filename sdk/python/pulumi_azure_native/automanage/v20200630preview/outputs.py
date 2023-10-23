@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -52,10 +52,29 @@ class AccountIdentityResponse(dict):
         :param str tenant_id: The tenant id associated with the Automanage account.
         :param str type: The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        AccountIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -128,18 +147,49 @@ class ConfigurationProfilePreferenceAntiMalwareResponse(dict):
         :param str scan_time_in_minutes: Schedule scan settings time
         :param str scan_type: Type of scheduled scan
         """
+        ConfigurationProfilePreferenceAntiMalwareResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_real_time_protection=enable_real_time_protection,
+            exclusions=exclusions,
+            run_scheduled_scan=run_scheduled_scan,
+            scan_day=scan_day,
+            scan_time_in_minutes=scan_time_in_minutes,
+            scan_type=scan_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_real_time_protection: Optional[str] = None,
+             exclusions: Optional[Any] = None,
+             run_scheduled_scan: Optional[str] = None,
+             scan_day: Optional[str] = None,
+             scan_time_in_minutes: Optional[str] = None,
+             scan_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableRealTimeProtection' in kwargs:
+            enable_real_time_protection = kwargs['enableRealTimeProtection']
+        if 'runScheduledScan' in kwargs:
+            run_scheduled_scan = kwargs['runScheduledScan']
+        if 'scanDay' in kwargs:
+            scan_day = kwargs['scanDay']
+        if 'scanTimeInMinutes' in kwargs:
+            scan_time_in_minutes = kwargs['scanTimeInMinutes']
+        if 'scanType' in kwargs:
+            scan_type = kwargs['scanType']
+
         if enable_real_time_protection is not None:
-            pulumi.set(__self__, "enable_real_time_protection", enable_real_time_protection)
+            _setter("enable_real_time_protection", enable_real_time_protection)
         if exclusions is not None:
-            pulumi.set(__self__, "exclusions", exclusions)
+            _setter("exclusions", exclusions)
         if run_scheduled_scan is not None:
-            pulumi.set(__self__, "run_scheduled_scan", run_scheduled_scan)
+            _setter("run_scheduled_scan", run_scheduled_scan)
         if scan_day is not None:
-            pulumi.set(__self__, "scan_day", scan_day)
+            _setter("scan_day", scan_day)
         if scan_time_in_minutes is not None:
-            pulumi.set(__self__, "scan_time_in_minutes", scan_time_in_minutes)
+            _setter("scan_time_in_minutes", scan_time_in_minutes)
         if scan_type is not None:
-            pulumi.set(__self__, "scan_type", scan_type)
+            _setter("scan_type", scan_type)
 
     @property
     @pulumi.getter(name="enableRealTimeProtection")
@@ -222,10 +272,27 @@ class ConfigurationProfilePreferencePropertiesResponse(dict):
         :param 'ConfigurationProfilePreferenceAntiMalwareResponse' anti_malware: The custom preferences for Azure Antimalware.
         :param 'ConfigurationProfilePreferenceVmBackupResponse' vm_backup: The custom preferences for Azure VM Backup.
         """
+        ConfigurationProfilePreferencePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            anti_malware=anti_malware,
+            vm_backup=vm_backup,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             anti_malware: Optional['outputs.ConfigurationProfilePreferenceAntiMalwareResponse'] = None,
+             vm_backup: Optional['outputs.ConfigurationProfilePreferenceVmBackupResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'antiMalware' in kwargs:
+            anti_malware = kwargs['antiMalware']
+        if 'vmBackup' in kwargs:
+            vm_backup = kwargs['vmBackup']
+
         if anti_malware is not None:
-            pulumi.set(__self__, "anti_malware", anti_malware)
+            _setter("anti_malware", anti_malware)
         if vm_backup is not None:
-            pulumi.set(__self__, "vm_backup", vm_backup)
+            _setter("vm_backup", vm_backup)
 
     @property
     @pulumi.getter(name="antiMalware")
@@ -284,14 +351,39 @@ class ConfigurationProfilePreferenceVmBackupResponse(dict):
         :param str schedule_policy: Backup schedule specified as part of backup policy.
         :param str time_zone: TimeZone optional input as string. For example: Pacific Standard Time
         """
+        ConfigurationProfilePreferenceVmBackupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instant_rp_retention_range_in_days=instant_rp_retention_range_in_days,
+            retention_policy=retention_policy,
+            schedule_policy=schedule_policy,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instant_rp_retention_range_in_days: Optional[int] = None,
+             retention_policy: Optional[str] = None,
+             schedule_policy: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instantRpRetentionRangeInDays' in kwargs:
+            instant_rp_retention_range_in_days = kwargs['instantRpRetentionRangeInDays']
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if 'schedulePolicy' in kwargs:
+            schedule_policy = kwargs['schedulePolicy']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if instant_rp_retention_range_in_days is not None:
-            pulumi.set(__self__, "instant_rp_retention_range_in_days", instant_rp_retention_range_in_days)
+            _setter("instant_rp_retention_range_in_days", instant_rp_retention_range_in_days)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
         if schedule_policy is not None:
-            pulumi.set(__self__, "schedule_policy", schedule_policy)
+            _setter("schedule_policy", schedule_policy)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="instantRpRetentionRangeInDays")

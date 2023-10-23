@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,16 +33,49 @@ class LivePipelineArgs:
         :param pulumi.Input[str] live_pipeline_name: Live pipeline unique identifier.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterDefinitionArgs']]] parameters: List of the instance level parameter values for the user-defined topology parameters. A pipeline can only define or override parameters values for parameters which have been declared in the referenced topology. Topology parameters without a default value must be defined. Topology parameters with a default value can be optionally be overridden.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "bitrate_kbps", bitrate_kbps)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "topology_name", topology_name)
+        LivePipelineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            bitrate_kbps=bitrate_kbps,
+            resource_group_name=resource_group_name,
+            topology_name=topology_name,
+            description=description,
+            live_pipeline_name=live_pipeline_name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             bitrate_kbps: pulumi.Input[int],
+             resource_group_name: pulumi.Input[str],
+             topology_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             live_pipeline_name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterDefinitionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'bitrateKbps' in kwargs:
+            bitrate_kbps = kwargs['bitrateKbps']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'topologyName' in kwargs:
+            topology_name = kwargs['topologyName']
+        if 'livePipelineName' in kwargs:
+            live_pipeline_name = kwargs['livePipelineName']
+
+        _setter("account_name", account_name)
+        _setter("bitrate_kbps", bitrate_kbps)
+        _setter("resource_group_name", resource_group_name)
+        _setter("topology_name", topology_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if live_pipeline_name is not None:
-            pulumi.set(__self__, "live_pipeline_name", live_pipeline_name)
+            _setter("live_pipeline_name", live_pipeline_name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="accountName")
@@ -176,6 +209,10 @@ class LivePipeline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LivePipelineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

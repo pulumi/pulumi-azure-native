@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,10 +28,27 @@ class AddressPrefixItemArgs:
         :param pulumi.Input[str] address_prefix: Address prefix.
         :param pulumi.Input[Union[str, 'AddressPrefixType']] address_prefix_type: Address prefix type.
         """
+        AddressPrefixItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_prefix=address_prefix,
+            address_prefix_type=address_prefix_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_prefix: Optional[pulumi.Input[str]] = None,
+             address_prefix_type: Optional[pulumi.Input[Union[str, 'AddressPrefixType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if 'addressPrefixType' in kwargs:
+            address_prefix_type = kwargs['addressPrefixType']
+
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if address_prefix_type is not None:
-            pulumi.set(__self__, "address_prefix_type", address_prefix_type)
+            _setter("address_prefix_type", address_prefix_type)
 
     @property
     @pulumi.getter(name="addressPrefix")
@@ -72,12 +89,37 @@ class ConnectivityGroupItemArgs:
         :param pulumi.Input[Union[str, 'IsGlobal']] is_global: Flag if global is supported.
         :param pulumi.Input[Union[str, 'UseHubGateway']] use_hub_gateway: Flag if need to use hub gateway.
         """
-        pulumi.set(__self__, "group_connectivity", group_connectivity)
-        pulumi.set(__self__, "network_group_id", network_group_id)
+        ConnectivityGroupItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_connectivity=group_connectivity,
+            network_group_id=network_group_id,
+            is_global=is_global,
+            use_hub_gateway=use_hub_gateway,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_connectivity: pulumi.Input[Union[str, 'GroupConnectivity']],
+             network_group_id: pulumi.Input[str],
+             is_global: Optional[pulumi.Input[Union[str, 'IsGlobal']]] = None,
+             use_hub_gateway: Optional[pulumi.Input[Union[str, 'UseHubGateway']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupConnectivity' in kwargs:
+            group_connectivity = kwargs['groupConnectivity']
+        if 'networkGroupId' in kwargs:
+            network_group_id = kwargs['networkGroupId']
+        if 'isGlobal' in kwargs:
+            is_global = kwargs['isGlobal']
+        if 'useHubGateway' in kwargs:
+            use_hub_gateway = kwargs['useHubGateway']
+
+        _setter("group_connectivity", group_connectivity)
+        _setter("network_group_id", network_group_id)
         if is_global is not None:
-            pulumi.set(__self__, "is_global", is_global)
+            _setter("is_global", is_global)
         if use_hub_gateway is not None:
-            pulumi.set(__self__, "use_hub_gateway", use_hub_gateway)
+            _setter("use_hub_gateway", use_hub_gateway)
 
     @property
     @pulumi.getter(name="groupConnectivity")
@@ -138,10 +180,27 @@ class HubArgs:
         :param pulumi.Input[str] resource_id: Resource Id.
         :param pulumi.Input[str] resource_type: Resource Type.
         """
+        HubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            resource_type=resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -178,10 +237,25 @@ class NetworkManagerPropertiesNetworkManagerScopesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] management_groups: List of management groups.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subscriptions: List of subscriptions.
         """
+        NetworkManagerPropertiesNetworkManagerScopesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_groups=management_groups,
+            subscriptions=subscriptions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementGroups' in kwargs:
+            management_groups = kwargs['managementGroups']
+
         if management_groups is not None:
-            pulumi.set(__self__, "management_groups", management_groups)
+            _setter("management_groups", management_groups)
         if subscriptions is not None:
-            pulumi.set(__self__, "subscriptions", subscriptions)
+            _setter("subscriptions", subscriptions)
 
     @property
     @pulumi.getter(name="managementGroups")
@@ -216,7 +290,20 @@ class NetworkManagerSecurityGroupItemArgs:
         Network manager security group item.
         :param pulumi.Input[str] network_group_id: Network manager group Id.
         """
-        pulumi.set(__self__, "network_group_id", network_group_id)
+        NetworkManagerSecurityGroupItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_group_id=network_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_group_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkGroupId' in kwargs:
+            network_group_id = kwargs['networkGroupId']
+
+        _setter("network_group_id", network_group_id)
 
     @property
     @pulumi.getter(name="networkGroupId")

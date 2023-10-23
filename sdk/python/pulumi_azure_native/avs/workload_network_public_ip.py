@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkloadNetworkPublicIPArgs', 'WorkloadNetworkPublicIP']
@@ -27,14 +27,43 @@ class WorkloadNetworkPublicIPArgs:
         :param pulumi.Input[float] number_of_public_ips: Number of Public IPs requested.
         :param pulumi.Input[str] public_ip_id: NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
         """
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkloadNetworkPublicIPArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            display_name=display_name,
+            number_of_public_ips=number_of_public_ips,
+            public_ip_id=public_ip_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_cloud_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             number_of_public_ips: Optional[pulumi.Input[float]] = None,
+             public_ip_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateCloudName' in kwargs:
+            private_cloud_name = kwargs['privateCloudName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'numberOfPublicIPs' in kwargs:
+            number_of_public_ips = kwargs['numberOfPublicIPs']
+        if 'publicIPId' in kwargs:
+            public_ip_id = kwargs['publicIPId']
+
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if number_of_public_ips is not None:
-            pulumi.set(__self__, "number_of_public_ips", number_of_public_ips)
+            _setter("number_of_public_ips", number_of_public_ips)
         if public_ip_id is not None:
-            pulumi.set(__self__, "public_ip_id", public_ip_id)
+            _setter("public_ip_id", public_ip_id)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -144,6 +173,10 @@ class WorkloadNetworkPublicIP(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkloadNetworkPublicIPArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

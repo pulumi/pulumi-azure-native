@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -29,10 +29,25 @@ class ArcConnectivityPropertiesArgs:
         :param pulumi.Input[bool] enabled: True indicates ARC connectivity is enabled
         :param pulumi.Input[Sequence[pulumi.Input['ServiceConfigurationArgs']]] service_configurations: Service configurations associated with the connectivity resource. They are only processed by the server if 'enabled' property is set to 'true'.
         """
+        ArcConnectivityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            service_configurations=service_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             service_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceConfigurationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceConfigurations' in kwargs:
+            service_configurations = kwargs['serviceConfigurations']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if service_configurations is not None:
-            pulumi.set(__self__, "service_configurations", service_configurations)
+            _setter("service_configurations", service_configurations)
 
     @property
     @pulumi.getter
@@ -69,10 +84,27 @@ class ClusterDesiredPropertiesArgs:
         :param pulumi.Input[Union[str, 'DiagnosticLevel']] diagnostic_level: Desired level of diagnostic data emitted by the cluster.
         :param pulumi.Input[Union[str, 'WindowsServerSubscription']] windows_server_subscription: Desired state of Windows Server Subscription.
         """
+        ClusterDesiredPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            diagnostic_level=diagnostic_level,
+            windows_server_subscription=windows_server_subscription,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             diagnostic_level: Optional[pulumi.Input[Union[str, 'DiagnosticLevel']]] = None,
+             windows_server_subscription: Optional[pulumi.Input[Union[str, 'WindowsServerSubscription']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diagnosticLevel' in kwargs:
+            diagnostic_level = kwargs['diagnosticLevel']
+        if 'windowsServerSubscription' in kwargs:
+            windows_server_subscription = kwargs['windowsServerSubscription']
+
         if diagnostic_level is not None:
-            pulumi.set(__self__, "diagnostic_level", diagnostic_level)
+            _setter("diagnostic_level", diagnostic_level)
         if windows_server_subscription is not None:
-            pulumi.set(__self__, "windows_server_subscription", windows_server_subscription)
+            _setter("windows_server_subscription", windows_server_subscription)
 
     @property
     @pulumi.getter(name="diagnosticLevel")
@@ -109,8 +141,23 @@ class ServiceConfigurationArgs:
         :param pulumi.Input[float] port: The port on which service is enabled.
         :param pulumi.Input[Union[str, 'ServiceName']] service_name: Name of the service.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "service_name", service_name)
+        ServiceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            service_name=service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: pulumi.Input[float],
+             service_name: pulumi.Input[Union[str, 'ServiceName']],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+
+        _setter("port", port)
+        _setter("service_name", service_name)
 
     @property
     @pulumi.getter
@@ -147,10 +194,27 @@ class SoftwareAssurancePropertiesArgs:
         :param pulumi.Input[Union[str, 'SoftwareAssuranceIntent']] software_assurance_intent: Customer Intent for Software Assurance Benefit.
         :param pulumi.Input[Union[str, 'SoftwareAssuranceStatus']] software_assurance_status: Status of the Software Assurance for the cluster.
         """
+        SoftwareAssurancePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            software_assurance_intent=software_assurance_intent,
+            software_assurance_status=software_assurance_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             software_assurance_intent: Optional[pulumi.Input[Union[str, 'SoftwareAssuranceIntent']]] = None,
+             software_assurance_status: Optional[pulumi.Input[Union[str, 'SoftwareAssuranceStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'softwareAssuranceIntent' in kwargs:
+            software_assurance_intent = kwargs['softwareAssuranceIntent']
+        if 'softwareAssuranceStatus' in kwargs:
+            software_assurance_status = kwargs['softwareAssuranceStatus']
+
         if software_assurance_intent is not None:
-            pulumi.set(__self__, "software_assurance_intent", software_assurance_intent)
+            _setter("software_assurance_intent", software_assurance_intent)
         if software_assurance_status is not None:
-            pulumi.set(__self__, "software_assurance_status", software_assurance_status)
+            _setter("software_assurance_status", software_assurance_status)
 
     @property
     @pulumi.getter(name="softwareAssuranceIntent")
@@ -199,22 +263,55 @@ class StepArgs:
         :param pulumi.Input[str] status: Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
         :param pulumi.Input[Sequence[pulumi.Input['StepArgs']]] steps: Recursive model for child steps of this step.
         """
+        StepArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            end_time_utc=end_time_utc,
+            error_message=error_message,
+            last_updated_time_utc=last_updated_time_utc,
+            name=name,
+            start_time_utc=start_time_utc,
+            status=status,
+            steps=steps,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             end_time_utc: Optional[pulumi.Input[str]] = None,
+             error_message: Optional[pulumi.Input[str]] = None,
+             last_updated_time_utc: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             start_time_utc: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             steps: Optional[pulumi.Input[Sequence[pulumi.Input['StepArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTimeUtc' in kwargs:
+            end_time_utc = kwargs['endTimeUtc']
+        if 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if 'lastUpdatedTimeUtc' in kwargs:
+            last_updated_time_utc = kwargs['lastUpdatedTimeUtc']
+        if 'startTimeUtc' in kwargs:
+            start_time_utc = kwargs['startTimeUtc']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if end_time_utc is not None:
-            pulumi.set(__self__, "end_time_utc", end_time_utc)
+            _setter("end_time_utc", end_time_utc)
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if last_updated_time_utc is not None:
-            pulumi.set(__self__, "last_updated_time_utc", last_updated_time_utc)
+            _setter("last_updated_time_utc", last_updated_time_utc)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if start_time_utc is not None:
-            pulumi.set(__self__, "start_time_utc", start_time_utc)
+            _setter("start_time_utc", start_time_utc)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if steps is not None:
-            pulumi.set(__self__, "steps", steps)
+            _setter("steps", steps)
 
     @property
     @pulumi.getter
@@ -325,12 +422,31 @@ class UpdatePrerequisiteArgs:
         :param pulumi.Input[str] update_type: Updatable component type.
         :param pulumi.Input[str] version: Version of the prerequisite.
         """
+        UpdatePrerequisiteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            package_name=package_name,
+            update_type=update_type,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             package_name: Optional[pulumi.Input[str]] = None,
+             update_type: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'packageName' in kwargs:
+            package_name = kwargs['packageName']
+        if 'updateType' in kwargs:
+            update_type = kwargs['updateType']
+
         if package_name is not None:
-            pulumi.set(__self__, "package_name", package_name)
+            _setter("package_name", package_name)
         if update_type is not None:
-            pulumi.set(__self__, "update_type", update_type)
+            _setter("update_type", update_type)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="packageName")

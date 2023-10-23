@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,20 +38,63 @@ class RuleArgs:
         :param pulumi.Input[str] rule_name: The rule name.
         :param pulumi.Input['SqlFilterArgs'] sql_filter: Properties of sqlFilter
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subscription_name", subscription_name)
-        pulumi.set(__self__, "topic_name", topic_name)
+        RuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            subscription_name=subscription_name,
+            topic_name=topic_name,
+            action=action,
+            correlation_filter=correlation_filter,
+            filter_type=filter_type,
+            rule_name=rule_name,
+            sql_filter=sql_filter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             subscription_name: pulumi.Input[str],
+             topic_name: pulumi.Input[str],
+             action: Optional[pulumi.Input['ActionArgs']] = None,
+             correlation_filter: Optional[pulumi.Input['CorrelationFilterArgs']] = None,
+             filter_type: Optional[pulumi.Input[Union[str, 'FilterType']]] = None,
+             rule_name: Optional[pulumi.Input[str]] = None,
+             sql_filter: Optional[pulumi.Input['SqlFilterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'subscriptionName' in kwargs:
+            subscription_name = kwargs['subscriptionName']
+        if 'topicName' in kwargs:
+            topic_name = kwargs['topicName']
+        if 'correlationFilter' in kwargs:
+            correlation_filter = kwargs['correlationFilter']
+        if 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if 'sqlFilter' in kwargs:
+            sql_filter = kwargs['sqlFilter']
+
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("subscription_name", subscription_name)
+        _setter("topic_name", topic_name)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if correlation_filter is not None:
-            pulumi.set(__self__, "correlation_filter", correlation_filter)
+            _setter("correlation_filter", correlation_filter)
         if filter_type is not None:
-            pulumi.set(__self__, "filter_type", filter_type)
+            _setter("filter_type", filter_type)
         if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
+            _setter("rule_name", rule_name)
         if sql_filter is not None:
-            pulumi.set(__self__, "sql_filter", sql_filter)
+            _setter("sql_filter", sql_filter)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -211,6 +254,10 @@ class Rule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -234,7 +281,17 @@ class Rule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RuleArgs.__new__(RuleArgs)
 
+            if action is not None and not isinstance(action, ActionArgs):
+                action = action or {}
+                def _setter(key, value):
+                    action[key] = value
+                ActionArgs._configure(_setter, **action)
             __props__.__dict__["action"] = action
+            if correlation_filter is not None and not isinstance(correlation_filter, CorrelationFilterArgs):
+                correlation_filter = correlation_filter or {}
+                def _setter(key, value):
+                    correlation_filter[key] = value
+                CorrelationFilterArgs._configure(_setter, **correlation_filter)
             __props__.__dict__["correlation_filter"] = correlation_filter
             __props__.__dict__["filter_type"] = filter_type
             if namespace_name is None and not opts.urn:
@@ -244,6 +301,11 @@ class Rule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rule_name"] = rule_name
+            if sql_filter is not None and not isinstance(sql_filter, SqlFilterArgs):
+                sql_filter = sql_filter or {}
+                def _setter(key, value):
+                    sql_filter[key] = value
+                SqlFilterArgs._configure(_setter, **sql_filter)
             __props__.__dict__["sql_filter"] = sql_filter
             if subscription_name is None and not opts.urn:
                 raise TypeError("Missing required property 'subscription_name'")

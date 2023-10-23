@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -75,10 +75,27 @@ class AccessControlArgs:
         :param pulumi.Input[Union[str, 'DefaultAction']] default_action: The behavior for IP access control in Key Delivery.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_allow_list: The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
         """
+        AccessControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            ip_allow_list=ip_allow_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: Optional[pulumi.Input[Union[str, 'DefaultAction']]] = None,
+             ip_allow_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipAllowList' in kwargs:
+            ip_allow_list = kwargs['ipAllowList']
+
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_allow_list is not None:
-            pulumi.set(__self__, "ip_allow_list", ip_allow_list)
+            _setter("ip_allow_list", ip_allow_list)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -116,11 +133,28 @@ class AccountEncryptionArgs:
         :param pulumi.Input['ResourceIdentityArgs'] identity: The Key Vault identity.
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: The properties of the key used to encrypt the account.
         """
-        pulumi.set(__self__, "type", type)
+        AccountEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity=identity,
+            key_vault_properties=key_vault_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'AccountEncryptionKeyType']],
+             identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+             key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultProperties' in kwargs:
+            key_vault_properties = kwargs['keyVaultProperties']
+
+        _setter("type", type)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
 
     @property
     @pulumi.getter
@@ -180,19 +214,56 @@ class AudioTrackArgs:
         :param pulumi.Input[str] language_code: The RFC5646 language code for the audio track.
         :param pulumi.Input[int] mpeg4_track_id: The MPEG-4 audio track ID for the audio track.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioTrack')
+        AudioTrackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            dash_settings=dash_settings,
+            display_name=display_name,
+            file_name=file_name,
+            hls_settings=hls_settings,
+            language_code=language_code,
+            mpeg4_track_id=mpeg4_track_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             dash_settings: Optional[pulumi.Input['DashSettingsArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             file_name: Optional[pulumi.Input[str]] = None,
+             hls_settings: Optional[pulumi.Input['HlsSettingsArgs']] = None,
+             language_code: Optional[pulumi.Input[str]] = None,
+             mpeg4_track_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if 'dashSettings' in kwargs:
+            dash_settings = kwargs['dashSettings']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'fileName' in kwargs:
+            file_name = kwargs['fileName']
+        if 'hlsSettings' in kwargs:
+            hls_settings = kwargs['hlsSettings']
+        if 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if 'mpeg4TrackId' in kwargs:
+            mpeg4_track_id = kwargs['mpeg4TrackId']
+
+        _setter("odata_type", '#Microsoft.Media.AudioTrack')
         if dash_settings is not None:
-            pulumi.set(__self__, "dash_settings", dash_settings)
+            _setter("dash_settings", dash_settings)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if file_name is not None:
-            pulumi.set(__self__, "file_name", file_name)
+            _setter("file_name", file_name)
         if hls_settings is not None:
-            pulumi.set(__self__, "hls_settings", hls_settings)
+            _setter("hls_settings", hls_settings)
         if language_code is not None:
-            pulumi.set(__self__, "language_code", language_code)
+            _setter("language_code", language_code)
         if mpeg4_track_id is not None:
-            pulumi.set(__self__, "mpeg4_track_id", mpeg4_track_id)
+            _setter("mpeg4_track_id", mpeg4_track_id)
 
     @property
     @pulumi.getter(name="odataType")
@@ -292,12 +363,31 @@ class CbcsDrmConfigurationArgs:
         :param pulumi.Input['StreamingPolicyPlayReadyConfigurationArgs'] play_ready: PlayReady configurations
         :param pulumi.Input['StreamingPolicyWidevineConfigurationArgs'] widevine: Widevine configurations
         """
+        CbcsDrmConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fair_play=fair_play,
+            play_ready=play_ready,
+            widevine=widevine,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fair_play: Optional[pulumi.Input['StreamingPolicyFairPlayConfigurationArgs']] = None,
+             play_ready: Optional[pulumi.Input['StreamingPolicyPlayReadyConfigurationArgs']] = None,
+             widevine: Optional[pulumi.Input['StreamingPolicyWidevineConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fairPlay' in kwargs:
+            fair_play = kwargs['fairPlay']
+        if 'playReady' in kwargs:
+            play_ready = kwargs['playReady']
+
         if fair_play is not None:
-            pulumi.set(__self__, "fair_play", fair_play)
+            _setter("fair_play", fair_play)
         if play_ready is not None:
-            pulumi.set(__self__, "play_ready", play_ready)
+            _setter("play_ready", play_ready)
         if widevine is not None:
-            pulumi.set(__self__, "widevine", widevine)
+            _setter("widevine", widevine)
 
     @property
     @pulumi.getter(name="fairPlay")
@@ -346,10 +436,25 @@ class CencDrmConfigurationArgs:
         :param pulumi.Input['StreamingPolicyPlayReadyConfigurationArgs'] play_ready: PlayReady configurations
         :param pulumi.Input['StreamingPolicyWidevineConfigurationArgs'] widevine: Widevine configurations
         """
+        CencDrmConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            play_ready=play_ready,
+            widevine=widevine,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             play_ready: Optional[pulumi.Input['StreamingPolicyPlayReadyConfigurationArgs']] = None,
+             widevine: Optional[pulumi.Input['StreamingPolicyWidevineConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'playReady' in kwargs:
+            play_ready = kwargs['playReady']
+
         if play_ready is not None:
-            pulumi.set(__self__, "play_ready", play_ready)
+            _setter("play_ready", play_ready)
         if widevine is not None:
-            pulumi.set(__self__, "widevine", widevine)
+            _setter("widevine", widevine)
 
     @property
     @pulumi.getter(name="playReady")
@@ -384,8 +489,21 @@ class ClearKeyEncryptionConfigurationArgs:
         Class to specify ClearKey configuration of common encryption schemes in Streaming Policy
         :param pulumi.Input[str] custom_keys_acquisition_url_template: Template for the URL of the custom service delivering content keys to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token value is {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId.
         """
+        ClearKeyEncryptionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_keys_acquisition_url_template=custom_keys_acquisition_url_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_keys_acquisition_url_template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customKeysAcquisitionUrlTemplate' in kwargs:
+            custom_keys_acquisition_url_template = kwargs['customKeysAcquisitionUrlTemplate']
+
         if custom_keys_acquisition_url_template is not None:
-            pulumi.set(__self__, "custom_keys_acquisition_url_template", custom_keys_acquisition_url_template)
+            _setter("custom_keys_acquisition_url_template", custom_keys_acquisition_url_template)
 
     @property
     @pulumi.getter(name="customKeysAcquisitionUrlTemplate")
@@ -416,16 +534,43 @@ class CommonEncryptionCbcsArgs:
         :param pulumi.Input['CbcsDrmConfigurationArgs'] drm: Configuration of DRMs for current encryption scheme
         :param pulumi.Input['EnabledProtocolsArgs'] enabled_protocols: Representing supported protocols
         """
+        CommonEncryptionCbcsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            clear_key_encryption_configuration=clear_key_encryption_configuration,
+            clear_tracks=clear_tracks,
+            content_keys=content_keys,
+            drm=drm,
+            enabled_protocols=enabled_protocols,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             clear_key_encryption_configuration: Optional[pulumi.Input['ClearKeyEncryptionConfigurationArgs']] = None,
+             clear_tracks: Optional[pulumi.Input[Sequence[pulumi.Input['TrackSelectionArgs']]]] = None,
+             content_keys: Optional[pulumi.Input['StreamingPolicyContentKeysArgs']] = None,
+             drm: Optional[pulumi.Input['CbcsDrmConfigurationArgs']] = None,
+             enabled_protocols: Optional[pulumi.Input['EnabledProtocolsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clearKeyEncryptionConfiguration' in kwargs:
+            clear_key_encryption_configuration = kwargs['clearKeyEncryptionConfiguration']
+        if 'clearTracks' in kwargs:
+            clear_tracks = kwargs['clearTracks']
+        if 'contentKeys' in kwargs:
+            content_keys = kwargs['contentKeys']
+        if 'enabledProtocols' in kwargs:
+            enabled_protocols = kwargs['enabledProtocols']
+
         if clear_key_encryption_configuration is not None:
-            pulumi.set(__self__, "clear_key_encryption_configuration", clear_key_encryption_configuration)
+            _setter("clear_key_encryption_configuration", clear_key_encryption_configuration)
         if clear_tracks is not None:
-            pulumi.set(__self__, "clear_tracks", clear_tracks)
+            _setter("clear_tracks", clear_tracks)
         if content_keys is not None:
-            pulumi.set(__self__, "content_keys", content_keys)
+            _setter("content_keys", content_keys)
         if drm is not None:
-            pulumi.set(__self__, "drm", drm)
+            _setter("drm", drm)
         if enabled_protocols is not None:
-            pulumi.set(__self__, "enabled_protocols", enabled_protocols)
+            _setter("enabled_protocols", enabled_protocols)
 
     @property
     @pulumi.getter(name="clearKeyEncryptionConfiguration")
@@ -504,16 +649,43 @@ class CommonEncryptionCencArgs:
         :param pulumi.Input['CencDrmConfigurationArgs'] drm: Configuration of DRMs for CommonEncryptionCenc encryption scheme
         :param pulumi.Input['EnabledProtocolsArgs'] enabled_protocols: Representing supported protocols
         """
+        CommonEncryptionCencArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            clear_key_encryption_configuration=clear_key_encryption_configuration,
+            clear_tracks=clear_tracks,
+            content_keys=content_keys,
+            drm=drm,
+            enabled_protocols=enabled_protocols,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             clear_key_encryption_configuration: Optional[pulumi.Input['ClearKeyEncryptionConfigurationArgs']] = None,
+             clear_tracks: Optional[pulumi.Input[Sequence[pulumi.Input['TrackSelectionArgs']]]] = None,
+             content_keys: Optional[pulumi.Input['StreamingPolicyContentKeysArgs']] = None,
+             drm: Optional[pulumi.Input['CencDrmConfigurationArgs']] = None,
+             enabled_protocols: Optional[pulumi.Input['EnabledProtocolsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clearKeyEncryptionConfiguration' in kwargs:
+            clear_key_encryption_configuration = kwargs['clearKeyEncryptionConfiguration']
+        if 'clearTracks' in kwargs:
+            clear_tracks = kwargs['clearTracks']
+        if 'contentKeys' in kwargs:
+            content_keys = kwargs['contentKeys']
+        if 'enabledProtocols' in kwargs:
+            enabled_protocols = kwargs['enabledProtocols']
+
         if clear_key_encryption_configuration is not None:
-            pulumi.set(__self__, "clear_key_encryption_configuration", clear_key_encryption_configuration)
+            _setter("clear_key_encryption_configuration", clear_key_encryption_configuration)
         if clear_tracks is not None:
-            pulumi.set(__self__, "clear_tracks", clear_tracks)
+            _setter("clear_tracks", clear_tracks)
         if content_keys is not None:
-            pulumi.set(__self__, "content_keys", content_keys)
+            _setter("content_keys", content_keys)
         if drm is not None:
-            pulumi.set(__self__, "drm", drm)
+            _setter("drm", drm)
         if enabled_protocols is not None:
-            pulumi.set(__self__, "enabled_protocols", enabled_protocols)
+            _setter("enabled_protocols", enabled_protocols)
 
     @property
     @pulumi.getter(name="clearKeyEncryptionConfiguration")
@@ -585,7 +757,20 @@ class ContentKeyPolicyClearKeyConfigurationArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration')
+        ContentKeyPolicyClearKeyConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration')
 
     @property
     @pulumi.getter(name="odataType")
@@ -622,14 +807,49 @@ class ContentKeyPolicyFairPlayConfigurationArgs:
         :param pulumi.Input[float] rental_duration: The rental duration. Must be greater than or equal to 0.
         :param pulumi.Input['ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs'] offline_rental_configuration: Offline rental policy
         """
-        pulumi.set(__self__, "ask", ask)
-        pulumi.set(__self__, "fair_play_pfx", fair_play_pfx)
-        pulumi.set(__self__, "fair_play_pfx_password", fair_play_pfx_password)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration')
-        pulumi.set(__self__, "rental_and_lease_key_type", rental_and_lease_key_type)
-        pulumi.set(__self__, "rental_duration", rental_duration)
+        ContentKeyPolicyFairPlayConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ask=ask,
+            fair_play_pfx=fair_play_pfx,
+            fair_play_pfx_password=fair_play_pfx_password,
+            odata_type=odata_type,
+            rental_and_lease_key_type=rental_and_lease_key_type,
+            rental_duration=rental_duration,
+            offline_rental_configuration=offline_rental_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ask: pulumi.Input[str],
+             fair_play_pfx: pulumi.Input[str],
+             fair_play_pfx_password: pulumi.Input[str],
+             odata_type: pulumi.Input[str],
+             rental_and_lease_key_type: pulumi.Input[Union[str, 'ContentKeyPolicyFairPlayRentalAndLeaseKeyType']],
+             rental_duration: pulumi.Input[float],
+             offline_rental_configuration: Optional[pulumi.Input['ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fairPlayPfx' in kwargs:
+            fair_play_pfx = kwargs['fairPlayPfx']
+        if 'fairPlayPfxPassword' in kwargs:
+            fair_play_pfx_password = kwargs['fairPlayPfxPassword']
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if 'rentalAndLeaseKeyType' in kwargs:
+            rental_and_lease_key_type = kwargs['rentalAndLeaseKeyType']
+        if 'rentalDuration' in kwargs:
+            rental_duration = kwargs['rentalDuration']
+        if 'offlineRentalConfiguration' in kwargs:
+            offline_rental_configuration = kwargs['offlineRentalConfiguration']
+
+        _setter("ask", ask)
+        _setter("fair_play_pfx", fair_play_pfx)
+        _setter("fair_play_pfx_password", fair_play_pfx_password)
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration')
+        _setter("rental_and_lease_key_type", rental_and_lease_key_type)
+        _setter("rental_duration", rental_duration)
         if offline_rental_configuration is not None:
-            pulumi.set(__self__, "offline_rental_configuration", offline_rental_configuration)
+            _setter("offline_rental_configuration", offline_rental_configuration)
 
     @property
     @pulumi.getter
@@ -726,8 +946,25 @@ class ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs:
         :param pulumi.Input[float] playback_duration_seconds: Playback duration
         :param pulumi.Input[float] storage_duration_seconds: Storage duration
         """
-        pulumi.set(__self__, "playback_duration_seconds", playback_duration_seconds)
-        pulumi.set(__self__, "storage_duration_seconds", storage_duration_seconds)
+        ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            playback_duration_seconds=playback_duration_seconds,
+            storage_duration_seconds=storage_duration_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             playback_duration_seconds: pulumi.Input[float],
+             storage_duration_seconds: pulumi.Input[float],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'playbackDurationSeconds' in kwargs:
+            playback_duration_seconds = kwargs['playbackDurationSeconds']
+        if 'storageDurationSeconds' in kwargs:
+            storage_duration_seconds = kwargs['storageDurationSeconds']
+
+        _setter("playback_duration_seconds", playback_duration_seconds)
+        _setter("storage_duration_seconds", storage_duration_seconds)
 
     @property
     @pulumi.getter(name="playbackDurationSeconds")
@@ -763,7 +1000,20 @@ class ContentKeyPolicyOpenRestrictionArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyOpenRestriction')
+        ContentKeyPolicyOpenRestrictionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyOpenRestriction')
 
     @property
     @pulumi.getter(name="odataType")
@@ -791,10 +1041,25 @@ class ContentKeyPolicyOptionArgs:
         :param pulumi.Input[Union['ContentKeyPolicyOpenRestrictionArgs', 'ContentKeyPolicyTokenRestrictionArgs', 'ContentKeyPolicyUnknownRestrictionArgs']] restriction: The requirements that must be met to deliver keys with this configuration
         :param pulumi.Input[str] name: The Policy Option description.
         """
-        pulumi.set(__self__, "configuration", configuration)
-        pulumi.set(__self__, "restriction", restriction)
+        ContentKeyPolicyOptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration=configuration,
+            restriction=restriction,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration: pulumi.Input[Union['ContentKeyPolicyClearKeyConfigurationArgs', 'ContentKeyPolicyFairPlayConfigurationArgs', 'ContentKeyPolicyPlayReadyConfigurationArgs', 'ContentKeyPolicyUnknownConfigurationArgs', 'ContentKeyPolicyWidevineConfigurationArgs']],
+             restriction: pulumi.Input[Union['ContentKeyPolicyOpenRestrictionArgs', 'ContentKeyPolicyTokenRestrictionArgs', 'ContentKeyPolicyUnknownRestrictionArgs']],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("configuration", configuration)
+        _setter("restriction", restriction)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -846,10 +1111,29 @@ class ContentKeyPolicyPlayReadyConfigurationArgs:
                Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
         :param pulumi.Input[str] response_custom_data: The custom response data.
         """
-        pulumi.set(__self__, "licenses", licenses)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration')
+        ContentKeyPolicyPlayReadyConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            licenses=licenses,
+            odata_type=odata_type,
+            response_custom_data=response_custom_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             licenses: pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPlayReadyLicenseArgs']]],
+             odata_type: pulumi.Input[str],
+             response_custom_data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if 'responseCustomData' in kwargs:
+            response_custom_data = kwargs['responseCustomData']
+
+        _setter("licenses", licenses)
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration')
         if response_custom_data is not None:
-            pulumi.set(__self__, "response_custom_data", response_custom_data)
+            _setter("response_custom_data", response_custom_data)
 
     @property
     @pulumi.getter
@@ -898,7 +1182,20 @@ class ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader')
+        ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader')
 
     @property
     @pulumi.getter(name="odataType")
@@ -925,8 +1222,25 @@ class ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
         """
-        pulumi.set(__self__, "key_id", key_id)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier')
+        ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_id=key_id,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_id: pulumi.Input[str],
+             odata_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+
+        _setter("key_id", key_id)
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier')
 
     @property
     @pulumi.getter(name="keyId")
@@ -964,8 +1278,25 @@ class ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgs:
         :param pulumi.Input[bool] best_effort: Indicates whether this restriction is enforced on a Best Effort basis.
         :param pulumi.Input[int] configuration_data: Configures the restriction control bits. Must be between 0 and 3 inclusive.
         """
-        pulumi.set(__self__, "best_effort", best_effort)
-        pulumi.set(__self__, "configuration_data", configuration_data)
+        ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            best_effort=best_effort,
+            configuration_data=configuration_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             best_effort: pulumi.Input[bool],
+             configuration_data: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bestEffort' in kwargs:
+            best_effort = kwargs['bestEffort']
+        if 'configurationData' in kwargs:
+            configuration_data = kwargs['configurationData']
+
+        _setter("best_effort", best_effort)
+        _setter("configuration_data", configuration_data)
 
     @property
     @pulumi.getter(name="bestEffort")
@@ -1020,24 +1351,77 @@ class ContentKeyPolicyPlayReadyLicenseArgs:
         :param pulumi.Input[str] relative_expiration_date: The relative expiration date of license.
         :param pulumi.Input[Union[str, 'SecurityLevel']] security_level: The security level.
         """
-        pulumi.set(__self__, "allow_test_devices", allow_test_devices)
-        pulumi.set(__self__, "content_key_location", content_key_location)
-        pulumi.set(__self__, "content_type", content_type)
-        pulumi.set(__self__, "license_type", license_type)
+        ContentKeyPolicyPlayReadyLicenseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_test_devices=allow_test_devices,
+            content_key_location=content_key_location,
+            content_type=content_type,
+            license_type=license_type,
+            begin_date=begin_date,
+            expiration_date=expiration_date,
+            grace_period=grace_period,
+            play_right=play_right,
+            relative_begin_date=relative_begin_date,
+            relative_expiration_date=relative_expiration_date,
+            security_level=security_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_test_devices: pulumi.Input[bool],
+             content_key_location: pulumi.Input[Union['ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgs', 'ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgs']],
+             content_type: pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyContentType']],
+             license_type: pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyLicenseType']],
+             begin_date: Optional[pulumi.Input[str]] = None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             grace_period: Optional[pulumi.Input[str]] = None,
+             play_right: Optional[pulumi.Input['ContentKeyPolicyPlayReadyPlayRightArgs']] = None,
+             relative_begin_date: Optional[pulumi.Input[str]] = None,
+             relative_expiration_date: Optional[pulumi.Input[str]] = None,
+             security_level: Optional[pulumi.Input[Union[str, 'SecurityLevel']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowTestDevices' in kwargs:
+            allow_test_devices = kwargs['allowTestDevices']
+        if 'contentKeyLocation' in kwargs:
+            content_key_location = kwargs['contentKeyLocation']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'beginDate' in kwargs:
+            begin_date = kwargs['beginDate']
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'gracePeriod' in kwargs:
+            grace_period = kwargs['gracePeriod']
+        if 'playRight' in kwargs:
+            play_right = kwargs['playRight']
+        if 'relativeBeginDate' in kwargs:
+            relative_begin_date = kwargs['relativeBeginDate']
+        if 'relativeExpirationDate' in kwargs:
+            relative_expiration_date = kwargs['relativeExpirationDate']
+        if 'securityLevel' in kwargs:
+            security_level = kwargs['securityLevel']
+
+        _setter("allow_test_devices", allow_test_devices)
+        _setter("content_key_location", content_key_location)
+        _setter("content_type", content_type)
+        _setter("license_type", license_type)
         if begin_date is not None:
-            pulumi.set(__self__, "begin_date", begin_date)
+            _setter("begin_date", begin_date)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if grace_period is not None:
-            pulumi.set(__self__, "grace_period", grace_period)
+            _setter("grace_period", grace_period)
         if play_right is not None:
-            pulumi.set(__self__, "play_right", play_right)
+            _setter("play_right", play_right)
         if relative_begin_date is not None:
-            pulumi.set(__self__, "relative_begin_date", relative_begin_date)
+            _setter("relative_begin_date", relative_begin_date)
         if relative_expiration_date is not None:
-            pulumi.set(__self__, "relative_expiration_date", relative_expiration_date)
+            _setter("relative_expiration_date", relative_expiration_date)
         if security_level is not None:
-            pulumi.set(__self__, "security_level", security_level)
+            _setter("security_level", security_level)
 
     @property
     @pulumi.getter(name="allowTestDevices")
@@ -1204,28 +1588,89 @@ class ContentKeyPolicyPlayReadyPlayRightArgs:
         :param pulumi.Input[int] uncompressed_digital_audio_opl: Specifies the output protection level for uncompressed digital audio.
         :param pulumi.Input[int] uncompressed_digital_video_opl: Specifies the output protection level for uncompressed digital video.
         """
-        pulumi.set(__self__, "allow_passing_video_content_to_unknown_output", allow_passing_video_content_to_unknown_output)
-        pulumi.set(__self__, "digital_video_only_content_restriction", digital_video_only_content_restriction)
-        pulumi.set(__self__, "image_constraint_for_analog_component_video_restriction", image_constraint_for_analog_component_video_restriction)
-        pulumi.set(__self__, "image_constraint_for_analog_computer_monitor_restriction", image_constraint_for_analog_computer_monitor_restriction)
+        ContentKeyPolicyPlayReadyPlayRightArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_passing_video_content_to_unknown_output=allow_passing_video_content_to_unknown_output,
+            digital_video_only_content_restriction=digital_video_only_content_restriction,
+            image_constraint_for_analog_component_video_restriction=image_constraint_for_analog_component_video_restriction,
+            image_constraint_for_analog_computer_monitor_restriction=image_constraint_for_analog_computer_monitor_restriction,
+            agc_and_color_stripe_restriction=agc_and_color_stripe_restriction,
+            analog_video_opl=analog_video_opl,
+            compressed_digital_audio_opl=compressed_digital_audio_opl,
+            compressed_digital_video_opl=compressed_digital_video_opl,
+            explicit_analog_television_output_restriction=explicit_analog_television_output_restriction,
+            first_play_expiration=first_play_expiration,
+            scms_restriction=scms_restriction,
+            uncompressed_digital_audio_opl=uncompressed_digital_audio_opl,
+            uncompressed_digital_video_opl=uncompressed_digital_video_opl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_passing_video_content_to_unknown_output: pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyUnknownOutputPassingOption']],
+             digital_video_only_content_restriction: pulumi.Input[bool],
+             image_constraint_for_analog_component_video_restriction: pulumi.Input[bool],
+             image_constraint_for_analog_computer_monitor_restriction: pulumi.Input[bool],
+             agc_and_color_stripe_restriction: Optional[pulumi.Input[int]] = None,
+             analog_video_opl: Optional[pulumi.Input[int]] = None,
+             compressed_digital_audio_opl: Optional[pulumi.Input[int]] = None,
+             compressed_digital_video_opl: Optional[pulumi.Input[int]] = None,
+             explicit_analog_television_output_restriction: Optional[pulumi.Input['ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgs']] = None,
+             first_play_expiration: Optional[pulumi.Input[str]] = None,
+             scms_restriction: Optional[pulumi.Input[int]] = None,
+             uncompressed_digital_audio_opl: Optional[pulumi.Input[int]] = None,
+             uncompressed_digital_video_opl: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowPassingVideoContentToUnknownOutput' in kwargs:
+            allow_passing_video_content_to_unknown_output = kwargs['allowPassingVideoContentToUnknownOutput']
+        if 'digitalVideoOnlyContentRestriction' in kwargs:
+            digital_video_only_content_restriction = kwargs['digitalVideoOnlyContentRestriction']
+        if 'imageConstraintForAnalogComponentVideoRestriction' in kwargs:
+            image_constraint_for_analog_component_video_restriction = kwargs['imageConstraintForAnalogComponentVideoRestriction']
+        if 'imageConstraintForAnalogComputerMonitorRestriction' in kwargs:
+            image_constraint_for_analog_computer_monitor_restriction = kwargs['imageConstraintForAnalogComputerMonitorRestriction']
+        if 'agcAndColorStripeRestriction' in kwargs:
+            agc_and_color_stripe_restriction = kwargs['agcAndColorStripeRestriction']
+        if 'analogVideoOpl' in kwargs:
+            analog_video_opl = kwargs['analogVideoOpl']
+        if 'compressedDigitalAudioOpl' in kwargs:
+            compressed_digital_audio_opl = kwargs['compressedDigitalAudioOpl']
+        if 'compressedDigitalVideoOpl' in kwargs:
+            compressed_digital_video_opl = kwargs['compressedDigitalVideoOpl']
+        if 'explicitAnalogTelevisionOutputRestriction' in kwargs:
+            explicit_analog_television_output_restriction = kwargs['explicitAnalogTelevisionOutputRestriction']
+        if 'firstPlayExpiration' in kwargs:
+            first_play_expiration = kwargs['firstPlayExpiration']
+        if 'scmsRestriction' in kwargs:
+            scms_restriction = kwargs['scmsRestriction']
+        if 'uncompressedDigitalAudioOpl' in kwargs:
+            uncompressed_digital_audio_opl = kwargs['uncompressedDigitalAudioOpl']
+        if 'uncompressedDigitalVideoOpl' in kwargs:
+            uncompressed_digital_video_opl = kwargs['uncompressedDigitalVideoOpl']
+
+        _setter("allow_passing_video_content_to_unknown_output", allow_passing_video_content_to_unknown_output)
+        _setter("digital_video_only_content_restriction", digital_video_only_content_restriction)
+        _setter("image_constraint_for_analog_component_video_restriction", image_constraint_for_analog_component_video_restriction)
+        _setter("image_constraint_for_analog_computer_monitor_restriction", image_constraint_for_analog_computer_monitor_restriction)
         if agc_and_color_stripe_restriction is not None:
-            pulumi.set(__self__, "agc_and_color_stripe_restriction", agc_and_color_stripe_restriction)
+            _setter("agc_and_color_stripe_restriction", agc_and_color_stripe_restriction)
         if analog_video_opl is not None:
-            pulumi.set(__self__, "analog_video_opl", analog_video_opl)
+            _setter("analog_video_opl", analog_video_opl)
         if compressed_digital_audio_opl is not None:
-            pulumi.set(__self__, "compressed_digital_audio_opl", compressed_digital_audio_opl)
+            _setter("compressed_digital_audio_opl", compressed_digital_audio_opl)
         if compressed_digital_video_opl is not None:
-            pulumi.set(__self__, "compressed_digital_video_opl", compressed_digital_video_opl)
+            _setter("compressed_digital_video_opl", compressed_digital_video_opl)
         if explicit_analog_television_output_restriction is not None:
-            pulumi.set(__self__, "explicit_analog_television_output_restriction", explicit_analog_television_output_restriction)
+            _setter("explicit_analog_television_output_restriction", explicit_analog_television_output_restriction)
         if first_play_expiration is not None:
-            pulumi.set(__self__, "first_play_expiration", first_play_expiration)
+            _setter("first_play_expiration", first_play_expiration)
         if scms_restriction is not None:
-            pulumi.set(__self__, "scms_restriction", scms_restriction)
+            _setter("scms_restriction", scms_restriction)
         if uncompressed_digital_audio_opl is not None:
-            pulumi.set(__self__, "uncompressed_digital_audio_opl", uncompressed_digital_audio_opl)
+            _setter("uncompressed_digital_audio_opl", uncompressed_digital_audio_opl)
         if uncompressed_digital_video_opl is not None:
-            pulumi.set(__self__, "uncompressed_digital_video_opl", uncompressed_digital_video_opl)
+            _setter("uncompressed_digital_video_opl", uncompressed_digital_video_opl)
 
     @property
     @pulumi.getter(name="allowPassingVideoContentToUnknownOutput")
@@ -1397,9 +1842,26 @@ class ContentKeyPolicyRsaTokenKeyArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
         """
-        pulumi.set(__self__, "exponent", exponent)
-        pulumi.set(__self__, "modulus", modulus)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyRsaTokenKey')
+        ContentKeyPolicyRsaTokenKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exponent=exponent,
+            modulus=modulus,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exponent: pulumi.Input[str],
+             modulus: pulumi.Input[str],
+             odata_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+
+        _setter("exponent", exponent)
+        _setter("modulus", modulus)
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyRsaTokenKey')
 
     @property
     @pulumi.getter
@@ -1450,8 +1912,25 @@ class ContentKeyPolicySymmetricTokenKeyArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
         """
-        pulumi.set(__self__, "key_value", key_value)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey')
+        ContentKeyPolicySymmetricTokenKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_value=key_value,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_value: pulumi.Input[str],
+             odata_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyValue' in kwargs:
+            key_value = kwargs['keyValue']
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+
+        _setter("key_value", key_value)
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey')
 
     @property
     @pulumi.getter(name="keyValue")
@@ -1489,10 +1968,27 @@ class ContentKeyPolicyTokenClaimArgs:
         :param pulumi.Input[str] claim_type: Token claim type.
         :param pulumi.Input[str] claim_value: Token claim value.
         """
+        ContentKeyPolicyTokenClaimArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            claim_type=claim_type,
+            claim_value=claim_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             claim_type: Optional[pulumi.Input[str]] = None,
+             claim_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'claimType' in kwargs:
+            claim_type = kwargs['claimType']
+        if 'claimValue' in kwargs:
+            claim_value = kwargs['claimValue']
+
         if claim_type is not None:
-            pulumi.set(__self__, "claim_type", claim_type)
+            _setter("claim_type", claim_type)
         if claim_value is not None:
-            pulumi.set(__self__, "claim_value", claim_value)
+            _setter("claim_value", claim_value)
 
     @property
     @pulumi.getter(name="claimType")
@@ -1542,17 +2038,54 @@ class ContentKeyPolicyTokenRestrictionArgs:
         :param pulumi.Input[str] open_id_connect_discovery_document: The OpenID connect discovery document.
         :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyTokenClaimArgs']]] required_claims: A list of required token claims.
         """
-        pulumi.set(__self__, "audience", audience)
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyTokenRestriction')
-        pulumi.set(__self__, "primary_verification_key", primary_verification_key)
-        pulumi.set(__self__, "restriction_token_type", restriction_token_type)
+        ContentKeyPolicyTokenRestrictionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audience=audience,
+            issuer=issuer,
+            odata_type=odata_type,
+            primary_verification_key=primary_verification_key,
+            restriction_token_type=restriction_token_type,
+            alternate_verification_keys=alternate_verification_keys,
+            open_id_connect_discovery_document=open_id_connect_discovery_document,
+            required_claims=required_claims,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audience: pulumi.Input[str],
+             issuer: pulumi.Input[str],
+             odata_type: pulumi.Input[str],
+             primary_verification_key: pulumi.Input[Union['ContentKeyPolicyRsaTokenKeyArgs', 'ContentKeyPolicySymmetricTokenKeyArgs', 'ContentKeyPolicyX509CertificateTokenKeyArgs']],
+             restriction_token_type: pulumi.Input[Union[str, 'ContentKeyPolicyRestrictionTokenType']],
+             alternate_verification_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContentKeyPolicyRsaTokenKeyArgs', 'ContentKeyPolicySymmetricTokenKeyArgs', 'ContentKeyPolicyX509CertificateTokenKeyArgs']]]]] = None,
+             open_id_connect_discovery_document: Optional[pulumi.Input[str]] = None,
+             required_claims: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyTokenClaimArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if 'primaryVerificationKey' in kwargs:
+            primary_verification_key = kwargs['primaryVerificationKey']
+        if 'restrictionTokenType' in kwargs:
+            restriction_token_type = kwargs['restrictionTokenType']
+        if 'alternateVerificationKeys' in kwargs:
+            alternate_verification_keys = kwargs['alternateVerificationKeys']
+        if 'openIdConnectDiscoveryDocument' in kwargs:
+            open_id_connect_discovery_document = kwargs['openIdConnectDiscoveryDocument']
+        if 'requiredClaims' in kwargs:
+            required_claims = kwargs['requiredClaims']
+
+        _setter("audience", audience)
+        _setter("issuer", issuer)
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyTokenRestriction')
+        _setter("primary_verification_key", primary_verification_key)
+        _setter("restriction_token_type", restriction_token_type)
         if alternate_verification_keys is not None:
-            pulumi.set(__self__, "alternate_verification_keys", alternate_verification_keys)
+            _setter("alternate_verification_keys", alternate_verification_keys)
         if open_id_connect_discovery_document is not None:
-            pulumi.set(__self__, "open_id_connect_discovery_document", open_id_connect_discovery_document)
+            _setter("open_id_connect_discovery_document", open_id_connect_discovery_document)
         if required_claims is not None:
-            pulumi.set(__self__, "required_claims", required_claims)
+            _setter("required_claims", required_claims)
 
     @property
     @pulumi.getter
@@ -1661,7 +2194,20 @@ class ContentKeyPolicyUnknownConfigurationArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration')
+        ContentKeyPolicyUnknownConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration')
 
     @property
     @pulumi.getter(name="odataType")
@@ -1686,7 +2232,20 @@ class ContentKeyPolicyUnknownRestrictionArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyUnknownRestriction')
+        ContentKeyPolicyUnknownRestrictionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyUnknownRestriction')
 
     @property
     @pulumi.getter(name="odataType")
@@ -1713,8 +2272,25 @@ class ContentKeyPolicyWidevineConfigurationArgs:
                Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
         :param pulumi.Input[str] widevine_template: The Widevine template.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration')
-        pulumi.set(__self__, "widevine_template", widevine_template)
+        ContentKeyPolicyWidevineConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            widevine_template=widevine_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             widevine_template: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if 'widevineTemplate' in kwargs:
+            widevine_template = kwargs['widevineTemplate']
+
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration')
+        _setter("widevine_template", widevine_template)
 
     @property
     @pulumi.getter(name="odataType")
@@ -1753,8 +2329,25 @@ class ContentKeyPolicyX509CertificateTokenKeyArgs:
                Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
         :param pulumi.Input[str] raw_body: The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey')
-        pulumi.set(__self__, "raw_body", raw_body)
+        ContentKeyPolicyX509CertificateTokenKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            raw_body=raw_body,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             raw_body: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if 'rawBody' in kwargs:
+            raw_body = kwargs['rawBody']
+
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey')
+        _setter("raw_body", raw_body)
 
     @property
     @pulumi.getter(name="odataType")
@@ -1790,8 +2383,19 @@ class DashSettingsArgs:
         The DASH setting for a track.
         :param pulumi.Input[str] role: The role for the DASH setting.
         """
+        DashSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter
@@ -1816,10 +2420,25 @@ class DefaultKeyArgs:
         :param pulumi.Input[str] label: Label can be used to specify Content Key when creating a Streaming Locator
         :param pulumi.Input[str] policy_name: Policy used by Default Key
         """
+        DefaultKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            policy_name=policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: Optional[pulumi.Input[str]] = None,
+             policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+            _setter("policy_name", policy_name)
 
     @property
     @pulumi.getter
@@ -1860,10 +2479,29 @@ class EnabledProtocolsArgs:
         :param pulumi.Input[bool] hls: Enable HLS protocol or not
         :param pulumi.Input[bool] smooth_streaming: Enable SmoothStreaming protocol or not
         """
-        pulumi.set(__self__, "dash", dash)
-        pulumi.set(__self__, "download", download)
-        pulumi.set(__self__, "hls", hls)
-        pulumi.set(__self__, "smooth_streaming", smooth_streaming)
+        EnabledProtocolsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dash=dash,
+            download=download,
+            hls=hls,
+            smooth_streaming=smooth_streaming,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dash: pulumi.Input[bool],
+             download: pulumi.Input[bool],
+             hls: pulumi.Input[bool],
+             smooth_streaming: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'smoothStreaming' in kwargs:
+            smooth_streaming = kwargs['smoothStreaming']
+
+        _setter("dash", dash)
+        _setter("download", download)
+        _setter("hls", hls)
+        _setter("smooth_streaming", smooth_streaming)
 
     @property
     @pulumi.getter
@@ -1928,14 +2566,39 @@ class EnvelopeEncryptionArgs:
         :param pulumi.Input[str] custom_key_acquisition_url_template: Template for the URL of the custom service delivering keys to end user players.  Not required when using Azure Media Services for issuing keys.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
         :param pulumi.Input['EnabledProtocolsArgs'] enabled_protocols: Representing supported protocols
         """
+        EnvelopeEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            clear_tracks=clear_tracks,
+            content_keys=content_keys,
+            custom_key_acquisition_url_template=custom_key_acquisition_url_template,
+            enabled_protocols=enabled_protocols,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             clear_tracks: Optional[pulumi.Input[Sequence[pulumi.Input['TrackSelectionArgs']]]] = None,
+             content_keys: Optional[pulumi.Input['StreamingPolicyContentKeysArgs']] = None,
+             custom_key_acquisition_url_template: Optional[pulumi.Input[str]] = None,
+             enabled_protocols: Optional[pulumi.Input['EnabledProtocolsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clearTracks' in kwargs:
+            clear_tracks = kwargs['clearTracks']
+        if 'contentKeys' in kwargs:
+            content_keys = kwargs['contentKeys']
+        if 'customKeyAcquisitionUrlTemplate' in kwargs:
+            custom_key_acquisition_url_template = kwargs['customKeyAcquisitionUrlTemplate']
+        if 'enabledProtocols' in kwargs:
+            enabled_protocols = kwargs['enabledProtocols']
+
         if clear_tracks is not None:
-            pulumi.set(__self__, "clear_tracks", clear_tracks)
+            _setter("clear_tracks", clear_tracks)
         if content_keys is not None:
-            pulumi.set(__self__, "content_keys", content_keys)
+            _setter("content_keys", content_keys)
         if custom_key_acquisition_url_template is not None:
-            pulumi.set(__self__, "custom_key_acquisition_url_template", custom_key_acquisition_url_template)
+            _setter("custom_key_acquisition_url_template", custom_key_acquisition_url_template)
         if enabled_protocols is not None:
-            pulumi.set(__self__, "enabled_protocols", enabled_protocols)
+            _setter("enabled_protocols", enabled_protocols)
 
     @property
     @pulumi.getter(name="clearTracks")
@@ -1998,9 +2661,24 @@ class FilterTrackPropertyConditionArgs:
         :param pulumi.Input[Union[str, 'FilterTrackPropertyType']] property: The track property type.
         :param pulumi.Input[str] value: The track property value.
         """
-        pulumi.set(__self__, "operation", operation)
-        pulumi.set(__self__, "property", property)
-        pulumi.set(__self__, "value", value)
+        FilterTrackPropertyConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation=operation,
+            property=property,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation: pulumi.Input[Union[str, 'FilterTrackPropertyCompareOperation']],
+             property: pulumi.Input[Union[str, 'FilterTrackPropertyType']],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("operation", operation)
+        _setter("property", property)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2047,7 +2725,20 @@ class FilterTrackSelectionArgs:
         Representing a list of FilterTrackPropertyConditions to select a track.  The filters are combined using a logical AND operation.
         :param pulumi.Input[Sequence[pulumi.Input['FilterTrackPropertyConditionArgs']]] track_selections: The track selections.
         """
-        pulumi.set(__self__, "track_selections", track_selections)
+        FilterTrackSelectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            track_selections=track_selections,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             track_selections: pulumi.Input[Sequence[pulumi.Input['FilterTrackPropertyConditionArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'trackSelections' in kwargs:
+            track_selections = kwargs['trackSelections']
+
+        _setter("track_selections", track_selections)
 
     @property
     @pulumi.getter(name="trackSelections")
@@ -2070,7 +2761,18 @@ class FirstQualityArgs:
         Filter First Quality
         :param pulumi.Input[int] bitrate: The first quality bitrate.
         """
-        pulumi.set(__self__, "bitrate", bitrate)
+        FirstQualityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bitrate=bitrate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bitrate: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("bitrate", bitrate)
 
     @property
     @pulumi.getter
@@ -2097,12 +2799,27 @@ class HlsSettingsArgs:
         :param pulumi.Input[bool] default: The default for the HLS setting.
         :param pulumi.Input[bool] forced: The forced for the HLS setting.
         """
+        HlsSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            characteristics=characteristics,
+            default=default,
+            forced=forced,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             characteristics: Optional[pulumi.Input[str]] = None,
+             default: Optional[pulumi.Input[bool]] = None,
+             forced: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if characteristics is not None:
-            pulumi.set(__self__, "characteristics", characteristics)
+            _setter("characteristics", characteristics)
         if default is not None:
-            pulumi.set(__self__, "default", default)
+            _setter("default", default)
         if forced is not None:
-            pulumi.set(__self__, "forced", forced)
+            _setter("forced", forced)
 
     @property
     @pulumi.getter
@@ -2148,8 +2865,21 @@ class KeyDeliveryArgs:
         """
         :param pulumi.Input['AccessControlArgs'] access_control: The access control properties for Key Delivery.
         """
+        KeyDeliveryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_control=access_control,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_control: Optional[pulumi.Input['AccessControlArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessControl' in kwargs:
+            access_control = kwargs['accessControl']
+
         if access_control is not None:
-            pulumi.set(__self__, "access_control", access_control)
+            _setter("access_control", access_control)
 
     @property
     @pulumi.getter(name="accessControl")
@@ -2171,8 +2901,21 @@ class KeyVaultPropertiesArgs:
         """
         :param pulumi.Input[str] key_identifier: The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
         """
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_identifier=key_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyIdentifier' in kwargs:
+            key_identifier = kwargs['keyIdentifier']
+
         if key_identifier is not None:
-            pulumi.set(__self__, "key_identifier", key_identifier)
+            _setter("key_identifier", key_identifier)
 
     @property
     @pulumi.getter(name="keyIdentifier")
@@ -2196,9 +2939,24 @@ class MediaServiceIdentityArgs:
         :param pulumi.Input[str] type: The identity type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The user assigned managed identities.
         """
-        pulumi.set(__self__, "type", type)
+        MediaServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -2233,8 +2991,21 @@ class NoEncryptionArgs:
         Class for NoEncryption scheme
         :param pulumi.Input['EnabledProtocolsArgs'] enabled_protocols: Representing supported protocols
         """
+        NoEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled_protocols=enabled_protocols,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled_protocols: Optional[pulumi.Input['EnabledProtocolsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enabledProtocols' in kwargs:
+            enabled_protocols = kwargs['enabledProtocols']
+
         if enabled_protocols is not None:
-            pulumi.set(__self__, "enabled_protocols", enabled_protocols)
+            _setter("enabled_protocols", enabled_protocols)
 
     @property
     @pulumi.getter(name="enabledProtocols")
@@ -2267,18 +3038,49 @@ class PresentationTimeRangeArgs:
         :param pulumi.Input[float] start_timestamp: The absolute start time boundary.
         :param pulumi.Input[float] timescale: The time scale of time stamps.
         """
+        PresentationTimeRangeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_timestamp=end_timestamp,
+            force_end_timestamp=force_end_timestamp,
+            live_backoff_duration=live_backoff_duration,
+            presentation_window_duration=presentation_window_duration,
+            start_timestamp=start_timestamp,
+            timescale=timescale,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_timestamp: Optional[pulumi.Input[float]] = None,
+             force_end_timestamp: Optional[pulumi.Input[bool]] = None,
+             live_backoff_duration: Optional[pulumi.Input[float]] = None,
+             presentation_window_duration: Optional[pulumi.Input[float]] = None,
+             start_timestamp: Optional[pulumi.Input[float]] = None,
+             timescale: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTimestamp' in kwargs:
+            end_timestamp = kwargs['endTimestamp']
+        if 'forceEndTimestamp' in kwargs:
+            force_end_timestamp = kwargs['forceEndTimestamp']
+        if 'liveBackoffDuration' in kwargs:
+            live_backoff_duration = kwargs['liveBackoffDuration']
+        if 'presentationWindowDuration' in kwargs:
+            presentation_window_duration = kwargs['presentationWindowDuration']
+        if 'startTimestamp' in kwargs:
+            start_timestamp = kwargs['startTimestamp']
+
         if end_timestamp is not None:
-            pulumi.set(__self__, "end_timestamp", end_timestamp)
+            _setter("end_timestamp", end_timestamp)
         if force_end_timestamp is not None:
-            pulumi.set(__self__, "force_end_timestamp", force_end_timestamp)
+            _setter("force_end_timestamp", force_end_timestamp)
         if live_backoff_duration is not None:
-            pulumi.set(__self__, "live_backoff_duration", live_backoff_duration)
+            _setter("live_backoff_duration", live_backoff_duration)
         if presentation_window_duration is not None:
-            pulumi.set(__self__, "presentation_window_duration", presentation_window_duration)
+            _setter("presentation_window_duration", presentation_window_duration)
         if start_timestamp is not None:
-            pulumi.set(__self__, "start_timestamp", start_timestamp)
+            _setter("start_timestamp", start_timestamp)
         if timescale is not None:
-            pulumi.set(__self__, "timescale", timescale)
+            _setter("timescale", timescale)
 
     @property
     @pulumi.getter(name="endTimestamp")
@@ -2365,12 +3167,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -2418,9 +3237,26 @@ class ResourceIdentityArgs:
         :param pulumi.Input[bool] use_system_assigned_identity: Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
         :param pulumi.Input[str] user_assigned_identity: The user assigned managed identity's ARM ID to use when accessing a resource.
         """
-        pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+        ResourceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            use_system_assigned_identity=use_system_assigned_identity,
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             use_system_assigned_identity: pulumi.Input[bool],
+             user_assigned_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'useSystemAssignedIdentity' in kwargs:
+            use_system_assigned_identity = kwargs['useSystemAssignedIdentity']
+        if 'userAssignedIdentity' in kwargs:
+            user_assigned_identity = kwargs['userAssignedIdentity']
+
+        _setter("use_system_assigned_identity", use_system_assigned_identity)
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="useSystemAssignedIdentity")
@@ -2459,11 +3295,26 @@ class StorageAccountArgs:
         :param pulumi.Input[str] id: The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
         :param pulumi.Input['ResourceIdentityArgs'] identity: The storage account identity.
         """
-        pulumi.set(__self__, "type", type)
+        StorageAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            id=id,
+            identity=identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'StorageAccountType']],
+             id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
 
     @property
     @pulumi.getter
@@ -2514,11 +3365,28 @@ class StreamingLocatorContentKeyArgs:
         :param pulumi.Input[str] label_reference_in_streaming_policy: Label of Content Key as specified in the Streaming Policy
         :param pulumi.Input[str] value: Value of Content Key
         """
-        pulumi.set(__self__, "id", id)
+        StreamingLocatorContentKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            label_reference_in_streaming_policy=label_reference_in_streaming_policy,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             label_reference_in_streaming_policy: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labelReferenceInStreamingPolicy' in kwargs:
+            label_reference_in_streaming_policy = kwargs['labelReferenceInStreamingPolicy']
+
+        _setter("id", id)
         if label_reference_in_streaming_policy is not None:
-            pulumi.set(__self__, "label_reference_in_streaming_policy", label_reference_in_streaming_policy)
+            _setter("label_reference_in_streaming_policy", label_reference_in_streaming_policy)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2567,10 +3435,27 @@ class StreamingPolicyContentKeysArgs:
         :param pulumi.Input['DefaultKeyArgs'] default_key: Default content key for an encryption scheme
         :param pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]] key_to_track_mappings: Representing tracks needs separate content key
         """
+        StreamingPolicyContentKeysArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_key=default_key,
+            key_to_track_mappings=key_to_track_mappings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_key: Optional[pulumi.Input['DefaultKeyArgs']] = None,
+             key_to_track_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultKey' in kwargs:
+            default_key = kwargs['defaultKey']
+        if 'keyToTrackMappings' in kwargs:
+            key_to_track_mappings = kwargs['keyToTrackMappings']
+
         if default_key is not None:
-            pulumi.set(__self__, "default_key", default_key)
+            _setter("default_key", default_key)
         if key_to_track_mappings is not None:
-            pulumi.set(__self__, "key_to_track_mappings", key_to_track_mappings)
+            _setter("key_to_track_mappings", key_to_track_mappings)
 
     @property
     @pulumi.getter(name="defaultKey")
@@ -2609,12 +3494,29 @@ class StreamingPolicyContentKeyArgs:
         :param pulumi.Input[str] policy_name: Policy used by Content Key
         :param pulumi.Input[Sequence[pulumi.Input['TrackSelectionArgs']]] tracks: Tracks which use this content key
         """
+        StreamingPolicyContentKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            policy_name=policy_name,
+            tracks=tracks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: Optional[pulumi.Input[str]] = None,
+             policy_name: Optional[pulumi.Input[str]] = None,
+             tracks: Optional[pulumi.Input[Sequence[pulumi.Input['TrackSelectionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+            _setter("policy_name", policy_name)
         if tracks is not None:
-            pulumi.set(__self__, "tracks", tracks)
+            _setter("tracks", tracks)
 
     @property
     @pulumi.getter
@@ -2663,9 +3565,26 @@ class StreamingPolicyFairPlayConfigurationArgs:
         :param pulumi.Input[bool] allow_persistent_license: All license to be persistent or not
         :param pulumi.Input[str] custom_license_acquisition_url_template: Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
         """
-        pulumi.set(__self__, "allow_persistent_license", allow_persistent_license)
+        StreamingPolicyFairPlayConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_persistent_license=allow_persistent_license,
+            custom_license_acquisition_url_template=custom_license_acquisition_url_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_persistent_license: pulumi.Input[bool],
+             custom_license_acquisition_url_template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowPersistentLicense' in kwargs:
+            allow_persistent_license = kwargs['allowPersistentLicense']
+        if 'customLicenseAcquisitionUrlTemplate' in kwargs:
+            custom_license_acquisition_url_template = kwargs['customLicenseAcquisitionUrlTemplate']
+
+        _setter("allow_persistent_license", allow_persistent_license)
         if custom_license_acquisition_url_template is not None:
-            pulumi.set(__self__, "custom_license_acquisition_url_template", custom_license_acquisition_url_template)
+            _setter("custom_license_acquisition_url_template", custom_license_acquisition_url_template)
 
     @property
     @pulumi.getter(name="allowPersistentLicense")
@@ -2702,10 +3621,27 @@ class StreamingPolicyPlayReadyConfigurationArgs:
         :param pulumi.Input[str] custom_license_acquisition_url_template: Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
         :param pulumi.Input[str] play_ready_custom_attributes: Custom attributes for PlayReady
         """
+        StreamingPolicyPlayReadyConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_license_acquisition_url_template=custom_license_acquisition_url_template,
+            play_ready_custom_attributes=play_ready_custom_attributes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_license_acquisition_url_template: Optional[pulumi.Input[str]] = None,
+             play_ready_custom_attributes: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customLicenseAcquisitionUrlTemplate' in kwargs:
+            custom_license_acquisition_url_template = kwargs['customLicenseAcquisitionUrlTemplate']
+        if 'playReadyCustomAttributes' in kwargs:
+            play_ready_custom_attributes = kwargs['playReadyCustomAttributes']
+
         if custom_license_acquisition_url_template is not None:
-            pulumi.set(__self__, "custom_license_acquisition_url_template", custom_license_acquisition_url_template)
+            _setter("custom_license_acquisition_url_template", custom_license_acquisition_url_template)
         if play_ready_custom_attributes is not None:
-            pulumi.set(__self__, "play_ready_custom_attributes", play_ready_custom_attributes)
+            _setter("play_ready_custom_attributes", play_ready_custom_attributes)
 
     @property
     @pulumi.getter(name="customLicenseAcquisitionUrlTemplate")
@@ -2740,8 +3676,21 @@ class StreamingPolicyWidevineConfigurationArgs:
         Class to specify configurations of Widevine in Streaming Policy
         :param pulumi.Input[str] custom_license_acquisition_url_template: Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
         """
+        StreamingPolicyWidevineConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_license_acquisition_url_template=custom_license_acquisition_url_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_license_acquisition_url_template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customLicenseAcquisitionUrlTemplate' in kwargs:
+            custom_license_acquisition_url_template = kwargs['customLicenseAcquisitionUrlTemplate']
+
         if custom_license_acquisition_url_template is not None:
-            pulumi.set(__self__, "custom_license_acquisition_url_template", custom_license_acquisition_url_template)
+            _setter("custom_license_acquisition_url_template", custom_license_acquisition_url_template)
 
     @property
     @pulumi.getter(name="customLicenseAcquisitionUrlTemplate")
@@ -2773,15 +3722,44 @@ class TextTrackArgs:
         :param pulumi.Input['HlsSettingsArgs'] hls_settings: The HLS specific setting for the text track.
         :param pulumi.Input[Union[str, 'Visibility']] player_visibility: When PlayerVisibility is set to "Visible", the text track will be present in the DASH manifest or HLS playlist when requested by a client. When the PlayerVisibility is set to "Hidden", the text will not be available to the client. The default value is "Visible".
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.TextTrack')
+        TextTrackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            display_name=display_name,
+            file_name=file_name,
+            hls_settings=hls_settings,
+            player_visibility=player_visibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             file_name: Optional[pulumi.Input[str]] = None,
+             hls_settings: Optional[pulumi.Input['HlsSettingsArgs']] = None,
+             player_visibility: Optional[pulumi.Input[Union[str, 'Visibility']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'fileName' in kwargs:
+            file_name = kwargs['fileName']
+        if 'hlsSettings' in kwargs:
+            hls_settings = kwargs['hlsSettings']
+        if 'playerVisibility' in kwargs:
+            player_visibility = kwargs['playerVisibility']
+
+        _setter("odata_type", '#Microsoft.Media.TextTrack')
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if file_name is not None:
-            pulumi.set(__self__, "file_name", file_name)
+            _setter("file_name", file_name)
         if hls_settings is not None:
-            pulumi.set(__self__, "hls_settings", hls_settings)
+            _setter("hls_settings", hls_settings)
         if player_visibility is not None:
-            pulumi.set(__self__, "player_visibility", player_visibility)
+            _setter("player_visibility", player_visibility)
 
     @property
     @pulumi.getter(name="odataType")
@@ -2857,10 +3835,25 @@ class TrackPropertyConditionArgs:
         :param pulumi.Input[Union[str, 'TrackPropertyType']] property: Track property type
         :param pulumi.Input[str] value: Track property value
         """
-        pulumi.set(__self__, "operation", operation)
-        pulumi.set(__self__, "property", property)
+        TrackPropertyConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation=operation,
+            property=property,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation: pulumi.Input[Union[str, 'TrackPropertyCompareOperation']],
+             property: pulumi.Input[Union[str, 'TrackPropertyType']],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("operation", operation)
+        _setter("property", property)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2907,8 +3900,21 @@ class TrackSelectionArgs:
         Class to select a track
         :param pulumi.Input[Sequence[pulumi.Input['TrackPropertyConditionArgs']]] track_selections: TrackSelections is a track property condition list which can specify track(s)
         """
+        TrackSelectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            track_selections=track_selections,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['TrackPropertyConditionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'trackSelections' in kwargs:
+            track_selections = kwargs['trackSelections']
+
         if track_selections is not None:
-            pulumi.set(__self__, "track_selections", track_selections)
+            _setter("track_selections", track_selections)
 
     @property
     @pulumi.getter(name="trackSelections")
@@ -2932,7 +3938,20 @@ class VideoTrackArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.VideoTrack'.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.VideoTrack')
+        VideoTrackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+
+        _setter("odata_type", '#Microsoft.Media.VideoTrack')
 
     @property
     @pulumi.getter(name="odataType")

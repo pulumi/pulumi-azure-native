@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -33,15 +33,46 @@ class CodelessApiPollingDataConnectorArgs:
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input['CodelessConnectorPollingConfigPropertiesArgs'] polling_config: Config to describe the polling instructions
         """
-        pulumi.set(__self__, "kind", 'APIPolling')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        CodelessApiPollingDataConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            connector_ui_config=connector_ui_config,
+            data_connector_id=data_connector_id,
+            polling_config=polling_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             connector_ui_config: Optional[pulumi.Input['CodelessUiConnectorConfigPropertiesArgs']] = None,
+             data_connector_id: Optional[pulumi.Input[str]] = None,
+             polling_config: Optional[pulumi.Input['CodelessConnectorPollingConfigPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'connectorUiConfig' in kwargs:
+            connector_ui_config = kwargs['connectorUiConfig']
+        if 'dataConnectorId' in kwargs:
+            data_connector_id = kwargs['dataConnectorId']
+        if 'pollingConfig' in kwargs:
+            polling_config = kwargs['pollingConfig']
+
+        _setter("kind", 'APIPolling')
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if connector_ui_config is not None:
-            pulumi.set(__self__, "connector_ui_config", connector_ui_config)
+            _setter("connector_ui_config", connector_ui_config)
         if data_connector_id is not None:
-            pulumi.set(__self__, "data_connector_id", data_connector_id)
+            _setter("data_connector_id", data_connector_id)
         if polling_config is not None:
-            pulumi.set(__self__, "polling_config", polling_config)
+            _setter("polling_config", polling_config)
 
     @property
     @pulumi.getter
@@ -161,6 +192,10 @@ class CodelessApiPollingDataConnector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CodelessApiPollingDataConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -181,11 +216,21 @@ class CodelessApiPollingDataConnector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CodelessApiPollingDataConnectorArgs.__new__(CodelessApiPollingDataConnectorArgs)
 
+            if connector_ui_config is not None and not isinstance(connector_ui_config, CodelessUiConnectorConfigPropertiesArgs):
+                connector_ui_config = connector_ui_config or {}
+                def _setter(key, value):
+                    connector_ui_config[key] = value
+                CodelessUiConnectorConfigPropertiesArgs._configure(_setter, **connector_ui_config)
             __props__.__dict__["connector_ui_config"] = connector_ui_config
             __props__.__dict__["data_connector_id"] = data_connector_id
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'APIPolling'
+            if polling_config is not None and not isinstance(polling_config, CodelessConnectorPollingConfigPropertiesArgs):
+                polling_config = polling_config or {}
+                def _setter(key, value):
+                    polling_config[key] = value
+                CodelessConnectorPollingConfigPropertiesArgs._configure(_setter, **polling_config)
             __props__.__dict__["polling_config"] = polling_config
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

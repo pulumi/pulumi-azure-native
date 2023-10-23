@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -50,35 +50,94 @@ class NetworkVirtualApplianceArgs:
         :param pulumi.Input[float] virtual_appliance_asn: VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
         :param pulumi.Input['SubResourceArgs'] virtual_hub: The Virtual Hub where Network Virtual Appliance is being deployed.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NetworkVirtualApplianceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            additional_nics=additional_nics,
+            boot_strap_configuration_blobs=boot_strap_configuration_blobs,
+            cloud_init_configuration=cloud_init_configuration,
+            cloud_init_configuration_blobs=cloud_init_configuration_blobs,
+            delegation=delegation,
+            id=id,
+            identity=identity,
+            location=location,
+            network_virtual_appliance_name=network_virtual_appliance_name,
+            nva_sku=nva_sku,
+            ssh_public_key=ssh_public_key,
+            tags=tags,
+            virtual_appliance_asn=virtual_appliance_asn,
+            virtual_hub=virtual_hub,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             additional_nics: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualApplianceAdditionalNicPropertiesArgs']]]] = None,
+             boot_strap_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cloud_init_configuration: Optional[pulumi.Input[str]] = None,
+             cloud_init_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             delegation: Optional[pulumi.Input['DelegationPropertiesArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
+             nva_sku: Optional[pulumi.Input['VirtualApplianceSkuPropertiesArgs']] = None,
+             ssh_public_key: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_appliance_asn: Optional[pulumi.Input[float]] = None,
+             virtual_hub: Optional[pulumi.Input['SubResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'additionalNics' in kwargs:
+            additional_nics = kwargs['additionalNics']
+        if 'bootStrapConfigurationBlobs' in kwargs:
+            boot_strap_configuration_blobs = kwargs['bootStrapConfigurationBlobs']
+        if 'cloudInitConfiguration' in kwargs:
+            cloud_init_configuration = kwargs['cloudInitConfiguration']
+        if 'cloudInitConfigurationBlobs' in kwargs:
+            cloud_init_configuration_blobs = kwargs['cloudInitConfigurationBlobs']
+        if 'networkVirtualApplianceName' in kwargs:
+            network_virtual_appliance_name = kwargs['networkVirtualApplianceName']
+        if 'nvaSku' in kwargs:
+            nva_sku = kwargs['nvaSku']
+        if 'sshPublicKey' in kwargs:
+            ssh_public_key = kwargs['sshPublicKey']
+        if 'virtualApplianceAsn' in kwargs:
+            virtual_appliance_asn = kwargs['virtualApplianceAsn']
+        if 'virtualHub' in kwargs:
+            virtual_hub = kwargs['virtualHub']
+
+        _setter("resource_group_name", resource_group_name)
         if additional_nics is not None:
-            pulumi.set(__self__, "additional_nics", additional_nics)
+            _setter("additional_nics", additional_nics)
         if boot_strap_configuration_blobs is not None:
-            pulumi.set(__self__, "boot_strap_configuration_blobs", boot_strap_configuration_blobs)
+            _setter("boot_strap_configuration_blobs", boot_strap_configuration_blobs)
         if cloud_init_configuration is not None:
-            pulumi.set(__self__, "cloud_init_configuration", cloud_init_configuration)
+            _setter("cloud_init_configuration", cloud_init_configuration)
         if cloud_init_configuration_blobs is not None:
-            pulumi.set(__self__, "cloud_init_configuration_blobs", cloud_init_configuration_blobs)
+            _setter("cloud_init_configuration_blobs", cloud_init_configuration_blobs)
         if delegation is not None:
-            pulumi.set(__self__, "delegation", delegation)
+            _setter("delegation", delegation)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_virtual_appliance_name is not None:
-            pulumi.set(__self__, "network_virtual_appliance_name", network_virtual_appliance_name)
+            _setter("network_virtual_appliance_name", network_virtual_appliance_name)
         if nva_sku is not None:
-            pulumi.set(__self__, "nva_sku", nva_sku)
+            _setter("nva_sku", nva_sku)
         if ssh_public_key is not None:
-            pulumi.set(__self__, "ssh_public_key", ssh_public_key)
+            _setter("ssh_public_key", ssh_public_key)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_appliance_asn is not None:
-            pulumi.set(__self__, "virtual_appliance_asn", virtual_appliance_asn)
+            _setter("virtual_appliance_asn", virtual_appliance_asn)
         if virtual_hub is not None:
-            pulumi.set(__self__, "virtual_hub", virtual_hub)
+            _setter("virtual_hub", virtual_hub)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -328,6 +387,10 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkVirtualApplianceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -361,11 +424,26 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__.__dict__["boot_strap_configuration_blobs"] = boot_strap_configuration_blobs
             __props__.__dict__["cloud_init_configuration"] = cloud_init_configuration
             __props__.__dict__["cloud_init_configuration_blobs"] = cloud_init_configuration_blobs
+            if delegation is not None and not isinstance(delegation, DelegationPropertiesArgs):
+                delegation = delegation or {}
+                def _setter(key, value):
+                    delegation[key] = value
+                DelegationPropertiesArgs._configure(_setter, **delegation)
             __props__.__dict__["delegation"] = delegation
             __props__.__dict__["id"] = id
+            if identity is not None and not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["network_virtual_appliance_name"] = network_virtual_appliance_name
+            if nva_sku is not None and not isinstance(nva_sku, VirtualApplianceSkuPropertiesArgs):
+                nva_sku = nva_sku or {}
+                def _setter(key, value):
+                    nva_sku[key] = value
+                VirtualApplianceSkuPropertiesArgs._configure(_setter, **nva_sku)
             __props__.__dict__["nva_sku"] = nva_sku
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -373,6 +451,11 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__.__dict__["ssh_public_key"] = ssh_public_key
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_appliance_asn"] = virtual_appliance_asn
+            if virtual_hub is not None and not isinstance(virtual_hub, SubResourceArgs):
+                virtual_hub = virtual_hub or {}
+                def _setter(key, value):
+                    virtual_hub[key] = value
+                SubResourceArgs._configure(_setter, **virtual_hub)
             __props__.__dict__["virtual_hub"] = virtual_hub
             __props__.__dict__["address_prefix"] = None
             __props__.__dict__["deployment_type"] = None

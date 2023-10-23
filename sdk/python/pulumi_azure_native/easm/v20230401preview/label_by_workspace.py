@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,14 +28,41 @@ class LabelByWorkspaceArgs:
         :param pulumi.Input[str] display_name: Label display name.
         :param pulumi.Input[str] label_name: The name of the Label.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        LabelByWorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            color=color,
+            display_name=display_name,
+            label_name=label_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             color: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             label_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'labelName' in kwargs:
+            label_name = kwargs['labelName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if color is not None:
-            pulumi.set(__self__, "color", color)
+            _setter("color", color)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if label_name is not None:
-            pulumi.set(__self__, "label_name", label_name)
+            _setter("label_name", label_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -139,6 +166,10 @@ class LabelByWorkspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LabelByWorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

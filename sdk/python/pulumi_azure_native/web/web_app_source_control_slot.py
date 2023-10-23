@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,25 +41,70 @@ class WebAppSourceControlSlotArgs:
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] repo_url: Repository or source control URL.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "slot", slot)
+        WebAppSourceControlSlotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            slot=slot,
+            branch=branch,
+            deployment_rollback_enabled=deployment_rollback_enabled,
+            git_hub_action_configuration=git_hub_action_configuration,
+            is_git_hub_action=is_git_hub_action,
+            is_manual_integration=is_manual_integration,
+            is_mercurial=is_mercurial,
+            kind=kind,
+            repo_url=repo_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             slot: pulumi.Input[str],
+             branch: Optional[pulumi.Input[str]] = None,
+             deployment_rollback_enabled: Optional[pulumi.Input[bool]] = None,
+             git_hub_action_configuration: Optional[pulumi.Input['GitHubActionConfigurationArgs']] = None,
+             is_git_hub_action: Optional[pulumi.Input[bool]] = None,
+             is_manual_integration: Optional[pulumi.Input[bool]] = None,
+             is_mercurial: Optional[pulumi.Input[bool]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             repo_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'deploymentRollbackEnabled' in kwargs:
+            deployment_rollback_enabled = kwargs['deploymentRollbackEnabled']
+        if 'gitHubActionConfiguration' in kwargs:
+            git_hub_action_configuration = kwargs['gitHubActionConfiguration']
+        if 'isGitHubAction' in kwargs:
+            is_git_hub_action = kwargs['isGitHubAction']
+        if 'isManualIntegration' in kwargs:
+            is_manual_integration = kwargs['isManualIntegration']
+        if 'isMercurial' in kwargs:
+            is_mercurial = kwargs['isMercurial']
+        if 'repoUrl' in kwargs:
+            repo_url = kwargs['repoUrl']
+
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("slot", slot)
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if deployment_rollback_enabled is not None:
-            pulumi.set(__self__, "deployment_rollback_enabled", deployment_rollback_enabled)
+            _setter("deployment_rollback_enabled", deployment_rollback_enabled)
         if git_hub_action_configuration is not None:
-            pulumi.set(__self__, "git_hub_action_configuration", git_hub_action_configuration)
+            _setter("git_hub_action_configuration", git_hub_action_configuration)
         if is_git_hub_action is not None:
-            pulumi.set(__self__, "is_git_hub_action", is_git_hub_action)
+            _setter("is_git_hub_action", is_git_hub_action)
         if is_manual_integration is not None:
-            pulumi.set(__self__, "is_manual_integration", is_manual_integration)
+            _setter("is_manual_integration", is_manual_integration)
         if is_mercurial is not None:
-            pulumi.set(__self__, "is_mercurial", is_mercurial)
+            _setter("is_mercurial", is_mercurial)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if repo_url is not None:
-            pulumi.set(__self__, "repo_url", repo_url)
+            _setter("repo_url", repo_url)
 
     @property
     @pulumi.getter
@@ -253,6 +298,10 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppSourceControlSlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -280,6 +329,11 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
 
             __props__.__dict__["branch"] = branch
             __props__.__dict__["deployment_rollback_enabled"] = deployment_rollback_enabled
+            if git_hub_action_configuration is not None and not isinstance(git_hub_action_configuration, GitHubActionConfigurationArgs):
+                git_hub_action_configuration = git_hub_action_configuration or {}
+                def _setter(key, value):
+                    git_hub_action_configuration[key] = value
+                GitHubActionConfigurationArgs._configure(_setter, **git_hub_action_configuration)
             __props__.__dict__["git_hub_action_configuration"] = git_hub_action_configuration
             __props__.__dict__["is_git_hub_action"] = is_git_hub_action
             __props__.__dict__["is_manual_integration"] = is_manual_integration

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,29 +44,82 @@ class InternalNetworkArgs:
         :param pulumi.Input[int] mtu: Maximum transmission unit. Default value is 1500.
         :param pulumi.Input['StaticRouteConfigurationArgs'] static_route_configuration: Static Route Configuration properties.
         """
-        pulumi.set(__self__, "l3_isolation_domain_name", l3_isolation_domain_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vlan_id", vlan_id)
+        InternalNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            l3_isolation_domain_name=l3_isolation_domain_name,
+            resource_group_name=resource_group_name,
+            vlan_id=vlan_id,
+            annotation=annotation,
+            bgp_configuration=bgp_configuration,
+            connected_i_pv4_subnets=connected_i_pv4_subnets,
+            connected_i_pv6_subnets=connected_i_pv6_subnets,
+            export_route_policy_id=export_route_policy_id,
+            import_route_policy_id=import_route_policy_id,
+            internal_network_name=internal_network_name,
+            mtu=mtu,
+            static_route_configuration=static_route_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             l3_isolation_domain_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             vlan_id: pulumi.Input[int],
+             annotation: Optional[pulumi.Input[str]] = None,
+             bgp_configuration: Optional[pulumi.Input['BgpConfigurationArgs']] = None,
+             connected_i_pv4_subnets: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectedSubnetArgs']]]] = None,
+             connected_i_pv6_subnets: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectedSubnetArgs']]]] = None,
+             export_route_policy_id: Optional[pulumi.Input[str]] = None,
+             import_route_policy_id: Optional[pulumi.Input[str]] = None,
+             internal_network_name: Optional[pulumi.Input[str]] = None,
+             mtu: Optional[pulumi.Input[int]] = None,
+             static_route_configuration: Optional[pulumi.Input['StaticRouteConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'l3IsolationDomainName' in kwargs:
+            l3_isolation_domain_name = kwargs['l3IsolationDomainName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'vlanId' in kwargs:
+            vlan_id = kwargs['vlanId']
+        if 'bgpConfiguration' in kwargs:
+            bgp_configuration = kwargs['bgpConfiguration']
+        if 'connectedIPv4Subnets' in kwargs:
+            connected_i_pv4_subnets = kwargs['connectedIPv4Subnets']
+        if 'connectedIPv6Subnets' in kwargs:
+            connected_i_pv6_subnets = kwargs['connectedIPv6Subnets']
+        if 'exportRoutePolicyId' in kwargs:
+            export_route_policy_id = kwargs['exportRoutePolicyId']
+        if 'importRoutePolicyId' in kwargs:
+            import_route_policy_id = kwargs['importRoutePolicyId']
+        if 'internalNetworkName' in kwargs:
+            internal_network_name = kwargs['internalNetworkName']
+        if 'staticRouteConfiguration' in kwargs:
+            static_route_configuration = kwargs['staticRouteConfiguration']
+
+        _setter("l3_isolation_domain_name", l3_isolation_domain_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("vlan_id", vlan_id)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if bgp_configuration is not None:
-            pulumi.set(__self__, "bgp_configuration", bgp_configuration)
+            _setter("bgp_configuration", bgp_configuration)
         if connected_i_pv4_subnets is not None:
-            pulumi.set(__self__, "connected_i_pv4_subnets", connected_i_pv4_subnets)
+            _setter("connected_i_pv4_subnets", connected_i_pv4_subnets)
         if connected_i_pv6_subnets is not None:
-            pulumi.set(__self__, "connected_i_pv6_subnets", connected_i_pv6_subnets)
+            _setter("connected_i_pv6_subnets", connected_i_pv6_subnets)
         if export_route_policy_id is not None:
-            pulumi.set(__self__, "export_route_policy_id", export_route_policy_id)
+            _setter("export_route_policy_id", export_route_policy_id)
         if import_route_policy_id is not None:
-            pulumi.set(__self__, "import_route_policy_id", import_route_policy_id)
+            _setter("import_route_policy_id", import_route_policy_id)
         if internal_network_name is not None:
-            pulumi.set(__self__, "internal_network_name", internal_network_name)
+            _setter("internal_network_name", internal_network_name)
         if mtu is None:
             mtu = 1500
         if mtu is not None:
-            pulumi.set(__self__, "mtu", mtu)
+            _setter("mtu", mtu)
         if static_route_configuration is not None:
-            pulumi.set(__self__, "static_route_configuration", static_route_configuration)
+            _setter("static_route_configuration", static_route_configuration)
 
     @property
     @pulumi.getter(name="l3IsolationDomainName")
@@ -268,6 +321,10 @@ class InternalNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InternalNetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -295,6 +352,11 @@ class InternalNetwork(pulumi.CustomResource):
             __props__ = InternalNetworkArgs.__new__(InternalNetworkArgs)
 
             __props__.__dict__["annotation"] = annotation
+            if bgp_configuration is not None and not isinstance(bgp_configuration, BgpConfigurationArgs):
+                bgp_configuration = bgp_configuration or {}
+                def _setter(key, value):
+                    bgp_configuration[key] = value
+                BgpConfigurationArgs._configure(_setter, **bgp_configuration)
             __props__.__dict__["bgp_configuration"] = bgp_configuration
             __props__.__dict__["connected_i_pv4_subnets"] = connected_i_pv4_subnets
             __props__.__dict__["connected_i_pv6_subnets"] = connected_i_pv6_subnets
@@ -310,6 +372,11 @@ class InternalNetwork(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if static_route_configuration is not None and not isinstance(static_route_configuration, StaticRouteConfigurationArgs):
+                static_route_configuration = static_route_configuration or {}
+                def _setter(key, value):
+                    static_route_configuration[key] = value
+                StaticRouteConfigurationArgs._configure(_setter, **static_route_configuration)
             __props__.__dict__["static_route_configuration"] = static_route_configuration
             if vlan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vlan_id'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,19 +35,50 @@ class VmmServerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] vmm_server_name: Name of the VMMServer.
         """
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VmmServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extended_location=extended_location,
+            fqdn=fqdn,
+            resource_group_name=resource_group_name,
+            credentials=credentials,
+            location=location,
+            port=port,
+            tags=tags,
+            vmm_server_name=vmm_server_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extended_location: pulumi.Input['ExtendedLocationArgs'],
+             fqdn: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             credentials: Optional[pulumi.Input['VMMServerPropertiesCredentialsArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vmm_server_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'vmmServerName' in kwargs:
+            vmm_server_name = kwargs['vmmServerName']
+
+        _setter("extended_location", extended_location)
+        _setter("fqdn", fqdn)
+        _setter("resource_group_name", resource_group_name)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vmm_server_name is not None:
-            pulumi.set(__self__, "vmm_server_name", vmm_server_name)
+            _setter("vmm_server_name", vmm_server_name)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -193,6 +224,10 @@ class VmmServer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VmmServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -215,7 +250,17 @@ class VmmServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VmmServerArgs.__new__(VmmServerArgs)
 
+            if credentials is not None and not isinstance(credentials, VMMServerPropertiesCredentialsArgs):
+                credentials = credentials or {}
+                def _setter(key, value):
+                    credentials[key] = value
+                VMMServerPropertiesCredentialsArgs._configure(_setter, **credentials)
             __props__.__dict__["credentials"] = credentials
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location

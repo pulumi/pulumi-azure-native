@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -32,7 +32,20 @@ class ApplicationTypeVersionsCleanupPolicyArgs:
         The policy used to clean up unused versions. When the policy is not specified explicitly, the default unused application versions to keep will be 3.
         :param pulumi.Input[int] max_unused_versions_to_keep: Number of unused versions per application type to keep.
         """
-        pulumi.set(__self__, "max_unused_versions_to_keep", max_unused_versions_to_keep)
+        ApplicationTypeVersionsCleanupPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_unused_versions_to_keep=max_unused_versions_to_keep,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_unused_versions_to_keep: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxUnusedVersionsToKeep' in kwargs:
+            max_unused_versions_to_keep = kwargs['maxUnusedVersionsToKeep']
+
+        _setter("max_unused_versions_to_keep", max_unused_versions_to_keep)
 
     @property
     @pulumi.getter(name="maxUnusedVersionsToKeep")
@@ -59,12 +72,33 @@ class AzureActiveDirectoryArgs:
         :param pulumi.Input[str] cluster_application: Azure active directory cluster application id.
         :param pulumi.Input[str] tenant_id: Azure active directory tenant id.
         """
+        AzureActiveDirectoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_application=client_application,
+            cluster_application=cluster_application,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_application: Optional[pulumi.Input[str]] = None,
+             cluster_application: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientApplication' in kwargs:
+            client_application = kwargs['clientApplication']
+        if 'clusterApplication' in kwargs:
+            cluster_application = kwargs['clusterApplication']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if client_application is not None:
-            pulumi.set(__self__, "client_application", client_application)
+            _setter("client_application", client_application)
         if cluster_application is not None:
-            pulumi.set(__self__, "cluster_application", cluster_application)
+            _setter("cluster_application", cluster_application)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientApplication")
@@ -117,13 +151,36 @@ class ClientCertificateArgs:
         :param pulumi.Input[str] issuer_thumbprint: Issuer thumbprint for the certificate. Only used together with CommonName.
         :param pulumi.Input[str] thumbprint: Certificate thumbprint.
         """
-        pulumi.set(__self__, "is_admin", is_admin)
+        ClientCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_admin=is_admin,
+            common_name=common_name,
+            issuer_thumbprint=issuer_thumbprint,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_admin: pulumi.Input[bool],
+             common_name: Optional[pulumi.Input[str]] = None,
+             issuer_thumbprint: Optional[pulumi.Input[str]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isAdmin' in kwargs:
+            is_admin = kwargs['isAdmin']
+        if 'commonName' in kwargs:
+            common_name = kwargs['commonName']
+        if 'issuerThumbprint' in kwargs:
+            issuer_thumbprint = kwargs['issuerThumbprint']
+
+        _setter("is_admin", is_admin)
         if common_name is not None:
-            pulumi.set(__self__, "common_name", common_name)
+            _setter("common_name", common_name)
         if issuer_thumbprint is not None:
-            pulumi.set(__self__, "issuer_thumbprint", issuer_thumbprint)
+            _setter("issuer_thumbprint", issuer_thumbprint)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="isAdmin")
@@ -184,8 +241,23 @@ class IPTagArgs:
         :param pulumi.Input[str] ip_tag_type: The IP tag type.
         :param pulumi.Input[str] tag: The value of the IP tag.
         """
-        pulumi.set(__self__, "ip_tag_type", ip_tag_type)
-        pulumi.set(__self__, "tag", tag)
+        IPTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_tag_type=ip_tag_type,
+            tag=tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_tag_type: pulumi.Input[str],
+             tag: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipTagType' in kwargs:
+            ip_tag_type = kwargs['ipTagType']
+
+        _setter("ip_tag_type", ip_tag_type)
+        _setter("tag", tag)
 
     @property
     @pulumi.getter(name="ipTagType")
@@ -232,16 +304,51 @@ class LoadBalancingRuleArgs:
         :param pulumi.Input[int] probe_port: The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.
         :param pulumi.Input[str] probe_request_path: The probe request path. Only supported for HTTP/HTTPS probes.
         """
-        pulumi.set(__self__, "backend_port", backend_port)
-        pulumi.set(__self__, "frontend_port", frontend_port)
-        pulumi.set(__self__, "probe_protocol", probe_protocol)
-        pulumi.set(__self__, "protocol", protocol)
+        LoadBalancingRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_port=backend_port,
+            frontend_port=frontend_port,
+            probe_protocol=probe_protocol,
+            protocol=protocol,
+            load_distribution=load_distribution,
+            probe_port=probe_port,
+            probe_request_path=probe_request_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_port: pulumi.Input[int],
+             frontend_port: pulumi.Input[int],
+             probe_protocol: pulumi.Input[Union[str, 'ProbeProtocol']],
+             protocol: pulumi.Input[Union[str, 'Protocol']],
+             load_distribution: Optional[pulumi.Input[str]] = None,
+             probe_port: Optional[pulumi.Input[int]] = None,
+             probe_request_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'frontendPort' in kwargs:
+            frontend_port = kwargs['frontendPort']
+        if 'probeProtocol' in kwargs:
+            probe_protocol = kwargs['probeProtocol']
+        if 'loadDistribution' in kwargs:
+            load_distribution = kwargs['loadDistribution']
+        if 'probePort' in kwargs:
+            probe_port = kwargs['probePort']
+        if 'probeRequestPath' in kwargs:
+            probe_request_path = kwargs['probeRequestPath']
+
+        _setter("backend_port", backend_port)
+        _setter("frontend_port", frontend_port)
+        _setter("probe_protocol", probe_protocol)
+        _setter("protocol", protocol)
         if load_distribution is not None:
-            pulumi.set(__self__, "load_distribution", load_distribution)
+            _setter("load_distribution", load_distribution)
         if probe_port is not None:
-            pulumi.set(__self__, "probe_port", probe_port)
+            _setter("probe_port", probe_port)
         if probe_request_path is not None:
-            pulumi.set(__self__, "probe_request_path", probe_request_path)
+            _setter("probe_request_path", probe_request_path)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -362,29 +469,82 @@ class NetworkSecurityRuleArgs:
         :param pulumi.Input[str] source_port_range: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_port_ranges: The source port ranges.
         """
-        pulumi.set(__self__, "access", access)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "protocol", protocol)
+        NetworkSecurityRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            direction=direction,
+            name=name,
+            priority=priority,
+            protocol=protocol,
+            description=description,
+            destination_address_prefix=destination_address_prefix,
+            destination_address_prefixes=destination_address_prefixes,
+            destination_port_range=destination_port_range,
+            destination_port_ranges=destination_port_ranges,
+            source_address_prefix=source_address_prefix,
+            source_address_prefixes=source_address_prefixes,
+            source_port_range=source_port_range,
+            source_port_ranges=source_port_ranges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: pulumi.Input[Union[str, 'Access']],
+             direction: pulumi.Input[Union[str, 'Direction']],
+             name: pulumi.Input[str],
+             priority: pulumi.Input[int],
+             protocol: pulumi.Input[Union[str, 'NsgProtocol']],
+             description: Optional[pulumi.Input[str]] = None,
+             destination_address_prefix: Optional[pulumi.Input[str]] = None,
+             destination_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destination_port_range: Optional[pulumi.Input[str]] = None,
+             destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_address_prefix: Optional[pulumi.Input[str]] = None,
+             source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_port_range: Optional[pulumi.Input[str]] = None,
+             source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationAddressPrefix' in kwargs:
+            destination_address_prefix = kwargs['destinationAddressPrefix']
+        if 'destinationAddressPrefixes' in kwargs:
+            destination_address_prefixes = kwargs['destinationAddressPrefixes']
+        if 'destinationPortRange' in kwargs:
+            destination_port_range = kwargs['destinationPortRange']
+        if 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if 'sourceAddressPrefix' in kwargs:
+            source_address_prefix = kwargs['sourceAddressPrefix']
+        if 'sourceAddressPrefixes' in kwargs:
+            source_address_prefixes = kwargs['sourceAddressPrefixes']
+        if 'sourcePortRange' in kwargs:
+            source_port_range = kwargs['sourcePortRange']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+
+        _setter("access", access)
+        _setter("direction", direction)
+        _setter("name", name)
+        _setter("priority", priority)
+        _setter("protocol", protocol)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_address_prefix is not None:
-            pulumi.set(__self__, "destination_address_prefix", destination_address_prefix)
+            _setter("destination_address_prefix", destination_address_prefix)
         if destination_address_prefixes is not None:
-            pulumi.set(__self__, "destination_address_prefixes", destination_address_prefixes)
+            _setter("destination_address_prefixes", destination_address_prefixes)
         if destination_port_range is not None:
-            pulumi.set(__self__, "destination_port_range", destination_port_range)
+            _setter("destination_port_range", destination_port_range)
         if destination_port_ranges is not None:
-            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+            _setter("destination_port_ranges", destination_port_ranges)
         if source_address_prefix is not None:
-            pulumi.set(__self__, "source_address_prefix", source_address_prefix)
+            _setter("source_address_prefix", source_address_prefix)
         if source_address_prefixes is not None:
-            pulumi.set(__self__, "source_address_prefixes", source_address_prefixes)
+            _setter("source_address_prefixes", source_address_prefixes)
         if source_port_range is not None:
-            pulumi.set(__self__, "source_port_range", source_port_range)
+            _setter("source_port_range", source_port_range)
         if source_port_ranges is not None:
-            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+            _setter("source_port_ranges", source_port_ranges)
 
     @property
     @pulumi.getter
@@ -565,9 +725,22 @@ class ServiceEndpointArgs:
         :param pulumi.Input[str] service: The type of the endpoint service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: A list of locations.
         """
-        pulumi.set(__self__, "service", service)
+        ServiceEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service=service,
+            locations=locations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service: pulumi.Input[str],
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("service", service)
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
 
     @property
     @pulumi.getter
@@ -604,8 +777,21 @@ class SettingsParameterDescriptionArgs:
         :param pulumi.Input[str] name: The parameter name of fabric setting.
         :param pulumi.Input[str] value: The parameter value of fabric setting.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        SettingsParameterDescriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -642,8 +828,21 @@ class SettingsSectionDescriptionArgs:
         :param pulumi.Input[str] name: The section name of the fabric settings.
         :param pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgs']]] parameters: The collection of parameters in the section.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "parameters", parameters)
+        SettingsSectionDescriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -678,7 +877,18 @@ class SkuArgs:
         Service Fabric managed cluster Sku definition
         :param pulumi.Input[Union[str, 'SkuName']] name: Sku Name.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'SkuName']],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -709,15 +919,42 @@ class SubnetArgs:
         :param pulumi.Input[Union[str, 'PrivateEndpointNetworkPolicies']] private_endpoint_network_policies: Enable or Disable apply network policies on private end point in the subnet.
         :param pulumi.Input[Union[str, 'PrivateLinkServiceNetworkPolicies']] private_link_service_network_policies: Enable or Disable apply network policies on private link service in the subnet.
         """
-        pulumi.set(__self__, "name", name)
+        SubnetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            enable_ipv6=enable_ipv6,
+            network_security_group_id=network_security_group_id,
+            private_endpoint_network_policies=private_endpoint_network_policies,
+            private_link_service_network_policies=private_link_service_network_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             enable_ipv6: Optional[pulumi.Input[bool]] = None,
+             network_security_group_id: Optional[pulumi.Input[str]] = None,
+             private_endpoint_network_policies: Optional[pulumi.Input[Union[str, 'PrivateEndpointNetworkPolicies']]] = None,
+             private_link_service_network_policies: Optional[pulumi.Input[Union[str, 'PrivateLinkServiceNetworkPolicies']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableIpv6' in kwargs:
+            enable_ipv6 = kwargs['enableIpv6']
+        if 'networkSecurityGroupId' in kwargs:
+            network_security_group_id = kwargs['networkSecurityGroupId']
+        if 'privateEndpointNetworkPolicies' in kwargs:
+            private_endpoint_network_policies = kwargs['privateEndpointNetworkPolicies']
+        if 'privateLinkServiceNetworkPolicies' in kwargs:
+            private_link_service_network_policies = kwargs['privateLinkServiceNetworkPolicies']
+
+        _setter("name", name)
         if enable_ipv6 is not None:
-            pulumi.set(__self__, "enable_ipv6", enable_ipv6)
+            _setter("enable_ipv6", enable_ipv6)
         if network_security_group_id is not None:
-            pulumi.set(__self__, "network_security_group_id", network_security_group_id)
+            _setter("network_security_group_id", network_security_group_id)
         if private_endpoint_network_policies is not None:
-            pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
+            _setter("private_endpoint_network_policies", private_endpoint_network_policies)
         if private_link_service_network_policies is not None:
-            pulumi.set(__self__, "private_link_service_network_policies", private_link_service_network_policies)
+            _setter("private_link_service_network_policies", private_link_service_network_policies)
 
     @property
     @pulumi.getter

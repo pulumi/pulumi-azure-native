@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -20,8 +20,21 @@ class UserApiKeyResponsePropertiesResponse(dict):
         """
         :param str api_key: The User Api Key Generated based on GenerateApiKey flag. This is applicable for non-Portal clients only.
         """
+        UserApiKeyResponsePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
 
     @property
     @pulumi.getter(name="apiKey")

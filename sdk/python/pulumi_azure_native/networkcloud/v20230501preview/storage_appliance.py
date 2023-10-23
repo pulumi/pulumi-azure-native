@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,19 +39,64 @@ class StorageApplianceArgs:
         :param pulumi.Input[str] storage_appliance_name: The name of the storage appliance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "administrator_credentials", administrator_credentials)
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "rack_id", rack_id)
-        pulumi.set(__self__, "rack_slot", rack_slot)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "serial_number", serial_number)
-        pulumi.set(__self__, "storage_appliance_sku_id", storage_appliance_sku_id)
+        StorageApplianceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_credentials=administrator_credentials,
+            extended_location=extended_location,
+            rack_id=rack_id,
+            rack_slot=rack_slot,
+            resource_group_name=resource_group_name,
+            serial_number=serial_number,
+            storage_appliance_sku_id=storage_appliance_sku_id,
+            location=location,
+            storage_appliance_name=storage_appliance_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_credentials: pulumi.Input['AdministrativeCredentialsArgs'],
+             extended_location: pulumi.Input['ExtendedLocationArgs'],
+             rack_id: pulumi.Input[str],
+             rack_slot: pulumi.Input[float],
+             resource_group_name: pulumi.Input[str],
+             serial_number: pulumi.Input[str],
+             storage_appliance_sku_id: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             storage_appliance_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorCredentials' in kwargs:
+            administrator_credentials = kwargs['administratorCredentials']
+        if 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if 'rackId' in kwargs:
+            rack_id = kwargs['rackId']
+        if 'rackSlot' in kwargs:
+            rack_slot = kwargs['rackSlot']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if 'storageApplianceSkuId' in kwargs:
+            storage_appliance_sku_id = kwargs['storageApplianceSkuId']
+        if 'storageApplianceName' in kwargs:
+            storage_appliance_name = kwargs['storageApplianceName']
+
+        _setter("administrator_credentials", administrator_credentials)
+        _setter("extended_location", extended_location)
+        _setter("rack_id", rack_id)
+        _setter("rack_slot", rack_slot)
+        _setter("resource_group_name", resource_group_name)
+        _setter("serial_number", serial_number)
+        _setter("storage_appliance_sku_id", storage_appliance_sku_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if storage_appliance_name is not None:
-            pulumi.set(__self__, "storage_appliance_name", storage_appliance_name)
+            _setter("storage_appliance_name", storage_appliance_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="administratorCredentials")
@@ -223,6 +268,10 @@ class StorageAppliance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StorageApplianceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -247,9 +296,19 @@ class StorageAppliance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StorageApplianceArgs.__new__(StorageApplianceArgs)
 
+            if administrator_credentials is not None and not isinstance(administrator_credentials, AdministrativeCredentialsArgs):
+                administrator_credentials = administrator_credentials or {}
+                def _setter(key, value):
+                    administrator_credentials[key] = value
+                AdministrativeCredentialsArgs._configure(_setter, **administrator_credentials)
             if administrator_credentials is None and not opts.urn:
                 raise TypeError("Missing required property 'administrator_credentials'")
             __props__.__dict__["administrator_credentials"] = administrator_credentials
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location

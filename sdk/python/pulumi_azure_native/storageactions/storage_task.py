@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,18 +36,47 @@ class StorageTaskArgs:
         :param pulumi.Input[str] storage_task_name: The name of the storage task within the specified resource group. Storage task names must be between 3 and 18 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        StorageTaskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            description=description,
+            enabled=enabled,
+            resource_group_name=resource_group_name,
+            identity=identity,
+            location=location,
+            storage_task_name=storage_task_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input['StorageTaskActionArgs'],
+             description: pulumi.Input[str],
+             enabled: pulumi.Input[bool],
+             resource_group_name: pulumi.Input[str],
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             storage_task_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageTaskName' in kwargs:
+            storage_task_name = kwargs['storageTaskName']
+
+        _setter("action", action)
+        _setter("description", description)
+        _setter("enabled", enabled)
+        _setter("resource_group_name", resource_group_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if storage_task_name is not None:
-            pulumi.set(__self__, "storage_task_name", storage_task_name)
+            _setter("storage_task_name", storage_task_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -195,6 +224,10 @@ class StorageTask(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StorageTaskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -217,6 +250,11 @@ class StorageTask(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StorageTaskArgs.__new__(StorageTaskArgs)
 
+            if action is not None and not isinstance(action, StorageTaskActionArgs):
+                action = action or {}
+                def _setter(key, value):
+                    action[key] = value
+                StorageTaskActionArgs._configure(_setter, **action)
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__.__dict__["action"] = action
@@ -226,6 +264,11 @@ class StorageTask(pulumi.CustomResource):
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
+            if identity is not None and not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

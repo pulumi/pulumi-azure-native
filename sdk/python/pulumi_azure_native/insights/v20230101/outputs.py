@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -57,12 +57,31 @@ class ArmRoleReceiverResponse(dict):
         :param str role_id: The arm role id.
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "role_id", role_id)
+        ArmRoleReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            role_id=role_id,
+            use_common_alert_schema=use_common_alert_schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             role_id: str,
+             use_common_alert_schema: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleId' in kwargs:
+            role_id = kwargs['roleId']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
+        _setter("name", name)
+        _setter("role_id", role_id)
         if use_common_alert_schema is None:
             use_common_alert_schema = False
         if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+            _setter("use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter
@@ -139,18 +158,53 @@ class AutomationRunbookReceiverResponse(dict):
         :param str service_uri: The URI where webhooks should be sent.
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
-        pulumi.set(__self__, "automation_account_id", automation_account_id)
-        pulumi.set(__self__, "is_global_runbook", is_global_runbook)
-        pulumi.set(__self__, "runbook_name", runbook_name)
-        pulumi.set(__self__, "webhook_resource_id", webhook_resource_id)
+        AutomationRunbookReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_id=automation_account_id,
+            is_global_runbook=is_global_runbook,
+            runbook_name=runbook_name,
+            webhook_resource_id=webhook_resource_id,
+            name=name,
+            service_uri=service_uri,
+            use_common_alert_schema=use_common_alert_schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_id: str,
+             is_global_runbook: bool,
+             runbook_name: str,
+             webhook_resource_id: str,
+             name: Optional[str] = None,
+             service_uri: Optional[str] = None,
+             use_common_alert_schema: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountId' in kwargs:
+            automation_account_id = kwargs['automationAccountId']
+        if 'isGlobalRunbook' in kwargs:
+            is_global_runbook = kwargs['isGlobalRunbook']
+        if 'runbookName' in kwargs:
+            runbook_name = kwargs['runbookName']
+        if 'webhookResourceId' in kwargs:
+            webhook_resource_id = kwargs['webhookResourceId']
+        if 'serviceUri' in kwargs:
+            service_uri = kwargs['serviceUri']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
+        _setter("automation_account_id", automation_account_id)
+        _setter("is_global_runbook", is_global_runbook)
+        _setter("runbook_name", runbook_name)
+        _setter("webhook_resource_id", webhook_resource_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if service_uri is not None:
-            pulumi.set(__self__, "service_uri", service_uri)
+            _setter("service_uri", service_uri)
         if use_common_alert_schema is None:
             use_common_alert_schema = False
         if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+            _setter("use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter(name="automationAccountId")
@@ -239,8 +293,23 @@ class AzureAppPushReceiverResponse(dict):
         :param str email_address: The email address registered for the Azure mobile app.
         :param str name: The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
         """
-        pulumi.set(__self__, "email_address", email_address)
-        pulumi.set(__self__, "name", name)
+        AzureAppPushReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+
+        _setter("email_address", email_address)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -301,14 +370,41 @@ class AzureFunctionReceiverResponse(dict):
         :param str name: The name of the azure function receiver. Names must be unique across all receivers within an action group.
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
-        pulumi.set(__self__, "function_app_resource_id", function_app_resource_id)
-        pulumi.set(__self__, "function_name", function_name)
-        pulumi.set(__self__, "http_trigger_url", http_trigger_url)
-        pulumi.set(__self__, "name", name)
+        AzureFunctionReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_app_resource_id=function_app_resource_id,
+            function_name=function_name,
+            http_trigger_url=http_trigger_url,
+            name=name,
+            use_common_alert_schema=use_common_alert_schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_app_resource_id: str,
+             function_name: str,
+             http_trigger_url: str,
+             name: str,
+             use_common_alert_schema: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionAppResourceId' in kwargs:
+            function_app_resource_id = kwargs['functionAppResourceId']
+        if 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if 'httpTriggerUrl' in kwargs:
+            http_trigger_url = kwargs['httpTriggerUrl']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
+        _setter("function_app_resource_id", function_app_resource_id)
+        _setter("function_name", function_name)
+        _setter("http_trigger_url", http_trigger_url)
+        _setter("name", name)
         if use_common_alert_schema is None:
             use_common_alert_schema = False
         if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+            _setter("use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter(name="functionAppResourceId")
@@ -387,13 +483,34 @@ class EmailReceiverResponse(dict):
         :param str status: The receiver status of the e-mail.
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
-        pulumi.set(__self__, "email_address", email_address)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
+        EmailReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            name=name,
+            status=status,
+            use_common_alert_schema=use_common_alert_schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: str,
+             name: str,
+             status: str,
+             use_common_alert_schema: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
+        _setter("email_address", email_address)
+        _setter("name", name)
+        _setter("status", status)
         if use_common_alert_schema is None:
             use_common_alert_schema = False
         if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+            _setter("use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -474,16 +591,47 @@ class EventHubReceiverResponse(dict):
         :param str tenant_id: The tenant Id for the subscription containing this event hub
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
-        pulumi.set(__self__, "event_hub_name", event_hub_name)
-        pulumi.set(__self__, "event_hub_name_space", event_hub_name_space)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        EventHubReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_hub_name=event_hub_name,
+            event_hub_name_space=event_hub_name_space,
+            name=name,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+            use_common_alert_schema=use_common_alert_schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_hub_name: str,
+             event_hub_name_space: str,
+             name: str,
+             subscription_id: str,
+             tenant_id: Optional[str] = None,
+             use_common_alert_schema: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventHubName' in kwargs:
+            event_hub_name = kwargs['eventHubName']
+        if 'eventHubNameSpace' in kwargs:
+            event_hub_name_space = kwargs['eventHubNameSpace']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
+        _setter("event_hub_name", event_hub_name)
+        _setter("event_hub_name_space", event_hub_name_space)
+        _setter("name", name)
+        _setter("subscription_id", subscription_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if use_common_alert_schema is None:
             use_common_alert_schema = False
         if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+            _setter("use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter(name="eventHubName")
@@ -574,11 +722,36 @@ class ItsmReceiverResponse(dict):
         :param str ticket_configuration: JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
         :param str workspace_id: OMS LA instance identifier.
         """
-        pulumi.set(__self__, "connection_id", connection_id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "region", region)
-        pulumi.set(__self__, "ticket_configuration", ticket_configuration)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        ItsmReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_id=connection_id,
+            name=name,
+            region=region,
+            ticket_configuration=ticket_configuration,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_id: str,
+             name: str,
+             region: str,
+             ticket_configuration: str,
+             workspace_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if 'ticketConfiguration' in kwargs:
+            ticket_configuration = kwargs['ticketConfiguration']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
+        _setter("connection_id", connection_id)
+        _setter("name", name)
+        _setter("region", region)
+        _setter("ticket_configuration", ticket_configuration)
+        _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="connectionId")
@@ -659,13 +832,36 @@ class LogicAppReceiverResponse(dict):
         :param str resource_id: The azure resource id of the logic app receiver.
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
-        pulumi.set(__self__, "callback_url", callback_url)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_id", resource_id)
+        LogicAppReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            callback_url=callback_url,
+            name=name,
+            resource_id=resource_id,
+            use_common_alert_schema=use_common_alert_schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             callback_url: str,
+             name: str,
+             resource_id: str,
+             use_common_alert_schema: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'callbackUrl' in kwargs:
+            callback_url = kwargs['callbackUrl']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
+        _setter("callback_url", callback_url)
+        _setter("name", name)
+        _setter("resource_id", resource_id)
         if use_common_alert_schema is None:
             use_common_alert_schema = False
         if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+            _setter("use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter(name="callbackUrl")
@@ -736,10 +932,31 @@ class SmsReceiverResponse(dict):
         :param str phone_number: The phone number of the SMS receiver.
         :param str status: The status of the receiver.
         """
-        pulumi.set(__self__, "country_code", country_code)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "phone_number", phone_number)
-        pulumi.set(__self__, "status", status)
+        SmsReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country_code=country_code,
+            name=name,
+            phone_number=phone_number,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country_code: str,
+             name: str,
+             phone_number: str,
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
+        _setter("country_code", country_code)
+        _setter("name", name)
+        _setter("phone_number", phone_number)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="countryCode")
@@ -808,9 +1025,28 @@ class VoiceReceiverResponse(dict):
         :param str name: The name of the voice receiver. Names must be unique across all receivers within an action group.
         :param str phone_number: The phone number of the voice receiver.
         """
-        pulumi.set(__self__, "country_code", country_code)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "phone_number", phone_number)
+        VoiceReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country_code=country_code,
+            name=name,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country_code: str,
+             name: str,
+             phone_number: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
+        _setter("country_code", country_code)
+        _setter("name", name)
+        _setter("phone_number", phone_number)
 
     @property
     @pulumi.getter(name="countryCode")
@@ -887,22 +1123,57 @@ class WebhookReceiverResponse(dict):
         :param bool use_aad_auth: Indicates whether or not use AAD authentication.
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "service_uri", service_uri)
+        WebhookReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            service_uri=service_uri,
+            identifier_uri=identifier_uri,
+            object_id=object_id,
+            tenant_id=tenant_id,
+            use_aad_auth=use_aad_auth,
+            use_common_alert_schema=use_common_alert_schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             service_uri: str,
+             identifier_uri: Optional[str] = None,
+             object_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             use_aad_auth: Optional[bool] = None,
+             use_common_alert_schema: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceUri' in kwargs:
+            service_uri = kwargs['serviceUri']
+        if 'identifierUri' in kwargs:
+            identifier_uri = kwargs['identifierUri']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'useAadAuth' in kwargs:
+            use_aad_auth = kwargs['useAadAuth']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
+        _setter("name", name)
+        _setter("service_uri", service_uri)
         if identifier_uri is not None:
-            pulumi.set(__self__, "identifier_uri", identifier_uri)
+            _setter("identifier_uri", identifier_uri)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if use_aad_auth is None:
             use_aad_auth = False
         if use_aad_auth is not None:
-            pulumi.set(__self__, "use_aad_auth", use_aad_auth)
+            _setter("use_aad_auth", use_aad_auth)
         if use_common_alert_schema is None:
             use_common_alert_schema = False
         if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+            _setter("use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -46,25 +46,82 @@ class LinkArgs:
         :param pulumi.Input['InstanceOperationType'] operation_type: Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
         :param pulumi.Input[bool] reference_only: Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
         """
-        pulumi.set(__self__, "hub_name", hub_name)
-        pulumi.set(__self__, "participant_property_references", participant_property_references)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_entity_type", source_entity_type)
-        pulumi.set(__self__, "source_entity_type_name", source_entity_type_name)
-        pulumi.set(__self__, "target_entity_type", target_entity_type)
-        pulumi.set(__self__, "target_entity_type_name", target_entity_type_name)
+        LinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hub_name=hub_name,
+            participant_property_references=participant_property_references,
+            resource_group_name=resource_group_name,
+            source_entity_type=source_entity_type,
+            source_entity_type_name=source_entity_type_name,
+            target_entity_type=target_entity_type,
+            target_entity_type_name=target_entity_type_name,
+            description=description,
+            display_name=display_name,
+            link_name=link_name,
+            mappings=mappings,
+            operation_type=operation_type,
+            reference_only=reference_only,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hub_name: pulumi.Input[str],
+             participant_property_references: pulumi.Input[Sequence[pulumi.Input['ParticipantPropertyReferenceArgs']]],
+             resource_group_name: pulumi.Input[str],
+             source_entity_type: pulumi.Input['EntityType'],
+             source_entity_type_name: pulumi.Input[str],
+             target_entity_type: pulumi.Input['EntityType'],
+             target_entity_type_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             link_name: Optional[pulumi.Input[str]] = None,
+             mappings: Optional[pulumi.Input[Sequence[pulumi.Input['TypePropertiesMappingArgs']]]] = None,
+             operation_type: Optional[pulumi.Input['InstanceOperationType']] = None,
+             reference_only: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hubName' in kwargs:
+            hub_name = kwargs['hubName']
+        if 'participantPropertyReferences' in kwargs:
+            participant_property_references = kwargs['participantPropertyReferences']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sourceEntityType' in kwargs:
+            source_entity_type = kwargs['sourceEntityType']
+        if 'sourceEntityTypeName' in kwargs:
+            source_entity_type_name = kwargs['sourceEntityTypeName']
+        if 'targetEntityType' in kwargs:
+            target_entity_type = kwargs['targetEntityType']
+        if 'targetEntityTypeName' in kwargs:
+            target_entity_type_name = kwargs['targetEntityTypeName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'linkName' in kwargs:
+            link_name = kwargs['linkName']
+        if 'operationType' in kwargs:
+            operation_type = kwargs['operationType']
+        if 'referenceOnly' in kwargs:
+            reference_only = kwargs['referenceOnly']
+
+        _setter("hub_name", hub_name)
+        _setter("participant_property_references", participant_property_references)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source_entity_type", source_entity_type)
+        _setter("source_entity_type_name", source_entity_type_name)
+        _setter("target_entity_type", target_entity_type)
+        _setter("target_entity_type_name", target_entity_type_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if link_name is not None:
-            pulumi.set(__self__, "link_name", link_name)
+            _setter("link_name", link_name)
         if mappings is not None:
-            pulumi.set(__self__, "mappings", mappings)
+            _setter("mappings", mappings)
         if operation_type is not None:
-            pulumi.set(__self__, "operation_type", operation_type)
+            _setter("operation_type", operation_type)
         if reference_only is not None:
-            pulumi.set(__self__, "reference_only", reference_only)
+            _setter("reference_only", reference_only)
 
     @property
     @pulumi.getter(name="hubName")
@@ -286,6 +343,10 @@ class Link(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

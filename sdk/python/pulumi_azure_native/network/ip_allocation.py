@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -41,29 +41,72 @@ class IpAllocationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'IpAllocationType']] type: The type for the IpAllocation.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        IpAllocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            allocation_tags=allocation_tags,
+            id=id,
+            ip_allocation_name=ip_allocation_name,
+            ipam_allocation_id=ipam_allocation_id,
+            location=location,
+            prefix=prefix,
+            prefix_length=prefix_length,
+            prefix_type=prefix_type,
+            tags=tags,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             allocation_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             ip_allocation_name: Optional[pulumi.Input[str]] = None,
+             ipam_allocation_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             prefix: Optional[pulumi.Input[str]] = None,
+             prefix_length: Optional[pulumi.Input[int]] = None,
+             prefix_type: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[Union[str, 'IpAllocationType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'allocationTags' in kwargs:
+            allocation_tags = kwargs['allocationTags']
+        if 'ipAllocationName' in kwargs:
+            ip_allocation_name = kwargs['ipAllocationName']
+        if 'ipamAllocationId' in kwargs:
+            ipam_allocation_id = kwargs['ipamAllocationId']
+        if 'prefixLength' in kwargs:
+            prefix_length = kwargs['prefixLength']
+        if 'prefixType' in kwargs:
+            prefix_type = kwargs['prefixType']
+
+        _setter("resource_group_name", resource_group_name)
         if allocation_tags is not None:
-            pulumi.set(__self__, "allocation_tags", allocation_tags)
+            _setter("allocation_tags", allocation_tags)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_allocation_name is not None:
-            pulumi.set(__self__, "ip_allocation_name", ip_allocation_name)
+            _setter("ip_allocation_name", ip_allocation_name)
         if ipam_allocation_id is not None:
-            pulumi.set(__self__, "ipam_allocation_id", ipam_allocation_id)
+            _setter("ipam_allocation_id", ipam_allocation_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if prefix_length is None:
             prefix_length = 0
         if prefix_length is not None:
-            pulumi.set(__self__, "prefix_length", prefix_length)
+            _setter("prefix_length", prefix_length)
         if prefix_type is not None:
-            pulumi.set(__self__, "prefix_type", prefix_type)
+            _setter("prefix_type", prefix_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -257,6 +300,10 @@ class IpAllocation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IpAllocationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

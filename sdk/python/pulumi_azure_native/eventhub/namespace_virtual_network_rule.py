@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NamespaceVirtualNetworkRuleArgs', 'NamespaceVirtualNetworkRule']
@@ -25,12 +25,37 @@ class NamespaceVirtualNetworkRuleArgs:
         :param pulumi.Input[str] virtual_network_rule_name: The Virtual Network Rule name.
         :param pulumi.Input[str] virtual_network_subnet_id: ARM ID of Virtual Network Subnet
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NamespaceVirtualNetworkRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            virtual_network_rule_name=virtual_network_rule_name,
+            virtual_network_subnet_id=virtual_network_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             virtual_network_rule_name: Optional[pulumi.Input[str]] = None,
+             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualNetworkRuleName' in kwargs:
+            virtual_network_rule_name = kwargs['virtualNetworkRuleName']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if virtual_network_rule_name is not None:
-            pulumi.set(__self__, "virtual_network_rule_name", virtual_network_rule_name)
+            _setter("virtual_network_rule_name", virtual_network_rule_name)
         if virtual_network_subnet_id is not None:
-            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+            _setter("virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -122,6 +147,10 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamespaceVirtualNetworkRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,18 +33,53 @@ class HypervClusterControllerClusterArgs:
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The status of the last operation.
         :param pulumi.Input[str] run_as_account_id: Gets or sets Run as account ID of the Hyper-V cluster.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "site_name", site_name)
+        HypervClusterControllerClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            site_name=site_name,
+            cluster_name=cluster_name,
+            fqdn=fqdn,
+            host_fqdn_list=host_fqdn_list,
+            provisioning_state=provisioning_state,
+            run_as_account_id=run_as_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             site_name: pulumi.Input[str],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             fqdn: Optional[pulumi.Input[str]] = None,
+             host_fqdn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             run_as_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'siteName' in kwargs:
+            site_name = kwargs['siteName']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'hostFqdnList' in kwargs:
+            host_fqdn_list = kwargs['hostFqdnList']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'runAsAccountId' in kwargs:
+            run_as_account_id = kwargs['runAsAccountId']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("site_name", site_name)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if host_fqdn_list is not None:
-            pulumi.set(__self__, "host_fqdn_list", host_fqdn_list)
+            _setter("host_fqdn_list", host_fqdn_list)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if run_as_account_id is not None:
-            pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+            _setter("run_as_account_id", run_as_account_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -178,6 +213,10 @@ class HypervClusterControllerCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HypervClusterControllerClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

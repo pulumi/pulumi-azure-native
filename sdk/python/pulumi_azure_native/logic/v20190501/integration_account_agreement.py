@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,22 +44,71 @@ class IntegrationAccountAgreementArgs:
         :param Any metadata: The metadata.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "agreement_type", agreement_type)
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "guest_identity", guest_identity)
-        pulumi.set(__self__, "guest_partner", guest_partner)
-        pulumi.set(__self__, "host_identity", host_identity)
-        pulumi.set(__self__, "host_partner", host_partner)
-        pulumi.set(__self__, "integration_account_name", integration_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        IntegrationAccountAgreementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agreement_type=agreement_type,
+            content=content,
+            guest_identity=guest_identity,
+            guest_partner=guest_partner,
+            host_identity=host_identity,
+            host_partner=host_partner,
+            integration_account_name=integration_account_name,
+            resource_group_name=resource_group_name,
+            agreement_name=agreement_name,
+            location=location,
+            metadata=metadata,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agreement_type: pulumi.Input['AgreementType'],
+             content: pulumi.Input['AgreementContentArgs'],
+             guest_identity: pulumi.Input['BusinessIdentityArgs'],
+             guest_partner: pulumi.Input[str],
+             host_identity: pulumi.Input['BusinessIdentityArgs'],
+             host_partner: pulumi.Input[str],
+             integration_account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             agreement_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agreementType' in kwargs:
+            agreement_type = kwargs['agreementType']
+        if 'guestIdentity' in kwargs:
+            guest_identity = kwargs['guestIdentity']
+        if 'guestPartner' in kwargs:
+            guest_partner = kwargs['guestPartner']
+        if 'hostIdentity' in kwargs:
+            host_identity = kwargs['hostIdentity']
+        if 'hostPartner' in kwargs:
+            host_partner = kwargs['hostPartner']
+        if 'integrationAccountName' in kwargs:
+            integration_account_name = kwargs['integrationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'agreementName' in kwargs:
+            agreement_name = kwargs['agreementName']
+
+        _setter("agreement_type", agreement_type)
+        _setter("content", content)
+        _setter("guest_identity", guest_identity)
+        _setter("guest_partner", guest_partner)
+        _setter("host_identity", host_identity)
+        _setter("host_partner", host_partner)
+        _setter("integration_account_name", integration_account_name)
+        _setter("resource_group_name", resource_group_name)
         if agreement_name is not None:
-            pulumi.set(__self__, "agreement_name", agreement_name)
+            _setter("agreement_name", agreement_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="agreementType")
@@ -261,6 +310,10 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationAccountAgreementArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -291,15 +344,30 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
             if agreement_type is None and not opts.urn:
                 raise TypeError("Missing required property 'agreement_type'")
             __props__.__dict__["agreement_type"] = agreement_type
+            if content is not None and not isinstance(content, AgreementContentArgs):
+                content = content or {}
+                def _setter(key, value):
+                    content[key] = value
+                AgreementContentArgs._configure(_setter, **content)
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
             __props__.__dict__["content"] = content
+            if guest_identity is not None and not isinstance(guest_identity, BusinessIdentityArgs):
+                guest_identity = guest_identity or {}
+                def _setter(key, value):
+                    guest_identity[key] = value
+                BusinessIdentityArgs._configure(_setter, **guest_identity)
             if guest_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'guest_identity'")
             __props__.__dict__["guest_identity"] = guest_identity
             if guest_partner is None and not opts.urn:
                 raise TypeError("Missing required property 'guest_partner'")
             __props__.__dict__["guest_partner"] = guest_partner
+            if host_identity is not None and not isinstance(host_identity, BusinessIdentityArgs):
+                host_identity = host_identity or {}
+                def _setter(key, value):
+                    host_identity[key] = value
+                BusinessIdentityArgs._configure(_setter, **host_identity)
             if host_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'host_identity'")
             __props__.__dict__["host_identity"] = host_identity

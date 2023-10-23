@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -30,8 +30,19 @@ class ApiEntityReferenceArgs:
         The API entity reference.
         :param pulumi.Input[str] id: The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         """
+        ApiEntityReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -56,10 +67,27 @@ class CloudHsmClusterSecurityDomainPropertiesArgs:
         :param pulumi.Input[str] activation_status: status of security domain activation
         :param pulumi.Input[int] fips_state: FIPS state information for security domain
         """
+        CloudHsmClusterSecurityDomainPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activation_status=activation_status,
+            fips_state=fips_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activation_status: Optional[pulumi.Input[str]] = None,
+             fips_state: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activationStatus' in kwargs:
+            activation_status = kwargs['activationStatus']
+        if 'fipsState' in kwargs:
+            fips_state = kwargs['fipsState']
+
         if activation_status is not None:
-            pulumi.set(__self__, "activation_status", activation_status)
+            _setter("activation_status", activation_status)
         if fips_state is not None:
-            pulumi.set(__self__, "fips_state", fips_state)
+            _setter("fips_state", fips_state)
 
     @property
     @pulumi.getter(name="activationStatus")
@@ -98,10 +126,25 @@ class CloudHsmClusterSkuArgs:
         :param pulumi.Input['CloudHsmClusterSkuName'] name: Sku name of the Cloud HSM Cluster
         :param pulumi.Input[int] capacity: Sku capacity
         """
-        pulumi.set(__self__, "family", family)
-        pulumi.set(__self__, "name", name)
+        CloudHsmClusterSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            family=family,
+            name=name,
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             family: pulumi.Input[Union[str, 'CloudHsmClusterSkuFamily']],
+             name: pulumi.Input['CloudHsmClusterSkuName'],
+             capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("family", family)
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -152,12 +195,29 @@ class CloudHsmPropertiesArgs:
         :param pulumi.Input[str] state: The Cloud HSM State
         :param pulumi.Input[str] state_message: The Cloud HSM State message
         """
+        CloudHsmPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fqdn=fqdn,
+            state=state,
+            state_message=state_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fqdn: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             state_message: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stateMessage' in kwargs:
+            state_message = kwargs['stateMessage']
+
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if state_message is not None:
-            pulumi.set(__self__, "state_message", state_message)
+            _setter("state_message", state_message)
 
     @property
     @pulumi.getter
@@ -204,8 +264,21 @@ class NetworkInterfaceArgs:
         The network interface definition.
         :param pulumi.Input[str] private_ip_address: Private Ip address of the interface
         """
+        NetworkInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_ip_address=private_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
 
     @property
     @pulumi.getter(name="privateIpAddress")
@@ -230,10 +303,25 @@ class NetworkProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
         :param pulumi.Input['ApiEntityReferenceArgs'] subnet: Specifies the identifier of the subnet.
         """
+        NetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_interfaces=network_interfaces,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None,
+             subnet: Optional[pulumi.Input['ApiEntityReferenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter(name="networkInterfaces")
@@ -270,9 +358,24 @@ class PrivateEndpointConnectionArgs:
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] etag: Modified whenever there is a change in the state of private endpoint connection.
         """
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        PrivateEndpointConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_link_service_connection_state=private_link_service_connection_state,
+            etag=etag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
+             etag: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -311,12 +414,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -363,8 +483,19 @@ class SkuArgs:
         SKU of the dedicated HSM
         :param pulumi.Input[Union[str, 'SkuName']] name: SKU of the dedicated HSM
         """
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter

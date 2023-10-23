@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -42,27 +42,70 @@ class NetworkVirtualApplianceArgs:
         :param pulumi.Input[float] virtual_appliance_asn: VirtualAppliance ASN.
         :param pulumi.Input['SubResourceArgs'] virtual_hub: The Virtual Hub where Network Virtual Appliance is being deployed.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NetworkVirtualApplianceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            boot_strap_configuration_blob=boot_strap_configuration_blob,
+            cloud_init_configuration_blob=cloud_init_configuration_blob,
+            id=id,
+            identity=identity,
+            location=location,
+            network_virtual_appliance_name=network_virtual_appliance_name,
+            sku=sku,
+            tags=tags,
+            virtual_appliance_asn=virtual_appliance_asn,
+            virtual_hub=virtual_hub,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             boot_strap_configuration_blob: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cloud_init_configuration_blob: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['VirtualApplianceSkuPropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_appliance_asn: Optional[pulumi.Input[float]] = None,
+             virtual_hub: Optional[pulumi.Input['SubResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'bootStrapConfigurationBlob' in kwargs:
+            boot_strap_configuration_blob = kwargs['bootStrapConfigurationBlob']
+        if 'cloudInitConfigurationBlob' in kwargs:
+            cloud_init_configuration_blob = kwargs['cloudInitConfigurationBlob']
+        if 'networkVirtualApplianceName' in kwargs:
+            network_virtual_appliance_name = kwargs['networkVirtualApplianceName']
+        if 'virtualApplianceAsn' in kwargs:
+            virtual_appliance_asn = kwargs['virtualApplianceAsn']
+        if 'virtualHub' in kwargs:
+            virtual_hub = kwargs['virtualHub']
+
+        _setter("resource_group_name", resource_group_name)
         if boot_strap_configuration_blob is not None:
-            pulumi.set(__self__, "boot_strap_configuration_blob", boot_strap_configuration_blob)
+            _setter("boot_strap_configuration_blob", boot_strap_configuration_blob)
         if cloud_init_configuration_blob is not None:
-            pulumi.set(__self__, "cloud_init_configuration_blob", cloud_init_configuration_blob)
+            _setter("cloud_init_configuration_blob", cloud_init_configuration_blob)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_virtual_appliance_name is not None:
-            pulumi.set(__self__, "network_virtual_appliance_name", network_virtual_appliance_name)
+            _setter("network_virtual_appliance_name", network_virtual_appliance_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_appliance_asn is not None:
-            pulumi.set(__self__, "virtual_appliance_asn", virtual_appliance_asn)
+            _setter("virtual_appliance_asn", virtual_appliance_asn)
         if virtual_hub is not None:
-            pulumi.set(__self__, "virtual_hub", virtual_hub)
+            _setter("virtual_hub", virtual_hub)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -250,6 +293,10 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkVirtualApplianceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -278,15 +325,30 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__.__dict__["boot_strap_configuration_blob"] = boot_strap_configuration_blob
             __props__.__dict__["cloud_init_configuration_blob"] = cloud_init_configuration_blob
             __props__.__dict__["id"] = id
+            if identity is not None and not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["network_virtual_appliance_name"] = network_virtual_appliance_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, VirtualApplianceSkuPropertiesArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                VirtualApplianceSkuPropertiesArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_appliance_asn"] = virtual_appliance_asn
+            if virtual_hub is not None and not isinstance(virtual_hub, SubResourceArgs):
+                virtual_hub = virtual_hub or {}
+                def _setter(key, value):
+                    virtual_hub[key] = value
+                SubResourceArgs._configure(_setter, **virtual_hub)
             __props__.__dict__["virtual_hub"] = virtual_hub
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None

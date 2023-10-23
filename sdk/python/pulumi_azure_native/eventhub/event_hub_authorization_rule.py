@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,12 +29,39 @@ class EventHubAuthorizationRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: The rights associated with the rule.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
         """
-        pulumi.set(__self__, "event_hub_name", event_hub_name)
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "rights", rights)
+        EventHubAuthorizationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_hub_name=event_hub_name,
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            rights=rights,
+            authorization_rule_name=authorization_rule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_hub_name: pulumi.Input[str],
+             namespace_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             rights: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]],
+             authorization_rule_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventHubName' in kwargs:
+            event_hub_name = kwargs['eventHubName']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'authorizationRuleName' in kwargs:
+            authorization_rule_name = kwargs['authorizationRuleName']
+
+        _setter("event_hub_name", event_hub_name)
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("rights", rights)
         if authorization_rule_name is not None:
-            pulumi.set(__self__, "authorization_rule_name", authorization_rule_name)
+            _setter("authorization_rule_name", authorization_rule_name)
 
     @property
     @pulumi.getter(name="eventHubName")
@@ -144,6 +171,10 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventHubAuthorizationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

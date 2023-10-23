@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -36,23 +36,62 @@ class RoleAssignmentArgs:
         :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: The principal type of the assigned principal ID.
         :param pulumi.Input[str] role_assignment_name: The name of the role assignment. It can be any valid GUID.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
-        pulumi.set(__self__, "scope", scope)
+        RoleAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            role_definition_id=role_definition_id,
+            scope=scope,
+            condition=condition,
+            condition_version=condition_version,
+            delegated_managed_identity_resource_id=delegated_managed_identity_resource_id,
+            description=description,
+            principal_type=principal_type,
+            role_assignment_name=role_assignment_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: pulumi.Input[str],
+             role_definition_id: pulumi.Input[str],
+             scope: pulumi.Input[str],
+             condition: Optional[pulumi.Input[str]] = None,
+             condition_version: Optional[pulumi.Input[str]] = None,
+             delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input[Union[str, 'PrincipalType']]] = None,
+             role_assignment_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if 'conditionVersion' in kwargs:
+            condition_version = kwargs['conditionVersion']
+        if 'delegatedManagedIdentityResourceId' in kwargs:
+            delegated_managed_identity_resource_id = kwargs['delegatedManagedIdentityResourceId']
+        if 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if 'roleAssignmentName' in kwargs:
+            role_assignment_name = kwargs['roleAssignmentName']
+
+        _setter("principal_id", principal_id)
+        _setter("role_definition_id", role_definition_id)
+        _setter("scope", scope)
         if condition is not None:
-            pulumi.set(__self__, "condition", condition)
+            _setter("condition", condition)
         if condition_version is not None:
-            pulumi.set(__self__, "condition_version", condition_version)
+            _setter("condition_version", condition_version)
         if delegated_managed_identity_resource_id is not None:
-            pulumi.set(__self__, "delegated_managed_identity_resource_id", delegated_managed_identity_resource_id)
+            _setter("delegated_managed_identity_resource_id", delegated_managed_identity_resource_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if principal_type is None:
             principal_type = 'User'
         if principal_type is not None:
-            pulumi.set(__self__, "principal_type", principal_type)
+            _setter("principal_type", principal_type)
         if role_assignment_name is not None:
-            pulumi.set(__self__, "role_assignment_name", role_assignment_name)
+            _setter("role_assignment_name", role_assignment_name)
 
     @property
     @pulumi.getter(name="principalId")
@@ -218,6 +257,10 @@ class RoleAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoleAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

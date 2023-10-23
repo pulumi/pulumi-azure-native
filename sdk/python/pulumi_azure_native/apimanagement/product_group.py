@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProductGroupArgs', 'ProductGroup']
@@ -25,11 +25,36 @@ class ProductGroupArgs:
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] group_id: Group identifier. Must be unique in the current API Management service instance.
         """
-        pulumi.set(__self__, "product_id", product_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        ProductGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            product_id=product_id,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            group_id=group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             product_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+
+        _setter("product_id", product_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
 
     @property
     @pulumi.getter(name="productId")
@@ -125,6 +150,10 @@ class ProductGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProductGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

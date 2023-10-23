@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -34,19 +34,54 @@ class ServiceFabricArgs:
         :param pulumi.Input[str] name: The name of the service fabric.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_name", user_name)
+        ServiceFabricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_name=lab_name,
+            resource_group_name=resource_group_name,
+            user_name=user_name,
+            environment_id=environment_id,
+            external_service_fabric_id=external_service_fabric_id,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             user_name: pulumi.Input[str],
+             environment_id: Optional[pulumi.Input[str]] = None,
+             external_service_fabric_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if 'environmentId' in kwargs:
+            environment_id = kwargs['environmentId']
+        if 'externalServiceFabricId' in kwargs:
+            external_service_fabric_id = kwargs['externalServiceFabricId']
+
+        _setter("lab_name", lab_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("user_name", user_name)
         if environment_id is not None:
-            pulumi.set(__self__, "environment_id", environment_id)
+            _setter("environment_id", environment_id)
         if external_service_fabric_id is not None:
-            pulumi.set(__self__, "external_service_fabric_id", external_service_fabric_id)
+            _setter("external_service_fabric_id", external_service_fabric_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="labName")
@@ -192,6 +227,10 @@ class ServiceFabric(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceFabricArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

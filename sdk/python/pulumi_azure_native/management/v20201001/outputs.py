@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -49,29 +49,80 @@ class EntityInfoResponse(dict):
         :param str permissions: The users specific permissions to this item.
         :param str tenant_id: The AAD Tenant ID associated with the entity. For example, 00000000-0000-0000-0000-000000000000
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        EntityInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            type=type,
+            display_name=display_name,
+            inherited_permissions=inherited_permissions,
+            number_of_child_groups=number_of_child_groups,
+            number_of_children=number_of_children,
+            number_of_descendants=number_of_descendants,
+            parent=parent,
+            parent_display_name_chain=parent_display_name_chain,
+            parent_name_chain=parent_name_chain,
+            permissions=permissions,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             type: str,
+             display_name: Optional[str] = None,
+             inherited_permissions: Optional[str] = None,
+             number_of_child_groups: Optional[int] = None,
+             number_of_children: Optional[int] = None,
+             number_of_descendants: Optional[int] = None,
+             parent: Optional['outputs.EntityParentGroupInfoResponse'] = None,
+             parent_display_name_chain: Optional[Sequence[str]] = None,
+             parent_name_chain: Optional[Sequence[str]] = None,
+             permissions: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'inheritedPermissions' in kwargs:
+            inherited_permissions = kwargs['inheritedPermissions']
+        if 'numberOfChildGroups' in kwargs:
+            number_of_child_groups = kwargs['numberOfChildGroups']
+        if 'numberOfChildren' in kwargs:
+            number_of_children = kwargs['numberOfChildren']
+        if 'numberOfDescendants' in kwargs:
+            number_of_descendants = kwargs['numberOfDescendants']
+        if 'parentDisplayNameChain' in kwargs:
+            parent_display_name_chain = kwargs['parentDisplayNameChain']
+        if 'parentNameChain' in kwargs:
+            parent_name_chain = kwargs['parentNameChain']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("type", type)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if inherited_permissions is not None:
-            pulumi.set(__self__, "inherited_permissions", inherited_permissions)
+            _setter("inherited_permissions", inherited_permissions)
         if number_of_child_groups is not None:
-            pulumi.set(__self__, "number_of_child_groups", number_of_child_groups)
+            _setter("number_of_child_groups", number_of_child_groups)
         if number_of_children is not None:
-            pulumi.set(__self__, "number_of_children", number_of_children)
+            _setter("number_of_children", number_of_children)
         if number_of_descendants is not None:
-            pulumi.set(__self__, "number_of_descendants", number_of_descendants)
+            _setter("number_of_descendants", number_of_descendants)
         if parent is not None:
-            pulumi.set(__self__, "parent", parent)
+            _setter("parent", parent)
         if parent_display_name_chain is not None:
-            pulumi.set(__self__, "parent_display_name_chain", parent_display_name_chain)
+            _setter("parent_display_name_chain", parent_display_name_chain)
         if parent_name_chain is not None:
-            pulumi.set(__self__, "parent_name_chain", parent_name_chain)
+            _setter("parent_name_chain", parent_name_chain)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -186,8 +237,19 @@ class EntityParentGroupInfoResponse(dict):
         (Optional) The ID of the parent management group.
         :param str id: The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
         """
+        EntityParentGroupInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter

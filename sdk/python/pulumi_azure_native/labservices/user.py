@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,13 +28,40 @@ class UserArgs:
         :param pulumi.Input[str] additional_usage_quota: The amount of usage quota time the user gets in addition to the lab usage quota.
         :param pulumi.Input[str] user_name: The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
         """
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        UserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            lab_name=lab_name,
+            resource_group_name=resource_group_name,
+            additional_usage_quota=additional_usage_quota,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: pulumi.Input[str],
+             lab_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             additional_usage_quota: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'additionalUsageQuota' in kwargs:
+            additional_usage_quota = kwargs['additionalUsageQuota']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("email", email)
+        _setter("lab_name", lab_name)
+        _setter("resource_group_name", resource_group_name)
         if additional_usage_quota is not None:
-            pulumi.set(__self__, "additional_usage_quota", additional_usage_quota)
+            _setter("additional_usage_quota", additional_usage_quota)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -144,6 +171,10 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,35 +50,98 @@ class AccountArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CreateTrustedIdProviderWithAccountParametersArgs']]] trusted_id_providers: The list of trusted identity providers associated with this Data Lake Store account.
         :param pulumi.Input[Sequence[pulumi.Input['CreateVirtualNetworkRuleWithAccountParametersArgs']]] virtual_network_rules: The list of virtual network rules associated with this Data Lake Store account.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            account_name=account_name,
+            default_group=default_group,
+            encryption_config=encryption_config,
+            encryption_state=encryption_state,
+            firewall_allow_azure_ips=firewall_allow_azure_ips,
+            firewall_rules=firewall_rules,
+            firewall_state=firewall_state,
+            identity=identity,
+            location=location,
+            new_tier=new_tier,
+            tags=tags,
+            trusted_id_provider_state=trusted_id_provider_state,
+            trusted_id_providers=trusted_id_providers,
+            virtual_network_rules=virtual_network_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             default_group: Optional[pulumi.Input[str]] = None,
+             encryption_config: Optional[pulumi.Input['EncryptionConfigArgs']] = None,
+             encryption_state: Optional[pulumi.Input['EncryptionState']] = None,
+             firewall_allow_azure_ips: Optional[pulumi.Input['FirewallAllowAzureIpsState']] = None,
+             firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CreateFirewallRuleWithAccountParametersArgs']]]] = None,
+             firewall_state: Optional[pulumi.Input['FirewallState']] = None,
+             identity: Optional[pulumi.Input['EncryptionIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             new_tier: Optional[pulumi.Input['TierType']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             trusted_id_provider_state: Optional[pulumi.Input['TrustedIdProviderState']] = None,
+             trusted_id_providers: Optional[pulumi.Input[Sequence[pulumi.Input['CreateTrustedIdProviderWithAccountParametersArgs']]]] = None,
+             virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CreateVirtualNetworkRuleWithAccountParametersArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'defaultGroup' in kwargs:
+            default_group = kwargs['defaultGroup']
+        if 'encryptionConfig' in kwargs:
+            encryption_config = kwargs['encryptionConfig']
+        if 'encryptionState' in kwargs:
+            encryption_state = kwargs['encryptionState']
+        if 'firewallAllowAzureIps' in kwargs:
+            firewall_allow_azure_ips = kwargs['firewallAllowAzureIps']
+        if 'firewallRules' in kwargs:
+            firewall_rules = kwargs['firewallRules']
+        if 'firewallState' in kwargs:
+            firewall_state = kwargs['firewallState']
+        if 'newTier' in kwargs:
+            new_tier = kwargs['newTier']
+        if 'trustedIdProviderState' in kwargs:
+            trusted_id_provider_state = kwargs['trustedIdProviderState']
+        if 'trustedIdProviders' in kwargs:
+            trusted_id_providers = kwargs['trustedIdProviders']
+        if 'virtualNetworkRules' in kwargs:
+            virtual_network_rules = kwargs['virtualNetworkRules']
+
+        _setter("resource_group_name", resource_group_name)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if default_group is not None:
-            pulumi.set(__self__, "default_group", default_group)
+            _setter("default_group", default_group)
         if encryption_config is not None:
-            pulumi.set(__self__, "encryption_config", encryption_config)
+            _setter("encryption_config", encryption_config)
         if encryption_state is not None:
-            pulumi.set(__self__, "encryption_state", encryption_state)
+            _setter("encryption_state", encryption_state)
         if firewall_allow_azure_ips is not None:
-            pulumi.set(__self__, "firewall_allow_azure_ips", firewall_allow_azure_ips)
+            _setter("firewall_allow_azure_ips", firewall_allow_azure_ips)
         if firewall_rules is not None:
-            pulumi.set(__self__, "firewall_rules", firewall_rules)
+            _setter("firewall_rules", firewall_rules)
         if firewall_state is not None:
-            pulumi.set(__self__, "firewall_state", firewall_state)
+            _setter("firewall_state", firewall_state)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if new_tier is not None:
-            pulumi.set(__self__, "new_tier", new_tier)
+            _setter("new_tier", new_tier)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if trusted_id_provider_state is not None:
-            pulumi.set(__self__, "trusted_id_provider_state", trusted_id_provider_state)
+            _setter("trusted_id_provider_state", trusted_id_provider_state)
         if trusted_id_providers is not None:
-            pulumi.set(__self__, "trusted_id_providers", trusted_id_providers)
+            _setter("trusted_id_providers", trusted_id_providers)
         if virtual_network_rules is not None:
-            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+            _setter("virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -322,6 +385,10 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -353,11 +420,21 @@ class Account(pulumi.CustomResource):
 
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["default_group"] = default_group
+            if encryption_config is not None and not isinstance(encryption_config, EncryptionConfigArgs):
+                encryption_config = encryption_config or {}
+                def _setter(key, value):
+                    encryption_config[key] = value
+                EncryptionConfigArgs._configure(_setter, **encryption_config)
             __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["encryption_state"] = encryption_state
             __props__.__dict__["firewall_allow_azure_ips"] = firewall_allow_azure_ips
             __props__.__dict__["firewall_rules"] = firewall_rules
             __props__.__dict__["firewall_state"] = firewall_state
+            if identity is not None and not isinstance(identity, EncryptionIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                EncryptionIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["new_tier"] = new_tier

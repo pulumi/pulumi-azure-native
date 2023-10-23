@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkspaceSettingArgs', 'WorkspaceSetting']
@@ -23,10 +23,29 @@ class WorkspaceSettingArgs:
         :param pulumi.Input[str] workspace_id: The full Azure ID of the workspace to save the data in
         :param pulumi.Input[str] workspace_setting_name: Name of the security setting
         """
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        WorkspaceSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+            workspace_id=workspace_id,
+            workspace_setting_name=workspace_setting_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             workspace_setting_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'workspaceSettingName' in kwargs:
+            workspace_setting_name = kwargs['workspaceSettingName']
+
+        _setter("scope", scope)
+        _setter("workspace_id", workspace_id)
         if workspace_setting_name is not None:
-            pulumi.set(__self__, "workspace_setting_name", workspace_setting_name)
+            _setter("workspace_setting_name", workspace_setting_name)
 
     @property
     @pulumi.getter
@@ -104,6 +123,10 @@ class WorkspaceSetting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceSettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

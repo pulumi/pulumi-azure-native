@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,35 @@ class SolutionArgs:
         :param pulumi.Input['SolutionPropertiesArgs'] properties: Solution resource properties.
         :param pulumi.Input[str] solution_id: SolutionId for Data Manager For Agriculture Resource.
         """
-        pulumi.set(__self__, "data_manager_for_agriculture_resource_name", data_manager_for_agriculture_resource_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SolutionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_manager_for_agriculture_resource_name=data_manager_for_agriculture_resource_name,
+            resource_group_name=resource_group_name,
+            properties=properties,
+            solution_id=solution_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_manager_for_agriculture_resource_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             properties: Optional[pulumi.Input['SolutionPropertiesArgs']] = None,
+             solution_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataManagerForAgricultureResourceName' in kwargs:
+            data_manager_for_agriculture_resource_name = kwargs['dataManagerForAgricultureResourceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'solutionId' in kwargs:
+            solution_id = kwargs['solutionId']
+
+        _setter("data_manager_for_agriculture_resource_name", data_manager_for_agriculture_resource_name)
+        _setter("resource_group_name", resource_group_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if solution_id is not None:
-            pulumi.set(__self__, "solution_id", solution_id)
+            _setter("solution_id", solution_id)
 
     @property
     @pulumi.getter(name="dataManagerForAgricultureResourceName")
@@ -128,6 +151,10 @@ class Solution(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SolutionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -149,6 +176,11 @@ class Solution(pulumi.CustomResource):
             if data_manager_for_agriculture_resource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_manager_for_agriculture_resource_name'")
             __props__.__dict__["data_manager_for_agriculture_resource_name"] = data_manager_for_agriculture_resource_name
+            if properties is not None and not isinstance(properties, SolutionPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                SolutionPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

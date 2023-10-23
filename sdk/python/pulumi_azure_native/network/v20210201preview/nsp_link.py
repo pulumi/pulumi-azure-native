@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['NspLinkArgs', 'NspLink']
@@ -31,18 +31,53 @@ class NspLinkArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] local_inbound_profiles: Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
         :param pulumi.Input[Sequence[pulumi.Input[str]]] remote_inbound_profiles: Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
         """
-        pulumi.set(__self__, "network_security_perimeter_name", network_security_perimeter_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NspLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_security_perimeter_name=network_security_perimeter_name,
+            resource_group_name=resource_group_name,
+            auto_approved_remote_perimeter_resource_id=auto_approved_remote_perimeter_resource_id,
+            description=description,
+            link_name=link_name,
+            local_inbound_profiles=local_inbound_profiles,
+            remote_inbound_profiles=remote_inbound_profiles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_security_perimeter_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             auto_approved_remote_perimeter_resource_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             link_name: Optional[pulumi.Input[str]] = None,
+             local_inbound_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             remote_inbound_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkSecurityPerimeterName' in kwargs:
+            network_security_perimeter_name = kwargs['networkSecurityPerimeterName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'autoApprovedRemotePerimeterResourceId' in kwargs:
+            auto_approved_remote_perimeter_resource_id = kwargs['autoApprovedRemotePerimeterResourceId']
+        if 'linkName' in kwargs:
+            link_name = kwargs['linkName']
+        if 'localInboundProfiles' in kwargs:
+            local_inbound_profiles = kwargs['localInboundProfiles']
+        if 'remoteInboundProfiles' in kwargs:
+            remote_inbound_profiles = kwargs['remoteInboundProfiles']
+
+        _setter("network_security_perimeter_name", network_security_perimeter_name)
+        _setter("resource_group_name", resource_group_name)
         if auto_approved_remote_perimeter_resource_id is not None:
-            pulumi.set(__self__, "auto_approved_remote_perimeter_resource_id", auto_approved_remote_perimeter_resource_id)
+            _setter("auto_approved_remote_perimeter_resource_id", auto_approved_remote_perimeter_resource_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if link_name is not None:
-            pulumi.set(__self__, "link_name", link_name)
+            _setter("link_name", link_name)
         if local_inbound_profiles is not None:
-            pulumi.set(__self__, "local_inbound_profiles", local_inbound_profiles)
+            _setter("local_inbound_profiles", local_inbound_profiles)
         if remote_inbound_profiles is not None:
-            pulumi.set(__self__, "remote_inbound_profiles", remote_inbound_profiles)
+            _setter("remote_inbound_profiles", remote_inbound_profiles)
 
     @property
     @pulumi.getter(name="networkSecurityPerimeterName")
@@ -174,6 +209,10 @@ class NspLink(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NspLinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

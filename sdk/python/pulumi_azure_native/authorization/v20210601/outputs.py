@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -56,14 +56,35 @@ class ParameterDefinitionsValueResponse(dict):
         :param 'ParameterDefinitionsValueResponseMetadata' metadata: General metadata for the parameter.
         :param str type: The data type of the parameter.
         """
+        ParameterDefinitionsValueResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_values=allowed_values,
+            default_value=default_value,
+            metadata=metadata,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_values: Optional[Sequence[Any]] = None,
+             default_value: Optional[Any] = None,
+             metadata: Optional['outputs.ParameterDefinitionsValueResponseMetadata'] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedValues' in kwargs:
+            allowed_values = kwargs['allowedValues']
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         if allowed_values is not None:
-            pulumi.set(__self__, "allowed_values", allowed_values)
+            _setter("allowed_values", allowed_values)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="allowedValues")
@@ -136,14 +157,37 @@ class ParameterDefinitionsValueResponseMetadata(dict):
         :param str display_name: The display name for the parameter.
         :param str strong_type: Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
         """
+        ParameterDefinitionsValueResponseMetadata._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assign_permissions=assign_permissions,
+            description=description,
+            display_name=display_name,
+            strong_type=strong_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assign_permissions: Optional[bool] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             strong_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignPermissions' in kwargs:
+            assign_permissions = kwargs['assignPermissions']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'strongType' in kwargs:
+            strong_type = kwargs['strongType']
+
         if assign_permissions is not None:
-            pulumi.set(__self__, "assign_permissions", assign_permissions)
+            _setter("assign_permissions", assign_permissions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if strong_type is not None:
-            pulumi.set(__self__, "strong_type", strong_type)
+            _setter("strong_type", strong_type)
 
     @property
     @pulumi.getter(name="assignPermissions")
@@ -189,8 +233,19 @@ class ParameterValuesValueResponse(dict):
         The value of a parameter.
         :param Any value: The value of the parameter.
         """
+        ParameterValuesValueResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -239,15 +294,38 @@ class PolicyDefinitionGroupResponse(dict):
         :param str description: The group's description.
         :param str display_name: The group's display name.
         """
-        pulumi.set(__self__, "name", name)
+        PolicyDefinitionGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            additional_metadata_id=additional_metadata_id,
+            category=category,
+            description=description,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             additional_metadata_id: Optional[str] = None,
+             category: Optional[str] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalMetadataId' in kwargs:
+            additional_metadata_id = kwargs['additionalMetadataId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("name", name)
         if additional_metadata_id is not None:
-            pulumi.set(__self__, "additional_metadata_id", additional_metadata_id)
+            _setter("additional_metadata_id", additional_metadata_id)
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter
@@ -328,13 +406,36 @@ class PolicyDefinitionReferenceResponse(dict):
         :param Mapping[str, 'ParameterValuesValueResponse'] parameters: The parameter values for the referenced policy rule. The keys are the parameter names.
         :param str policy_definition_reference_id: A unique id (within the policy set definition) for this policy definition reference.
         """
-        pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        PolicyDefinitionReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_definition_id=policy_definition_id,
+            group_names=group_names,
+            parameters=parameters,
+            policy_definition_reference_id=policy_definition_reference_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_definition_id: str,
+             group_names: Optional[Sequence[str]] = None,
+             parameters: Optional[Mapping[str, 'outputs.ParameterValuesValueResponse']] = None,
+             policy_definition_reference_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDefinitionId' in kwargs:
+            policy_definition_id = kwargs['policyDefinitionId']
+        if 'groupNames' in kwargs:
+            group_names = kwargs['groupNames']
+        if 'policyDefinitionReferenceId' in kwargs:
+            policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
+
+        _setter("policy_definition_id", policy_definition_id)
         if group_names is not None:
-            pulumi.set(__self__, "group_names", group_names)
+            _setter("group_names", group_names)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_definition_reference_id is not None:
-            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+            _setter("policy_definition_reference_id", policy_definition_reference_id)
 
     @property
     @pulumi.getter(name="policyDefinitionId")
@@ -417,18 +518,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

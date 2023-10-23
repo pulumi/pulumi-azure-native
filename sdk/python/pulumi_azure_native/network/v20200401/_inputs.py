@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -70,23 +70,62 @@ class ApplicationRuleConditionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: List of source IpGroups for this rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_fqdns: List of FQDNs for this rule condition.
         """
-        pulumi.set(__self__, "rule_condition_type", 'ApplicationRuleCondition')
+        ApplicationRuleConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_condition_type=rule_condition_type,
+            description=description,
+            destination_addresses=destination_addresses,
+            fqdn_tags=fqdn_tags,
+            name=name,
+            protocols=protocols,
+            source_addresses=source_addresses,
+            source_ip_groups=source_ip_groups,
+            target_fqdns=target_fqdns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_condition_type: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             fqdn_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protocols: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleConditionApplicationProtocolArgs']]]] = None,
+             source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             target_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleConditionType' in kwargs:
+            rule_condition_type = kwargs['ruleConditionType']
+        if 'destinationAddresses' in kwargs:
+            destination_addresses = kwargs['destinationAddresses']
+        if 'fqdnTags' in kwargs:
+            fqdn_tags = kwargs['fqdnTags']
+        if 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if 'sourceIpGroups' in kwargs:
+            source_ip_groups = kwargs['sourceIpGroups']
+        if 'targetFqdns' in kwargs:
+            target_fqdns = kwargs['targetFqdns']
+
+        _setter("rule_condition_type", 'ApplicationRuleCondition')
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_addresses is not None:
-            pulumi.set(__self__, "destination_addresses", destination_addresses)
+            _setter("destination_addresses", destination_addresses)
         if fqdn_tags is not None:
-            pulumi.set(__self__, "fqdn_tags", fqdn_tags)
+            _setter("fqdn_tags", fqdn_tags)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protocols is not None:
-            pulumi.set(__self__, "protocols", protocols)
+            _setter("protocols", protocols)
         if source_addresses is not None:
-            pulumi.set(__self__, "source_addresses", source_addresses)
+            _setter("source_addresses", source_addresses)
         if source_ip_groups is not None:
-            pulumi.set(__self__, "source_ip_groups", source_ip_groups)
+            _setter("source_ip_groups", source_ip_groups)
         if target_fqdns is not None:
-            pulumi.set(__self__, "target_fqdns", target_fqdns)
+            _setter("target_fqdns", target_fqdns)
 
     @property
     @pulumi.getter(name="ruleConditionType")
@@ -214,16 +253,35 @@ class AzureFirewallApplicationRuleCollectionArgs:
         :param pulumi.Input[int] priority: Priority of the application rule collection resource.
         :param pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleArgs']]] rules: Collection of rules used by a application rule collection.
         """
+        AzureFirewallApplicationRuleCollectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            id=id,
+            name=name,
+            priority=priority,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input['AzureFirewallRCActionArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -296,10 +354,25 @@ class AzureFirewallApplicationRuleProtocolArgs:
         :param pulumi.Input[int] port: Port number for the protocol, cannot be greater than 64000. This field is optional.
         :param pulumi.Input[Union[str, 'AzureFirewallApplicationRuleProtocolType']] protocol_type: Protocol type.
         """
+        AzureFirewallApplicationRuleProtocolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            protocol_type=protocol_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             protocol_type: Optional[pulumi.Input[Union[str, 'AzureFirewallApplicationRuleProtocolType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'protocolType' in kwargs:
+            protocol_type = kwargs['protocolType']
+
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if protocol_type is not None:
-            pulumi.set(__self__, "protocol_type", protocol_type)
+            _setter("protocol_type", protocol_type)
 
     @property
     @pulumi.getter
@@ -346,20 +419,51 @@ class AzureFirewallApplicationRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: List of source IpGroups for this rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_fqdns: List of FQDNs for this rule.
         """
+        AzureFirewallApplicationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            fqdn_tags=fqdn_tags,
+            name=name,
+            protocols=protocols,
+            source_addresses=source_addresses,
+            source_ip_groups=source_ip_groups,
+            target_fqdns=target_fqdns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             fqdn_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protocols: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleProtocolArgs']]]] = None,
+             source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             target_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fqdnTags' in kwargs:
+            fqdn_tags = kwargs['fqdnTags']
+        if 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if 'sourceIpGroups' in kwargs:
+            source_ip_groups = kwargs['sourceIpGroups']
+        if 'targetFqdns' in kwargs:
+            target_fqdns = kwargs['targetFqdns']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if fqdn_tags is not None:
-            pulumi.set(__self__, "fqdn_tags", fqdn_tags)
+            _setter("fqdn_tags", fqdn_tags)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protocols is not None:
-            pulumi.set(__self__, "protocols", protocols)
+            _setter("protocols", protocols)
         if source_addresses is not None:
-            pulumi.set(__self__, "source_addresses", source_addresses)
+            _setter("source_addresses", source_addresses)
         if source_ip_groups is not None:
-            pulumi.set(__self__, "source_ip_groups", source_ip_groups)
+            _setter("source_ip_groups", source_ip_groups)
         if target_fqdns is not None:
-            pulumi.set(__self__, "target_fqdns", target_fqdns)
+            _setter("target_fqdns", target_fqdns)
 
     @property
     @pulumi.getter
@@ -460,14 +564,33 @@ class AzureFirewallIPConfigurationArgs:
         :param pulumi.Input['SubResourceArgs'] public_ip_address: Reference to the PublicIP resource. This field is a mandatory input if subnet is not null.
         :param pulumi.Input['SubResourceArgs'] subnet: Reference to the subnet resource. This resource must be named 'AzureFirewallSubnet' or 'AzureFirewallManagementSubnet'.
         """
+        AzureFirewallIPConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            public_ip_address=public_ip_address,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_ip_address: Optional[pulumi.Input['SubResourceArgs']] = None,
+             subnet: Optional[pulumi.Input['SubResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicIPAddress' in kwargs:
+            public_ip_address = kwargs['publicIPAddress']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_ip_address is not None:
-            pulumi.set(__self__, "public_ip_address", public_ip_address)
+            _setter("public_ip_address", public_ip_address)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter
@@ -526,8 +649,19 @@ class AzureFirewallNatRCActionArgs:
         AzureFirewall NAT Rule Collection Action.
         :param pulumi.Input[Union[str, 'AzureFirewallNatRCActionType']] type: The type of action.
         """
+        AzureFirewallNatRCActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'AzureFirewallNatRCActionType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -558,16 +692,35 @@ class AzureFirewallNatRuleCollectionArgs:
         :param pulumi.Input[int] priority: Priority of the NAT rule collection resource.
         :param pulumi.Input[Sequence[pulumi.Input['AzureFirewallNatRuleArgs']]] rules: Collection of rules used by a NAT rule collection.
         """
+        AzureFirewallNatRuleCollectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            id=id,
+            name=name,
+            priority=priority,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input['AzureFirewallNatRCActionArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNatRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -656,26 +809,69 @@ class AzureFirewallNatRuleArgs:
         :param pulumi.Input[str] translated_fqdn: The translated FQDN for this NAT rule.
         :param pulumi.Input[str] translated_port: The translated port for this NAT rule.
         """
+        AzureFirewallNatRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            destination_addresses=destination_addresses,
+            destination_ports=destination_ports,
+            name=name,
+            protocols=protocols,
+            source_addresses=source_addresses,
+            source_ip_groups=source_ip_groups,
+            translated_address=translated_address,
+            translated_fqdn=translated_fqdn,
+            translated_port=translated_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureFirewallNetworkRuleProtocol']]]]] = None,
+             source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             translated_address: Optional[pulumi.Input[str]] = None,
+             translated_fqdn: Optional[pulumi.Input[str]] = None,
+             translated_port: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationAddresses' in kwargs:
+            destination_addresses = kwargs['destinationAddresses']
+        if 'destinationPorts' in kwargs:
+            destination_ports = kwargs['destinationPorts']
+        if 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if 'sourceIpGroups' in kwargs:
+            source_ip_groups = kwargs['sourceIpGroups']
+        if 'translatedAddress' in kwargs:
+            translated_address = kwargs['translatedAddress']
+        if 'translatedFqdn' in kwargs:
+            translated_fqdn = kwargs['translatedFqdn']
+        if 'translatedPort' in kwargs:
+            translated_port = kwargs['translatedPort']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_addresses is not None:
-            pulumi.set(__self__, "destination_addresses", destination_addresses)
+            _setter("destination_addresses", destination_addresses)
         if destination_ports is not None:
-            pulumi.set(__self__, "destination_ports", destination_ports)
+            _setter("destination_ports", destination_ports)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protocols is not None:
-            pulumi.set(__self__, "protocols", protocols)
+            _setter("protocols", protocols)
         if source_addresses is not None:
-            pulumi.set(__self__, "source_addresses", source_addresses)
+            _setter("source_addresses", source_addresses)
         if source_ip_groups is not None:
-            pulumi.set(__self__, "source_ip_groups", source_ip_groups)
+            _setter("source_ip_groups", source_ip_groups)
         if translated_address is not None:
-            pulumi.set(__self__, "translated_address", translated_address)
+            _setter("translated_address", translated_address)
         if translated_fqdn is not None:
-            pulumi.set(__self__, "translated_fqdn", translated_fqdn)
+            _setter("translated_fqdn", translated_fqdn)
         if translated_port is not None:
-            pulumi.set(__self__, "translated_port", translated_port)
+            _setter("translated_port", translated_port)
 
     @property
     @pulumi.getter
@@ -814,16 +1010,35 @@ class AzureFirewallNetworkRuleCollectionArgs:
         :param pulumi.Input[int] priority: Priority of the network rule collection resource.
         :param pulumi.Input[Sequence[pulumi.Input['AzureFirewallNetworkRuleArgs']]] rules: Collection of rules used by a network rule collection.
         """
+        AzureFirewallNetworkRuleCollectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            id=id,
+            name=name,
+            priority=priority,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input['AzureFirewallRCActionArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNetworkRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -910,24 +1125,63 @@ class AzureFirewallNetworkRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: List of source IP addresses for this rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: List of source IpGroups for this rule.
         """
+        AzureFirewallNetworkRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            destination_addresses=destination_addresses,
+            destination_fqdns=destination_fqdns,
+            destination_ip_groups=destination_ip_groups,
+            destination_ports=destination_ports,
+            name=name,
+            protocols=protocols,
+            source_addresses=source_addresses,
+            source_ip_groups=source_ip_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destination_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destination_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureFirewallNetworkRuleProtocol']]]]] = None,
+             source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationAddresses' in kwargs:
+            destination_addresses = kwargs['destinationAddresses']
+        if 'destinationFqdns' in kwargs:
+            destination_fqdns = kwargs['destinationFqdns']
+        if 'destinationIpGroups' in kwargs:
+            destination_ip_groups = kwargs['destinationIpGroups']
+        if 'destinationPorts' in kwargs:
+            destination_ports = kwargs['destinationPorts']
+        if 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if 'sourceIpGroups' in kwargs:
+            source_ip_groups = kwargs['sourceIpGroups']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_addresses is not None:
-            pulumi.set(__self__, "destination_addresses", destination_addresses)
+            _setter("destination_addresses", destination_addresses)
         if destination_fqdns is not None:
-            pulumi.set(__self__, "destination_fqdns", destination_fqdns)
+            _setter("destination_fqdns", destination_fqdns)
         if destination_ip_groups is not None:
-            pulumi.set(__self__, "destination_ip_groups", destination_ip_groups)
+            _setter("destination_ip_groups", destination_ip_groups)
         if destination_ports is not None:
-            pulumi.set(__self__, "destination_ports", destination_ports)
+            _setter("destination_ports", destination_ports)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protocols is not None:
-            pulumi.set(__self__, "protocols", protocols)
+            _setter("protocols", protocols)
         if source_addresses is not None:
-            pulumi.set(__self__, "source_addresses", source_addresses)
+            _setter("source_addresses", source_addresses)
         if source_ip_groups is not None:
-            pulumi.set(__self__, "source_ip_groups", source_ip_groups)
+            _setter("source_ip_groups", source_ip_groups)
 
     @property
     @pulumi.getter
@@ -1046,8 +1300,19 @@ class AzureFirewallRCActionArgs:
         Properties of the AzureFirewallRCAction.
         :param pulumi.Input[Union[str, 'AzureFirewallRCActionType']] type: The type of action.
         """
+        AzureFirewallRCActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'AzureFirewallRCActionType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1072,10 +1337,23 @@ class AzureFirewallSkuArgs:
         :param pulumi.Input[Union[str, 'AzureFirewallSkuName']] name: Name of an Azure Firewall SKU.
         :param pulumi.Input[Union[str, 'AzureFirewallSkuTier']] tier: Tier of an Azure Firewall.
         """
+        AzureFirewallSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'AzureFirewallSkuName']]] = None,
+             tier: Optional[pulumi.Input[Union[str, 'AzureFirewallSkuTier']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -1110,8 +1388,19 @@ class FirewallPolicyFilterRuleActionArgs:
         Properties of the FirewallPolicyFilterRuleAction.
         :param pulumi.Input[Union[str, 'FirewallPolicyFilterRuleActionType']] type: The type of action.
         """
+        FirewallPolicyFilterRuleActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'FirewallPolicyFilterRuleActionType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1143,15 +1432,38 @@ class FirewallPolicyFilterRuleArgs:
         :param pulumi.Input[int] priority: Priority of the Firewall Policy Rule resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationRuleConditionArgs', 'NatRuleConditionArgs', 'NetworkRuleConditionArgs']]]] rule_conditions: Collection of rule conditions used by a rule.
         """
-        pulumi.set(__self__, "rule_type", 'FirewallPolicyFilterRule')
+        FirewallPolicyFilterRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_type=rule_type,
+            action=action,
+            name=name,
+            priority=priority,
+            rule_conditions=rule_conditions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_type: pulumi.Input[str],
+             action: Optional[pulumi.Input['FirewallPolicyFilterRuleActionArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             rule_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationRuleConditionArgs', 'NatRuleConditionArgs', 'NetworkRuleConditionArgs']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleType' in kwargs:
+            rule_type = kwargs['ruleType']
+        if 'ruleConditions' in kwargs:
+            rule_conditions = kwargs['ruleConditions']
+
+        _setter("rule_type", 'FirewallPolicyFilterRule')
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if rule_conditions is not None:
-            pulumi.set(__self__, "rule_conditions", rule_conditions)
+            _setter("rule_conditions", rule_conditions)
 
     @property
     @pulumi.getter(name="ruleType")
@@ -1223,8 +1535,19 @@ class FirewallPolicyNatRuleActionArgs:
         Properties of the FirewallPolicyNatRuleAction.
         :param pulumi.Input[Union[str, 'FirewallPolicyNatRuleActionType']] type: The type of action.
         """
+        FirewallPolicyNatRuleActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'FirewallPolicyNatRuleActionType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1260,19 +1583,50 @@ class FirewallPolicyNatRuleArgs:
         :param pulumi.Input[str] translated_address: The translated address for this NAT rule.
         :param pulumi.Input[str] translated_port: The translated port for this NAT rule.
         """
-        pulumi.set(__self__, "rule_type", 'FirewallPolicyNatRule')
+        FirewallPolicyNatRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_type=rule_type,
+            action=action,
+            name=name,
+            priority=priority,
+            rule_condition=rule_condition,
+            translated_address=translated_address,
+            translated_port=translated_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_type: pulumi.Input[str],
+             action: Optional[pulumi.Input['FirewallPolicyNatRuleActionArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             rule_condition: Optional[pulumi.Input[Union['ApplicationRuleConditionArgs', 'NatRuleConditionArgs', 'NetworkRuleConditionArgs']]] = None,
+             translated_address: Optional[pulumi.Input[str]] = None,
+             translated_port: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleType' in kwargs:
+            rule_type = kwargs['ruleType']
+        if 'ruleCondition' in kwargs:
+            rule_condition = kwargs['ruleCondition']
+        if 'translatedAddress' in kwargs:
+            translated_address = kwargs['translatedAddress']
+        if 'translatedPort' in kwargs:
+            translated_port = kwargs['translatedPort']
+
+        _setter("rule_type", 'FirewallPolicyNatRule')
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if rule_condition is not None:
-            pulumi.set(__self__, "rule_condition", rule_condition)
+            _setter("rule_condition", rule_condition)
         if translated_address is not None:
-            pulumi.set(__self__, "translated_address", translated_address)
+            _setter("translated_address", translated_address)
         if translated_port is not None:
-            pulumi.set(__self__, "translated_port", translated_port)
+            _setter("translated_port", translated_port)
 
     @property
     @pulumi.getter(name="ruleType")
@@ -1370,10 +1724,25 @@ class FirewallPolicyRuleConditionApplicationProtocolArgs:
         :param pulumi.Input[int] port: Port number for the protocol, cannot be greater than 64000.
         :param pulumi.Input[Union[str, 'FirewallPolicyRuleConditionApplicationProtocolType']] protocol_type: Protocol type.
         """
+        FirewallPolicyRuleConditionApplicationProtocolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            protocol_type=protocol_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             protocol_type: Optional[pulumi.Input[Union[str, 'FirewallPolicyRuleConditionApplicationProtocolType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'protocolType' in kwargs:
+            protocol_type = kwargs['protocolType']
+
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if protocol_type is not None:
-            pulumi.set(__self__, "protocol_type", protocol_type)
+            _setter("protocol_type", protocol_type)
 
     @property
     @pulumi.getter
@@ -1410,10 +1779,25 @@ class FirewallPolicyThreatIntelWhitelistArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs for the ThreatIntel Whitelist.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: List of IP addresses for the ThreatIntel Whitelist.
         """
+        FirewallPolicyThreatIntelWhitelistArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fqdns=fqdns,
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         if fqdns is not None:
-            pulumi.set(__self__, "fqdns", fqdns)
+            _setter("fqdns", fqdns)
         if ip_addresses is not None:
-            pulumi.set(__self__, "ip_addresses", ip_addresses)
+            _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter
@@ -1460,20 +1844,53 @@ class HubVirtualNetworkConnectionArgs:
         :param pulumi.Input['SubResourceArgs'] remote_virtual_network: Reference to the remote virtual network.
         :param pulumi.Input['RoutingConfigurationArgs'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
+        HubVirtualNetworkConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_hub_to_remote_vnet_transit=allow_hub_to_remote_vnet_transit,
+            allow_remote_vnet_to_use_hub_vnet_gateways=allow_remote_vnet_to_use_hub_vnet_gateways,
+            enable_internet_security=enable_internet_security,
+            id=id,
+            name=name,
+            remote_virtual_network=remote_virtual_network,
+            routing_configuration=routing_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_hub_to_remote_vnet_transit: Optional[pulumi.Input[bool]] = None,
+             allow_remote_vnet_to_use_hub_vnet_gateways: Optional[pulumi.Input[bool]] = None,
+             enable_internet_security: Optional[pulumi.Input[bool]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             remote_virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None,
+             routing_configuration: Optional[pulumi.Input['RoutingConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowHubToRemoteVnetTransit' in kwargs:
+            allow_hub_to_remote_vnet_transit = kwargs['allowHubToRemoteVnetTransit']
+        if 'allowRemoteVnetToUseHubVnetGateways' in kwargs:
+            allow_remote_vnet_to_use_hub_vnet_gateways = kwargs['allowRemoteVnetToUseHubVnetGateways']
+        if 'enableInternetSecurity' in kwargs:
+            enable_internet_security = kwargs['enableInternetSecurity']
+        if 'remoteVirtualNetwork' in kwargs:
+            remote_virtual_network = kwargs['remoteVirtualNetwork']
+        if 'routingConfiguration' in kwargs:
+            routing_configuration = kwargs['routingConfiguration']
+
         if allow_hub_to_remote_vnet_transit is not None:
-            pulumi.set(__self__, "allow_hub_to_remote_vnet_transit", allow_hub_to_remote_vnet_transit)
+            _setter("allow_hub_to_remote_vnet_transit", allow_hub_to_remote_vnet_transit)
         if allow_remote_vnet_to_use_hub_vnet_gateways is not None:
-            pulumi.set(__self__, "allow_remote_vnet_to_use_hub_vnet_gateways", allow_remote_vnet_to_use_hub_vnet_gateways)
+            _setter("allow_remote_vnet_to_use_hub_vnet_gateways", allow_remote_vnet_to_use_hub_vnet_gateways)
         if enable_internet_security is not None:
-            pulumi.set(__self__, "enable_internet_security", enable_internet_security)
+            _setter("enable_internet_security", enable_internet_security)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if remote_virtual_network is not None:
-            pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
+            _setter("remote_virtual_network", remote_virtual_network)
         if routing_configuration is not None:
-            pulumi.set(__self__, "routing_configuration", routing_configuration)
+            _setter("routing_configuration", routing_configuration)
 
     @property
     @pulumi.getter(name="allowHubToRemoteVnetTransit")
@@ -1570,10 +1987,25 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -1623,21 +2055,58 @@ class NatRuleConditionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: List of source IP addresses for this rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: List of source IpGroups for this rule.
         """
-        pulumi.set(__self__, "rule_condition_type", 'NatRuleCondition')
+        NatRuleConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_condition_type=rule_condition_type,
+            description=description,
+            destination_addresses=destination_addresses,
+            destination_ports=destination_ports,
+            ip_protocols=ip_protocols,
+            name=name,
+            source_addresses=source_addresses,
+            source_ip_groups=source_ip_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_condition_type: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FirewallPolicyRuleConditionNetworkProtocol']]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleConditionType' in kwargs:
+            rule_condition_type = kwargs['ruleConditionType']
+        if 'destinationAddresses' in kwargs:
+            destination_addresses = kwargs['destinationAddresses']
+        if 'destinationPorts' in kwargs:
+            destination_ports = kwargs['destinationPorts']
+        if 'ipProtocols' in kwargs:
+            ip_protocols = kwargs['ipProtocols']
+        if 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if 'sourceIpGroups' in kwargs:
+            source_ip_groups = kwargs['sourceIpGroups']
+
+        _setter("rule_condition_type", 'NatRuleCondition')
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_addresses is not None:
-            pulumi.set(__self__, "destination_addresses", destination_addresses)
+            _setter("destination_addresses", destination_addresses)
         if destination_ports is not None:
-            pulumi.set(__self__, "destination_ports", destination_ports)
+            _setter("destination_ports", destination_ports)
         if ip_protocols is not None:
-            pulumi.set(__self__, "ip_protocols", ip_protocols)
+            _setter("ip_protocols", ip_protocols)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_addresses is not None:
-            pulumi.set(__self__, "source_addresses", source_addresses)
+            _setter("source_addresses", source_addresses)
         if source_ip_groups is not None:
-            pulumi.set(__self__, "source_ip_groups", source_ip_groups)
+            _setter("source_ip_groups", source_ip_groups)
 
     @property
     @pulumi.getter(name="ruleConditionType")
@@ -1762,23 +2231,64 @@ class NetworkRuleConditionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: List of source IP addresses for this rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: List of source IpGroups for this rule.
         """
-        pulumi.set(__self__, "rule_condition_type", 'NetworkRuleCondition')
+        NetworkRuleConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_condition_type=rule_condition_type,
+            description=description,
+            destination_addresses=destination_addresses,
+            destination_ip_groups=destination_ip_groups,
+            destination_ports=destination_ports,
+            ip_protocols=ip_protocols,
+            name=name,
+            source_addresses=source_addresses,
+            source_ip_groups=source_ip_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_condition_type: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destination_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FirewallPolicyRuleConditionNetworkProtocol']]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleConditionType' in kwargs:
+            rule_condition_type = kwargs['ruleConditionType']
+        if 'destinationAddresses' in kwargs:
+            destination_addresses = kwargs['destinationAddresses']
+        if 'destinationIpGroups' in kwargs:
+            destination_ip_groups = kwargs['destinationIpGroups']
+        if 'destinationPorts' in kwargs:
+            destination_ports = kwargs['destinationPorts']
+        if 'ipProtocols' in kwargs:
+            ip_protocols = kwargs['ipProtocols']
+        if 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if 'sourceIpGroups' in kwargs:
+            source_ip_groups = kwargs['sourceIpGroups']
+
+        _setter("rule_condition_type", 'NetworkRuleCondition')
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_addresses is not None:
-            pulumi.set(__self__, "destination_addresses", destination_addresses)
+            _setter("destination_addresses", destination_addresses)
         if destination_ip_groups is not None:
-            pulumi.set(__self__, "destination_ip_groups", destination_ip_groups)
+            _setter("destination_ip_groups", destination_ip_groups)
         if destination_ports is not None:
-            pulumi.set(__self__, "destination_ports", destination_ports)
+            _setter("destination_ports", destination_ports)
         if ip_protocols is not None:
-            pulumi.set(__self__, "ip_protocols", ip_protocols)
+            _setter("ip_protocols", ip_protocols)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_addresses is not None:
-            pulumi.set(__self__, "source_addresses", source_addresses)
+            _setter("source_addresses", source_addresses)
         if source_ip_groups is not None:
-            pulumi.set(__self__, "source_ip_groups", source_ip_groups)
+            _setter("source_ip_groups", source_ip_groups)
 
     @property
     @pulumi.getter(name="ruleConditionType")
@@ -1900,10 +2410,23 @@ class PropagatedRouteTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ids: The list of resource ids of all the RouteTables.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: The list of labels.
         """
+        PropagatedRouteTableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ids=ids,
+            labels=labels,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ids: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ids is not None:
-            pulumi.set(__self__, "ids", ids)
+            _setter("ids", ids)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
 
     @property
     @pulumi.getter
@@ -1942,12 +2465,33 @@ class RoutingConfigurationArgs:
         :param pulumi.Input['PropagatedRouteTableArgs'] propagated_route_tables: The list of RouteTables to advertise the routes to.
         :param pulumi.Input['VnetRouteArgs'] vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
         """
+        RoutingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            associated_route_table=associated_route_table,
+            propagated_route_tables=propagated_route_tables,
+            vnet_routes=vnet_routes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             associated_route_table: Optional[pulumi.Input['SubResourceArgs']] = None,
+             propagated_route_tables: Optional[pulumi.Input['PropagatedRouteTableArgs']] = None,
+             vnet_routes: Optional[pulumi.Input['VnetRouteArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associatedRouteTable' in kwargs:
+            associated_route_table = kwargs['associatedRouteTable']
+        if 'propagatedRouteTables' in kwargs:
+            propagated_route_tables = kwargs['propagatedRouteTables']
+        if 'vnetRoutes' in kwargs:
+            vnet_routes = kwargs['vnetRoutes']
+
         if associated_route_table is not None:
-            pulumi.set(__self__, "associated_route_table", associated_route_table)
+            _setter("associated_route_table", associated_route_table)
         if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
+            _setter("propagated_route_tables", propagated_route_tables)
         if vnet_routes is not None:
-            pulumi.set(__self__, "vnet_routes", vnet_routes)
+            _setter("vnet_routes", vnet_routes)
 
     @property
     @pulumi.getter(name="associatedRouteTable")
@@ -1998,12 +2542,31 @@ class StaticRouteArgs:
         :param pulumi.Input[str] name: The name of the StaticRoute that is unique within a VnetRoute.
         :param pulumi.Input[str] next_hop_ip_address: The ip address of the next hop.
         """
+        StaticRouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_prefixes=address_prefixes,
+            name=name,
+            next_hop_ip_address=next_hop_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             next_hop_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefixes' in kwargs:
+            address_prefixes = kwargs['addressPrefixes']
+        if 'nextHopIpAddress' in kwargs:
+            next_hop_ip_address = kwargs['nextHopIpAddress']
+
         if address_prefixes is not None:
-            pulumi.set(__self__, "address_prefixes", address_prefixes)
+            _setter("address_prefixes", address_prefixes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if next_hop_ip_address is not None:
-            pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+            _setter("next_hop_ip_address", next_hop_ip_address)
 
     @property
     @pulumi.getter(name="addressPrefixes")
@@ -2053,8 +2616,19 @@ class SubResourceArgs:
                A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
                Example of a relative ID: $self/frontEndConfigurations/my-frontend.
         """
+        SubResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2084,12 +2658,31 @@ class VirtualApplianceSkuPropertiesArgs:
         :param pulumi.Input[str] market_place_version: Virtual Appliance Version.
         :param pulumi.Input[str] vendor: Virtual Appliance Vendor.
         """
+        VirtualApplianceSkuPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bundled_scale_unit=bundled_scale_unit,
+            market_place_version=market_place_version,
+            vendor=vendor,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bundled_scale_unit: Optional[pulumi.Input[str]] = None,
+             market_place_version: Optional[pulumi.Input[str]] = None,
+             vendor: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bundledScaleUnit' in kwargs:
+            bundled_scale_unit = kwargs['bundledScaleUnit']
+        if 'marketPlaceVersion' in kwargs:
+            market_place_version = kwargs['marketPlaceVersion']
+
         if bundled_scale_unit is not None:
-            pulumi.set(__self__, "bundled_scale_unit", bundled_scale_unit)
+            _setter("bundled_scale_unit", bundled_scale_unit)
         if market_place_version is not None:
-            pulumi.set(__self__, "market_place_version", market_place_version)
+            _setter("market_place_version", market_place_version)
         if vendor is not None:
-            pulumi.set(__self__, "vendor", vendor)
+            _setter("vendor", vendor)
 
     @property
     @pulumi.getter(name="bundledScaleUnit")
@@ -2142,14 +2735,33 @@ class VirtualHubRouteTableV2Args:
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteV2Args']]] routes: List of all routes.
         """
+        VirtualHubRouteTableV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attached_connections=attached_connections,
+            id=id,
+            name=name,
+            routes=routes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attached_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteV2Args']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attachedConnections' in kwargs:
+            attached_connections = kwargs['attachedConnections']
+
         if attached_connections is not None:
-            pulumi.set(__self__, "attached_connections", attached_connections)
+            _setter("attached_connections", attached_connections)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
 
     @property
     @pulumi.getter(name="attachedConnections")
@@ -2208,8 +2820,19 @@ class VirtualHubRouteTableArgs:
         VirtualHub route table.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]] routes: List of all routes.
         """
+        VirtualHubRouteTableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            routes=routes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
 
     @property
     @pulumi.getter
@@ -2238,14 +2861,37 @@ class VirtualHubRouteV2Args:
         :param pulumi.Input[str] next_hop_type: The type of next hops.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] next_hops: NextHops ip address.
         """
+        VirtualHubRouteV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_type=destination_type,
+            destinations=destinations,
+            next_hop_type=next_hop_type,
+            next_hops=next_hops,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_type: Optional[pulumi.Input[str]] = None,
+             destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             next_hop_type: Optional[pulumi.Input[str]] = None,
+             next_hops: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationType' in kwargs:
+            destination_type = kwargs['destinationType']
+        if 'nextHopType' in kwargs:
+            next_hop_type = kwargs['nextHopType']
+        if 'nextHops' in kwargs:
+            next_hops = kwargs['nextHops']
+
         if destination_type is not None:
-            pulumi.set(__self__, "destination_type", destination_type)
+            _setter("destination_type", destination_type)
         if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+            _setter("destinations", destinations)
         if next_hop_type is not None:
-            pulumi.set(__self__, "next_hop_type", next_hop_type)
+            _setter("next_hop_type", next_hop_type)
         if next_hops is not None:
-            pulumi.set(__self__, "next_hops", next_hops)
+            _setter("next_hops", next_hops)
 
     @property
     @pulumi.getter(name="destinationType")
@@ -2306,10 +2952,27 @@ class VirtualHubRouteArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: List of all addressPrefixes.
         :param pulumi.Input[str] next_hop_ip_address: NextHop ip address.
         """
+        VirtualHubRouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_prefixes=address_prefixes,
+            next_hop_ip_address=next_hop_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             next_hop_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefixes' in kwargs:
+            address_prefixes = kwargs['addressPrefixes']
+        if 'nextHopIpAddress' in kwargs:
+            next_hop_ip_address = kwargs['nextHopIpAddress']
+
         if address_prefixes is not None:
-            pulumi.set(__self__, "address_prefixes", address_prefixes)
+            _setter("address_prefixes", address_prefixes)
         if next_hop_ip_address is not None:
-            pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+            _setter("next_hop_ip_address", next_hop_ip_address)
 
     @property
     @pulumi.getter(name="addressPrefixes")
@@ -2344,8 +3007,21 @@ class VnetRouteArgs:
         List of routes that control routing from VirtualHub into a virtual network connection.
         :param pulumi.Input[Sequence[pulumi.Input['StaticRouteArgs']]] static_routes: List of all Static Routes.
         """
+        VnetRouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            static_routes=static_routes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             static_routes: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRouteArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'staticRoutes' in kwargs:
+            static_routes = kwargs['staticRoutes']
+
         if static_routes is not None:
-            pulumi.set(__self__, "static_routes", static_routes)
+            _setter("static_routes", static_routes)
 
     @property
     @pulumi.getter(name="staticRoutes")

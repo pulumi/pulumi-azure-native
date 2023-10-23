@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RegisteredPrefixArgs', 'RegisteredPrefix']
@@ -25,12 +25,35 @@ class RegisteredPrefixArgs:
         :param pulumi.Input[str] prefix: The customer's prefix from which traffic originates.
         :param pulumi.Input[str] registered_prefix_name: The name of the registered prefix.
         """
-        pulumi.set(__self__, "peering_name", peering_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        RegisteredPrefixArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            peering_name=peering_name,
+            resource_group_name=resource_group_name,
+            prefix=prefix,
+            registered_prefix_name=registered_prefix_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             peering_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             prefix: Optional[pulumi.Input[str]] = None,
+             registered_prefix_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peeringName' in kwargs:
+            peering_name = kwargs['peeringName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'registeredPrefixName' in kwargs:
+            registered_prefix_name = kwargs['registeredPrefixName']
+
+        _setter("peering_name", peering_name)
+        _setter("resource_group_name", resource_group_name)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if registered_prefix_name is not None:
-            pulumi.set(__self__, "registered_prefix_name", registered_prefix_name)
+            _setter("registered_prefix_name", registered_prefix_name)
 
     @property
     @pulumi.getter(name="peeringName")
@@ -122,6 +145,10 @@ class RegisteredPrefix(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegisteredPrefixArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

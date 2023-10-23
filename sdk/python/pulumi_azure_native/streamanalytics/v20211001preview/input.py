@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,14 +30,39 @@ class InputInitArgs:
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[Union['ReferenceInputPropertiesArgs', 'StreamInputPropertiesArgs']] properties: The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.set(__self__, "job_name", job_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        InputInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_name=job_name,
+            resource_group_name=resource_group_name,
+            input_name=input_name,
+            name=name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             input_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Union['ReferenceInputPropertiesArgs', 'StreamInputPropertiesArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'inputName' in kwargs:
+            input_name = kwargs['inputName']
+
+        _setter("job_name", job_name)
+        _setter("resource_group_name", resource_group_name)
         if input_name is not None:
-            pulumi.set(__self__, "input_name", input_name)
+            _setter("input_name", input_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="jobName")
@@ -141,6 +166,10 @@ class Input(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InputInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

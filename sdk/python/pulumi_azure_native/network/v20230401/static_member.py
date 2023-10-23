@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,13 +28,42 @@ class StaticMemberArgs:
         :param pulumi.Input[str] resource_id: Resource Id.
         :param pulumi.Input[str] static_member_name: The name of the static member.
         """
-        pulumi.set(__self__, "network_group_name", network_group_name)
-        pulumi.set(__self__, "network_manager_name", network_manager_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        StaticMemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_group_name=network_group_name,
+            network_manager_name=network_manager_name,
+            resource_group_name=resource_group_name,
+            resource_id=resource_id,
+            static_member_name=static_member_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_group_name: pulumi.Input[str],
+             network_manager_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             static_member_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkGroupName' in kwargs:
+            network_group_name = kwargs['networkGroupName']
+        if 'networkManagerName' in kwargs:
+            network_manager_name = kwargs['networkManagerName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'staticMemberName' in kwargs:
+            static_member_name = kwargs['staticMemberName']
+
+        _setter("network_group_name", network_group_name)
+        _setter("network_manager_name", network_manager_name)
+        _setter("resource_group_name", resource_group_name)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if static_member_name is not None:
-            pulumi.set(__self__, "static_member_name", static_member_name)
+            _setter("static_member_name", static_member_name)
 
     @property
     @pulumi.getter(name="networkGroupName")
@@ -138,6 +167,10 @@ class StaticMember(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StaticMemberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -73,12 +73,33 @@ class APIServerAccessProfileResponse(dict):
         :param bool enable_vnet_integration: Whether to enable apiserver vnet integration for the Fleet hub or not.
         :param str subnet_id: The subnet to be used when apiserver vnet integration is enabled. It is required when creating a new Fleet with BYO vnet.
         """
+        APIServerAccessProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_private_cluster=enable_private_cluster,
+            enable_vnet_integration=enable_vnet_integration,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_private_cluster: Optional[bool] = None,
+             enable_vnet_integration: Optional[bool] = None,
+             subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enablePrivateCluster' in kwargs:
+            enable_private_cluster = kwargs['enablePrivateCluster']
+        if 'enableVnetIntegration' in kwargs:
+            enable_vnet_integration = kwargs['enableVnetIntegration']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if enable_private_cluster is not None:
-            pulumi.set(__self__, "enable_private_cluster", enable_private_cluster)
+            _setter("enable_private_cluster", enable_private_cluster)
         if enable_vnet_integration is not None:
-            pulumi.set(__self__, "enable_vnet_integration", enable_vnet_integration)
+            _setter("enable_vnet_integration", enable_vnet_integration)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="enablePrivateCluster")
@@ -133,8 +154,21 @@ class AgentProfileResponse(dict):
         Agent profile for the Fleet hub.
         :param str subnet_id: The ID of the subnet which the Fleet hub node will join on startup. If this is not specified, a vnet and subnet will be generated and used.
         """
+        AgentProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -158,8 +192,21 @@ class ErrorAdditionalInfoResponse(dict):
         :param Any info: The additional info.
         :param str type: The additional info type.
         """
-        pulumi.set(__self__, "info", info)
-        pulumi.set(__self__, "type", type)
+        ErrorAdditionalInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            info=info,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             info: Any,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("info", info)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -214,11 +261,32 @@ class ErrorDetailResponse(dict):
         :param str message: The error message.
         :param str target: The error target.
         """
-        pulumi.set(__self__, "additional_info", additional_info)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        ErrorDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_info=additional_info,
+            code=code,
+            details=details,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+             code: str,
+             details: Sequence['outputs.ErrorDetailResponse'],
+             message: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalInfo' in kwargs:
+            additional_info = kwargs['additionalInfo']
+
+        _setter("additional_info", additional_info)
+        _setter("code", code)
+        _setter("details", details)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter(name="additionalInfo")
@@ -274,8 +342,21 @@ class FleetCredentialResultResponse(dict):
         :param str name: The name of the credential.
         :param str value: Base64-encoded Kubernetes configuration file.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        FleetCredentialResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -336,14 +417,41 @@ class FleetHubProfileResponse(dict):
         :param 'APIServerAccessProfileResponse' api_server_access_profile: The access profile for the Fleet hub API server.
         :param str dns_prefix: DNS prefix used to create the FQDN for the Fleet hub.
         """
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+        FleetHubProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fqdn=fqdn,
+            kubernetes_version=kubernetes_version,
+            agent_profile=agent_profile,
+            api_server_access_profile=api_server_access_profile,
+            dns_prefix=dns_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fqdn: str,
+             kubernetes_version: str,
+             agent_profile: Optional['outputs.AgentProfileResponse'] = None,
+             api_server_access_profile: Optional['outputs.APIServerAccessProfileResponse'] = None,
+             dns_prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kubernetesVersion' in kwargs:
+            kubernetes_version = kwargs['kubernetesVersion']
+        if 'agentProfile' in kwargs:
+            agent_profile = kwargs['agentProfile']
+        if 'apiServerAccessProfile' in kwargs:
+            api_server_access_profile = kwargs['apiServerAccessProfile']
+        if 'dnsPrefix' in kwargs:
+            dns_prefix = kwargs['dnsPrefix']
+
+        _setter("fqdn", fqdn)
+        _setter("kubernetes_version", kubernetes_version)
         if agent_profile is not None:
-            pulumi.set(__self__, "agent_profile", agent_profile)
+            _setter("agent_profile", agent_profile)
         if api_server_access_profile is not None:
-            pulumi.set(__self__, "api_server_access_profile", api_server_access_profile)
+            _setter("api_server_access_profile", api_server_access_profile)
         if dns_prefix is not None:
-            pulumi.set(__self__, "dns_prefix", dns_prefix)
+            _setter("dns_prefix", dns_prefix)
 
     @property
     @pulumi.getter
@@ -416,9 +524,24 @@ class ManagedClusterUpdateResponse(dict):
         :param 'ManagedClusterUpgradeSpecResponse' upgrade: The upgrade to apply to the ManagedClusters.
         :param 'NodeImageSelectionResponse' node_image_selection: The node image upgrade to be applied to the target nodes in update run.
         """
-        pulumi.set(__self__, "upgrade", upgrade)
+        ManagedClusterUpdateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            upgrade=upgrade,
+            node_image_selection=node_image_selection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             upgrade: 'outputs.ManagedClusterUpgradeSpecResponse',
+             node_image_selection: Optional['outputs.NodeImageSelectionResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nodeImageSelection' in kwargs:
+            node_image_selection = kwargs['nodeImageSelection']
+
+        _setter("upgrade", upgrade)
         if node_image_selection is not None:
-            pulumi.set(__self__, "node_image_selection", node_image_selection)
+            _setter("node_image_selection", node_image_selection)
 
     @property
     @pulumi.getter
@@ -469,9 +592,24 @@ class ManagedClusterUpgradeSpecResponse(dict):
                NodeImageOnly requires the KubernetesVersion property not to be set.
         :param str kubernetes_version: The Kubernetes version to upgrade the member clusters to.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedClusterUpgradeSpecResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            kubernetes_version=kubernetes_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             kubernetes_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kubernetesVersion' in kwargs:
+            kubernetes_version = kwargs['kubernetesVersion']
+
+        _setter("type", type)
         if kubernetes_version is not None:
-            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+            _setter("kubernetes_version", kubernetes_version)
 
     @property
     @pulumi.getter
@@ -530,11 +668,34 @@ class ManagedServiceIdentityResponse(dict):
         :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -607,11 +768,34 @@ class MemberUpdateStatusResponse(dict):
         :param str operation_id: The operation resource id of the latest attempt to perform the operation.
         :param 'UpdateStatusResponse' status: The status of the MemberUpdate operation.
         """
-        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operation_id", operation_id)
-        pulumi.set(__self__, "status", status)
+        MemberUpdateStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_resource_id=cluster_resource_id,
+            message=message,
+            name=name,
+            operation_id=operation_id,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_resource_id: str,
+             message: str,
+             name: str,
+             operation_id: str,
+             status: 'outputs.UpdateStatusResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterResourceId' in kwargs:
+            cluster_resource_id = kwargs['clusterResourceId']
+        if 'operationId' in kwargs:
+            operation_id = kwargs['operationId']
+
+        _setter("cluster_resource_id", cluster_resource_id)
+        _setter("message", message)
+        _setter("name", name)
+        _setter("operation_id", operation_id)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="clusterResourceId")
@@ -665,7 +849,18 @@ class NodeImageSelectionResponse(dict):
         The node image upgrade to be applied to the target nodes in update run.
         :param str type: The node image upgrade type.
         """
-        pulumi.set(__self__, "type", type)
+        NodeImageSelectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -704,7 +899,20 @@ class NodeImageSelectionStatusResponse(dict):
         The node image upgrade specs for the update run.
         :param Sequence['NodeImageVersionResponse'] selected_node_image_versions: The image versions to upgrade the nodes to.
         """
-        pulumi.set(__self__, "selected_node_image_versions", selected_node_image_versions)
+        NodeImageSelectionStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_node_image_versions=selected_node_image_versions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_node_image_versions: Sequence['outputs.NodeImageVersionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'selectedNodeImageVersions' in kwargs:
+            selected_node_image_versions = kwargs['selectedNodeImageVersions']
+
+        _setter("selected_node_image_versions", selected_node_image_versions)
 
     @property
     @pulumi.getter(name="selectedNodeImageVersions")
@@ -726,7 +934,18 @@ class NodeImageVersionResponse(dict):
         The node upgrade image version.
         :param str version: The image version to upgrade the nodes to (e.g., 'AKSUbuntu-1804gen2containerd-2022.12.13').
         """
-        pulumi.set(__self__, "version", version)
+        NodeImageVersionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -785,18 +1004,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -859,7 +1111,18 @@ class UpdateGroupResponse(dict):
         :param str name: Name of the group.
                It must match a group name of an existing fleet member. 
         """
-        pulumi.set(__self__, "name", name)
+        UpdateGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -886,9 +1149,24 @@ class UpdateGroupStatusResponse(dict):
         :param str name: The name of the UpdateGroup.
         :param 'UpdateStatusResponse' status: The status of the UpdateGroup.
         """
-        pulumi.set(__self__, "members", members)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
+        UpdateGroupStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            members=members,
+            name=name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             members: Sequence['outputs.MemberUpdateStatusResponse'],
+             name: str,
+             status: 'outputs.UpdateStatusResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("members", members)
+        _setter("name", name)
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -947,9 +1225,26 @@ class UpdateRunStatusResponse(dict):
         :param Sequence['UpdateStageStatusResponse'] stages: The stages composing an update run. Stages are run sequentially withing an UpdateRun.
         :param 'UpdateStatusResponse' status: The status of the UpdateRun.
         """
-        pulumi.set(__self__, "node_image_selection", node_image_selection)
-        pulumi.set(__self__, "stages", stages)
-        pulumi.set(__self__, "status", status)
+        UpdateRunStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node_image_selection=node_image_selection,
+            stages=stages,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node_image_selection: 'outputs.NodeImageSelectionStatusResponse',
+             stages: Sequence['outputs.UpdateStageStatusResponse'],
+             status: 'outputs.UpdateStatusResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nodeImageSelection' in kwargs:
+            node_image_selection = kwargs['nodeImageSelection']
+
+        _setter("node_image_selection", node_image_selection)
+        _setter("stages", stages)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="nodeImageSelection")
@@ -999,7 +1294,18 @@ class UpdateRunStrategyResponse(dict):
         A valid strategy contains no duplicate groups within or across stages.
         :param Sequence['UpdateStageResponse'] stages: The list of stages that compose this update run. Min size: 1.
         """
-        pulumi.set(__self__, "stages", stages)
+        UpdateRunStrategyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            stages=stages,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             stages: Sequence['outputs.UpdateStageResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("stages", stages)
 
     @property
     @pulumi.getter
@@ -1042,11 +1348,28 @@ class UpdateStageResponse(dict):
         :param int after_stage_wait_in_seconds: The time in seconds to wait at the end of this stage before starting the next one. Defaults to 0 seconds if unspecified.
         :param Sequence['UpdateGroupResponse'] groups: Defines the groups to be executed in parallel in this stage. Duplicate groups are not allowed. Min size: 1.
         """
-        pulumi.set(__self__, "name", name)
+        UpdateStageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            after_stage_wait_in_seconds=after_stage_wait_in_seconds,
+            groups=groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             after_stage_wait_in_seconds: Optional[int] = None,
+             groups: Optional[Sequence['outputs.UpdateGroupResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'afterStageWaitInSeconds' in kwargs:
+            after_stage_wait_in_seconds = kwargs['afterStageWaitInSeconds']
+
+        _setter("name", name)
         if after_stage_wait_in_seconds is not None:
-            pulumi.set(__self__, "after_stage_wait_in_seconds", after_stage_wait_in_seconds)
+            _setter("after_stage_wait_in_seconds", after_stage_wait_in_seconds)
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
 
     @property
     @pulumi.getter
@@ -1107,10 +1430,29 @@ class UpdateStageStatusResponse(dict):
         :param str name: The name of the UpdateStage.
         :param 'UpdateStatusResponse' status: The status of the UpdateStage.
         """
-        pulumi.set(__self__, "after_stage_wait_status", after_stage_wait_status)
-        pulumi.set(__self__, "groups", groups)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
+        UpdateStageStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            after_stage_wait_status=after_stage_wait_status,
+            groups=groups,
+            name=name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             after_stage_wait_status: 'outputs.WaitStatusResponse',
+             groups: Sequence['outputs.UpdateGroupStatusResponse'],
+             name: str,
+             status: 'outputs.UpdateStatusResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'afterStageWaitStatus' in kwargs:
+            after_stage_wait_status = kwargs['afterStageWaitStatus']
+
+        _setter("after_stage_wait_status", after_stage_wait_status)
+        _setter("groups", groups)
+        _setter("name", name)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="afterStageWaitStatus")
@@ -1181,10 +1523,31 @@ class UpdateStatusResponse(dict):
         :param str start_time: The time the operation or group was started.
         :param str state: The State of the operation or group.
         """
-        pulumi.set(__self__, "completed_time", completed_time)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "state", state)
+        UpdateStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            completed_time=completed_time,
+            error=error,
+            start_time=start_time,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             completed_time: str,
+             error: 'outputs.ErrorDetailResponse',
+             start_time: str,
+             state: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'completedTime' in kwargs:
+            completed_time = kwargs['completedTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
+        _setter("completed_time", completed_time)
+        _setter("error", error)
+        _setter("start_time", start_time)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="completedTime")
@@ -1251,8 +1614,25 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: The client ID of the assigned identity.
         :param str principal_id: The principal ID of the assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -1301,8 +1681,23 @@ class WaitStatusResponse(dict):
         :param 'UpdateStatusResponse' status: The status of the wait duration.
         :param int wait_duration_in_seconds: The wait duration configured in seconds.
         """
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "wait_duration_in_seconds", wait_duration_in_seconds)
+        WaitStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+            wait_duration_in_seconds=wait_duration_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: 'outputs.UpdateStatusResponse',
+             wait_duration_in_seconds: int,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'waitDurationInSeconds' in kwargs:
+            wait_duration_in_seconds = kwargs['waitDurationInSeconds']
+
+        _setter("status", status)
+        _setter("wait_duration_in_seconds", wait_duration_in_seconds)
 
     @property
     @pulumi.getter

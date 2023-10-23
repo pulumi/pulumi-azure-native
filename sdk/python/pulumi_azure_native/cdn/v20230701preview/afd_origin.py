@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -48,36 +48,97 @@ class AFDOriginArgs:
         :param pulumi.Input['SharedPrivateLinkResourcePropertiesArgs'] shared_private_link_resource: The properties of the private link resource for private origin.
         :param pulumi.Input[int] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
-        pulumi.set(__self__, "host_name", host_name)
-        pulumi.set(__self__, "origin_group_name", origin_group_name)
-        pulumi.set(__self__, "profile_name", profile_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AFDOriginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            origin_group_name=origin_group_name,
+            profile_name=profile_name,
+            resource_group_name=resource_group_name,
+            azure_origin=azure_origin,
+            enabled_state=enabled_state,
+            enforce_certificate_name_check=enforce_certificate_name_check,
+            http_port=http_port,
+            https_port=https_port,
+            origin_host_header=origin_host_header,
+            origin_name=origin_name,
+            priority=priority,
+            shared_private_link_resource=shared_private_link_resource,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: pulumi.Input[str],
+             origin_group_name: pulumi.Input[str],
+             profile_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             azure_origin: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+             enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
+             enforce_certificate_name_check: Optional[pulumi.Input[bool]] = None,
+             http_port: Optional[pulumi.Input[int]] = None,
+             https_port: Optional[pulumi.Input[int]] = None,
+             origin_host_header: Optional[pulumi.Input[str]] = None,
+             origin_name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             shared_private_link_resource: Optional[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']] = None,
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'originGroupName' in kwargs:
+            origin_group_name = kwargs['originGroupName']
+        if 'profileName' in kwargs:
+            profile_name = kwargs['profileName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'azureOrigin' in kwargs:
+            azure_origin = kwargs['azureOrigin']
+        if 'enabledState' in kwargs:
+            enabled_state = kwargs['enabledState']
+        if 'enforceCertificateNameCheck' in kwargs:
+            enforce_certificate_name_check = kwargs['enforceCertificateNameCheck']
+        if 'httpPort' in kwargs:
+            http_port = kwargs['httpPort']
+        if 'httpsPort' in kwargs:
+            https_port = kwargs['httpsPort']
+        if 'originHostHeader' in kwargs:
+            origin_host_header = kwargs['originHostHeader']
+        if 'originName' in kwargs:
+            origin_name = kwargs['originName']
+        if 'sharedPrivateLinkResource' in kwargs:
+            shared_private_link_resource = kwargs['sharedPrivateLinkResource']
+
+        _setter("host_name", host_name)
+        _setter("origin_group_name", origin_group_name)
+        _setter("profile_name", profile_name)
+        _setter("resource_group_name", resource_group_name)
         if azure_origin is not None:
-            pulumi.set(__self__, "azure_origin", azure_origin)
+            _setter("azure_origin", azure_origin)
         if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
+            _setter("enabled_state", enabled_state)
         if enforce_certificate_name_check is None:
             enforce_certificate_name_check = True
         if enforce_certificate_name_check is not None:
-            pulumi.set(__self__, "enforce_certificate_name_check", enforce_certificate_name_check)
+            _setter("enforce_certificate_name_check", enforce_certificate_name_check)
         if http_port is None:
             http_port = 80
         if http_port is not None:
-            pulumi.set(__self__, "http_port", http_port)
+            _setter("http_port", http_port)
         if https_port is None:
             https_port = 443
         if https_port is not None:
-            pulumi.set(__self__, "https_port", https_port)
+            _setter("https_port", https_port)
         if origin_host_header is not None:
-            pulumi.set(__self__, "origin_host_header", origin_host_header)
+            _setter("origin_host_header", origin_host_header)
         if origin_name is not None:
-            pulumi.set(__self__, "origin_name", origin_name)
+            _setter("origin_name", origin_name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if shared_private_link_resource is not None:
-            pulumi.set(__self__, "shared_private_link_resource", shared_private_link_resource)
+            _setter("shared_private_link_resource", shared_private_link_resource)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="hostName")
@@ -307,6 +368,10 @@ class AFDOrigin(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AFDOriginArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -335,6 +400,11 @@ class AFDOrigin(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AFDOriginArgs.__new__(AFDOriginArgs)
 
+            if azure_origin is not None and not isinstance(azure_origin, ResourceReferenceArgs):
+                azure_origin = azure_origin or {}
+                def _setter(key, value):
+                    azure_origin[key] = value
+                ResourceReferenceArgs._configure(_setter, **azure_origin)
             __props__.__dict__["azure_origin"] = azure_origin
             __props__.__dict__["enabled_state"] = enabled_state
             if enforce_certificate_name_check is None:
@@ -361,6 +431,11 @@ class AFDOrigin(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if shared_private_link_resource is not None and not isinstance(shared_private_link_resource, SharedPrivateLinkResourcePropertiesArgs):
+                shared_private_link_resource = shared_private_link_resource or {}
+                def _setter(key, value):
+                    shared_private_link_resource[key] = value
+                SharedPrivateLinkResourcePropertiesArgs._configure(_setter, **shared_private_link_resource)
             __props__.__dict__["shared_private_link_resource"] = shared_private_link_resource
             __props__.__dict__["weight"] = weight
             __props__.__dict__["deployment_status"] = None

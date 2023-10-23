@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,11 +28,32 @@ class ActionGroupsInformationArgs:
         :param pulumi.Input[str] custom_email_subject: An optional custom email subject to use in email notifications.
         :param pulumi.Input[str] custom_webhook_payload: An optional custom web-hook payload to use in web-hook notifications.
         """
-        pulumi.set(__self__, "group_ids", group_ids)
+        ActionGroupsInformationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ids=group_ids,
+            custom_email_subject=custom_email_subject,
+            custom_webhook_payload=custom_webhook_payload,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             custom_email_subject: Optional[pulumi.Input[str]] = None,
+             custom_webhook_payload: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+        if 'customEmailSubject' in kwargs:
+            custom_email_subject = kwargs['customEmailSubject']
+        if 'customWebhookPayload' in kwargs:
+            custom_webhook_payload = kwargs['customWebhookPayload']
+
+        _setter("group_ids", group_ids)
         if custom_email_subject is not None:
-            pulumi.set(__self__, "custom_email_subject", custom_email_subject)
+            _setter("custom_email_subject", custom_email_subject)
         if custom_webhook_payload is not None:
-            pulumi.set(__self__, "custom_webhook_payload", custom_webhook_payload)
+            _setter("custom_webhook_payload", custom_webhook_payload)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -81,9 +102,22 @@ class DetectorArgs:
         :param pulumi.Input[str] id: The detector id.
         :param pulumi.Input[Mapping[str, Any]] parameters: The detector's parameters.'
         """
-        pulumi.set(__self__, "id", id)
+        DetectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -118,8 +152,19 @@ class ThrottlingInformationArgs:
         Optional throttling information for the alert rule.
         :param pulumi.Input[str] duration: The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
         """
+        ThrottlingInformationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
 
     @property
     @pulumi.getter

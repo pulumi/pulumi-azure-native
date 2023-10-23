@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,20 +36,59 @@ class EventHubArgs:
         :param pulumi.Input['RetentionDescriptionArgs'] retention_description: Event Hub retention settings
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of the Event Hub.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        EventHubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            capture_description=capture_description,
+            event_hub_name=event_hub_name,
+            message_retention_in_days=message_retention_in_days,
+            partition_count=partition_count,
+            retention_description=retention_description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             capture_description: Optional[pulumi.Input['CaptureDescriptionArgs']] = None,
+             event_hub_name: Optional[pulumi.Input[str]] = None,
+             message_retention_in_days: Optional[pulumi.Input[float]] = None,
+             partition_count: Optional[pulumi.Input[float]] = None,
+             retention_description: Optional[pulumi.Input['RetentionDescriptionArgs']] = None,
+             status: Optional[pulumi.Input['EntityStatus']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'captureDescription' in kwargs:
+            capture_description = kwargs['captureDescription']
+        if 'eventHubName' in kwargs:
+            event_hub_name = kwargs['eventHubName']
+        if 'messageRetentionInDays' in kwargs:
+            message_retention_in_days = kwargs['messageRetentionInDays']
+        if 'partitionCount' in kwargs:
+            partition_count = kwargs['partitionCount']
+        if 'retentionDescription' in kwargs:
+            retention_description = kwargs['retentionDescription']
+
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if capture_description is not None:
-            pulumi.set(__self__, "capture_description", capture_description)
+            _setter("capture_description", capture_description)
         if event_hub_name is not None:
-            pulumi.set(__self__, "event_hub_name", event_hub_name)
+            _setter("event_hub_name", event_hub_name)
         if message_retention_in_days is not None:
-            pulumi.set(__self__, "message_retention_in_days", message_retention_in_days)
+            _setter("message_retention_in_days", message_retention_in_days)
         if partition_count is not None:
-            pulumi.set(__self__, "partition_count", partition_count)
+            _setter("partition_count", partition_count)
         if retention_description is not None:
-            pulumi.set(__self__, "retention_description", retention_description)
+            _setter("retention_description", retention_description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -201,6 +240,10 @@ class EventHub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventHubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -223,6 +266,11 @@ class EventHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventHubArgs.__new__(EventHubArgs)
 
+            if capture_description is not None and not isinstance(capture_description, CaptureDescriptionArgs):
+                capture_description = capture_description or {}
+                def _setter(key, value):
+                    capture_description[key] = value
+                CaptureDescriptionArgs._configure(_setter, **capture_description)
             __props__.__dict__["capture_description"] = capture_description
             __props__.__dict__["event_hub_name"] = event_hub_name
             __props__.__dict__["message_retention_in_days"] = message_retention_in_days
@@ -233,6 +281,11 @@ class EventHub(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if retention_description is not None and not isinstance(retention_description, RetentionDescriptionArgs):
+                retention_description = retention_description or {}
+                def _setter(key, value):
+                    retention_description[key] = value
+                RetentionDescriptionArgs._configure(_setter, **retention_description)
             __props__.__dict__["retention_description"] = retention_description
             __props__.__dict__["status"] = status
             __props__.__dict__["created_at"] = None

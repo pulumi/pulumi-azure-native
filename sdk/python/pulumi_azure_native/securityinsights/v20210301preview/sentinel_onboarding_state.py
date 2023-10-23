@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,13 +28,42 @@ class SentinelOnboardingStateArgs:
         :param pulumi.Input[bool] customer_managed_key: Flag that indicates the status of the CMK setting
         :param pulumi.Input[str] sentinel_onboarding_state_name: The Sentinel onboarding state name. Supports - default
         """
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        SentinelOnboardingStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operational_insights_resource_provider=operational_insights_resource_provider,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            customer_managed_key=customer_managed_key,
+            sentinel_onboarding_state_name=sentinel_onboarding_state_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operational_insights_resource_provider: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             customer_managed_key: Optional[pulumi.Input[bool]] = None,
+             sentinel_onboarding_state_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'operationalInsightsResourceProvider' in kwargs:
+            operational_insights_resource_provider = kwargs['operationalInsightsResourceProvider']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if 'sentinelOnboardingStateName' in kwargs:
+            sentinel_onboarding_state_name = kwargs['sentinelOnboardingStateName']
+
+        _setter("operational_insights_resource_provider", operational_insights_resource_provider)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if customer_managed_key is not None:
-            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+            _setter("customer_managed_key", customer_managed_key)
         if sentinel_onboarding_state_name is not None:
-            pulumi.set(__self__, "sentinel_onboarding_state_name", sentinel_onboarding_state_name)
+            _setter("sentinel_onboarding_state_name", sentinel_onboarding_state_name)
 
     @property
     @pulumi.getter(name="operationalInsightsResourceProvider")
@@ -138,6 +167,10 @@ class SentinelOnboardingState(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SentinelOnboardingStateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

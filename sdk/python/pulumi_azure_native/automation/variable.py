@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VariableArgs', 'Variable']
@@ -31,17 +31,48 @@ class VariableArgs:
         :param pulumi.Input[str] value: Gets or sets the value of the variable.
         :param pulumi.Input[str] variable_name: The variable name.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VariableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            name=name,
+            resource_group_name=resource_group_name,
+            description=description,
+            is_encrypted=is_encrypted,
+            value=value,
+            variable_name=variable_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             is_encrypted: Optional[pulumi.Input[bool]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             variable_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'isEncrypted' in kwargs:
+            is_encrypted = kwargs['isEncrypted']
+        if 'variableName' in kwargs:
+            variable_name = kwargs['variableName']
+
+        _setter("automation_account_name", automation_account_name)
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if is_encrypted is not None:
-            pulumi.set(__self__, "is_encrypted", is_encrypted)
+            _setter("is_encrypted", is_encrypted)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
         if variable_name is not None:
-            pulumi.set(__self__, "variable_name", variable_name)
+            _setter("variable_name", variable_name)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -175,6 +206,10 @@ class Variable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VariableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

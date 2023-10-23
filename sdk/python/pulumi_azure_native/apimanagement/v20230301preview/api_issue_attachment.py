@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['ApiIssueAttachmentArgs', 'ApiIssueAttachment']
@@ -33,15 +33,52 @@ class ApiIssueAttachmentArgs:
         :param pulumi.Input[str] title: Filename by which the binary data will be saved.
         :param pulumi.Input[str] attachment_id: Attachment identifier within an Issue. Must be unique in the current Issue.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "content_format", content_format)
-        pulumi.set(__self__, "issue_id", issue_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "title", title)
+        ApiIssueAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            content=content,
+            content_format=content_format,
+            issue_id=issue_id,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            title=title,
+            attachment_id=attachment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: pulumi.Input[str],
+             content: pulumi.Input[str],
+             content_format: pulumi.Input[str],
+             issue_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             title: pulumi.Input[str],
+             attachment_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'contentFormat' in kwargs:
+            content_format = kwargs['contentFormat']
+        if 'issueId' in kwargs:
+            issue_id = kwargs['issueId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'attachmentId' in kwargs:
+            attachment_id = kwargs['attachmentId']
+
+        _setter("api_id", api_id)
+        _setter("content", content)
+        _setter("content_format", content_format)
+        _setter("issue_id", issue_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("title", title)
         if attachment_id is not None:
-            pulumi.set(__self__, "attachment_id", attachment_id)
+            _setter("attachment_id", attachment_id)
 
     @property
     @pulumi.getter(name="apiId")
@@ -187,6 +224,10 @@ class ApiIssueAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiIssueAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,23 +38,58 @@ class DeviceArgs:
         :param pulumi.Input['SkuArgs'] sku: The SKU type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DeviceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            data_box_edge_device_status=data_box_edge_device_status,
+            data_residency=data_residency,
+            device_name=device_name,
+            identity=identity,
+            kind=kind,
+            location=location,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             data_box_edge_device_status: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']]] = None,
+             data_residency: Optional[pulumi.Input['DataResidencyArgs']] = None,
+             device_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceKind']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'dataBoxEdgeDeviceStatus' in kwargs:
+            data_box_edge_device_status = kwargs['dataBoxEdgeDeviceStatus']
+        if 'dataResidency' in kwargs:
+            data_residency = kwargs['dataResidency']
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+
+        _setter("resource_group_name", resource_group_name)
         if data_box_edge_device_status is not None:
-            pulumi.set(__self__, "data_box_edge_device_status", data_box_edge_device_status)
+            _setter("data_box_edge_device_status", data_box_edge_device_status)
         if data_residency is not None:
-            pulumi.set(__self__, "data_residency", data_residency)
+            _setter("data_residency", data_residency)
         if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
+            _setter("device_name", device_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -214,6 +249,10 @@ class Device(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeviceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -238,14 +277,29 @@ class Device(pulumi.CustomResource):
             __props__ = DeviceArgs.__new__(DeviceArgs)
 
             __props__.__dict__["data_box_edge_device_status"] = data_box_edge_device_status
+            if data_residency is not None and not isinstance(data_residency, DataResidencyArgs):
+                data_residency = data_residency or {}
+                def _setter(key, value):
+                    data_residency[key] = value
+                DataResidencyArgs._configure(_setter, **data_residency)
             __props__.__dict__["data_residency"] = data_residency
             __props__.__dict__["device_name"] = device_name
+            if identity is not None and not isinstance(identity, ResourceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ResourceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["configured_role_types"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -25,8 +25,19 @@ class BodyDiagnosticSettingsArgs:
         Body logging settings.
         :param pulumi.Input[int] bytes: Number of request body bytes to log.
         """
+        BodyDiagnosticSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bytes=bytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bytes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if bytes is not None:
-            pulumi.set(__self__, "bytes", bytes)
+            _setter("bytes", bytes)
 
     @property
     @pulumi.getter
@@ -51,10 +62,23 @@ class HttpMessageDiagnosticArgs:
         :param pulumi.Input['BodyDiagnosticSettingsArgs'] body: Body logging settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers: Array of HTTP Headers to log.
         """
+        HttpMessageDiagnosticArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body=body,
+            headers=headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body: Optional[pulumi.Input['BodyDiagnosticSettingsArgs']] = None,
+             headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
 
     @property
     @pulumi.getter
@@ -91,10 +115,23 @@ class PipelineDiagnosticSettingsArgs:
         :param pulumi.Input['HttpMessageDiagnosticArgs'] request: Diagnostic settings for request.
         :param pulumi.Input['HttpMessageDiagnosticArgs'] response: Diagnostic settings for response.
         """
+        PipelineDiagnosticSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            request=request,
+            response=response,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             request: Optional[pulumi.Input['HttpMessageDiagnosticArgs']] = None,
+             response: Optional[pulumi.Input['HttpMessageDiagnosticArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if request is not None:
-            pulumi.set(__self__, "request", request)
+            _setter("request", request)
         if response is not None:
-            pulumi.set(__self__, "response", response)
+            _setter("response", response)
 
     @property
     @pulumi.getter
@@ -131,10 +168,25 @@ class SamplingSettingsArgs:
         :param pulumi.Input[float] percentage: Rate of sampling for fixed-rate sampling.
         :param pulumi.Input[Union[str, 'SamplingType']] sampling_type: Sampling type.
         """
+        SamplingSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            percentage=percentage,
+            sampling_type=sampling_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             percentage: Optional[pulumi.Input[float]] = None,
+             sampling_type: Optional[pulumi.Input[Union[str, 'SamplingType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'samplingType' in kwargs:
+            sampling_type = kwargs['samplingType']
+
         if percentage is not None:
-            pulumi.set(__self__, "percentage", percentage)
+            _setter("percentage", percentage)
         if sampling_type is not None:
-            pulumi.set(__self__, "sampling_type", sampling_type)
+            _setter("sampling_type", sampling_type)
 
     @property
     @pulumi.getter

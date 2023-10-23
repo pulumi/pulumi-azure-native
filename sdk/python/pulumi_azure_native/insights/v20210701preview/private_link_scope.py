@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,14 +30,39 @@ class PrivateLinkScopeArgs:
         :param pulumi.Input[str] scope_name: The name of the Azure Monitor PrivateLinkScope resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "access_mode_settings", access_mode_settings)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PrivateLinkScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_mode_settings=access_mode_settings,
+            resource_group_name=resource_group_name,
+            location=location,
+            scope_name=scope_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_mode_settings: pulumi.Input['AccessModeSettingsArgs'],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             scope_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessModeSettings' in kwargs:
+            access_mode_settings = kwargs['accessModeSettings']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'scopeName' in kwargs:
+            scope_name = kwargs['scopeName']
+
+        _setter("access_mode_settings", access_mode_settings)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if scope_name is not None:
-            pulumi.set(__self__, "scope_name", scope_name)
+            _setter("scope_name", scope_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accessModeSettings")
@@ -141,6 +166,10 @@ class PrivateLinkScope(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateLinkScopeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -160,6 +189,11 @@ class PrivateLinkScope(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateLinkScopeArgs.__new__(PrivateLinkScopeArgs)
 
+            if access_mode_settings is not None and not isinstance(access_mode_settings, AccessModeSettingsArgs):
+                access_mode_settings = access_mode_settings or {}
+                def _setter(key, value):
+                    access_mode_settings[key] = value
+                AccessModeSettingsArgs._configure(_setter, **access_mode_settings)
             if access_mode_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'access_mode_settings'")
             __props__.__dict__["access_mode_settings"] = access_mode_settings

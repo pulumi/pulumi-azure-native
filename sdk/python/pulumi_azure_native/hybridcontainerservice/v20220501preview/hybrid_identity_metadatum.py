@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,47 @@ class HybridIdentityMetadatumArgs:
         :param pulumi.Input[str] public_key: Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
         :param pulumi.Input[str] resource_uid: Unique id of the parent provisioned cluster resource.
         """
-        pulumi.set(__self__, "provisioned_clusters_name", provisioned_clusters_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        HybridIdentityMetadatumArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioned_clusters_name=provisioned_clusters_name,
+            resource_group_name=resource_group_name,
+            hybrid_identity_metadata_resource_name=hybrid_identity_metadata_resource_name,
+            identity=identity,
+            public_key=public_key,
+            resource_uid=resource_uid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioned_clusters_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             hybrid_identity_metadata_resource_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ProvisionedClusterIdentityArgs']] = None,
+             public_key: Optional[pulumi.Input[str]] = None,
+             resource_uid: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisionedClustersName' in kwargs:
+            provisioned_clusters_name = kwargs['provisionedClustersName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'hybridIdentityMetadataResourceName' in kwargs:
+            hybrid_identity_metadata_resource_name = kwargs['hybridIdentityMetadataResourceName']
+        if 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if 'resourceUid' in kwargs:
+            resource_uid = kwargs['resourceUid']
+
+        _setter("provisioned_clusters_name", provisioned_clusters_name)
+        _setter("resource_group_name", resource_group_name)
         if hybrid_identity_metadata_resource_name is not None:
-            pulumi.set(__self__, "hybrid_identity_metadata_resource_name", hybrid_identity_metadata_resource_name)
+            _setter("hybrid_identity_metadata_resource_name", hybrid_identity_metadata_resource_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if public_key is not None:
-            pulumi.set(__self__, "public_key", public_key)
+            _setter("public_key", public_key)
         if resource_uid is not None:
-            pulumi.set(__self__, "resource_uid", resource_uid)
+            _setter("resource_uid", resource_uid)
 
     @property
     @pulumi.getter(name="provisionedClustersName")
@@ -159,6 +190,10 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HybridIdentityMetadatumArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -180,6 +215,11 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
             __props__ = HybridIdentityMetadatumArgs.__new__(HybridIdentityMetadatumArgs)
 
             __props__.__dict__["hybrid_identity_metadata_resource_name"] = hybrid_identity_metadata_resource_name
+            if identity is not None and not isinstance(identity, ProvisionedClusterIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ProvisionedClusterIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             if provisioned_clusters_name is None and not opts.urn:
                 raise TypeError("Missing required property 'provisioned_clusters_name'")

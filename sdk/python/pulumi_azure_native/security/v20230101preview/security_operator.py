@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -22,9 +22,26 @@ class SecurityOperatorArgs:
         :param pulumi.Input[str] pricing_name: name of the pricing configuration
         :param pulumi.Input[str] security_operator_name: name of the securityOperator
         """
-        pulumi.set(__self__, "pricing_name", pricing_name)
+        SecurityOperatorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pricing_name=pricing_name,
+            security_operator_name=security_operator_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pricing_name: pulumi.Input[str],
+             security_operator_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pricingName' in kwargs:
+            pricing_name = kwargs['pricingName']
+        if 'securityOperatorName' in kwargs:
+            security_operator_name = kwargs['securityOperatorName']
+
+        _setter("pricing_name", pricing_name)
         if security_operator_name is not None:
-            pulumi.set(__self__, "security_operator_name", security_operator_name)
+            _setter("security_operator_name", security_operator_name)
 
     @property
     @pulumi.getter(name="pricingName")
@@ -86,6 +103,10 @@ class SecurityOperator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityOperatorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

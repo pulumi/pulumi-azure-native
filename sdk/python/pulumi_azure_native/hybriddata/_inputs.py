@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -28,9 +28,28 @@ class CustomerSecretArgs:
         :param pulumi.Input[str] key_identifier: The identifier to the data service input object which this secret corresponds to.
         :param pulumi.Input[str] key_value: It contains the encrypted customer secret.
         """
-        pulumi.set(__self__, "algorithm", algorithm)
-        pulumi.set(__self__, "key_identifier", key_identifier)
-        pulumi.set(__self__, "key_value", key_value)
+        CustomerSecretArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            algorithm=algorithm,
+            key_identifier=key_identifier,
+            key_value=key_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             algorithm: pulumi.Input['SupportedAlgorithm'],
+             key_identifier: pulumi.Input[str],
+             key_value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyIdentifier' in kwargs:
+            key_identifier = kwargs['keyIdentifier']
+        if 'keyValue' in kwargs:
+            key_value = kwargs['keyValue']
+
+        _setter("algorithm", algorithm)
+        _setter("key_identifier", key_identifier)
+        _setter("key_value", key_value)
 
     @property
     @pulumi.getter
@@ -79,10 +98,25 @@ class ScheduleArgs:
         :param pulumi.Input[str] name: Name of the schedule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_list: A list of repetition intervals in ISO 8601 format.
         """
+        ScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            policy_list=policy_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             policy_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyList' in kwargs:
+            policy_list = kwargs['policyList']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_list is not None:
-            pulumi.set(__self__, "policy_list", policy_list)
+            _setter("policy_list", policy_list)
 
     @property
     @pulumi.getter
@@ -119,10 +153,23 @@ class SkuArgs:
         :param pulumi.Input[str] name: The sku name. Required for data manager creation, optional for update.
         :param pulumi.Input[str] tier: The sku tier. This is based on the SKU name.
         """
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter

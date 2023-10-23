@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -40,19 +40,70 @@ class VolumeArgs:
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] volume_name: The volume name.
         """
-        pulumi.set(__self__, "access_control_record_ids", access_control_record_ids)
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "manager_name", manager_name)
-        pulumi.set(__self__, "monitoring_status", monitoring_status)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "size_in_bytes", size_in_bytes)
-        pulumi.set(__self__, "volume_container_name", volume_container_name)
-        pulumi.set(__self__, "volume_status", volume_status)
-        pulumi.set(__self__, "volume_type", volume_type)
+        VolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_control_record_ids=access_control_record_ids,
+            device_name=device_name,
+            manager_name=manager_name,
+            monitoring_status=monitoring_status,
+            resource_group_name=resource_group_name,
+            size_in_bytes=size_in_bytes,
+            volume_container_name=volume_container_name,
+            volume_status=volume_status,
+            volume_type=volume_type,
+            kind=kind,
+            volume_name=volume_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_control_record_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             device_name: pulumi.Input[str],
+             manager_name: pulumi.Input[str],
+             monitoring_status: pulumi.Input['MonitoringStatus'],
+             resource_group_name: pulumi.Input[str],
+             size_in_bytes: pulumi.Input[float],
+             volume_container_name: pulumi.Input[str],
+             volume_status: pulumi.Input['VolumeStatus'],
+             volume_type: pulumi.Input['VolumeType'],
+             kind: Optional[pulumi.Input['Kind']] = None,
+             volume_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessControlRecordIds' in kwargs:
+            access_control_record_ids = kwargs['accessControlRecordIds']
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'managerName' in kwargs:
+            manager_name = kwargs['managerName']
+        if 'monitoringStatus' in kwargs:
+            monitoring_status = kwargs['monitoringStatus']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sizeInBytes' in kwargs:
+            size_in_bytes = kwargs['sizeInBytes']
+        if 'volumeContainerName' in kwargs:
+            volume_container_name = kwargs['volumeContainerName']
+        if 'volumeStatus' in kwargs:
+            volume_status = kwargs['volumeStatus']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+        if 'volumeName' in kwargs:
+            volume_name = kwargs['volumeName']
+
+        _setter("access_control_record_ids", access_control_record_ids)
+        _setter("device_name", device_name)
+        _setter("manager_name", manager_name)
+        _setter("monitoring_status", monitoring_status)
+        _setter("resource_group_name", resource_group_name)
+        _setter("size_in_bytes", size_in_bytes)
+        _setter("volume_container_name", volume_container_name)
+        _setter("volume_status", volume_status)
+        _setter("volume_type", volume_type)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if volume_name is not None:
-            pulumi.set(__self__, "volume_name", volume_name)
+            _setter("volume_name", volume_name)
 
     @property
     @pulumi.getter(name="accessControlRecordIds")
@@ -242,6 +293,10 @@ class Volume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -72,8 +72,21 @@ class AddressSpaceResponse(dict):
         AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
         :param Sequence[str] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
         """
+        AddressSpaceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_prefixes=address_prefixes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_prefixes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefixes' in kwargs:
+            address_prefixes = kwargs['addressPrefixes']
+
         if address_prefixes is not None:
-            pulumi.set(__self__, "address_prefixes", address_prefixes)
+            _setter("address_prefixes", address_prefixes)
 
     @property
     @pulumi.getter(name="addressPrefixes")
@@ -128,20 +141,49 @@ class ApplicationGatewayBackendAddressPoolResponse(dict):
         :param str provisioning_state: Provisioning state of the backend address pool resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param str type: Type of the resource.
         """
+        ApplicationGatewayBackendAddressPoolResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_addresses=backend_addresses,
+            backend_ip_configurations=backend_ip_configurations,
+            etag=etag,
+            id=id,
+            name=name,
+            provisioning_state=provisioning_state,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_addresses: Optional[Sequence['outputs.ApplicationGatewayBackendAddressResponse']] = None,
+             backend_ip_configurations: Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']] = None,
+             etag: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendAddresses' in kwargs:
+            backend_addresses = kwargs['backendAddresses']
+        if 'backendIPConfigurations' in kwargs:
+            backend_ip_configurations = kwargs['backendIPConfigurations']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
         if backend_addresses is not None:
-            pulumi.set(__self__, "backend_addresses", backend_addresses)
+            _setter("backend_addresses", backend_addresses)
         if backend_ip_configurations is not None:
-            pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
+            _setter("backend_ip_configurations", backend_ip_configurations)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="backendAddresses")
@@ -230,10 +272,25 @@ class ApplicationGatewayBackendAddressResponse(dict):
         :param str fqdn: Fully qualified domain name (FQDN).
         :param str ip_address: IP address
         """
+        ApplicationGatewayBackendAddressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fqdn=fqdn,
+            ip_address=ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fqdn: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
 
     @property
     @pulumi.getter
@@ -296,17 +353,46 @@ class ApplicationSecurityGroupResponse(dict):
         :param str location: Resource location.
         :param Mapping[str, str] tags: Resource tags.
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "resource_guid", resource_guid)
-        pulumi.set(__self__, "type", type)
+        ApplicationSecurityGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            name=name,
+            provisioning_state=provisioning_state,
+            resource_guid=resource_guid,
+            type=type,
+            id=id,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             name: str,
+             provisioning_state: str,
+             resource_guid: str,
+             type: str,
+             id: Optional[str] = None,
+             location: Optional[str] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'resourceGuid' in kwargs:
+            resource_guid = kwargs['resourceGuid']
+
+        _setter("etag", etag)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("resource_guid", resource_guid)
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -423,18 +509,53 @@ class BackendAddressPoolResponse(dict):
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param str provisioning_state: Get provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
-        pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
-        pulumi.set(__self__, "load_balancing_rules", load_balancing_rules)
-        pulumi.set(__self__, "outbound_rule", outbound_rule)
-        pulumi.set(__self__, "outbound_rules", outbound_rules)
+        BackendAddressPoolResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_ip_configurations=backend_ip_configurations,
+            load_balancing_rules=load_balancing_rules,
+            outbound_rule=outbound_rule,
+            outbound_rules=outbound_rules,
+            etag=etag,
+            id=id,
+            name=name,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_ip_configurations: Sequence['outputs.NetworkInterfaceIPConfigurationResponse'],
+             load_balancing_rules: Sequence['outputs.SubResourceResponse'],
+             outbound_rule: 'outputs.SubResourceResponse',
+             outbound_rules: Sequence['outputs.SubResourceResponse'],
+             etag: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendIPConfigurations' in kwargs:
+            backend_ip_configurations = kwargs['backendIPConfigurations']
+        if 'loadBalancingRules' in kwargs:
+            load_balancing_rules = kwargs['loadBalancingRules']
+        if 'outboundRule' in kwargs:
+            outbound_rule = kwargs['outboundRule']
+        if 'outboundRules' in kwargs:
+            outbound_rules = kwargs['outboundRules']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("backend_ip_configurations", backend_ip_configurations)
+        _setter("load_balancing_rules", load_balancing_rules)
+        _setter("outbound_rule", outbound_rule)
+        _setter("outbound_rules", outbound_rules)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="backendIPConfigurations")
@@ -535,12 +656,31 @@ class BgpSettingsResponse(dict):
         :param str bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
         :param int peer_weight: The weight added to routes learned from this BGP speaker.
         """
+        BgpSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asn=asn,
+            bgp_peering_address=bgp_peering_address,
+            peer_weight=peer_weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asn: Optional[float] = None,
+             bgp_peering_address: Optional[str] = None,
+             peer_weight: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bgpPeeringAddress' in kwargs:
+            bgp_peering_address = kwargs['bgpPeeringAddress']
+        if 'peerWeight' in kwargs:
+            peer_weight = kwargs['peerWeight']
+
         if asn is not None:
-            pulumi.set(__self__, "asn", asn)
+            _setter("asn", asn)
         if bgp_peering_address is not None:
-            pulumi.set(__self__, "bgp_peering_address", bgp_peering_address)
+            _setter("bgp_peering_address", bgp_peering_address)
         if peer_weight is not None:
-            pulumi.set(__self__, "peer_weight", peer_weight)
+            _setter("peer_weight", peer_weight)
 
     @property
     @pulumi.getter
@@ -603,12 +743,33 @@ class DevicePropertiesResponse(dict):
         :param str device_vendor: Name of the device Vendor.
         :param int link_speed_in_mbps: Link speed.
         """
+        DevicePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_model=device_model,
+            device_vendor=device_vendor,
+            link_speed_in_mbps=link_speed_in_mbps,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_model: Optional[str] = None,
+             device_vendor: Optional[str] = None,
+             link_speed_in_mbps: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceModel' in kwargs:
+            device_model = kwargs['deviceModel']
+        if 'deviceVendor' in kwargs:
+            device_vendor = kwargs['deviceVendor']
+        if 'linkSpeedInMbps' in kwargs:
+            link_speed_in_mbps = kwargs['linkSpeedInMbps']
+
         if device_model is not None:
-            pulumi.set(__self__, "device_model", device_model)
+            _setter("device_model", device_model)
         if device_vendor is not None:
-            pulumi.set(__self__, "device_vendor", device_vendor)
+            _setter("device_vendor", device_vendor)
         if link_speed_in_mbps is not None:
-            pulumi.set(__self__, "link_speed_in_mbps", link_speed_in_mbps)
+            _setter("link_speed_in_mbps", link_speed_in_mbps)
 
     @property
     @pulumi.getter(name="deviceModel")
@@ -687,22 +848,59 @@ class HubVirtualNetworkConnectionResponse(dict):
         :param 'SubResourceResponse' remote_virtual_network: Reference to the remote virtual network.
         :param Mapping[str, str] tags: Resource tags.
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
+        HubVirtualNetworkConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            name=name,
+            provisioning_state=provisioning_state,
+            type=type,
+            allow_hub_to_remote_vnet_transit=allow_hub_to_remote_vnet_transit,
+            allow_remote_vnet_to_use_hub_vnet_gateways=allow_remote_vnet_to_use_hub_vnet_gateways,
+            id=id,
+            location=location,
+            remote_virtual_network=remote_virtual_network,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             name: str,
+             provisioning_state: str,
+             type: str,
+             allow_hub_to_remote_vnet_transit: Optional[bool] = None,
+             allow_remote_vnet_to_use_hub_vnet_gateways: Optional[bool] = None,
+             id: Optional[str] = None,
+             location: Optional[str] = None,
+             remote_virtual_network: Optional['outputs.SubResourceResponse'] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'allowHubToRemoteVnetTransit' in kwargs:
+            allow_hub_to_remote_vnet_transit = kwargs['allowHubToRemoteVnetTransit']
+        if 'allowRemoteVnetToUseHubVnetGateways' in kwargs:
+            allow_remote_vnet_to_use_hub_vnet_gateways = kwargs['allowRemoteVnetToUseHubVnetGateways']
+        if 'remoteVirtualNetwork' in kwargs:
+            remote_virtual_network = kwargs['remoteVirtualNetwork']
+
+        _setter("etag", etag)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("type", type)
         if allow_hub_to_remote_vnet_transit is not None:
-            pulumi.set(__self__, "allow_hub_to_remote_vnet_transit", allow_hub_to_remote_vnet_transit)
+            _setter("allow_hub_to_remote_vnet_transit", allow_hub_to_remote_vnet_transit)
         if allow_remote_vnet_to_use_hub_vnet_gateways is not None:
-            pulumi.set(__self__, "allow_remote_vnet_to_use_hub_vnet_gateways", allow_remote_vnet_to_use_hub_vnet_gateways)
+            _setter("allow_remote_vnet_to_use_hub_vnet_gateways", allow_remote_vnet_to_use_hub_vnet_gateways)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if remote_virtual_network is not None:
-            pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
+            _setter("remote_virtual_network", remote_virtual_network)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -833,22 +1031,55 @@ class IPConfigurationResponse(dict):
         :param 'PublicIPAddressResponse' public_ip_address: The reference of the public IP resource.
         :param 'SubnetResponse' subnet: The reference of the subnet resource.
         """
+        IPConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            name=name,
+            private_ip_address=private_ip_address,
+            private_ip_allocation_method=private_ip_allocation_method,
+            provisioning_state=provisioning_state,
+            public_ip_address=public_ip_address,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             private_ip_address: Optional[str] = None,
+             private_ip_allocation_method: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             public_ip_address: Optional['outputs.PublicIPAddressResponse'] = None,
+             subnet: Optional['outputs.SubnetResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIPAddress' in kwargs:
+            private_ip_address = kwargs['privateIPAddress']
+        if 'privateIPAllocationMethod' in kwargs:
+            private_ip_allocation_method = kwargs['privateIPAllocationMethod']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'publicIPAddress' in kwargs:
+            public_ip_address = kwargs['publicIPAddress']
+
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if private_ip_allocation_method is not None:
-            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+            _setter("private_ip_allocation_method", private_ip_allocation_method)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if public_ip_address is not None:
-            pulumi.set(__self__, "public_ip_address", public_ip_address)
+            _setter("public_ip_address", public_ip_address)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter
@@ -979,29 +1210,78 @@ class InboundNatRuleResponse(dict):
         :param str protocol: The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All'.
         :param str provisioning_state: Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
-        pulumi.set(__self__, "backend_ip_configuration", backend_ip_configuration)
+        InboundNatRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_ip_configuration=backend_ip_configuration,
+            backend_port=backend_port,
+            enable_floating_ip=enable_floating_ip,
+            enable_tcp_reset=enable_tcp_reset,
+            etag=etag,
+            frontend_ip_configuration=frontend_ip_configuration,
+            frontend_port=frontend_port,
+            id=id,
+            idle_timeout_in_minutes=idle_timeout_in_minutes,
+            name=name,
+            protocol=protocol,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_ip_configuration: 'outputs.NetworkInterfaceIPConfigurationResponse',
+             backend_port: Optional[int] = None,
+             enable_floating_ip: Optional[bool] = None,
+             enable_tcp_reset: Optional[bool] = None,
+             etag: Optional[str] = None,
+             frontend_ip_configuration: Optional['outputs.SubResourceResponse'] = None,
+             frontend_port: Optional[int] = None,
+             id: Optional[str] = None,
+             idle_timeout_in_minutes: Optional[int] = None,
+             name: Optional[str] = None,
+             protocol: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendIPConfiguration' in kwargs:
+            backend_ip_configuration = kwargs['backendIPConfiguration']
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'enableFloatingIP' in kwargs:
+            enable_floating_ip = kwargs['enableFloatingIP']
+        if 'enableTcpReset' in kwargs:
+            enable_tcp_reset = kwargs['enableTcpReset']
+        if 'frontendIPConfiguration' in kwargs:
+            frontend_ip_configuration = kwargs['frontendIPConfiguration']
+        if 'frontendPort' in kwargs:
+            frontend_port = kwargs['frontendPort']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("backend_ip_configuration", backend_ip_configuration)
         if backend_port is not None:
-            pulumi.set(__self__, "backend_port", backend_port)
+            _setter("backend_port", backend_port)
         if enable_floating_ip is not None:
-            pulumi.set(__self__, "enable_floating_ip", enable_floating_ip)
+            _setter("enable_floating_ip", enable_floating_ip)
         if enable_tcp_reset is not None:
-            pulumi.set(__self__, "enable_tcp_reset", enable_tcp_reset)
+            _setter("enable_tcp_reset", enable_tcp_reset)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if frontend_ip_configuration is not None:
-            pulumi.set(__self__, "frontend_ip_configuration", frontend_ip_configuration)
+            _setter("frontend_ip_configuration", frontend_ip_configuration)
         if frontend_port is not None:
-            pulumi.set(__self__, "frontend_port", frontend_port)
+            _setter("frontend_port", frontend_port)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if idle_timeout_in_minutes is not None:
-            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+            _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="backendIPConfiguration")
@@ -1130,10 +1410,25 @@ class IpTagResponse(dict):
         :param str ip_tag_type: Gets or sets the ipTag type: Example FirstPartyUsage.
         :param str tag: Gets or sets value of the IpTag associated with the public IP. Example SQL, Storage etc
         """
+        IpTagResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_tag_type=ip_tag_type,
+            tag=tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_tag_type: Optional[str] = None,
+             tag: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipTagType' in kwargs:
+            ip_tag_type = kwargs['ipTagType']
+
         if ip_tag_type is not None:
-            pulumi.set(__self__, "ip_tag_type", ip_tag_type)
+            _setter("ip_tag_type", ip_tag_type)
         if tag is not None:
-            pulumi.set(__self__, "tag", tag)
+            _setter("tag", tag)
 
     @property
     @pulumi.getter(name="ipTagType")
@@ -1208,14 +1503,55 @@ class IpsecPolicyResponse(dict):
         :param int sa_data_size_kilobytes: The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
         :param int sa_life_time_seconds: The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
         """
-        pulumi.set(__self__, "dh_group", dh_group)
-        pulumi.set(__self__, "ike_encryption", ike_encryption)
-        pulumi.set(__self__, "ike_integrity", ike_integrity)
-        pulumi.set(__self__, "ipsec_encryption", ipsec_encryption)
-        pulumi.set(__self__, "ipsec_integrity", ipsec_integrity)
-        pulumi.set(__self__, "pfs_group", pfs_group)
-        pulumi.set(__self__, "sa_data_size_kilobytes", sa_data_size_kilobytes)
-        pulumi.set(__self__, "sa_life_time_seconds", sa_life_time_seconds)
+        IpsecPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dh_group=dh_group,
+            ike_encryption=ike_encryption,
+            ike_integrity=ike_integrity,
+            ipsec_encryption=ipsec_encryption,
+            ipsec_integrity=ipsec_integrity,
+            pfs_group=pfs_group,
+            sa_data_size_kilobytes=sa_data_size_kilobytes,
+            sa_life_time_seconds=sa_life_time_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dh_group: str,
+             ike_encryption: str,
+             ike_integrity: str,
+             ipsec_encryption: str,
+             ipsec_integrity: str,
+             pfs_group: str,
+             sa_data_size_kilobytes: int,
+             sa_life_time_seconds: int,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dhGroup' in kwargs:
+            dh_group = kwargs['dhGroup']
+        if 'ikeEncryption' in kwargs:
+            ike_encryption = kwargs['ikeEncryption']
+        if 'ikeIntegrity' in kwargs:
+            ike_integrity = kwargs['ikeIntegrity']
+        if 'ipsecEncryption' in kwargs:
+            ipsec_encryption = kwargs['ipsecEncryption']
+        if 'ipsecIntegrity' in kwargs:
+            ipsec_integrity = kwargs['ipsecIntegrity']
+        if 'pfsGroup' in kwargs:
+            pfs_group = kwargs['pfsGroup']
+        if 'saDataSizeKilobytes' in kwargs:
+            sa_data_size_kilobytes = kwargs['saDataSizeKilobytes']
+        if 'saLifeTimeSeconds' in kwargs:
+            sa_life_time_seconds = kwargs['saLifeTimeSeconds']
+
+        _setter("dh_group", dh_group)
+        _setter("ike_encryption", ike_encryption)
+        _setter("ike_integrity", ike_integrity)
+        _setter("ipsec_encryption", ipsec_encryption)
+        _setter("ipsec_integrity", ipsec_integrity)
+        _setter("pfs_group", pfs_group)
+        _setter("sa_data_size_kilobytes", sa_data_size_kilobytes)
+        _setter("sa_life_time_seconds", sa_life_time_seconds)
 
     @property
     @pulumi.getter(name="dhGroup")
@@ -1326,16 +1662,45 @@ class NetworkInterfaceDnsSettingsResponse(dict):
         :param str internal_domain_name_suffix: Even if internalDnsNameLabel is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of internalDomainNameSuffix.
         :param str internal_fqdn: Fully qualified DNS name supporting internal communications between VMs in the same virtual network.
         """
+        NetworkInterfaceDnsSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            applied_dns_servers=applied_dns_servers,
+            dns_servers=dns_servers,
+            internal_dns_name_label=internal_dns_name_label,
+            internal_domain_name_suffix=internal_domain_name_suffix,
+            internal_fqdn=internal_fqdn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             applied_dns_servers: Optional[Sequence[str]] = None,
+             dns_servers: Optional[Sequence[str]] = None,
+             internal_dns_name_label: Optional[str] = None,
+             internal_domain_name_suffix: Optional[str] = None,
+             internal_fqdn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appliedDnsServers' in kwargs:
+            applied_dns_servers = kwargs['appliedDnsServers']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'internalDnsNameLabel' in kwargs:
+            internal_dns_name_label = kwargs['internalDnsNameLabel']
+        if 'internalDomainNameSuffix' in kwargs:
+            internal_domain_name_suffix = kwargs['internalDomainNameSuffix']
+        if 'internalFqdn' in kwargs:
+            internal_fqdn = kwargs['internalFqdn']
+
         if applied_dns_servers is not None:
-            pulumi.set(__self__, "applied_dns_servers", applied_dns_servers)
+            _setter("applied_dns_servers", applied_dns_servers)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if internal_dns_name_label is not None:
-            pulumi.set(__self__, "internal_dns_name_label", internal_dns_name_label)
+            _setter("internal_dns_name_label", internal_dns_name_label)
         if internal_domain_name_suffix is not None:
-            pulumi.set(__self__, "internal_domain_name_suffix", internal_domain_name_suffix)
+            _setter("internal_domain_name_suffix", internal_domain_name_suffix)
         if internal_fqdn is not None:
-            pulumi.set(__self__, "internal_fqdn", internal_fqdn)
+            _setter("internal_fqdn", internal_fqdn)
 
     @property
     @pulumi.getter(name="appliedDnsServers")
@@ -1448,34 +1813,89 @@ class NetworkInterfaceIPConfigurationResponse(dict):
         :param 'PublicIPAddressResponse' public_ip_address: Public IP address bound to the IP configuration.
         :param 'SubnetResponse' subnet: Subnet bound to the IP configuration.
         """
+        NetworkInterfaceIPConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_gateway_backend_address_pools=application_gateway_backend_address_pools,
+            application_security_groups=application_security_groups,
+            etag=etag,
+            id=id,
+            load_balancer_backend_address_pools=load_balancer_backend_address_pools,
+            load_balancer_inbound_nat_rules=load_balancer_inbound_nat_rules,
+            name=name,
+            primary=primary,
+            private_ip_address=private_ip_address,
+            private_ip_address_version=private_ip_address_version,
+            private_ip_allocation_method=private_ip_allocation_method,
+            provisioning_state=provisioning_state,
+            public_ip_address=public_ip_address,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_gateway_backend_address_pools: Optional[Sequence['outputs.ApplicationGatewayBackendAddressPoolResponse']] = None,
+             application_security_groups: Optional[Sequence['outputs.ApplicationSecurityGroupResponse']] = None,
+             etag: Optional[str] = None,
+             id: Optional[str] = None,
+             load_balancer_backend_address_pools: Optional[Sequence['outputs.BackendAddressPoolResponse']] = None,
+             load_balancer_inbound_nat_rules: Optional[Sequence['outputs.InboundNatRuleResponse']] = None,
+             name: Optional[str] = None,
+             primary: Optional[bool] = None,
+             private_ip_address: Optional[str] = None,
+             private_ip_address_version: Optional[str] = None,
+             private_ip_allocation_method: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             public_ip_address: Optional['outputs.PublicIPAddressResponse'] = None,
+             subnet: Optional['outputs.SubnetResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationGatewayBackendAddressPools' in kwargs:
+            application_gateway_backend_address_pools = kwargs['applicationGatewayBackendAddressPools']
+        if 'applicationSecurityGroups' in kwargs:
+            application_security_groups = kwargs['applicationSecurityGroups']
+        if 'loadBalancerBackendAddressPools' in kwargs:
+            load_balancer_backend_address_pools = kwargs['loadBalancerBackendAddressPools']
+        if 'loadBalancerInboundNatRules' in kwargs:
+            load_balancer_inbound_nat_rules = kwargs['loadBalancerInboundNatRules']
+        if 'privateIPAddress' in kwargs:
+            private_ip_address = kwargs['privateIPAddress']
+        if 'privateIPAddressVersion' in kwargs:
+            private_ip_address_version = kwargs['privateIPAddressVersion']
+        if 'privateIPAllocationMethod' in kwargs:
+            private_ip_allocation_method = kwargs['privateIPAllocationMethod']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'publicIPAddress' in kwargs:
+            public_ip_address = kwargs['publicIPAddress']
+
         if application_gateway_backend_address_pools is not None:
-            pulumi.set(__self__, "application_gateway_backend_address_pools", application_gateway_backend_address_pools)
+            _setter("application_gateway_backend_address_pools", application_gateway_backend_address_pools)
         if application_security_groups is not None:
-            pulumi.set(__self__, "application_security_groups", application_security_groups)
+            _setter("application_security_groups", application_security_groups)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if load_balancer_backend_address_pools is not None:
-            pulumi.set(__self__, "load_balancer_backend_address_pools", load_balancer_backend_address_pools)
+            _setter("load_balancer_backend_address_pools", load_balancer_backend_address_pools)
         if load_balancer_inbound_nat_rules is not None:
-            pulumi.set(__self__, "load_balancer_inbound_nat_rules", load_balancer_inbound_nat_rules)
+            _setter("load_balancer_inbound_nat_rules", load_balancer_inbound_nat_rules)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if primary is not None:
-            pulumi.set(__self__, "primary", primary)
+            _setter("primary", primary)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if private_ip_address_version is not None:
-            pulumi.set(__self__, "private_ip_address_version", private_ip_address_version)
+            _setter("private_ip_address_version", private_ip_address_version)
         if private_ip_allocation_method is not None:
-            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+            _setter("private_ip_allocation_method", private_ip_allocation_method)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if public_ip_address is not None:
-            pulumi.set(__self__, "public_ip_address", public_ip_address)
+            _setter("public_ip_address", public_ip_address)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter(name="applicationGatewayBackendAddressPools")
@@ -1664,36 +2084,95 @@ class NetworkInterfaceResponse(dict):
         :param Mapping[str, str] tags: Resource tags.
         :param 'SubResourceResponse' virtual_machine: The reference of a virtual machine.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        NetworkInterfaceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            dns_settings=dns_settings,
+            enable_accelerated_networking=enable_accelerated_networking,
+            enable_ip_forwarding=enable_ip_forwarding,
+            etag=etag,
+            id=id,
+            ip_configurations=ip_configurations,
+            location=location,
+            mac_address=mac_address,
+            network_security_group=network_security_group,
+            primary=primary,
+            provisioning_state=provisioning_state,
+            resource_guid=resource_guid,
+            tags=tags,
+            virtual_machine=virtual_machine,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             dns_settings: Optional['outputs.NetworkInterfaceDnsSettingsResponse'] = None,
+             enable_accelerated_networking: Optional[bool] = None,
+             enable_ip_forwarding: Optional[bool] = None,
+             etag: Optional[str] = None,
+             id: Optional[str] = None,
+             ip_configurations: Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']] = None,
+             location: Optional[str] = None,
+             mac_address: Optional[str] = None,
+             network_security_group: Optional['outputs.NetworkSecurityGroupResponse'] = None,
+             primary: Optional[bool] = None,
+             provisioning_state: Optional[str] = None,
+             resource_guid: Optional[str] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             virtual_machine: Optional['outputs.SubResourceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsSettings' in kwargs:
+            dns_settings = kwargs['dnsSettings']
+        if 'enableAcceleratedNetworking' in kwargs:
+            enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
+        if 'enableIPForwarding' in kwargs:
+            enable_ip_forwarding = kwargs['enableIPForwarding']
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+        if 'networkSecurityGroup' in kwargs:
+            network_security_group = kwargs['networkSecurityGroup']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'resourceGuid' in kwargs:
+            resource_guid = kwargs['resourceGuid']
+        if 'virtualMachine' in kwargs:
+            virtual_machine = kwargs['virtualMachine']
+
+        _setter("name", name)
+        _setter("type", type)
         if dns_settings is not None:
-            pulumi.set(__self__, "dns_settings", dns_settings)
+            _setter("dns_settings", dns_settings)
         if enable_accelerated_networking is not None:
-            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+            _setter("enable_accelerated_networking", enable_accelerated_networking)
         if enable_ip_forwarding is not None:
-            pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
+            _setter("enable_ip_forwarding", enable_ip_forwarding)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_configurations is not None:
-            pulumi.set(__self__, "ip_configurations", ip_configurations)
+            _setter("ip_configurations", ip_configurations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mac_address is not None:
-            pulumi.set(__self__, "mac_address", mac_address)
+            _setter("mac_address", mac_address)
         if network_security_group is not None:
-            pulumi.set(__self__, "network_security_group", network_security_group)
+            _setter("network_security_group", network_security_group)
         if primary is not None:
-            pulumi.set(__self__, "primary", primary)
+            _setter("primary", primary)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if resource_guid is not None:
-            pulumi.set(__self__, "resource_guid", resource_guid)
+            _setter("resource_guid", resource_guid)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_machine is not None:
-            pulumi.set(__self__, "virtual_machine", virtual_machine)
+            _setter("virtual_machine", virtual_machine)
 
     @property
     @pulumi.getter
@@ -1882,26 +2361,69 @@ class NetworkSecurityGroupResponse(dict):
         :param Sequence['SecurityRuleResponse'] security_rules: A collection of security rules of the network security group.
         :param Mapping[str, str] tags: Resource tags.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "network_interfaces", network_interfaces)
-        pulumi.set(__self__, "subnets", subnets)
-        pulumi.set(__self__, "type", type)
+        NetworkSecurityGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            network_interfaces=network_interfaces,
+            subnets=subnets,
+            type=type,
+            default_security_rules=default_security_rules,
+            etag=etag,
+            id=id,
+            location=location,
+            provisioning_state=provisioning_state,
+            resource_guid=resource_guid,
+            security_rules=security_rules,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             network_interfaces: Sequence['outputs.NetworkInterfaceResponse'],
+             subnets: Sequence['outputs.SubnetResponse'],
+             type: str,
+             default_security_rules: Optional[Sequence['outputs.SecurityRuleResponse']] = None,
+             etag: Optional[str] = None,
+             id: Optional[str] = None,
+             location: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             resource_guid: Optional[str] = None,
+             security_rules: Optional[Sequence['outputs.SecurityRuleResponse']] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if 'defaultSecurityRules' in kwargs:
+            default_security_rules = kwargs['defaultSecurityRules']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'resourceGuid' in kwargs:
+            resource_guid = kwargs['resourceGuid']
+        if 'securityRules' in kwargs:
+            security_rules = kwargs['securityRules']
+
+        _setter("name", name)
+        _setter("network_interfaces", network_interfaces)
+        _setter("subnets", subnets)
+        _setter("type", type)
         if default_security_rules is not None:
-            pulumi.set(__self__, "default_security_rules", default_security_rules)
+            _setter("default_security_rules", default_security_rules)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if resource_guid is not None:
-            pulumi.set(__self__, "resource_guid", resource_guid)
+            _setter("resource_guid", resource_guid)
         if security_rules is not None:
-            pulumi.set(__self__, "security_rules", security_rules)
+            _setter("security_rules", security_rules)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -2032,10 +2554,27 @@ class PoliciesResponse(dict):
         :param bool allow_branch_to_branch_traffic: True if branch to branch traffic is allowed.
         :param bool allow_vnet_to_vnet_traffic: True if Vnet to Vnet traffic is allowed.
         """
+        PoliciesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_branch_to_branch_traffic=allow_branch_to_branch_traffic,
+            allow_vnet_to_vnet_traffic=allow_vnet_to_vnet_traffic,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_branch_to_branch_traffic: Optional[bool] = None,
+             allow_vnet_to_vnet_traffic: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowBranchToBranchTraffic' in kwargs:
+            allow_branch_to_branch_traffic = kwargs['allowBranchToBranchTraffic']
+        if 'allowVnetToVnetTraffic' in kwargs:
+            allow_vnet_to_vnet_traffic = kwargs['allowVnetToVnetTraffic']
+
         if allow_branch_to_branch_traffic is not None:
-            pulumi.set(__self__, "allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
+            _setter("allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
         if allow_vnet_to_vnet_traffic is not None:
-            pulumi.set(__self__, "allow_vnet_to_vnet_traffic", allow_vnet_to_vnet_traffic)
+            _setter("allow_vnet_to_vnet_traffic", allow_vnet_to_vnet_traffic)
 
     @property
     @pulumi.getter(name="allowBranchToBranchTraffic")
@@ -2088,12 +2627,31 @@ class PublicIPAddressDnsSettingsResponse(dict):
         :param str fqdn: Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
         :param str reverse_fqdn: Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
         """
+        PublicIPAddressDnsSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name_label=domain_name_label,
+            fqdn=fqdn,
+            reverse_fqdn=reverse_fqdn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name_label: Optional[str] = None,
+             fqdn: Optional[str] = None,
+             reverse_fqdn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainNameLabel' in kwargs:
+            domain_name_label = kwargs['domainNameLabel']
+        if 'reverseFqdn' in kwargs:
+            reverse_fqdn = kwargs['reverseFqdn']
+
         if domain_name_label is not None:
-            pulumi.set(__self__, "domain_name_label", domain_name_label)
+            _setter("domain_name_label", domain_name_label)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if reverse_fqdn is not None:
-            pulumi.set(__self__, "reverse_fqdn", reverse_fqdn)
+            _setter("reverse_fqdn", reverse_fqdn)
 
     @property
     @pulumi.getter(name="domainNameLabel")
@@ -2200,39 +2758,104 @@ class PublicIPAddressResponse(dict):
         :param Mapping[str, str] tags: Resource tags.
         :param Sequence[str] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
-        pulumi.set(__self__, "ip_configuration", ip_configuration)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        PublicIPAddressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_configuration=ip_configuration,
+            name=name,
+            type=type,
+            dns_settings=dns_settings,
+            etag=etag,
+            id=id,
+            idle_timeout_in_minutes=idle_timeout_in_minutes,
+            ip_address=ip_address,
+            ip_tags=ip_tags,
+            location=location,
+            provisioning_state=provisioning_state,
+            public_ip_address_version=public_ip_address_version,
+            public_ip_allocation_method=public_ip_allocation_method,
+            public_ip_prefix=public_ip_prefix,
+            resource_guid=resource_guid,
+            sku=sku,
+            tags=tags,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_configuration: 'outputs.IPConfigurationResponse',
+             name: str,
+             type: str,
+             dns_settings: Optional['outputs.PublicIPAddressDnsSettingsResponse'] = None,
+             etag: Optional[str] = None,
+             id: Optional[str] = None,
+             idle_timeout_in_minutes: Optional[int] = None,
+             ip_address: Optional[str] = None,
+             ip_tags: Optional[Sequence['outputs.IpTagResponse']] = None,
+             location: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             public_ip_address_version: Optional[str] = None,
+             public_ip_allocation_method: Optional[str] = None,
+             public_ip_prefix: Optional['outputs.SubResourceResponse'] = None,
+             resource_guid: Optional[str] = None,
+             sku: Optional['outputs.PublicIPAddressSkuResponse'] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             zones: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipConfiguration' in kwargs:
+            ip_configuration = kwargs['ipConfiguration']
+        if 'dnsSettings' in kwargs:
+            dns_settings = kwargs['dnsSettings']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'ipTags' in kwargs:
+            ip_tags = kwargs['ipTags']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'publicIPAddressVersion' in kwargs:
+            public_ip_address_version = kwargs['publicIPAddressVersion']
+        if 'publicIPAllocationMethod' in kwargs:
+            public_ip_allocation_method = kwargs['publicIPAllocationMethod']
+        if 'publicIPPrefix' in kwargs:
+            public_ip_prefix = kwargs['publicIPPrefix']
+        if 'resourceGuid' in kwargs:
+            resource_guid = kwargs['resourceGuid']
+
+        _setter("ip_configuration", ip_configuration)
+        _setter("name", name)
+        _setter("type", type)
         if dns_settings is not None:
-            pulumi.set(__self__, "dns_settings", dns_settings)
+            _setter("dns_settings", dns_settings)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if idle_timeout_in_minutes is not None:
-            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+            _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if ip_tags is not None:
-            pulumi.set(__self__, "ip_tags", ip_tags)
+            _setter("ip_tags", ip_tags)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if public_ip_address_version is not None:
-            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+            _setter("public_ip_address_version", public_ip_address_version)
         if public_ip_allocation_method is not None:
-            pulumi.set(__self__, "public_ip_allocation_method", public_ip_allocation_method)
+            _setter("public_ip_allocation_method", public_ip_allocation_method)
         if public_ip_prefix is not None:
-            pulumi.set(__self__, "public_ip_prefix", public_ip_prefix)
+            _setter("public_ip_prefix", public_ip_prefix)
         if resource_guid is not None:
-            pulumi.set(__self__, "resource_guid", resource_guid)
+            _setter("resource_guid", resource_guid)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="ipConfiguration")
@@ -2390,8 +3013,19 @@ class PublicIPAddressSkuResponse(dict):
         SKU of a public IP address
         :param str name: Name of a public IP address SKU.
         """
+        PublicIPAddressSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2442,16 +3076,41 @@ class ResourceNavigationLinkResponse(dict):
         :param str linked_resource_type: Resource type of the linked resource.
         :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        ResourceNavigationLinkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            provisioning_state=provisioning_state,
+            id=id,
+            link=link,
+            linked_resource_type=linked_resource_type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             provisioning_state: str,
+             id: Optional[str] = None,
+             link: Optional[str] = None,
+             linked_resource_type: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'linkedResourceType' in kwargs:
+            linked_resource_type = kwargs['linkedResourceType']
+
+        _setter("etag", etag)
+        _setter("provisioning_state", provisioning_state)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if link is not None:
-            pulumi.set(__self__, "link", link)
+            _setter("link", link)
         if linked_resource_type is not None:
-            pulumi.set(__self__, "linked_resource_type", linked_resource_type)
+            _setter("linked_resource_type", linked_resource_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2548,19 +3207,50 @@ class RouteResponse(dict):
         :param str next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
         :param str provisioning_state: The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
-        pulumi.set(__self__, "next_hop_type", next_hop_type)
+        RouteResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            next_hop_type=next_hop_type,
+            address_prefix=address_prefix,
+            etag=etag,
+            id=id,
+            name=name,
+            next_hop_ip_address=next_hop_ip_address,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             next_hop_type: str,
+             address_prefix: Optional[str] = None,
+             etag: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             next_hop_ip_address: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nextHopType' in kwargs:
+            next_hop_type = kwargs['nextHopType']
+        if 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if 'nextHopIpAddress' in kwargs:
+            next_hop_ip_address = kwargs['nextHopIpAddress']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("next_hop_type", next_hop_type)
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if next_hop_ip_address is not None:
-            pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+            _setter("next_hop_ip_address", next_hop_ip_address)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="nextHopType")
@@ -2667,23 +3357,56 @@ class RouteTableResponse(dict):
         :param Sequence['RouteResponse'] routes: Collection of routes contained within a route table.
         :param Mapping[str, str] tags: Resource tags.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "subnets", subnets)
-        pulumi.set(__self__, "type", type)
+        RouteTableResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            subnets=subnets,
+            type=type,
+            disable_bgp_route_propagation=disable_bgp_route_propagation,
+            etag=etag,
+            id=id,
+            location=location,
+            provisioning_state=provisioning_state,
+            routes=routes,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             subnets: Sequence['outputs.SubnetResponse'],
+             type: str,
+             disable_bgp_route_propagation: Optional[bool] = None,
+             etag: Optional[str] = None,
+             id: Optional[str] = None,
+             location: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             routes: Optional[Sequence['outputs.RouteResponse']] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disableBgpRoutePropagation' in kwargs:
+            disable_bgp_route_propagation = kwargs['disableBgpRoutePropagation']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("name", name)
+        _setter("subnets", subnets)
+        _setter("type", type)
         if disable_bgp_route_propagation is not None:
-            pulumi.set(__self__, "disable_bgp_route_propagation", disable_bgp_route_propagation)
+            _setter("disable_bgp_route_propagation", disable_bgp_route_propagation)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -2850,41 +3573,110 @@ class SecurityRuleResponse(dict):
         :param str source_port_range: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         :param Sequence[str] source_port_ranges: The source port ranges.
         """
-        pulumi.set(__self__, "access", access)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "protocol", protocol)
+        SecurityRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            direction=direction,
+            protocol=protocol,
+            description=description,
+            destination_address_prefix=destination_address_prefix,
+            destination_address_prefixes=destination_address_prefixes,
+            destination_application_security_groups=destination_application_security_groups,
+            destination_port_range=destination_port_range,
+            destination_port_ranges=destination_port_ranges,
+            etag=etag,
+            id=id,
+            name=name,
+            priority=priority,
+            provisioning_state=provisioning_state,
+            source_address_prefix=source_address_prefix,
+            source_address_prefixes=source_address_prefixes,
+            source_application_security_groups=source_application_security_groups,
+            source_port_range=source_port_range,
+            source_port_ranges=source_port_ranges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: str,
+             direction: str,
+             protocol: str,
+             description: Optional[str] = None,
+             destination_address_prefix: Optional[str] = None,
+             destination_address_prefixes: Optional[Sequence[str]] = None,
+             destination_application_security_groups: Optional[Sequence['outputs.ApplicationSecurityGroupResponse']] = None,
+             destination_port_range: Optional[str] = None,
+             destination_port_ranges: Optional[Sequence[str]] = None,
+             etag: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             priority: Optional[int] = None,
+             provisioning_state: Optional[str] = None,
+             source_address_prefix: Optional[str] = None,
+             source_address_prefixes: Optional[Sequence[str]] = None,
+             source_application_security_groups: Optional[Sequence['outputs.ApplicationSecurityGroupResponse']] = None,
+             source_port_range: Optional[str] = None,
+             source_port_ranges: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationAddressPrefix' in kwargs:
+            destination_address_prefix = kwargs['destinationAddressPrefix']
+        if 'destinationAddressPrefixes' in kwargs:
+            destination_address_prefixes = kwargs['destinationAddressPrefixes']
+        if 'destinationApplicationSecurityGroups' in kwargs:
+            destination_application_security_groups = kwargs['destinationApplicationSecurityGroups']
+        if 'destinationPortRange' in kwargs:
+            destination_port_range = kwargs['destinationPortRange']
+        if 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'sourceAddressPrefix' in kwargs:
+            source_address_prefix = kwargs['sourceAddressPrefix']
+        if 'sourceAddressPrefixes' in kwargs:
+            source_address_prefixes = kwargs['sourceAddressPrefixes']
+        if 'sourceApplicationSecurityGroups' in kwargs:
+            source_application_security_groups = kwargs['sourceApplicationSecurityGroups']
+        if 'sourcePortRange' in kwargs:
+            source_port_range = kwargs['sourcePortRange']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+
+        _setter("access", access)
+        _setter("direction", direction)
+        _setter("protocol", protocol)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_address_prefix is not None:
-            pulumi.set(__self__, "destination_address_prefix", destination_address_prefix)
+            _setter("destination_address_prefix", destination_address_prefix)
         if destination_address_prefixes is not None:
-            pulumi.set(__self__, "destination_address_prefixes", destination_address_prefixes)
+            _setter("destination_address_prefixes", destination_address_prefixes)
         if destination_application_security_groups is not None:
-            pulumi.set(__self__, "destination_application_security_groups", destination_application_security_groups)
+            _setter("destination_application_security_groups", destination_application_security_groups)
         if destination_port_range is not None:
-            pulumi.set(__self__, "destination_port_range", destination_port_range)
+            _setter("destination_port_range", destination_port_range)
         if destination_port_ranges is not None:
-            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+            _setter("destination_port_ranges", destination_port_ranges)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if source_address_prefix is not None:
-            pulumi.set(__self__, "source_address_prefix", source_address_prefix)
+            _setter("source_address_prefix", source_address_prefix)
         if source_address_prefixes is not None:
-            pulumi.set(__self__, "source_address_prefixes", source_address_prefixes)
+            _setter("source_address_prefixes", source_address_prefixes)
         if source_application_security_groups is not None:
-            pulumi.set(__self__, "source_application_security_groups", source_application_security_groups)
+            _setter("source_application_security_groups", source_application_security_groups)
         if source_port_range is not None:
-            pulumi.set(__self__, "source_port_range", source_port_range)
+            _setter("source_port_range", source_port_range)
         if source_port_ranges is not None:
-            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+            _setter("source_port_ranges", source_port_ranges)
 
     @property
     @pulumi.getter
@@ -3081,20 +3873,47 @@ class ServiceEndpointPolicyDefinitionResponse(dict):
         :param str service: service endpoint name.
         :param Sequence[str] service_resources: A list of service resources.
         """
+        ServiceEndpointPolicyDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            etag=etag,
+            id=id,
+            name=name,
+            provisioning_state=provisioning_state,
+            service=service,
+            service_resources=service_resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             etag: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             service: Optional[str] = None,
+             service_resources: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'serviceResources' in kwargs:
+            service_resources = kwargs['serviceResources']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if service is not None:
-            pulumi.set(__self__, "service", service)
+            _setter("service", service)
         if service_resources is not None:
-            pulumi.set(__self__, "service_resources", service_resources)
+            _setter("service_resources", service_resources)
 
     @property
     @pulumi.getter
@@ -3201,22 +4020,55 @@ class ServiceEndpointPolicyResponse(dict):
         :param Sequence['ServiceEndpointPolicyDefinitionResponse'] service_endpoint_policy_definitions: A collection of service endpoint policy definitions of the service endpoint policy.
         :param Mapping[str, str] tags: Resource tags.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ServiceEndpointPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            etag=etag,
+            id=id,
+            location=location,
+            provisioning_state=provisioning_state,
+            resource_guid=resource_guid,
+            service_endpoint_policy_definitions=service_endpoint_policy_definitions,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             etag: Optional[str] = None,
+             id: Optional[str] = None,
+             location: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             resource_guid: Optional[str] = None,
+             service_endpoint_policy_definitions: Optional[Sequence['outputs.ServiceEndpointPolicyDefinitionResponse']] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'resourceGuid' in kwargs:
+            resource_guid = kwargs['resourceGuid']
+        if 'serviceEndpointPolicyDefinitions' in kwargs:
+            service_endpoint_policy_definitions = kwargs['serviceEndpointPolicyDefinitions']
+
+        _setter("name", name)
+        _setter("type", type)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if resource_guid is not None:
-            pulumi.set(__self__, "resource_guid", resource_guid)
+            _setter("resource_guid", resource_guid)
         if service_endpoint_policy_definitions is not None:
-            pulumi.set(__self__, "service_endpoint_policy_definitions", service_endpoint_policy_definitions)
+            _setter("service_endpoint_policy_definitions", service_endpoint_policy_definitions)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -3323,12 +4175,29 @@ class ServiceEndpointPropertiesFormatResponse(dict):
         :param str provisioning_state: The provisioning state of the resource.
         :param str service: The type of the endpoint service.
         """
+        ServiceEndpointPropertiesFormatResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            locations=locations,
+            provisioning_state=provisioning_state,
+            service=service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             locations: Optional[Sequence[str]] = None,
+             provisioning_state: Optional[str] = None,
+             service: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if service is not None:
-            pulumi.set(__self__, "service", service)
+            _setter("service", service)
 
     @property
     @pulumi.getter
@@ -3366,8 +4235,19 @@ class SubResourceResponse(dict):
         Reference to another subresource.
         :param str id: Resource ID.
         """
+        SubResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3440,27 +4320,74 @@ class SubnetResponse(dict):
         :param Sequence['ServiceEndpointPolicyResponse'] service_endpoint_policies: An array of service endpoint policies.
         :param Sequence['ServiceEndpointPropertiesFormatResponse'] service_endpoints: An array of service endpoints.
         """
-        pulumi.set(__self__, "ip_configurations", ip_configurations)
+        SubnetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_configurations=ip_configurations,
+            address_prefix=address_prefix,
+            etag=etag,
+            id=id,
+            name=name,
+            network_security_group=network_security_group,
+            provisioning_state=provisioning_state,
+            resource_navigation_links=resource_navigation_links,
+            route_table=route_table,
+            service_endpoint_policies=service_endpoint_policies,
+            service_endpoints=service_endpoints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_configurations: Sequence['outputs.IPConfigurationResponse'],
+             address_prefix: Optional[str] = None,
+             etag: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             network_security_group: Optional['outputs.NetworkSecurityGroupResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             resource_navigation_links: Optional[Sequence['outputs.ResourceNavigationLinkResponse']] = None,
+             route_table: Optional['outputs.RouteTableResponse'] = None,
+             service_endpoint_policies: Optional[Sequence['outputs.ServiceEndpointPolicyResponse']] = None,
+             service_endpoints: Optional[Sequence['outputs.ServiceEndpointPropertiesFormatResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if 'networkSecurityGroup' in kwargs:
+            network_security_group = kwargs['networkSecurityGroup']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'resourceNavigationLinks' in kwargs:
+            resource_navigation_links = kwargs['resourceNavigationLinks']
+        if 'routeTable' in kwargs:
+            route_table = kwargs['routeTable']
+        if 'serviceEndpointPolicies' in kwargs:
+            service_endpoint_policies = kwargs['serviceEndpointPolicies']
+        if 'serviceEndpoints' in kwargs:
+            service_endpoints = kwargs['serviceEndpoints']
+
+        _setter("ip_configurations", ip_configurations)
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_security_group is not None:
-            pulumi.set(__self__, "network_security_group", network_security_group)
+            _setter("network_security_group", network_security_group)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if resource_navigation_links is not None:
-            pulumi.set(__self__, "resource_navigation_links", resource_navigation_links)
+            _setter("resource_navigation_links", resource_navigation_links)
         if route_table is not None:
-            pulumi.set(__self__, "route_table", route_table)
+            _setter("route_table", route_table)
         if service_endpoint_policies is not None:
-            pulumi.set(__self__, "service_endpoint_policies", service_endpoint_policies)
+            _setter("service_endpoint_policies", service_endpoint_policies)
         if service_endpoints is not None:
-            pulumi.set(__self__, "service_endpoints", service_endpoints)
+            _setter("service_endpoints", service_endpoints)
 
     @property
     @pulumi.getter(name="ipConfigurations")
@@ -3621,26 +4548,81 @@ class VpnConnectionResponse(dict):
         :param int routing_weight: routing weight for vpn connection.
         :param str shared_key: SharedKey for the vpn connection.
         """
-        pulumi.set(__self__, "connection_bandwidth_in_mbps", connection_bandwidth_in_mbps)
-        pulumi.set(__self__, "connection_status", connection_status)
-        pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        VpnConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_bandwidth_in_mbps=connection_bandwidth_in_mbps,
+            connection_status=connection_status,
+            egress_bytes_transferred=egress_bytes_transferred,
+            etag=etag,
+            ingress_bytes_transferred=ingress_bytes_transferred,
+            provisioning_state=provisioning_state,
+            enable_bgp=enable_bgp,
+            id=id,
+            ipsec_policies=ipsec_policies,
+            name=name,
+            remote_vpn_site=remote_vpn_site,
+            routing_weight=routing_weight,
+            shared_key=shared_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_bandwidth_in_mbps: int,
+             connection_status: str,
+             egress_bytes_transferred: float,
+             etag: str,
+             ingress_bytes_transferred: float,
+             provisioning_state: str,
+             enable_bgp: Optional[bool] = None,
+             id: Optional[str] = None,
+             ipsec_policies: Optional[Sequence['outputs.IpsecPolicyResponse']] = None,
+             name: Optional[str] = None,
+             remote_vpn_site: Optional['outputs.SubResourceResponse'] = None,
+             routing_weight: Optional[int] = None,
+             shared_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionBandwidthInMbps' in kwargs:
+            connection_bandwidth_in_mbps = kwargs['connectionBandwidthInMbps']
+        if 'connectionStatus' in kwargs:
+            connection_status = kwargs['connectionStatus']
+        if 'egressBytesTransferred' in kwargs:
+            egress_bytes_transferred = kwargs['egressBytesTransferred']
+        if 'ingressBytesTransferred' in kwargs:
+            ingress_bytes_transferred = kwargs['ingressBytesTransferred']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'enableBgp' in kwargs:
+            enable_bgp = kwargs['enableBgp']
+        if 'ipsecPolicies' in kwargs:
+            ipsec_policies = kwargs['ipsecPolicies']
+        if 'remoteVpnSite' in kwargs:
+            remote_vpn_site = kwargs['remoteVpnSite']
+        if 'routingWeight' in kwargs:
+            routing_weight = kwargs['routingWeight']
+        if 'sharedKey' in kwargs:
+            shared_key = kwargs['sharedKey']
+
+        _setter("connection_bandwidth_in_mbps", connection_bandwidth_in_mbps)
+        _setter("connection_status", connection_status)
+        _setter("egress_bytes_transferred", egress_bytes_transferred)
+        _setter("etag", etag)
+        _setter("ingress_bytes_transferred", ingress_bytes_transferred)
+        _setter("provisioning_state", provisioning_state)
         if enable_bgp is not None:
-            pulumi.set(__self__, "enable_bgp", enable_bgp)
+            _setter("enable_bgp", enable_bgp)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ipsec_policies is not None:
-            pulumi.set(__self__, "ipsec_policies", ipsec_policies)
+            _setter("ipsec_policies", ipsec_policies)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if remote_vpn_site is not None:
-            pulumi.set(__self__, "remote_vpn_site", remote_vpn_site)
+            _setter("remote_vpn_site", remote_vpn_site)
         if routing_weight is not None:
-            pulumi.set(__self__, "routing_weight", routing_weight)
+            _setter("routing_weight", routing_weight)
         if shared_key is not None:
-            pulumi.set(__self__, "shared_key", shared_key)
+            _setter("shared_key", shared_key)
 
     @property
     @pulumi.getter(name="connectionBandwidthInMbps")

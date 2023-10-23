@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -64,13 +64,38 @@ class AlertingActionResponse(dict):
         :param 'AzNsActionGroupResponse' azns_action: Azure action group reference.
         :param int throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
         """
-        pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction')
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "trigger", trigger)
+        AlertingActionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            severity=severity,
+            trigger=trigger,
+            azns_action=azns_action,
+            throttling_in_min=throttling_in_min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: str,
+             severity: str,
+             trigger: 'outputs.TriggerConditionResponse',
+             azns_action: Optional['outputs.AzNsActionGroupResponse'] = None,
+             throttling_in_min: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if 'aznsAction' in kwargs:
+            azns_action = kwargs['aznsAction']
+        if 'throttlingInMin' in kwargs:
+            throttling_in_min = kwargs['throttlingInMin']
+
+        _setter("odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction')
+        _setter("severity", severity)
+        _setter("trigger", trigger)
         if azns_action is not None:
-            pulumi.set(__self__, "azns_action", azns_action)
+            _setter("azns_action", azns_action)
         if throttling_in_min is not None:
-            pulumi.set(__self__, "throttling_in_min", throttling_in_min)
+            _setter("throttling_in_min", throttling_in_min)
 
     @property
     @pulumi.getter(name="odataType")
@@ -150,12 +175,33 @@ class AzNsActionGroupResponse(dict):
         :param str custom_webhook_payload: Custom payload to be sent for all webhook URI in Azure action group
         :param str email_subject: Custom subject override for all email ids in Azure action group
         """
+        AzNsActionGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_group=action_group,
+            custom_webhook_payload=custom_webhook_payload,
+            email_subject=email_subject,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_group: Optional[Sequence[str]] = None,
+             custom_webhook_payload: Optional[str] = None,
+             email_subject: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionGroup' in kwargs:
+            action_group = kwargs['actionGroup']
+        if 'customWebhookPayload' in kwargs:
+            custom_webhook_payload = kwargs['customWebhookPayload']
+        if 'emailSubject' in kwargs:
+            email_subject = kwargs['emailSubject']
+
         if action_group is not None:
-            pulumi.set(__self__, "action_group", action_group)
+            _setter("action_group", action_group)
         if custom_webhook_payload is not None:
-            pulumi.set(__self__, "custom_webhook_payload", custom_webhook_payload)
+            _setter("custom_webhook_payload", custom_webhook_payload)
         if email_subject is not None:
-            pulumi.set(__self__, "email_subject", email_subject)
+            _setter("email_subject", email_subject)
 
     @property
     @pulumi.getter(name="actionGroup")
@@ -212,9 +258,24 @@ class CriteriaResponse(dict):
         :param str metric_name: Name of the metric
         :param Sequence['DimensionResponse'] dimensions: List of Dimensions for creating metric
         """
-        pulumi.set(__self__, "metric_name", metric_name)
+        CriteriaResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_name=metric_name,
+            dimensions=dimensions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_name: str,
+             dimensions: Optional[Sequence['outputs.DimensionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
+        _setter("metric_name", metric_name)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
 
     @property
     @pulumi.getter(name="metricName")
@@ -248,9 +309,24 @@ class DimensionResponse(dict):
         :param str operator: Operator for dimension values
         :param Sequence[str] values: List of dimension values
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        DimensionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             operator: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -315,14 +391,37 @@ class LogMetricTriggerResponse(dict):
         :param float threshold: The threshold of the metric trigger.
         :param str threshold_operator: Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
         """
+        LogMetricTriggerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_column=metric_column,
+            metric_trigger_type=metric_trigger_type,
+            threshold=threshold,
+            threshold_operator=threshold_operator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_column: Optional[str] = None,
+             metric_trigger_type: Optional[str] = None,
+             threshold: Optional[float] = None,
+             threshold_operator: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricColumn' in kwargs:
+            metric_column = kwargs['metricColumn']
+        if 'metricTriggerType' in kwargs:
+            metric_trigger_type = kwargs['metricTriggerType']
+        if 'thresholdOperator' in kwargs:
+            threshold_operator = kwargs['thresholdOperator']
+
         if metric_column is not None:
-            pulumi.set(__self__, "metric_column", metric_column)
+            _setter("metric_column", metric_column)
         if metric_trigger_type is not None:
-            pulumi.set(__self__, "metric_trigger_type", metric_trigger_type)
+            _setter("metric_trigger_type", metric_trigger_type)
         if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
+            _setter("threshold", threshold)
         if threshold_operator is not None:
-            pulumi.set(__self__, "threshold_operator", threshold_operator)
+            _setter("threshold_operator", threshold_operator)
 
     @property
     @pulumi.getter(name="metricColumn")
@@ -388,8 +487,23 @@ class LogToMetricActionResponse(dict):
         :param str odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
                Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
         """
-        pulumi.set(__self__, "criteria", criteria)
-        pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction')
+        LogToMetricActionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            criteria=criteria,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             criteria: Sequence['outputs.CriteriaResponse'],
+             odata_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+
+        _setter("criteria", criteria)
+        _setter("odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction')
 
     @property
     @pulumi.getter
@@ -441,8 +555,25 @@ class ScheduleResponse(dict):
         :param int frequency_in_minutes: frequency (in minutes) at which rule condition should be evaluated.
         :param int time_window_in_minutes: Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
         """
-        pulumi.set(__self__, "frequency_in_minutes", frequency_in_minutes)
-        pulumi.set(__self__, "time_window_in_minutes", time_window_in_minutes)
+        ScheduleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            frequency_in_minutes=frequency_in_minutes,
+            time_window_in_minutes=time_window_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             frequency_in_minutes: int,
+             time_window_in_minutes: int,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInMinutes' in kwargs:
+            frequency_in_minutes = kwargs['frequencyInMinutes']
+        if 'timeWindowInMinutes' in kwargs:
+            time_window_in_minutes = kwargs['timeWindowInMinutes']
+
+        _setter("frequency_in_minutes", frequency_in_minutes)
+        _setter("time_window_in_minutes", time_window_in_minutes)
 
     @property
     @pulumi.getter(name="frequencyInMinutes")
@@ -499,13 +630,36 @@ class SourceResponse(dict):
         :param str query: Log search query. Required for action type - AlertingAction
         :param str query_type: Set value to 'ResultCount' .
         """
-        pulumi.set(__self__, "data_source_id", data_source_id)
+        SourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source_id=data_source_id,
+            authorized_resources=authorized_resources,
+            query=query,
+            query_type=query_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source_id: str,
+             authorized_resources: Optional[Sequence[str]] = None,
+             query: Optional[str] = None,
+             query_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSourceId' in kwargs:
+            data_source_id = kwargs['dataSourceId']
+        if 'authorizedResources' in kwargs:
+            authorized_resources = kwargs['authorizedResources']
+        if 'queryType' in kwargs:
+            query_type = kwargs['queryType']
+
+        _setter("data_source_id", data_source_id)
         if authorized_resources is not None:
-            pulumi.set(__self__, "authorized_resources", authorized_resources)
+            _setter("authorized_resources", authorized_resources)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
         if query_type is not None:
-            pulumi.set(__self__, "query_type", query_type)
+            _setter("query_type", query_type)
 
     @property
     @pulumi.getter(name="dataSourceId")
@@ -574,10 +728,29 @@ class TriggerConditionResponse(dict):
         :param str threshold_operator: Evaluation operation for rule - 'GreaterThan' or 'LessThan.
         :param 'LogMetricTriggerResponse' metric_trigger: Trigger condition for metric query rule
         """
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "threshold_operator", threshold_operator)
+        TriggerConditionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            threshold=threshold,
+            threshold_operator=threshold_operator,
+            metric_trigger=metric_trigger,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             threshold: float,
+             threshold_operator: str,
+             metric_trigger: Optional['outputs.LogMetricTriggerResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'thresholdOperator' in kwargs:
+            threshold_operator = kwargs['thresholdOperator']
+        if 'metricTrigger' in kwargs:
+            metric_trigger = kwargs['metricTrigger']
+
+        _setter("threshold", threshold)
+        _setter("threshold_operator", threshold_operator)
         if metric_trigger is not None:
-            pulumi.set(__self__, "metric_trigger", metric_trigger)
+            _setter("metric_trigger", metric_trigger)
 
     @property
     @pulumi.getter

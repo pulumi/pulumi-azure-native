@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -25,10 +25,27 @@ class StorageBillingPropertiesArgs:
         :param pulumi.Input[str] azure_bare_metal_storage_instance_size: the SKU type that is provisioned
         :param pulumi.Input[str] billing_mode: the billing mode for the storage instance
         """
+        StorageBillingPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_bare_metal_storage_instance_size=azure_bare_metal_storage_instance_size,
+            billing_mode=billing_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_bare_metal_storage_instance_size: Optional[pulumi.Input[str]] = None,
+             billing_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureBareMetalStorageInstanceSize' in kwargs:
+            azure_bare_metal_storage_instance_size = kwargs['azureBareMetalStorageInstanceSize']
+        if 'billingMode' in kwargs:
+            billing_mode = kwargs['billingMode']
+
         if azure_bare_metal_storage_instance_size is not None:
-            pulumi.set(__self__, "azure_bare_metal_storage_instance_size", azure_bare_metal_storage_instance_size)
+            _setter("azure_bare_metal_storage_instance_size", azure_bare_metal_storage_instance_size)
         if billing_mode is not None:
-            pulumi.set(__self__, "billing_mode", billing_mode)
+            _setter("billing_mode", billing_mode)
 
     @property
     @pulumi.getter(name="azureBareMetalStorageInstanceSize")
@@ -75,20 +92,55 @@ class StoragePropertiesArgs:
         :param pulumi.Input[str] storage_type: the storage protocol for which the resource is getting provisioned
         :param pulumi.Input[str] workload_type: the workload for which the resource is getting provisioned
         """
+        StoragePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            generation=generation,
+            hardware_type=hardware_type,
+            offering_type=offering_type,
+            provisioning_state=provisioning_state,
+            storage_billing_properties=storage_billing_properties,
+            storage_type=storage_type,
+            workload_type=workload_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             generation: Optional[pulumi.Input[str]] = None,
+             hardware_type: Optional[pulumi.Input[str]] = None,
+             offering_type: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             storage_billing_properties: Optional[pulumi.Input['StorageBillingPropertiesArgs']] = None,
+             storage_type: Optional[pulumi.Input[str]] = None,
+             workload_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hardwareType' in kwargs:
+            hardware_type = kwargs['hardwareType']
+        if 'offeringType' in kwargs:
+            offering_type = kwargs['offeringType']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'storageBillingProperties' in kwargs:
+            storage_billing_properties = kwargs['storageBillingProperties']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if 'workloadType' in kwargs:
+            workload_type = kwargs['workloadType']
+
         if generation is not None:
-            pulumi.set(__self__, "generation", generation)
+            _setter("generation", generation)
         if hardware_type is not None:
-            pulumi.set(__self__, "hardware_type", hardware_type)
+            _setter("hardware_type", hardware_type)
         if offering_type is not None:
-            pulumi.set(__self__, "offering_type", offering_type)
+            _setter("offering_type", offering_type)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if storage_billing_properties is not None:
-            pulumi.set(__self__, "storage_billing_properties", storage_billing_properties)
+            _setter("storage_billing_properties", storage_billing_properties)
         if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
+            _setter("storage_type", storage_type)
         if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
+            _setter("workload_type", workload_type)
 
     @property
     @pulumi.getter

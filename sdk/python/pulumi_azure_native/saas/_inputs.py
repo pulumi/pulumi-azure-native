@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -44,30 +44,85 @@ class SaasCreationPropertiesArgs:
         :param pulumi.Input[str] sku_id: The plan id.
         :param pulumi.Input[str] term_id: The current Term id.
         """
+        SaasCreationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_renew=auto_renew,
+            offer_id=offer_id,
+            payment_channel_metadata=payment_channel_metadata,
+            payment_channel_type=payment_channel_type,
+            publisher_id=publisher_id,
+            publisher_test_environment=publisher_test_environment,
+            quantity=quantity,
+            saas_resource_name=saas_resource_name,
+            saas_session_id=saas_session_id,
+            saas_subscription_id=saas_subscription_id,
+            sku_id=sku_id,
+            term_id=term_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_renew: Optional[pulumi.Input[bool]] = None,
+             offer_id: Optional[pulumi.Input[str]] = None,
+             payment_channel_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             payment_channel_type: Optional[pulumi.Input[Union[str, 'PaymentChannelType']]] = None,
+             publisher_id: Optional[pulumi.Input[str]] = None,
+             publisher_test_environment: Optional[pulumi.Input[str]] = None,
+             quantity: Optional[pulumi.Input[float]] = None,
+             saas_resource_name: Optional[pulumi.Input[str]] = None,
+             saas_session_id: Optional[pulumi.Input[str]] = None,
+             saas_subscription_id: Optional[pulumi.Input[str]] = None,
+             sku_id: Optional[pulumi.Input[str]] = None,
+             term_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoRenew' in kwargs:
+            auto_renew = kwargs['autoRenew']
+        if 'offerId' in kwargs:
+            offer_id = kwargs['offerId']
+        if 'paymentChannelMetadata' in kwargs:
+            payment_channel_metadata = kwargs['paymentChannelMetadata']
+        if 'paymentChannelType' in kwargs:
+            payment_channel_type = kwargs['paymentChannelType']
+        if 'publisherId' in kwargs:
+            publisher_id = kwargs['publisherId']
+        if 'publisherTestEnvironment' in kwargs:
+            publisher_test_environment = kwargs['publisherTestEnvironment']
+        if 'saasResourceName' in kwargs:
+            saas_resource_name = kwargs['saasResourceName']
+        if 'saasSessionId' in kwargs:
+            saas_session_id = kwargs['saasSessionId']
+        if 'saasSubscriptionId' in kwargs:
+            saas_subscription_id = kwargs['saasSubscriptionId']
+        if 'skuId' in kwargs:
+            sku_id = kwargs['skuId']
+        if 'termId' in kwargs:
+            term_id = kwargs['termId']
+
         if auto_renew is not None:
-            pulumi.set(__self__, "auto_renew", auto_renew)
+            _setter("auto_renew", auto_renew)
         if offer_id is not None:
-            pulumi.set(__self__, "offer_id", offer_id)
+            _setter("offer_id", offer_id)
         if payment_channel_metadata is not None:
-            pulumi.set(__self__, "payment_channel_metadata", payment_channel_metadata)
+            _setter("payment_channel_metadata", payment_channel_metadata)
         if payment_channel_type is not None:
-            pulumi.set(__self__, "payment_channel_type", payment_channel_type)
+            _setter("payment_channel_type", payment_channel_type)
         if publisher_id is not None:
-            pulumi.set(__self__, "publisher_id", publisher_id)
+            _setter("publisher_id", publisher_id)
         if publisher_test_environment is not None:
-            pulumi.set(__self__, "publisher_test_environment", publisher_test_environment)
+            _setter("publisher_test_environment", publisher_test_environment)
         if quantity is not None:
-            pulumi.set(__self__, "quantity", quantity)
+            _setter("quantity", quantity)
         if saas_resource_name is not None:
-            pulumi.set(__self__, "saas_resource_name", saas_resource_name)
+            _setter("saas_resource_name", saas_resource_name)
         if saas_session_id is not None:
-            pulumi.set(__self__, "saas_session_id", saas_session_id)
+            _setter("saas_session_id", saas_session_id)
         if saas_subscription_id is not None:
-            pulumi.set(__self__, "saas_subscription_id", saas_subscription_id)
+            _setter("saas_subscription_id", saas_subscription_id)
         if sku_id is not None:
-            pulumi.set(__self__, "sku_id", sku_id)
+            _setter("sku_id", sku_id)
         if term_id is not None:
-            pulumi.set(__self__, "term_id", term_id)
+            _setter("term_id", term_id)
 
     @property
     @pulumi.getter(name="autoRenew")

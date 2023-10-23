@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -32,18 +32,53 @@ class LinkedServiceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] write_access_resource_id: The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        LinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            linked_service_name=linked_service_name,
+            provisioning_state=provisioning_state,
+            resource_id=resource_id,
+            tags=tags,
+            write_access_resource_id=write_access_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             linked_service_name: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'LinkedServiceEntityStatus']]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             write_access_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'writeAccessResourceId' in kwargs:
+            write_access_resource_id = kwargs['writeAccessResourceId']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if linked_service_name is not None:
-            pulumi.set(__self__, "linked_service_name", linked_service_name)
+            _setter("linked_service_name", linked_service_name)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if write_access_resource_id is not None:
-            pulumi.set(__self__, "write_access_resource_id", write_access_resource_id)
+            _setter("write_access_resource_id", write_access_resource_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -181,6 +216,10 @@ class LinkedService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkedServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

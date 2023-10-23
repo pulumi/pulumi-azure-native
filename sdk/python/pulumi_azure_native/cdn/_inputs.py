@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -119,11 +119,30 @@ class AFDDomainHttpsParametersArgs:
         :param pulumi.Input['AfdMinimumTlsVersion'] minimum_tls_version: TLS protocol version that will be used for Https
         :param pulumi.Input['ResourceReferenceArgs'] secret: Resource reference to the secret. ie. subs/rg/profile/secret
         """
-        pulumi.set(__self__, "certificate_type", certificate_type)
+        AFDDomainHttpsParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_type=certificate_type,
+            minimum_tls_version=minimum_tls_version,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_type: pulumi.Input[Union[str, 'AfdCertificateType']],
+             minimum_tls_version: Optional[pulumi.Input['AfdMinimumTlsVersion']] = None,
+             secret: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateType' in kwargs:
+            certificate_type = kwargs['certificateType']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+
+        _setter("certificate_type", certificate_type)
         if minimum_tls_version is not None:
-            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+            _setter("minimum_tls_version", minimum_tls_version)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
 
     @property
     @pulumi.getter(name="certificateType")
@@ -170,8 +189,19 @@ class ActivatedResourceReferenceArgs:
         Reference to another resource along with its state.
         :param pulumi.Input[str] id: Resource ID.
         """
+        ActivatedResourceReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -198,12 +228,33 @@ class AfdRouteCacheConfigurationArgs:
         :param pulumi.Input[str] query_parameters: query parameters to include or exclude (comma separated).
         :param pulumi.Input[Union[str, 'AfdQueryStringCachingBehavior']] query_string_caching_behavior: Defines how Frontdoor caches requests that include query strings. You can ignore any query strings when caching, ignore specific query strings, cache every request with a unique URL, or cache specific query strings.
         """
+        AfdRouteCacheConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compression_settings=compression_settings,
+            query_parameters=query_parameters,
+            query_string_caching_behavior=query_string_caching_behavior,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compression_settings: Optional[pulumi.Input['CompressionSettingsArgs']] = None,
+             query_parameters: Optional[pulumi.Input[str]] = None,
+             query_string_caching_behavior: Optional[pulumi.Input[Union[str, 'AfdQueryStringCachingBehavior']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'compressionSettings' in kwargs:
+            compression_settings = kwargs['compressionSettings']
+        if 'queryParameters' in kwargs:
+            query_parameters = kwargs['queryParameters']
+        if 'queryStringCachingBehavior' in kwargs:
+            query_string_caching_behavior = kwargs['queryStringCachingBehavior']
+
         if compression_settings is not None:
-            pulumi.set(__self__, "compression_settings", compression_settings)
+            _setter("compression_settings", compression_settings)
         if query_parameters is not None:
-            pulumi.set(__self__, "query_parameters", query_parameters)
+            _setter("query_parameters", query_parameters)
         if query_string_caching_behavior is not None:
-            pulumi.set(__self__, "query_string_caching_behavior", query_string_caching_behavior)
+            _setter("query_string_caching_behavior", query_string_caching_behavior)
 
     @property
     @pulumi.getter(name="compressionSettings")
@@ -253,9 +304,24 @@ class AzureFirstPartyManagedCertificateParametersArgs:
                Expected value is 'AzureFirstPartyManagedCertificate'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: The list of SANs.
         """
-        pulumi.set(__self__, "type", 'AzureFirstPartyManagedCertificate')
+        AzureFirstPartyManagedCertificateParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            subject_alternative_names=subject_alternative_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+
+        _setter("type", 'AzureFirstPartyManagedCertificate')
         if subject_alternative_names is not None:
-            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+            _setter("subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter
@@ -299,16 +365,45 @@ class CacheConfigurationArgs:
         :param pulumi.Input[str] query_parameters: query parameters to include or exclude (comma separated).
         :param pulumi.Input[Union[str, 'RuleQueryStringCachingBehavior']] query_string_caching_behavior: Defines how Frontdoor caches requests that include query strings. You can ignore any query strings when caching, ignore specific query strings, cache every request with a unique URL, or cache specific query strings.
         """
+        CacheConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_behavior=cache_behavior,
+            cache_duration=cache_duration,
+            is_compression_enabled=is_compression_enabled,
+            query_parameters=query_parameters,
+            query_string_caching_behavior=query_string_caching_behavior,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_behavior: Optional[pulumi.Input[Union[str, 'RuleCacheBehavior']]] = None,
+             cache_duration: Optional[pulumi.Input[str]] = None,
+             is_compression_enabled: Optional[pulumi.Input[Union[str, 'RuleIsCompressionEnabled']]] = None,
+             query_parameters: Optional[pulumi.Input[str]] = None,
+             query_string_caching_behavior: Optional[pulumi.Input[Union[str, 'RuleQueryStringCachingBehavior']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cacheBehavior' in kwargs:
+            cache_behavior = kwargs['cacheBehavior']
+        if 'cacheDuration' in kwargs:
+            cache_duration = kwargs['cacheDuration']
+        if 'isCompressionEnabled' in kwargs:
+            is_compression_enabled = kwargs['isCompressionEnabled']
+        if 'queryParameters' in kwargs:
+            query_parameters = kwargs['queryParameters']
+        if 'queryStringCachingBehavior' in kwargs:
+            query_string_caching_behavior = kwargs['queryStringCachingBehavior']
+
         if cache_behavior is not None:
-            pulumi.set(__self__, "cache_behavior", cache_behavior)
+            _setter("cache_behavior", cache_behavior)
         if cache_duration is not None:
-            pulumi.set(__self__, "cache_duration", cache_duration)
+            _setter("cache_duration", cache_duration)
         if is_compression_enabled is not None:
-            pulumi.set(__self__, "is_compression_enabled", is_compression_enabled)
+            _setter("is_compression_enabled", is_compression_enabled)
         if query_parameters is not None:
-            pulumi.set(__self__, "query_parameters", query_parameters)
+            _setter("query_parameters", query_parameters)
         if query_string_caching_behavior is not None:
-            pulumi.set(__self__, "query_string_caching_behavior", query_string_caching_behavior)
+            _setter("query_string_caching_behavior", query_string_caching_behavior)
 
     @property
     @pulumi.getter(name="cacheBehavior")
@@ -384,11 +479,36 @@ class CacheExpirationActionParametersArgs:
         :param pulumi.Input[Union[str, 'CacheType']] cache_type: The level at which the content needs to be cached.
         :param pulumi.Input[str] cache_duration: The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
         """
-        pulumi.set(__self__, "cache_behavior", cache_behavior)
-        pulumi.set(__self__, "cache_type", cache_type)
-        pulumi.set(__self__, "type_name", type_name)
+        CacheExpirationActionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_behavior=cache_behavior,
+            cache_type=cache_type,
+            type_name=type_name,
+            cache_duration=cache_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_behavior: pulumi.Input[Union[str, 'CacheBehavior']],
+             cache_type: pulumi.Input[Union[str, 'CacheType']],
+             type_name: pulumi.Input[str],
+             cache_duration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cacheBehavior' in kwargs:
+            cache_behavior = kwargs['cacheBehavior']
+        if 'cacheType' in kwargs:
+            cache_type = kwargs['cacheType']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'cacheDuration' in kwargs:
+            cache_duration = kwargs['cacheDuration']
+
+        _setter("cache_behavior", cache_behavior)
+        _setter("cache_type", cache_type)
+        _setter("type_name", type_name)
         if cache_duration is not None:
-            pulumi.set(__self__, "cache_duration", cache_duration)
+            _setter("cache_duration", cache_duration)
 
     @property
     @pulumi.getter(name="cacheBehavior")
@@ -447,10 +567,31 @@ class CacheKeyQueryStringActionParametersArgs:
         :param pulumi.Input[Union[str, 'QueryStringBehavior']] query_string_behavior: Caching behavior for the requests
         :param pulumi.Input[str] query_parameters: query parameters to include or exclude (comma separated).
         """
-        pulumi.set(__self__, "query_string_behavior", query_string_behavior)
-        pulumi.set(__self__, "type_name", type_name)
+        CacheKeyQueryStringActionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query_string_behavior=query_string_behavior,
+            type_name=type_name,
+            query_parameters=query_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query_string_behavior: pulumi.Input[Union[str, 'QueryStringBehavior']],
+             type_name: pulumi.Input[str],
+             query_parameters: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryStringBehavior' in kwargs:
+            query_string_behavior = kwargs['queryStringBehavior']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'queryParameters' in kwargs:
+            query_parameters = kwargs['queryParameters']
+
+        _setter("query_string_behavior", query_string_behavior)
+        _setter("type_name", type_name)
         if query_parameters is not None:
-            pulumi.set(__self__, "query_parameters", query_parameters)
+            _setter("query_parameters", query_parameters)
 
     @property
     @pulumi.getter(name="queryStringBehavior")
@@ -501,16 +642,41 @@ class ClientPortMatchConditionParametersArgs:
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        ClientPortMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'ClientPortOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -580,10 +746,27 @@ class CompressionSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] content_types_to_compress: List of content types on which compression applies. The value should be a valid MIME type.
         :param pulumi.Input[bool] is_compression_enabled: Indicates whether content compression is enabled on AzureFrontDoor. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
         """
+        CompressionSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_types_to_compress=content_types_to_compress,
+            is_compression_enabled=is_compression_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_types_to_compress: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             is_compression_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentTypesToCompress' in kwargs:
+            content_types_to_compress = kwargs['contentTypesToCompress']
+        if 'isCompressionEnabled' in kwargs:
+            is_compression_enabled = kwargs['isCompressionEnabled']
+
         if content_types_to_compress is not None:
-            pulumi.set(__self__, "content_types_to_compress", content_types_to_compress)
+            _setter("content_types_to_compress", content_types_to_compress)
         if is_compression_enabled is not None:
-            pulumi.set(__self__, "is_compression_enabled", is_compression_enabled)
+            _setter("is_compression_enabled", is_compression_enabled)
 
     @property
     @pulumi.getter(name="contentTypesToCompress")
@@ -627,18 +810,45 @@ class CookiesMatchConditionParametersArgs:
         :param pulumi.Input[str] selector: Name of Cookies to be matched
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        CookiesMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            selector=selector,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'CookiesOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             selector: Optional[pulumi.Input[str]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if selector is not None:
-            pulumi.set(__self__, "selector", selector)
+            _setter("selector", selector)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -718,8 +928,19 @@ class CustomRuleListArgs:
         Defines contents of custom rules
         :param pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]] rules: List of rules
         """
+        CustomRuleListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -750,12 +971,35 @@ class CustomRuleArgs:
         :param pulumi.Input[int] priority: Defines in what order this rule be evaluated in the overall list of custom rules
         :param pulumi.Input[Union[str, 'CustomRuleEnabledState']] enabled_state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "match_conditions", match_conditions)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "priority", priority)
+        CustomRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            match_conditions=match_conditions,
+            name=name,
+            priority=priority,
+            enabled_state=enabled_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[Union[str, 'ActionType']],
+             match_conditions: pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]],
+             name: pulumi.Input[str],
+             priority: pulumi.Input[int],
+             enabled_state: Optional[pulumi.Input[Union[str, 'CustomRuleEnabledState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchConditions' in kwargs:
+            match_conditions = kwargs['matchConditions']
+        if 'enabledState' in kwargs:
+            enabled_state = kwargs['enabledState']
+
+        _setter("action", action)
+        _setter("match_conditions", match_conditions)
+        _setter("name", name)
+        _setter("priority", priority)
         if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
+            _setter("enabled_state", enabled_state)
 
     @property
     @pulumi.getter
@@ -835,14 +1079,41 @@ class CustomerCertificateParametersArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: The list of SANs.
         :param pulumi.Input[bool] use_latest_version: Whether to use the latest version for the certificate
         """
-        pulumi.set(__self__, "secret_source", secret_source)
-        pulumi.set(__self__, "type", 'CustomerCertificate')
+        CustomerCertificateParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_source=secret_source,
+            type=type,
+            secret_version=secret_version,
+            subject_alternative_names=subject_alternative_names,
+            use_latest_version=use_latest_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_source: pulumi.Input['ResourceReferenceArgs'],
+             type: pulumi.Input[str],
+             secret_version: Optional[pulumi.Input[str]] = None,
+             subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             use_latest_version: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretSource' in kwargs:
+            secret_source = kwargs['secretSource']
+        if 'secretVersion' in kwargs:
+            secret_version = kwargs['secretVersion']
+        if 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+        if 'useLatestVersion' in kwargs:
+            use_latest_version = kwargs['useLatestVersion']
+
+        _setter("secret_source", secret_source)
+        _setter("type", 'CustomerCertificate')
         if secret_version is not None:
-            pulumi.set(__self__, "secret_version", secret_version)
+            _setter("secret_version", secret_version)
         if subject_alternative_names is not None:
-            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+            _setter("subject_alternative_names", subject_alternative_names)
         if use_latest_version is not None:
-            pulumi.set(__self__, "use_latest_version", use_latest_version)
+            _setter("use_latest_version", use_latest_version)
 
     @property
     @pulumi.getter(name="secretSource")
@@ -922,14 +1193,39 @@ class DeepCreatedOriginGroupArgs:
         :param pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs'] response_based_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
         :param pulumi.Input[int] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "origins", origins)
+        DeepCreatedOriginGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            origins=origins,
+            health_probe_settings=health_probe_settings,
+            response_based_origin_error_detection_settings=response_based_origin_error_detection_settings,
+            traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=traffic_restoration_time_to_healed_or_new_endpoints_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             origins: pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]],
+             health_probe_settings: Optional[pulumi.Input['HealthProbeParametersArgs']] = None,
+             response_based_origin_error_detection_settings: Optional[pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs']] = None,
+             traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'healthProbeSettings' in kwargs:
+            health_probe_settings = kwargs['healthProbeSettings']
+        if 'responseBasedOriginErrorDetectionSettings' in kwargs:
+            response_based_origin_error_detection_settings = kwargs['responseBasedOriginErrorDetectionSettings']
+        if 'trafficRestorationTimeToHealedOrNewEndpointsInMinutes' in kwargs:
+            traffic_restoration_time_to_healed_or_new_endpoints_in_minutes = kwargs['trafficRestorationTimeToHealedOrNewEndpointsInMinutes']
+
+        _setter("name", name)
+        _setter("origins", origins)
         if health_probe_settings is not None:
-            pulumi.set(__self__, "health_probe_settings", health_probe_settings)
+            _setter("health_probe_settings", health_probe_settings)
         if response_based_origin_error_detection_settings is not None:
-            pulumi.set(__self__, "response_based_origin_error_detection_settings", response_based_origin_error_detection_settings)
+            _setter("response_based_origin_error_detection_settings", response_based_origin_error_detection_settings)
         if traffic_restoration_time_to_healed_or_new_endpoints_in_minutes is not None:
-            pulumi.set(__self__, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", traffic_restoration_time_to_healed_or_new_endpoints_in_minutes)
+            _setter("traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", traffic_restoration_time_to_healed_or_new_endpoints_in_minutes)
 
     @property
     @pulumi.getter
@@ -1022,28 +1318,77 @@ class DeepCreatedOriginArgs:
         :param pulumi.Input[str] private_link_resource_id: The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
         :param pulumi.Input[int] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
-        pulumi.set(__self__, "host_name", host_name)
-        pulumi.set(__self__, "name", name)
+        DeepCreatedOriginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            name=name,
+            enabled=enabled,
+            http_port=http_port,
+            https_port=https_port,
+            origin_host_header=origin_host_header,
+            priority=priority,
+            private_link_alias=private_link_alias,
+            private_link_approval_message=private_link_approval_message,
+            private_link_location=private_link_location,
+            private_link_resource_id=private_link_resource_id,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             http_port: Optional[pulumi.Input[int]] = None,
+             https_port: Optional[pulumi.Input[int]] = None,
+             origin_host_header: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             private_link_alias: Optional[pulumi.Input[str]] = None,
+             private_link_approval_message: Optional[pulumi.Input[str]] = None,
+             private_link_location: Optional[pulumi.Input[str]] = None,
+             private_link_resource_id: Optional[pulumi.Input[str]] = None,
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'httpPort' in kwargs:
+            http_port = kwargs['httpPort']
+        if 'httpsPort' in kwargs:
+            https_port = kwargs['httpsPort']
+        if 'originHostHeader' in kwargs:
+            origin_host_header = kwargs['originHostHeader']
+        if 'privateLinkAlias' in kwargs:
+            private_link_alias = kwargs['privateLinkAlias']
+        if 'privateLinkApprovalMessage' in kwargs:
+            private_link_approval_message = kwargs['privateLinkApprovalMessage']
+        if 'privateLinkLocation' in kwargs:
+            private_link_location = kwargs['privateLinkLocation']
+        if 'privateLinkResourceId' in kwargs:
+            private_link_resource_id = kwargs['privateLinkResourceId']
+
+        _setter("host_name", host_name)
+        _setter("name", name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if http_port is not None:
-            pulumi.set(__self__, "http_port", http_port)
+            _setter("http_port", http_port)
         if https_port is not None:
-            pulumi.set(__self__, "https_port", https_port)
+            _setter("https_port", https_port)
         if origin_host_header is not None:
-            pulumi.set(__self__, "origin_host_header", origin_host_header)
+            _setter("origin_host_header", origin_host_header)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if private_link_alias is not None:
-            pulumi.set(__self__, "private_link_alias", private_link_alias)
+            _setter("private_link_alias", private_link_alias)
         if private_link_approval_message is not None:
-            pulumi.set(__self__, "private_link_approval_message", private_link_approval_message)
+            _setter("private_link_approval_message", private_link_approval_message)
         if private_link_location is not None:
-            pulumi.set(__self__, "private_link_location", private_link_location)
+            _setter("private_link_location", private_link_location)
         if private_link_resource_id is not None:
-            pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
+            _setter("private_link_resource_id", private_link_resource_id)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="hostName")
@@ -1201,8 +1546,21 @@ class DeliveryRuleCacheExpirationActionArgs:
                Expected value is 'CacheExpiration'.
         :param pulumi.Input['CacheExpirationActionParametersArgs'] parameters: Defines the parameters for the action.
         """
-        pulumi.set(__self__, "name", 'CacheExpiration')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleCacheExpirationActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['CacheExpirationActionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'CacheExpiration')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1241,8 +1599,21 @@ class DeliveryRuleCacheKeyQueryStringActionArgs:
                Expected value is 'CacheKeyQueryString'.
         :param pulumi.Input['CacheKeyQueryStringActionParametersArgs'] parameters: Defines the parameters for the action.
         """
-        pulumi.set(__self__, "name", 'CacheKeyQueryString')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleCacheKeyQueryStringActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['CacheKeyQueryStringActionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'CacheKeyQueryString')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1281,8 +1652,21 @@ class DeliveryRuleClientPortConditionArgs:
                Expected value is 'ClientPort'.
         :param pulumi.Input['ClientPortMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'ClientPort')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleClientPortConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['ClientPortMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'ClientPort')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1321,8 +1705,21 @@ class DeliveryRuleCookiesConditionArgs:
                Expected value is 'Cookies'.
         :param pulumi.Input['CookiesMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'Cookies')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleCookiesConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['CookiesMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'Cookies')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1361,8 +1758,21 @@ class DeliveryRuleHostNameConditionArgs:
                Expected value is 'HostName'.
         :param pulumi.Input['HostNameMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'HostName')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleHostNameConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['HostNameMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'HostName')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1401,8 +1811,21 @@ class DeliveryRuleHttpVersionConditionArgs:
                Expected value is 'HttpVersion'.
         :param pulumi.Input['HttpVersionMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'HttpVersion')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleHttpVersionConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['HttpVersionMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'HttpVersion')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1441,8 +1864,21 @@ class DeliveryRuleIsDeviceConditionArgs:
                Expected value is 'IsDevice'.
         :param pulumi.Input['IsDeviceMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'IsDevice')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleIsDeviceConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['IsDeviceMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'IsDevice')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1481,8 +1917,21 @@ class DeliveryRulePostArgsConditionArgs:
                Expected value is 'PostArgs'.
         :param pulumi.Input['PostArgsMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'PostArgs')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRulePostArgsConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['PostArgsMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'PostArgs')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1521,8 +1970,21 @@ class DeliveryRuleQueryStringConditionArgs:
                Expected value is 'QueryString'.
         :param pulumi.Input['QueryStringMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'QueryString')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleQueryStringConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['QueryStringMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'QueryString')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1561,8 +2023,21 @@ class DeliveryRuleRemoteAddressConditionArgs:
                Expected value is 'RemoteAddress'.
         :param pulumi.Input['RemoteAddressMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'RemoteAddress')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleRemoteAddressConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['RemoteAddressMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'RemoteAddress')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1601,8 +2076,21 @@ class DeliveryRuleRequestBodyConditionArgs:
                Expected value is 'RequestBody'.
         :param pulumi.Input['RequestBodyMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'RequestBody')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleRequestBodyConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['RequestBodyMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'RequestBody')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1641,8 +2129,21 @@ class DeliveryRuleRequestHeaderActionArgs:
                Expected value is 'ModifyRequestHeader'.
         :param pulumi.Input['HeaderActionParametersArgs'] parameters: Defines the parameters for the action.
         """
-        pulumi.set(__self__, "name", 'ModifyRequestHeader')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleRequestHeaderActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['HeaderActionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'ModifyRequestHeader')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1681,8 +2182,21 @@ class DeliveryRuleRequestHeaderConditionArgs:
                Expected value is 'RequestHeader'.
         :param pulumi.Input['RequestHeaderMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'RequestHeader')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleRequestHeaderConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['RequestHeaderMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'RequestHeader')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1721,8 +2235,21 @@ class DeliveryRuleRequestMethodConditionArgs:
                Expected value is 'RequestMethod'.
         :param pulumi.Input['RequestMethodMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'RequestMethod')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleRequestMethodConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['RequestMethodMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'RequestMethod')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1761,8 +2288,21 @@ class DeliveryRuleRequestSchemeConditionArgs:
                Expected value is 'RequestScheme'.
         :param pulumi.Input['RequestSchemeMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'RequestScheme')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleRequestSchemeConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['RequestSchemeMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'RequestScheme')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1801,8 +2341,21 @@ class DeliveryRuleRequestUriConditionArgs:
                Expected value is 'RequestUri'.
         :param pulumi.Input['RequestUriMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'RequestUri')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleRequestUriConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['RequestUriMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'RequestUri')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1841,8 +2394,21 @@ class DeliveryRuleResponseHeaderActionArgs:
                Expected value is 'ModifyResponseHeader'.
         :param pulumi.Input['HeaderActionParametersArgs'] parameters: Defines the parameters for the action.
         """
-        pulumi.set(__self__, "name", 'ModifyResponseHeader')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleResponseHeaderActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['HeaderActionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'ModifyResponseHeader')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1881,8 +2447,21 @@ class DeliveryRuleRouteConfigurationOverrideActionArgs:
                Expected value is 'RouteConfigurationOverride'.
         :param pulumi.Input['RouteConfigurationOverrideActionParametersArgs'] parameters: Defines the parameters for the action.
         """
-        pulumi.set(__self__, "name", 'RouteConfigurationOverride')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleRouteConfigurationOverrideActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['RouteConfigurationOverrideActionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'RouteConfigurationOverride')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1921,8 +2500,21 @@ class DeliveryRuleServerPortConditionArgs:
                Expected value is 'ServerPort'.
         :param pulumi.Input['ServerPortMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'ServerPort')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleServerPortConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['ServerPortMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'ServerPort')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1961,8 +2553,21 @@ class DeliveryRuleSocketAddrConditionArgs:
                Expected value is 'SocketAddr'.
         :param pulumi.Input['SocketAddrMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'SocketAddr')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleSocketAddrConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['SocketAddrMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'SocketAddr')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -2001,8 +2606,21 @@ class DeliveryRuleSslProtocolConditionArgs:
                Expected value is 'SslProtocol'.
         :param pulumi.Input['SslProtocolMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'SslProtocol')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleSslProtocolConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['SslProtocolMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'SslProtocol')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -2041,8 +2659,21 @@ class DeliveryRuleUrlFileExtensionConditionArgs:
                Expected value is 'UrlFileExtension'.
         :param pulumi.Input['UrlFileExtensionMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'UrlFileExtension')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleUrlFileExtensionConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['UrlFileExtensionMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'UrlFileExtension')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -2081,8 +2712,21 @@ class DeliveryRuleUrlFileNameConditionArgs:
                Expected value is 'UrlFileName'.
         :param pulumi.Input['UrlFileNameMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'UrlFileName')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleUrlFileNameConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['UrlFileNameMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'UrlFileName')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -2121,8 +2765,21 @@ class DeliveryRuleUrlPathConditionArgs:
                Expected value is 'UrlPath'.
         :param pulumi.Input['UrlPathMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
-        pulumi.set(__self__, "name", 'UrlPath')
-        pulumi.set(__self__, "parameters", parameters)
+        DeliveryRuleUrlPathConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['UrlPathMatchConditionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'UrlPath')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -2164,12 +2821,29 @@ class DeliveryRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleClientPortConditionArgs', 'DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHostNameConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleServerPortConditionArgs', 'DeliveryRuleSocketAddrConditionArgs', 'DeliveryRuleSslProtocolConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]] conditions: A list of conditions that must be matched for the actions to be executed
         :param pulumi.Input[str] name: Name of the rule
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "order", order)
+        DeliveryRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            order=order,
+            conditions=conditions,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'DeliveryRuleRouteConfigurationOverrideActionArgs', 'OriginGroupOverrideActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]],
+             order: pulumi.Input[int],
+             conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleClientPortConditionArgs', 'DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHostNameConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleServerPortConditionArgs', 'DeliveryRuleSocketAddrConditionArgs', 'DeliveryRuleSslProtocolConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("actions", actions)
+        _setter("order", order)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2230,9 +2904,22 @@ class EndpointPropertiesUpdateParametersDeliveryPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DeliveryRuleArgs']]] rules: A list of the delivery rules.
         :param pulumi.Input[str] description: User-friendly description of the policy.
         """
-        pulumi.set(__self__, "rules", rules)
+        EndpointPropertiesUpdateParametersDeliveryPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rules=rules,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rules: pulumi.Input[Sequence[pulumi.Input['DeliveryRuleArgs']]],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("rules", rules)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -2267,8 +2954,19 @@ class EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs:
         Defines the Web Application Firewall policy for the endpoint (if applicable)
         :param pulumi.Input[str] id: Resource ID.
         """
+        EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2295,9 +2993,28 @@ class GeoFilterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] country_codes: Two letter country or region codes defining user country or region access in a geo filter, e.g. AU, MX, US.
         :param pulumi.Input[str] relative_path: Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "country_codes", country_codes)
-        pulumi.set(__self__, "relative_path", relative_path)
+        GeoFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            country_codes=country_codes,
+            relative_path=relative_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input['GeoFilterActions'],
+             country_codes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             relative_path: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryCodes' in kwargs:
+            country_codes = kwargs['countryCodes']
+        if 'relativePath' in kwargs:
+            relative_path = kwargs['relativePath']
+
+        _setter("action", action)
+        _setter("country_codes", country_codes)
+        _setter("relative_path", relative_path)
 
     @property
     @pulumi.getter
@@ -2349,11 +3066,34 @@ class HeaderActionParametersArgs:
         :param pulumi.Input[str] header_name: Name of the header to modify
         :param pulumi.Input[str] value: Value for the specified action
         """
-        pulumi.set(__self__, "header_action", header_action)
-        pulumi.set(__self__, "header_name", header_name)
-        pulumi.set(__self__, "type_name", type_name)
+        HeaderActionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_action=header_action,
+            header_name=header_name,
+            type_name=type_name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_action: pulumi.Input[Union[str, 'HeaderAction']],
+             header_name: pulumi.Input[str],
+             type_name: pulumi.Input[str],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerAction' in kwargs:
+            header_action = kwargs['headerAction']
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+
+        _setter("header_action", header_action)
+        _setter("header_name", header_name)
+        _setter("type_name", type_name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="headerAction")
@@ -2415,14 +3155,39 @@ class HealthProbeParametersArgs:
         :param pulumi.Input['ProbeProtocol'] probe_protocol: Protocol to use for health probe.
         :param pulumi.Input['HealthProbeRequestType'] probe_request_type: The type of health probe request that is made.
         """
+        HealthProbeParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            probe_interval_in_seconds=probe_interval_in_seconds,
+            probe_path=probe_path,
+            probe_protocol=probe_protocol,
+            probe_request_type=probe_request_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             probe_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+             probe_path: Optional[pulumi.Input[str]] = None,
+             probe_protocol: Optional[pulumi.Input['ProbeProtocol']] = None,
+             probe_request_type: Optional[pulumi.Input['HealthProbeRequestType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'probeIntervalInSeconds' in kwargs:
+            probe_interval_in_seconds = kwargs['probeIntervalInSeconds']
+        if 'probePath' in kwargs:
+            probe_path = kwargs['probePath']
+        if 'probeProtocol' in kwargs:
+            probe_protocol = kwargs['probeProtocol']
+        if 'probeRequestType' in kwargs:
+            probe_request_type = kwargs['probeRequestType']
+
         if probe_interval_in_seconds is not None:
-            pulumi.set(__self__, "probe_interval_in_seconds", probe_interval_in_seconds)
+            _setter("probe_interval_in_seconds", probe_interval_in_seconds)
         if probe_path is not None:
-            pulumi.set(__self__, "probe_path", probe_path)
+            _setter("probe_path", probe_path)
         if probe_protocol is not None:
-            pulumi.set(__self__, "probe_protocol", probe_protocol)
+            _setter("probe_protocol", probe_protocol)
         if probe_request_type is not None:
-            pulumi.set(__self__, "probe_request_type", probe_request_type)
+            _setter("probe_request_type", probe_request_type)
 
     @property
     @pulumi.getter(name="probeIntervalInSeconds")
@@ -2488,16 +3253,41 @@ class HostNameMatchConditionParametersArgs:
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        HostNameMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'HostNameOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -2567,10 +3357,23 @@ class HttpErrorRangeParametersArgs:
         :param pulumi.Input[int] begin: The inclusive start of the http status code range.
         :param pulumi.Input[int] end: The inclusive end of the http status code range.
         """
+        HttpErrorRangeParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            begin=begin,
+            end=end,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             begin: Optional[pulumi.Input[int]] = None,
+             end: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if begin is not None:
-            pulumi.set(__self__, "begin", begin)
+            _setter("begin", begin)
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
 
     @property
     @pulumi.getter
@@ -2612,16 +3415,41 @@ class HttpVersionMatchConditionParametersArgs:
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        HttpVersionMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'HttpVersionOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -2696,16 +3524,41 @@ class IsDeviceMatchConditionParametersArgs:
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        IsDeviceMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'IsDeviceOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -2782,12 +3635,45 @@ class KeyVaultSigningKeyParametersArgs:
         :param pulumi.Input[str] subscription_id: Subscription Id of the user's Key Vault containing the secret
         :param pulumi.Input[str] vault_name: The name of the user's Key Vault containing the secret
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "secret_version", secret_version)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-        pulumi.set(__self__, "type_name", type_name)
-        pulumi.set(__self__, "vault_name", vault_name)
+        KeyVaultSigningKeyParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            secret_name=secret_name,
+            secret_version=secret_version,
+            subscription_id=subscription_id,
+            type_name=type_name,
+            vault_name=vault_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             secret_name: pulumi.Input[str],
+             secret_version: pulumi.Input[str],
+             subscription_id: pulumi.Input[str],
+             type_name: pulumi.Input[str],
+             vault_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if 'secretVersion' in kwargs:
+            secret_version = kwargs['secretVersion']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'vaultName' in kwargs:
+            vault_name = kwargs['vaultName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("secret_name", secret_name)
+        _setter("secret_version", secret_version)
+        _setter("subscription_id", subscription_id)
+        _setter("type_name", type_name)
+        _setter("vault_name", vault_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -2871,12 +3757,33 @@ class LoadBalancingSettingsParametersArgs:
         :param pulumi.Input[int] sample_size: The number of samples to consider for load balancing decisions
         :param pulumi.Input[int] successful_samples_required: The number of samples within the sample period that must succeed
         """
+        LoadBalancingSettingsParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_latency_in_milliseconds=additional_latency_in_milliseconds,
+            sample_size=sample_size,
+            successful_samples_required=successful_samples_required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_latency_in_milliseconds: Optional[pulumi.Input[int]] = None,
+             sample_size: Optional[pulumi.Input[int]] = None,
+             successful_samples_required: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalLatencyInMilliseconds' in kwargs:
+            additional_latency_in_milliseconds = kwargs['additionalLatencyInMilliseconds']
+        if 'sampleSize' in kwargs:
+            sample_size = kwargs['sampleSize']
+        if 'successfulSamplesRequired' in kwargs:
+            successful_samples_required = kwargs['successfulSamplesRequired']
+
         if additional_latency_in_milliseconds is not None:
-            pulumi.set(__self__, "additional_latency_in_milliseconds", additional_latency_in_milliseconds)
+            _setter("additional_latency_in_milliseconds", additional_latency_in_milliseconds)
         if sample_size is not None:
-            pulumi.set(__self__, "sample_size", sample_size)
+            _setter("sample_size", sample_size)
         if successful_samples_required is not None:
-            pulumi.set(__self__, "successful_samples_required", successful_samples_required)
+            _setter("successful_samples_required", successful_samples_required)
 
     @property
     @pulumi.getter(name="additionalLatencyInMilliseconds")
@@ -2924,7 +3831,18 @@ class ManagedCertificateParametersArgs:
         :param pulumi.Input[str] type: The type of the secret resource.
                Expected value is 'ManagedCertificate'.
         """
-        pulumi.set(__self__, "type", 'ManagedCertificate')
+        ManagedCertificateParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("type", 'ManagedCertificate')
 
     @property
     @pulumi.getter
@@ -2950,9 +3868,24 @@ class ManagedRuleGroupOverrideArgs:
         :param pulumi.Input[str] rule_group_name: Describes the managed rule group within the rule set to override
         :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgs']]] rules: List of rules that will be enabled. If none specified, all rules in the group will be disabled.
         """
-        pulumi.set(__self__, "rule_group_name", rule_group_name)
+        ManagedRuleGroupOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_group_name=rule_group_name,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_group_name: pulumi.Input[str],
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleGroupName' in kwargs:
+            rule_group_name = kwargs['ruleGroupName']
+
+        _setter("rule_group_name", rule_group_name)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter(name="ruleGroupName")
@@ -2991,11 +3924,30 @@ class ManagedRuleOverrideArgs:
         :param pulumi.Input[Union[str, 'ActionType']] action: Describes the override action to be applied when rule matches.
         :param pulumi.Input[Union[str, 'ManagedRuleEnabledState']] enabled_state: Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
         """
-        pulumi.set(__self__, "rule_id", rule_id)
+        ManagedRuleOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_id=rule_id,
+            action=action,
+            enabled_state=enabled_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_id: pulumi.Input[str],
+             action: Optional[pulumi.Input[Union[str, 'ActionType']]] = None,
+             enabled_state: Optional[pulumi.Input[Union[str, 'ManagedRuleEnabledState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleId' in kwargs:
+            rule_id = kwargs['ruleId']
+        if 'enabledState' in kwargs:
+            enabled_state = kwargs['enabledState']
+
+        _setter("rule_id", rule_id)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
+            _setter("enabled_state", enabled_state)
 
     @property
     @pulumi.getter(name="ruleId")
@@ -3042,8 +3994,21 @@ class ManagedRuleSetListArgs:
         Defines the list of managed rule sets for the policy.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]] managed_rule_sets: List of rule sets.
         """
+        ManagedRuleSetListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_rule_sets=managed_rule_sets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedRuleSets' in kwargs:
+            managed_rule_sets = kwargs['managedRuleSets']
+
         if managed_rule_sets is not None:
-            pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
+            _setter("managed_rule_sets", managed_rule_sets)
 
     @property
     @pulumi.getter(name="managedRuleSets")
@@ -3072,12 +4037,37 @@ class ManagedRuleSetArgs:
         :param pulumi.Input[int] anomaly_score: Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleGroupOverrideArgs']]] rule_group_overrides: Defines the rule overrides to apply to the rule set.
         """
-        pulumi.set(__self__, "rule_set_type", rule_set_type)
-        pulumi.set(__self__, "rule_set_version", rule_set_version)
+        ManagedRuleSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_set_type=rule_set_type,
+            rule_set_version=rule_set_version,
+            anomaly_score=anomaly_score,
+            rule_group_overrides=rule_group_overrides,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_set_type: pulumi.Input[str],
+             rule_set_version: pulumi.Input[str],
+             anomaly_score: Optional[pulumi.Input[int]] = None,
+             rule_group_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleGroupOverrideArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleSetType' in kwargs:
+            rule_set_type = kwargs['ruleSetType']
+        if 'ruleSetVersion' in kwargs:
+            rule_set_version = kwargs['ruleSetVersion']
+        if 'anomalyScore' in kwargs:
+            anomaly_score = kwargs['anomalyScore']
+        if 'ruleGroupOverrides' in kwargs:
+            rule_group_overrides = kwargs['ruleGroupOverrides']
+
+        _setter("rule_set_type", rule_set_type)
+        _setter("rule_set_version", rule_set_version)
         if anomaly_score is not None:
-            pulumi.set(__self__, "anomaly_score", anomaly_score)
+            _setter("anomaly_score", anomaly_score)
         if rule_group_overrides is not None:
-            pulumi.set(__self__, "rule_group_overrides", rule_group_overrides)
+            _setter("rule_group_overrides", rule_group_overrides)
 
     @property
     @pulumi.getter(name="ruleSetType")
@@ -3138,9 +4128,24 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -3185,15 +4190,42 @@ class MatchConditionArgs:
         :param pulumi.Input[str] selector: Selector can used to match a specific key for QueryString, Cookies, RequestHeader or PostArgs.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'TransformType']]]] transforms: List of transforms.
         """
-        pulumi.set(__self__, "match_value", match_value)
-        pulumi.set(__self__, "match_variable", match_variable)
-        pulumi.set(__self__, "operator", operator)
+        MatchConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_value=match_value,
+            match_variable=match_variable,
+            operator=operator,
+            negate_condition=negate_condition,
+            selector=selector,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_value: pulumi.Input[Sequence[pulumi.Input[str]]],
+             match_variable: pulumi.Input[Union[str, 'WafMatchVariable']],
+             operator: pulumi.Input[Union[str, 'Operator']],
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             selector: Optional[pulumi.Input[str]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'TransformType']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValue' in kwargs:
+            match_value = kwargs['matchValue']
+        if 'matchVariable' in kwargs:
+            match_variable = kwargs['matchVariable']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("match_value", match_value)
+        _setter("match_variable", match_variable)
+        _setter("operator", operator)
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if selector is not None:
-            pulumi.set(__self__, "selector", selector)
+            _setter("selector", selector)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter(name="matchValue")
@@ -3277,8 +4309,25 @@ class OriginGroupOverrideActionParametersArgs:
         Defines the parameters for the origin group override action.
         :param pulumi.Input['ResourceReferenceArgs'] origin_group: defines the OriginGroup that would override the DefaultOriginGroup.
         """
-        pulumi.set(__self__, "origin_group", origin_group)
-        pulumi.set(__self__, "type_name", type_name)
+        OriginGroupOverrideActionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            origin_group=origin_group,
+            type_name=type_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             origin_group: pulumi.Input['ResourceReferenceArgs'],
+             type_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'originGroup' in kwargs:
+            origin_group = kwargs['originGroup']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+
+        _setter("origin_group", origin_group)
+        _setter("type_name", type_name)
 
     @property
     @pulumi.getter(name="originGroup")
@@ -3313,8 +4362,21 @@ class OriginGroupOverrideActionArgs:
                Expected value is 'OriginGroupOverride'.
         :param pulumi.Input['OriginGroupOverrideActionParametersArgs'] parameters: Defines the parameters for the action.
         """
-        pulumi.set(__self__, "name", 'OriginGroupOverride')
-        pulumi.set(__self__, "parameters", parameters)
+        OriginGroupOverrideActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['OriginGroupOverrideActionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'OriginGroupOverride')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -3352,10 +4414,27 @@ class OriginGroupOverrideArgs:
         :param pulumi.Input[Union[str, 'ForwardingProtocol']] forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
         :param pulumi.Input['ResourceReferenceArgs'] origin_group: defines the OriginGroup that would override the DefaultOriginGroup on route.
         """
+        OriginGroupOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            forwarding_protocol=forwarding_protocol,
+            origin_group=origin_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             forwarding_protocol: Optional[pulumi.Input[Union[str, 'ForwardingProtocol']]] = None,
+             origin_group: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'forwardingProtocol' in kwargs:
+            forwarding_protocol = kwargs['forwardingProtocol']
+        if 'originGroup' in kwargs:
+            origin_group = kwargs['originGroup']
+
         if forwarding_protocol is not None:
-            pulumi.set(__self__, "forwarding_protocol", forwarding_protocol)
+            _setter("forwarding_protocol", forwarding_protocol)
         if origin_group is not None:
-            pulumi.set(__self__, "origin_group", origin_group)
+            _setter("origin_group", origin_group)
 
     @property
     @pulumi.getter(name="forwardingProtocol")
@@ -3398,16 +4477,43 @@ class PolicySettingsArgs:
         :param pulumi.Input[Union[str, 'PolicyEnabledState']] enabled_state: describes if the policy is in enabled state or disabled state
         :param pulumi.Input[Union[str, 'PolicyMode']] mode: Describes if it is in detection mode or prevention mode at policy level.
         """
+        PolicySettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_custom_block_response_body=default_custom_block_response_body,
+            default_custom_block_response_status_code=default_custom_block_response_status_code,
+            default_redirect_url=default_redirect_url,
+            enabled_state=enabled_state,
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_custom_block_response_body: Optional[pulumi.Input[str]] = None,
+             default_custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
+             default_redirect_url: Optional[pulumi.Input[str]] = None,
+             enabled_state: Optional[pulumi.Input[Union[str, 'PolicyEnabledState']]] = None,
+             mode: Optional[pulumi.Input[Union[str, 'PolicyMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultCustomBlockResponseBody' in kwargs:
+            default_custom_block_response_body = kwargs['defaultCustomBlockResponseBody']
+        if 'defaultCustomBlockResponseStatusCode' in kwargs:
+            default_custom_block_response_status_code = kwargs['defaultCustomBlockResponseStatusCode']
+        if 'defaultRedirectUrl' in kwargs:
+            default_redirect_url = kwargs['defaultRedirectUrl']
+        if 'enabledState' in kwargs:
+            enabled_state = kwargs['enabledState']
+
         if default_custom_block_response_body is not None:
-            pulumi.set(__self__, "default_custom_block_response_body", default_custom_block_response_body)
+            _setter("default_custom_block_response_body", default_custom_block_response_body)
         if default_custom_block_response_status_code is not None:
-            pulumi.set(__self__, "default_custom_block_response_status_code", default_custom_block_response_status_code)
+            _setter("default_custom_block_response_status_code", default_custom_block_response_status_code)
         if default_redirect_url is not None:
-            pulumi.set(__self__, "default_redirect_url", default_redirect_url)
+            _setter("default_redirect_url", default_redirect_url)
         if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
+            _setter("enabled_state", enabled_state)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
 
     @property
     @pulumi.getter(name="defaultCustomBlockResponseBody")
@@ -3487,18 +4593,45 @@ class PostArgsMatchConditionParametersArgs:
         :param pulumi.Input[str] selector: Name of PostArg to be matched
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        PostArgsMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            selector=selector,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'PostArgsOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             selector: Optional[pulumi.Input[str]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if selector is not None:
-            pulumi.set(__self__, "selector", selector)
+            _setter("selector", selector)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -3585,16 +4718,41 @@ class QueryStringMatchConditionParametersArgs:
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        QueryStringMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'QueryStringOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -3662,8 +4820,19 @@ class RateLimitRuleListArgs:
         Defines contents of rate limit rules
         :param pulumi.Input[Sequence[pulumi.Input['RateLimitRuleArgs']]] rules: List of rules
         """
+        RateLimitRuleListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['RateLimitRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -3698,14 +4867,45 @@ class RateLimitRuleArgs:
         :param pulumi.Input[int] rate_limit_threshold: Defines rate limit threshold.
         :param pulumi.Input[Union[str, 'CustomRuleEnabledState']] enabled_state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "match_conditions", match_conditions)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "rate_limit_duration_in_minutes", rate_limit_duration_in_minutes)
-        pulumi.set(__self__, "rate_limit_threshold", rate_limit_threshold)
+        RateLimitRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            match_conditions=match_conditions,
+            name=name,
+            priority=priority,
+            rate_limit_duration_in_minutes=rate_limit_duration_in_minutes,
+            rate_limit_threshold=rate_limit_threshold,
+            enabled_state=enabled_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[Union[str, 'ActionType']],
+             match_conditions: pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]],
+             name: pulumi.Input[str],
+             priority: pulumi.Input[int],
+             rate_limit_duration_in_minutes: pulumi.Input[int],
+             rate_limit_threshold: pulumi.Input[int],
+             enabled_state: Optional[pulumi.Input[Union[str, 'CustomRuleEnabledState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchConditions' in kwargs:
+            match_conditions = kwargs['matchConditions']
+        if 'rateLimitDurationInMinutes' in kwargs:
+            rate_limit_duration_in_minutes = kwargs['rateLimitDurationInMinutes']
+        if 'rateLimitThreshold' in kwargs:
+            rate_limit_threshold = kwargs['rateLimitThreshold']
+        if 'enabledState' in kwargs:
+            enabled_state = kwargs['enabledState']
+
+        _setter("action", action)
+        _setter("match_conditions", match_conditions)
+        _setter("name", name)
+        _setter("priority", priority)
+        _setter("rate_limit_duration_in_minutes", rate_limit_duration_in_minutes)
+        _setter("rate_limit_threshold", rate_limit_threshold)
         if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
+            _setter("enabled_state", enabled_state)
 
     @property
     @pulumi.getter
@@ -3807,16 +5007,41 @@ class RemoteAddressMatchConditionParametersArgs:
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        RemoteAddressMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'RemoteAddressOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -3891,16 +5116,41 @@ class RequestBodyMatchConditionParametersArgs:
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        RequestBodyMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'RequestBodyOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -3977,18 +5227,45 @@ class RequestHeaderMatchConditionParametersArgs:
         :param pulumi.Input[str] selector: Name of Header to be matched
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        RequestHeaderMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            selector=selector,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'RequestHeaderOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             selector: Optional[pulumi.Input[str]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if selector is not None:
-            pulumi.set(__self__, "selector", selector)
+            _setter("selector", selector)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -4075,16 +5352,41 @@ class RequestMethodMatchConditionParametersArgs:
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        RequestMethodMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'RequestMethodOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -4159,16 +5461,41 @@ class RequestSchemeMatchConditionParametersArgs:
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        RequestSchemeMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -4243,16 +5570,41 @@ class RequestUriMatchConditionParametersArgs:
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        RequestUriMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'RequestUriOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -4320,8 +5672,19 @@ class ResourceReferenceArgs:
         Reference to another resource.
         :param pulumi.Input[str] id: Resource ID.
         """
+        ResourceReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4348,12 +5711,33 @@ class ResponseBasedOriginErrorDetectionParametersArgs:
         :param pulumi.Input['ResponseBasedDetectedErrorTypes'] response_based_detected_error_types: Type of response errors for real user requests for which origin will be deemed unhealthy
         :param pulumi.Input[int] response_based_failover_threshold_percentage: The percentage of failed requests in the sample where failover should trigger.
         """
+        ResponseBasedOriginErrorDetectionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_error_ranges=http_error_ranges,
+            response_based_detected_error_types=response_based_detected_error_types,
+            response_based_failover_threshold_percentage=response_based_failover_threshold_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_error_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['HttpErrorRangeParametersArgs']]]] = None,
+             response_based_detected_error_types: Optional[pulumi.Input['ResponseBasedDetectedErrorTypes']] = None,
+             response_based_failover_threshold_percentage: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpErrorRanges' in kwargs:
+            http_error_ranges = kwargs['httpErrorRanges']
+        if 'responseBasedDetectedErrorTypes' in kwargs:
+            response_based_detected_error_types = kwargs['responseBasedDetectedErrorTypes']
+        if 'responseBasedFailoverThresholdPercentage' in kwargs:
+            response_based_failover_threshold_percentage = kwargs['responseBasedFailoverThresholdPercentage']
+
         if http_error_ranges is not None:
-            pulumi.set(__self__, "http_error_ranges", http_error_ranges)
+            _setter("http_error_ranges", http_error_ranges)
         if response_based_detected_error_types is not None:
-            pulumi.set(__self__, "response_based_detected_error_types", response_based_detected_error_types)
+            _setter("response_based_detected_error_types", response_based_detected_error_types)
         if response_based_failover_threshold_percentage is not None:
-            pulumi.set(__self__, "response_based_failover_threshold_percentage", response_based_failover_threshold_percentage)
+            _setter("response_based_failover_threshold_percentage", response_based_failover_threshold_percentage)
 
     @property
     @pulumi.getter(name="httpErrorRanges")
@@ -4403,11 +5787,32 @@ class RouteConfigurationOverrideActionParametersArgs:
         :param pulumi.Input['CacheConfigurationArgs'] cache_configuration: The caching configuration associated with this rule. To disable caching, do not provide a cacheConfiguration object.
         :param pulumi.Input['OriginGroupOverrideArgs'] origin_group_override: A reference to the origin group override configuration. Leave empty to use the default origin group on route.
         """
-        pulumi.set(__self__, "type_name", type_name)
+        RouteConfigurationOverrideActionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type_name=type_name,
+            cache_configuration=cache_configuration,
+            origin_group_override=origin_group_override,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type_name: pulumi.Input[str],
+             cache_configuration: Optional[pulumi.Input['CacheConfigurationArgs']] = None,
+             origin_group_override: Optional[pulumi.Input['OriginGroupOverrideArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'cacheConfiguration' in kwargs:
+            cache_configuration = kwargs['cacheConfiguration']
+        if 'originGroupOverride' in kwargs:
+            origin_group_override = kwargs['originGroupOverride']
+
+        _setter("type_name", type_name)
         if cache_configuration is not None:
-            pulumi.set(__self__, "cache_configuration", cache_configuration)
+            _setter("cache_configuration", cache_configuration)
         if origin_group_override is not None:
-            pulumi.set(__self__, "origin_group_override", origin_group_override)
+            _setter("origin_group_override", origin_group_override)
 
     @property
     @pulumi.getter(name="typeName")
@@ -4453,10 +5858,25 @@ class SecurityPolicyWebApplicationFirewallAssociationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]] domains: List of domains.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_to_match: List of paths
         """
+        SecurityPolicyWebApplicationFirewallAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domains=domains,
+            patterns_to_match=patterns_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domains: Optional[pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]]] = None,
+             patterns_to_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'patternsToMatch' in kwargs:
+            patterns_to_match = kwargs['patternsToMatch']
+
         if domains is not None:
-            pulumi.set(__self__, "domains", domains)
+            _setter("domains", domains)
         if patterns_to_match is not None:
-            pulumi.set(__self__, "patterns_to_match", patterns_to_match)
+            _setter("patterns_to_match", patterns_to_match)
 
     @property
     @pulumi.getter
@@ -4496,11 +5916,28 @@ class SecurityPolicyWebApplicationFirewallParametersArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SecurityPolicyWebApplicationFirewallAssociationArgs']]] associations: Waf associations
         :param pulumi.Input['ResourceReferenceArgs'] waf_policy: Resource ID.
         """
-        pulumi.set(__self__, "type", 'WebApplicationFirewall')
+        SecurityPolicyWebApplicationFirewallParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            associations=associations,
+            waf_policy=waf_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             associations: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityPolicyWebApplicationFirewallAssociationArgs']]]] = None,
+             waf_policy: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'wafPolicy' in kwargs:
+            waf_policy = kwargs['wafPolicy']
+
+        _setter("type", 'WebApplicationFirewall')
         if associations is not None:
-            pulumi.set(__self__, "associations", associations)
+            _setter("associations", associations)
         if waf_policy is not None:
-            pulumi.set(__self__, "waf_policy", waf_policy)
+            _setter("waf_policy", waf_policy)
 
     @property
     @pulumi.getter
@@ -4555,16 +5992,41 @@ class ServerPortMatchConditionParametersArgs:
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        ServerPortMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'ServerPortOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -4640,16 +6102,43 @@ class SharedPrivateLinkResourcePropertiesArgs:
         :param pulumi.Input[str] request_message: The request message for requesting approval of the shared private link resource.
         :param pulumi.Input['SharedPrivateLinkResourceStatus'] status: Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
         """
+        SharedPrivateLinkResourcePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            private_link=private_link,
+            private_link_location=private_link_location,
+            request_message=request_message,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: Optional[pulumi.Input[str]] = None,
+             private_link: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+             private_link_location: Optional[pulumi.Input[str]] = None,
+             request_message: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input['SharedPrivateLinkResourceStatus']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'privateLink' in kwargs:
+            private_link = kwargs['privateLink']
+        if 'privateLinkLocation' in kwargs:
+            private_link_location = kwargs['privateLinkLocation']
+        if 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if private_link is not None:
-            pulumi.set(__self__, "private_link", private_link)
+            _setter("private_link", private_link)
         if private_link_location is not None:
-            pulumi.set(__self__, "private_link_location", private_link_location)
+            _setter("private_link_location", private_link_location)
         if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
+            _setter("request_message", request_message)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="groupId")
@@ -4733,8 +6222,19 @@ class SkuArgs:
 
         :param pulumi.Input[Union[str, 'SkuName']] name: Name of the pricing tier.
         """
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -4764,16 +6264,41 @@ class SocketAddrMatchConditionParametersArgs:
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        SocketAddrMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'SocketAddrOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -4848,16 +6373,41 @@ class SslProtocolMatchConditionParametersArgs:
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        SslProtocolMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'SslProtocolOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SslProtocol']]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -4932,16 +6482,41 @@ class UrlFileExtensionMatchConditionParametersArgs:
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        UrlFileExtensionMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'UrlFileExtensionOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -5016,16 +6591,41 @@ class UrlFileNameMatchConditionParametersArgs:
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        UrlFileNameMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'UrlFileNameOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -5100,16 +6700,41 @@ class UrlPathMatchConditionParametersArgs:
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "type_name", type_name)
+        UrlPathMatchConditionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            type_name=type_name,
+            match_values=match_values,
+            negate_condition=negate_condition,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'UrlPathOperator']],
+             type_name: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             negate_condition: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
+        _setter("operator", operator)
+        _setter("type_name", type_name)
         if match_values is not None:
-            pulumi.set(__self__, "match_values", match_values)
+            _setter("match_values", match_values)
         if negate_condition is None:
             negate_condition = False
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter
@@ -5188,18 +6813,55 @@ class UrlRedirectActionParametersArgs:
         :param pulumi.Input[str] custom_query_string: The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. ? and & will be added automatically so do not include them.
         :param pulumi.Input[Union[str, 'DestinationProtocol']] destination_protocol: Protocol to use for the redirect. The default value is MatchRequest
         """
-        pulumi.set(__self__, "redirect_type", redirect_type)
-        pulumi.set(__self__, "type_name", type_name)
+        UrlRedirectActionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            redirect_type=redirect_type,
+            type_name=type_name,
+            custom_fragment=custom_fragment,
+            custom_hostname=custom_hostname,
+            custom_path=custom_path,
+            custom_query_string=custom_query_string,
+            destination_protocol=destination_protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             redirect_type: pulumi.Input[Union[str, 'RedirectType']],
+             type_name: pulumi.Input[str],
+             custom_fragment: Optional[pulumi.Input[str]] = None,
+             custom_hostname: Optional[pulumi.Input[str]] = None,
+             custom_path: Optional[pulumi.Input[str]] = None,
+             custom_query_string: Optional[pulumi.Input[str]] = None,
+             destination_protocol: Optional[pulumi.Input[Union[str, 'DestinationProtocol']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'redirectType' in kwargs:
+            redirect_type = kwargs['redirectType']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'customFragment' in kwargs:
+            custom_fragment = kwargs['customFragment']
+        if 'customHostname' in kwargs:
+            custom_hostname = kwargs['customHostname']
+        if 'customPath' in kwargs:
+            custom_path = kwargs['customPath']
+        if 'customQueryString' in kwargs:
+            custom_query_string = kwargs['customQueryString']
+        if 'destinationProtocol' in kwargs:
+            destination_protocol = kwargs['destinationProtocol']
+
+        _setter("redirect_type", redirect_type)
+        _setter("type_name", type_name)
         if custom_fragment is not None:
-            pulumi.set(__self__, "custom_fragment", custom_fragment)
+            _setter("custom_fragment", custom_fragment)
         if custom_hostname is not None:
-            pulumi.set(__self__, "custom_hostname", custom_hostname)
+            _setter("custom_hostname", custom_hostname)
         if custom_path is not None:
-            pulumi.set(__self__, "custom_path", custom_path)
+            _setter("custom_path", custom_path)
         if custom_query_string is not None:
-            pulumi.set(__self__, "custom_query_string", custom_query_string)
+            _setter("custom_query_string", custom_query_string)
         if destination_protocol is not None:
-            pulumi.set(__self__, "destination_protocol", destination_protocol)
+            _setter("destination_protocol", destination_protocol)
 
     @property
     @pulumi.getter(name="redirectType")
@@ -5294,8 +6956,21 @@ class UrlRedirectActionArgs:
                Expected value is 'UrlRedirect'.
         :param pulumi.Input['UrlRedirectActionParametersArgs'] parameters: Defines the parameters for the action.
         """
-        pulumi.set(__self__, "name", 'UrlRedirect')
-        pulumi.set(__self__, "parameters", parameters)
+        UrlRedirectActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['UrlRedirectActionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'UrlRedirect')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -5336,11 +7011,34 @@ class UrlRewriteActionParametersArgs:
         :param pulumi.Input[str] source_pattern: define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
         :param pulumi.Input[bool] preserve_unmatched_path: Whether to preserve unmatched path. Default value is true.
         """
-        pulumi.set(__self__, "destination", destination)
-        pulumi.set(__self__, "source_pattern", source_pattern)
-        pulumi.set(__self__, "type_name", type_name)
+        UrlRewriteActionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+            source_pattern=source_pattern,
+            type_name=type_name,
+            preserve_unmatched_path=preserve_unmatched_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: pulumi.Input[str],
+             source_pattern: pulumi.Input[str],
+             type_name: pulumi.Input[str],
+             preserve_unmatched_path: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourcePattern' in kwargs:
+            source_pattern = kwargs['sourcePattern']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'preserveUnmatchedPath' in kwargs:
+            preserve_unmatched_path = kwargs['preserveUnmatchedPath']
+
+        _setter("destination", destination)
+        _setter("source_pattern", source_pattern)
+        _setter("type_name", type_name)
         if preserve_unmatched_path is not None:
-            pulumi.set(__self__, "preserve_unmatched_path", preserve_unmatched_path)
+            _setter("preserve_unmatched_path", preserve_unmatched_path)
 
     @property
     @pulumi.getter
@@ -5399,8 +7097,21 @@ class UrlRewriteActionArgs:
                Expected value is 'UrlRewrite'.
         :param pulumi.Input['UrlRewriteActionParametersArgs'] parameters: Defines the parameters for the action.
         """
-        pulumi.set(__self__, "name", 'UrlRewrite')
-        pulumi.set(__self__, "parameters", parameters)
+        UrlRewriteActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['UrlRewriteActionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'UrlRewrite')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -5439,11 +7150,30 @@ class UrlSigningActionParametersArgs:
         :param pulumi.Input[Union[str, 'Algorithm']] algorithm: Algorithm to use for URL signing
         :param pulumi.Input[Sequence[pulumi.Input['UrlSigningParamIdentifierArgs']]] parameter_name_override: Defines which query string parameters in the url to be considered for expires, key id etc. 
         """
-        pulumi.set(__self__, "type_name", type_name)
+        UrlSigningActionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type_name=type_name,
+            algorithm=algorithm,
+            parameter_name_override=parameter_name_override,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type_name: pulumi.Input[str],
+             algorithm: Optional[pulumi.Input[Union[str, 'Algorithm']]] = None,
+             parameter_name_override: Optional[pulumi.Input[Sequence[pulumi.Input['UrlSigningParamIdentifierArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'parameterNameOverride' in kwargs:
+            parameter_name_override = kwargs['parameterNameOverride']
+
+        _setter("type_name", type_name)
         if algorithm is not None:
-            pulumi.set(__self__, "algorithm", algorithm)
+            _setter("algorithm", algorithm)
         if parameter_name_override is not None:
-            pulumi.set(__self__, "parameter_name_override", parameter_name_override)
+            _setter("parameter_name_override", parameter_name_override)
 
     @property
     @pulumi.getter(name="typeName")
@@ -5490,8 +7220,21 @@ class UrlSigningActionArgs:
                Expected value is 'UrlSigning'.
         :param pulumi.Input['UrlSigningActionParametersArgs'] parameters: Defines the parameters for the action.
         """
-        pulumi.set(__self__, "name", 'UrlSigning')
-        pulumi.set(__self__, "parameters", parameters)
+        UrlSigningActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: pulumi.Input['UrlSigningActionParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", 'UrlSigning')
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -5534,11 +7277,34 @@ class UrlSigningKeyParametersArgs:
                Expected value is 'UrlSigningKey'.
         :param pulumi.Input[str] secret_version: Version of the secret to be used
         """
-        pulumi.set(__self__, "key_id", key_id)
-        pulumi.set(__self__, "secret_source", secret_source)
-        pulumi.set(__self__, "type", 'UrlSigningKey')
+        UrlSigningKeyParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_id=key_id,
+            secret_source=secret_source,
+            type=type,
+            secret_version=secret_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_id: pulumi.Input[str],
+             secret_source: pulumi.Input['ResourceReferenceArgs'],
+             type: pulumi.Input[str],
+             secret_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if 'secretSource' in kwargs:
+            secret_source = kwargs['secretSource']
+        if 'secretVersion' in kwargs:
+            secret_version = kwargs['secretVersion']
+
+        _setter("key_id", key_id)
+        _setter("secret_source", secret_source)
+        _setter("type", 'UrlSigningKey')
         if secret_version is not None:
-            pulumi.set(__self__, "secret_version", secret_version)
+            _setter("secret_version", secret_version)
 
     @property
     @pulumi.getter(name="keyId")
@@ -5600,8 +7366,25 @@ class UrlSigningKeyArgs:
         :param pulumi.Input[str] key_id: Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
         :param pulumi.Input['KeyVaultSigningKeyParametersArgs'] key_source_parameters: Defines the parameters for using customer key vault for Url Signing Key.
         """
-        pulumi.set(__self__, "key_id", key_id)
-        pulumi.set(__self__, "key_source_parameters", key_source_parameters)
+        UrlSigningKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_id=key_id,
+            key_source_parameters=key_source_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_id: pulumi.Input[str],
+             key_source_parameters: pulumi.Input['KeyVaultSigningKeyParametersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if 'keySourceParameters' in kwargs:
+            key_source_parameters = kwargs['keySourceParameters']
+
+        _setter("key_id", key_id)
+        _setter("key_source_parameters", key_source_parameters)
 
     @property
     @pulumi.getter(name="keyId")
@@ -5638,8 +7421,25 @@ class UrlSigningParamIdentifierArgs:
         :param pulumi.Input[Union[str, 'ParamIndicator']] param_indicator: Indicates the purpose of the parameter
         :param pulumi.Input[str] param_name: Parameter name
         """
-        pulumi.set(__self__, "param_indicator", param_indicator)
-        pulumi.set(__self__, "param_name", param_name)
+        UrlSigningParamIdentifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            param_indicator=param_indicator,
+            param_name=param_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             param_indicator: pulumi.Input[Union[str, 'ParamIndicator']],
+             param_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'paramIndicator' in kwargs:
+            param_indicator = kwargs['paramIndicator']
+        if 'paramName' in kwargs:
+            param_name = kwargs['paramName']
+
+        _setter("param_indicator", param_indicator)
+        _setter("param_name", param_name)
 
     @property
     @pulumi.getter(name="paramIndicator")

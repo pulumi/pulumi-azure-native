@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,14 +31,45 @@ class ConnectionTypeArgs:
         :param pulumi.Input[str] connection_type_name: The parameters supplied to the create or update connection type operation.
         :param pulumi.Input[bool] is_global: Gets or sets a Boolean value to indicate if the connection type is global.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "field_definitions", field_definitions)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConnectionTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            field_definitions=field_definitions,
+            name=name,
+            resource_group_name=resource_group_name,
+            connection_type_name=connection_type_name,
+            is_global=is_global,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: pulumi.Input[str],
+             field_definitions: pulumi.Input[Mapping[str, pulumi.Input['FieldDefinitionArgs']]],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             connection_type_name: Optional[pulumi.Input[str]] = None,
+             is_global: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'fieldDefinitions' in kwargs:
+            field_definitions = kwargs['fieldDefinitions']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'connectionTypeName' in kwargs:
+            connection_type_name = kwargs['connectionTypeName']
+        if 'isGlobal' in kwargs:
+            is_global = kwargs['isGlobal']
+
+        _setter("automation_account_name", automation_account_name)
+        _setter("field_definitions", field_definitions)
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if connection_type_name is not None:
-            pulumi.set(__self__, "connection_type_name", connection_type_name)
+            _setter("connection_type_name", connection_type_name)
         if is_global is not None:
-            pulumi.set(__self__, "is_global", is_global)
+            _setter("is_global", is_global)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -158,6 +189,10 @@ class ConnectionType(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectionTypeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

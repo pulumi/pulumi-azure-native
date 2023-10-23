@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -50,29 +50,82 @@ class MetricAlertArgs:
         :param pulumi.Input[str] target_resource_region: the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         :param pulumi.Input[str] target_resource_type: the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         """
-        pulumi.set(__self__, "criteria", criteria)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scopes", scopes)
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "window_size", window_size)
+        MetricAlertArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            criteria=criteria,
+            enabled=enabled,
+            evaluation_frequency=evaluation_frequency,
+            resource_group_name=resource_group_name,
+            scopes=scopes,
+            severity=severity,
+            window_size=window_size,
+            actions=actions,
+            auto_mitigate=auto_mitigate,
+            description=description,
+            location=location,
+            rule_name=rule_name,
+            tags=tags,
+            target_resource_region=target_resource_region,
+            target_resource_type=target_resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             criteria: pulumi.Input[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgs']],
+             enabled: pulumi.Input[bool],
+             evaluation_frequency: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             severity: pulumi.Input[int],
+             window_size: pulumi.Input[str],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]] = None,
+             auto_mitigate: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             rule_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_resource_region: Optional[pulumi.Input[str]] = None,
+             target_resource_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'evaluationFrequency' in kwargs:
+            evaluation_frequency = kwargs['evaluationFrequency']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'windowSize' in kwargs:
+            window_size = kwargs['windowSize']
+        if 'autoMitigate' in kwargs:
+            auto_mitigate = kwargs['autoMitigate']
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if 'targetResourceRegion' in kwargs:
+            target_resource_region = kwargs['targetResourceRegion']
+        if 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+
+        _setter("criteria", criteria)
+        _setter("enabled", enabled)
+        _setter("evaluation_frequency", evaluation_frequency)
+        _setter("resource_group_name", resource_group_name)
+        _setter("scopes", scopes)
+        _setter("severity", severity)
+        _setter("window_size", window_size)
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if auto_mitigate is not None:
-            pulumi.set(__self__, "auto_mitigate", auto_mitigate)
+            _setter("auto_mitigate", auto_mitigate)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
+            _setter("rule_name", rule_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_region is not None:
-            pulumi.set(__self__, "target_resource_region", target_resource_region)
+            _setter("target_resource_region", target_resource_region)
         if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
+            _setter("target_resource_type", target_resource_type)
 
     @property
     @pulumi.getter
@@ -318,6 +371,10 @@ class MetricAlert(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MetricAlertArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

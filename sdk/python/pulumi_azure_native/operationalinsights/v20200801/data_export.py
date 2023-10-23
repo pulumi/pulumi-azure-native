@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['DataExportArgs', 'DataExport']
@@ -37,22 +37,69 @@ class DataExportArgs:
         :param pulumi.Input[str] event_hub_name: Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
         :param pulumi.Input[str] last_modified_date: Date and time when the export was last modified.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "table_names", table_names)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        DataExportArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            resource_id=resource_id,
+            table_names=table_names,
+            workspace_name=workspace_name,
+            created_date=created_date,
+            data_export_id=data_export_id,
+            data_export_name=data_export_name,
+            enable=enable,
+            event_hub_name=event_hub_name,
+            last_modified_date=last_modified_date,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             resource_id: pulumi.Input[str],
+             table_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+             workspace_name: pulumi.Input[str],
+             created_date: Optional[pulumi.Input[str]] = None,
+             data_export_id: Optional[pulumi.Input[str]] = None,
+             data_export_name: Optional[pulumi.Input[str]] = None,
+             enable: Optional[pulumi.Input[bool]] = None,
+             event_hub_name: Optional[pulumi.Input[str]] = None,
+             last_modified_date: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'tableNames' in kwargs:
+            table_names = kwargs['tableNames']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if 'dataExportId' in kwargs:
+            data_export_id = kwargs['dataExportId']
+        if 'dataExportName' in kwargs:
+            data_export_name = kwargs['dataExportName']
+        if 'eventHubName' in kwargs:
+            event_hub_name = kwargs['eventHubName']
+        if 'lastModifiedDate' in kwargs:
+            last_modified_date = kwargs['lastModifiedDate']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_id", resource_id)
+        _setter("table_names", table_names)
+        _setter("workspace_name", workspace_name)
         if created_date is not None:
-            pulumi.set(__self__, "created_date", created_date)
+            _setter("created_date", created_date)
         if data_export_id is not None:
-            pulumi.set(__self__, "data_export_id", data_export_id)
+            _setter("data_export_id", data_export_id)
         if data_export_name is not None:
-            pulumi.set(__self__, "data_export_name", data_export_name)
+            _setter("data_export_name", data_export_name)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if event_hub_name is not None:
-            pulumi.set(__self__, "event_hub_name", event_hub_name)
+            _setter("event_hub_name", event_hub_name)
         if last_modified_date is not None:
-            pulumi.set(__self__, "last_modified_date", last_modified_date)
+            _setter("last_modified_date", last_modified_date)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -226,6 +273,10 @@ class DataExport(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataExportArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

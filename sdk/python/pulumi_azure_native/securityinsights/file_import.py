@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,14 +34,49 @@ class FileImportArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] file_import_id: File import ID
         """
-        pulumi.set(__self__, "content_type", content_type)
-        pulumi.set(__self__, "import_file", import_file)
-        pulumi.set(__self__, "ingestion_mode", ingestion_mode)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        FileImportArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            import_file=import_file,
+            ingestion_mode=ingestion_mode,
+            resource_group_name=resource_group_name,
+            source=source,
+            workspace_name=workspace_name,
+            file_import_id=file_import_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: pulumi.Input[Union[str, 'FileImportContentType']],
+             import_file: pulumi.Input['FileMetadataArgs'],
+             ingestion_mode: pulumi.Input[Union[str, 'IngestionMode']],
+             resource_group_name: pulumi.Input[str],
+             source: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             file_import_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'importFile' in kwargs:
+            import_file = kwargs['importFile']
+        if 'ingestionMode' in kwargs:
+            ingestion_mode = kwargs['ingestionMode']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'fileImportId' in kwargs:
+            file_import_id = kwargs['fileImportId']
+
+        _setter("content_type", content_type)
+        _setter("import_file", import_file)
+        _setter("ingestion_mode", ingestion_mode)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source", source)
+        _setter("workspace_name", workspace_name)
         if file_import_id is not None:
-            pulumi.set(__self__, "file_import_id", file_import_id)
+            _setter("file_import_id", file_import_id)
 
     @property
     @pulumi.getter(name="contentType")
@@ -179,6 +214,10 @@ class FileImport(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FileImportArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -204,6 +243,11 @@ class FileImport(pulumi.CustomResource):
                 raise TypeError("Missing required property 'content_type'")
             __props__.__dict__["content_type"] = content_type
             __props__.__dict__["file_import_id"] = file_import_id
+            if import_file is not None and not isinstance(import_file, FileMetadataArgs):
+                import_file = import_file or {}
+                def _setter(key, value):
+                    import_file[key] = value
+                FileMetadataArgs._configure(_setter, **import_file)
             if import_file is None and not opts.urn:
                 raise TypeError("Missing required property 'import_file'")
             __props__.__dict__["import_file"] = import_file

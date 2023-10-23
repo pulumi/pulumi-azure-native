@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,21 +35,56 @@ class VirtualHubArgs:
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         :param pulumi.Input['SubResourceArgs'] virtual_wan: The VirtualWAN to which the VirtualHub belongs
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualHubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            address_prefix=address_prefix,
+            hub_virtual_network_connections=hub_virtual_network_connections,
+            id=id,
+            location=location,
+            tags=tags,
+            virtual_hub_name=virtual_hub_name,
+            virtual_wan=virtual_wan,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             address_prefix: Optional[pulumi.Input[str]] = None,
+             hub_virtual_network_connections: Optional[pulumi.Input[Sequence[pulumi.Input['HubVirtualNetworkConnectionArgs']]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_hub_name: Optional[pulumi.Input[str]] = None,
+             virtual_wan: Optional[pulumi.Input['SubResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if 'hubVirtualNetworkConnections' in kwargs:
+            hub_virtual_network_connections = kwargs['hubVirtualNetworkConnections']
+        if 'virtualHubName' in kwargs:
+            virtual_hub_name = kwargs['virtualHubName']
+        if 'virtualWan' in kwargs:
+            virtual_wan = kwargs['virtualWan']
+
+        _setter("resource_group_name", resource_group_name)
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if hub_virtual_network_connections is not None:
-            pulumi.set(__self__, "hub_virtual_network_connections", hub_virtual_network_connections)
+            _setter("hub_virtual_network_connections", hub_virtual_network_connections)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_hub_name is not None:
-            pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
+            _setter("virtual_hub_name", virtual_hub_name)
         if virtual_wan is not None:
-            pulumi.set(__self__, "virtual_wan", virtual_wan)
+            _setter("virtual_wan", virtual_wan)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -195,6 +230,10 @@ class VirtualHub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualHubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -226,6 +265,11 @@ class VirtualHub(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_hub_name"] = virtual_hub_name
+            if virtual_wan is not None and not isinstance(virtual_wan, SubResourceArgs):
+                virtual_wan = virtual_wan or {}
+                def _setter(key, value):
+                    virtual_wan[key] = value
+                SubResourceArgs._configure(_setter, **virtual_wan)
             __props__.__dict__["virtual_wan"] = virtual_wan
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None

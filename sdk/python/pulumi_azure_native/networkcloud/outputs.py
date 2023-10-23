@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -89,7 +89,20 @@ class AadConfigurationResponse(dict):
         """
         :param Sequence[str] admin_group_object_ids: The list of Azure Active Directory group object IDs that will have an administrative role on the Kubernetes cluster.
         """
-        pulumi.set(__self__, "admin_group_object_ids", admin_group_object_ids)
+        AadConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_group_object_ids=admin_group_object_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_group_object_ids: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminGroupObjectIds' in kwargs:
+            admin_group_object_ids = kwargs['adminGroupObjectIds']
+
+        _setter("admin_group_object_ids", admin_group_object_ids)
 
     @property
     @pulumi.getter(name="adminGroupObjectIds")
@@ -109,8 +122,21 @@ class AdministrativeCredentialsResponse(dict):
         :param str password: The password of the administrator of the device used during initialization.
         :param str username: The username of the administrator of the device used during initialization.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        AdministrativeCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -157,10 +183,27 @@ class AdministratorConfigurationResponse(dict):
         :param str admin_username: The user name for the administrator that will be applied to the operating systems that run Kubernetes nodes. If not supplied, a user name will be chosen by the service.
         :param Sequence['SshPublicKeyResponse'] ssh_public_keys: The SSH configuration for the operating systems that run the nodes in the Kubernetes cluster. In some cases, specification of public keys may be required to produce a working environment.
         """
+        AdministratorConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_username=admin_username,
+            ssh_public_keys=ssh_public_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_username: Optional[str] = None,
+             ssh_public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'sshPublicKeys' in kwargs:
+            ssh_public_keys = kwargs['sshPublicKeys']
+
         if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
+            _setter("admin_username", admin_username)
         if ssh_public_keys is not None:
-            pulumi.set(__self__, "ssh_public_keys", ssh_public_keys)
+            _setter("ssh_public_keys", ssh_public_keys)
 
     @property
     @pulumi.getter(name="adminUsername")
@@ -207,11 +250,28 @@ class AgentOptionsResponse(dict):
         :param float hugepages_count: The number of hugepages to allocate.
         :param str hugepages_size: The size of the hugepages to allocate.
         """
-        pulumi.set(__self__, "hugepages_count", hugepages_count)
+        AgentOptionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hugepages_count=hugepages_count,
+            hugepages_size=hugepages_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hugepages_count: float,
+             hugepages_size: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hugepagesCount' in kwargs:
+            hugepages_count = kwargs['hugepagesCount']
+        if 'hugepagesSize' in kwargs:
+            hugepages_size = kwargs['hugepagesSize']
+
+        _setter("hugepages_count", hugepages_count)
         if hugepages_size is None:
             hugepages_size = '2M'
         if hugepages_size is not None:
-            pulumi.set(__self__, "hugepages_size", hugepages_size)
+            _setter("hugepages_size", hugepages_size)
 
     @property
     @pulumi.getter(name="hugepagesCount")
@@ -254,10 +314,23 @@ class AgentPoolUpgradeSettingsResponse(dict):
         """
         :param str max_surge: The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1.
         """
+        AgentPoolUpgradeSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_surge=max_surge,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_surge: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxSurge' in kwargs:
+            max_surge = kwargs['maxSurge']
+
         if max_surge is None:
             max_surge = '1'
         if max_surge is not None:
-            pulumi.set(__self__, "max_surge", max_surge)
+            _setter("max_surge", max_surge)
 
     @property
     @pulumi.getter(name="maxSurge")
@@ -300,12 +373,33 @@ class AttachedNetworkConfigurationResponse(dict):
         :param Sequence['L3NetworkAttachmentConfigurationResponse'] l3_networks: The list of Layer 3 Networks and related configuration for attachment.
         :param Sequence['TrunkedNetworkAttachmentConfigurationResponse'] trunked_networks: The list of Trunked Networks and related configuration for attachment.
         """
+        AttachedNetworkConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            l2_networks=l2_networks,
+            l3_networks=l3_networks,
+            trunked_networks=trunked_networks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             l2_networks: Optional[Sequence['outputs.L2NetworkAttachmentConfigurationResponse']] = None,
+             l3_networks: Optional[Sequence['outputs.L3NetworkAttachmentConfigurationResponse']] = None,
+             trunked_networks: Optional[Sequence['outputs.TrunkedNetworkAttachmentConfigurationResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'l2Networks' in kwargs:
+            l2_networks = kwargs['l2Networks']
+        if 'l3Networks' in kwargs:
+            l3_networks = kwargs['l3Networks']
+        if 'trunkedNetworks' in kwargs:
+            trunked_networks = kwargs['trunkedNetworks']
+
         if l2_networks is not None:
-            pulumi.set(__self__, "l2_networks", l2_networks)
+            _setter("l2_networks", l2_networks)
         if l3_networks is not None:
-            pulumi.set(__self__, "l3_networks", l3_networks)
+            _setter("l3_networks", l3_networks)
         if trunked_networks is not None:
-            pulumi.set(__self__, "trunked_networks", trunked_networks)
+            _setter("trunked_networks", trunked_networks)
 
     @property
     @pulumi.getter(name="l2Networks")
@@ -358,8 +452,23 @@ class AvailableUpgradeResponse(dict):
         :param str availability_lifecycle: The version lifecycle indicator.
         :param str version: The version available for upgrading.
         """
-        pulumi.set(__self__, "availability_lifecycle", availability_lifecycle)
-        pulumi.set(__self__, "version", version)
+        AvailableUpgradeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_lifecycle=availability_lifecycle,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_lifecycle: str,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityLifecycle' in kwargs:
+            availability_lifecycle = kwargs['availabilityLifecycle']
+
+        _setter("availability_lifecycle", availability_lifecycle)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="availabilityLifecycle")
@@ -431,16 +540,57 @@ class BareMetalMachineConfigurationDataResponse(dict):
         :param str machine_name: The user-provided name for the bare metal machine created from this specification.
                If not provided, the machine name will be generated programmatically.
         """
-        pulumi.set(__self__, "bmc_connection_string", bmc_connection_string)
-        pulumi.set(__self__, "bmc_credentials", bmc_credentials)
-        pulumi.set(__self__, "bmc_mac_address", bmc_mac_address)
-        pulumi.set(__self__, "boot_mac_address", boot_mac_address)
-        pulumi.set(__self__, "rack_slot", rack_slot)
-        pulumi.set(__self__, "serial_number", serial_number)
+        BareMetalMachineConfigurationDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bmc_connection_string=bmc_connection_string,
+            bmc_credentials=bmc_credentials,
+            bmc_mac_address=bmc_mac_address,
+            boot_mac_address=boot_mac_address,
+            rack_slot=rack_slot,
+            serial_number=serial_number,
+            machine_details=machine_details,
+            machine_name=machine_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bmc_connection_string: str,
+             bmc_credentials: 'outputs.AdministrativeCredentialsResponse',
+             bmc_mac_address: str,
+             boot_mac_address: str,
+             rack_slot: float,
+             serial_number: str,
+             machine_details: Optional[str] = None,
+             machine_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bmcConnectionString' in kwargs:
+            bmc_connection_string = kwargs['bmcConnectionString']
+        if 'bmcCredentials' in kwargs:
+            bmc_credentials = kwargs['bmcCredentials']
+        if 'bmcMacAddress' in kwargs:
+            bmc_mac_address = kwargs['bmcMacAddress']
+        if 'bootMacAddress' in kwargs:
+            boot_mac_address = kwargs['bootMacAddress']
+        if 'rackSlot' in kwargs:
+            rack_slot = kwargs['rackSlot']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if 'machineDetails' in kwargs:
+            machine_details = kwargs['machineDetails']
+        if 'machineName' in kwargs:
+            machine_name = kwargs['machineName']
+
+        _setter("bmc_connection_string", bmc_connection_string)
+        _setter("bmc_credentials", bmc_credentials)
+        _setter("bmc_mac_address", bmc_mac_address)
+        _setter("boot_mac_address", boot_mac_address)
+        _setter("rack_slot", rack_slot)
+        _setter("serial_number", serial_number)
         if machine_details is not None:
-            pulumi.set(__self__, "machine_details", machine_details)
+            _setter("machine_details", machine_details)
         if machine_name is not None:
-            pulumi.set(__self__, "machine_name", machine_name)
+            _setter("machine_name", machine_name)
 
     @property
     @pulumi.getter(name="bmcConnectionString")
@@ -540,15 +690,36 @@ class BgpAdvertisementResponse(dict):
         :param Sequence[str] communities: The names of the BGP communities to be associated with the announcement, utilizing a BGP community string in 1234:1234 format.
         :param Sequence[str] peers: The names of the BGP peers to limit this advertisement to. If no values are specified, all BGP peers will receive this advertisement.
         """
-        pulumi.set(__self__, "ip_address_pools", ip_address_pools)
+        BgpAdvertisementResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_address_pools=ip_address_pools,
+            advertise_to_fabric=advertise_to_fabric,
+            communities=communities,
+            peers=peers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_address_pools: Sequence[str],
+             advertise_to_fabric: Optional[str] = None,
+             communities: Optional[Sequence[str]] = None,
+             peers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddressPools' in kwargs:
+            ip_address_pools = kwargs['ipAddressPools']
+        if 'advertiseToFabric' in kwargs:
+            advertise_to_fabric = kwargs['advertiseToFabric']
+
+        _setter("ip_address_pools", ip_address_pools)
         if advertise_to_fabric is None:
             advertise_to_fabric = 'True'
         if advertise_to_fabric is not None:
-            pulumi.set(__self__, "advertise_to_fabric", advertise_to_fabric)
+            _setter("advertise_to_fabric", advertise_to_fabric)
         if communities is not None:
-            pulumi.set(__self__, "communities", communities)
+            _setter("communities", communities)
         if peers is not None:
-            pulumi.set(__self__, "peers", peers)
+            _setter("peers", peers)
 
     @property
     @pulumi.getter(name="ipAddressPools")
@@ -611,8 +782,25 @@ class BgpPeerResponse(dict):
         :param float as_number: The ASN (Autonomous System Number) of the BGP peer.
         :param str peer_ip: The IPv4 or IPv6 address to peer with the associated CNI Network. The IP version type will drive a peering with the same version type from the Default CNI Network. For example, IPv4 to IPv4 or IPv6 to IPv6.
         """
-        pulumi.set(__self__, "as_number", as_number)
-        pulumi.set(__self__, "peer_ip", peer_ip)
+        BgpPeerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            as_number=as_number,
+            peer_ip=peer_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             as_number: float,
+             peer_ip: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'asNumber' in kwargs:
+            as_number = kwargs['asNumber']
+        if 'peerIp' in kwargs:
+            peer_ip = kwargs['peerIp']
+
+        _setter("as_number", as_number)
+        _setter("peer_ip", peer_ip)
 
     @property
     @pulumi.getter(name="asNumber")
@@ -667,16 +855,41 @@ class BgpServiceLoadBalancerConfigurationResponse(dict):
         :param str fabric_peering_enabled: The indicator to specify if the load balancer peers with the network fabric.
         :param Sequence['IpAddressPoolResponse'] ip_address_pools: The list of pools of IP addresses that can be allocated to Load Balancer services.
         """
+        BgpServiceLoadBalancerConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bgp_advertisements=bgp_advertisements,
+            bgp_peers=bgp_peers,
+            fabric_peering_enabled=fabric_peering_enabled,
+            ip_address_pools=ip_address_pools,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bgp_advertisements: Optional[Sequence['outputs.BgpAdvertisementResponse']] = None,
+             bgp_peers: Optional[Sequence['outputs.ServiceLoadBalancerBgpPeerResponse']] = None,
+             fabric_peering_enabled: Optional[str] = None,
+             ip_address_pools: Optional[Sequence['outputs.IpAddressPoolResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bgpAdvertisements' in kwargs:
+            bgp_advertisements = kwargs['bgpAdvertisements']
+        if 'bgpPeers' in kwargs:
+            bgp_peers = kwargs['bgpPeers']
+        if 'fabricPeeringEnabled' in kwargs:
+            fabric_peering_enabled = kwargs['fabricPeeringEnabled']
+        if 'ipAddressPools' in kwargs:
+            ip_address_pools = kwargs['ipAddressPools']
+
         if bgp_advertisements is not None:
-            pulumi.set(__self__, "bgp_advertisements", bgp_advertisements)
+            _setter("bgp_advertisements", bgp_advertisements)
         if bgp_peers is not None:
-            pulumi.set(__self__, "bgp_peers", bgp_peers)
+            _setter("bgp_peers", bgp_peers)
         if fabric_peering_enabled is None:
             fabric_peering_enabled = 'True'
         if fabric_peering_enabled is not None:
-            pulumi.set(__self__, "fabric_peering_enabled", fabric_peering_enabled)
+            _setter("fabric_peering_enabled", fabric_peering_enabled)
         if ip_address_pools is not None:
-            pulumi.set(__self__, "ip_address_pools", ip_address_pools)
+            _setter("ip_address_pools", ip_address_pools)
 
     @property
     @pulumi.getter(name="bgpAdvertisements")
@@ -755,12 +968,45 @@ class ClusterAvailableUpgradeVersionResponse(dict):
         :param str target_cluster_version: The target version this cluster will be upgraded to.
         :param str workload_impact: The indicator of whether the workload will be impacted during the upgrade.
         """
-        pulumi.set(__self__, "control_impact", control_impact)
-        pulumi.set(__self__, "expected_duration", expected_duration)
-        pulumi.set(__self__, "impact_description", impact_description)
-        pulumi.set(__self__, "support_expiry_date", support_expiry_date)
-        pulumi.set(__self__, "target_cluster_version", target_cluster_version)
-        pulumi.set(__self__, "workload_impact", workload_impact)
+        ClusterAvailableUpgradeVersionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            control_impact=control_impact,
+            expected_duration=expected_duration,
+            impact_description=impact_description,
+            support_expiry_date=support_expiry_date,
+            target_cluster_version=target_cluster_version,
+            workload_impact=workload_impact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             control_impact: str,
+             expected_duration: str,
+             impact_description: str,
+             support_expiry_date: str,
+             target_cluster_version: str,
+             workload_impact: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'controlImpact' in kwargs:
+            control_impact = kwargs['controlImpact']
+        if 'expectedDuration' in kwargs:
+            expected_duration = kwargs['expectedDuration']
+        if 'impactDescription' in kwargs:
+            impact_description = kwargs['impactDescription']
+        if 'supportExpiryDate' in kwargs:
+            support_expiry_date = kwargs['supportExpiryDate']
+        if 'targetClusterVersion' in kwargs:
+            target_cluster_version = kwargs['targetClusterVersion']
+        if 'workloadImpact' in kwargs:
+            workload_impact = kwargs['workloadImpact']
+
+        _setter("control_impact", control_impact)
+        _setter("expected_duration", expected_duration)
+        _setter("impact_description", impact_description)
+        _setter("support_expiry_date", support_expiry_date)
+        _setter("target_cluster_version", target_cluster_version)
+        _setter("workload_impact", workload_impact)
 
     @property
     @pulumi.getter(name="controlImpact")
@@ -839,8 +1085,25 @@ class ClusterAvailableVersionResponse(dict):
         :param str support_expiry_date: The last date the version of the platform is supported.
         :param str target_cluster_version: The version of the cluster to be deployed.
         """
-        pulumi.set(__self__, "support_expiry_date", support_expiry_date)
-        pulumi.set(__self__, "target_cluster_version", target_cluster_version)
+        ClusterAvailableVersionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            support_expiry_date=support_expiry_date,
+            target_cluster_version=target_cluster_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             support_expiry_date: str,
+             target_cluster_version: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'supportExpiryDate' in kwargs:
+            support_expiry_date = kwargs['supportExpiryDate']
+        if 'targetClusterVersion' in kwargs:
+            target_cluster_version = kwargs['targetClusterVersion']
+
+        _setter("support_expiry_date", support_expiry_date)
+        _setter("target_cluster_version", target_cluster_version)
 
     @property
     @pulumi.getter(name="supportExpiryDate")
@@ -911,22 +1174,63 @@ class ClusterCapacityResponse(dict):
         :param float total_host_storage_gb: The total machine or host-based storage in GB supported by this cluster for workload use.
         :param float total_memory_gb: The total memory supported by this cluster for workload use.
         """
+        ClusterCapacityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            available_appliance_storage_gb=available_appliance_storage_gb,
+            available_core_count=available_core_count,
+            available_host_storage_gb=available_host_storage_gb,
+            available_memory_gb=available_memory_gb,
+            total_appliance_storage_gb=total_appliance_storage_gb,
+            total_core_count=total_core_count,
+            total_host_storage_gb=total_host_storage_gb,
+            total_memory_gb=total_memory_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             available_appliance_storage_gb: Optional[float] = None,
+             available_core_count: Optional[float] = None,
+             available_host_storage_gb: Optional[float] = None,
+             available_memory_gb: Optional[float] = None,
+             total_appliance_storage_gb: Optional[float] = None,
+             total_core_count: Optional[float] = None,
+             total_host_storage_gb: Optional[float] = None,
+             total_memory_gb: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availableApplianceStorageGB' in kwargs:
+            available_appliance_storage_gb = kwargs['availableApplianceStorageGB']
+        if 'availableCoreCount' in kwargs:
+            available_core_count = kwargs['availableCoreCount']
+        if 'availableHostStorageGB' in kwargs:
+            available_host_storage_gb = kwargs['availableHostStorageGB']
+        if 'availableMemoryGB' in kwargs:
+            available_memory_gb = kwargs['availableMemoryGB']
+        if 'totalApplianceStorageGB' in kwargs:
+            total_appliance_storage_gb = kwargs['totalApplianceStorageGB']
+        if 'totalCoreCount' in kwargs:
+            total_core_count = kwargs['totalCoreCount']
+        if 'totalHostStorageGB' in kwargs:
+            total_host_storage_gb = kwargs['totalHostStorageGB']
+        if 'totalMemoryGB' in kwargs:
+            total_memory_gb = kwargs['totalMemoryGB']
+
         if available_appliance_storage_gb is not None:
-            pulumi.set(__self__, "available_appliance_storage_gb", available_appliance_storage_gb)
+            _setter("available_appliance_storage_gb", available_appliance_storage_gb)
         if available_core_count is not None:
-            pulumi.set(__self__, "available_core_count", available_core_count)
+            _setter("available_core_count", available_core_count)
         if available_host_storage_gb is not None:
-            pulumi.set(__self__, "available_host_storage_gb", available_host_storage_gb)
+            _setter("available_host_storage_gb", available_host_storage_gb)
         if available_memory_gb is not None:
-            pulumi.set(__self__, "available_memory_gb", available_memory_gb)
+            _setter("available_memory_gb", available_memory_gb)
         if total_appliance_storage_gb is not None:
-            pulumi.set(__self__, "total_appliance_storage_gb", total_appliance_storage_gb)
+            _setter("total_appliance_storage_gb", total_appliance_storage_gb)
         if total_core_count is not None:
-            pulumi.set(__self__, "total_core_count", total_core_count)
+            _setter("total_core_count", total_core_count)
         if total_host_storage_gb is not None:
-            pulumi.set(__self__, "total_host_storage_gb", total_host_storage_gb)
+            _setter("total_host_storage_gb", total_host_storage_gb)
         if total_memory_gb is not None:
-            pulumi.set(__self__, "total_memory_gb", total_memory_gb)
+            _setter("total_memory_gb", total_memory_gb)
 
     @property
     @pulumi.getter(name="availableApplianceStorageGB")
@@ -1031,14 +1335,39 @@ class CniBgpConfigurationResponse(dict):
         :param Sequence[str] service_load_balancer_prefixes: The subnet blocks in CIDR format for Kubernetes load balancers. Load balancer IPs will only be advertised if they
                are within one of these blocks.
         """
+        CniBgpConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bgp_peers=bgp_peers,
+            community_advertisements=community_advertisements,
+            service_external_prefixes=service_external_prefixes,
+            service_load_balancer_prefixes=service_load_balancer_prefixes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bgp_peers: Optional[Sequence['outputs.BgpPeerResponse']] = None,
+             community_advertisements: Optional[Sequence['outputs.CommunityAdvertisementResponse']] = None,
+             service_external_prefixes: Optional[Sequence[str]] = None,
+             service_load_balancer_prefixes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bgpPeers' in kwargs:
+            bgp_peers = kwargs['bgpPeers']
+        if 'communityAdvertisements' in kwargs:
+            community_advertisements = kwargs['communityAdvertisements']
+        if 'serviceExternalPrefixes' in kwargs:
+            service_external_prefixes = kwargs['serviceExternalPrefixes']
+        if 'serviceLoadBalancerPrefixes' in kwargs:
+            service_load_balancer_prefixes = kwargs['serviceLoadBalancerPrefixes']
+
         if bgp_peers is not None:
-            pulumi.set(__self__, "bgp_peers", bgp_peers)
+            _setter("bgp_peers", bgp_peers)
         if community_advertisements is not None:
-            pulumi.set(__self__, "community_advertisements", community_advertisements)
+            _setter("community_advertisements", community_advertisements)
         if service_external_prefixes is not None:
-            pulumi.set(__self__, "service_external_prefixes", service_external_prefixes)
+            _setter("service_external_prefixes", service_external_prefixes)
         if service_load_balancer_prefixes is not None:
-            pulumi.set(__self__, "service_load_balancer_prefixes", service_load_balancer_prefixes)
+            _setter("service_load_balancer_prefixes", service_load_balancer_prefixes)
 
     @property
     @pulumi.getter(name="bgpPeers")
@@ -1101,8 +1430,23 @@ class CommunityAdvertisementResponse(dict):
         :param Sequence[str] communities: The list of community strings to announce with this prefix.
         :param str subnet_prefix: The subnet in CIDR format for which properties should be advertised.
         """
-        pulumi.set(__self__, "communities", communities)
-        pulumi.set(__self__, "subnet_prefix", subnet_prefix)
+        CommunityAdvertisementResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            communities=communities,
+            subnet_prefix=subnet_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             communities: Sequence[str],
+             subnet_prefix: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetPrefix' in kwargs:
+            subnet_prefix = kwargs['subnetPrefix']
+
+        _setter("communities", communities)
+        _setter("subnet_prefix", subnet_prefix)
 
     @property
     @pulumi.getter
@@ -1155,12 +1499,35 @@ class ControlPlaneNodeConfigurationResponse(dict):
         :param 'AdministratorConfigurationResponse' administrator_configuration: The administrator credentials to be used for the nodes in the control plane.
         :param Sequence[str] availability_zones: The list of availability zones of the Network Cloud cluster to be used for the provisioning of nodes in the control plane. If not specified, all availability zones will be used.
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "vm_sku_name", vm_sku_name)
+        ControlPlaneNodeConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            vm_sku_name=vm_sku_name,
+            administrator_configuration=administrator_configuration,
+            availability_zones=availability_zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: float,
+             vm_sku_name: str,
+             administrator_configuration: Optional['outputs.AdministratorConfigurationResponse'] = None,
+             availability_zones: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vmSkuName' in kwargs:
+            vm_sku_name = kwargs['vmSkuName']
+        if 'administratorConfiguration' in kwargs:
+            administrator_configuration = kwargs['administratorConfiguration']
+        if 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+
+        _setter("count", count)
+        _setter("vm_sku_name", vm_sku_name)
         if administrator_configuration is not None:
-            pulumi.set(__self__, "administrator_configuration", administrator_configuration)
+            _setter("administrator_configuration", administrator_configuration)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
 
     @property
     @pulumi.getter
@@ -1204,8 +1571,21 @@ class EgressEndpointResponse(dict):
         :param str category: The descriptive category name of endpoints accessible by the AKS agent node. For example, azure-resource-management, API server, etc. The platform egress endpoints provided by default will use the category 'default'.
         :param Sequence['EndpointDependencyResponse'] endpoints: The list of endpoint dependencies.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "endpoints", endpoints)
+        EgressEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            endpoints=endpoints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: str,
+             endpoints: Sequence['outputs.EndpointDependencyResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("category", category)
+        _setter("endpoints", endpoints)
 
     @property
     @pulumi.getter
@@ -1250,9 +1630,24 @@ class EndpointDependencyResponse(dict):
         :param str domain_name: The domain name of the dependency.
         :param float port: The port of this endpoint.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
+        EndpointDependencyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: str,
+             port: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+
+        _setter("domain_name", domain_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="domainName")
@@ -1280,8 +1675,21 @@ class ExtendedLocationResponse(dict):
         :param str name: The resource ID of the extended location on which the resource will be created.
         :param str type: The extended location type, for example, CustomLocation.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ExtendedLocationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1332,10 +1740,31 @@ class FeatureStatusResponse(dict):
         :param str name: The name of the feature.
         :param str version: The version of the feature.
         """
-        pulumi.set(__self__, "detailed_status", detailed_status)
-        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        FeatureStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            detailed_status=detailed_status,
+            detailed_status_message=detailed_status_message,
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             detailed_status: str,
+             detailed_status_message: str,
+             name: str,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'detailedStatus' in kwargs:
+            detailed_status = kwargs['detailedStatus']
+        if 'detailedStatusMessage' in kwargs:
+            detailed_status_message = kwargs['detailedStatusMessage']
+
+        _setter("detailed_status", detailed_status)
+        _setter("detailed_status_message", detailed_status_message)
+        _setter("name", name)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="detailedStatus")
@@ -1404,10 +1833,33 @@ class HardwareInventoryNetworkInterfaceResponse(dict):
         :param str name: The name of the interface.
         :param str network_interface_id: The resource ID of the network interface for the port on the switch that this machine's interface is connected to.
         """
-        pulumi.set(__self__, "link_status", link_status)
-        pulumi.set(__self__, "mac_address", mac_address)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
+        HardwareInventoryNetworkInterfaceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            link_status=link_status,
+            mac_address=mac_address,
+            name=name,
+            network_interface_id=network_interface_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             link_status: str,
+             mac_address: str,
+             name: str,
+             network_interface_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkStatus' in kwargs:
+            link_status = kwargs['linkStatus']
+        if 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+
+        _setter("link_status", link_status)
+        _setter("mac_address", mac_address)
+        _setter("name", name)
+        _setter("network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="linkStatus")
@@ -1470,9 +1922,26 @@ class HardwareInventoryResponse(dict):
         :param Sequence['HardwareInventoryNetworkInterfaceResponse'] interfaces: The list of network interfaces and associated details for the bare metal machine.
         :param Sequence['NicResponse'] nics: Field Deprecated. Will be removed in an upcoming version. The list of network interface cards and associated details for the bare metal machine.
         """
-        pulumi.set(__self__, "additional_host_information", additional_host_information)
-        pulumi.set(__self__, "interfaces", interfaces)
-        pulumi.set(__self__, "nics", nics)
+        HardwareInventoryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_host_information=additional_host_information,
+            interfaces=interfaces,
+            nics=nics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_host_information: str,
+             interfaces: Sequence['outputs.HardwareInventoryNetworkInterfaceResponse'],
+             nics: Sequence['outputs.NicResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalHostInformation' in kwargs:
+            additional_host_information = kwargs['additionalHostInformation']
+
+        _setter("additional_host_information", additional_host_information)
+        _setter("interfaces", interfaces)
+        _setter("nics", nics)
 
     @property
     @pulumi.getter(name="additionalHostInformation")
@@ -1525,8 +1994,23 @@ class HardwareValidationStatusResponse(dict):
         :param str last_validation_time: The timestamp of the hardware validation execution.
         :param str result: The outcome of the hardware validation.
         """
-        pulumi.set(__self__, "last_validation_time", last_validation_time)
-        pulumi.set(__self__, "result", result)
+        HardwareValidationStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_validation_time=last_validation_time,
+            result=result,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_validation_time: str,
+             result: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastValidationTime' in kwargs:
+            last_validation_time = kwargs['lastValidationTime']
+
+        _setter("last_validation_time", last_validation_time)
+        _setter("result", result)
 
     @property
     @pulumi.getter(name="lastValidationTime")
@@ -1573,9 +2057,26 @@ class ImageRepositoryCredentialsResponse(dict):
         :param str registry_url: The URL of the authentication server used to validate the repository credentials.
         :param str username: The username used to access an image in the target repository.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "registry_url", registry_url)
-        pulumi.set(__self__, "username", username)
+        ImageRepositoryCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            registry_url=registry_url,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: str,
+             registry_url: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'registryUrl' in kwargs:
+            registry_url = kwargs['registryUrl']
+
+        _setter("password", password)
+        _setter("registry_url", registry_url)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -1656,24 +2157,67 @@ class InitialAgentPoolConfigurationResponse(dict):
         :param Sequence['KubernetesLabelResponse'] taints: The taints applied to the nodes in this agent pool.
         :param 'AgentPoolUpgradeSettingsResponse' upgrade_settings: The configuration of the agent pool.
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "vm_sku_name", vm_sku_name)
+        InitialAgentPoolConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            mode=mode,
+            name=name,
+            vm_sku_name=vm_sku_name,
+            administrator_configuration=administrator_configuration,
+            agent_options=agent_options,
+            attached_network_configuration=attached_network_configuration,
+            availability_zones=availability_zones,
+            labels=labels,
+            taints=taints,
+            upgrade_settings=upgrade_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: float,
+             mode: str,
+             name: str,
+             vm_sku_name: str,
+             administrator_configuration: Optional['outputs.AdministratorConfigurationResponse'] = None,
+             agent_options: Optional['outputs.AgentOptionsResponse'] = None,
+             attached_network_configuration: Optional['outputs.AttachedNetworkConfigurationResponse'] = None,
+             availability_zones: Optional[Sequence[str]] = None,
+             labels: Optional[Sequence['outputs.KubernetesLabelResponse']] = None,
+             taints: Optional[Sequence['outputs.KubernetesLabelResponse']] = None,
+             upgrade_settings: Optional['outputs.AgentPoolUpgradeSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vmSkuName' in kwargs:
+            vm_sku_name = kwargs['vmSkuName']
+        if 'administratorConfiguration' in kwargs:
+            administrator_configuration = kwargs['administratorConfiguration']
+        if 'agentOptions' in kwargs:
+            agent_options = kwargs['agentOptions']
+        if 'attachedNetworkConfiguration' in kwargs:
+            attached_network_configuration = kwargs['attachedNetworkConfiguration']
+        if 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if 'upgradeSettings' in kwargs:
+            upgrade_settings = kwargs['upgradeSettings']
+
+        _setter("count", count)
+        _setter("mode", mode)
+        _setter("name", name)
+        _setter("vm_sku_name", vm_sku_name)
         if administrator_configuration is not None:
-            pulumi.set(__self__, "administrator_configuration", administrator_configuration)
+            _setter("administrator_configuration", administrator_configuration)
         if agent_options is not None:
-            pulumi.set(__self__, "agent_options", agent_options)
+            _setter("agent_options", agent_options)
         if attached_network_configuration is not None:
-            pulumi.set(__self__, "attached_network_configuration", attached_network_configuration)
+            _setter("attached_network_configuration", attached_network_configuration)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if taints is not None:
-            pulumi.set(__self__, "taints", taints)
+            _setter("taints", taints)
         if upgrade_settings is not None:
-            pulumi.set(__self__, "upgrade_settings", upgrade_settings)
+            _setter("upgrade_settings", upgrade_settings)
 
     @property
     @pulumi.getter
@@ -1796,16 +2340,37 @@ class IpAddressPoolResponse(dict):
         :param str auto_assign: The indicator to determine if automatic allocation from the pool should occur.
         :param str only_use_host_ips: The indicator to prevent the use of IP addresses ending with .0 and .255 for this pool. Enabling this option will only use IP addresses between .1 and .254 inclusive.
         """
-        pulumi.set(__self__, "addresses", addresses)
-        pulumi.set(__self__, "name", name)
+        IpAddressPoolResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            addresses=addresses,
+            name=name,
+            auto_assign=auto_assign,
+            only_use_host_ips=only_use_host_ips,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             addresses: Sequence[str],
+             name: str,
+             auto_assign: Optional[str] = None,
+             only_use_host_ips: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoAssign' in kwargs:
+            auto_assign = kwargs['autoAssign']
+        if 'onlyUseHostIps' in kwargs:
+            only_use_host_ips = kwargs['onlyUseHostIps']
+
+        _setter("addresses", addresses)
+        _setter("name", name)
         if auto_assign is None:
             auto_assign = 'True'
         if auto_assign is not None:
-            pulumi.set(__self__, "auto_assign", auto_assign)
+            _setter("auto_assign", auto_assign)
         if only_use_host_ips is None:
             only_use_host_ips = 'True'
         if only_use_host_ips is not None:
-            pulumi.set(__self__, "only_use_host_ips", only_use_host_ips)
+            _setter("only_use_host_ips", only_use_host_ips)
 
     @property
     @pulumi.getter
@@ -1870,10 +2435,29 @@ class KeySetUserResponse(dict):
         :param 'SshPublicKeyResponse' ssh_public_key: The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
         :param str description: The free-form description for this user.
         """
-        pulumi.set(__self__, "azure_user_name", azure_user_name)
-        pulumi.set(__self__, "ssh_public_key", ssh_public_key)
+        KeySetUserResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_user_name=azure_user_name,
+            ssh_public_key=ssh_public_key,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_user_name: str,
+             ssh_public_key: 'outputs.SshPublicKeyResponse',
+             description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureUserName' in kwargs:
+            azure_user_name = kwargs['azureUserName']
+        if 'sshPublicKey' in kwargs:
+            ssh_public_key = kwargs['sshPublicKey']
+
+        _setter("azure_user_name", azure_user_name)
+        _setter("ssh_public_key", ssh_public_key)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="azureUserName")
@@ -1930,9 +2514,28 @@ class KeySetUserStatusResponse(dict):
         :param str status: The indicator of whether the user is currently deployed for access.
         :param str status_message: The additional information describing the current status of this user, if any available.
         """
-        pulumi.set(__self__, "azure_user_name", azure_user_name)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "status_message", status_message)
+        KeySetUserStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_user_name=azure_user_name,
+            status=status,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_user_name: str,
+             status: str,
+             status_message: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureUserName' in kwargs:
+            azure_user_name = kwargs['azureUserName']
+        if 'statusMessage' in kwargs:
+            status_message = kwargs['statusMessage']
+
+        _setter("azure_user_name", azure_user_name)
+        _setter("status", status)
+        _setter("status_message", status_message)
 
     @property
     @pulumi.getter(name="azureUserName")
@@ -2039,24 +2642,93 @@ class KubernetesClusterNodeResponse(dict):
         :param Sequence['KubernetesLabelResponse'] taints: The list of taints that have been assigned to the agent pool containing this node.
         :param str vm_sku_name: The VM SKU name that was used to create this cluster node.
         """
-        pulumi.set(__self__, "agent_pool_id", agent_pool_id)
-        pulumi.set(__self__, "availability_zone", availability_zone)
-        pulumi.set(__self__, "bare_metal_machine_id", bare_metal_machine_id)
-        pulumi.set(__self__, "cpu_cores", cpu_cores)
-        pulumi.set(__self__, "detailed_status", detailed_status)
-        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
-        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
-        pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "kubernetes_version", kubernetes_version)
-        pulumi.set(__self__, "labels", labels)
-        pulumi.set(__self__, "memory_size_gb", memory_size_gb)
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "network_attachments", network_attachments)
-        pulumi.set(__self__, "power_state", power_state)
-        pulumi.set(__self__, "role", role)
-        pulumi.set(__self__, "taints", taints)
-        pulumi.set(__self__, "vm_sku_name", vm_sku_name)
+        KubernetesClusterNodeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_pool_id=agent_pool_id,
+            availability_zone=availability_zone,
+            bare_metal_machine_id=bare_metal_machine_id,
+            cpu_cores=cpu_cores,
+            detailed_status=detailed_status,
+            detailed_status_message=detailed_status_message,
+            disk_size_gb=disk_size_gb,
+            image=image,
+            kubernetes_version=kubernetes_version,
+            labels=labels,
+            memory_size_gb=memory_size_gb,
+            mode=mode,
+            name=name,
+            network_attachments=network_attachments,
+            power_state=power_state,
+            role=role,
+            taints=taints,
+            vm_sku_name=vm_sku_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_pool_id: str,
+             availability_zone: str,
+             bare_metal_machine_id: str,
+             cpu_cores: float,
+             detailed_status: str,
+             detailed_status_message: str,
+             disk_size_gb: float,
+             image: str,
+             kubernetes_version: str,
+             labels: Sequence['outputs.KubernetesLabelResponse'],
+             memory_size_gb: float,
+             mode: str,
+             name: str,
+             network_attachments: Sequence['outputs.NetworkAttachmentResponse'],
+             power_state: str,
+             role: str,
+             taints: Sequence['outputs.KubernetesLabelResponse'],
+             vm_sku_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentPoolId' in kwargs:
+            agent_pool_id = kwargs['agentPoolId']
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'bareMetalMachineId' in kwargs:
+            bare_metal_machine_id = kwargs['bareMetalMachineId']
+        if 'cpuCores' in kwargs:
+            cpu_cores = kwargs['cpuCores']
+        if 'detailedStatus' in kwargs:
+            detailed_status = kwargs['detailedStatus']
+        if 'detailedStatusMessage' in kwargs:
+            detailed_status_message = kwargs['detailedStatusMessage']
+        if 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+        if 'kubernetesVersion' in kwargs:
+            kubernetes_version = kwargs['kubernetesVersion']
+        if 'memorySizeGB' in kwargs:
+            memory_size_gb = kwargs['memorySizeGB']
+        if 'networkAttachments' in kwargs:
+            network_attachments = kwargs['networkAttachments']
+        if 'powerState' in kwargs:
+            power_state = kwargs['powerState']
+        if 'vmSkuName' in kwargs:
+            vm_sku_name = kwargs['vmSkuName']
+
+        _setter("agent_pool_id", agent_pool_id)
+        _setter("availability_zone", availability_zone)
+        _setter("bare_metal_machine_id", bare_metal_machine_id)
+        _setter("cpu_cores", cpu_cores)
+        _setter("detailed_status", detailed_status)
+        _setter("detailed_status_message", detailed_status_message)
+        _setter("disk_size_gb", disk_size_gb)
+        _setter("image", image)
+        _setter("kubernetes_version", kubernetes_version)
+        _setter("labels", labels)
+        _setter("memory_size_gb", memory_size_gb)
+        _setter("mode", mode)
+        _setter("name", name)
+        _setter("network_attachments", network_attachments)
+        _setter("power_state", power_state)
+        _setter("role", role)
+        _setter("taints", taints)
+        _setter("vm_sku_name", vm_sku_name)
 
     @property
     @pulumi.getter(name="agentPoolId")
@@ -2212,8 +2884,21 @@ class KubernetesLabelResponse(dict):
         :param str key: The name of the label or taint.
         :param str value: The value of the label or taint.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        KubernetesLabelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2260,11 +2945,28 @@ class L2NetworkAttachmentConfigurationResponse(dict):
         :param str network_id: The resource ID of the network that is being configured for attachment.
         :param str plugin_type: The indicator of how this network will be utilized by the Kubernetes cluster.
         """
-        pulumi.set(__self__, "network_id", network_id)
+        L2NetworkAttachmentConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_id=network_id,
+            plugin_type=plugin_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_id: str,
+             plugin_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if 'pluginType' in kwargs:
+            plugin_type = kwargs['pluginType']
+
+        _setter("network_id", network_id)
         if plugin_type is None:
             plugin_type = 'SRIOV'
         if plugin_type is not None:
-            pulumi.set(__self__, "plugin_type", plugin_type)
+            _setter("plugin_type", plugin_type)
 
     @property
     @pulumi.getter(name="networkId")
@@ -2315,15 +3017,36 @@ class L3NetworkAttachmentConfigurationResponse(dict):
         :param str ipam_enabled: The indication of whether this network will or will not perform IP address management and allocate IP addresses when attached.
         :param str plugin_type: The indicator of how this network will be utilized by the Kubernetes cluster.
         """
-        pulumi.set(__self__, "network_id", network_id)
+        L3NetworkAttachmentConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_id=network_id,
+            ipam_enabled=ipam_enabled,
+            plugin_type=plugin_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_id: str,
+             ipam_enabled: Optional[str] = None,
+             plugin_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if 'ipamEnabled' in kwargs:
+            ipam_enabled = kwargs['ipamEnabled']
+        if 'pluginType' in kwargs:
+            plugin_type = kwargs['pluginType']
+
+        _setter("network_id", network_id)
         if ipam_enabled is None:
             ipam_enabled = 'False'
         if ipam_enabled is not None:
-            pulumi.set(__self__, "ipam_enabled", ipam_enabled)
+            _setter("ipam_enabled", ipam_enabled)
         if plugin_type is None:
             plugin_type = 'SRIOV'
         if plugin_type is not None:
-            pulumi.set(__self__, "plugin_type", plugin_type)
+            _setter("plugin_type", plugin_type)
 
     @property
     @pulumi.getter(name="networkId")
@@ -2386,10 +3109,35 @@ class LldpNeighborResponse(dict):
         :param str system_description: The descriptive information about the connected device.
         :param str system_name: The system-assigned name of the connected device.
         """
-        pulumi.set(__self__, "port_description", port_description)
-        pulumi.set(__self__, "port_name", port_name)
-        pulumi.set(__self__, "system_description", system_description)
-        pulumi.set(__self__, "system_name", system_name)
+        LldpNeighborResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port_description=port_description,
+            port_name=port_name,
+            system_description=system_description,
+            system_name=system_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port_description: str,
+             port_name: str,
+             system_description: str,
+             system_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'portDescription' in kwargs:
+            port_description = kwargs['portDescription']
+        if 'portName' in kwargs:
+            port_name = kwargs['portName']
+        if 'systemDescription' in kwargs:
+            system_description = kwargs['systemDescription']
+        if 'systemName' in kwargs:
+            system_name = kwargs['systemName']
+
+        _setter("port_description", port_description)
+        _setter("port_name", port_name)
+        _setter("system_description", system_description)
+        _setter("system_name", system_name)
 
     @property
     @pulumi.getter(name="portDescription")
@@ -2433,10 +3181,23 @@ class ManagedResourceGroupConfigurationResponse(dict):
         :param str location: The location of the managed resource group. If not specified, the location of the parent resource is chosen.
         :param str name: The name for the managed resource group. If not specified, the unique name is automatically generated.
         """
+        ManagedResourceGroupConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2524,17 +3285,54 @@ class NetworkAttachmentResponse(dict):
                If the user doesn’t specify this value, the default interface name of the network resource will be used.
                For a CloudServicesNetwork resource, this name will be ignored.
         """
-        pulumi.set(__self__, "attached_network_id", attached_network_id)
-        pulumi.set(__self__, "ip_allocation_method", ip_allocation_method)
-        pulumi.set(__self__, "mac_address", mac_address)
+        NetworkAttachmentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attached_network_id=attached_network_id,
+            ip_allocation_method=ip_allocation_method,
+            mac_address=mac_address,
+            default_gateway=default_gateway,
+            ipv4_address=ipv4_address,
+            ipv6_address=ipv6_address,
+            network_attachment_name=network_attachment_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attached_network_id: str,
+             ip_allocation_method: str,
+             mac_address: str,
+             default_gateway: Optional[str] = None,
+             ipv4_address: Optional[str] = None,
+             ipv6_address: Optional[str] = None,
+             network_attachment_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attachedNetworkId' in kwargs:
+            attached_network_id = kwargs['attachedNetworkId']
+        if 'ipAllocationMethod' in kwargs:
+            ip_allocation_method = kwargs['ipAllocationMethod']
+        if 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+        if 'defaultGateway' in kwargs:
+            default_gateway = kwargs['defaultGateway']
+        if 'ipv4Address' in kwargs:
+            ipv4_address = kwargs['ipv4Address']
+        if 'ipv6Address' in kwargs:
+            ipv6_address = kwargs['ipv6Address']
+        if 'networkAttachmentName' in kwargs:
+            network_attachment_name = kwargs['networkAttachmentName']
+
+        _setter("attached_network_id", attached_network_id)
+        _setter("ip_allocation_method", ip_allocation_method)
+        _setter("mac_address", mac_address)
         if default_gateway is not None:
-            pulumi.set(__self__, "default_gateway", default_gateway)
+            _setter("default_gateway", default_gateway)
         if ipv4_address is not None:
-            pulumi.set(__self__, "ipv4_address", ipv4_address)
+            _setter("ipv4_address", ipv4_address)
         if ipv6_address is not None:
-            pulumi.set(__self__, "ipv6_address", ipv6_address)
+            _setter("ipv6_address", ipv6_address)
         if network_attachment_name is not None:
-            pulumi.set(__self__, "network_attachment_name", network_attachment_name)
+            _setter("network_attachment_name", network_attachment_name)
 
     @property
     @pulumi.getter(name="attachedNetworkId")
@@ -2662,18 +3460,55 @@ class NetworkConfigurationResponse(dict):
         :param Sequence[str] pod_cidrs: The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
         :param Sequence[str] service_cidrs: The CIDR notation IP ranges from which to assign service IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
         """
-        pulumi.set(__self__, "cloud_services_network_id", cloud_services_network_id)
-        pulumi.set(__self__, "cni_network_id", cni_network_id)
+        NetworkConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_services_network_id=cloud_services_network_id,
+            cni_network_id=cni_network_id,
+            attached_network_configuration=attached_network_configuration,
+            bgp_service_load_balancer_configuration=bgp_service_load_balancer_configuration,
+            dns_service_ip=dns_service_ip,
+            pod_cidrs=pod_cidrs,
+            service_cidrs=service_cidrs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_services_network_id: str,
+             cni_network_id: str,
+             attached_network_configuration: Optional['outputs.AttachedNetworkConfigurationResponse'] = None,
+             bgp_service_load_balancer_configuration: Optional['outputs.BgpServiceLoadBalancerConfigurationResponse'] = None,
+             dns_service_ip: Optional[str] = None,
+             pod_cidrs: Optional[Sequence[str]] = None,
+             service_cidrs: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudServicesNetworkId' in kwargs:
+            cloud_services_network_id = kwargs['cloudServicesNetworkId']
+        if 'cniNetworkId' in kwargs:
+            cni_network_id = kwargs['cniNetworkId']
+        if 'attachedNetworkConfiguration' in kwargs:
+            attached_network_configuration = kwargs['attachedNetworkConfiguration']
+        if 'bgpServiceLoadBalancerConfiguration' in kwargs:
+            bgp_service_load_balancer_configuration = kwargs['bgpServiceLoadBalancerConfiguration']
+        if 'dnsServiceIp' in kwargs:
+            dns_service_ip = kwargs['dnsServiceIp']
+        if 'podCidrs' in kwargs:
+            pod_cidrs = kwargs['podCidrs']
+        if 'serviceCidrs' in kwargs:
+            service_cidrs = kwargs['serviceCidrs']
+
+        _setter("cloud_services_network_id", cloud_services_network_id)
+        _setter("cni_network_id", cni_network_id)
         if attached_network_configuration is not None:
-            pulumi.set(__self__, "attached_network_configuration", attached_network_configuration)
+            _setter("attached_network_configuration", attached_network_configuration)
         if bgp_service_load_balancer_configuration is not None:
-            pulumi.set(__self__, "bgp_service_load_balancer_configuration", bgp_service_load_balancer_configuration)
+            _setter("bgp_service_load_balancer_configuration", bgp_service_load_balancer_configuration)
         if dns_service_ip is not None:
-            pulumi.set(__self__, "dns_service_ip", dns_service_ip)
+            _setter("dns_service_ip", dns_service_ip)
         if pod_cidrs is not None:
-            pulumi.set(__self__, "pod_cidrs", pod_cidrs)
+            _setter("pod_cidrs", pod_cidrs)
         if service_cidrs is not None:
-            pulumi.set(__self__, "service_cidrs", service_cidrs)
+            _setter("service_cidrs", service_cidrs)
 
     @property
     @pulumi.getter(name="cloudServicesNetworkId")
@@ -2762,9 +3597,28 @@ class NicResponse(dict):
         :param str mac_address: The MAC address associated with this NIC.
         :param str name: The name of the NIC/interface.
         """
-        pulumi.set(__self__, "lldp_neighbor", lldp_neighbor)
-        pulumi.set(__self__, "mac_address", mac_address)
-        pulumi.set(__self__, "name", name)
+        NicResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lldp_neighbor=lldp_neighbor,
+            mac_address=mac_address,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lldp_neighbor: 'outputs.LldpNeighborResponse',
+             mac_address: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lldpNeighbor' in kwargs:
+            lldp_neighbor = kwargs['lldpNeighbor']
+        if 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+
+        _setter("lldp_neighbor", lldp_neighbor)
+        _setter("mac_address", mac_address)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="lldpNeighbor")
@@ -2845,15 +3699,58 @@ class NodeConfigurationResponse(dict):
         :param float vm_count: The number of virtual machines that use this configuration.
         :param str vm_size: The name of the VM size supplied during the creation of the cluster.
         """
-        pulumi.set(__self__, "agent_pool_id", agent_pool_id)
-        pulumi.set(__self__, "agent_pool_name", agent_pool_name)
-        pulumi.set(__self__, "cpu_cores", cpu_cores)
-        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
-        pulumi.set(__self__, "memory_size_gb", memory_size_gb)
-        pulumi.set(__self__, "node_pool_name", node_pool_name)
-        pulumi.set(__self__, "nodes", nodes)
-        pulumi.set(__self__, "vm_count", vm_count)
-        pulumi.set(__self__, "vm_size", vm_size)
+        NodeConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_pool_id=agent_pool_id,
+            agent_pool_name=agent_pool_name,
+            cpu_cores=cpu_cores,
+            disk_size_gb=disk_size_gb,
+            memory_size_gb=memory_size_gb,
+            node_pool_name=node_pool_name,
+            nodes=nodes,
+            vm_count=vm_count,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_pool_id: str,
+             agent_pool_name: str,
+             cpu_cores: float,
+             disk_size_gb: float,
+             memory_size_gb: float,
+             node_pool_name: str,
+             nodes: Sequence['outputs.NodeResponse'],
+             vm_count: float,
+             vm_size: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentPoolId' in kwargs:
+            agent_pool_id = kwargs['agentPoolId']
+        if 'agentPoolName' in kwargs:
+            agent_pool_name = kwargs['agentPoolName']
+        if 'cpuCores' in kwargs:
+            cpu_cores = kwargs['cpuCores']
+        if 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+        if 'memorySizeGB' in kwargs:
+            memory_size_gb = kwargs['memorySizeGB']
+        if 'nodePoolName' in kwargs:
+            node_pool_name = kwargs['nodePoolName']
+        if 'vmCount' in kwargs:
+            vm_count = kwargs['vmCount']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+
+        _setter("agent_pool_id", agent_pool_id)
+        _setter("agent_pool_name", agent_pool_name)
+        _setter("cpu_cores", cpu_cores)
+        _setter("disk_size_gb", disk_size_gb)
+        _setter("memory_size_gb", memory_size_gb)
+        _setter("node_pool_name", node_pool_name)
+        _setter("nodes", nodes)
+        _setter("vm_count", vm_count)
+        _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter(name="agentPoolId")
@@ -2968,11 +3865,40 @@ class NodeResponse(dict):
         :param str node_name: The name of this node, as realized in the Hybrid AKS cluster.
         :param str power_state: The power state (On | Off) of the node.
         """
-        pulumi.set(__self__, "bare_metal_machine_id", bare_metal_machine_id)
-        pulumi.set(__self__, "image_id", image_id)
-        pulumi.set(__self__, "network_attachments", network_attachments)
-        pulumi.set(__self__, "node_name", node_name)
-        pulumi.set(__self__, "power_state", power_state)
+        NodeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bare_metal_machine_id=bare_metal_machine_id,
+            image_id=image_id,
+            network_attachments=network_attachments,
+            node_name=node_name,
+            power_state=power_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bare_metal_machine_id: str,
+             image_id: str,
+             network_attachments: Sequence['outputs.NetworkAttachmentResponse'],
+             node_name: str,
+             power_state: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bareMetalMachineId' in kwargs:
+            bare_metal_machine_id = kwargs['bareMetalMachineId']
+        if 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if 'networkAttachments' in kwargs:
+            network_attachments = kwargs['networkAttachments']
+        if 'nodeName' in kwargs:
+            node_name = kwargs['nodeName']
+        if 'powerState' in kwargs:
+            power_state = kwargs['powerState']
+
+        _setter("bare_metal_machine_id", bare_metal_machine_id)
+        _setter("image_id", image_id)
+        _setter("network_attachments", network_attachments)
+        _setter("node_name", node_name)
+        _setter("power_state", power_state)
 
     @property
     @pulumi.getter(name="bareMetalMachineId")
@@ -3047,15 +3973,36 @@ class OsDiskResponse(dict):
         :param str create_option: The strategy for creating the OS disk.
         :param str delete_option: The strategy for deleting the OS disk.
         """
-        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        OsDiskResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_size_gb=disk_size_gb,
+            create_option=create_option,
+            delete_option=delete_option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_size_gb: float,
+             create_option: Optional[str] = None,
+             delete_option: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'deleteOption' in kwargs:
+            delete_option = kwargs['deleteOption']
+
+        _setter("disk_size_gb", disk_size_gb)
         if create_option is None:
             create_option = 'Ephemeral'
         if create_option is not None:
-            pulumi.set(__self__, "create_option", create_option)
+            _setter("create_option", create_option)
         if delete_option is None:
             delete_option = 'Delete'
         if delete_option is not None:
-            pulumi.set(__self__, "delete_option", delete_option)
+            _setter("delete_option", delete_option)
 
     @property
     @pulumi.getter(name="diskSizeGB")
@@ -3130,17 +4077,54 @@ class RackDefinitionResponse(dict):
         :param str rack_location: The free-form description of the rack's location.
         :param Sequence['StorageApplianceConfigurationDataResponse'] storage_appliance_configuration_data: The list of storage appliance configuration data for this rack.
         """
-        pulumi.set(__self__, "network_rack_id", network_rack_id)
-        pulumi.set(__self__, "rack_serial_number", rack_serial_number)
-        pulumi.set(__self__, "rack_sku_id", rack_sku_id)
+        RackDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_rack_id=network_rack_id,
+            rack_serial_number=rack_serial_number,
+            rack_sku_id=rack_sku_id,
+            availability_zone=availability_zone,
+            bare_metal_machine_configuration_data=bare_metal_machine_configuration_data,
+            rack_location=rack_location,
+            storage_appliance_configuration_data=storage_appliance_configuration_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_rack_id: str,
+             rack_serial_number: str,
+             rack_sku_id: str,
+             availability_zone: Optional[str] = None,
+             bare_metal_machine_configuration_data: Optional[Sequence['outputs.BareMetalMachineConfigurationDataResponse']] = None,
+             rack_location: Optional[str] = None,
+             storage_appliance_configuration_data: Optional[Sequence['outputs.StorageApplianceConfigurationDataResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkRackId' in kwargs:
+            network_rack_id = kwargs['networkRackId']
+        if 'rackSerialNumber' in kwargs:
+            rack_serial_number = kwargs['rackSerialNumber']
+        if 'rackSkuId' in kwargs:
+            rack_sku_id = kwargs['rackSkuId']
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'bareMetalMachineConfigurationData' in kwargs:
+            bare_metal_machine_configuration_data = kwargs['bareMetalMachineConfigurationData']
+        if 'rackLocation' in kwargs:
+            rack_location = kwargs['rackLocation']
+        if 'storageApplianceConfigurationData' in kwargs:
+            storage_appliance_configuration_data = kwargs['storageApplianceConfigurationData']
+
+        _setter("network_rack_id", network_rack_id)
+        _setter("rack_serial_number", rack_serial_number)
+        _setter("rack_sku_id", rack_sku_id)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if bare_metal_machine_configuration_data is not None:
-            pulumi.set(__self__, "bare_metal_machine_configuration_data", bare_metal_machine_configuration_data)
+            _setter("bare_metal_machine_configuration_data", bare_metal_machine_configuration_data)
         if rack_location is not None:
-            pulumi.set(__self__, "rack_location", rack_location)
+            _setter("rack_location", rack_location)
         if storage_appliance_configuration_data is not None:
-            pulumi.set(__self__, "storage_appliance_configuration_data", storage_appliance_configuration_data)
+            _setter("storage_appliance_configuration_data", storage_appliance_configuration_data)
 
     @property
     @pulumi.getter(name="networkRackId")
@@ -3253,27 +4237,70 @@ class ServiceLoadBalancerBgpPeerResponse(dict):
         :param float my_asn: The autonomous system number used for the local end of the BGP session.
         :param float peer_port: The port used to connect this BGP session.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "peer_address", peer_address)
-        pulumi.set(__self__, "peer_asn", peer_asn)
+        ServiceLoadBalancerBgpPeerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            peer_address=peer_address,
+            peer_asn=peer_asn,
+            bfd_enabled=bfd_enabled,
+            bgp_multi_hop=bgp_multi_hop,
+            hold_time=hold_time,
+            keep_alive_time=keep_alive_time,
+            my_asn=my_asn,
+            peer_port=peer_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             peer_address: str,
+             peer_asn: float,
+             bfd_enabled: Optional[str] = None,
+             bgp_multi_hop: Optional[str] = None,
+             hold_time: Optional[str] = None,
+             keep_alive_time: Optional[str] = None,
+             my_asn: Optional[float] = None,
+             peer_port: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peerAddress' in kwargs:
+            peer_address = kwargs['peerAddress']
+        if 'peerAsn' in kwargs:
+            peer_asn = kwargs['peerAsn']
+        if 'bfdEnabled' in kwargs:
+            bfd_enabled = kwargs['bfdEnabled']
+        if 'bgpMultiHop' in kwargs:
+            bgp_multi_hop = kwargs['bgpMultiHop']
+        if 'holdTime' in kwargs:
+            hold_time = kwargs['holdTime']
+        if 'keepAliveTime' in kwargs:
+            keep_alive_time = kwargs['keepAliveTime']
+        if 'myAsn' in kwargs:
+            my_asn = kwargs['myAsn']
+        if 'peerPort' in kwargs:
+            peer_port = kwargs['peerPort']
+
+        _setter("name", name)
+        _setter("peer_address", peer_address)
+        _setter("peer_asn", peer_asn)
         if bfd_enabled is None:
             bfd_enabled = 'False'
         if bfd_enabled is not None:
-            pulumi.set(__self__, "bfd_enabled", bfd_enabled)
+            _setter("bfd_enabled", bfd_enabled)
         if bgp_multi_hop is None:
             bgp_multi_hop = 'False'
         if bgp_multi_hop is not None:
-            pulumi.set(__self__, "bgp_multi_hop", bgp_multi_hop)
+            _setter("bgp_multi_hop", bgp_multi_hop)
         if hold_time is not None:
-            pulumi.set(__self__, "hold_time", hold_time)
+            _setter("hold_time", hold_time)
         if keep_alive_time is not None:
-            pulumi.set(__self__, "keep_alive_time", keep_alive_time)
+            _setter("keep_alive_time", keep_alive_time)
         if my_asn is not None:
-            pulumi.set(__self__, "my_asn", my_asn)
+            _setter("my_asn", my_asn)
         if peer_port is None:
             peer_port = 179
         if peer_port is not None:
-            pulumi.set(__self__, "peer_port", peer_port)
+            _setter("peer_port", peer_port)
 
     @property
     @pulumi.getter
@@ -3382,10 +4409,33 @@ class ServicePrincipalInformationResponse(dict):
         :param str principal_id: The principal ID, also known as the object ID, of the service principal.
         :param str tenant_id: The tenant ID, also known as the directory ID, of the tenant in which the service principal is created.
         """
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ServicePrincipalInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            password=password,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: str,
+             password: str,
+             principal_id: str,
+             tenant_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("application_id", application_id)
+        _setter("password", password)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -3444,7 +4494,20 @@ class SshPublicKeyResponse(dict):
         """
         :param str key_data: The SSH public key data.
         """
-        pulumi.set(__self__, "key_data", key_data)
+        SshPublicKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_data=key_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_data: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyData' in kwargs:
+            key_data = kwargs['keyData']
+
+        _setter("key_data", key_data)
 
     @property
     @pulumi.getter(name="keyData")
@@ -3491,11 +4554,36 @@ class StorageApplianceConfigurationDataResponse(dict):
         :param str serial_number: The serial number of the appliance.
         :param str storage_appliance_name: The user-provided name for the storage appliance that will be created from this specification.
         """
-        pulumi.set(__self__, "admin_credentials", admin_credentials)
-        pulumi.set(__self__, "rack_slot", rack_slot)
-        pulumi.set(__self__, "serial_number", serial_number)
+        StorageApplianceConfigurationDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_credentials=admin_credentials,
+            rack_slot=rack_slot,
+            serial_number=serial_number,
+            storage_appliance_name=storage_appliance_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_credentials: 'outputs.AdministrativeCredentialsResponse',
+             rack_slot: float,
+             serial_number: str,
+             storage_appliance_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminCredentials' in kwargs:
+            admin_credentials = kwargs['adminCredentials']
+        if 'rackSlot' in kwargs:
+            rack_slot = kwargs['rackSlot']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if 'storageApplianceName' in kwargs:
+            storage_appliance_name = kwargs['storageApplianceName']
+
+        _setter("admin_credentials", admin_credentials)
+        _setter("rack_slot", rack_slot)
+        _setter("serial_number", serial_number)
         if storage_appliance_name is not None:
-            pulumi.set(__self__, "storage_appliance_name", storage_appliance_name)
+            _setter("storage_appliance_name", storage_appliance_name)
 
     @property
     @pulumi.getter(name="adminCredentials")
@@ -3558,9 +4646,26 @@ class StorageProfileResponse(dict):
         :param 'OsDiskResponse' os_disk: The disk to use with this virtual machine.
         :param Sequence[str] volume_attachments: The resource IDs of volumes that are requested to be attached to the virtual machine.
         """
-        pulumi.set(__self__, "os_disk", os_disk)
+        StorageProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_disk=os_disk,
+            volume_attachments=volume_attachments,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_disk: 'outputs.OsDiskResponse',
+             volume_attachments: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'osDisk' in kwargs:
+            os_disk = kwargs['osDisk']
+        if 'volumeAttachments' in kwargs:
+            volume_attachments = kwargs['volumeAttachments']
+
+        _setter("os_disk", os_disk)
         if volume_attachments is not None:
-            pulumi.set(__self__, "volume_attachments", volume_attachments)
+            _setter("volume_attachments", volume_attachments)
 
     @property
     @pulumi.getter(name="osDisk")
@@ -3627,18 +4732,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -3717,11 +4855,28 @@ class TrunkedNetworkAttachmentConfigurationResponse(dict):
         :param str network_id: The resource ID of the network that is being configured for attachment.
         :param str plugin_type: The indicator of how this network will be utilized by the Kubernetes cluster.
         """
-        pulumi.set(__self__, "network_id", network_id)
+        TrunkedNetworkAttachmentConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_id=network_id,
+            plugin_type=plugin_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_id: str,
+             plugin_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if 'pluginType' in kwargs:
+            plugin_type = kwargs['pluginType']
+
+        _setter("network_id", network_id)
         if plugin_type is None:
             plugin_type = 'SRIOV'
         if plugin_type is not None:
-            pulumi.set(__self__, "plugin_type", plugin_type)
+            _setter("plugin_type", plugin_type)
 
     @property
     @pulumi.getter(name="networkId")
@@ -3751,9 +4906,24 @@ class ValidationThresholdResponse(dict):
         :param str type: Selection of how the threshold should be evaluated.
         :param float value: The numeric threshold value.
         """
-        pulumi.set(__self__, "grouping", grouping)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        ValidationThresholdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grouping=grouping,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grouping: str,
+             type: str,
+             value: float,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("grouping", grouping)
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3814,10 +4984,33 @@ class VirtualMachinePlacementHintResponse(dict):
         :param str scheduling_execution: The indicator of whether the hint is a hard or soft requirement during scheduling.
         :param str scope: The scope for the virtual machine affinity or anti-affinity placement hint. It should always be "Machine" in the case of node affinity.
         """
-        pulumi.set(__self__, "hint_type", hint_type)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "scheduling_execution", scheduling_execution)
-        pulumi.set(__self__, "scope", scope)
+        VirtualMachinePlacementHintResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hint_type=hint_type,
+            resource_id=resource_id,
+            scheduling_execution=scheduling_execution,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hint_type: str,
+             resource_id: str,
+             scheduling_execution: str,
+             scope: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hintType' in kwargs:
+            hint_type = kwargs['hintType']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'schedulingExecution' in kwargs:
+            scheduling_execution = kwargs['schedulingExecution']
+
+        _setter("hint_type", hint_type)
+        _setter("resource_id", resource_id)
+        _setter("scheduling_execution", scheduling_execution)
+        _setter("scope", scope)
 
     @property
     @pulumi.getter(name="hintType")

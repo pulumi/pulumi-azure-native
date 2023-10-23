@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,14 +30,43 @@ class CollectorPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]] emission_policies: Emission policies.
         :param pulumi.Input['IngestionPolicyPropertiesFormatArgs'] ingestion_policy: Ingestion policies.
         """
-        pulumi.set(__self__, "azure_traffic_collector_name", azure_traffic_collector_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CollectorPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_traffic_collector_name=azure_traffic_collector_name,
+            resource_group_name=resource_group_name,
+            collector_policy_name=collector_policy_name,
+            emission_policies=emission_policies,
+            ingestion_policy=ingestion_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_traffic_collector_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             collector_policy_name: Optional[pulumi.Input[str]] = None,
+             emission_policies: Optional[pulumi.Input[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]]] = None,
+             ingestion_policy: Optional[pulumi.Input['IngestionPolicyPropertiesFormatArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureTrafficCollectorName' in kwargs:
+            azure_traffic_collector_name = kwargs['azureTrafficCollectorName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'collectorPolicyName' in kwargs:
+            collector_policy_name = kwargs['collectorPolicyName']
+        if 'emissionPolicies' in kwargs:
+            emission_policies = kwargs['emissionPolicies']
+        if 'ingestionPolicy' in kwargs:
+            ingestion_policy = kwargs['ingestionPolicy']
+
+        _setter("azure_traffic_collector_name", azure_traffic_collector_name)
+        _setter("resource_group_name", resource_group_name)
         if collector_policy_name is not None:
-            pulumi.set(__self__, "collector_policy_name", collector_policy_name)
+            _setter("collector_policy_name", collector_policy_name)
         if emission_policies is not None:
-            pulumi.set(__self__, "emission_policies", emission_policies)
+            _setter("emission_policies", emission_policies)
         if ingestion_policy is not None:
-            pulumi.set(__self__, "ingestion_policy", ingestion_policy)
+            _setter("ingestion_policy", ingestion_policy)
 
     @property
     @pulumi.getter(name="azureTrafficCollectorName")
@@ -141,6 +170,10 @@ class CollectorPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CollectorPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -165,6 +198,11 @@ class CollectorPolicy(pulumi.CustomResource):
             __props__.__dict__["azure_traffic_collector_name"] = azure_traffic_collector_name
             __props__.__dict__["collector_policy_name"] = collector_policy_name
             __props__.__dict__["emission_policies"] = emission_policies
+            if ingestion_policy is not None and not isinstance(ingestion_policy, IngestionPolicyPropertiesFormatArgs):
+                ingestion_policy = ingestion_policy or {}
+                def _setter(key, value):
+                    ingestion_policy[key] = value
+                IngestionPolicyPropertiesFormatArgs._configure(_setter, **ingestion_policy)
             __props__.__dict__["ingestion_policy"] = ingestion_policy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

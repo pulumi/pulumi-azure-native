@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,23 +38,60 @@ class SecurityConnectorArgs:
         :param pulumi.Input[str] security_connector_name: The security connector name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of key value pairs that describe the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SecurityConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            environment_data=environment_data,
+            environment_name=environment_name,
+            hierarchy_identifier=hierarchy_identifier,
+            kind=kind,
+            location=location,
+            offerings=offerings,
+            security_connector_name=security_connector_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             environment_data: Optional[pulumi.Input[Union['AwsEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgs']]] = None,
+             environment_name: Optional[pulumi.Input[Union[str, 'CloudName']]] = None,
+             hierarchy_identifier: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             offerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorGcpOfferingArgs', 'CspmMonitorGitLabOfferingArgs', 'CspmMonitorGithubOfferingArgs', 'DefenderCspmAwsOfferingArgs', 'DefenderCspmGcpOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForContainersGcpOfferingArgs', 'DefenderForDatabasesGcpOfferingArgs', 'DefenderForDevOpsAzureDevOpsOfferingArgs', 'DefenderForDevOpsGitLabOfferingArgs', 'DefenderForDevOpsGithubOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'DefenderForServersGcpOfferingArgs', 'InformationProtectionAwsOfferingArgs']]]]] = None,
+             security_connector_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'environmentData' in kwargs:
+            environment_data = kwargs['environmentData']
+        if 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if 'hierarchyIdentifier' in kwargs:
+            hierarchy_identifier = kwargs['hierarchyIdentifier']
+        if 'securityConnectorName' in kwargs:
+            security_connector_name = kwargs['securityConnectorName']
+
+        _setter("resource_group_name", resource_group_name)
         if environment_data is not None:
-            pulumi.set(__self__, "environment_data", environment_data)
+            _setter("environment_data", environment_data)
         if environment_name is not None:
-            pulumi.set(__self__, "environment_name", environment_name)
+            _setter("environment_name", environment_name)
         if hierarchy_identifier is not None:
-            pulumi.set(__self__, "hierarchy_identifier", hierarchy_identifier)
+            _setter("hierarchy_identifier", hierarchy_identifier)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if offerings is not None:
-            pulumi.set(__self__, "offerings", offerings)
+            _setter("offerings", offerings)
         if security_connector_name is not None:
-            pulumi.set(__self__, "security_connector_name", security_connector_name)
+            _setter("security_connector_name", security_connector_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -214,6 +251,10 @@ class SecurityConnector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

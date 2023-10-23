@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SqlPoolWorkloadClassifierArgs', 'SqlPoolWorkloadClassifier']
@@ -39,23 +39,70 @@ class SqlPoolWorkloadClassifierArgs:
         :param pulumi.Input[str] start_time: The workload classifier start time for classification.
         :param pulumi.Input[str] workload_classifier_name: The name of the workload classifier.
         """
-        pulumi.set(__self__, "member_name", member_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sql_pool_name", sql_pool_name)
-        pulumi.set(__self__, "workload_group_name", workload_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        SqlPoolWorkloadClassifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            member_name=member_name,
+            resource_group_name=resource_group_name,
+            sql_pool_name=sql_pool_name,
+            workload_group_name=workload_group_name,
+            workspace_name=workspace_name,
+            context=context,
+            end_time=end_time,
+            importance=importance,
+            label=label,
+            start_time=start_time,
+            workload_classifier_name=workload_classifier_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             member_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             sql_pool_name: pulumi.Input[str],
+             workload_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             context: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             importance: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             workload_classifier_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'memberName' in kwargs:
+            member_name = kwargs['memberName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sqlPoolName' in kwargs:
+            sql_pool_name = kwargs['sqlPoolName']
+        if 'workloadGroupName' in kwargs:
+            workload_group_name = kwargs['workloadGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'workloadClassifierName' in kwargs:
+            workload_classifier_name = kwargs['workloadClassifierName']
+
+        _setter("member_name", member_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sql_pool_name", sql_pool_name)
+        _setter("workload_group_name", workload_group_name)
+        _setter("workspace_name", workspace_name)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if importance is not None:
-            pulumi.set(__self__, "importance", importance)
+            _setter("importance", importance)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if workload_classifier_name is not None:
-            pulumi.set(__self__, "workload_classifier_name", workload_classifier_name)
+            _setter("workload_classifier_name", workload_classifier_name)
 
     @property
     @pulumi.getter(name="memberName")
@@ -249,6 +296,10 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlPoolWorkloadClassifierArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

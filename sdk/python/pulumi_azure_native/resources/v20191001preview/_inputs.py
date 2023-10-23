@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -25,8 +25,21 @@ class ContainerConfigurationArgs:
         Settings to customize ACI container instance.
         :param pulumi.Input[str] container_group_name: Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
         """
+        ContainerConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_group_name=container_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerGroupName' in kwargs:
+            container_group_name = kwargs['containerGroupName']
+
         if container_group_name is not None:
-            pulumi.set(__self__, "container_group_name", container_group_name)
+            _setter("container_group_name", container_group_name)
 
     @property
     @pulumi.getter(name="containerGroupName")
@@ -53,11 +66,28 @@ class EnvironmentVariableArgs:
         :param pulumi.Input[str] secure_value: The value of the secure environment variable.
         :param pulumi.Input[str] value: The value of the environment variable.
         """
-        pulumi.set(__self__, "name", name)
+        EnvironmentVariableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secure_value=secure_value,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             secure_value: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secureValue' in kwargs:
+            secure_value = kwargs['secureValue']
+
+        _setter("name", name)
         if secure_value is not None:
-            pulumi.set(__self__, "secure_value", secure_value)
+            _setter("secure_value", secure_value)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -106,10 +136,25 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of the managed identity.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -146,10 +191,27 @@ class StorageAccountConfigurationArgs:
         :param pulumi.Input[str] storage_account_key: The storage account access key.
         :param pulumi.Input[str] storage_account_name: The storage account name.
         """
+        StorageAccountConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_account_key=storage_account_key,
+            storage_account_name=storage_account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         if storage_account_key is not None:
-            pulumi.set(__self__, "storage_account_key", storage_account_key)
+            _setter("storage_account_key", storage_account_key)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
 
     @property
     @pulumi.getter(name="storageAccountKey")

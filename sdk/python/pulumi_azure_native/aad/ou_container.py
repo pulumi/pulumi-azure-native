@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -30,16 +30,45 @@ class OuContainerArgs:
         :param pulumi.Input[str] password: The account password
         :param pulumi.Input[str] spn: The account spn
         """
-        pulumi.set(__self__, "domain_service_name", domain_service_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        OuContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_service_name=domain_service_name,
+            resource_group_name=resource_group_name,
+            account_name=account_name,
+            ou_container_name=ou_container_name,
+            password=password,
+            spn=spn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_service_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             ou_container_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             spn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainServiceName' in kwargs:
+            domain_service_name = kwargs['domainServiceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'ouContainerName' in kwargs:
+            ou_container_name = kwargs['ouContainerName']
+
+        _setter("domain_service_name", domain_service_name)
+        _setter("resource_group_name", resource_group_name)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if ou_container_name is not None:
-            pulumi.set(__self__, "ou_container_name", ou_container_name)
+            _setter("ou_container_name", ou_container_name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if spn is not None:
-            pulumi.set(__self__, "spn", spn)
+            _setter("spn", spn)
 
     @property
     @pulumi.getter(name="domainServiceName")
@@ -159,6 +188,10 @@ class OuContainer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OuContainerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

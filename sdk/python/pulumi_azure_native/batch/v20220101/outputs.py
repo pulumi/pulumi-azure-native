@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -65,14 +65,39 @@ class AutoStoragePropertiesResponse(dict):
         :param str authentication_mode: The authentication mode which the Batch service will use to manage the auto-storage account.
         :param 'ComputeNodeIdentityReferenceResponse' node_identity_reference: The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage.
         """
-        pulumi.set(__self__, "last_key_sync", last_key_sync)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        AutoStoragePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_key_sync=last_key_sync,
+            storage_account_id=storage_account_id,
+            authentication_mode=authentication_mode,
+            node_identity_reference=node_identity_reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_key_sync: str,
+             storage_account_id: str,
+             authentication_mode: Optional[str] = None,
+             node_identity_reference: Optional['outputs.ComputeNodeIdentityReferenceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastKeySync' in kwargs:
+            last_key_sync = kwargs['lastKeySync']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if 'nodeIdentityReference' in kwargs:
+            node_identity_reference = kwargs['nodeIdentityReference']
+
+        _setter("last_key_sync", last_key_sync)
+        _setter("storage_account_id", storage_account_id)
         if authentication_mode is None:
             authentication_mode = 'StorageKeys'
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if node_identity_reference is not None:
-            pulumi.set(__self__, "node_identity_reference", node_identity_reference)
+            _setter("node_identity_reference", node_identity_reference)
 
     @property
     @pulumi.getter(name="lastKeySync")
@@ -145,11 +170,34 @@ class BatchAccountIdentityResponse(dict):
         :param str type: The type of identity used for the Batch account.
         :param Mapping[str, 'UserAssignedIdentitiesResponse'] user_assigned_identities: The list of user identities associated with the Batch account.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        BatchAccountIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -212,8 +260,21 @@ class ComputeNodeIdentityReferenceResponse(dict):
         The reference to a user assigned identity associated with the Batch pool which a compute node will use.
         :param str resource_id: The ARM resource id of the user assigned identity.
         """
+        ComputeNodeIdentityReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -256,10 +317,27 @@ class EncryptionPropertiesResponse(dict):
         :param str key_source: Type of the key source.
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Additional details when using Microsoft.KeyVault
         """
+        EncryptionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_source=key_source,
+            key_vault_properties=key_vault_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_source: Optional[str] = None,
+             key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keySource' in kwargs:
+            key_source = kwargs['keySource']
+        if 'keyVaultProperties' in kwargs:
+            key_vault_properties = kwargs['keyVaultProperties']
+
         if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
+            _setter("key_source", key_source)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
 
     @property
     @pulumi.getter(name="keySource")
@@ -310,8 +388,21 @@ class KeyVaultPropertiesResponse(dict):
                 The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
                 The KeyVault has soft-delete and purge protection enabled
         """
+        KeyVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_identifier=key_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_identifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyIdentifier' in kwargs:
+            key_identifier = kwargs['keyIdentifier']
+
         if key_identifier is not None:
-            pulumi.set(__self__, "key_identifier", key_identifier)
+            _setter("key_identifier", key_identifier)
 
     @property
     @pulumi.getter(name="keyIdentifier")
@@ -339,8 +430,21 @@ class KeyVaultReferenceResponse(dict):
         :param str id: The resource ID of the Azure key vault associated with the Batch account.
         :param str url: The URL of the Azure key vault associated with the Batch account.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "url", url)
+        KeyVaultReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             url: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
+        _setter("url", url)
 
     @property
     @pulumi.getter
@@ -402,15 +506,44 @@ class PrivateEndpointConnectionResponse(dict):
         :param 'PrivateEndpointResponse' private_endpoint: The private endpoint of the private endpoint connection.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The private link service connection state of the private endpoint connection
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            name=name,
+            provisioning_state=provisioning_state,
+            type=type,
+            private_endpoint=private_endpoint,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             name: str,
+             provisioning_state: str,
+             type: str,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("type", type)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter
@@ -476,7 +609,18 @@ class PrivateEndpointResponse(dict):
         """
         The private endpoint of the private endpoint connection.
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -513,10 +657,27 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         """
         The private link service connection state of the private endpoint connection
         """
-        pulumi.set(__self__, "action_required", action_required)
-        pulumi.set(__self__, "status", status)
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_required=action_required,
+            status=status,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_required: str,
+             status: str,
+             description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionRequired' in kwargs:
+            action_required = kwargs['actionRequired']
+
+        _setter("action_required", action_required)
+        _setter("status", status)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="actionRequired")
@@ -566,8 +727,25 @@ class UserAssignedIdentitiesResponse(dict):
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentitiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -616,8 +794,23 @@ class VirtualMachineFamilyCoreQuotaResponse(dict):
         :param int core_quota: The core quota for the VM family for the Batch account.
         :param str name: The Virtual Machine family name.
         """
-        pulumi.set(__self__, "core_quota", core_quota)
-        pulumi.set(__self__, "name", name)
+        VirtualMachineFamilyCoreQuotaResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            core_quota=core_quota,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             core_quota: int,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'coreQuota' in kwargs:
+            core_quota = kwargs['coreQuota']
+
+        _setter("core_quota", core_quota)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="coreQuota")

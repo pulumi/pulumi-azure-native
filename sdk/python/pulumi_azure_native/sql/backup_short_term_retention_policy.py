@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BackupShortTermRetentionPolicyArgs', 'BackupShortTermRetentionPolicy']
@@ -29,15 +29,48 @@ class BackupShortTermRetentionPolicyArgs:
         :param pulumi.Input[str] policy_name: The policy name. Should always be "default".
         :param pulumi.Input[int] retention_days: The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        BackupShortTermRetentionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            diff_backup_interval_in_hours=diff_backup_interval_in_hours,
+            policy_name=policy_name,
+            retention_days=retention_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             diff_backup_interval_in_hours: Optional[pulumi.Input[int]] = None,
+             policy_name: Optional[pulumi.Input[str]] = None,
+             retention_days: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'diffBackupIntervalInHours' in kwargs:
+            diff_backup_interval_in_hours = kwargs['diffBackupIntervalInHours']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+
+        _setter("database_name", database_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if diff_backup_interval_in_hours is not None:
-            pulumi.set(__self__, "diff_backup_interval_in_hours", diff_backup_interval_in_hours)
+            _setter("diff_backup_interval_in_hours", diff_backup_interval_in_hours)
         if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+            _setter("policy_name", policy_name)
         if retention_days is not None:
-            pulumi.set(__self__, "retention_days", retention_days)
+            _setter("retention_days", retention_days)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -161,6 +194,10 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackupShortTermRetentionPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

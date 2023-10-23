@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -23,8 +23,25 @@ class DocumentProcessorPropertiesArgs:
         :param pulumi.Input[str] spo_tenant_id: The ID (GUID) of an SharePoint Online (SPO) tenant associated with this document processor resource
         :param pulumi.Input[str] spo_tenant_url: The URL of an SharePoint Online (SPO) tenant associated with this document processor resource
         """
-        pulumi.set(__self__, "spo_tenant_id", spo_tenant_id)
-        pulumi.set(__self__, "spo_tenant_url", spo_tenant_url)
+        DocumentProcessorPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            spo_tenant_id=spo_tenant_id,
+            spo_tenant_url=spo_tenant_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             spo_tenant_id: pulumi.Input[str],
+             spo_tenant_url: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'spoTenantId' in kwargs:
+            spo_tenant_id = kwargs['spoTenantId']
+        if 'spoTenantUrl' in kwargs:
+            spo_tenant_url = kwargs['spoTenantUrl']
+
+        _setter("spo_tenant_id", spo_tenant_id)
+        _setter("spo_tenant_url", spo_tenant_url)
 
     @property
     @pulumi.getter(name="spoTenantId")

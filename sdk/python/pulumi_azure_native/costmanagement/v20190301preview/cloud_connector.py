@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -37,24 +37,67 @@ class CloudConnectorArgs:
         :param pulumi.Input[str] report_id: Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
         :param pulumi.Input[str] subscription_id: Billing SubscriptionId
         """
+        CloudConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_model=billing_model,
+            connector_name=connector_name,
+            credentials_key=credentials_key,
+            credentials_secret=credentials_secret,
+            default_management_group_id=default_management_group_id,
+            display_name=display_name,
+            kind=kind,
+            report_id=report_id,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_model: Optional[pulumi.Input[Union[str, 'ConnectorBillingModel']]] = None,
+             connector_name: Optional[pulumi.Input[str]] = None,
+             credentials_key: Optional[pulumi.Input[str]] = None,
+             credentials_secret: Optional[pulumi.Input[str]] = None,
+             default_management_group_id: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             report_id: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billingModel' in kwargs:
+            billing_model = kwargs['billingModel']
+        if 'connectorName' in kwargs:
+            connector_name = kwargs['connectorName']
+        if 'credentialsKey' in kwargs:
+            credentials_key = kwargs['credentialsKey']
+        if 'credentialsSecret' in kwargs:
+            credentials_secret = kwargs['credentialsSecret']
+        if 'defaultManagementGroupId' in kwargs:
+            default_management_group_id = kwargs['defaultManagementGroupId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'reportId' in kwargs:
+            report_id = kwargs['reportId']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         if billing_model is not None:
-            pulumi.set(__self__, "billing_model", billing_model)
+            _setter("billing_model", billing_model)
         if connector_name is not None:
-            pulumi.set(__self__, "connector_name", connector_name)
+            _setter("connector_name", connector_name)
         if credentials_key is not None:
-            pulumi.set(__self__, "credentials_key", credentials_key)
+            _setter("credentials_key", credentials_key)
         if credentials_secret is not None:
-            pulumi.set(__self__, "credentials_secret", credentials_secret)
+            _setter("credentials_secret", credentials_secret)
         if default_management_group_id is not None:
-            pulumi.set(__self__, "default_management_group_id", default_management_group_id)
+            _setter("default_management_group_id", default_management_group_id)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if report_id is not None:
-            pulumi.set(__self__, "report_id", report_id)
+            _setter("report_id", report_id)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter(name="billingModel")
@@ -214,6 +257,10 @@ class CloudConnector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CloudConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

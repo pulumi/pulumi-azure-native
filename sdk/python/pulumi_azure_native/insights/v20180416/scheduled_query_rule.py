@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -42,27 +42,66 @@ class ScheduledQueryRuleArgs:
         :param pulumi.Input['ScheduleArgs'] schedule: Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source", source)
+        ScheduledQueryRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            resource_group_name=resource_group_name,
+            source=source,
+            auto_mitigate=auto_mitigate,
+            description=description,
+            display_name=display_name,
+            enabled=enabled,
+            location=location,
+            rule_name=rule_name,
+            schedule=schedule,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[Union['AlertingActionArgs', 'LogToMetricActionArgs']],
+             resource_group_name: pulumi.Input[str],
+             source: pulumi.Input['SourceArgs'],
+             auto_mitigate: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[Union[str, 'Enabled']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             rule_name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['ScheduleArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'autoMitigate' in kwargs:
+            auto_mitigate = kwargs['autoMitigate']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+
+        _setter("action", action)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source", source)
         if auto_mitigate is None:
             auto_mitigate = False
         if auto_mitigate is not None:
-            pulumi.set(__self__, "auto_mitigate", auto_mitigate)
+            _setter("auto_mitigate", auto_mitigate)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
+            _setter("rule_name", rule_name)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -250,6 +289,10 @@ class ScheduledQueryRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduledQueryRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -289,7 +332,17 @@ class ScheduledQueryRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rule_name"] = rule_name
+            if schedule is not None and not isinstance(schedule, ScheduleArgs):
+                schedule = schedule or {}
+                def _setter(key, value):
+                    schedule[key] = value
+                ScheduleArgs._configure(_setter, **schedule)
             __props__.__dict__["schedule"] = schedule
+            if source is not None and not isinstance(source, SourceArgs):
+                source = source or {}
+                def _setter(key, value):
+                    source[key] = value
+                SourceArgs._configure(_setter, **source)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source

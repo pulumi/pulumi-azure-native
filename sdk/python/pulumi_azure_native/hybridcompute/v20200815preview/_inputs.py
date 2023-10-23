@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -34,13 +34,32 @@ class LocationDataArgs:
         :param pulumi.Input[str] country_or_region: The country or region where the resource is located
         :param pulumi.Input[str] district: The district, state, or province where the resource is located.
         """
-        pulumi.set(__self__, "name", name)
+        LocationDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            city=city,
+            country_or_region=country_or_region,
+            district=district,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             city: Optional[pulumi.Input[str]] = None,
+             country_or_region: Optional[pulumi.Input[str]] = None,
+             district: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryOrRegion' in kwargs:
+            country_or_region = kwargs['countryOrRegion']
+
+        _setter("name", name)
         if city is not None:
-            pulumi.set(__self__, "city", city)
+            _setter("city", city)
         if country_or_region is not None:
-            pulumi.set(__self__, "country_or_region", country_or_region)
+            _setter("country_or_region", country_or_region)
         if district is not None:
-            pulumi.set(__self__, "district", district)
+            _setter("district", district)
 
     @property
     @pulumi.getter
@@ -107,16 +126,37 @@ class MachineExtensionInstanceViewStatusArgs:
         :param pulumi.Input[str] message: The detailed status message, including for alerts and error messages.
         :param pulumi.Input[str] time: The time of the status.
         """
+        MachineExtensionInstanceViewStatusArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            display_status=display_status,
+            level=level,
+            message=message,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[pulumi.Input[str]] = None,
+             display_status: Optional[pulumi.Input[str]] = None,
+             level: Optional[pulumi.Input[Union[str, 'StatusLevelTypes']]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayStatus' in kwargs:
+            display_status = kwargs['displayStatus']
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if display_status is not None:
-            pulumi.set(__self__, "display_status", display_status)
+            _setter("display_status", display_status)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if time is not None:
-            pulumi.set(__self__, "time", time)
+            _setter("time", time)
 
     @property
     @pulumi.getter
@@ -193,14 +233,33 @@ class MachineExtensionInstanceViewArgs:
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
         """
+        MachineExtensionInstanceViewArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            status=status,
+            type=type,
+            type_handler_version=type_handler_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input['MachineExtensionInstanceViewStatusArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             type_handler_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if type_handler_version is not None:
-            pulumi.set(__self__, "type_handler_version", type_handler_version)
+            _setter("type_handler_version", type_handler_version)
 
     @property
     @pulumi.getter
@@ -265,14 +324,33 @@ class MachineExtensionPropertiesInstanceViewArgs:
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
         """
+        MachineExtensionPropertiesInstanceViewArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            status=status,
+            type=type,
+            type_handler_version=type_handler_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input['MachineExtensionInstanceViewStatusArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             type_handler_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if type_handler_version is not None:
-            pulumi.set(__self__, "type_handler_version", type_handler_version)
+            _setter("type_handler_version", type_handler_version)
 
     @property
     @pulumi.getter
@@ -330,8 +408,19 @@ class MachineIdentityArgs:
         """
         :param pulumi.Input[str] type: The identity type.
         """
+        MachineIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -354,8 +443,19 @@ class PrivateEndpointPropertyArgs:
         Private endpoint which the connection belongs to.
         :param pulumi.Input[str] id: Resource id of the private endpoint.
         """
+        PrivateEndpointPropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -380,8 +480,21 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
         :param pulumi.Input[str] description: The private link service connection description.
         :param pulumi.Input[str] status: The private link service connection status.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
+        PrivateLinkServiceConnectionStatePropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: pulumi.Input[str],
+             status: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("description", description)
+        _setter("status", status)
 
     @property
     @pulumi.getter

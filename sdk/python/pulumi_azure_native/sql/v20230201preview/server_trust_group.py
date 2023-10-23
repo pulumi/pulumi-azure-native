@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,12 +29,41 @@ class ServerTrustGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trust_scopes: Trust scope of the server trust group.
         :param pulumi.Input[str] server_trust_group_name: The name of the server trust group.
         """
-        pulumi.set(__self__, "group_members", group_members)
-        pulumi.set(__self__, "location_name", location_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "trust_scopes", trust_scopes)
+        ServerTrustGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_members=group_members,
+            location_name=location_name,
+            resource_group_name=resource_group_name,
+            trust_scopes=trust_scopes,
+            server_trust_group_name=server_trust_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_members: pulumi.Input[Sequence[pulumi.Input['ServerInfoArgs']]],
+             location_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             trust_scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             server_trust_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupMembers' in kwargs:
+            group_members = kwargs['groupMembers']
+        if 'locationName' in kwargs:
+            location_name = kwargs['locationName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'trustScopes' in kwargs:
+            trust_scopes = kwargs['trustScopes']
+        if 'serverTrustGroupName' in kwargs:
+            server_trust_group_name = kwargs['serverTrustGroupName']
+
+        _setter("group_members", group_members)
+        _setter("location_name", location_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("trust_scopes", trust_scopes)
         if server_trust_group_name is not None:
-            pulumi.set(__self__, "server_trust_group_name", server_trust_group_name)
+            _setter("server_trust_group_name", server_trust_group_name)
 
     @property
     @pulumi.getter(name="groupMembers")
@@ -138,6 +167,10 @@ class ServerTrustGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerTrustGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

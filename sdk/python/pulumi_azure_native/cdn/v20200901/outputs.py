@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,10 +54,27 @@ class CompressionSettingsResponse(dict):
         :param Sequence[str] content_types_to_compress: List of content types on which compression applies. The value should be a valid MIME type.
         :param bool is_compression_enabled: Indicates whether content compression is enabled on AzureFrontDoor. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
         """
+        CompressionSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_types_to_compress=content_types_to_compress,
+            is_compression_enabled=is_compression_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_types_to_compress: Optional[Sequence[str]] = None,
+             is_compression_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentTypesToCompress' in kwargs:
+            content_types_to_compress = kwargs['contentTypesToCompress']
+        if 'isCompressionEnabled' in kwargs:
+            is_compression_enabled = kwargs['isCompressionEnabled']
+
         if content_types_to_compress is not None:
-            pulumi.set(__self__, "content_types_to_compress", content_types_to_compress)
+            _setter("content_types_to_compress", content_types_to_compress)
         if is_compression_enabled is not None:
-            pulumi.set(__self__, "is_compression_enabled", is_compression_enabled)
+            _setter("is_compression_enabled", is_compression_enabled)
 
     @property
     @pulumi.getter(name="contentTypesToCompress")
@@ -116,14 +133,39 @@ class HealthProbeParametersResponse(dict):
         :param str probe_protocol: Protocol to use for health probe.
         :param str probe_request_type: The type of health probe request that is made.
         """
+        HealthProbeParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            probe_interval_in_seconds=probe_interval_in_seconds,
+            probe_path=probe_path,
+            probe_protocol=probe_protocol,
+            probe_request_type=probe_request_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             probe_interval_in_seconds: Optional[int] = None,
+             probe_path: Optional[str] = None,
+             probe_protocol: Optional[str] = None,
+             probe_request_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'probeIntervalInSeconds' in kwargs:
+            probe_interval_in_seconds = kwargs['probeIntervalInSeconds']
+        if 'probePath' in kwargs:
+            probe_path = kwargs['probePath']
+        if 'probeProtocol' in kwargs:
+            probe_protocol = kwargs['probeProtocol']
+        if 'probeRequestType' in kwargs:
+            probe_request_type = kwargs['probeRequestType']
+
         if probe_interval_in_seconds is not None:
-            pulumi.set(__self__, "probe_interval_in_seconds", probe_interval_in_seconds)
+            _setter("probe_interval_in_seconds", probe_interval_in_seconds)
         if probe_path is not None:
-            pulumi.set(__self__, "probe_path", probe_path)
+            _setter("probe_path", probe_path)
         if probe_protocol is not None:
-            pulumi.set(__self__, "probe_protocol", probe_protocol)
+            _setter("probe_protocol", probe_protocol)
         if probe_request_type is not None:
-            pulumi.set(__self__, "probe_request_type", probe_request_type)
+            _setter("probe_request_type", probe_request_type)
 
     @property
     @pulumi.getter(name="probeIntervalInSeconds")
@@ -171,10 +213,23 @@ class HttpErrorRangeParametersResponse(dict):
         :param int begin: The inclusive start of the http status code range.
         :param int end: The inclusive end of the http status code range.
         """
+        HttpErrorRangeParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            begin=begin,
+            end=end,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             begin: Optional[int] = None,
+             end: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if begin is not None:
-            pulumi.set(__self__, "begin", begin)
+            _setter("begin", begin)
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
 
     @property
     @pulumi.getter
@@ -229,12 +284,33 @@ class LoadBalancingSettingsParametersResponse(dict):
         :param int sample_size: The number of samples to consider for load balancing decisions
         :param int successful_samples_required: The number of samples within the sample period that must succeed
         """
+        LoadBalancingSettingsParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_latency_in_milliseconds=additional_latency_in_milliseconds,
+            sample_size=sample_size,
+            successful_samples_required=successful_samples_required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_latency_in_milliseconds: Optional[int] = None,
+             sample_size: Optional[int] = None,
+             successful_samples_required: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalLatencyInMilliseconds' in kwargs:
+            additional_latency_in_milliseconds = kwargs['additionalLatencyInMilliseconds']
+        if 'sampleSize' in kwargs:
+            sample_size = kwargs['sampleSize']
+        if 'successfulSamplesRequired' in kwargs:
+            successful_samples_required = kwargs['successfulSamplesRequired']
+
         if additional_latency_in_milliseconds is not None:
-            pulumi.set(__self__, "additional_latency_in_milliseconds", additional_latency_in_milliseconds)
+            _setter("additional_latency_in_milliseconds", additional_latency_in_milliseconds)
         if sample_size is not None:
-            pulumi.set(__self__, "sample_size", sample_size)
+            _setter("sample_size", sample_size)
         if successful_samples_required is not None:
-            pulumi.set(__self__, "successful_samples_required", successful_samples_required)
+            _setter("successful_samples_required", successful_samples_required)
 
     @property
     @pulumi.getter(name="additionalLatencyInMilliseconds")
@@ -272,8 +348,19 @@ class ResourceReferenceResponse(dict):
         Reference to another resource.
         :param str id: Resource ID.
         """
+        ResourceReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -320,12 +407,33 @@ class ResponseBasedOriginErrorDetectionParametersResponse(dict):
         :param str response_based_detected_error_types: Type of response errors for real user requests for which origin will be deemed unhealthy
         :param int response_based_failover_threshold_percentage: The percentage of failed requests in the sample where failover should trigger.
         """
+        ResponseBasedOriginErrorDetectionParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_error_ranges=http_error_ranges,
+            response_based_detected_error_types=response_based_detected_error_types,
+            response_based_failover_threshold_percentage=response_based_failover_threshold_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_error_ranges: Optional[Sequence['outputs.HttpErrorRangeParametersResponse']] = None,
+             response_based_detected_error_types: Optional[str] = None,
+             response_based_failover_threshold_percentage: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpErrorRanges' in kwargs:
+            http_error_ranges = kwargs['httpErrorRanges']
+        if 'responseBasedDetectedErrorTypes' in kwargs:
+            response_based_detected_error_types = kwargs['responseBasedDetectedErrorTypes']
+        if 'responseBasedFailoverThresholdPercentage' in kwargs:
+            response_based_failover_threshold_percentage = kwargs['responseBasedFailoverThresholdPercentage']
+
         if http_error_ranges is not None:
-            pulumi.set(__self__, "http_error_ranges", http_error_ranges)
+            _setter("http_error_ranges", http_error_ranges)
         if response_based_detected_error_types is not None:
-            pulumi.set(__self__, "response_based_detected_error_types", response_based_detected_error_types)
+            _setter("response_based_detected_error_types", response_based_detected_error_types)
         if response_based_failover_threshold_percentage is not None:
-            pulumi.set(__self__, "response_based_failover_threshold_percentage", response_based_failover_threshold_percentage)
+            _setter("response_based_failover_threshold_percentage", response_based_failover_threshold_percentage)
 
     @property
     @pulumi.getter(name="httpErrorRanges")
@@ -363,8 +471,19 @@ class SkuResponse(dict):
         The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
         :param str name: Name of the pricing tier.
         """
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -423,18 +542,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: An identifier for the identity that last modified the resource
         :param str last_modified_by_type: The type of identity that last modified the resource
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

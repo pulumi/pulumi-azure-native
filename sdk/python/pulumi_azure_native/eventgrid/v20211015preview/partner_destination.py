@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -42,27 +42,76 @@ class PartnerDestinationArgs:
         :param pulumi.Input[Union[str, 'PartnerDestinationProvisioningState']] provisioning_state: Provisioning state of the partner destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PartnerDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            activation_state=activation_state,
+            endpoint_base_url=endpoint_base_url,
+            endpoint_service_context=endpoint_service_context,
+            expiration_time_if_not_activated_utc=expiration_time_if_not_activated_utc,
+            location=location,
+            message_for_activation=message_for_activation,
+            partner_destination_name=partner_destination_name,
+            partner_registration_immutable_id=partner_registration_immutable_id,
+            provisioning_state=provisioning_state,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             activation_state: Optional[pulumi.Input[Union[str, 'PartnerDestinationActivationState']]] = None,
+             endpoint_base_url: Optional[pulumi.Input[str]] = None,
+             endpoint_service_context: Optional[pulumi.Input[str]] = None,
+             expiration_time_if_not_activated_utc: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             message_for_activation: Optional[pulumi.Input[str]] = None,
+             partner_destination_name: Optional[pulumi.Input[str]] = None,
+             partner_registration_immutable_id: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'PartnerDestinationProvisioningState']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'activationState' in kwargs:
+            activation_state = kwargs['activationState']
+        if 'endpointBaseUrl' in kwargs:
+            endpoint_base_url = kwargs['endpointBaseUrl']
+        if 'endpointServiceContext' in kwargs:
+            endpoint_service_context = kwargs['endpointServiceContext']
+        if 'expirationTimeIfNotActivatedUtc' in kwargs:
+            expiration_time_if_not_activated_utc = kwargs['expirationTimeIfNotActivatedUtc']
+        if 'messageForActivation' in kwargs:
+            message_for_activation = kwargs['messageForActivation']
+        if 'partnerDestinationName' in kwargs:
+            partner_destination_name = kwargs['partnerDestinationName']
+        if 'partnerRegistrationImmutableId' in kwargs:
+            partner_registration_immutable_id = kwargs['partnerRegistrationImmutableId']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("resource_group_name", resource_group_name)
         if activation_state is not None:
-            pulumi.set(__self__, "activation_state", activation_state)
+            _setter("activation_state", activation_state)
         if endpoint_base_url is not None:
-            pulumi.set(__self__, "endpoint_base_url", endpoint_base_url)
+            _setter("endpoint_base_url", endpoint_base_url)
         if endpoint_service_context is not None:
-            pulumi.set(__self__, "endpoint_service_context", endpoint_service_context)
+            _setter("endpoint_service_context", endpoint_service_context)
         if expiration_time_if_not_activated_utc is not None:
-            pulumi.set(__self__, "expiration_time_if_not_activated_utc", expiration_time_if_not_activated_utc)
+            _setter("expiration_time_if_not_activated_utc", expiration_time_if_not_activated_utc)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if message_for_activation is not None:
-            pulumi.set(__self__, "message_for_activation", message_for_activation)
+            _setter("message_for_activation", message_for_activation)
         if partner_destination_name is not None:
-            pulumi.set(__self__, "partner_destination_name", partner_destination_name)
+            _setter("partner_destination_name", partner_destination_name)
         if partner_registration_immutable_id is not None:
-            pulumi.set(__self__, "partner_registration_immutable_id", partner_registration_immutable_id)
+            _setter("partner_registration_immutable_id", partner_registration_immutable_id)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -252,6 +301,10 @@ class PartnerDestination(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PartnerDestinationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

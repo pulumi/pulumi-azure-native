@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -58,8 +58,25 @@ class AuthorizedGroundstationResponse(dict):
         :param str expiration_date: Date of authorization expiration.
         :param str ground_station: Groundstation name.
         """
-        pulumi.set(__self__, "expiration_date", expiration_date)
-        pulumi.set(__self__, "ground_station", ground_station)
+        AuthorizedGroundstationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration_date=expiration_date,
+            ground_station=ground_station,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration_date: str,
+             ground_station: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'groundStation' in kwargs:
+            ground_station = kwargs['groundStation']
+
+        _setter("expiration_date", expiration_date)
+        _setter("ground_station", ground_station)
 
     @property
     @pulumi.getter(name="expirationDate")
@@ -109,18 +126,69 @@ class AvailableContactsResponse(dict):
         :param str tx_start_time: Time at which antenna transmit will be enabled (ISO 8601 UTC standard).
         :param 'AvailableContactsResponseSpacecraft' spacecraft: The reference to the spacecraft resource.
         """
-        pulumi.set(__self__, "end_azimuth_degrees", end_azimuth_degrees)
-        pulumi.set(__self__, "end_elevation_degrees", end_elevation_degrees)
-        pulumi.set(__self__, "ground_station_name", ground_station_name)
-        pulumi.set(__self__, "maximum_elevation_degrees", maximum_elevation_degrees)
-        pulumi.set(__self__, "rx_end_time", rx_end_time)
-        pulumi.set(__self__, "rx_start_time", rx_start_time)
-        pulumi.set(__self__, "start_azimuth_degrees", start_azimuth_degrees)
-        pulumi.set(__self__, "start_elevation_degrees", start_elevation_degrees)
-        pulumi.set(__self__, "tx_end_time", tx_end_time)
-        pulumi.set(__self__, "tx_start_time", tx_start_time)
+        AvailableContactsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_azimuth_degrees=end_azimuth_degrees,
+            end_elevation_degrees=end_elevation_degrees,
+            ground_station_name=ground_station_name,
+            maximum_elevation_degrees=maximum_elevation_degrees,
+            rx_end_time=rx_end_time,
+            rx_start_time=rx_start_time,
+            start_azimuth_degrees=start_azimuth_degrees,
+            start_elevation_degrees=start_elevation_degrees,
+            tx_end_time=tx_end_time,
+            tx_start_time=tx_start_time,
+            spacecraft=spacecraft,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_azimuth_degrees: float,
+             end_elevation_degrees: float,
+             ground_station_name: str,
+             maximum_elevation_degrees: float,
+             rx_end_time: str,
+             rx_start_time: str,
+             start_azimuth_degrees: float,
+             start_elevation_degrees: float,
+             tx_end_time: str,
+             tx_start_time: str,
+             spacecraft: Optional['outputs.AvailableContactsResponseSpacecraft'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endAzimuthDegrees' in kwargs:
+            end_azimuth_degrees = kwargs['endAzimuthDegrees']
+        if 'endElevationDegrees' in kwargs:
+            end_elevation_degrees = kwargs['endElevationDegrees']
+        if 'groundStationName' in kwargs:
+            ground_station_name = kwargs['groundStationName']
+        if 'maximumElevationDegrees' in kwargs:
+            maximum_elevation_degrees = kwargs['maximumElevationDegrees']
+        if 'rxEndTime' in kwargs:
+            rx_end_time = kwargs['rxEndTime']
+        if 'rxStartTime' in kwargs:
+            rx_start_time = kwargs['rxStartTime']
+        if 'startAzimuthDegrees' in kwargs:
+            start_azimuth_degrees = kwargs['startAzimuthDegrees']
+        if 'startElevationDegrees' in kwargs:
+            start_elevation_degrees = kwargs['startElevationDegrees']
+        if 'txEndTime' in kwargs:
+            tx_end_time = kwargs['txEndTime']
+        if 'txStartTime' in kwargs:
+            tx_start_time = kwargs['txStartTime']
+
+        _setter("end_azimuth_degrees", end_azimuth_degrees)
+        _setter("end_elevation_degrees", end_elevation_degrees)
+        _setter("ground_station_name", ground_station_name)
+        _setter("maximum_elevation_degrees", maximum_elevation_degrees)
+        _setter("rx_end_time", rx_end_time)
+        _setter("rx_start_time", rx_start_time)
+        _setter("start_azimuth_degrees", start_azimuth_degrees)
+        _setter("start_elevation_degrees", start_elevation_degrees)
+        _setter("tx_end_time", tx_end_time)
+        _setter("tx_start_time", tx_start_time)
         if spacecraft is not None:
-            pulumi.set(__self__, "spacecraft", spacecraft)
+            _setter("spacecraft", spacecraft)
 
     @property
     @pulumi.getter(name="endAzimuthDegrees")
@@ -222,7 +290,18 @@ class AvailableContactsResponseSpacecraft(dict):
         The reference to the spacecraft resource.
         :param str id: Resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        AvailableContactsResponseSpacecraft._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -287,18 +366,57 @@ class ContactProfileLinkChannelResponse(dict):
         :param str encoding_configuration: Currently unused.
         :param str modulation_configuration: Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
         """
-        pulumi.set(__self__, "bandwidth_m_hz", bandwidth_m_hz)
-        pulumi.set(__self__, "center_frequency_m_hz", center_frequency_m_hz)
-        pulumi.set(__self__, "end_point", end_point)
-        pulumi.set(__self__, "name", name)
+        ContactProfileLinkChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bandwidth_m_hz=bandwidth_m_hz,
+            center_frequency_m_hz=center_frequency_m_hz,
+            end_point=end_point,
+            name=name,
+            decoding_configuration=decoding_configuration,
+            demodulation_configuration=demodulation_configuration,
+            encoding_configuration=encoding_configuration,
+            modulation_configuration=modulation_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bandwidth_m_hz: float,
+             center_frequency_m_hz: float,
+             end_point: 'outputs.EndPointResponse',
+             name: str,
+             decoding_configuration: Optional[str] = None,
+             demodulation_configuration: Optional[str] = None,
+             encoding_configuration: Optional[str] = None,
+             modulation_configuration: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bandwidthMHz' in kwargs:
+            bandwidth_m_hz = kwargs['bandwidthMHz']
+        if 'centerFrequencyMHz' in kwargs:
+            center_frequency_m_hz = kwargs['centerFrequencyMHz']
+        if 'endPoint' in kwargs:
+            end_point = kwargs['endPoint']
+        if 'decodingConfiguration' in kwargs:
+            decoding_configuration = kwargs['decodingConfiguration']
+        if 'demodulationConfiguration' in kwargs:
+            demodulation_configuration = kwargs['demodulationConfiguration']
+        if 'encodingConfiguration' in kwargs:
+            encoding_configuration = kwargs['encodingConfiguration']
+        if 'modulationConfiguration' in kwargs:
+            modulation_configuration = kwargs['modulationConfiguration']
+
+        _setter("bandwidth_m_hz", bandwidth_m_hz)
+        _setter("center_frequency_m_hz", center_frequency_m_hz)
+        _setter("end_point", end_point)
+        _setter("name", name)
         if decoding_configuration is not None:
-            pulumi.set(__self__, "decoding_configuration", decoding_configuration)
+            _setter("decoding_configuration", decoding_configuration)
         if demodulation_configuration is not None:
-            pulumi.set(__self__, "demodulation_configuration", demodulation_configuration)
+            _setter("demodulation_configuration", demodulation_configuration)
         if encoding_configuration is not None:
-            pulumi.set(__self__, "encoding_configuration", encoding_configuration)
+            _setter("encoding_configuration", encoding_configuration)
         if modulation_configuration is not None:
-            pulumi.set(__self__, "modulation_configuration", modulation_configuration)
+            _setter("modulation_configuration", modulation_configuration)
 
     @property
     @pulumi.getter(name="bandwidthMHz")
@@ -405,14 +523,39 @@ class ContactProfileLinkResponse(dict):
         :param float eirpd_bw: Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
         :param float gain_over_temperature: Gain to noise temperature in db/K. It is the required G/T by the customer. Not used yet.
         """
-        pulumi.set(__self__, "channels", channels)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "polarization", polarization)
+        ContactProfileLinkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channels=channels,
+            direction=direction,
+            name=name,
+            polarization=polarization,
+            eirpd_bw=eirpd_bw,
+            gain_over_temperature=gain_over_temperature,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channels: Sequence['outputs.ContactProfileLinkChannelResponse'],
+             direction: str,
+             name: str,
+             polarization: str,
+             eirpd_bw: Optional[float] = None,
+             gain_over_temperature: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eirpdBW' in kwargs:
+            eirpd_bw = kwargs['eirpdBW']
+        if 'gainOverTemperature' in kwargs:
+            gain_over_temperature = kwargs['gainOverTemperature']
+
+        _setter("channels", channels)
+        _setter("direction", direction)
+        _setter("name", name)
+        _setter("polarization", polarization)
         if eirpd_bw is not None:
-            pulumi.set(__self__, "eirpd_bw", eirpd_bw)
+            _setter("eirpd_bw", eirpd_bw)
         if gain_over_temperature is not None:
-            pulumi.set(__self__, "gain_over_temperature", gain_over_temperature)
+            _setter("gain_over_temperature", gain_over_temperature)
 
     @property
     @pulumi.getter
@@ -495,8 +638,25 @@ class ContactProfileThirdPartyConfigurationResponse(dict):
         :param str mission_configuration: Name of string referencing the configuration describing contact set-up for a particular mission. Expected values are those which have been created in collaboration with the partner network.
         :param str provider_name: Name of the third-party provider.
         """
-        pulumi.set(__self__, "mission_configuration", mission_configuration)
-        pulumi.set(__self__, "provider_name", provider_name)
+        ContactProfileThirdPartyConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mission_configuration=mission_configuration,
+            provider_name=provider_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mission_configuration: str,
+             provider_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'missionConfiguration' in kwargs:
+            mission_configuration = kwargs['missionConfiguration']
+        if 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+
+        _setter("mission_configuration", mission_configuration)
+        _setter("provider_name", provider_name)
 
     @property
     @pulumi.getter(name="missionConfiguration")
@@ -543,7 +703,20 @@ class ContactProfilesPropertiesResponseNetworkConfiguration(dict):
         Network configuration of customer virtual network.
         :param str subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        ContactProfilesPropertiesResponseNetworkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -586,10 +759,27 @@ class ContactsPropertiesResponseAntennaConfiguration(dict):
         :param str destination_ip: The destination IP a packet can be sent to. This would for example be the TCP endpoint you would send data to.
         :param Sequence[str] source_ips: List of Source IP
         """
+        ContactsPropertiesResponseAntennaConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_ip=destination_ip,
+            source_ips=source_ips,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_ip: Optional[str] = None,
+             source_ips: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationIp' in kwargs:
+            destination_ip = kwargs['destinationIp']
+        if 'sourceIps' in kwargs:
+            source_ips = kwargs['sourceIps']
+
         if destination_ip is not None:
-            pulumi.set(__self__, "destination_ip", destination_ip)
+            _setter("destination_ip", destination_ip)
         if source_ips is not None:
-            pulumi.set(__self__, "source_ips", source_ips)
+            _setter("source_ips", source_ips)
 
     @property
     @pulumi.getter(name="destinationIp")
@@ -619,7 +809,18 @@ class ContactsPropertiesResponseContactProfile(dict):
         The reference to the contact profile resource.
         :param str id: Resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        ContactsPropertiesResponseContactProfile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -666,10 +867,31 @@ class EndPointResponse(dict):
         :param str port: TCP port to listen on to receive data.
         :param str protocol: Protocol either UDP or TCP.
         """
-        pulumi.set(__self__, "end_point_name", end_point_name)
-        pulumi.set(__self__, "ip_address", ip_address)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
+        EndPointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_point_name=end_point_name,
+            ip_address=ip_address,
+            port=port,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_point_name: str,
+             ip_address: str,
+             port: str,
+             protocol: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endPointName' in kwargs:
+            end_point_name = kwargs['endPointName']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
+        _setter("end_point_name", end_point_name)
+        _setter("ip_address", ip_address)
+        _setter("port", port)
+        _setter("protocol", protocol)
 
     @property
     @pulumi.getter(name="endPointName")
@@ -744,12 +966,37 @@ class SpacecraftLinkResponse(dict):
         :param str name: Link name.
         :param str polarization: Polarization. e.g. (RHCP, LHCP).
         """
-        pulumi.set(__self__, "authorizations", authorizations)
-        pulumi.set(__self__, "bandwidth_m_hz", bandwidth_m_hz)
-        pulumi.set(__self__, "center_frequency_m_hz", center_frequency_m_hz)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "polarization", polarization)
+        SpacecraftLinkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorizations=authorizations,
+            bandwidth_m_hz=bandwidth_m_hz,
+            center_frequency_m_hz=center_frequency_m_hz,
+            direction=direction,
+            name=name,
+            polarization=polarization,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorizations: Sequence['outputs.AuthorizedGroundstationResponse'],
+             bandwidth_m_hz: float,
+             center_frequency_m_hz: float,
+             direction: str,
+             name: str,
+             polarization: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bandwidthMHz' in kwargs:
+            bandwidth_m_hz = kwargs['bandwidthMHz']
+        if 'centerFrequencyMHz' in kwargs:
+            center_frequency_m_hz = kwargs['centerFrequencyMHz']
+
+        _setter("authorizations", authorizations)
+        _setter("bandwidth_m_hz", bandwidth_m_hz)
+        _setter("center_frequency_m_hz", center_frequency_m_hz)
+        _setter("direction", direction)
+        _setter("name", name)
+        _setter("polarization", polarization)
 
     @property
     @pulumi.getter
@@ -848,18 +1095,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

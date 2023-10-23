@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -45,29 +45,74 @@ class DataCollectionRuleArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['StreamDeclarationArgs']]] stream_declarations: Declaration of custom streams used in this rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DataCollectionRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            data_collection_endpoint_id=data_collection_endpoint_id,
+            data_collection_rule_name=data_collection_rule_name,
+            data_flows=data_flows,
+            data_sources=data_sources,
+            description=description,
+            destinations=destinations,
+            identity=identity,
+            kind=kind,
+            location=location,
+            stream_declarations=stream_declarations,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
+             data_collection_rule_name: Optional[pulumi.Input[str]] = None,
+             data_flows: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowArgs']]]] = None,
+             data_sources: Optional[pulumi.Input['DataCollectionRuleDataSourcesArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             destinations: Optional[pulumi.Input['DataCollectionRuleDestinationsArgs']] = None,
+             identity: Optional[pulumi.Input['DataCollectionRuleResourceIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[Union[str, 'KnownDataCollectionRuleResourceKind']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             stream_declarations: Optional[pulumi.Input[Mapping[str, pulumi.Input['StreamDeclarationArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'dataCollectionEndpointId' in kwargs:
+            data_collection_endpoint_id = kwargs['dataCollectionEndpointId']
+        if 'dataCollectionRuleName' in kwargs:
+            data_collection_rule_name = kwargs['dataCollectionRuleName']
+        if 'dataFlows' in kwargs:
+            data_flows = kwargs['dataFlows']
+        if 'dataSources' in kwargs:
+            data_sources = kwargs['dataSources']
+        if 'streamDeclarations' in kwargs:
+            stream_declarations = kwargs['streamDeclarations']
+
+        _setter("resource_group_name", resource_group_name)
         if data_collection_endpoint_id is not None:
-            pulumi.set(__self__, "data_collection_endpoint_id", data_collection_endpoint_id)
+            _setter("data_collection_endpoint_id", data_collection_endpoint_id)
         if data_collection_rule_name is not None:
-            pulumi.set(__self__, "data_collection_rule_name", data_collection_rule_name)
+            _setter("data_collection_rule_name", data_collection_rule_name)
         if data_flows is not None:
-            pulumi.set(__self__, "data_flows", data_flows)
+            _setter("data_flows", data_flows)
         if data_sources is not None:
-            pulumi.set(__self__, "data_sources", data_sources)
+            _setter("data_sources", data_sources)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+            _setter("destinations", destinations)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if stream_declarations is not None:
-            pulumi.set(__self__, "stream_declarations", stream_declarations)
+            _setter("stream_declarations", stream_declarations)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -273,6 +318,10 @@ class DataCollectionRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataCollectionRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -302,9 +351,24 @@ class DataCollectionRule(pulumi.CustomResource):
             __props__.__dict__["data_collection_endpoint_id"] = data_collection_endpoint_id
             __props__.__dict__["data_collection_rule_name"] = data_collection_rule_name
             __props__.__dict__["data_flows"] = data_flows
+            if data_sources is not None and not isinstance(data_sources, DataCollectionRuleDataSourcesArgs):
+                data_sources = data_sources or {}
+                def _setter(key, value):
+                    data_sources[key] = value
+                DataCollectionRuleDataSourcesArgs._configure(_setter, **data_sources)
             __props__.__dict__["data_sources"] = data_sources
             __props__.__dict__["description"] = description
+            if destinations is not None and not isinstance(destinations, DataCollectionRuleDestinationsArgs):
+                destinations = destinations or {}
+                def _setter(key, value):
+                    destinations[key] = value
+                DataCollectionRuleDestinationsArgs._configure(_setter, **destinations)
             __props__.__dict__["destinations"] = destinations
+            if identity is not None and not isinstance(identity, DataCollectionRuleResourceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                DataCollectionRuleResourceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location

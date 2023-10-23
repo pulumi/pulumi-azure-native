@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -32,17 +32,48 @@ class NetworkRackArgs:
         :param pulumi.Input[str] network_rack_name: Name of the Network Rack
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_fabric_id", network_fabric_id)
-        pulumi.set(__self__, "network_rack_sku", network_rack_sku)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NetworkRackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_fabric_id=network_fabric_id,
+            network_rack_sku=network_rack_sku,
+            resource_group_name=resource_group_name,
+            annotation=annotation,
+            location=location,
+            network_rack_name=network_rack_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_fabric_id: pulumi.Input[str],
+             network_rack_sku: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             annotation: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_rack_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkFabricId' in kwargs:
+            network_fabric_id = kwargs['networkFabricId']
+        if 'networkRackSku' in kwargs:
+            network_rack_sku = kwargs['networkRackSku']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'networkRackName' in kwargs:
+            network_rack_name = kwargs['networkRackName']
+
+        _setter("network_fabric_id", network_fabric_id)
+        _setter("network_rack_sku", network_rack_sku)
+        _setter("resource_group_name", resource_group_name)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_rack_name is not None:
-            pulumi.set(__self__, "network_rack_name", network_rack_name)
+            _setter("network_rack_name", network_rack_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="networkFabricId")
@@ -180,6 +211,10 @@ class NetworkRack(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkRackArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

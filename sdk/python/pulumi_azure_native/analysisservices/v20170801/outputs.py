@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -55,10 +55,31 @@ class GatewayDetailsResponse(dict):
         :param str gateway_object_id: Gateway object id from in the DMTS cluster for the gateway resource.
         :param str gateway_resource_id: Gateway resource to be associated with the server.
         """
-        pulumi.set(__self__, "dmts_cluster_uri", dmts_cluster_uri)
-        pulumi.set(__self__, "gateway_object_id", gateway_object_id)
+        GatewayDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dmts_cluster_uri=dmts_cluster_uri,
+            gateway_object_id=gateway_object_id,
+            gateway_resource_id=gateway_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dmts_cluster_uri: str,
+             gateway_object_id: str,
+             gateway_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dmtsClusterUri' in kwargs:
+            dmts_cluster_uri = kwargs['dmtsClusterUri']
+        if 'gatewayObjectId' in kwargs:
+            gateway_object_id = kwargs['gatewayObjectId']
+        if 'gatewayResourceId' in kwargs:
+            gateway_resource_id = kwargs['gatewayResourceId']
+
+        _setter("dmts_cluster_uri", dmts_cluster_uri)
+        _setter("gateway_object_id", gateway_object_id)
         if gateway_resource_id is not None:
-            pulumi.set(__self__, "gateway_resource_id", gateway_resource_id)
+            _setter("gateway_resource_id", gateway_resource_id)
 
     @property
     @pulumi.getter(name="dmtsClusterUri")
@@ -121,12 +142,33 @@ class IPv4FirewallRuleResponse(dict):
         :param str range_end: The end range of IPv4.
         :param str range_start: The start range of IPv4.
         """
+        IPv4FirewallRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            firewall_rule_name=firewall_rule_name,
+            range_end=range_end,
+            range_start=range_start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             firewall_rule_name: Optional[str] = None,
+             range_end: Optional[str] = None,
+             range_start: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firewallRuleName' in kwargs:
+            firewall_rule_name = kwargs['firewallRuleName']
+        if 'rangeEnd' in kwargs:
+            range_end = kwargs['rangeEnd']
+        if 'rangeStart' in kwargs:
+            range_start = kwargs['rangeStart']
+
         if firewall_rule_name is not None:
-            pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
+            _setter("firewall_rule_name", firewall_rule_name)
         if range_end is not None:
-            pulumi.set(__self__, "range_end", range_end)
+            _setter("range_end", range_end)
         if range_start is not None:
-            pulumi.set(__self__, "range_start", range_start)
+            _setter("range_start", range_start)
 
     @property
     @pulumi.getter(name="firewallRuleName")
@@ -185,10 +227,27 @@ class IPv4FirewallSettingsResponse(dict):
         :param bool enable_power_bi_service: The indicator of enabling PBI service.
         :param Sequence['IPv4FirewallRuleResponse'] firewall_rules: An array of firewall rules.
         """
+        IPv4FirewallSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_power_bi_service=enable_power_bi_service,
+            firewall_rules=firewall_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_power_bi_service: Optional[bool] = None,
+             firewall_rules: Optional[Sequence['outputs.IPv4FirewallRuleResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enablePowerBIService' in kwargs:
+            enable_power_bi_service = kwargs['enablePowerBIService']
+        if 'firewallRules' in kwargs:
+            firewall_rules = kwargs['firewallRules']
+
         if enable_power_bi_service is not None:
-            pulumi.set(__self__, "enable_power_bi_service", enable_power_bi_service)
+            _setter("enable_power_bi_service", enable_power_bi_service)
         if firewall_rules is not None:
-            pulumi.set(__self__, "firewall_rules", firewall_rules)
+            _setter("firewall_rules", firewall_rules)
 
     @property
     @pulumi.getter(name="enablePowerBIService")
@@ -222,13 +281,28 @@ class ResourceSkuResponse(dict):
         :param int capacity: The number of instances in the read only query pool.
         :param str tier: The name of the Azure pricing tier to which the SKU applies.
         """
-        pulumi.set(__self__, "name", name)
+        ResourceSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             capacity: Optional[int] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
         if capacity is None:
             capacity = 1
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -266,8 +340,19 @@ class ServerAdministratorsResponse(dict):
         An array of administrator user identities.
         :param Sequence[str] members: An array of administrator user identities.
         """
+        ServerAdministratorsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            members=members,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             members: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if members is not None:
-            pulumi.set(__self__, "members", members)
+            _setter("members", members)
 
     @property
     @pulumi.getter

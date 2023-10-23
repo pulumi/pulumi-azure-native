@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,8 +28,21 @@ class CorsRulesArgs:
         Sets the CORS rules. You can include up to five CorsRule elements in the request. 
         :param pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]] cors_rules: The list of CORS rules. You can include up to five CorsRule elements in the request. 
         """
+        CorsRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cors_rules=cors_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'corsRules' in kwargs:
+            cors_rules = kwargs['corsRules']
+
         if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
+            _setter("cors_rules", cors_rules)
 
     @property
     @pulumi.getter(name="corsRules")
@@ -52,7 +65,20 @@ class CorsRuleArgs:
         Specifies a CORS rule for the Map Account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        CorsRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_origins=allowed_origins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+
+        _setter("allowed_origins", allowed_origins)
 
     @property
     @pulumi.getter(name="allowedOrigins")
@@ -75,7 +101,20 @@ class CreatorPropertiesArgs:
         Creator resource properties
         :param pulumi.Input[int] storage_units: The storage units to be allocated. Integer values from 1 to 100, inclusive.
         """
-        pulumi.set(__self__, "storage_units", storage_units)
+        CreatorPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_units=storage_units,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_units: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageUnits' in kwargs:
+            storage_units = kwargs['storageUnits']
+
+        _setter("storage_units", storage_units)
 
     @property
     @pulumi.getter(name="storageUnits")
@@ -100,8 +139,23 @@ class LinkedResourceArgs:
         :param pulumi.Input[str] id: ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.
         :param pulumi.Input[str] unique_name: A provided name which uniquely identifies the linked resource.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "unique_name", unique_name)
+        LinkedResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            unique_name=unique_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             unique_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'uniqueName' in kwargs:
+            unique_name = kwargs['uniqueName']
+
+        _setter("id", id)
+        _setter("unique_name", unique_name)
 
     @property
     @pulumi.getter
@@ -138,10 +192,25 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -180,14 +249,33 @@ class MapsAccountPropertiesArgs:
         :param pulumi.Input[bool] disable_local_auth: Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
         :param pulumi.Input[Sequence[pulumi.Input['LinkedResourceArgs']]] linked_resources: Sets the resources to be used for Managed Identities based operations for the Map account resource.
         """
+        MapsAccountPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cors=cors,
+            disable_local_auth=disable_local_auth,
+            linked_resources=linked_resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cors: Optional[pulumi.Input['CorsRulesArgs']] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             linked_resources: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedResourceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if 'linkedResources' in kwargs:
+            linked_resources = kwargs['linkedResources']
+
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if disable_local_auth is None:
             disable_local_auth = False
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if linked_resources is not None:
-            pulumi.set(__self__, "linked_resources", linked_resources)
+            _setter("linked_resources", linked_resources)
 
     @property
     @pulumi.getter
@@ -234,7 +322,18 @@ class SkuArgs:
         The SKU of the Maps Account.
         :param pulumi.Input[Union[str, 'Name']] name: The name of the SKU, in standard format (such as S0).
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'Name']],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
 
     @property
     @pulumi.getter

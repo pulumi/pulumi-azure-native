@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -57,11 +57,32 @@ class AzureToAzureNetworkMappingSettingsResponse(dict):
         :param str primary_fabric_location: The primary fabric location.
         :param str recovery_fabric_location: The recovery fabric location.
         """
-        pulumi.set(__self__, "instance_type", 'AzureToAzure')
+        AzureToAzureNetworkMappingSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            primary_fabric_location=primary_fabric_location,
+            recovery_fabric_location=recovery_fabric_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             primary_fabric_location: Optional[str] = None,
+             recovery_fabric_location: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'primaryFabricLocation' in kwargs:
+            primary_fabric_location = kwargs['primaryFabricLocation']
+        if 'recoveryFabricLocation' in kwargs:
+            recovery_fabric_location = kwargs['recoveryFabricLocation']
+
+        _setter("instance_type", 'AzureToAzure')
         if primary_fabric_location is not None:
-            pulumi.set(__self__, "primary_fabric_location", primary_fabric_location)
+            _setter("primary_fabric_location", primary_fabric_location)
         if recovery_fabric_location is not None:
-            pulumi.set(__self__, "recovery_fabric_location", recovery_fabric_location)
+            _setter("recovery_fabric_location", recovery_fabric_location)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -173,36 +194,105 @@ class HealthErrorResponse(dict):
         :param str recovery_provider_error_message: DRA error message.
         :param str summary_message: Summary message of the entity.
         """
+        HealthErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creation_time_utc=creation_time_utc,
+            customer_resolvability=customer_resolvability,
+            entity_id=entity_id,
+            error_category=error_category,
+            error_code=error_code,
+            error_id=error_id,
+            error_level=error_level,
+            error_message=error_message,
+            error_source=error_source,
+            error_type=error_type,
+            inner_health_errors=inner_health_errors,
+            possible_causes=possible_causes,
+            recommended_action=recommended_action,
+            recovery_provider_error_message=recovery_provider_error_message,
+            summary_message=summary_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creation_time_utc: Optional[str] = None,
+             customer_resolvability: Optional[str] = None,
+             entity_id: Optional[str] = None,
+             error_category: Optional[str] = None,
+             error_code: Optional[str] = None,
+             error_id: Optional[str] = None,
+             error_level: Optional[str] = None,
+             error_message: Optional[str] = None,
+             error_source: Optional[str] = None,
+             error_type: Optional[str] = None,
+             inner_health_errors: Optional[Sequence['outputs.InnerHealthErrorResponse']] = None,
+             possible_causes: Optional[str] = None,
+             recommended_action: Optional[str] = None,
+             recovery_provider_error_message: Optional[str] = None,
+             summary_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creationTimeUtc' in kwargs:
+            creation_time_utc = kwargs['creationTimeUtc']
+        if 'customerResolvability' in kwargs:
+            customer_resolvability = kwargs['customerResolvability']
+        if 'entityId' in kwargs:
+            entity_id = kwargs['entityId']
+        if 'errorCategory' in kwargs:
+            error_category = kwargs['errorCategory']
+        if 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if 'errorId' in kwargs:
+            error_id = kwargs['errorId']
+        if 'errorLevel' in kwargs:
+            error_level = kwargs['errorLevel']
+        if 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if 'errorSource' in kwargs:
+            error_source = kwargs['errorSource']
+        if 'errorType' in kwargs:
+            error_type = kwargs['errorType']
+        if 'innerHealthErrors' in kwargs:
+            inner_health_errors = kwargs['innerHealthErrors']
+        if 'possibleCauses' in kwargs:
+            possible_causes = kwargs['possibleCauses']
+        if 'recommendedAction' in kwargs:
+            recommended_action = kwargs['recommendedAction']
+        if 'recoveryProviderErrorMessage' in kwargs:
+            recovery_provider_error_message = kwargs['recoveryProviderErrorMessage']
+        if 'summaryMessage' in kwargs:
+            summary_message = kwargs['summaryMessage']
+
         if creation_time_utc is not None:
-            pulumi.set(__self__, "creation_time_utc", creation_time_utc)
+            _setter("creation_time_utc", creation_time_utc)
         if customer_resolvability is not None:
-            pulumi.set(__self__, "customer_resolvability", customer_resolvability)
+            _setter("customer_resolvability", customer_resolvability)
         if entity_id is not None:
-            pulumi.set(__self__, "entity_id", entity_id)
+            _setter("entity_id", entity_id)
         if error_category is not None:
-            pulumi.set(__self__, "error_category", error_category)
+            _setter("error_category", error_category)
         if error_code is not None:
-            pulumi.set(__self__, "error_code", error_code)
+            _setter("error_code", error_code)
         if error_id is not None:
-            pulumi.set(__self__, "error_id", error_id)
+            _setter("error_id", error_id)
         if error_level is not None:
-            pulumi.set(__self__, "error_level", error_level)
+            _setter("error_level", error_level)
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if error_source is not None:
-            pulumi.set(__self__, "error_source", error_source)
+            _setter("error_source", error_source)
         if error_type is not None:
-            pulumi.set(__self__, "error_type", error_type)
+            _setter("error_type", error_type)
         if inner_health_errors is not None:
-            pulumi.set(__self__, "inner_health_errors", inner_health_errors)
+            _setter("inner_health_errors", inner_health_errors)
         if possible_causes is not None:
-            pulumi.set(__self__, "possible_causes", possible_causes)
+            _setter("possible_causes", possible_causes)
         if recommended_action is not None:
-            pulumi.set(__self__, "recommended_action", recommended_action)
+            _setter("recommended_action", recommended_action)
         if recovery_provider_error_message is not None:
-            pulumi.set(__self__, "recovery_provider_error_message", recovery_provider_error_message)
+            _setter("recovery_provider_error_message", recovery_provider_error_message)
         if summary_message is not None:
-            pulumi.set(__self__, "summary_message", summary_message)
+            _setter("summary_message", summary_message)
 
     @property
     @pulumi.getter(name="creationTimeUtc")
@@ -397,30 +487,87 @@ class InnerHealthErrorResponse(dict):
         :param str recovery_provider_error_message: DRA error message.
         :param str summary_message: Summary message of the entity.
         """
+        InnerHealthErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creation_time_utc=creation_time_utc,
+            entity_id=entity_id,
+            error_category=error_category,
+            error_code=error_code,
+            error_level=error_level,
+            error_message=error_message,
+            error_source=error_source,
+            error_type=error_type,
+            possible_causes=possible_causes,
+            recommended_action=recommended_action,
+            recovery_provider_error_message=recovery_provider_error_message,
+            summary_message=summary_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creation_time_utc: Optional[str] = None,
+             entity_id: Optional[str] = None,
+             error_category: Optional[str] = None,
+             error_code: Optional[str] = None,
+             error_level: Optional[str] = None,
+             error_message: Optional[str] = None,
+             error_source: Optional[str] = None,
+             error_type: Optional[str] = None,
+             possible_causes: Optional[str] = None,
+             recommended_action: Optional[str] = None,
+             recovery_provider_error_message: Optional[str] = None,
+             summary_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creationTimeUtc' in kwargs:
+            creation_time_utc = kwargs['creationTimeUtc']
+        if 'entityId' in kwargs:
+            entity_id = kwargs['entityId']
+        if 'errorCategory' in kwargs:
+            error_category = kwargs['errorCategory']
+        if 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if 'errorLevel' in kwargs:
+            error_level = kwargs['errorLevel']
+        if 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if 'errorSource' in kwargs:
+            error_source = kwargs['errorSource']
+        if 'errorType' in kwargs:
+            error_type = kwargs['errorType']
+        if 'possibleCauses' in kwargs:
+            possible_causes = kwargs['possibleCauses']
+        if 'recommendedAction' in kwargs:
+            recommended_action = kwargs['recommendedAction']
+        if 'recoveryProviderErrorMessage' in kwargs:
+            recovery_provider_error_message = kwargs['recoveryProviderErrorMessage']
+        if 'summaryMessage' in kwargs:
+            summary_message = kwargs['summaryMessage']
+
         if creation_time_utc is not None:
-            pulumi.set(__self__, "creation_time_utc", creation_time_utc)
+            _setter("creation_time_utc", creation_time_utc)
         if entity_id is not None:
-            pulumi.set(__self__, "entity_id", entity_id)
+            _setter("entity_id", entity_id)
         if error_category is not None:
-            pulumi.set(__self__, "error_category", error_category)
+            _setter("error_category", error_category)
         if error_code is not None:
-            pulumi.set(__self__, "error_code", error_code)
+            _setter("error_code", error_code)
         if error_level is not None:
-            pulumi.set(__self__, "error_level", error_level)
+            _setter("error_level", error_level)
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if error_source is not None:
-            pulumi.set(__self__, "error_source", error_source)
+            _setter("error_source", error_source)
         if error_type is not None:
-            pulumi.set(__self__, "error_type", error_type)
+            _setter("error_type", error_type)
         if possible_causes is not None:
-            pulumi.set(__self__, "possible_causes", possible_causes)
+            _setter("possible_causes", possible_causes)
         if recommended_action is not None:
-            pulumi.set(__self__, "recommended_action", recommended_action)
+            _setter("recommended_action", recommended_action)
         if recovery_provider_error_message is not None:
-            pulumi.set(__self__, "recovery_provider_error_message", recovery_provider_error_message)
+            _setter("recovery_provider_error_message", recovery_provider_error_message)
         if summary_message is not None:
-            pulumi.set(__self__, "summary_message", summary_message)
+            _setter("summary_message", summary_message)
 
     @property
     @pulumi.getter(name="creationTimeUtc")
@@ -577,24 +724,67 @@ class NetworkMappingPropertiesResponse(dict):
         :param str recovery_network_id: The recovery network id for network mapping.
         :param str state: The pairing state for network mapping.
         """
+        NetworkMappingPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_specific_settings=fabric_specific_settings,
+            primary_fabric_friendly_name=primary_fabric_friendly_name,
+            primary_network_friendly_name=primary_network_friendly_name,
+            primary_network_id=primary_network_id,
+            recovery_fabric_arm_id=recovery_fabric_arm_id,
+            recovery_fabric_friendly_name=recovery_fabric_friendly_name,
+            recovery_network_friendly_name=recovery_network_friendly_name,
+            recovery_network_id=recovery_network_id,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_specific_settings: Optional[Any] = None,
+             primary_fabric_friendly_name: Optional[str] = None,
+             primary_network_friendly_name: Optional[str] = None,
+             primary_network_id: Optional[str] = None,
+             recovery_fabric_arm_id: Optional[str] = None,
+             recovery_fabric_friendly_name: Optional[str] = None,
+             recovery_network_friendly_name: Optional[str] = None,
+             recovery_network_id: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fabricSpecificSettings' in kwargs:
+            fabric_specific_settings = kwargs['fabricSpecificSettings']
+        if 'primaryFabricFriendlyName' in kwargs:
+            primary_fabric_friendly_name = kwargs['primaryFabricFriendlyName']
+        if 'primaryNetworkFriendlyName' in kwargs:
+            primary_network_friendly_name = kwargs['primaryNetworkFriendlyName']
+        if 'primaryNetworkId' in kwargs:
+            primary_network_id = kwargs['primaryNetworkId']
+        if 'recoveryFabricArmId' in kwargs:
+            recovery_fabric_arm_id = kwargs['recoveryFabricArmId']
+        if 'recoveryFabricFriendlyName' in kwargs:
+            recovery_fabric_friendly_name = kwargs['recoveryFabricFriendlyName']
+        if 'recoveryNetworkFriendlyName' in kwargs:
+            recovery_network_friendly_name = kwargs['recoveryNetworkFriendlyName']
+        if 'recoveryNetworkId' in kwargs:
+            recovery_network_id = kwargs['recoveryNetworkId']
+
         if fabric_specific_settings is not None:
-            pulumi.set(__self__, "fabric_specific_settings", fabric_specific_settings)
+            _setter("fabric_specific_settings", fabric_specific_settings)
         if primary_fabric_friendly_name is not None:
-            pulumi.set(__self__, "primary_fabric_friendly_name", primary_fabric_friendly_name)
+            _setter("primary_fabric_friendly_name", primary_fabric_friendly_name)
         if primary_network_friendly_name is not None:
-            pulumi.set(__self__, "primary_network_friendly_name", primary_network_friendly_name)
+            _setter("primary_network_friendly_name", primary_network_friendly_name)
         if primary_network_id is not None:
-            pulumi.set(__self__, "primary_network_id", primary_network_id)
+            _setter("primary_network_id", primary_network_id)
         if recovery_fabric_arm_id is not None:
-            pulumi.set(__self__, "recovery_fabric_arm_id", recovery_fabric_arm_id)
+            _setter("recovery_fabric_arm_id", recovery_fabric_arm_id)
         if recovery_fabric_friendly_name is not None:
-            pulumi.set(__self__, "recovery_fabric_friendly_name", recovery_fabric_friendly_name)
+            _setter("recovery_fabric_friendly_name", recovery_fabric_friendly_name)
         if recovery_network_friendly_name is not None:
-            pulumi.set(__self__, "recovery_network_friendly_name", recovery_network_friendly_name)
+            _setter("recovery_network_friendly_name", recovery_network_friendly_name)
         if recovery_network_id is not None:
-            pulumi.set(__self__, "recovery_network_id", recovery_network_id)
+            _setter("recovery_network_id", recovery_network_id)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="fabricSpecificSettings")
@@ -735,28 +925,79 @@ class VCenterPropertiesResponse(dict):
         :param str process_server_id: The process server Id.
         :param str run_as_account_id: The account Id which has privileges to discover the vCenter.
         """
+        VCenterPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            discovery_status=discovery_status,
+            fabric_arm_resource_name=fabric_arm_resource_name,
+            friendly_name=friendly_name,
+            health_errors=health_errors,
+            infrastructure_id=infrastructure_id,
+            internal_id=internal_id,
+            ip_address=ip_address,
+            last_heartbeat=last_heartbeat,
+            port=port,
+            process_server_id=process_server_id,
+            run_as_account_id=run_as_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             discovery_status: Optional[str] = None,
+             fabric_arm_resource_name: Optional[str] = None,
+             friendly_name: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             infrastructure_id: Optional[str] = None,
+             internal_id: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             last_heartbeat: Optional[str] = None,
+             port: Optional[str] = None,
+             process_server_id: Optional[str] = None,
+             run_as_account_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'discoveryStatus' in kwargs:
+            discovery_status = kwargs['discoveryStatus']
+        if 'fabricArmResourceName' in kwargs:
+            fabric_arm_resource_name = kwargs['fabricArmResourceName']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'healthErrors' in kwargs:
+            health_errors = kwargs['healthErrors']
+        if 'infrastructureId' in kwargs:
+            infrastructure_id = kwargs['infrastructureId']
+        if 'internalId' in kwargs:
+            internal_id = kwargs['internalId']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'lastHeartbeat' in kwargs:
+            last_heartbeat = kwargs['lastHeartbeat']
+        if 'processServerId' in kwargs:
+            process_server_id = kwargs['processServerId']
+        if 'runAsAccountId' in kwargs:
+            run_as_account_id = kwargs['runAsAccountId']
+
         if discovery_status is not None:
-            pulumi.set(__self__, "discovery_status", discovery_status)
+            _setter("discovery_status", discovery_status)
         if fabric_arm_resource_name is not None:
-            pulumi.set(__self__, "fabric_arm_resource_name", fabric_arm_resource_name)
+            _setter("fabric_arm_resource_name", fabric_arm_resource_name)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if health_errors is not None:
-            pulumi.set(__self__, "health_errors", health_errors)
+            _setter("health_errors", health_errors)
         if infrastructure_id is not None:
-            pulumi.set(__self__, "infrastructure_id", infrastructure_id)
+            _setter("infrastructure_id", infrastructure_id)
         if internal_id is not None:
-            pulumi.set(__self__, "internal_id", internal_id)
+            _setter("internal_id", internal_id)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if last_heartbeat is not None:
-            pulumi.set(__self__, "last_heartbeat", last_heartbeat)
+            _setter("last_heartbeat", last_heartbeat)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if process_server_id is not None:
-            pulumi.set(__self__, "process_server_id", process_server_id)
+            _setter("process_server_id", process_server_id)
         if run_as_account_id is not None:
-            pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+            _setter("run_as_account_id", run_as_account_id)
 
     @property
     @pulumi.getter(name="discoveryStatus")
@@ -876,7 +1117,20 @@ class VmmToAzureNetworkMappingSettingsResponse(dict):
         :param str instance_type: Gets the Instance type.
                Expected value is 'VmmToAzure'.
         """
-        pulumi.set(__self__, "instance_type", 'VmmToAzure')
+        VmmToAzureNetworkMappingSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+
+        _setter("instance_type", 'VmmToAzure')
 
     @property
     @pulumi.getter(name="instanceType")
@@ -917,7 +1171,20 @@ class VmmToVmmNetworkMappingSettingsResponse(dict):
         :param str instance_type: Gets the Instance type.
                Expected value is 'VmmToVmm'.
         """
-        pulumi.set(__self__, "instance_type", 'VmmToVmm')
+        VmmToVmmNetworkMappingSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+
+        _setter("instance_type", 'VmmToVmm')
 
     @property
     @pulumi.getter(name="instanceType")

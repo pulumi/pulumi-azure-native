@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,23 +39,72 @@ class SimArgs:
         :param pulumi.Input['SimPolicyResourceIdArgs'] sim_policy: The SIM policy used by this SIM. The SIM policy must be in the same location as the SIM.
         :param pulumi.Input[Sequence[pulumi.Input['SimStaticIpPropertiesArgs']]] static_ip_configuration: A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
         """
-        pulumi.set(__self__, "international_mobile_subscriber_identity", international_mobile_subscriber_identity)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sim_group_name", sim_group_name)
+        SimArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            international_mobile_subscriber_identity=international_mobile_subscriber_identity,
+            resource_group_name=resource_group_name,
+            sim_group_name=sim_group_name,
+            authentication_key=authentication_key,
+            device_type=device_type,
+            integrated_circuit_card_identifier=integrated_circuit_card_identifier,
+            operator_key_code=operator_key_code,
+            sim_name=sim_name,
+            sim_policy=sim_policy,
+            static_ip_configuration=static_ip_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             international_mobile_subscriber_identity: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             sim_group_name: pulumi.Input[str],
+             authentication_key: Optional[pulumi.Input[str]] = None,
+             device_type: Optional[pulumi.Input[str]] = None,
+             integrated_circuit_card_identifier: Optional[pulumi.Input[str]] = None,
+             operator_key_code: Optional[pulumi.Input[str]] = None,
+             sim_name: Optional[pulumi.Input[str]] = None,
+             sim_policy: Optional[pulumi.Input['SimPolicyResourceIdArgs']] = None,
+             static_ip_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['SimStaticIpPropertiesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'internationalMobileSubscriberIdentity' in kwargs:
+            international_mobile_subscriber_identity = kwargs['internationalMobileSubscriberIdentity']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'simGroupName' in kwargs:
+            sim_group_name = kwargs['simGroupName']
+        if 'authenticationKey' in kwargs:
+            authentication_key = kwargs['authenticationKey']
+        if 'deviceType' in kwargs:
+            device_type = kwargs['deviceType']
+        if 'integratedCircuitCardIdentifier' in kwargs:
+            integrated_circuit_card_identifier = kwargs['integratedCircuitCardIdentifier']
+        if 'operatorKeyCode' in kwargs:
+            operator_key_code = kwargs['operatorKeyCode']
+        if 'simName' in kwargs:
+            sim_name = kwargs['simName']
+        if 'simPolicy' in kwargs:
+            sim_policy = kwargs['simPolicy']
+        if 'staticIpConfiguration' in kwargs:
+            static_ip_configuration = kwargs['staticIpConfiguration']
+
+        _setter("international_mobile_subscriber_identity", international_mobile_subscriber_identity)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sim_group_name", sim_group_name)
         if authentication_key is not None:
-            pulumi.set(__self__, "authentication_key", authentication_key)
+            _setter("authentication_key", authentication_key)
         if device_type is not None:
-            pulumi.set(__self__, "device_type", device_type)
+            _setter("device_type", device_type)
         if integrated_circuit_card_identifier is not None:
-            pulumi.set(__self__, "integrated_circuit_card_identifier", integrated_circuit_card_identifier)
+            _setter("integrated_circuit_card_identifier", integrated_circuit_card_identifier)
         if operator_key_code is not None:
-            pulumi.set(__self__, "operator_key_code", operator_key_code)
+            _setter("operator_key_code", operator_key_code)
         if sim_name is not None:
-            pulumi.set(__self__, "sim_name", sim_name)
+            _setter("sim_name", sim_name)
         if sim_policy is not None:
-            pulumi.set(__self__, "sim_policy", sim_policy)
+            _setter("sim_policy", sim_policy)
         if static_ip_configuration is not None:
-            pulumi.set(__self__, "static_ip_configuration", static_ip_configuration)
+            _setter("static_ip_configuration", static_ip_configuration)
 
     @property
     @pulumi.getter(name="internationalMobileSubscriberIdentity")
@@ -235,6 +284,10 @@ class Sim(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SimArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -273,6 +326,11 @@ class Sim(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sim_group_name'")
             __props__.__dict__["sim_group_name"] = sim_group_name
             __props__.__dict__["sim_name"] = sim_name
+            if sim_policy is not None and not isinstance(sim_policy, SimPolicyResourceIdArgs):
+                sim_policy = sim_policy or {}
+                def _setter(key, value):
+                    sim_policy[key] = value
+                SimPolicyResourceIdArgs._configure(_setter, **sim_policy)
             __props__.__dict__["sim_policy"] = sim_policy
             __props__.__dict__["static_ip_configuration"] = static_ip_configuration
             __props__.__dict__["name"] = None

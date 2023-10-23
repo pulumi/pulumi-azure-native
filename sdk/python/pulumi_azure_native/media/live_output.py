@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,23 +41,72 @@ class LiveOutputArgs:
         :param pulumi.Input[float] output_snap_time: The initial timestamp that the live output will start at, any content before this value will not be archived.
         :param pulumi.Input[str] rewind_window_length: ISO 8601 time between 1 minute to the duration of archiveWindowLength to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use PT1H30M to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "archive_window_length", archive_window_length)
-        pulumi.set(__self__, "asset_name", asset_name)
-        pulumi.set(__self__, "live_event_name", live_event_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        LiveOutputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            archive_window_length=archive_window_length,
+            asset_name=asset_name,
+            live_event_name=live_event_name,
+            resource_group_name=resource_group_name,
+            description=description,
+            hls=hls,
+            live_output_name=live_output_name,
+            manifest_name=manifest_name,
+            output_snap_time=output_snap_time,
+            rewind_window_length=rewind_window_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             archive_window_length: pulumi.Input[str],
+             asset_name: pulumi.Input[str],
+             live_event_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             hls: Optional[pulumi.Input['HlsArgs']] = None,
+             live_output_name: Optional[pulumi.Input[str]] = None,
+             manifest_name: Optional[pulumi.Input[str]] = None,
+             output_snap_time: Optional[pulumi.Input[float]] = None,
+             rewind_window_length: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'archiveWindowLength' in kwargs:
+            archive_window_length = kwargs['archiveWindowLength']
+        if 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if 'liveEventName' in kwargs:
+            live_event_name = kwargs['liveEventName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'liveOutputName' in kwargs:
+            live_output_name = kwargs['liveOutputName']
+        if 'manifestName' in kwargs:
+            manifest_name = kwargs['manifestName']
+        if 'outputSnapTime' in kwargs:
+            output_snap_time = kwargs['outputSnapTime']
+        if 'rewindWindowLength' in kwargs:
+            rewind_window_length = kwargs['rewindWindowLength']
+
+        _setter("account_name", account_name)
+        _setter("archive_window_length", archive_window_length)
+        _setter("asset_name", asset_name)
+        _setter("live_event_name", live_event_name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if hls is not None:
-            pulumi.set(__self__, "hls", hls)
+            _setter("hls", hls)
         if live_output_name is not None:
-            pulumi.set(__self__, "live_output_name", live_output_name)
+            _setter("live_output_name", live_output_name)
         if manifest_name is not None:
-            pulumi.set(__self__, "manifest_name", manifest_name)
+            _setter("manifest_name", manifest_name)
         if output_snap_time is not None:
-            pulumi.set(__self__, "output_snap_time", output_snap_time)
+            _setter("output_snap_time", output_snap_time)
         if rewind_window_length is not None:
-            pulumi.set(__self__, "rewind_window_length", rewind_window_length)
+            _setter("rewind_window_length", rewind_window_length)
 
     @property
     @pulumi.getter(name="accountName")
@@ -247,6 +296,10 @@ class LiveOutput(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LiveOutputArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -282,6 +335,11 @@ class LiveOutput(pulumi.CustomResource):
                 raise TypeError("Missing required property 'asset_name'")
             __props__.__dict__["asset_name"] = asset_name
             __props__.__dict__["description"] = description
+            if hls is not None and not isinstance(hls, HlsArgs):
+                hls = hls or {}
+                def _setter(key, value):
+                    hls[key] = value
+                HlsArgs._configure(_setter, **hls)
             __props__.__dict__["hls"] = hls
             if live_event_name is None and not opts.urn:
                 raise TypeError("Missing required property 'live_event_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,12 +30,37 @@ class CloudEdgeManagementRoleArgs:
         :param pulumi.Input[Union[str, 'RoleStatus']] role_status: Role status.
         :param pulumi.Input[str] name: The role name.
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "kind", 'CloudEdgeManagement')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "role_status", role_status)
+        CloudEdgeManagementRoleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            role_status=role_status,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             role_status: pulumi.Input[Union[str, 'RoleStatus']],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'roleStatus' in kwargs:
+            role_status = kwargs['roleStatus']
+
+        _setter("device_name", device_name)
+        _setter("kind", 'CloudEdgeManagement')
+        _setter("resource_group_name", resource_group_name)
+        _setter("role_status", role_status)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -147,6 +172,10 @@ class CloudEdgeManagementRole(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CloudEdgeManagementRoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

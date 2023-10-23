@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -79,12 +79,31 @@ class AccessPolicyArgs:
         :param pulumi.Input[str] permission: List of abbreviated permissions.
         :param pulumi.Input[str] start_time: Start time of the access policy
         """
+        AccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiry_time=expiry_time,
+            permission=permission,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiry_time: Optional[pulumi.Input[str]] = None,
+             permission: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expiryTime' in kwargs:
+            expiry_time = kwargs['expiryTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if expiry_time is not None:
-            pulumi.set(__self__, "expiry_time", expiry_time)
+            _setter("expiry_time", expiry_time)
         if permission is not None:
-            pulumi.set(__self__, "permission", permission)
+            _setter("permission", permission)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="expiryTime")
@@ -135,12 +154,31 @@ class AccountImmutabilityPolicyPropertiesArgs:
         :param pulumi.Input[int] immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         :param pulumi.Input[Union[str, 'AccountImmutabilityPolicyState']] state: The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
         """
+        AccountImmutabilityPolicyPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_protected_append_writes=allow_protected_append_writes,
+            immutability_period_since_creation_in_days=immutability_period_since_creation_in_days,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_protected_append_writes: Optional[pulumi.Input[bool]] = None,
+             immutability_period_since_creation_in_days: Optional[pulumi.Input[int]] = None,
+             state: Optional[pulumi.Input[Union[str, 'AccountImmutabilityPolicyState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowProtectedAppendWrites' in kwargs:
+            allow_protected_append_writes = kwargs['allowProtectedAppendWrites']
+        if 'immutabilityPeriodSinceCreationInDays' in kwargs:
+            immutability_period_since_creation_in_days = kwargs['immutabilityPeriodSinceCreationInDays']
+
         if allow_protected_append_writes is not None:
-            pulumi.set(__self__, "allow_protected_append_writes", allow_protected_append_writes)
+            _setter("allow_protected_append_writes", allow_protected_append_writes)
         if immutability_period_since_creation_in_days is not None:
-            pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
+            _setter("immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="allowProtectedAppendWrites")
@@ -201,20 +239,61 @@ class ActiveDirectoryPropertiesArgs:
         :param pulumi.Input[str] net_bios_domain_name: Specifies the NetBIOS domain name.
         :param pulumi.Input[str] sam_account_name: Specifies the Active Directory SAMAccountName for Azure Storage.
         """
-        pulumi.set(__self__, "domain_guid", domain_guid)
-        pulumi.set(__self__, "domain_name", domain_name)
+        ActiveDirectoryPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_guid=domain_guid,
+            domain_name=domain_name,
+            account_type=account_type,
+            azure_storage_sid=azure_storage_sid,
+            domain_sid=domain_sid,
+            forest_name=forest_name,
+            net_bios_domain_name=net_bios_domain_name,
+            sam_account_name=sam_account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_guid: pulumi.Input[str],
+             domain_name: pulumi.Input[str],
+             account_type: Optional[pulumi.Input[Union[str, 'AccountType']]] = None,
+             azure_storage_sid: Optional[pulumi.Input[str]] = None,
+             domain_sid: Optional[pulumi.Input[str]] = None,
+             forest_name: Optional[pulumi.Input[str]] = None,
+             net_bios_domain_name: Optional[pulumi.Input[str]] = None,
+             sam_account_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainGuid' in kwargs:
+            domain_guid = kwargs['domainGuid']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'accountType' in kwargs:
+            account_type = kwargs['accountType']
+        if 'azureStorageSid' in kwargs:
+            azure_storage_sid = kwargs['azureStorageSid']
+        if 'domainSid' in kwargs:
+            domain_sid = kwargs['domainSid']
+        if 'forestName' in kwargs:
+            forest_name = kwargs['forestName']
+        if 'netBiosDomainName' in kwargs:
+            net_bios_domain_name = kwargs['netBiosDomainName']
+        if 'samAccountName' in kwargs:
+            sam_account_name = kwargs['samAccountName']
+
+        _setter("domain_guid", domain_guid)
+        _setter("domain_name", domain_name)
         if account_type is not None:
-            pulumi.set(__self__, "account_type", account_type)
+            _setter("account_type", account_type)
         if azure_storage_sid is not None:
-            pulumi.set(__self__, "azure_storage_sid", azure_storage_sid)
+            _setter("azure_storage_sid", azure_storage_sid)
         if domain_sid is not None:
-            pulumi.set(__self__, "domain_sid", domain_sid)
+            _setter("domain_sid", domain_sid)
         if forest_name is not None:
-            pulumi.set(__self__, "forest_name", forest_name)
+            _setter("forest_name", forest_name)
         if net_bios_domain_name is not None:
-            pulumi.set(__self__, "net_bios_domain_name", net_bios_domain_name)
+            _setter("net_bios_domain_name", net_bios_domain_name)
         if sam_account_name is not None:
-            pulumi.set(__self__, "sam_account_name", sam_account_name)
+            _setter("sam_account_name", sam_account_name)
 
     @property
     @pulumi.getter(name="domainGuid")
@@ -325,11 +404,32 @@ class AzureFilesIdentityBasedAuthenticationArgs:
         :param pulumi.Input['ActiveDirectoryPropertiesArgs'] active_directory_properties: Required if directoryServiceOptions are AD, optional if they are AADKERB.
         :param pulumi.Input[Union[str, 'DefaultSharePermission']] default_share_permission: Default share permission for users using Kerberos authentication if RBAC role is not assigned.
         """
-        pulumi.set(__self__, "directory_service_options", directory_service_options)
+        AzureFilesIdentityBasedAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_service_options=directory_service_options,
+            active_directory_properties=active_directory_properties,
+            default_share_permission=default_share_permission,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_service_options: pulumi.Input[Union[str, 'DirectoryServiceOptions']],
+             active_directory_properties: Optional[pulumi.Input['ActiveDirectoryPropertiesArgs']] = None,
+             default_share_permission: Optional[pulumi.Input[Union[str, 'DefaultSharePermission']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'directoryServiceOptions' in kwargs:
+            directory_service_options = kwargs['directoryServiceOptions']
+        if 'activeDirectoryProperties' in kwargs:
+            active_directory_properties = kwargs['activeDirectoryProperties']
+        if 'defaultSharePermission' in kwargs:
+            default_share_permission = kwargs['defaultSharePermission']
+
+        _setter("directory_service_options", directory_service_options)
         if active_directory_properties is not None:
-            pulumi.set(__self__, "active_directory_properties", active_directory_properties)
+            _setter("active_directory_properties", active_directory_properties)
         if default_share_permission is not None:
-            pulumi.set(__self__, "default_share_permission", default_share_permission)
+            _setter("default_share_permission", default_share_permission)
 
     @property
     @pulumi.getter(name="directoryServiceOptions")
@@ -384,12 +484,35 @@ class BlobInventoryPolicyDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schema_fields: This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, AccessTierInferred, Tags, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime, Tags, Etag, ContentType, ContentEncoding, ContentLanguage, ContentCRC64, CacheControl, ContentDisposition, LeaseStatus, LeaseState, LeaseDuration, ServerEncrypted, Deleted, DeletionId, DeletedTime, RemainingRetentionDays, ImmutabilityPolicyUntilDate, ImmutabilityPolicyMode, LegalHold, CopyId, CopyStatus, CopySource, CopyProgress, CopyCompletionTime, CopyStatusDescription, CustomerProvidedKeySha256, RehydratePriority, ArchiveStatus, XmsBlobSequenceNumber, EncryptionScope, IncrementalCopy, TagCount'. For Blob object type schema field value 'DeletedTime' is applicable only for Hns enabled accounts. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold, Etag, DefaultEncryptionScope, DenyEncryptionScopeOverride, ImmutableStorageWithVersioningEnabled, Deleted, Version, DeletedTime, RemainingRetentionDays'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, DeletionId' are valid only for Hns enabled accounts.Schema field values 'Tags, TagCount' are only valid for Non-Hns accounts.
         :param pulumi.Input['BlobInventoryPolicyFilterArgs'] filters: An object that defines the filter set.
         """
-        pulumi.set(__self__, "format", format)
-        pulumi.set(__self__, "object_type", object_type)
-        pulumi.set(__self__, "schedule", schedule)
-        pulumi.set(__self__, "schema_fields", schema_fields)
+        BlobInventoryPolicyDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            format=format,
+            object_type=object_type,
+            schedule=schedule,
+            schema_fields=schema_fields,
+            filters=filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             format: pulumi.Input[Union[str, 'Format']],
+             object_type: pulumi.Input[Union[str, 'ObjectType']],
+             schedule: pulumi.Input[Union[str, 'Schedule']],
+             schema_fields: pulumi.Input[Sequence[pulumi.Input[str]]],
+             filters: Optional[pulumi.Input['BlobInventoryPolicyFilterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'schemaFields' in kwargs:
+            schema_fields = kwargs['schemaFields']
+
+        _setter("format", format)
+        _setter("object_type", object_type)
+        _setter("schedule", schedule)
+        _setter("schema_fields", schema_fields)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
 
     @property
     @pulumi.getter
@@ -470,18 +593,51 @@ class BlobInventoryPolicyFilterArgs:
         :param pulumi.Input[bool] include_snapshots: Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_match: An array of strings with maximum 10 blob prefixes to be included in the inventory.
         """
+        BlobInventoryPolicyFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_types=blob_types,
+            exclude_prefix=exclude_prefix,
+            include_blob_versions=include_blob_versions,
+            include_deleted=include_deleted,
+            include_snapshots=include_snapshots,
+            prefix_match=prefix_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             exclude_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             include_blob_versions: Optional[pulumi.Input[bool]] = None,
+             include_deleted: Optional[pulumi.Input[bool]] = None,
+             include_snapshots: Optional[pulumi.Input[bool]] = None,
+             prefix_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blobTypes' in kwargs:
+            blob_types = kwargs['blobTypes']
+        if 'excludePrefix' in kwargs:
+            exclude_prefix = kwargs['excludePrefix']
+        if 'includeBlobVersions' in kwargs:
+            include_blob_versions = kwargs['includeBlobVersions']
+        if 'includeDeleted' in kwargs:
+            include_deleted = kwargs['includeDeleted']
+        if 'includeSnapshots' in kwargs:
+            include_snapshots = kwargs['includeSnapshots']
+        if 'prefixMatch' in kwargs:
+            prefix_match = kwargs['prefixMatch']
+
         if blob_types is not None:
-            pulumi.set(__self__, "blob_types", blob_types)
+            _setter("blob_types", blob_types)
         if exclude_prefix is not None:
-            pulumi.set(__self__, "exclude_prefix", exclude_prefix)
+            _setter("exclude_prefix", exclude_prefix)
         if include_blob_versions is not None:
-            pulumi.set(__self__, "include_blob_versions", include_blob_versions)
+            _setter("include_blob_versions", include_blob_versions)
         if include_deleted is not None:
-            pulumi.set(__self__, "include_deleted", include_deleted)
+            _setter("include_deleted", include_deleted)
         if include_snapshots is not None:
-            pulumi.set(__self__, "include_snapshots", include_snapshots)
+            _setter("include_snapshots", include_snapshots)
         if prefix_match is not None:
-            pulumi.set(__self__, "prefix_match", prefix_match)
+            _setter("prefix_match", prefix_match)
 
     @property
     @pulumi.getter(name="blobTypes")
@@ -570,10 +726,27 @@ class BlobInventoryPolicyRuleArgs:
         :param pulumi.Input[bool] enabled: Rule is enabled when set to true.
         :param pulumi.Input[str] name: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
         """
-        pulumi.set(__self__, "definition", definition)
-        pulumi.set(__self__, "destination", destination)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "name", name)
+        BlobInventoryPolicyRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            definition=definition,
+            destination=destination,
+            enabled=enabled,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             definition: pulumi.Input['BlobInventoryPolicyDefinitionArgs'],
+             destination: pulumi.Input[str],
+             enabled: pulumi.Input[bool],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("definition", definition)
+        _setter("destination", destination)
+        _setter("enabled", enabled)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -636,9 +809,24 @@ class BlobInventoryPolicySchemaArgs:
         :param pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]] rules: The storage account blob inventory policy rules. The rule is applied when it is enabled.
         :param pulumi.Input[Union[str, 'InventoryRuleType']] type: The valid value is Inventory
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "rules", rules)
-        pulumi.set(__self__, "type", type)
+        BlobInventoryPolicySchemaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            rules=rules,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             rules: pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]],
+             type: pulumi.Input[Union[str, 'InventoryRuleType']],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("enabled", enabled)
+        _setter("rules", rules)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -687,10 +875,25 @@ class ChangeFeedArgs:
         :param pulumi.Input[bool] enabled: Indicates whether change feed event logging is enabled for the Blob service.
         :param pulumi.Input[int] retention_in_days: Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
         """
+        ChangeFeedArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            retention_in_days=retention_in_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
 
     @property
     @pulumi.getter
@@ -725,8 +928,21 @@ class CorsRulesArgs:
         Sets the CORS rules. You can include up to five CorsRule elements in the request. 
         :param pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
         """
+        CorsRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cors_rules=cors_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'corsRules' in kwargs:
+            cors_rules = kwargs['corsRules']
+
         if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
+            _setter("cors_rules", cors_rules)
 
     @property
     @pulumi.getter(name="corsRules")
@@ -757,11 +973,40 @@ class CorsRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exposed_headers: Required if CorsRule element is present. A list of response headers to expose to CORS clients.
         :param pulumi.Input[int] max_age_in_seconds: Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
         """
-        pulumi.set(__self__, "allowed_headers", allowed_headers)
-        pulumi.set(__self__, "allowed_methods", allowed_methods)
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
-        pulumi.set(__self__, "exposed_headers", exposed_headers)
-        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+        CorsRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_headers=allowed_headers,
+            allowed_methods=allowed_methods,
+            allowed_origins=allowed_origins,
+            exposed_headers=exposed_headers,
+            max_age_in_seconds=max_age_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
+             allowed_methods: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AllowedMethods']]]],
+             allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+             exposed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
+             max_age_in_seconds: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedHeaders' in kwargs:
+            allowed_headers = kwargs['allowedHeaders']
+        if 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'exposedHeaders' in kwargs:
+            exposed_headers = kwargs['exposedHeaders']
+        if 'maxAgeInSeconds' in kwargs:
+            max_age_in_seconds = kwargs['maxAgeInSeconds']
+
+        _setter("allowed_headers", allowed_headers)
+        _setter("allowed_methods", allowed_methods)
+        _setter("allowed_origins", allowed_origins)
+        _setter("exposed_headers", exposed_headers)
+        _setter("max_age_in_seconds", max_age_in_seconds)
 
     @property
     @pulumi.getter(name="allowedHeaders")
@@ -834,9 +1079,24 @@ class CustomDomainArgs:
         :param pulumi.Input[str] name: Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
         :param pulumi.Input[bool] use_sub_domain_name: Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
         """
-        pulumi.set(__self__, "name", name)
+        CustomDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            use_sub_domain_name=use_sub_domain_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             use_sub_domain_name: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'useSubDomainName' in kwargs:
+            use_sub_domain_name = kwargs['useSubDomainName']
+
+        _setter("name", name)
         if use_sub_domain_name is not None:
-            pulumi.set(__self__, "use_sub_domain_name", use_sub_domain_name)
+            _setter("use_sub_domain_name", use_sub_domain_name)
 
     @property
     @pulumi.getter
@@ -873,9 +1133,26 @@ class DateAfterCreationArgs:
         :param pulumi.Input[float] days_after_creation_greater_than: Value indicating the age in days after creation
         :param pulumi.Input[float] days_after_last_tier_change_greater_than: Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
         """
-        pulumi.set(__self__, "days_after_creation_greater_than", days_after_creation_greater_than)
+        DateAfterCreationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_after_creation_greater_than=days_after_creation_greater_than,
+            days_after_last_tier_change_greater_than=days_after_last_tier_change_greater_than,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_after_creation_greater_than: pulumi.Input[float],
+             days_after_last_tier_change_greater_than: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysAfterCreationGreaterThan' in kwargs:
+            days_after_creation_greater_than = kwargs['daysAfterCreationGreaterThan']
+        if 'daysAfterLastTierChangeGreaterThan' in kwargs:
+            days_after_last_tier_change_greater_than = kwargs['daysAfterLastTierChangeGreaterThan']
+
+        _setter("days_after_creation_greater_than", days_after_creation_greater_than)
         if days_after_last_tier_change_greater_than is not None:
-            pulumi.set(__self__, "days_after_last_tier_change_greater_than", days_after_last_tier_change_greater_than)
+            _setter("days_after_last_tier_change_greater_than", days_after_last_tier_change_greater_than)
 
     @property
     @pulumi.getter(name="daysAfterCreationGreaterThan")
@@ -916,14 +1193,39 @@ class DateAfterModificationArgs:
         :param pulumi.Input[float] days_after_last_tier_change_greater_than: Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
         :param pulumi.Input[float] days_after_modification_greater_than: Value indicating the age in days after last modification
         """
+        DateAfterModificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_after_creation_greater_than=days_after_creation_greater_than,
+            days_after_last_access_time_greater_than=days_after_last_access_time_greater_than,
+            days_after_last_tier_change_greater_than=days_after_last_tier_change_greater_than,
+            days_after_modification_greater_than=days_after_modification_greater_than,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_after_creation_greater_than: Optional[pulumi.Input[float]] = None,
+             days_after_last_access_time_greater_than: Optional[pulumi.Input[float]] = None,
+             days_after_last_tier_change_greater_than: Optional[pulumi.Input[float]] = None,
+             days_after_modification_greater_than: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysAfterCreationGreaterThan' in kwargs:
+            days_after_creation_greater_than = kwargs['daysAfterCreationGreaterThan']
+        if 'daysAfterLastAccessTimeGreaterThan' in kwargs:
+            days_after_last_access_time_greater_than = kwargs['daysAfterLastAccessTimeGreaterThan']
+        if 'daysAfterLastTierChangeGreaterThan' in kwargs:
+            days_after_last_tier_change_greater_than = kwargs['daysAfterLastTierChangeGreaterThan']
+        if 'daysAfterModificationGreaterThan' in kwargs:
+            days_after_modification_greater_than = kwargs['daysAfterModificationGreaterThan']
+
         if days_after_creation_greater_than is not None:
-            pulumi.set(__self__, "days_after_creation_greater_than", days_after_creation_greater_than)
+            _setter("days_after_creation_greater_than", days_after_creation_greater_than)
         if days_after_last_access_time_greater_than is not None:
-            pulumi.set(__self__, "days_after_last_access_time_greater_than", days_after_last_access_time_greater_than)
+            _setter("days_after_last_access_time_greater_than", days_after_last_access_time_greater_than)
         if days_after_last_tier_change_greater_than is not None:
-            pulumi.set(__self__, "days_after_last_tier_change_greater_than", days_after_last_tier_change_greater_than)
+            _setter("days_after_last_tier_change_greater_than", days_after_last_tier_change_greater_than)
         if days_after_modification_greater_than is not None:
-            pulumi.set(__self__, "days_after_modification_greater_than", days_after_modification_greater_than)
+            _setter("days_after_modification_greater_than", days_after_modification_greater_than)
 
     @property
     @pulumi.getter(name="daysAfterCreationGreaterThan")
@@ -986,12 +1288,29 @@ class DeleteRetentionPolicyArgs:
         :param pulumi.Input[int] days: Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
         :param pulumi.Input[bool] enabled: Indicates whether DeleteRetentionPolicy is enabled.
         """
+        DeleteRetentionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_permanent_delete=allow_permanent_delete,
+            days=days,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_permanent_delete: Optional[pulumi.Input[bool]] = None,
+             days: Optional[pulumi.Input[int]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowPermanentDelete' in kwargs:
+            allow_permanent_delete = kwargs['allowPermanentDelete']
+
         if allow_permanent_delete is not None:
-            pulumi.set(__self__, "allow_permanent_delete", allow_permanent_delete)
+            _setter("allow_permanent_delete", allow_permanent_delete)
         if days is not None:
-            pulumi.set(__self__, "days", days)
+            _setter("days", days)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="allowPermanentDelete")
@@ -1040,10 +1359,27 @@ class EncryptionIdentityArgs:
         :param pulumi.Input[str] encryption_federated_identity_client_id: ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
         :param pulumi.Input[str] encryption_user_assigned_identity: Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
         """
+        EncryptionIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_federated_identity_client_id=encryption_federated_identity_client_id,
+            encryption_user_assigned_identity=encryption_user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_federated_identity_client_id: Optional[pulumi.Input[str]] = None,
+             encryption_user_assigned_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionFederatedIdentityClientId' in kwargs:
+            encryption_federated_identity_client_id = kwargs['encryptionFederatedIdentityClientId']
+        if 'encryptionUserAssignedIdentity' in kwargs:
+            encryption_user_assigned_identity = kwargs['encryptionUserAssignedIdentity']
+
         if encryption_federated_identity_client_id is not None:
-            pulumi.set(__self__, "encryption_federated_identity_client_id", encryption_federated_identity_client_id)
+            _setter("encryption_federated_identity_client_id", encryption_federated_identity_client_id)
         if encryption_user_assigned_identity is not None:
-            pulumi.set(__self__, "encryption_user_assigned_identity", encryption_user_assigned_identity)
+            _setter("encryption_user_assigned_identity", encryption_user_assigned_identity)
 
     @property
     @pulumi.getter(name="encryptionFederatedIdentityClientId")
@@ -1078,8 +1414,21 @@ class EncryptionScopeKeyVaultPropertiesArgs:
         The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
         :param pulumi.Input[str] key_uri: The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
         """
+        EncryptionScopeKeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_uri=key_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyUri' in kwargs:
+            key_uri = kwargs['keyUri']
+
         if key_uri is not None:
-            pulumi.set(__self__, "key_uri", key_uri)
+            _setter("key_uri", key_uri)
 
     @property
     @pulumi.getter(name="keyUri")
@@ -1108,14 +1457,31 @@ class EncryptionServicesArgs:
         :param pulumi.Input['EncryptionServiceArgs'] queue: The encryption function of the queue storage service.
         :param pulumi.Input['EncryptionServiceArgs'] table: The encryption function of the table storage service.
         """
+        EncryptionServicesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob=blob,
+            file=file,
+            queue=queue,
+            table=table,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob: Optional[pulumi.Input['EncryptionServiceArgs']] = None,
+             file: Optional[pulumi.Input['EncryptionServiceArgs']] = None,
+             queue: Optional[pulumi.Input['EncryptionServiceArgs']] = None,
+             table: Optional[pulumi.Input['EncryptionServiceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if blob is not None:
-            pulumi.set(__self__, "blob", blob)
+            _setter("blob", blob)
         if file is not None:
-            pulumi.set(__self__, "file", file)
+            _setter("file", file)
         if queue is not None:
-            pulumi.set(__self__, "queue", queue)
+            _setter("queue", queue)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
 
     @property
     @pulumi.getter
@@ -1176,10 +1542,25 @@ class EncryptionServiceArgs:
         :param pulumi.Input[bool] enabled: A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
         :param pulumi.Input[Union[str, 'KeyType']] key_type: Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
         """
+        EncryptionServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            key_type=key_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             key_type: Optional[pulumi.Input[Union[str, 'KeyType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if key_type is not None:
-            pulumi.set(__self__, "key_type", key_type)
+            _setter("key_type", key_type)
 
     @property
     @pulumi.getter
@@ -1222,18 +1603,45 @@ class EncryptionArgs:
         :param pulumi.Input[bool] require_infrastructure_encryption: A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
         :param pulumi.Input['EncryptionServicesArgs'] services: List of services which support encryption.
         """
+        EncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_identity=encryption_identity,
+            key_source=key_source,
+            key_vault_properties=key_vault_properties,
+            require_infrastructure_encryption=require_infrastructure_encryption,
+            services=services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_identity: Optional[pulumi.Input['EncryptionIdentityArgs']] = None,
+             key_source: Optional[pulumi.Input[Union[str, 'KeySource']]] = None,
+             key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+             require_infrastructure_encryption: Optional[pulumi.Input[bool]] = None,
+             services: Optional[pulumi.Input['EncryptionServicesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionIdentity' in kwargs:
+            encryption_identity = kwargs['encryptionIdentity']
+        if 'keySource' in kwargs:
+            key_source = kwargs['keySource']
+        if 'keyVaultProperties' in kwargs:
+            key_vault_properties = kwargs['keyVaultProperties']
+        if 'requireInfrastructureEncryption' in kwargs:
+            require_infrastructure_encryption = kwargs['requireInfrastructureEncryption']
+
         if encryption_identity is not None:
-            pulumi.set(__self__, "encryption_identity", encryption_identity)
+            _setter("encryption_identity", encryption_identity)
         if key_source is None:
             key_source = 'Microsoft.Storage'
         if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
+            _setter("key_source", key_source)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
         if require_infrastructure_encryption is not None:
-            pulumi.set(__self__, "require_infrastructure_encryption", require_infrastructure_encryption)
+            _setter("require_infrastructure_encryption", require_infrastructure_encryption)
         if services is not None:
-            pulumi.set(__self__, "services", services)
+            _setter("services", services)
 
     @property
     @pulumi.getter(name="encryptionIdentity")
@@ -1306,10 +1714,23 @@ class ExtendedLocationArgs:
         :param pulumi.Input[str] name: The name of the extended location.
         :param pulumi.Input[Union[str, 'ExtendedLocationTypes']] type: The type of the extended location.
         """
+        ExtendedLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1346,11 +1767,26 @@ class IPRuleArgs:
         :param pulumi.Input[str] i_p_address_or_range: Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
         :param pulumi.Input['Action'] action: The action of IP ACL rule.
         """
-        pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
+        IPRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            i_p_address_or_range=i_p_address_or_range,
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             i_p_address_or_range: pulumi.Input[str],
+             action: Optional[pulumi.Input['Action']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'iPAddressOrRange' in kwargs:
+            i_p_address_or_range = kwargs['iPAddressOrRange']
+
+        _setter("i_p_address_or_range", i_p_address_or_range)
         if action is None:
             action = 'Allow'
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
 
     @property
     @pulumi.getter(name="iPAddressOrRange")
@@ -1387,9 +1823,24 @@ class IdentityArgs:
         :param pulumi.Input[Union[str, 'IdentityType']] type: The identity type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
         """
-        pulumi.set(__self__, "type", type)
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'IdentityType']],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -1426,10 +1877,25 @@ class ImmutableStorageAccountArgs:
         :param pulumi.Input[bool] enabled: A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
         :param pulumi.Input['AccountImmutabilityPolicyPropertiesArgs'] immutability_policy: Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy.
         """
+        ImmutableStorageAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            immutability_policy=immutability_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             immutability_policy: Optional[pulumi.Input['AccountImmutabilityPolicyPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'immutabilityPolicy' in kwargs:
+            immutability_policy = kwargs['immutabilityPolicy']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if immutability_policy is not None:
-            pulumi.set(__self__, "immutability_policy", immutability_policy)
+            _setter("immutability_policy", immutability_policy)
 
     @property
     @pulumi.getter
@@ -1464,8 +1930,19 @@ class ImmutableStorageWithVersioningArgs:
         Object level immutability properties of the container.
         :param pulumi.Input[bool] enabled: This is an immutable property, when set to true it enables object level immutability at the container level.
         """
+        ImmutableStorageWithVersioningArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -1488,7 +1965,20 @@ class KeyPolicyArgs:
         KeyPolicy assigned to the storage account.
         :param pulumi.Input[int] key_expiration_period_in_days: The key expiration period in days.
         """
-        pulumi.set(__self__, "key_expiration_period_in_days", key_expiration_period_in_days)
+        KeyPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_expiration_period_in_days=key_expiration_period_in_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_expiration_period_in_days: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyExpirationPeriodInDays' in kwargs:
+            key_expiration_period_in_days = kwargs['keyExpirationPeriodInDays']
+
+        _setter("key_expiration_period_in_days", key_expiration_period_in_days)
 
     @property
     @pulumi.getter(name="keyExpirationPeriodInDays")
@@ -1515,12 +2005,33 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] key_vault_uri: The Uri of KeyVault.
         :param pulumi.Input[str] key_version: The version of KeyVault key.
         """
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_vault_uri: Optional[pulumi.Input[str]] = None,
+             key_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+        if 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+            _setter("key_vault_uri", key_vault_uri)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -1573,13 +2084,34 @@ class LastAccessTimeTrackingPolicyArgs:
         :param pulumi.Input[Union[str, 'Name']] name: Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
         :param pulumi.Input[int] tracking_granularity_in_days: The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
         """
-        pulumi.set(__self__, "enable", enable)
+        LastAccessTimeTrackingPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable=enable,
+            blob_type=blob_type,
+            name=name,
+            tracking_granularity_in_days=tracking_granularity_in_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable: pulumi.Input[bool],
+             blob_type: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[Union[str, 'Name']]] = None,
+             tracking_granularity_in_days: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blobType' in kwargs:
+            blob_type = kwargs['blobType']
+        if 'trackingGranularityInDays' in kwargs:
+            tracking_granularity_in_days = kwargs['trackingGranularityInDays']
+
+        _setter("enable", enable)
         if blob_type is not None:
-            pulumi.set(__self__, "blob_type", blob_type)
+            _setter("blob_type", blob_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tracking_granularity_in_days is not None:
-            pulumi.set(__self__, "tracking_granularity_in_days", tracking_granularity_in_days)
+            _setter("tracking_granularity_in_days", tracking_granularity_in_days)
 
     @property
     @pulumi.getter
@@ -1642,12 +2174,29 @@ class ManagementPolicyActionArgs:
         :param pulumi.Input['ManagementPolicySnapShotArgs'] snapshot: The management policy action for snapshot
         :param pulumi.Input['ManagementPolicyVersionArgs'] version: The management policy action for version
         """
+        ManagementPolicyActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_blob=base_blob,
+            snapshot=snapshot,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_blob: Optional[pulumi.Input['ManagementPolicyBaseBlobArgs']] = None,
+             snapshot: Optional[pulumi.Input['ManagementPolicySnapShotArgs']] = None,
+             version: Optional[pulumi.Input['ManagementPolicyVersionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseBlob' in kwargs:
+            base_blob = kwargs['baseBlob']
+
         if base_blob is not None:
-            pulumi.set(__self__, "base_blob", base_blob)
+            _setter("base_blob", base_blob)
         if snapshot is not None:
-            pulumi.set(__self__, "snapshot", snapshot)
+            _setter("snapshot", snapshot)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="baseBlob")
@@ -1704,18 +2253,49 @@ class ManagementPolicyBaseBlobArgs:
         :param pulumi.Input['DateAfterModificationArgs'] tier_to_cool: The function to tier blobs to cool storage.
         :param pulumi.Input['DateAfterModificationArgs'] tier_to_hot: The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
         """
+        ManagementPolicyBaseBlobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete=delete,
+            enable_auto_tier_to_hot_from_cool=enable_auto_tier_to_hot_from_cool,
+            tier_to_archive=tier_to_archive,
+            tier_to_cold=tier_to_cold,
+            tier_to_cool=tier_to_cool,
+            tier_to_hot=tier_to_hot,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete: Optional[pulumi.Input['DateAfterModificationArgs']] = None,
+             enable_auto_tier_to_hot_from_cool: Optional[pulumi.Input[bool]] = None,
+             tier_to_archive: Optional[pulumi.Input['DateAfterModificationArgs']] = None,
+             tier_to_cold: Optional[pulumi.Input['DateAfterModificationArgs']] = None,
+             tier_to_cool: Optional[pulumi.Input['DateAfterModificationArgs']] = None,
+             tier_to_hot: Optional[pulumi.Input['DateAfterModificationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableAutoTierToHotFromCool' in kwargs:
+            enable_auto_tier_to_hot_from_cool = kwargs['enableAutoTierToHotFromCool']
+        if 'tierToArchive' in kwargs:
+            tier_to_archive = kwargs['tierToArchive']
+        if 'tierToCold' in kwargs:
+            tier_to_cold = kwargs['tierToCold']
+        if 'tierToCool' in kwargs:
+            tier_to_cool = kwargs['tierToCool']
+        if 'tierToHot' in kwargs:
+            tier_to_hot = kwargs['tierToHot']
+
         if delete is not None:
-            pulumi.set(__self__, "delete", delete)
+            _setter("delete", delete)
         if enable_auto_tier_to_hot_from_cool is not None:
-            pulumi.set(__self__, "enable_auto_tier_to_hot_from_cool", enable_auto_tier_to_hot_from_cool)
+            _setter("enable_auto_tier_to_hot_from_cool", enable_auto_tier_to_hot_from_cool)
         if tier_to_archive is not None:
-            pulumi.set(__self__, "tier_to_archive", tier_to_archive)
+            _setter("tier_to_archive", tier_to_archive)
         if tier_to_cold is not None:
-            pulumi.set(__self__, "tier_to_cold", tier_to_cold)
+            _setter("tier_to_cold", tier_to_cold)
         if tier_to_cool is not None:
-            pulumi.set(__self__, "tier_to_cool", tier_to_cool)
+            _setter("tier_to_cool", tier_to_cool)
         if tier_to_hot is not None:
-            pulumi.set(__self__, "tier_to_hot", tier_to_hot)
+            _setter("tier_to_hot", tier_to_hot)
 
     @property
     @pulumi.getter
@@ -1800,9 +2380,22 @@ class ManagementPolicyDefinitionArgs:
         :param pulumi.Input['ManagementPolicyActionArgs'] actions: An object that defines the action set.
         :param pulumi.Input['ManagementPolicyFilterArgs'] filters: An object that defines the filter set.
         """
-        pulumi.set(__self__, "actions", actions)
+        ManagementPolicyDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            filters=filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: pulumi.Input['ManagementPolicyActionArgs'],
+             filters: Optional[pulumi.Input['ManagementPolicyFilterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("actions", actions)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
 
     @property
     @pulumi.getter
@@ -1841,11 +2434,32 @@ class ManagementPolicyFilterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TagFilterArgs']]] blob_index_match: An array of blob index tag based filters, there can be at most 10 tag filters
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_match: An array of strings for prefixes to be match.
         """
-        pulumi.set(__self__, "blob_types", blob_types)
+        ManagementPolicyFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_types=blob_types,
+            blob_index_match=blob_index_match,
+            prefix_match=prefix_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             blob_index_match: Optional[pulumi.Input[Sequence[pulumi.Input['TagFilterArgs']]]] = None,
+             prefix_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blobTypes' in kwargs:
+            blob_types = kwargs['blobTypes']
+        if 'blobIndexMatch' in kwargs:
+            blob_index_match = kwargs['blobIndexMatch']
+        if 'prefixMatch' in kwargs:
+            prefix_match = kwargs['prefixMatch']
+
+        _setter("blob_types", blob_types)
         if blob_index_match is not None:
-            pulumi.set(__self__, "blob_index_match", blob_index_match)
+            _setter("blob_index_match", blob_index_match)
         if prefix_match is not None:
-            pulumi.set(__self__, "prefix_match", prefix_match)
+            _setter("prefix_match", prefix_match)
 
     @property
     @pulumi.getter(name="blobTypes")
@@ -1898,11 +2512,28 @@ class ManagementPolicyRuleArgs:
         :param pulumi.Input[Union[str, 'RuleType']] type: The valid value is Lifecycle
         :param pulumi.Input[bool] enabled: Rule is enabled if set to true.
         """
-        pulumi.set(__self__, "definition", definition)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ManagementPolicyRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            definition=definition,
+            name=name,
+            type=type,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             definition: pulumi.Input['ManagementPolicyDefinitionArgs'],
+             name: pulumi.Input[str],
+             type: pulumi.Input[Union[str, 'RuleType']],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("definition", definition)
+        _setter("name", name)
+        _setter("type", type)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -1961,7 +2592,18 @@ class ManagementPolicySchemaArgs:
         The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         :param pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]] rules: The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         """
-        pulumi.set(__self__, "rules", rules)
+        ManagementPolicySchemaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rules: pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -1992,16 +2634,43 @@ class ManagementPolicySnapShotArgs:
         :param pulumi.Input['DateAfterCreationArgs'] tier_to_cool: The function to tier blob snapshot to cool storage.
         :param pulumi.Input['DateAfterCreationArgs'] tier_to_hot: The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
         """
+        ManagementPolicySnapShotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete=delete,
+            tier_to_archive=tier_to_archive,
+            tier_to_cold=tier_to_cold,
+            tier_to_cool=tier_to_cool,
+            tier_to_hot=tier_to_hot,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
+             tier_to_archive: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
+             tier_to_cold: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
+             tier_to_cool: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
+             tier_to_hot: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tierToArchive' in kwargs:
+            tier_to_archive = kwargs['tierToArchive']
+        if 'tierToCold' in kwargs:
+            tier_to_cold = kwargs['tierToCold']
+        if 'tierToCool' in kwargs:
+            tier_to_cool = kwargs['tierToCool']
+        if 'tierToHot' in kwargs:
+            tier_to_hot = kwargs['tierToHot']
+
         if delete is not None:
-            pulumi.set(__self__, "delete", delete)
+            _setter("delete", delete)
         if tier_to_archive is not None:
-            pulumi.set(__self__, "tier_to_archive", tier_to_archive)
+            _setter("tier_to_archive", tier_to_archive)
         if tier_to_cold is not None:
-            pulumi.set(__self__, "tier_to_cold", tier_to_cold)
+            _setter("tier_to_cold", tier_to_cold)
         if tier_to_cool is not None:
-            pulumi.set(__self__, "tier_to_cool", tier_to_cool)
+            _setter("tier_to_cool", tier_to_cool)
         if tier_to_hot is not None:
-            pulumi.set(__self__, "tier_to_hot", tier_to_hot)
+            _setter("tier_to_hot", tier_to_hot)
 
     @property
     @pulumi.getter
@@ -2080,16 +2749,43 @@ class ManagementPolicyVersionArgs:
         :param pulumi.Input['DateAfterCreationArgs'] tier_to_cool: The function to tier blob version to cool storage.
         :param pulumi.Input['DateAfterCreationArgs'] tier_to_hot: The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
         """
+        ManagementPolicyVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete=delete,
+            tier_to_archive=tier_to_archive,
+            tier_to_cold=tier_to_cold,
+            tier_to_cool=tier_to_cool,
+            tier_to_hot=tier_to_hot,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
+             tier_to_archive: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
+             tier_to_cold: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
+             tier_to_cool: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
+             tier_to_hot: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tierToArchive' in kwargs:
+            tier_to_archive = kwargs['tierToArchive']
+        if 'tierToCold' in kwargs:
+            tier_to_cold = kwargs['tierToCold']
+        if 'tierToCool' in kwargs:
+            tier_to_cool = kwargs['tierToCool']
+        if 'tierToHot' in kwargs:
+            tier_to_hot = kwargs['tierToHot']
+
         if delete is not None:
-            pulumi.set(__self__, "delete", delete)
+            _setter("delete", delete)
         if tier_to_archive is not None:
-            pulumi.set(__self__, "tier_to_archive", tier_to_archive)
+            _setter("tier_to_archive", tier_to_archive)
         if tier_to_cold is not None:
-            pulumi.set(__self__, "tier_to_cold", tier_to_cold)
+            _setter("tier_to_cold", tier_to_cold)
         if tier_to_cool is not None:
-            pulumi.set(__self__, "tier_to_cool", tier_to_cool)
+            _setter("tier_to_cool", tier_to_cool)
         if tier_to_hot is not None:
-            pulumi.set(__self__, "tier_to_hot", tier_to_hot)
+            _setter("tier_to_hot", tier_to_hot)
 
     @property
     @pulumi.getter
@@ -2160,8 +2856,19 @@ class MultichannelArgs:
         Multichannel setting. Applies to Premium FileStorage only.
         :param pulumi.Input[bool] enabled: Indicates whether multichannel is enabled
         """
+        MultichannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -2192,19 +2899,46 @@ class NetworkRuleSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResourceAccessRuleArgs']]] resource_access_rules: Sets the resource access rules
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: Sets the virtual network rules
         """
+        NetworkRuleSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            bypass=bypass,
+            ip_rules=ip_rules,
+            resource_access_rules=resource_access_rules,
+            virtual_network_rules=virtual_network_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: Optional[pulumi.Input['DefaultAction']] = None,
+             bypass: Optional[pulumi.Input[Union[str, 'Bypass']]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
+             resource_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRuleArgs']]]] = None,
+             virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'resourceAccessRules' in kwargs:
+            resource_access_rules = kwargs['resourceAccessRules']
+        if 'virtualNetworkRules' in kwargs:
+            virtual_network_rules = kwargs['virtualNetworkRules']
+
         if default_action is None:
             default_action = 'Allow'
-        pulumi.set(__self__, "default_action", default_action)
+        _setter("default_action", default_action)
         if bypass is None:
             bypass = 'AzureServices'
         if bypass is not None:
-            pulumi.set(__self__, "bypass", bypass)
+            _setter("bypass", bypass)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if resource_access_rules is not None:
-            pulumi.set(__self__, "resource_access_rules", resource_access_rules)
+            _setter("resource_access_rules", resource_access_rules)
         if virtual_network_rules is not None:
-            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+            _setter("virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -2277,10 +3011,27 @@ class ObjectReplicationPolicyFilterArgs:
         :param pulumi.Input[str] min_creation_time: Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_match: Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
         """
+        ObjectReplicationPolicyFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            min_creation_time=min_creation_time,
+            prefix_match=prefix_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             min_creation_time: Optional[pulumi.Input[str]] = None,
+             prefix_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'minCreationTime' in kwargs:
+            min_creation_time = kwargs['minCreationTime']
+        if 'prefixMatch' in kwargs:
+            prefix_match = kwargs['prefixMatch']
+
         if min_creation_time is not None:
-            pulumi.set(__self__, "min_creation_time", min_creation_time)
+            _setter("min_creation_time", min_creation_time)
         if prefix_match is not None:
-            pulumi.set(__self__, "prefix_match", prefix_match)
+            _setter("prefix_match", prefix_match)
 
     @property
     @pulumi.getter(name="minCreationTime")
@@ -2321,12 +3072,35 @@ class ObjectReplicationPolicyRuleArgs:
         :param pulumi.Input['ObjectReplicationPolicyFilterArgs'] filters: Optional. An object that defines the filter set.
         :param pulumi.Input[str] rule_id: Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
         """
-        pulumi.set(__self__, "destination_container", destination_container)
-        pulumi.set(__self__, "source_container", source_container)
+        ObjectReplicationPolicyRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_container=destination_container,
+            source_container=source_container,
+            filters=filters,
+            rule_id=rule_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_container: pulumi.Input[str],
+             source_container: pulumi.Input[str],
+             filters: Optional[pulumi.Input['ObjectReplicationPolicyFilterArgs']] = None,
+             rule_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationContainer' in kwargs:
+            destination_container = kwargs['destinationContainer']
+        if 'sourceContainer' in kwargs:
+            source_container = kwargs['sourceContainer']
+        if 'ruleId' in kwargs:
+            rule_id = kwargs['ruleId']
+
+        _setter("destination_container", destination_container)
+        _setter("source_container", source_container)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if rule_id is not None:
-            pulumi.set(__self__, "rule_id", rule_id)
+            _setter("rule_id", rule_id)
 
     @property
     @pulumi.getter(name="destinationContainer")
@@ -2388,9 +3162,26 @@ class PermissionScopeArgs:
         :param pulumi.Input[str] resource_name: The name of resource, normally the container name or the file share name, used by the local user.
         :param pulumi.Input[str] service: The service used by the local user, e.g. blob, file.
         """
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "service", service)
+        PermissionScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            resource_name=resource_name,
+            service=service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: pulumi.Input[str],
+             resource_name: pulumi.Input[str],
+             service: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+
+        _setter("permissions", permissions)
+        _setter("resource_name", resource_name)
+        _setter("service", service)
 
     @property
     @pulumi.getter
@@ -2441,12 +3232,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_required=action_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionRequired' in kwargs:
+            action_required = kwargs['actionRequired']
+
         if action_required is not None:
-            pulumi.set(__self__, "action_required", action_required)
+            _setter("action_required", action_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionRequired")
@@ -2493,8 +3301,19 @@ class ProtocolSettingsArgs:
         Protocol settings for file service
         :param pulumi.Input['SmbSettingArgs'] smb: Setting for SMB protocol
         """
+        ProtocolSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            smb=smb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             smb: Optional[pulumi.Input['SmbSettingArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if smb is not None:
-            pulumi.set(__self__, "smb", smb)
+            _setter("smb", smb)
 
     @property
     @pulumi.getter
@@ -2519,10 +3338,27 @@ class ResourceAccessRuleArgs:
         :param pulumi.Input[str] resource_id: Resource Id
         :param pulumi.Input[str] tenant_id: Tenant Id
         """
+        ResourceAccessRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -2559,9 +3395,22 @@ class RestorePolicyPropertiesArgs:
         :param pulumi.Input[bool] enabled: Blob restore is enabled if set to true.
         :param pulumi.Input[int] days: how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        RestorePolicyPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            days=days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             days: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("enabled", enabled)
         if days is not None:
-            pulumi.set(__self__, "days", days)
+            _setter("days", days)
 
     @property
     @pulumi.getter
@@ -2600,12 +3449,33 @@ class RoutingPreferenceArgs:
         :param pulumi.Input[bool] publish_microsoft_endpoints: A boolean flag which indicates whether microsoft routing storage endpoints are to be published
         :param pulumi.Input[Union[str, 'RoutingChoice']] routing_choice: Routing Choice defines the kind of network routing opted by the user.
         """
+        RoutingPreferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            publish_internet_endpoints=publish_internet_endpoints,
+            publish_microsoft_endpoints=publish_microsoft_endpoints,
+            routing_choice=routing_choice,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             publish_internet_endpoints: Optional[pulumi.Input[bool]] = None,
+             publish_microsoft_endpoints: Optional[pulumi.Input[bool]] = None,
+             routing_choice: Optional[pulumi.Input[Union[str, 'RoutingChoice']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publishInternetEndpoints' in kwargs:
+            publish_internet_endpoints = kwargs['publishInternetEndpoints']
+        if 'publishMicrosoftEndpoints' in kwargs:
+            publish_microsoft_endpoints = kwargs['publishMicrosoftEndpoints']
+        if 'routingChoice' in kwargs:
+            routing_choice = kwargs['routingChoice']
+
         if publish_internet_endpoints is not None:
-            pulumi.set(__self__, "publish_internet_endpoints", publish_internet_endpoints)
+            _setter("publish_internet_endpoints", publish_internet_endpoints)
         if publish_microsoft_endpoints is not None:
-            pulumi.set(__self__, "publish_microsoft_endpoints", publish_microsoft_endpoints)
+            _setter("publish_microsoft_endpoints", publish_microsoft_endpoints)
         if routing_choice is not None:
-            pulumi.set(__self__, "routing_choice", routing_choice)
+            _setter("routing_choice", routing_choice)
 
     @property
     @pulumi.getter(name="publishInternetEndpoints")
@@ -2654,10 +3524,27 @@ class SasPolicyArgs:
         :param pulumi.Input[Union[str, 'ExpirationAction']] expiration_action: The SAS expiration action. Can only be Log.
         :param pulumi.Input[str] sas_expiration_period: The SAS expiration period, DD.HH:MM:SS.
         """
+        SasPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration_action=expiration_action,
+            sas_expiration_period=sas_expiration_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration_action: Optional[pulumi.Input[Union[str, 'ExpirationAction']]] = None,
+             sas_expiration_period: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expirationAction' in kwargs:
+            expiration_action = kwargs['expirationAction']
+        if 'sasExpirationPeriod' in kwargs:
+            sas_expiration_period = kwargs['sasExpirationPeriod']
+
         if expiration_action is None:
             expiration_action = 'Log'
-        pulumi.set(__self__, "expiration_action", expiration_action)
-        pulumi.set(__self__, "sas_expiration_period", sas_expiration_period)
+        _setter("expiration_action", expiration_action)
+        _setter("sas_expiration_period", sas_expiration_period)
 
     @property
     @pulumi.getter(name="expirationAction")
@@ -2693,10 +3580,25 @@ class SignedIdentifierArgs:
         :param pulumi.Input['AccessPolicyArgs'] access_policy: Access policy
         :param pulumi.Input[str] id: An unique identifier of the stored access policy.
         """
+        SignedIdentifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policy=access_policy,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policy: Optional[pulumi.Input['AccessPolicyArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPolicy' in kwargs:
+            access_policy = kwargs['accessPolicy']
+
         if access_policy is not None:
-            pulumi.set(__self__, "access_policy", access_policy)
+            _setter("access_policy", access_policy)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter(name="accessPolicy")
@@ -2731,7 +3633,18 @@ class SkuArgs:
         The SKU of the storage account.
         :param pulumi.Input[Union[str, 'SkuName']] name: The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'SkuName']],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2762,16 +3675,41 @@ class SmbSettingArgs:
         :param pulumi.Input['MultichannelArgs'] multichannel: Multichannel setting. Applies to Premium FileStorage only.
         :param pulumi.Input[str] versions: SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
         """
+        SmbSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_methods=authentication_methods,
+            channel_encryption=channel_encryption,
+            kerberos_ticket_encryption=kerberos_ticket_encryption,
+            multichannel=multichannel,
+            versions=versions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_methods: Optional[pulumi.Input[str]] = None,
+             channel_encryption: Optional[pulumi.Input[str]] = None,
+             kerberos_ticket_encryption: Optional[pulumi.Input[str]] = None,
+             multichannel: Optional[pulumi.Input['MultichannelArgs']] = None,
+             versions: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationMethods' in kwargs:
+            authentication_methods = kwargs['authenticationMethods']
+        if 'channelEncryption' in kwargs:
+            channel_encryption = kwargs['channelEncryption']
+        if 'kerberosTicketEncryption' in kwargs:
+            kerberos_ticket_encryption = kwargs['kerberosTicketEncryption']
+
         if authentication_methods is not None:
-            pulumi.set(__self__, "authentication_methods", authentication_methods)
+            _setter("authentication_methods", authentication_methods)
         if channel_encryption is not None:
-            pulumi.set(__self__, "channel_encryption", channel_encryption)
+            _setter("channel_encryption", channel_encryption)
         if kerberos_ticket_encryption is not None:
-            pulumi.set(__self__, "kerberos_ticket_encryption", kerberos_ticket_encryption)
+            _setter("kerberos_ticket_encryption", kerberos_ticket_encryption)
         if multichannel is not None:
-            pulumi.set(__self__, "multichannel", multichannel)
+            _setter("multichannel", multichannel)
         if versions is not None:
-            pulumi.set(__self__, "versions", versions)
+            _setter("versions", versions)
 
     @property
     @pulumi.getter(name="authenticationMethods")
@@ -2843,10 +3781,23 @@ class SshPublicKeyArgs:
         :param pulumi.Input[str] description: Optional. It is used to store the function/usage of the key
         :param pulumi.Input[str] key: Ssh public key base64 encoded. The format should be: '<keyType> <keyData>', e.g. ssh-rsa AAAABBBB
         """
+        SshPublicKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter
@@ -2885,11 +3836,30 @@ class TableAccessPolicyArgs:
         :param pulumi.Input[str] expiry_time: Expiry time of the access policy
         :param pulumi.Input[str] start_time: Start time of the access policy
         """
-        pulumi.set(__self__, "permission", permission)
+        TableAccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permission=permission,
+            expiry_time=expiry_time,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permission: pulumi.Input[str],
+             expiry_time: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expiryTime' in kwargs:
+            expiry_time = kwargs['expiryTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
+        _setter("permission", permission)
         if expiry_time is not None:
-            pulumi.set(__self__, "expiry_time", expiry_time)
+            _setter("expiry_time", expiry_time)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter
@@ -2938,9 +3908,24 @@ class TableSignedIdentifierArgs:
         :param pulumi.Input[str] id: unique-64-character-value of the stored access policy.
         :param pulumi.Input['TableAccessPolicyArgs'] access_policy: Access policy
         """
-        pulumi.set(__self__, "id", id)
+        TableSignedIdentifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            access_policy=access_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             access_policy: Optional[pulumi.Input['TableAccessPolicyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPolicy' in kwargs:
+            access_policy = kwargs['accessPolicy']
+
+        _setter("id", id)
         if access_policy is not None:
-            pulumi.set(__self__, "access_policy", access_policy)
+            _setter("access_policy", access_policy)
 
     @property
     @pulumi.getter
@@ -2979,9 +3964,24 @@ class TagFilterArgs:
         :param pulumi.Input[str] op: This is the comparison operator which is used for object comparison and filtering. Only == (equality operator) is currently supported
         :param pulumi.Input[str] value: This is the filter tag value field used for tag based filtering, it can have 0 - 256 characters
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "op", op)
-        pulumi.set(__self__, "value", value)
+        TagFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            op=op,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             op: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("op", op)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3032,13 +4032,30 @@ class VirtualNetworkRuleArgs:
         :param pulumi.Input['Action'] action: The action of virtual network rule.
         :param pulumi.Input[Union[str, 'State']] state: Gets the state of virtual network rule.
         """
-        pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
+        VirtualNetworkRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_network_resource_id=virtual_network_resource_id,
+            action=action,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_network_resource_id: pulumi.Input[str],
+             action: Optional[pulumi.Input['Action']] = None,
+             state: Optional[pulumi.Input[Union[str, 'State']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualNetworkResourceId' in kwargs:
+            virtual_network_resource_id = kwargs['virtualNetworkResourceId']
+
+        _setter("virtual_network_resource_id", virtual_network_resource_id)
         if action is None:
             action = 'Allow'
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="virtualNetworkResourceId")

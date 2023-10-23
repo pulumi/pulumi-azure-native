@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -31,8 +31,21 @@ class BackendAuthorizationHeaderCredentialsArgs:
         :param pulumi.Input[str] parameter: Authentication Parameter value.
         :param pulumi.Input[str] scheme: Authentication Scheme name.
         """
-        pulumi.set(__self__, "parameter", parameter)
-        pulumi.set(__self__, "scheme", scheme)
+        BackendAuthorizationHeaderCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameter=parameter,
+            scheme=scheme,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameter: pulumi.Input[str],
+             scheme: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("parameter", parameter)
+        _setter("scheme", scheme)
 
     @property
     @pulumi.getter
@@ -73,14 +86,31 @@ class BackendCredentialsContractArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] header: Header Parameter description.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] query: Query Parameter description.
         """
+        BackendCredentialsContractArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization=authorization,
+            certificate=certificate,
+            header=header,
+            query=query,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization: Optional[pulumi.Input['BackendAuthorizationHeaderCredentialsArgs']] = None,
+             certificate: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             header: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
+             query: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if header is not None:
-            pulumi.set(__self__, "header", header)
+            _setter("header", header)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
 
     @property
     @pulumi.getter
@@ -139,8 +169,21 @@ class BackendPropertiesArgs:
         Properties specific to the Backend Type.
         :param pulumi.Input['BackendServiceFabricClusterPropertiesArgs'] service_fabric_cluster: Backend Service Fabric Cluster Properties
         """
+        BackendPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_fabric_cluster=service_fabric_cluster,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_fabric_cluster: Optional[pulumi.Input['BackendServiceFabricClusterPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceFabricCluster' in kwargs:
+            service_fabric_cluster = kwargs['serviceFabricCluster']
+
         if service_fabric_cluster is not None:
-            pulumi.set(__self__, "service_fabric_cluster", service_fabric_cluster)
+            _setter("service_fabric_cluster", service_fabric_cluster)
 
     @property
     @pulumi.getter(name="serviceFabricCluster")
@@ -167,11 +210,26 @@ class BackendProxyContractArgs:
         :param pulumi.Input[str] password: Password to connect to the WebProxy Server
         :param pulumi.Input[str] username: Username to connect to the WebProxy server
         """
-        pulumi.set(__self__, "url", url)
+        BackendProxyContractArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: pulumi.Input[str],
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("url", url)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -226,14 +284,43 @@ class BackendServiceFabricClusterPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_certificate_thumbprints: Thumbprints of certificates cluster management service uses for tls communication
         :param pulumi.Input[Sequence[pulumi.Input['X509CertificateNameArgs']]] server_x509_names: Server X509 Certificate Names Collection
         """
-        pulumi.set(__self__, "client_certificatethumbprint", client_certificatethumbprint)
-        pulumi.set(__self__, "management_endpoints", management_endpoints)
+        BackendServiceFabricClusterPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_certificatethumbprint=client_certificatethumbprint,
+            management_endpoints=management_endpoints,
+            max_partition_resolution_retries=max_partition_resolution_retries,
+            server_certificate_thumbprints=server_certificate_thumbprints,
+            server_x509_names=server_x509_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_certificatethumbprint: pulumi.Input[str],
+             management_endpoints: pulumi.Input[Sequence[pulumi.Input[str]]],
+             max_partition_resolution_retries: Optional[pulumi.Input[int]] = None,
+             server_certificate_thumbprints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             server_x509_names: Optional[pulumi.Input[Sequence[pulumi.Input['X509CertificateNameArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientCertificatethumbprint' in kwargs:
+            client_certificatethumbprint = kwargs['clientCertificatethumbprint']
+        if 'managementEndpoints' in kwargs:
+            management_endpoints = kwargs['managementEndpoints']
+        if 'maxPartitionResolutionRetries' in kwargs:
+            max_partition_resolution_retries = kwargs['maxPartitionResolutionRetries']
+        if 'serverCertificateThumbprints' in kwargs:
+            server_certificate_thumbprints = kwargs['serverCertificateThumbprints']
+        if 'serverX509Names' in kwargs:
+            server_x509_names = kwargs['serverX509Names']
+
+        _setter("client_certificatethumbprint", client_certificatethumbprint)
+        _setter("management_endpoints", management_endpoints)
         if max_partition_resolution_retries is not None:
-            pulumi.set(__self__, "max_partition_resolution_retries", max_partition_resolution_retries)
+            _setter("max_partition_resolution_retries", max_partition_resolution_retries)
         if server_certificate_thumbprints is not None:
-            pulumi.set(__self__, "server_certificate_thumbprints", server_certificate_thumbprints)
+            _setter("server_certificate_thumbprints", server_certificate_thumbprints)
         if server_x509_names is not None:
-            pulumi.set(__self__, "server_x509_names", server_x509_names)
+            _setter("server_x509_names", server_x509_names)
 
     @property
     @pulumi.getter(name="clientCertificatethumbprint")
@@ -306,14 +393,31 @@ class BackendTlsPropertiesArgs:
         :param pulumi.Input[bool] validate_certificate_chain: Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
         :param pulumi.Input[bool] validate_certificate_name: Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
         """
+        BackendTlsPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            validate_certificate_chain=validate_certificate_chain,
+            validate_certificate_name=validate_certificate_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             validate_certificate_chain: Optional[pulumi.Input[bool]] = None,
+             validate_certificate_name: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'validateCertificateChain' in kwargs:
+            validate_certificate_chain = kwargs['validateCertificateChain']
+        if 'validateCertificateName' in kwargs:
+            validate_certificate_name = kwargs['validateCertificateName']
+
         if validate_certificate_chain is None:
             validate_certificate_chain = True
         if validate_certificate_chain is not None:
-            pulumi.set(__self__, "validate_certificate_chain", validate_certificate_chain)
+            _setter("validate_certificate_chain", validate_certificate_chain)
         if validate_certificate_name is None:
             validate_certificate_name = True
         if validate_certificate_name is not None:
-            pulumi.set(__self__, "validate_certificate_name", validate_certificate_name)
+            _setter("validate_certificate_name", validate_certificate_name)
 
     @property
     @pulumi.getter(name="validateCertificateChain")
@@ -350,10 +454,23 @@ class UserIdentityContractArgs:
         :param pulumi.Input[str] id: Identifier value within provider.
         :param pulumi.Input[str] provider: Identity provider name.
         """
+        UserIdentityContractArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            provider=provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             provider: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if provider is not None:
-            pulumi.set(__self__, "provider", provider)
+            _setter("provider", provider)
 
     @property
     @pulumi.getter
@@ -390,10 +507,25 @@ class X509CertificateNameArgs:
         :param pulumi.Input[str] issuer_certificate_thumbprint: Thumbprint for the Issuer of the Certificate.
         :param pulumi.Input[str] name: Common Name of the Certificate.
         """
+        X509CertificateNameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            issuer_certificate_thumbprint=issuer_certificate_thumbprint,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             issuer_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'issuerCertificateThumbprint' in kwargs:
+            issuer_certificate_thumbprint = kwargs['issuerCertificateThumbprint']
+
         if issuer_certificate_thumbprint is not None:
-            pulumi.set(__self__, "issuer_certificate_thumbprint", issuer_certificate_thumbprint)
+            _setter("issuer_certificate_thumbprint", issuer_certificate_thumbprint)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="issuerCertificateThumbprint")

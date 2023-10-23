@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,22 +38,63 @@ class PublishedBlueprintArgs:
         :param pulumi.Input[Union[str, 'BlueprintTargetScope']] target_scope: The scope where this blueprint definition can be assigned.
         :param pulumi.Input[str] version_id: Version of the published blueprint definition.
         """
-        pulumi.set(__self__, "blueprint_name", blueprint_name)
-        pulumi.set(__self__, "resource_scope", resource_scope)
+        PublishedBlueprintArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blueprint_name=blueprint_name,
+            resource_scope=resource_scope,
+            change_notes=change_notes,
+            description=description,
+            display_name=display_name,
+            parameters=parameters,
+            resource_groups=resource_groups,
+            target_scope=target_scope,
+            version_id=version_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blueprint_name: pulumi.Input[str],
+             resource_scope: pulumi.Input[str],
+             change_notes: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionArgs']]]] = None,
+             resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupDefinitionArgs']]]] = None,
+             target_scope: Optional[pulumi.Input[Union[str, 'BlueprintTargetScope']]] = None,
+             version_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blueprintName' in kwargs:
+            blueprint_name = kwargs['blueprintName']
+        if 'resourceScope' in kwargs:
+            resource_scope = kwargs['resourceScope']
+        if 'changeNotes' in kwargs:
+            change_notes = kwargs['changeNotes']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+        if 'targetScope' in kwargs:
+            target_scope = kwargs['targetScope']
+        if 'versionId' in kwargs:
+            version_id = kwargs['versionId']
+
+        _setter("blueprint_name", blueprint_name)
+        _setter("resource_scope", resource_scope)
         if change_notes is not None:
-            pulumi.set(__self__, "change_notes", change_notes)
+            _setter("change_notes", change_notes)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
         if target_scope is not None:
-            pulumi.set(__self__, "target_scope", target_scope)
+            _setter("target_scope", target_scope)
         if version_id is not None:
-            pulumi.set(__self__, "version_id", version_id)
+            _setter("version_id", version_id)
 
     @property
     @pulumi.getter(name="blueprintName")
@@ -219,6 +260,10 @@ class PublishedBlueprint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PublishedBlueprintArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

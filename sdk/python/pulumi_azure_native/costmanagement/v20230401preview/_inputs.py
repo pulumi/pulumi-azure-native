@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -52,9 +52,24 @@ class BudgetComparisonExpressionArgs:
         :param pulumi.Input[Union[str, 'BudgetOperatorType']] operator: The operator to use for comparison.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Array of values to use for comparison
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        BudgetComparisonExpressionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             operator: pulumi.Input[Union[str, 'BudgetOperatorType']],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -113,10 +128,23 @@ class BudgetFilterPropertiesArgs:
                
                 Supported for CategoryType(s): Cost.
         """
+        BudgetFilterPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimensions=dimensions,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimensions: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
+             tags: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -175,12 +203,29 @@ class BudgetFilterArgs:
                
                 Supported for CategoryType(s): Cost.
         """
+        BudgetFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            and_=and_,
+            dimensions=dimensions,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             and_: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]] = None,
+             dimensions: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
+             tags: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'and' in kwargs:
+            and_ = kwargs['and']
+
         if and_ is not None:
-            pulumi.set(__self__, "and_", and_)
+            _setter("and_", and_)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="and")
@@ -251,9 +296,26 @@ class BudgetTimePeriodArgs:
                
                - Constraints for **CategoryType: ReservationUtilization** - End date cannot be more than 3 years after the start date.
         """
-        pulumi.set(__self__, "start_date", start_date)
+        BudgetTimePeriodArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            start_date=start_date,
+            end_date=end_date,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             start_date: pulumi.Input[str],
+             end_date: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+
+        _setter("start_date", start_date)
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
 
     @property
     @pulumi.getter(name="startDate")
@@ -296,8 +358,19 @@ class ExportDatasetConfigurationArgs:
         The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
         """
+        ExportDatasetConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
 
     @property
     @pulumi.getter
@@ -322,10 +395,23 @@ class ExportDatasetArgs:
         :param pulumi.Input['ExportDatasetConfigurationArgs'] configuration: The export dataset configuration.
         :param pulumi.Input[Union[str, 'GranularityType']] granularity: The granularity of rows in the export. Currently only 'Daily' is supported.
         """
+        ExportDatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration=configuration,
+            granularity=granularity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration: Optional[pulumi.Input['ExportDatasetConfigurationArgs']] = None,
+             granularity: Optional[pulumi.Input[Union[str, 'GranularityType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if granularity is not None:
-            pulumi.set(__self__, "granularity", granularity)
+            _setter("granularity", granularity)
 
     @property
     @pulumi.getter
@@ -366,12 +452,33 @@ class ExportDefinitionArgs:
         :param pulumi.Input['ExportDatasetArgs'] data_set: The definition for data in the export.
         :param pulumi.Input['ExportTimePeriodArgs'] time_period: Has time period for pulling data for the export.
         """
-        pulumi.set(__self__, "timeframe", timeframe)
-        pulumi.set(__self__, "type", type)
+        ExportDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            timeframe=timeframe,
+            type=type,
+            data_set=data_set,
+            time_period=time_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             timeframe: pulumi.Input[Union[str, 'TimeframeType']],
+             type: pulumi.Input[Union[str, 'ExportType']],
+             data_set: Optional[pulumi.Input['ExportDatasetArgs']] = None,
+             time_period: Optional[pulumi.Input['ExportTimePeriodArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSet' in kwargs:
+            data_set = kwargs['dataSet']
+        if 'timePeriod' in kwargs:
+            time_period = kwargs['timePeriod']
+
+        _setter("timeframe", timeframe)
+        _setter("type", type)
         if data_set is not None:
-            pulumi.set(__self__, "data_set", data_set)
+            _setter("data_set", data_set)
         if time_period is not None:
-            pulumi.set(__self__, "time_period", time_period)
+            _setter("time_period", time_period)
 
     @property
     @pulumi.getter
@@ -438,15 +545,42 @@ class ExportDeliveryDestinationArgs:
         :param pulumi.Input[str] sas_token: A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
         :param pulumi.Input[str] storage_account: The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
         """
-        pulumi.set(__self__, "container", container)
+        ExportDeliveryDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container=container,
+            resource_id=resource_id,
+            root_folder_path=root_folder_path,
+            sas_token=sas_token,
+            storage_account=storage_account,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container: pulumi.Input[str],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             root_folder_path: Optional[pulumi.Input[str]] = None,
+             sas_token: Optional[pulumi.Input[str]] = None,
+             storage_account: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'rootFolderPath' in kwargs:
+            root_folder_path = kwargs['rootFolderPath']
+        if 'sasToken' in kwargs:
+            sas_token = kwargs['sasToken']
+        if 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+
+        _setter("container", container)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if root_folder_path is not None:
-            pulumi.set(__self__, "root_folder_path", root_folder_path)
+            _setter("root_folder_path", root_folder_path)
         if sas_token is not None:
-            pulumi.set(__self__, "sas_token", sas_token)
+            _setter("sas_token", sas_token)
         if storage_account is not None:
-            pulumi.set(__self__, "storage_account", storage_account)
+            _setter("storage_account", storage_account)
 
     @property
     @pulumi.getter
@@ -517,7 +651,18 @@ class ExportDeliveryInfoArgs:
         The delivery information associated with a export.
         :param pulumi.Input['ExportDeliveryDestinationArgs'] destination: Has destination for the export being delivered.
         """
-        pulumi.set(__self__, "destination", destination)
+        ExportDeliveryInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: pulumi.Input['ExportDeliveryDestinationArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("destination", destination)
 
     @property
     @pulumi.getter
@@ -542,9 +687,24 @@ class ExportRecurrencePeriodArgs:
         :param pulumi.Input[str] from_: The start date of recurrence.
         :param pulumi.Input[str] to: The end date of recurrence.
         """
-        pulumi.set(__self__, "from_", from_)
+        ExportRecurrencePeriodArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: pulumi.Input[str],
+             to: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'from' in kwargs:
+            from_ = kwargs['from']
+
+        _setter("from_", from_)
         if to is not None:
-            pulumi.set(__self__, "to", to)
+            _setter("to", to)
 
     @property
     @pulumi.getter(name="from")
@@ -583,12 +743,29 @@ class ExportScheduleArgs:
         :param pulumi.Input['ExportRecurrencePeriodArgs'] recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         :param pulumi.Input[Union[str, 'StatusType']] status: The status of the export's schedule. If 'Inactive', the export's schedule is paused.
         """
+        ExportScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recurrence=recurrence,
+            recurrence_period=recurrence_period,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recurrence: Optional[pulumi.Input[Union[str, 'RecurrenceType']]] = None,
+             recurrence_period: Optional[pulumi.Input['ExportRecurrencePeriodArgs']] = None,
+             status: Optional[pulumi.Input[Union[str, 'StatusType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recurrencePeriod' in kwargs:
+            recurrence_period = kwargs['recurrencePeriod']
+
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
         if recurrence_period is not None:
-            pulumi.set(__self__, "recurrence_period", recurrence_period)
+            _setter("recurrence_period", recurrence_period)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -637,8 +814,23 @@ class ExportTimePeriodArgs:
         :param pulumi.Input[str] from_: The start date for export data.
         :param pulumi.Input[str] to: The end date for export data.
         """
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+        ExportTimePeriodArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: pulumi.Input[str],
+             to: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'from' in kwargs:
+            from_ = kwargs['from']
+
+        _setter("from_", from_)
+        _setter("to", to)
 
     @property
     @pulumi.getter(name="from")
@@ -673,8 +865,21 @@ class FileDestinationArgs:
         Destination of the view data. This is optional. Currently only CSV format is supported.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'FileFormat']]]] file_formats: Destination of the view data. Currently only CSV format is supported.
         """
+        FileDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_formats=file_formats,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_formats: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FileFormat']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileFormats' in kwargs:
+            file_formats = kwargs['fileFormats']
+
         if file_formats is not None:
-            pulumi.set(__self__, "file_formats", file_formats)
+            _setter("file_formats", file_formats)
 
     @property
     @pulumi.getter(name="fileFormats")
@@ -701,12 +906,27 @@ class KpiPropertiesArgs:
         :param pulumi.Input[str] id: ID of resource related to metric (budget).
         :param pulumi.Input[Union[str, 'KpiTypeType']] type: KPI type (Forecast, Budget).
         """
+        KpiPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'KpiTypeType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -761,14 +981,35 @@ class NotificationPropertiesArgs:
         :param pulumi.Input[str] message: Optional message to be added in the email. Length is limited to 250 characters.
         :param pulumi.Input[str] regional_format: Regional format used for formatting date/time and currency values in the email.
         """
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "to", to)
+        NotificationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subject=subject,
+            to=to,
+            language=language,
+            message=message,
+            regional_format=regional_format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subject: pulumi.Input[str],
+             to: pulumi.Input[Sequence[pulumi.Input[str]]],
+             language: Optional[pulumi.Input[str]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             regional_format: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'regionalFormat' in kwargs:
+            regional_format = kwargs['regionalFormat']
+
+        _setter("subject", subject)
+        _setter("to", to)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if regional_format is not None:
-            pulumi.set(__self__, "regional_format", regional_format)
+            _setter("regional_format", regional_format)
 
     @property
     @pulumi.getter
@@ -886,22 +1127,57 @@ class NotificationArgs:
                
                 Supported for CategoryType(s): Cost.
         """
-        pulumi.set(__self__, "contact_emails", contact_emails)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "threshold", threshold)
+        NotificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_emails=contact_emails,
+            enabled=enabled,
+            operator=operator,
+            threshold=threshold,
+            contact_groups=contact_groups,
+            contact_roles=contact_roles,
+            frequency=frequency,
+            locale=locale,
+            threshold_type=threshold_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_emails: pulumi.Input[Sequence[pulumi.Input[str]]],
+             enabled: pulumi.Input[bool],
+             operator: pulumi.Input[Union[str, 'BudgetNotificationOperatorType']],
+             threshold: pulumi.Input[float],
+             contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             frequency: Optional[pulumi.Input[Union[str, 'Frequency']]] = None,
+             locale: Optional[pulumi.Input[Union[str, 'CultureCode']]] = None,
+             threshold_type: Optional[pulumi.Input[Union[str, 'ThresholdType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactEmails' in kwargs:
+            contact_emails = kwargs['contactEmails']
+        if 'contactGroups' in kwargs:
+            contact_groups = kwargs['contactGroups']
+        if 'contactRoles' in kwargs:
+            contact_roles = kwargs['contactRoles']
+        if 'thresholdType' in kwargs:
+            threshold_type = kwargs['thresholdType']
+
+        _setter("contact_emails", contact_emails)
+        _setter("enabled", enabled)
+        _setter("operator", operator)
+        _setter("threshold", threshold)
         if contact_groups is not None:
-            pulumi.set(__self__, "contact_groups", contact_groups)
+            _setter("contact_groups", contact_groups)
         if contact_roles is not None:
-            pulumi.set(__self__, "contact_roles", contact_roles)
+            _setter("contact_roles", contact_roles)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if locale is not None:
-            pulumi.set(__self__, "locale", locale)
+            _setter("locale", locale)
         if threshold_type is None:
             threshold_type = 'Actual'
         if threshold_type is not None:
-            pulumi.set(__self__, "threshold_type", threshold_type)
+            _setter("threshold_type", threshold_type)
 
     @property
     @pulumi.getter(name="contactEmails")
@@ -1051,10 +1327,23 @@ class PivotPropertiesArgs:
         :param pulumi.Input[str] name: Data field to show in view.
         :param pulumi.Input[Union[str, 'PivotTypeType']] type: Data type to show in view.
         """
+        PivotPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'PivotTypeType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1091,8 +1380,21 @@ class ReportConfigAggregationArgs:
         :param pulumi.Input[Union[str, 'FunctionType']] function: The name of the aggregation function to use.
         :param pulumi.Input[str] name: The name of the column to aggregate.
         """
-        pulumi.set(__self__, "function", function)
-        pulumi.set(__self__, "name", name)
+        ReportConfigAggregationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function=function,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function: pulumi.Input[Union[str, 'FunctionType']],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("function", function)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1131,9 +1433,24 @@ class ReportConfigComparisonExpressionArgs:
         :param pulumi.Input[Union[str, 'OperatorType']] operator: The operator to use for comparison.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Array of values to use for comparison
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ReportConfigComparisonExpressionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             operator: pulumi.Input[Union[str, 'OperatorType']],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1180,8 +1497,19 @@ class ReportConfigDatasetConfigurationArgs:
         The configuration of dataset in the report.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
         """
+        ReportConfigDatasetConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
 
     @property
     @pulumi.getter
@@ -1214,18 +1542,39 @@ class ReportConfigDatasetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ReportConfigGroupingArgs']]] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
         :param pulumi.Input[Sequence[pulumi.Input['ReportConfigSortingArgs']]] sorting: Array of order by expression to use in the report.
         """
+        ReportConfigDatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregation=aggregation,
+            configuration=configuration,
+            filter=filter,
+            granularity=granularity,
+            grouping=grouping,
+            sorting=sorting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregation: Optional[pulumi.Input[Mapping[str, pulumi.Input['ReportConfigAggregationArgs']]]] = None,
+             configuration: Optional[pulumi.Input['ReportConfigDatasetConfigurationArgs']] = None,
+             filter: Optional[pulumi.Input['ReportConfigFilterArgs']] = None,
+             granularity: Optional[pulumi.Input[Union[str, 'ReportGranularityType']]] = None,
+             grouping: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigGroupingArgs']]]] = None,
+             sorting: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigSortingArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if aggregation is not None:
-            pulumi.set(__self__, "aggregation", aggregation)
+            _setter("aggregation", aggregation)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if granularity is not None:
-            pulumi.set(__self__, "granularity", granularity)
+            _setter("granularity", granularity)
         if grouping is not None:
-            pulumi.set(__self__, "grouping", grouping)
+            _setter("grouping", grouping)
         if sorting is not None:
-            pulumi.set(__self__, "sorting", sorting)
+            _setter("sorting", sorting)
 
     @property
     @pulumi.getter
@@ -1314,14 +1663,35 @@ class ReportConfigFilterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]] or_: The logical "OR" expression. Must have at least 2 items.
         :param pulumi.Input['ReportConfigComparisonExpressionArgs'] tags: Has comparison expression for a tag
         """
+        ReportConfigFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            and_=and_,
+            dimensions=dimensions,
+            or_=or_,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             and_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]] = None,
+             dimensions: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None,
+             or_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]] = None,
+             tags: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'and' in kwargs:
+            and_ = kwargs['and']
+        if 'or' in kwargs:
+            or_ = kwargs['or']
+
         if and_ is not None:
-            pulumi.set(__self__, "and_", and_)
+            _setter("and_", and_)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if or_ is not None:
-            pulumi.set(__self__, "or_", or_)
+            _setter("or_", or_)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="and")
@@ -1382,8 +1752,21 @@ class ReportConfigGroupingArgs:
         :param pulumi.Input[str] name: The name of the column to group. This version supports subscription lowest possible grain.
         :param pulumi.Input[Union[str, 'QueryColumnType']] type: Has type of the column to group.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ReportConfigGroupingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[Union[str, 'QueryColumnType']],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1420,9 +1803,22 @@ class ReportConfigSortingArgs:
         :param pulumi.Input[str] name: The name of the column to sort.
         :param pulumi.Input[Union[str, 'ReportConfigSortingType']] direction: Direction of sort.
         """
-        pulumi.set(__self__, "name", name)
+        ReportConfigSortingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            direction=direction,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             direction: Optional[pulumi.Input[Union[str, 'ReportConfigSortingType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
 
     @property
     @pulumi.getter
@@ -1459,8 +1855,23 @@ class ReportConfigTimePeriodArgs:
         :param pulumi.Input[str] from_: The start date to pull data from.
         :param pulumi.Input[str] to: The end date to pull data to.
         """
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+        ReportConfigTimePeriodArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: pulumi.Input[str],
+             to: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'from' in kwargs:
+            from_ = kwargs['from']
+
+        _setter("from_", from_)
+        _setter("to", to)
 
     @property
     @pulumi.getter(name="from")
@@ -1507,17 +1918,52 @@ class SchedulePropertiesArgs:
         :param pulumi.Input[int] hour_of_day: UTC time at which cost analysis data will be emailed.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'WeeksOfMonth']]]] weeks_of_month: Weeks in which cost analysis data will be emailed. This property is applicable when frequency is Monthly and used in combination with daysOfWeek.
         """
-        pulumi.set(__self__, "end_date", end_date)
-        pulumi.set(__self__, "frequency", frequency)
-        pulumi.set(__self__, "start_date", start_date)
+        SchedulePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_date=end_date,
+            frequency=frequency,
+            start_date=start_date,
+            day_of_month=day_of_month,
+            days_of_week=days_of_week,
+            hour_of_day=hour_of_day,
+            weeks_of_month=weeks_of_month,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_date: pulumi.Input[str],
+             frequency: pulumi.Input[Union[str, 'ScheduleFrequency']],
+             start_date: pulumi.Input[str],
+             day_of_month: Optional[pulumi.Input[int]] = None,
+             days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]]] = None,
+             hour_of_day: Optional[pulumi.Input[int]] = None,
+             weeks_of_month: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WeeksOfMonth']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if 'dayOfMonth' in kwargs:
+            day_of_month = kwargs['dayOfMonth']
+        if 'daysOfWeek' in kwargs:
+            days_of_week = kwargs['daysOfWeek']
+        if 'hourOfDay' in kwargs:
+            hour_of_day = kwargs['hourOfDay']
+        if 'weeksOfMonth' in kwargs:
+            weeks_of_month = kwargs['weeksOfMonth']
+
+        _setter("end_date", end_date)
+        _setter("frequency", frequency)
+        _setter("start_date", start_date)
         if day_of_month is not None:
-            pulumi.set(__self__, "day_of_month", day_of_month)
+            _setter("day_of_month", day_of_month)
         if days_of_week is not None:
-            pulumi.set(__self__, "days_of_week", days_of_week)
+            _setter("days_of_week", days_of_week)
         if hour_of_day is not None:
-            pulumi.set(__self__, "hour_of_day", hour_of_day)
+            _setter("hour_of_day", hour_of_day)
         if weeks_of_month is not None:
-            pulumi.set(__self__, "weeks_of_month", weeks_of_month)
+            _setter("weeks_of_month", weeks_of_month)
 
     @property
     @pulumi.getter(name="endDate")
@@ -1612,7 +2058,18 @@ class SystemAssignedServiceIdentityArgs:
         Managed service identity (either system assigned, or none)
         :param pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']] type: Type of managed service identity (either system assigned, or none).
         """
-        pulumi.set(__self__, "type", type)
+        SystemAssignedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("type", type)
 
     @property
     @pulumi.getter

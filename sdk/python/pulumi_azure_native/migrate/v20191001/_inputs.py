@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -61,22 +61,89 @@ class AssessmentPropertiesArgs:
         :param pulumi.Input[Union[str, 'TimeRange']] time_range: Time range of performance data used to recommend a size.
         :param pulumi.Input['VmUptimeArgs'] vm_uptime: Specify the duration for which the VMs are up in the on-premises environment.
         """
-        pulumi.set(__self__, "azure_disk_type", azure_disk_type)
-        pulumi.set(__self__, "azure_hybrid_use_benefit", azure_hybrid_use_benefit)
-        pulumi.set(__self__, "azure_location", azure_location)
-        pulumi.set(__self__, "azure_offer_code", azure_offer_code)
-        pulumi.set(__self__, "azure_pricing_tier", azure_pricing_tier)
-        pulumi.set(__self__, "azure_storage_redundancy", azure_storage_redundancy)
-        pulumi.set(__self__, "azure_vm_families", azure_vm_families)
-        pulumi.set(__self__, "currency", currency)
-        pulumi.set(__self__, "discount_percentage", discount_percentage)
-        pulumi.set(__self__, "percentile", percentile)
-        pulumi.set(__self__, "reserved_instance", reserved_instance)
-        pulumi.set(__self__, "scaling_factor", scaling_factor)
-        pulumi.set(__self__, "sizing_criterion", sizing_criterion)
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "time_range", time_range)
-        pulumi.set(__self__, "vm_uptime", vm_uptime)
+        AssessmentPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_disk_type=azure_disk_type,
+            azure_hybrid_use_benefit=azure_hybrid_use_benefit,
+            azure_location=azure_location,
+            azure_offer_code=azure_offer_code,
+            azure_pricing_tier=azure_pricing_tier,
+            azure_storage_redundancy=azure_storage_redundancy,
+            azure_vm_families=azure_vm_families,
+            currency=currency,
+            discount_percentage=discount_percentage,
+            percentile=percentile,
+            reserved_instance=reserved_instance,
+            scaling_factor=scaling_factor,
+            sizing_criterion=sizing_criterion,
+            stage=stage,
+            time_range=time_range,
+            vm_uptime=vm_uptime,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_disk_type: pulumi.Input[Union[str, 'AzureDiskType']],
+             azure_hybrid_use_benefit: pulumi.Input[Union[str, 'AzureHybridUseBenefit']],
+             azure_location: pulumi.Input[Union[str, 'AzureLocation']],
+             azure_offer_code: pulumi.Input[Union[str, 'AzureOfferCode']],
+             azure_pricing_tier: pulumi.Input[Union[str, 'AzurePricingTier']],
+             azure_storage_redundancy: pulumi.Input[Union[str, 'AzureStorageRedundancy']],
+             azure_vm_families: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]],
+             currency: pulumi.Input[Union[str, 'Currency']],
+             discount_percentage: pulumi.Input[float],
+             percentile: pulumi.Input[Union[str, 'Percentile']],
+             reserved_instance: pulumi.Input[Union[str, 'ReservedInstance']],
+             scaling_factor: pulumi.Input[float],
+             sizing_criterion: pulumi.Input[Union[str, 'AssessmentSizingCriterion']],
+             stage: pulumi.Input[Union[str, 'AssessmentStage']],
+             time_range: pulumi.Input[Union[str, 'TimeRange']],
+             vm_uptime: pulumi.Input['VmUptimeArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureDiskType' in kwargs:
+            azure_disk_type = kwargs['azureDiskType']
+        if 'azureHybridUseBenefit' in kwargs:
+            azure_hybrid_use_benefit = kwargs['azureHybridUseBenefit']
+        if 'azureLocation' in kwargs:
+            azure_location = kwargs['azureLocation']
+        if 'azureOfferCode' in kwargs:
+            azure_offer_code = kwargs['azureOfferCode']
+        if 'azurePricingTier' in kwargs:
+            azure_pricing_tier = kwargs['azurePricingTier']
+        if 'azureStorageRedundancy' in kwargs:
+            azure_storage_redundancy = kwargs['azureStorageRedundancy']
+        if 'azureVmFamilies' in kwargs:
+            azure_vm_families = kwargs['azureVmFamilies']
+        if 'discountPercentage' in kwargs:
+            discount_percentage = kwargs['discountPercentage']
+        if 'reservedInstance' in kwargs:
+            reserved_instance = kwargs['reservedInstance']
+        if 'scalingFactor' in kwargs:
+            scaling_factor = kwargs['scalingFactor']
+        if 'sizingCriterion' in kwargs:
+            sizing_criterion = kwargs['sizingCriterion']
+        if 'timeRange' in kwargs:
+            time_range = kwargs['timeRange']
+        if 'vmUptime' in kwargs:
+            vm_uptime = kwargs['vmUptime']
+
+        _setter("azure_disk_type", azure_disk_type)
+        _setter("azure_hybrid_use_benefit", azure_hybrid_use_benefit)
+        _setter("azure_location", azure_location)
+        _setter("azure_offer_code", azure_offer_code)
+        _setter("azure_pricing_tier", azure_pricing_tier)
+        _setter("azure_storage_redundancy", azure_storage_redundancy)
+        _setter("azure_vm_families", azure_vm_families)
+        _setter("currency", currency)
+        _setter("discount_percentage", discount_percentage)
+        _setter("percentile", percentile)
+        _setter("reserved_instance", reserved_instance)
+        _setter("scaling_factor", scaling_factor)
+        _setter("sizing_criterion", sizing_criterion)
+        _setter("stage", stage)
+        _setter("time_range", time_range)
+        _setter("vm_uptime", vm_uptime)
 
     @property
     @pulumi.getter(name="azureDiskType")
@@ -275,8 +342,21 @@ class AssessmentPropertiesArgs:
 class CollectorAgentPropertiesArgs:
     def __init__(__self__, *,
                  spn_details: Optional[pulumi.Input['CollectorBodyAgentSpnPropertiesArgs']] = None):
+        CollectorAgentPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            spn_details=spn_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             spn_details: Optional[pulumi.Input['CollectorBodyAgentSpnPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'spnDetails' in kwargs:
+            spn_details = kwargs['spnDetails']
+
         if spn_details is not None:
-            pulumi.set(__self__, "spn_details", spn_details)
+            _setter("spn_details", spn_details)
 
     @property
     @pulumi.getter(name="spnDetails")
@@ -303,16 +383,41 @@ class CollectorBodyAgentSpnPropertiesArgs:
         :param pulumi.Input[str] object_id: Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
         :param pulumi.Input[str] tenant_id: Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
         """
+        CollectorBodyAgentSpnPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            audience=audience,
+            authority=authority,
+            object_id=object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             audience: Optional[pulumi.Input[str]] = None,
+             authority: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if authority is not None:
-            pulumi.set(__self__, "authority", authority)
+            _setter("authority", authority)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -383,10 +488,27 @@ class CollectorPropertiesArgs:
         """
         :param pulumi.Input[str] discovery_site_id: The ARM id of the discovery service site.
         """
+        CollectorPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_properties=agent_properties,
+            discovery_site_id=discovery_site_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_properties: Optional[pulumi.Input['CollectorAgentPropertiesArgs']] = None,
+             discovery_site_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentProperties' in kwargs:
+            agent_properties = kwargs['agentProperties']
+        if 'discoverySiteId' in kwargs:
+            discovery_site_id = kwargs['discoverySiteId']
+
         if agent_properties is not None:
-            pulumi.set(__self__, "agent_properties", agent_properties)
+            _setter("agent_properties", agent_properties)
         if discovery_site_id is not None:
-            pulumi.set(__self__, "discovery_site_id", discovery_site_id)
+            _setter("discovery_site_id", discovery_site_id)
 
     @property
     @pulumi.getter(name="agentProperties")
@@ -418,8 +540,21 @@ class GroupPropertiesArgs:
         Properties of group resource.
         :param pulumi.Input[str] group_type: The type of group.
         """
+        GroupPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_type=group_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupType' in kwargs:
+            group_type = kwargs['groupType']
+
         if group_type is not None:
-            pulumi.set(__self__, "group_type", group_type)
+            _setter("group_type", group_type)
 
     @property
     @pulumi.getter(name="groupType")
@@ -438,8 +573,21 @@ class GroupPropertiesArgs:
 class ImportCollectorPropertiesArgs:
     def __init__(__self__, *,
                  discovery_site_id: Optional[pulumi.Input[str]] = None):
+        ImportCollectorPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            discovery_site_id=discovery_site_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             discovery_site_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'discoverySiteId' in kwargs:
+            discovery_site_id = kwargs['discoverySiteId']
+
         if discovery_site_id is not None:
-            pulumi.set(__self__, "discovery_site_id", discovery_site_id)
+            _setter("discovery_site_id", discovery_site_id)
 
     @property
     @pulumi.getter(name="discoverySiteId")
@@ -459,8 +607,21 @@ class PrivateEndpointConnectionPropertiesArgs:
         Private endpoint connection properties.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: State of the private endpoint connection.
         """
+        PrivateEndpointConnectionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -487,12 +648,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: Description of the private endpoint connection.
         :param pulumi.Input[str] status: Connection status of the private endpoint connection.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -549,18 +727,51 @@ class ProjectPropertiesArgs:
         :param pulumi.Input[Union[str, 'ProjectStatus']] project_status: Assessment project status.
         :param pulumi.Input[str] public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         """
+        ProjectPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_solution_id=assessment_solution_id,
+            customer_storage_account_arm_id=customer_storage_account_arm_id,
+            customer_workspace_id=customer_workspace_id,
+            customer_workspace_location=customer_workspace_location,
+            project_status=project_status,
+            public_network_access=public_network_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_solution_id: Optional[pulumi.Input[str]] = None,
+             customer_storage_account_arm_id: Optional[pulumi.Input[str]] = None,
+             customer_workspace_id: Optional[pulumi.Input[str]] = None,
+             customer_workspace_location: Optional[pulumi.Input[str]] = None,
+             project_status: Optional[pulumi.Input[Union[str, 'ProjectStatus']]] = None,
+             public_network_access: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assessmentSolutionId' in kwargs:
+            assessment_solution_id = kwargs['assessmentSolutionId']
+        if 'customerStorageAccountArmId' in kwargs:
+            customer_storage_account_arm_id = kwargs['customerStorageAccountArmId']
+        if 'customerWorkspaceId' in kwargs:
+            customer_workspace_id = kwargs['customerWorkspaceId']
+        if 'customerWorkspaceLocation' in kwargs:
+            customer_workspace_location = kwargs['customerWorkspaceLocation']
+        if 'projectStatus' in kwargs:
+            project_status = kwargs['projectStatus']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+
         if assessment_solution_id is not None:
-            pulumi.set(__self__, "assessment_solution_id", assessment_solution_id)
+            _setter("assessment_solution_id", assessment_solution_id)
         if customer_storage_account_arm_id is not None:
-            pulumi.set(__self__, "customer_storage_account_arm_id", customer_storage_account_arm_id)
+            _setter("customer_storage_account_arm_id", customer_storage_account_arm_id)
         if customer_workspace_id is not None:
-            pulumi.set(__self__, "customer_workspace_id", customer_workspace_id)
+            _setter("customer_workspace_id", customer_workspace_id)
         if customer_workspace_location is not None:
-            pulumi.set(__self__, "customer_workspace_location", customer_workspace_location)
+            _setter("customer_workspace_location", customer_workspace_location)
         if project_status is not None:
-            pulumi.set(__self__, "project_status", project_status)
+            _setter("project_status", project_status)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
 
     @property
     @pulumi.getter(name="assessmentSolutionId")
@@ -644,10 +855,27 @@ class VmUptimeArgs:
         :param pulumi.Input[float] days_per_month: Number of days in a month for VM uptime.
         :param pulumi.Input[float] hours_per_day: Number of hours per day for VM uptime.
         """
+        VmUptimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_per_month=days_per_month,
+            hours_per_day=hours_per_day,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_per_month: Optional[pulumi.Input[float]] = None,
+             hours_per_day: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysPerMonth' in kwargs:
+            days_per_month = kwargs['daysPerMonth']
+        if 'hoursPerDay' in kwargs:
+            hours_per_day = kwargs['hoursPerDay']
+
         if days_per_month is not None:
-            pulumi.set(__self__, "days_per_month", days_per_month)
+            _setter("days_per_month", days_per_month)
         if hours_per_day is not None:
-            pulumi.set(__self__, "hours_per_day", hours_per_day)
+            _setter("hours_per_day", hours_per_day)
 
     @property
     @pulumi.getter(name="daysPerMonth")

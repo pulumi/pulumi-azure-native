@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -56,40 +56,117 @@ class SimArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SimStaticIpPropertiesArgs']]] static_ip_configuration: A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "international_mobile_subscriber_identity", international_mobile_subscriber_identity)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SimArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            international_mobile_subscriber_identity=international_mobile_subscriber_identity,
+            resource_group_name=resource_group_name,
+            authentication_key=authentication_key,
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            device_type=device_type,
+            integrated_circuit_card_identifier=integrated_circuit_card_identifier,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+            location=location,
+            mobile_network=mobile_network,
+            operator_key_code=operator_key_code,
+            sim_name=sim_name,
+            sim_policy=sim_policy,
+            static_ip_configuration=static_ip_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             international_mobile_subscriber_identity: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             authentication_key: Optional[pulumi.Input[str]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             created_by: Optional[pulumi.Input[str]] = None,
+             created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+             device_type: Optional[pulumi.Input[str]] = None,
+             integrated_circuit_card_identifier: Optional[pulumi.Input[str]] = None,
+             last_modified_at: Optional[pulumi.Input[str]] = None,
+             last_modified_by: Optional[pulumi.Input[str]] = None,
+             last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mobile_network: Optional[pulumi.Input['MobileNetworkResourceIdArgs']] = None,
+             operator_key_code: Optional[pulumi.Input[str]] = None,
+             sim_name: Optional[pulumi.Input[str]] = None,
+             sim_policy: Optional[pulumi.Input['SimPolicyResourceIdArgs']] = None,
+             static_ip_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['SimStaticIpPropertiesArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'internationalMobileSubscriberIdentity' in kwargs:
+            international_mobile_subscriber_identity = kwargs['internationalMobileSubscriberIdentity']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'authenticationKey' in kwargs:
+            authentication_key = kwargs['authenticationKey']
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'deviceType' in kwargs:
+            device_type = kwargs['deviceType']
+        if 'integratedCircuitCardIdentifier' in kwargs:
+            integrated_circuit_card_identifier = kwargs['integratedCircuitCardIdentifier']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+        if 'mobileNetwork' in kwargs:
+            mobile_network = kwargs['mobileNetwork']
+        if 'operatorKeyCode' in kwargs:
+            operator_key_code = kwargs['operatorKeyCode']
+        if 'simName' in kwargs:
+            sim_name = kwargs['simName']
+        if 'simPolicy' in kwargs:
+            sim_policy = kwargs['simPolicy']
+        if 'staticIpConfiguration' in kwargs:
+            static_ip_configuration = kwargs['staticIpConfiguration']
+
+        _setter("international_mobile_subscriber_identity", international_mobile_subscriber_identity)
+        _setter("resource_group_name", resource_group_name)
         if authentication_key is not None:
-            pulumi.set(__self__, "authentication_key", authentication_key)
+            _setter("authentication_key", authentication_key)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if device_type is not None:
-            pulumi.set(__self__, "device_type", device_type)
+            _setter("device_type", device_type)
         if integrated_circuit_card_identifier is not None:
-            pulumi.set(__self__, "integrated_circuit_card_identifier", integrated_circuit_card_identifier)
+            _setter("integrated_circuit_card_identifier", integrated_circuit_card_identifier)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mobile_network is not None:
-            pulumi.set(__self__, "mobile_network", mobile_network)
+            _setter("mobile_network", mobile_network)
         if operator_key_code is not None:
-            pulumi.set(__self__, "operator_key_code", operator_key_code)
+            _setter("operator_key_code", operator_key_code)
         if sim_name is not None:
-            pulumi.set(__self__, "sim_name", sim_name)
+            _setter("sim_name", sim_name)
         if sim_policy is not None:
-            pulumi.set(__self__, "sim_policy", sim_policy)
+            _setter("sim_policy", sim_policy)
         if static_ip_configuration is not None:
-            pulumi.set(__self__, "static_ip_configuration", static_ip_configuration)
+            _setter("static_ip_configuration", static_ip_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="internationalMobileSubscriberIdentity")
@@ -375,6 +452,10 @@ class Sim(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SimArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -420,12 +501,22 @@ class Sim(pulumi.CustomResource):
             __props__.__dict__["last_modified_by"] = last_modified_by
             __props__.__dict__["last_modified_by_type"] = last_modified_by_type
             __props__.__dict__["location"] = location
+            if mobile_network is not None and not isinstance(mobile_network, MobileNetworkResourceIdArgs):
+                mobile_network = mobile_network or {}
+                def _setter(key, value):
+                    mobile_network[key] = value
+                MobileNetworkResourceIdArgs._configure(_setter, **mobile_network)
             __props__.__dict__["mobile_network"] = mobile_network
             __props__.__dict__["operator_key_code"] = operator_key_code
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sim_name"] = sim_name
+            if sim_policy is not None and not isinstance(sim_policy, SimPolicyResourceIdArgs):
+                sim_policy = sim_policy or {}
+                def _setter(key, value):
+                    sim_policy[key] = value
+                SimPolicyResourceIdArgs._configure(_setter, **sim_policy)
             __props__.__dict__["sim_policy"] = sim_policy
             __props__.__dict__["static_ip_configuration"] = static_ip_configuration
             __props__.__dict__["tags"] = tags

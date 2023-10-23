@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -34,16 +34,43 @@ class ConfigurationAssignmentFilterPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: List of allowed resources.
         :param pulumi.Input['TagSettingsPropertiesArgs'] tag_settings: Tag settings for the VM.
         """
+        ConfigurationAssignmentFilterPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            locations=locations,
+            os_types=os_types,
+            resource_groups=resource_groups,
+            resource_types=resource_types,
+            tag_settings=tag_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             os_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tag_settings: Optional[pulumi.Input['TagSettingsPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'osTypes' in kwargs:
+            os_types = kwargs['osTypes']
+        if 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+        if 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+        if 'tagSettings' in kwargs:
+            tag_settings = kwargs['tagSettings']
+
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
         if os_types is not None:
-            pulumi.set(__self__, "os_types", os_types)
+            _setter("os_types", os_types)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
         if resource_types is not None:
-            pulumi.set(__self__, "resource_types", resource_types)
+            _setter("resource_types", resource_types)
         if tag_settings is not None:
-            pulumi.set(__self__, "tag_settings", tag_settings)
+            _setter("tag_settings", tag_settings)
 
     @property
     @pulumi.getter
@@ -118,12 +145,33 @@ class InputLinuxParametersArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] package_name_masks_to_exclude: Package names to be excluded for patching.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] package_name_masks_to_include: Package names to be included for patching.
         """
+        InputLinuxParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classifications_to_include=classifications_to_include,
+            package_name_masks_to_exclude=package_name_masks_to_exclude,
+            package_name_masks_to_include=package_name_masks_to_include,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classifications_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             package_name_masks_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             package_name_masks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classificationsToInclude' in kwargs:
+            classifications_to_include = kwargs['classificationsToInclude']
+        if 'packageNameMasksToExclude' in kwargs:
+            package_name_masks_to_exclude = kwargs['packageNameMasksToExclude']
+        if 'packageNameMasksToInclude' in kwargs:
+            package_name_masks_to_include = kwargs['packageNameMasksToInclude']
+
         if classifications_to_include is not None:
-            pulumi.set(__self__, "classifications_to_include", classifications_to_include)
+            _setter("classifications_to_include", classifications_to_include)
         if package_name_masks_to_exclude is not None:
-            pulumi.set(__self__, "package_name_masks_to_exclude", package_name_masks_to_exclude)
+            _setter("package_name_masks_to_exclude", package_name_masks_to_exclude)
         if package_name_masks_to_include is not None:
-            pulumi.set(__self__, "package_name_masks_to_include", package_name_masks_to_include)
+            _setter("package_name_masks_to_include", package_name_masks_to_include)
 
     @property
     @pulumi.getter(name="classificationsToInclude")
@@ -174,14 +222,35 @@ class InputPatchConfigurationArgs:
         :param pulumi.Input[Union[str, 'RebootOptions']] reboot_setting: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
         :param pulumi.Input['InputWindowsParametersArgs'] windows_parameters: Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
         """
+        InputPatchConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linux_parameters=linux_parameters,
+            reboot_setting=reboot_setting,
+            windows_parameters=windows_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linux_parameters: Optional[pulumi.Input['InputLinuxParametersArgs']] = None,
+             reboot_setting: Optional[pulumi.Input[Union[str, 'RebootOptions']]] = None,
+             windows_parameters: Optional[pulumi.Input['InputWindowsParametersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linuxParameters' in kwargs:
+            linux_parameters = kwargs['linuxParameters']
+        if 'rebootSetting' in kwargs:
+            reboot_setting = kwargs['rebootSetting']
+        if 'windowsParameters' in kwargs:
+            windows_parameters = kwargs['windowsParameters']
+
         if linux_parameters is not None:
-            pulumi.set(__self__, "linux_parameters", linux_parameters)
+            _setter("linux_parameters", linux_parameters)
         if reboot_setting is None:
             reboot_setting = 'IfRequired'
         if reboot_setting is not None:
-            pulumi.set(__self__, "reboot_setting", reboot_setting)
+            _setter("reboot_setting", reboot_setting)
         if windows_parameters is not None:
-            pulumi.set(__self__, "windows_parameters", windows_parameters)
+            _setter("windows_parameters", windows_parameters)
 
     @property
     @pulumi.getter(name="linuxParameters")
@@ -234,14 +303,39 @@ class InputWindowsParametersArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kb_numbers_to_exclude: Windows KBID to be excluded for patching.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kb_numbers_to_include: Windows KBID to be included for patching.
         """
+        InputWindowsParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classifications_to_include=classifications_to_include,
+            exclude_kbs_requiring_reboot=exclude_kbs_requiring_reboot,
+            kb_numbers_to_exclude=kb_numbers_to_exclude,
+            kb_numbers_to_include=kb_numbers_to_include,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classifications_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             exclude_kbs_requiring_reboot: Optional[pulumi.Input[bool]] = None,
+             kb_numbers_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kb_numbers_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classificationsToInclude' in kwargs:
+            classifications_to_include = kwargs['classificationsToInclude']
+        if 'excludeKbsRequiringReboot' in kwargs:
+            exclude_kbs_requiring_reboot = kwargs['excludeKbsRequiringReboot']
+        if 'kbNumbersToExclude' in kwargs:
+            kb_numbers_to_exclude = kwargs['kbNumbersToExclude']
+        if 'kbNumbersToInclude' in kwargs:
+            kb_numbers_to_include = kwargs['kbNumbersToInclude']
+
         if classifications_to_include is not None:
-            pulumi.set(__self__, "classifications_to_include", classifications_to_include)
+            _setter("classifications_to_include", classifications_to_include)
         if exclude_kbs_requiring_reboot is not None:
-            pulumi.set(__self__, "exclude_kbs_requiring_reboot", exclude_kbs_requiring_reboot)
+            _setter("exclude_kbs_requiring_reboot", exclude_kbs_requiring_reboot)
         if kb_numbers_to_exclude is not None:
-            pulumi.set(__self__, "kb_numbers_to_exclude", kb_numbers_to_exclude)
+            _setter("kb_numbers_to_exclude", kb_numbers_to_exclude)
         if kb_numbers_to_include is not None:
-            pulumi.set(__self__, "kb_numbers_to_include", kb_numbers_to_include)
+            _setter("kb_numbers_to_include", kb_numbers_to_include)
 
     @property
     @pulumi.getter(name="classificationsToInclude")
@@ -302,10 +396,25 @@ class TagSettingsPropertiesArgs:
         :param pulumi.Input['TagOperators'] filter_operator: Filter VMs by Any or All specified tags.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] tags: Dictionary of tags with its list of values.
         """
+        TagSettingsPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter_operator=filter_operator,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter_operator: Optional[pulumi.Input['TagOperators']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filterOperator' in kwargs:
+            filter_operator = kwargs['filterOperator']
+
         if filter_operator is not None:
-            pulumi.set(__self__, "filter_operator", filter_operator)
+            _setter("filter_operator", filter_operator)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="filterOperator")

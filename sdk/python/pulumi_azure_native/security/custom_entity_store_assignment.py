@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -24,11 +24,30 @@ class CustomEntityStoreAssignmentArgs:
         :param pulumi.Input[str] custom_entity_store_assignment_name: Name of the custom entity store assignment. Generated name is GUID.
         :param pulumi.Input[str] principal: The principal assigned with entity store. If not provided, will use caller principal. Format of principal is: [AAD type]=[PrincipalObjectId];[TenantId]
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CustomEntityStoreAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            custom_entity_store_assignment_name=custom_entity_store_assignment_name,
+            principal=principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             custom_entity_store_assignment_name: Optional[pulumi.Input[str]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'customEntityStoreAssignmentName' in kwargs:
+            custom_entity_store_assignment_name = kwargs['customEntityStoreAssignmentName']
+
+        _setter("resource_group_name", resource_group_name)
         if custom_entity_store_assignment_name is not None:
-            pulumi.set(__self__, "custom_entity_store_assignment_name", custom_entity_store_assignment_name)
+            _setter("custom_entity_store_assignment_name", custom_entity_store_assignment_name)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -106,6 +125,10 @@ class CustomEntityStoreAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomEntityStoreAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

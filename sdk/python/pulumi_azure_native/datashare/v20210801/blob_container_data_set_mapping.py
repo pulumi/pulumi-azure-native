@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -39,17 +39,64 @@ class BlobContainerDataSetMappingArgs:
         :param pulumi.Input[str] subscription_id: Subscription id of storage account.
         :param pulumi.Input[str] data_set_mapping_name: The name of the data set mapping to be created.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        pulumi.set(__self__, "kind", 'Container')
-        pulumi.set(__self__, "resource_group", resource_group)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "share_subscription_name", share_subscription_name)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        BlobContainerDataSetMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            container_name=container_name,
+            data_set_id=data_set_id,
+            kind=kind,
+            resource_group=resource_group,
+            resource_group_name=resource_group_name,
+            share_subscription_name=share_subscription_name,
+            storage_account_name=storage_account_name,
+            subscription_id=subscription_id,
+            data_set_mapping_name=data_set_mapping_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             container_name: pulumi.Input[str],
+             data_set_id: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             resource_group: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             share_subscription_name: pulumi.Input[str],
+             storage_account_name: pulumi.Input[str],
+             subscription_id: pulumi.Input[str],
+             data_set_mapping_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'dataSetId' in kwargs:
+            data_set_id = kwargs['dataSetId']
+        if 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'shareSubscriptionName' in kwargs:
+            share_subscription_name = kwargs['shareSubscriptionName']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'dataSetMappingName' in kwargs:
+            data_set_mapping_name = kwargs['dataSetMappingName']
+
+        _setter("account_name", account_name)
+        _setter("container_name", container_name)
+        _setter("data_set_id", data_set_id)
+        _setter("kind", 'Container')
+        _setter("resource_group", resource_group)
+        _setter("resource_group_name", resource_group_name)
+        _setter("share_subscription_name", share_subscription_name)
+        _setter("storage_account_name", storage_account_name)
+        _setter("subscription_id", subscription_id)
         if data_set_mapping_name is not None:
-            pulumi.set(__self__, "data_set_mapping_name", data_set_mapping_name)
+            _setter("data_set_mapping_name", data_set_mapping_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -225,6 +272,10 @@ class BlobContainerDataSetMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BlobContainerDataSetMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

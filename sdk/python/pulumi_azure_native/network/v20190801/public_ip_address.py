@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -52,37 +52,100 @@ class PublicIPAddressInitArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PublicIPAddressInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            ddos_settings=ddos_settings,
+            dns_settings=dns_settings,
+            id=id,
+            idle_timeout_in_minutes=idle_timeout_in_minutes,
+            ip_address=ip_address,
+            ip_tags=ip_tags,
+            location=location,
+            public_ip_address_version=public_ip_address_version,
+            public_ip_allocation_method=public_ip_allocation_method,
+            public_ip_prefix=public_ip_prefix,
+            public_ip_address_name=public_ip_address_name,
+            resource_guid=resource_guid,
+            sku=sku,
+            tags=tags,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             ddos_settings: Optional[pulumi.Input['DdosSettingsArgs']] = None,
+             dns_settings: Optional[pulumi.Input['PublicIPAddressDnsSettingsArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
+             public_ip_allocation_method: Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]] = None,
+             public_ip_prefix: Optional[pulumi.Input['SubResourceArgs']] = None,
+             public_ip_address_name: Optional[pulumi.Input[str]] = None,
+             resource_guid: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['PublicIPAddressSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'ddosSettings' in kwargs:
+            ddos_settings = kwargs['ddosSettings']
+        if 'dnsSettings' in kwargs:
+            dns_settings = kwargs['dnsSettings']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'ipTags' in kwargs:
+            ip_tags = kwargs['ipTags']
+        if 'publicIPAddressVersion' in kwargs:
+            public_ip_address_version = kwargs['publicIPAddressVersion']
+        if 'publicIPAllocationMethod' in kwargs:
+            public_ip_allocation_method = kwargs['publicIPAllocationMethod']
+        if 'publicIPPrefix' in kwargs:
+            public_ip_prefix = kwargs['publicIPPrefix']
+        if 'publicIpAddressName' in kwargs:
+            public_ip_address_name = kwargs['publicIpAddressName']
+        if 'resourceGuid' in kwargs:
+            resource_guid = kwargs['resourceGuid']
+
+        _setter("resource_group_name", resource_group_name)
         if ddos_settings is not None:
-            pulumi.set(__self__, "ddos_settings", ddos_settings)
+            _setter("ddos_settings", ddos_settings)
         if dns_settings is not None:
-            pulumi.set(__self__, "dns_settings", dns_settings)
+            _setter("dns_settings", dns_settings)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if idle_timeout_in_minutes is not None:
-            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+            _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if ip_tags is not None:
-            pulumi.set(__self__, "ip_tags", ip_tags)
+            _setter("ip_tags", ip_tags)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if public_ip_address_version is not None:
-            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+            _setter("public_ip_address_version", public_ip_address_version)
         if public_ip_allocation_method is not None:
-            pulumi.set(__self__, "public_ip_allocation_method", public_ip_allocation_method)
+            _setter("public_ip_allocation_method", public_ip_allocation_method)
         if public_ip_prefix is not None:
-            pulumi.set(__self__, "public_ip_prefix", public_ip_prefix)
+            _setter("public_ip_prefix", public_ip_prefix)
         if public_ip_address_name is not None:
-            pulumi.set(__self__, "public_ip_address_name", public_ip_address_name)
+            _setter("public_ip_address_name", public_ip_address_name)
         if resource_guid is not None:
-            pulumi.set(__self__, "resource_guid", resource_guid)
+            _setter("resource_guid", resource_guid)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -340,6 +403,10 @@ class PublicIPAddress(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PublicIPAddressInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -370,7 +437,17 @@ class PublicIPAddress(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PublicIPAddressInitArgs.__new__(PublicIPAddressInitArgs)
 
+            if ddos_settings is not None and not isinstance(ddos_settings, DdosSettingsArgs):
+                ddos_settings = ddos_settings or {}
+                def _setter(key, value):
+                    ddos_settings[key] = value
+                DdosSettingsArgs._configure(_setter, **ddos_settings)
             __props__.__dict__["ddos_settings"] = ddos_settings
+            if dns_settings is not None and not isinstance(dns_settings, PublicIPAddressDnsSettingsArgs):
+                dns_settings = dns_settings or {}
+                def _setter(key, value):
+                    dns_settings[key] = value
+                PublicIPAddressDnsSettingsArgs._configure(_setter, **dns_settings)
             __props__.__dict__["dns_settings"] = dns_settings
             __props__.__dict__["id"] = id
             __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
@@ -379,12 +456,22 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["public_ip_address_version"] = public_ip_address_version
             __props__.__dict__["public_ip_allocation_method"] = public_ip_allocation_method
+            if public_ip_prefix is not None and not isinstance(public_ip_prefix, SubResourceArgs):
+                public_ip_prefix = public_ip_prefix or {}
+                def _setter(key, value):
+                    public_ip_prefix[key] = value
+                SubResourceArgs._configure(_setter, **public_ip_prefix)
             __props__.__dict__["public_ip_prefix"] = public_ip_prefix
             __props__.__dict__["public_ip_address_name"] = public_ip_address_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_guid"] = resource_guid
+            if sku is not None and not isinstance(sku, PublicIPAddressSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                PublicIPAddressSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zones"] = zones

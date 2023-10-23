@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,35 @@ class SecretArgs:
         :param pulumi.Input[Union['AzureFirstPartyManagedCertificateParametersArgs', 'CustomerCertificateParametersArgs', 'ManagedCertificateParametersArgs', 'UrlSigningKeyParametersArgs']] parameters: object which contains secret parameters
         :param pulumi.Input[str] secret_name: Name of the Secret under the profile.
         """
-        pulumi.set(__self__, "profile_name", profile_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SecretArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            profile_name=profile_name,
+            resource_group_name=resource_group_name,
+            parameters=parameters,
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             profile_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Union['AzureFirstPartyManagedCertificateParametersArgs', 'CustomerCertificateParametersArgs', 'ManagedCertificateParametersArgs', 'UrlSigningKeyParametersArgs']]] = None,
+             secret_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'profileName' in kwargs:
+            profile_name = kwargs['profileName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
+        _setter("profile_name", profile_name)
+        _setter("resource_group_name", resource_group_name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if secret_name is not None:
-            pulumi.set(__self__, "secret_name", secret_name)
+            _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="profileName")
@@ -128,6 +151,10 @@ class Secret(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecretArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

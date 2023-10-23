@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['ProviderInstanceArgs', 'ProviderInstance']
@@ -29,16 +29,43 @@ class ProviderInstanceArgs:
         :param pulumi.Input[str] provider_instance_name: Name of the provider instance.
         :param pulumi.Input[str] type: The type of provider instance.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sap_monitor_name", sap_monitor_name)
+        ProviderInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sap_monitor_name=sap_monitor_name,
+            metadata=metadata,
+            properties=properties,
+            provider_instance_name=provider_instance_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sap_monitor_name: pulumi.Input[str],
+             metadata: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[str]] = None,
+             provider_instance_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sapMonitorName' in kwargs:
+            sap_monitor_name = kwargs['sapMonitorName']
+        if 'providerInstanceName' in kwargs:
+            provider_instance_name = kwargs['providerInstanceName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sap_monitor_name", sap_monitor_name)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if provider_instance_name is not None:
-            pulumi.set(__self__, "provider_instance_name", provider_instance_name)
+            _setter("provider_instance_name", provider_instance_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -156,6 +183,10 @@ class ProviderInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProviderInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

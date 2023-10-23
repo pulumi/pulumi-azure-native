@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -22,8 +22,25 @@ class GroupQuotaSubscriptionArgs:
         :param pulumi.Input[str] group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
         :param pulumi.Input[str] mg_id: Management Group Id.
         """
-        pulumi.set(__self__, "group_quota_name", group_quota_name)
-        pulumi.set(__self__, "mg_id", mg_id)
+        GroupQuotaSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_quota_name=group_quota_name,
+            mg_id=mg_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_quota_name: pulumi.Input[str],
+             mg_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupQuotaName' in kwargs:
+            group_quota_name = kwargs['groupQuotaName']
+        if 'mgId' in kwargs:
+            mg_id = kwargs['mgId']
+
+        _setter("group_quota_name", group_quota_name)
+        _setter("mg_id", mg_id)
 
     @property
     @pulumi.getter(name="groupQuotaName")
@@ -87,6 +104,10 @@ class GroupQuotaSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupQuotaSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

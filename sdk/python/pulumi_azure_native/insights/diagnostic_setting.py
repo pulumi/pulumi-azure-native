@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,27 +41,74 @@ class DiagnosticSettingArgs:
         :param pulumi.Input[str] storage_account_id: The resource ID of the storage account to which you would like to send Diagnostic Logs.
         :param pulumi.Input[str] workspace_id: The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
         """
-        pulumi.set(__self__, "resource_uri", resource_uri)
+        DiagnosticSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_uri=resource_uri,
+            event_hub_authorization_rule_id=event_hub_authorization_rule_id,
+            event_hub_name=event_hub_name,
+            log_analytics_destination_type=log_analytics_destination_type,
+            logs=logs,
+            marketplace_partner_id=marketplace_partner_id,
+            metrics=metrics,
+            name=name,
+            service_bus_rule_id=service_bus_rule_id,
+            storage_account_id=storage_account_id,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_uri: pulumi.Input[str],
+             event_hub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
+             event_hub_name: Optional[pulumi.Input[str]] = None,
+             log_analytics_destination_type: Optional[pulumi.Input[str]] = None,
+             logs: Optional[pulumi.Input[Sequence[pulumi.Input['LogSettingsArgs']]]] = None,
+             marketplace_partner_id: Optional[pulumi.Input[str]] = None,
+             metrics: Optional[pulumi.Input[Sequence[pulumi.Input['MetricSettingsArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             service_bus_rule_id: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceUri' in kwargs:
+            resource_uri = kwargs['resourceUri']
+        if 'eventHubAuthorizationRuleId' in kwargs:
+            event_hub_authorization_rule_id = kwargs['eventHubAuthorizationRuleId']
+        if 'eventHubName' in kwargs:
+            event_hub_name = kwargs['eventHubName']
+        if 'logAnalyticsDestinationType' in kwargs:
+            log_analytics_destination_type = kwargs['logAnalyticsDestinationType']
+        if 'marketplacePartnerId' in kwargs:
+            marketplace_partner_id = kwargs['marketplacePartnerId']
+        if 'serviceBusRuleId' in kwargs:
+            service_bus_rule_id = kwargs['serviceBusRuleId']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
+        _setter("resource_uri", resource_uri)
         if event_hub_authorization_rule_id is not None:
-            pulumi.set(__self__, "event_hub_authorization_rule_id", event_hub_authorization_rule_id)
+            _setter("event_hub_authorization_rule_id", event_hub_authorization_rule_id)
         if event_hub_name is not None:
-            pulumi.set(__self__, "event_hub_name", event_hub_name)
+            _setter("event_hub_name", event_hub_name)
         if log_analytics_destination_type is not None:
-            pulumi.set(__self__, "log_analytics_destination_type", log_analytics_destination_type)
+            _setter("log_analytics_destination_type", log_analytics_destination_type)
         if logs is not None:
-            pulumi.set(__self__, "logs", logs)
+            _setter("logs", logs)
         if marketplace_partner_id is not None:
-            pulumi.set(__self__, "marketplace_partner_id", marketplace_partner_id)
+            _setter("marketplace_partner_id", marketplace_partner_id)
         if metrics is not None:
-            pulumi.set(__self__, "metrics", metrics)
+            _setter("metrics", metrics)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if service_bus_rule_id is not None:
-            pulumi.set(__self__, "service_bus_rule_id", service_bus_rule_id)
+            _setter("service_bus_rule_id", service_bus_rule_id)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="resourceUri")
@@ -251,6 +298,10 @@ class DiagnosticSetting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DiagnosticSettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

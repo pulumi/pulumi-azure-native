@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -30,13 +30,44 @@ class LinkedServerArgs:
         :param pulumi.Input['ReplicationRole'] server_role: Role of the linked server.
         :param pulumi.Input[str] linked_server_name: The name of the linked server that is being added to the Redis cache.
         """
-        pulumi.set(__self__, "linked_redis_cache_id", linked_redis_cache_id)
-        pulumi.set(__self__, "linked_redis_cache_location", linked_redis_cache_location)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_role", server_role)
+        LinkedServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_redis_cache_id=linked_redis_cache_id,
+            linked_redis_cache_location=linked_redis_cache_location,
+            name=name,
+            resource_group_name=resource_group_name,
+            server_role=server_role,
+            linked_server_name=linked_server_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_redis_cache_id: pulumi.Input[str],
+             linked_redis_cache_location: pulumi.Input[str],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             server_role: pulumi.Input['ReplicationRole'],
+             linked_server_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedRedisCacheId' in kwargs:
+            linked_redis_cache_id = kwargs['linkedRedisCacheId']
+        if 'linkedRedisCacheLocation' in kwargs:
+            linked_redis_cache_location = kwargs['linkedRedisCacheLocation']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverRole' in kwargs:
+            server_role = kwargs['serverRole']
+        if 'linkedServerName' in kwargs:
+            linked_server_name = kwargs['linkedServerName']
+
+        _setter("linked_redis_cache_id", linked_redis_cache_id)
+        _setter("linked_redis_cache_location", linked_redis_cache_location)
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_role", server_role)
         if linked_server_name is not None:
-            pulumi.set(__self__, "linked_server_name", linked_server_name)
+            _setter("linked_server_name", linked_server_name)
 
     @property
     @pulumi.getter(name="linkedRedisCacheId")
@@ -160,6 +191,10 @@ class LinkedServer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkedServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

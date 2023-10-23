@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -31,10 +31,25 @@ class DashboardLensArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardPartsArgs']]] parts: The dashboard parts.
         :param pulumi.Input[Mapping[str, Any]] metadata: The dashboard len's metadata.
         """
-        pulumi.set(__self__, "order", order)
-        pulumi.set(__self__, "parts", parts)
+        DashboardLensArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            order=order,
+            parts=parts,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             order: pulumi.Input[int],
+             parts: pulumi.Input[Sequence[pulumi.Input['DashboardPartsArgs']]],
+             metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("order", order)
+        _setter("parts", parts)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter
@@ -89,12 +104,35 @@ class DashboardPartsPositionArgs:
         :param pulumi.Input[int] y: The dashboard's part y coordinate.
         :param pulumi.Input[Mapping[str, Any]] metadata: The dashboard part's metadata.
         """
-        pulumi.set(__self__, "col_span", col_span)
-        pulumi.set(__self__, "row_span", row_span)
-        pulumi.set(__self__, "x", x)
-        pulumi.set(__self__, "y", y)
+        DashboardPartsPositionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            col_span=col_span,
+            row_span=row_span,
+            x=x,
+            y=y,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             col_span: pulumi.Input[int],
+             row_span: pulumi.Input[int],
+             x: pulumi.Input[int],
+             y: pulumi.Input[int],
+             metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'colSpan' in kwargs:
+            col_span = kwargs['colSpan']
+        if 'rowSpan' in kwargs:
+            row_span = kwargs['rowSpan']
+
+        _setter("col_span", col_span)
+        _setter("row_span", row_span)
+        _setter("x", x)
+        _setter("y", y)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter(name="colSpan")
@@ -167,9 +205,22 @@ class DashboardPartsArgs:
         :param pulumi.Input['DashboardPartsPositionArgs'] position: The dashboard's part position.
         :param pulumi.Input['MarkdownPartMetadataArgs'] metadata: The dashboard part's metadata.
         """
-        pulumi.set(__self__, "position", position)
+        DashboardPartsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            position=position,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             position: pulumi.Input['DashboardPartsPositionArgs'],
+             metadata: Optional[pulumi.Input['MarkdownPartMetadataArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("position", position)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter
@@ -204,8 +255,19 @@ class MarkdownPartMetadataContentArgs:
         The content of markdown part.
         :param pulumi.Input['MarkdownPartMetadataSettingsSettingsArgs'] settings: The setting of the content of markdown part.
         """
+        MarkdownPartMetadataContentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            settings=settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             settings: Optional[pulumi.Input['MarkdownPartMetadataSettingsSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
 
     @property
     @pulumi.getter
@@ -236,16 +298,39 @@ class MarkdownPartMetadataSettingsSettingsArgs:
         :param pulumi.Input[str] subtitle: The subtitle of the markdown part.
         :param pulumi.Input[str] title: The title of the markdown part.
         """
+        MarkdownPartMetadataSettingsSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            markdown_source=markdown_source,
+            markdown_uri=markdown_uri,
+            subtitle=subtitle,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[pulumi.Input[str]] = None,
+             markdown_source: Optional[pulumi.Input[int]] = None,
+             markdown_uri: Optional[pulumi.Input[str]] = None,
+             subtitle: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'markdownSource' in kwargs:
+            markdown_source = kwargs['markdownSource']
+        if 'markdownUri' in kwargs:
+            markdown_uri = kwargs['markdownUri']
+
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if markdown_source is not None:
-            pulumi.set(__self__, "markdown_source", markdown_source)
+            _setter("markdown_source", markdown_source)
         if markdown_uri is not None:
-            pulumi.set(__self__, "markdown_uri", markdown_uri)
+            _setter("markdown_uri", markdown_uri)
         if subtitle is not None:
-            pulumi.set(__self__, "subtitle", subtitle)
+            _setter("subtitle", subtitle)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter
@@ -316,8 +401,19 @@ class MarkdownPartMetadataSettingsArgs:
         Markdown part settings.
         :param pulumi.Input['MarkdownPartMetadataContentArgs'] content: The content of markdown part.
         """
+        MarkdownPartMetadataSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[pulumi.Input['MarkdownPartMetadataContentArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
 
     @property
     @pulumi.getter
@@ -345,11 +441,26 @@ class MarkdownPartMetadataArgs:
         :param pulumi.Input[Sequence[Any]] inputs: Input to dashboard part.
         :param pulumi.Input['MarkdownPartMetadataSettingsArgs'] settings: Markdown part settings.
         """
-        pulumi.set(__self__, "type", 'Extension/HubsExtension/PartType/MarkdownPart')
+        MarkdownPartMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            inputs=inputs,
+            settings=settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             inputs: Optional[pulumi.Input[Sequence[Any]]] = None,
+             settings: Optional[pulumi.Input['MarkdownPartMetadataSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("type", 'Extension/HubsExtension/PartType/MarkdownPart')
         if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
+            _setter("inputs", inputs)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
 
     @property
     @pulumi.getter

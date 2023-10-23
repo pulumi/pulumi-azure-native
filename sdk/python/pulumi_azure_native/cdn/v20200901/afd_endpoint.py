@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -33,18 +33,51 @@ class AFDEndpointArgs:
         :param pulumi.Input[int] origin_response_timeout_seconds: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "profile_name", profile_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AFDEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            profile_name=profile_name,
+            resource_group_name=resource_group_name,
+            enabled_state=enabled_state,
+            endpoint_name=endpoint_name,
+            location=location,
+            origin_response_timeout_seconds=origin_response_timeout_seconds,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             profile_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
+             endpoint_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'profileName' in kwargs:
+            profile_name = kwargs['profileName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'enabledState' in kwargs:
+            enabled_state = kwargs['enabledState']
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'originResponseTimeoutSeconds' in kwargs:
+            origin_response_timeout_seconds = kwargs['originResponseTimeoutSeconds']
+
+        _setter("profile_name", profile_name)
+        _setter("resource_group_name", resource_group_name)
         if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
+            _setter("enabled_state", enabled_state)
         if endpoint_name is not None:
-            pulumi.set(__self__, "endpoint_name", endpoint_name)
+            _setter("endpoint_name", endpoint_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if origin_response_timeout_seconds is not None:
-            pulumi.set(__self__, "origin_response_timeout_seconds", origin_response_timeout_seconds)
+            _setter("origin_response_timeout_seconds", origin_response_timeout_seconds)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="profileName")
@@ -176,6 +209,10 @@ class AFDEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AFDEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

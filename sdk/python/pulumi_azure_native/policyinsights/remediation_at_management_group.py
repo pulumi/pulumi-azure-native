@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,71 @@ class RemediationAtManagementGroupArgs:
         :param pulumi.Input[int] resource_count: Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
         :param pulumi.Input[Union[str, 'ResourceDiscoveryMode']] resource_discovery_mode: The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         """
-        pulumi.set(__self__, "management_group_id", management_group_id)
-        pulumi.set(__self__, "management_groups_namespace", management_groups_namespace)
+        RemediationAtManagementGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_group_id=management_group_id,
+            management_groups_namespace=management_groups_namespace,
+            failure_threshold=failure_threshold,
+            filters=filters,
+            parallel_deployments=parallel_deployments,
+            policy_assignment_id=policy_assignment_id,
+            policy_definition_reference_id=policy_definition_reference_id,
+            remediation_name=remediation_name,
+            resource_count=resource_count,
+            resource_discovery_mode=resource_discovery_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_group_id: pulumi.Input[str],
+             management_groups_namespace: pulumi.Input[str],
+             failure_threshold: Optional[pulumi.Input['RemediationPropertiesFailureThresholdArgs']] = None,
+             filters: Optional[pulumi.Input['RemediationFiltersArgs']] = None,
+             parallel_deployments: Optional[pulumi.Input[int]] = None,
+             policy_assignment_id: Optional[pulumi.Input[str]] = None,
+             policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+             remediation_name: Optional[pulumi.Input[str]] = None,
+             resource_count: Optional[pulumi.Input[int]] = None,
+             resource_discovery_mode: Optional[pulumi.Input[Union[str, 'ResourceDiscoveryMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if 'managementGroupsNamespace' in kwargs:
+            management_groups_namespace = kwargs['managementGroupsNamespace']
+        if 'failureThreshold' in kwargs:
+            failure_threshold = kwargs['failureThreshold']
+        if 'parallelDeployments' in kwargs:
+            parallel_deployments = kwargs['parallelDeployments']
+        if 'policyAssignmentId' in kwargs:
+            policy_assignment_id = kwargs['policyAssignmentId']
+        if 'policyDefinitionReferenceId' in kwargs:
+            policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
+        if 'remediationName' in kwargs:
+            remediation_name = kwargs['remediationName']
+        if 'resourceCount' in kwargs:
+            resource_count = kwargs['resourceCount']
+        if 'resourceDiscoveryMode' in kwargs:
+            resource_discovery_mode = kwargs['resourceDiscoveryMode']
+
+        _setter("management_group_id", management_group_id)
+        _setter("management_groups_namespace", management_groups_namespace)
         if failure_threshold is not None:
-            pulumi.set(__self__, "failure_threshold", failure_threshold)
+            _setter("failure_threshold", failure_threshold)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if parallel_deployments is not None:
-            pulumi.set(__self__, "parallel_deployments", parallel_deployments)
+            _setter("parallel_deployments", parallel_deployments)
         if policy_assignment_id is not None:
-            pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
+            _setter("policy_assignment_id", policy_assignment_id)
         if policy_definition_reference_id is not None:
-            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+            _setter("policy_definition_reference_id", policy_definition_reference_id)
         if remediation_name is not None:
-            pulumi.set(__self__, "remediation_name", remediation_name)
+            _setter("remediation_name", remediation_name)
         if resource_count is not None:
-            pulumi.set(__self__, "resource_count", resource_count)
+            _setter("resource_count", resource_count)
         if resource_discovery_mode is not None:
-            pulumi.set(__self__, "resource_discovery_mode", resource_discovery_mode)
+            _setter("resource_discovery_mode", resource_discovery_mode)
 
     @property
     @pulumi.getter(name="managementGroupId")
@@ -237,6 +284,10 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RemediationAtManagementGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -261,7 +312,17 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RemediationAtManagementGroupArgs.__new__(RemediationAtManagementGroupArgs)
 
+            if failure_threshold is not None and not isinstance(failure_threshold, RemediationPropertiesFailureThresholdArgs):
+                failure_threshold = failure_threshold or {}
+                def _setter(key, value):
+                    failure_threshold[key] = value
+                RemediationPropertiesFailureThresholdArgs._configure(_setter, **failure_threshold)
             __props__.__dict__["failure_threshold"] = failure_threshold
+            if filters is not None and not isinstance(filters, RemediationFiltersArgs):
+                filters = filters or {}
+                def _setter(key, value):
+                    filters[key] = value
+                RemediationFiltersArgs._configure(_setter, **filters)
             __props__.__dict__["filters"] = filters
             if management_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_id'")

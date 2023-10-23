@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -29,16 +29,49 @@ class SchemaRegistryArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] group_properties: dictionary object for SchemaGroup group properties
         :param pulumi.Input[str] schema_group_name: The Schema Group name 
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SchemaRegistryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            group_properties=group_properties,
+            schema_compatibility=schema_compatibility,
+            schema_group_name=schema_group_name,
+            schema_type=schema_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             group_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             schema_compatibility: Optional[pulumi.Input[Union[str, 'SchemaCompatibility']]] = None,
+             schema_group_name: Optional[pulumi.Input[str]] = None,
+             schema_type: Optional[pulumi.Input[Union[str, 'SchemaType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'groupProperties' in kwargs:
+            group_properties = kwargs['groupProperties']
+        if 'schemaCompatibility' in kwargs:
+            schema_compatibility = kwargs['schemaCompatibility']
+        if 'schemaGroupName' in kwargs:
+            schema_group_name = kwargs['schemaGroupName']
+        if 'schemaType' in kwargs:
+            schema_type = kwargs['schemaType']
+
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if group_properties is not None:
-            pulumi.set(__self__, "group_properties", group_properties)
+            _setter("group_properties", group_properties)
         if schema_compatibility is not None:
-            pulumi.set(__self__, "schema_compatibility", schema_compatibility)
+            _setter("schema_compatibility", schema_compatibility)
         if schema_group_name is not None:
-            pulumi.set(__self__, "schema_group_name", schema_group_name)
+            _setter("schema_group_name", schema_group_name)
         if schema_type is not None:
-            pulumi.set(__self__, "schema_type", schema_type)
+            _setter("schema_type", schema_type)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -148,6 +181,10 @@ class SchemaRegistry(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SchemaRegistryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

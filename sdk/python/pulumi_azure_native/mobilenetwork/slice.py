@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,17 +33,46 @@ class SliceArgs:
         :param pulumi.Input[str] slice_name: The name of the network slice.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "mobile_network_name", mobile_network_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "snssai", snssai)
+        SliceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mobile_network_name=mobile_network_name,
+            resource_group_name=resource_group_name,
+            snssai=snssai,
+            description=description,
+            location=location,
+            slice_name=slice_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mobile_network_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             snssai: pulumi.Input['SnssaiArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             slice_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mobileNetworkName' in kwargs:
+            mobile_network_name = kwargs['mobileNetworkName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sliceName' in kwargs:
+            slice_name = kwargs['sliceName']
+
+        _setter("mobile_network_name", mobile_network_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("snssai", snssai)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if slice_name is not None:
-            pulumi.set(__self__, "slice_name", slice_name)
+            _setter("slice_name", slice_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="mobileNetworkName")
@@ -181,6 +210,10 @@ class Slice(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SliceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -211,6 +244,11 @@ class Slice(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["slice_name"] = slice_name
+            if snssai is not None and not isinstance(snssai, SnssaiArgs):
+                snssai = snssai or {}
+                def _setter(key, value):
+                    snssai[key] = value
+                SnssaiArgs._configure(_setter, **snssai)
             if snssai is None and not opts.urn:
                 raise TypeError("Missing required property 'snssai'")
             __props__.__dict__["snssai"] = snssai

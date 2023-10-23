@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -48,28 +48,89 @@ class PoolArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'VirtualNetworkType']] virtual_network_type: Indicates whether the pool uses a Virtual Network managed by Microsoft or a customer provided network.
         """
-        pulumi.set(__self__, "dev_box_definition_name", dev_box_definition_name)
-        pulumi.set(__self__, "license_type", license_type)
-        pulumi.set(__self__, "local_administrator", local_administrator)
-        pulumi.set(__self__, "network_connection_name", network_connection_name)
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dev_box_definition_name=dev_box_definition_name,
+            license_type=license_type,
+            local_administrator=local_administrator,
+            network_connection_name=network_connection_name,
+            project_name=project_name,
+            resource_group_name=resource_group_name,
+            display_name=display_name,
+            location=location,
+            managed_virtual_network_regions=managed_virtual_network_regions,
+            pool_name=pool_name,
+            single_sign_on_status=single_sign_on_status,
+            stop_on_disconnect=stop_on_disconnect,
+            tags=tags,
+            virtual_network_type=virtual_network_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dev_box_definition_name: pulumi.Input[str],
+             license_type: pulumi.Input[Union[str, 'LicenseType']],
+             local_administrator: pulumi.Input[Union[str, 'LocalAdminStatus']],
+             network_connection_name: pulumi.Input[str],
+             project_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_virtual_network_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             pool_name: Optional[pulumi.Input[str]] = None,
+             single_sign_on_status: Optional[pulumi.Input[Union[str, 'SingleSignOnStatus']]] = None,
+             stop_on_disconnect: Optional[pulumi.Input['StopOnDisconnectConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_network_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'devBoxDefinitionName' in kwargs:
+            dev_box_definition_name = kwargs['devBoxDefinitionName']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'localAdministrator' in kwargs:
+            local_administrator = kwargs['localAdministrator']
+        if 'networkConnectionName' in kwargs:
+            network_connection_name = kwargs['networkConnectionName']
+        if 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'managedVirtualNetworkRegions' in kwargs:
+            managed_virtual_network_regions = kwargs['managedVirtualNetworkRegions']
+        if 'poolName' in kwargs:
+            pool_name = kwargs['poolName']
+        if 'singleSignOnStatus' in kwargs:
+            single_sign_on_status = kwargs['singleSignOnStatus']
+        if 'stopOnDisconnect' in kwargs:
+            stop_on_disconnect = kwargs['stopOnDisconnect']
+        if 'virtualNetworkType' in kwargs:
+            virtual_network_type = kwargs['virtualNetworkType']
+
+        _setter("dev_box_definition_name", dev_box_definition_name)
+        _setter("license_type", license_type)
+        _setter("local_administrator", local_administrator)
+        _setter("network_connection_name", network_connection_name)
+        _setter("project_name", project_name)
+        _setter("resource_group_name", resource_group_name)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_virtual_network_regions is not None:
-            pulumi.set(__self__, "managed_virtual_network_regions", managed_virtual_network_regions)
+            _setter("managed_virtual_network_regions", managed_virtual_network_regions)
         if pool_name is not None:
-            pulumi.set(__self__, "pool_name", pool_name)
+            _setter("pool_name", pool_name)
         if single_sign_on_status is not None:
-            pulumi.set(__self__, "single_sign_on_status", single_sign_on_status)
+            _setter("single_sign_on_status", single_sign_on_status)
         if stop_on_disconnect is not None:
-            pulumi.set(__self__, "stop_on_disconnect", stop_on_disconnect)
+            _setter("stop_on_disconnect", stop_on_disconnect)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_network_type is not None:
-            pulumi.set(__self__, "virtual_network_type", virtual_network_type)
+            _setter("virtual_network_type", virtual_network_type)
 
     @property
     @pulumi.getter(name="devBoxDefinitionName")
@@ -299,6 +360,10 @@ class Pool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -350,6 +415,11 @@ class Pool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["single_sign_on_status"] = single_sign_on_status
+            if stop_on_disconnect is not None and not isinstance(stop_on_disconnect, StopOnDisconnectConfigurationArgs):
+                stop_on_disconnect = stop_on_disconnect or {}
+                def _setter(key, value):
+                    stop_on_disconnect[key] = value
+                StopOnDisconnectConfigurationArgs._configure(_setter, **stop_on_disconnect)
             __props__.__dict__["stop_on_disconnect"] = stop_on_disconnect
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network_type"] = virtual_network_type

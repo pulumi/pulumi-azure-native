@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -33,8 +33,21 @@ class ApplianceCredentialKubeconfigResponse(dict):
         :param str name: Name which contains the role of the kubeconfig.
         :param str value: Contains the kubeconfig value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ApplianceCredentialKubeconfigResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -64,8 +77,19 @@ class AppliancePropertiesResponseInfrastructureConfig(dict):
         Contains infrastructure information about the Appliance
         :param str provider: Information about the connected appliance.
         """
+        AppliancePropertiesResponseInfrastructureConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider=provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if provider is not None:
-            pulumi.set(__self__, "provider", provider)
+            _setter("provider", provider)
 
     @property
     @pulumi.getter
@@ -87,7 +111,18 @@ class ArtifactProfileResponse(dict):
         Appliance ArtifactProfile definition.
         :param str endpoint: Endpoint is the URL to upload artifacts to.
         """
-        pulumi.set(__self__, "endpoint", endpoint)
+        ArtifactProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("endpoint", endpoint)
 
     @property
     @pulumi.getter
@@ -115,10 +150,31 @@ class HybridConnectionConfigResponse(dict):
         :param str relay: Name of the notification service.
         :param str token: Listener access token
         """
-        pulumi.set(__self__, "expiration_time", expiration_time)
-        pulumi.set(__self__, "hybrid_connection_name", hybrid_connection_name)
-        pulumi.set(__self__, "relay", relay)
-        pulumi.set(__self__, "token", token)
+        HybridConnectionConfigResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration_time=expiration_time,
+            hybrid_connection_name=hybrid_connection_name,
+            relay=relay,
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration_time: float,
+             hybrid_connection_name: str,
+             relay: str,
+             token: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expirationTime' in kwargs:
+            expiration_time = kwargs['expirationTime']
+        if 'hybridConnectionName' in kwargs:
+            hybrid_connection_name = kwargs['hybridConnectionName']
+
+        _setter("expiration_time", expiration_time)
+        _setter("hybrid_connection_name", hybrid_connection_name)
+        _setter("relay", relay)
+        _setter("token", token)
 
     @property
     @pulumi.getter(name="expirationTime")
@@ -187,10 +243,29 @@ class IdentityResponse(dict):
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -236,11 +311,38 @@ class SSHKeyResponse(dict):
         :param str private_key: Private Key.
         :param str public_key: Public Key.
         """
-        pulumi.set(__self__, "certificate", certificate)
-        pulumi.set(__self__, "creation_time_stamp", creation_time_stamp)
-        pulumi.set(__self__, "expiration_time_stamp", expiration_time_stamp)
-        pulumi.set(__self__, "private_key", private_key)
-        pulumi.set(__self__, "public_key", public_key)
+        SSHKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            creation_time_stamp=creation_time_stamp,
+            expiration_time_stamp=expiration_time_stamp,
+            private_key=private_key,
+            public_key=public_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: str,
+             creation_time_stamp: float,
+             expiration_time_stamp: float,
+             private_key: str,
+             public_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creationTimeStamp' in kwargs:
+            creation_time_stamp = kwargs['creationTimeStamp']
+        if 'expirationTimeStamp' in kwargs:
+            expiration_time_stamp = kwargs['expirationTimeStamp']
+        if 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+
+        _setter("certificate", certificate)
+        _setter("creation_time_stamp", creation_time_stamp)
+        _setter("expiration_time_stamp", expiration_time_stamp)
+        _setter("private_key", private_key)
+        _setter("public_key", public_key)
 
     @property
     @pulumi.getter
@@ -331,18 +433,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,20 +42,65 @@ class PackageArgs:
         :param pulumi.Input[str] package_name: The resource name of the Test Base Package.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
-        pulumi.set(__self__, "application_name", application_name)
-        pulumi.set(__self__, "blob_path", blob_path)
-        pulumi.set(__self__, "flighting_ring", flighting_ring)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target_os_list", target_os_list)
-        pulumi.set(__self__, "test_base_account_name", test_base_account_name)
-        pulumi.set(__self__, "tests", tests)
-        pulumi.set(__self__, "version", version)
+        PackageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_name=application_name,
+            blob_path=blob_path,
+            flighting_ring=flighting_ring,
+            resource_group_name=resource_group_name,
+            target_os_list=target_os_list,
+            test_base_account_name=test_base_account_name,
+            tests=tests,
+            version=version,
+            location=location,
+            package_name=package_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_name: pulumi.Input[str],
+             blob_path: pulumi.Input[str],
+             flighting_ring: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             target_os_list: pulumi.Input[Sequence[pulumi.Input['TargetOSInfoArgs']]],
+             test_base_account_name: pulumi.Input[str],
+             tests: pulumi.Input[Sequence[pulumi.Input['TestArgs']]],
+             version: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             package_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if 'blobPath' in kwargs:
+            blob_path = kwargs['blobPath']
+        if 'flightingRing' in kwargs:
+            flighting_ring = kwargs['flightingRing']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'targetOSList' in kwargs:
+            target_os_list = kwargs['targetOSList']
+        if 'testBaseAccountName' in kwargs:
+            test_base_account_name = kwargs['testBaseAccountName']
+        if 'packageName' in kwargs:
+            package_name = kwargs['packageName']
+
+        _setter("application_name", application_name)
+        _setter("blob_path", blob_path)
+        _setter("flighting_ring", flighting_ring)
+        _setter("resource_group_name", resource_group_name)
+        _setter("target_os_list", target_os_list)
+        _setter("test_base_account_name", test_base_account_name)
+        _setter("tests", tests)
+        _setter("version", version)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if package_name is not None:
-            pulumi.set(__self__, "package_name", package_name)
+            _setter("package_name", package_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -245,6 +290,10 @@ class Package(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PackageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

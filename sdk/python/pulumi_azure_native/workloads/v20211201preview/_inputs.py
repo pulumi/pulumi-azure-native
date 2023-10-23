@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -37,7 +37,20 @@ class BackupProfileArgs:
         Backup profile
         :param pulumi.Input[Union[str, 'EnableBackup']] backup_enabled: Whether to enable Azure backup for the workload
         """
-        pulumi.set(__self__, "backup_enabled", backup_enabled)
+        BackupProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_enabled=backup_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_enabled: pulumi.Input[Union[str, 'EnableBackup']],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupEnabled' in kwargs:
+            backup_enabled = kwargs['backupEnabled']
+
+        _setter("backup_enabled", backup_enabled)
 
     @property
     @pulumi.getter(name="backupEnabled")
@@ -66,11 +79,30 @@ class CacheProfileArgs:
         :param pulumi.Input[str] sku_name: Cache SKU name
         :param pulumi.Input[str] name: Cache name
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "family", family)
-        pulumi.set(__self__, "sku_name", sku_name)
+        CacheProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            family=family,
+            sku_name=sku_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: pulumi.Input[float],
+             family: pulumi.Input[Union[str, 'RedisCacheFamily']],
+             sku_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
+        _setter("capacity", capacity)
+        _setter("family", family)
+        _setter("sku_name", sku_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -149,25 +181,70 @@ class DatabaseProfileArgs:
         :param pulumi.Input[str] storage_sku: SKU name for database storage
         :param pulumi.Input[str] version: Database version
         """
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "tier", tier)
-        pulumi.set(__self__, "type", type)
+        DatabaseProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sku=sku,
+            tier=tier,
+            type=type,
+            backup_retention_days=backup_retention_days,
+            ha_enabled=ha_enabled,
+            server_name=server_name,
+            ssl_enforcement_enabled=ssl_enforcement_enabled,
+            storage_in_gb=storage_in_gb,
+            storage_iops=storage_iops,
+            storage_sku=storage_sku,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sku: pulumi.Input[str],
+             tier: pulumi.Input['DatabaseTier'],
+             type: pulumi.Input[Union[str, 'DatabaseType']],
+             backup_retention_days: Optional[pulumi.Input[int]] = None,
+             ha_enabled: Optional[pulumi.Input[Union[str, 'HAEnabled']]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             ssl_enforcement_enabled: Optional[pulumi.Input[Union[str, 'EnableSslEnforcement']]] = None,
+             storage_in_gb: Optional[pulumi.Input[float]] = None,
+             storage_iops: Optional[pulumi.Input[float]] = None,
+             storage_sku: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupRetentionDays' in kwargs:
+            backup_retention_days = kwargs['backupRetentionDays']
+        if 'haEnabled' in kwargs:
+            ha_enabled = kwargs['haEnabled']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'sslEnforcementEnabled' in kwargs:
+            ssl_enforcement_enabled = kwargs['sslEnforcementEnabled']
+        if 'storageInGB' in kwargs:
+            storage_in_gb = kwargs['storageInGB']
+        if 'storageIops' in kwargs:
+            storage_iops = kwargs['storageIops']
+        if 'storageSku' in kwargs:
+            storage_sku = kwargs['storageSku']
+
+        _setter("sku", sku)
+        _setter("tier", tier)
+        _setter("type", type)
         if backup_retention_days is not None:
-            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+            _setter("backup_retention_days", backup_retention_days)
         if ha_enabled is not None:
-            pulumi.set(__self__, "ha_enabled", ha_enabled)
+            _setter("ha_enabled", ha_enabled)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if ssl_enforcement_enabled is not None:
-            pulumi.set(__self__, "ssl_enforcement_enabled", ssl_enforcement_enabled)
+            _setter("ssl_enforcement_enabled", ssl_enforcement_enabled)
         if storage_in_gb is not None:
-            pulumi.set(__self__, "storage_in_gb", storage_in_gb)
+            _setter("storage_in_gb", storage_in_gb)
         if storage_iops is not None:
-            pulumi.set(__self__, "storage_iops", storage_iops)
+            _setter("storage_iops", storage_iops)
         if storage_sku is not None:
-            pulumi.set(__self__, "storage_sku", storage_sku)
+            _setter("storage_sku", storage_sku)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -312,9 +389,26 @@ class DiskInfoArgs:
         :param pulumi.Input['DiskStorageType'] storage_type: Storage type
         :param pulumi.Input[float] size_in_gb: Disk size in GB
         """
-        pulumi.set(__self__, "storage_type", storage_type)
+        DiskInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_type=storage_type,
+            size_in_gb=size_in_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_type: pulumi.Input['DiskStorageType'],
+             size_in_gb: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if 'sizeInGB' in kwargs:
+            size_in_gb = kwargs['sizeInGB']
+
+        _setter("storage_type", storage_type)
         if size_in_gb is not None:
-            pulumi.set(__self__, "size_in_gb", size_in_gb)
+            _setter("size_in_gb", size_in_gb)
 
     @property
     @pulumi.getter(name="storageType")
@@ -353,10 +447,31 @@ class FileshareProfileArgs:
         :param pulumi.Input[Union[str, 'FileShareStorageType']] storage_type: File share backing storage type
         :param pulumi.Input[float] share_size_in_gb: File share size in GB
         """
-        pulumi.set(__self__, "share_type", share_type)
-        pulumi.set(__self__, "storage_type", storage_type)
+        FileshareProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            share_type=share_type,
+            storage_type=storage_type,
+            share_size_in_gb=share_size_in_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             share_type: pulumi.Input[Union[str, 'FileShareType']],
+             storage_type: pulumi.Input[Union[str, 'FileShareStorageType']],
+             share_size_in_gb: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'shareType' in kwargs:
+            share_type = kwargs['shareType']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if 'shareSizeInGB' in kwargs:
+            share_size_in_gb = kwargs['shareSizeInGB']
+
+        _setter("share_type", share_type)
+        _setter("storage_type", storage_type)
         if share_size_in_gb is not None:
-            pulumi.set(__self__, "share_size_in_gb", share_size_in_gb)
+            _setter("share_size_in_gb", share_size_in_gb)
 
     @property
     @pulumi.getter(name="shareType")
@@ -403,8 +518,19 @@ class ManagedRGConfigurationArgs:
         Managed resource group configuration
         :param pulumi.Input[str] name: Managed resource group name
         """
+        ManagedRGConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -435,15 +561,42 @@ class NetworkProfileArgs:
         :param pulumi.Input[str] load_balancer_sku: Load balancer SKU
         :param pulumi.Input[str] load_balancer_tier: Load balancer tier
         """
-        pulumi.set(__self__, "load_balancer_type", load_balancer_type)
+        NetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_type=load_balancer_type,
+            azure_front_door_enabled=azure_front_door_enabled,
+            capacity=capacity,
+            load_balancer_sku=load_balancer_sku,
+            load_balancer_tier=load_balancer_tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_type: pulumi.Input[Union[str, 'LoadBalancerType']],
+             azure_front_door_enabled: Optional[pulumi.Input[Union[str, 'AzureFrontDoorEnabled']]] = None,
+             capacity: Optional[pulumi.Input[int]] = None,
+             load_balancer_sku: Optional[pulumi.Input[str]] = None,
+             load_balancer_tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loadBalancerType' in kwargs:
+            load_balancer_type = kwargs['loadBalancerType']
+        if 'azureFrontDoorEnabled' in kwargs:
+            azure_front_door_enabled = kwargs['azureFrontDoorEnabled']
+        if 'loadBalancerSku' in kwargs:
+            load_balancer_sku = kwargs['loadBalancerSku']
+        if 'loadBalancerTier' in kwargs:
+            load_balancer_tier = kwargs['loadBalancerTier']
+
+        _setter("load_balancer_type", load_balancer_type)
         if azure_front_door_enabled is not None:
-            pulumi.set(__self__, "azure_front_door_enabled", azure_front_door_enabled)
+            _setter("azure_front_door_enabled", azure_front_door_enabled)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if load_balancer_sku is not None:
-            pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
+            _setter("load_balancer_sku", load_balancer_sku)
         if load_balancer_tier is not None:
-            pulumi.set(__self__, "load_balancer_tier", load_balancer_tier)
+            _setter("load_balancer_tier", load_balancer_tier)
 
     @property
     @pulumi.getter(name="loadBalancerType")
@@ -522,13 +675,40 @@ class NodeProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]] data_disks: Data disks details. This property is not in use right now
         :param pulumi.Input[str] name: VM or VMSS name
         """
-        pulumi.set(__self__, "node_sku", node_sku)
-        pulumi.set(__self__, "os_disk", os_disk)
-        pulumi.set(__self__, "os_image", os_image)
+        NodeProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node_sku=node_sku,
+            os_disk=os_disk,
+            os_image=os_image,
+            data_disks=data_disks,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node_sku: pulumi.Input[str],
+             os_disk: pulumi.Input['DiskInfoArgs'],
+             os_image: pulumi.Input['OsImageProfileArgs'],
+             data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nodeSku' in kwargs:
+            node_sku = kwargs['nodeSku']
+        if 'osDisk' in kwargs:
+            os_disk = kwargs['osDisk']
+        if 'osImage' in kwargs:
+            os_image = kwargs['osImage']
+        if 'dataDisks' in kwargs:
+            data_disks = kwargs['dataDisks']
+
+        _setter("node_sku", node_sku)
+        _setter("os_disk", os_disk)
+        _setter("os_image", os_image)
         if data_disks is not None:
-            pulumi.set(__self__, "data_disks", data_disks)
+            _setter("data_disks", data_disks)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="nodeSku")
@@ -605,14 +785,31 @@ class OsImageProfileArgs:
         :param pulumi.Input[Union[str, 'OSImageSku']] sku: OS image sku
         :param pulumi.Input[Union[str, 'OSImageVersion']] version: OS image version
         """
+        OsImageProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            offer=offer,
+            publisher=publisher,
+            sku=sku,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             offer: Optional[pulumi.Input[Union[str, 'OSImageOffer']]] = None,
+             publisher: Optional[pulumi.Input[Union[str, 'OSImagePublisher']]] = None,
+             sku: Optional[pulumi.Input[Union[str, 'OSImageSku']]] = None,
+             version: Optional[pulumi.Input[Union[str, 'OSImageVersion']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if offer is not None:
-            pulumi.set(__self__, "offer", offer)
+            _setter("offer", offer)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -671,7 +868,18 @@ class PhpProfileArgs:
         PHP profile
         :param pulumi.Input[Union[str, 'PHPVersion']] version: PHP version
         """
-        pulumi.set(__self__, "version", version)
+        PhpProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             version: pulumi.Input[Union[str, 'PHPVersion']],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -696,9 +904,24 @@ class PhpWorkloadResourceIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of manage identity
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: User assigned identities dictionary
         """
-        pulumi.set(__self__, "type", type)
+        PhpWorkloadResourceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -743,14 +966,45 @@ class SearchProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]] data_disks: Data disks details. This property is not in use right now
         :param pulumi.Input[str] name: VM or VMSS name
         """
-        pulumi.set(__self__, "node_sku", node_sku)
-        pulumi.set(__self__, "os_disk", os_disk)
-        pulumi.set(__self__, "os_image", os_image)
-        pulumi.set(__self__, "search_type", search_type)
+        SearchProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node_sku=node_sku,
+            os_disk=os_disk,
+            os_image=os_image,
+            search_type=search_type,
+            data_disks=data_disks,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node_sku: pulumi.Input[str],
+             os_disk: pulumi.Input['DiskInfoArgs'],
+             os_image: pulumi.Input['OsImageProfileArgs'],
+             search_type: pulumi.Input[Union[str, 'SearchType']],
+             data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nodeSku' in kwargs:
+            node_sku = kwargs['nodeSku']
+        if 'osDisk' in kwargs:
+            os_disk = kwargs['osDisk']
+        if 'osImage' in kwargs:
+            os_image = kwargs['osImage']
+        if 'searchType' in kwargs:
+            search_type = kwargs['searchType']
+        if 'dataDisks' in kwargs:
+            data_disks = kwargs['dataDisks']
+
+        _setter("node_sku", node_sku)
+        _setter("os_disk", os_disk)
+        _setter("os_image", os_image)
+        _setter("search_type", search_type)
         if data_disks is not None:
-            pulumi.set(__self__, "data_disks", data_disks)
+            _setter("data_disks", data_disks)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="nodeSku")
@@ -833,8 +1087,21 @@ class SiteProfileArgs:
         Workload website profile
         :param pulumi.Input[str] domain_name: Domain name for the application site URL
         """
+        SiteProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
 
     @property
     @pulumi.getter(name="domainName")
@@ -865,15 +1132,34 @@ class SkuArgs:
         :param pulumi.Input[str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
         :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             capacity: Optional[pulumi.Input[int]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input['SkuTier']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -946,8 +1232,25 @@ class UserProfileArgs:
         :param pulumi.Input[str] ssh_public_key: SSH public key data
         :param pulumi.Input[str] user_name: User name
         """
-        pulumi.set(__self__, "ssh_public_key", ssh_public_key)
-        pulumi.set(__self__, "user_name", user_name)
+        UserProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ssh_public_key=ssh_public_key,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ssh_public_key: pulumi.Input[str],
+             user_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sshPublicKey' in kwargs:
+            ssh_public_key = kwargs['sshPublicKey']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("ssh_public_key", ssh_public_key)
+        _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="sshPublicKey")
@@ -994,17 +1297,52 @@ class VmssNodesProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]] data_disks: Data disks details. This property is not in use right now
         :param pulumi.Input[str] name: VM or VMSS name
         """
-        pulumi.set(__self__, "node_sku", node_sku)
-        pulumi.set(__self__, "os_disk", os_disk)
-        pulumi.set(__self__, "os_image", os_image)
+        VmssNodesProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node_sku=node_sku,
+            os_disk=os_disk,
+            os_image=os_image,
+            auto_scale_max_count=auto_scale_max_count,
+            auto_scale_min_count=auto_scale_min_count,
+            data_disks=data_disks,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node_sku: pulumi.Input[str],
+             os_disk: pulumi.Input['DiskInfoArgs'],
+             os_image: pulumi.Input['OsImageProfileArgs'],
+             auto_scale_max_count: Optional[pulumi.Input[int]] = None,
+             auto_scale_min_count: Optional[pulumi.Input[int]] = None,
+             data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nodeSku' in kwargs:
+            node_sku = kwargs['nodeSku']
+        if 'osDisk' in kwargs:
+            os_disk = kwargs['osDisk']
+        if 'osImage' in kwargs:
+            os_image = kwargs['osImage']
+        if 'autoScaleMaxCount' in kwargs:
+            auto_scale_max_count = kwargs['autoScaleMaxCount']
+        if 'autoScaleMinCount' in kwargs:
+            auto_scale_min_count = kwargs['autoScaleMinCount']
+        if 'dataDisks' in kwargs:
+            data_disks = kwargs['dataDisks']
+
+        _setter("node_sku", node_sku)
+        _setter("os_disk", os_disk)
+        _setter("os_image", os_image)
         if auto_scale_max_count is not None:
-            pulumi.set(__self__, "auto_scale_max_count", auto_scale_max_count)
+            _setter("auto_scale_max_count", auto_scale_max_count)
         if auto_scale_min_count is not None:
-            pulumi.set(__self__, "auto_scale_min_count", auto_scale_min_count)
+            _setter("auto_scale_min_count", auto_scale_min_count)
         if data_disks is not None:
-            pulumi.set(__self__, "data_disks", data_disks)
+            _setter("data_disks", data_disks)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="nodeSku")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,17 +36,54 @@ class ClusterArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "cluster_pool_name", cluster_pool_name)
-        pulumi.set(__self__, "cluster_profile", cluster_profile)
-        pulumi.set(__self__, "cluster_type", cluster_type)
-        pulumi.set(__self__, "compute_profile", compute_profile)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_pool_name=cluster_pool_name,
+            cluster_profile=cluster_profile,
+            cluster_type=cluster_type,
+            compute_profile=compute_profile,
+            resource_group_name=resource_group_name,
+            cluster_name=cluster_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_pool_name: pulumi.Input[str],
+             cluster_profile: pulumi.Input['ClusterProfileArgs'],
+             cluster_type: pulumi.Input[str],
+             compute_profile: pulumi.Input['ComputeProfileArgs'],
+             resource_group_name: pulumi.Input[str],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterPoolName' in kwargs:
+            cluster_pool_name = kwargs['clusterPoolName']
+        if 'clusterProfile' in kwargs:
+            cluster_profile = kwargs['clusterProfile']
+        if 'clusterType' in kwargs:
+            cluster_type = kwargs['clusterType']
+        if 'computeProfile' in kwargs:
+            compute_profile = kwargs['computeProfile']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+
+        _setter("cluster_pool_name", cluster_pool_name)
+        _setter("cluster_profile", cluster_profile)
+        _setter("cluster_type", cluster_type)
+        _setter("compute_profile", compute_profile)
+        _setter("resource_group_name", resource_group_name)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="clusterPoolName")
@@ -192,6 +229,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -218,12 +259,22 @@ class Cluster(pulumi.CustomResource):
             if cluster_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_pool_name'")
             __props__.__dict__["cluster_pool_name"] = cluster_pool_name
+            if cluster_profile is not None and not isinstance(cluster_profile, ClusterProfileArgs):
+                cluster_profile = cluster_profile or {}
+                def _setter(key, value):
+                    cluster_profile[key] = value
+                ClusterProfileArgs._configure(_setter, **cluster_profile)
             if cluster_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_profile'")
             __props__.__dict__["cluster_profile"] = cluster_profile
             if cluster_type is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_type'")
             __props__.__dict__["cluster_type"] = cluster_type
+            if compute_profile is not None and not isinstance(compute_profile, ComputeProfileArgs):
+                compute_profile = compute_profile or {}
+                def _setter(key, value):
+                    compute_profile[key] = value
+                ComputeProfileArgs._configure(_setter, **compute_profile)
             if compute_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'compute_profile'")
             __props__.__dict__["compute_profile"] = compute_profile

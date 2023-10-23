@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,15 +28,44 @@ class PolicyArgs:
         :param pulumi.Input[Union[str, 'PolicyContentFormat']] content_format: Format of the policyContent.
         :param pulumi.Input[str] policy_id: The identifier of the Policy.
         """
-        pulumi.set(__self__, "policy_content", policy_content)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        PolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_content=policy_content,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            content_format=content_format,
+            policy_id=policy_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_content: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             content_format: Optional[pulumi.Input[Union[str, 'PolicyContentFormat']]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyContent' in kwargs:
+            policy_content = kwargs['policyContent']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'contentFormat' in kwargs:
+            content_format = kwargs['contentFormat']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+
+        _setter("policy_content", policy_content)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if content_format is None:
             content_format = 'xml'
         if content_format is not None:
-            pulumi.set(__self__, "content_format", content_format)
+            _setter("content_format", content_format)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
 
     @property
     @pulumi.getter(name="policyContent")
@@ -140,6 +169,10 @@ class Policy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

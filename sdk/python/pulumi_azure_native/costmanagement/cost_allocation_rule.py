@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,11 +26,30 @@ class CostAllocationRuleArgs:
         :param pulumi.Input['CostAllocationRulePropertiesArgs'] properties: Cost allocation rule properties
         :param pulumi.Input[str] rule_name: Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
         """
-        pulumi.set(__self__, "billing_account_id", billing_account_id)
+        CostAllocationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_account_id=billing_account_id,
+            properties=properties,
+            rule_name=rule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_account_id: pulumi.Input[str],
+             properties: Optional[pulumi.Input['CostAllocationRulePropertiesArgs']] = None,
+             rule_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billingAccountId' in kwargs:
+            billing_account_id = kwargs['billingAccountId']
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+
+        _setter("billing_account_id", billing_account_id)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
+            _setter("rule_name", rule_name)
 
     @property
     @pulumi.getter(name="billingAccountId")
@@ -112,6 +131,10 @@ class CostAllocationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CostAllocationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -132,6 +155,11 @@ class CostAllocationRule(pulumi.CustomResource):
             if billing_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'billing_account_id'")
             __props__.__dict__["billing_account_id"] = billing_account_id
+            if properties is not None and not isinstance(properties, CostAllocationRulePropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                CostAllocationRulePropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             __props__.__dict__["rule_name"] = rule_name
             __props__.__dict__["name"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -30,14 +30,45 @@ class BackupPolicyArgs:
         :param pulumi.Input[str] backup_policy_name: The name of the backup policy to be created/updated.
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "manager_name", manager_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "volume_ids", volume_ids)
+        BackupPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            manager_name=manager_name,
+            resource_group_name=resource_group_name,
+            volume_ids=volume_ids,
+            backup_policy_name=backup_policy_name,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: pulumi.Input[str],
+             manager_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             volume_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             backup_policy_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input['Kind']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'managerName' in kwargs:
+            manager_name = kwargs['managerName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'volumeIds' in kwargs:
+            volume_ids = kwargs['volumeIds']
+        if 'backupPolicyName' in kwargs:
+            backup_policy_name = kwargs['backupPolicyName']
+
+        _setter("device_name", device_name)
+        _setter("manager_name", manager_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("volume_ids", volume_ids)
         if backup_policy_name is not None:
-            pulumi.set(__self__, "backup_policy_name", backup_policy_name)
+            _setter("backup_policy_name", backup_policy_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -157,6 +188,10 @@ class BackupPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackupPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

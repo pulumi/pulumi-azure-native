@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -64,55 +64,140 @@ class WorkspaceArgs:
         :param pulumi.Input[bool] v1_legacy_mode: Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            allow_public_access_when_behind_vnet=allow_public_access_when_behind_vnet,
+            application_insights=application_insights,
+            container_registry=container_registry,
+            description=description,
+            discovery_url=discovery_url,
+            encryption=encryption,
+            friendly_name=friendly_name,
+            hbi_workspace=hbi_workspace,
+            identity=identity,
+            image_build_compute=image_build_compute,
+            key_vault=key_vault,
+            location=location,
+            primary_user_assigned_identity=primary_user_assigned_identity,
+            public_network_access=public_network_access,
+            service_managed_resources_settings=service_managed_resources_settings,
+            shared_private_link_resources=shared_private_link_resources,
+            sku=sku,
+            storage_account=storage_account,
+            tags=tags,
+            v1_legacy_mode=v1_legacy_mode,
+            workspace_name=workspace_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             allow_public_access_when_behind_vnet: Optional[pulumi.Input[bool]] = None,
+             application_insights: Optional[pulumi.Input[str]] = None,
+             container_registry: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             discovery_url: Optional[pulumi.Input[str]] = None,
+             encryption: Optional[pulumi.Input['EncryptionPropertyArgs']] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             hbi_workspace: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             image_build_compute: Optional[pulumi.Input[str]] = None,
+             key_vault: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             service_managed_resources_settings: Optional[pulumi.Input['ServiceManagedResourcesSettingsArgs']] = None,
+             shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourceArgs']]]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             storage_account: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             v1_legacy_mode: Optional[pulumi.Input[bool]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'allowPublicAccessWhenBehindVnet' in kwargs:
+            allow_public_access_when_behind_vnet = kwargs['allowPublicAccessWhenBehindVnet']
+        if 'applicationInsights' in kwargs:
+            application_insights = kwargs['applicationInsights']
+        if 'containerRegistry' in kwargs:
+            container_registry = kwargs['containerRegistry']
+        if 'discoveryUrl' in kwargs:
+            discovery_url = kwargs['discoveryUrl']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'hbiWorkspace' in kwargs:
+            hbi_workspace = kwargs['hbiWorkspace']
+        if 'imageBuildCompute' in kwargs:
+            image_build_compute = kwargs['imageBuildCompute']
+        if 'keyVault' in kwargs:
+            key_vault = kwargs['keyVault']
+        if 'primaryUserAssignedIdentity' in kwargs:
+            primary_user_assigned_identity = kwargs['primaryUserAssignedIdentity']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if 'serviceManagedResourcesSettings' in kwargs:
+            service_managed_resources_settings = kwargs['serviceManagedResourcesSettings']
+        if 'sharedPrivateLinkResources' in kwargs:
+            shared_private_link_resources = kwargs['sharedPrivateLinkResources']
+        if 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+        if 'v1LegacyMode' in kwargs:
+            v1_legacy_mode = kwargs['v1LegacyMode']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+
+        _setter("resource_group_name", resource_group_name)
         if allow_public_access_when_behind_vnet is None:
             allow_public_access_when_behind_vnet = False
         if allow_public_access_when_behind_vnet is not None:
-            pulumi.set(__self__, "allow_public_access_when_behind_vnet", allow_public_access_when_behind_vnet)
+            _setter("allow_public_access_when_behind_vnet", allow_public_access_when_behind_vnet)
         if application_insights is not None:
-            pulumi.set(__self__, "application_insights", application_insights)
+            _setter("application_insights", application_insights)
         if container_registry is not None:
-            pulumi.set(__self__, "container_registry", container_registry)
+            _setter("container_registry", container_registry)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if discovery_url is not None:
-            pulumi.set(__self__, "discovery_url", discovery_url)
+            _setter("discovery_url", discovery_url)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if hbi_workspace is None:
             hbi_workspace = False
         if hbi_workspace is not None:
-            pulumi.set(__self__, "hbi_workspace", hbi_workspace)
+            _setter("hbi_workspace", hbi_workspace)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if image_build_compute is not None:
-            pulumi.set(__self__, "image_build_compute", image_build_compute)
+            _setter("image_build_compute", image_build_compute)
         if key_vault is not None:
-            pulumi.set(__self__, "key_vault", key_vault)
+            _setter("key_vault", key_vault)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if primary_user_assigned_identity is not None:
-            pulumi.set(__self__, "primary_user_assigned_identity", primary_user_assigned_identity)
+            _setter("primary_user_assigned_identity", primary_user_assigned_identity)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if service_managed_resources_settings is not None:
-            pulumi.set(__self__, "service_managed_resources_settings", service_managed_resources_settings)
+            _setter("service_managed_resources_settings", service_managed_resources_settings)
         if shared_private_link_resources is not None:
-            pulumi.set(__self__, "shared_private_link_resources", shared_private_link_resources)
+            _setter("shared_private_link_resources", shared_private_link_resources)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if storage_account is not None:
-            pulumi.set(__self__, "storage_account", storage_account)
+            _setter("storage_account", storage_account)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if v1_legacy_mode is None:
             v1_legacy_mode = False
         if v1_legacy_mode is not None:
-            pulumi.set(__self__, "v1_legacy_mode", v1_legacy_mode)
+            _setter("v1_legacy_mode", v1_legacy_mode)
         if workspace_name is not None:
-            pulumi.set(__self__, "workspace_name", workspace_name)
+            _setter("workspace_name", workspace_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -454,6 +539,10 @@ class Workspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -497,11 +586,21 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["container_registry"] = container_registry
             __props__.__dict__["description"] = description
             __props__.__dict__["discovery_url"] = discovery_url
+            if encryption is not None and not isinstance(encryption, EncryptionPropertyArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                EncryptionPropertyArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["friendly_name"] = friendly_name
             if hbi_workspace is None:
                 hbi_workspace = False
             __props__.__dict__["hbi_workspace"] = hbi_workspace
+            if identity is not None and not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["image_build_compute"] = image_build_compute
             __props__.__dict__["key_vault"] = key_vault
@@ -511,8 +610,18 @@ class Workspace(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if service_managed_resources_settings is not None and not isinstance(service_managed_resources_settings, ServiceManagedResourcesSettingsArgs):
+                service_managed_resources_settings = service_managed_resources_settings or {}
+                def _setter(key, value):
+                    service_managed_resources_settings[key] = value
+                ServiceManagedResourcesSettingsArgs._configure(_setter, **service_managed_resources_settings)
             __props__.__dict__["service_managed_resources_settings"] = service_managed_resources_settings
             __props__.__dict__["shared_private_link_resources"] = shared_private_link_resources
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["storage_account"] = storage_account
             __props__.__dict__["tags"] = tags

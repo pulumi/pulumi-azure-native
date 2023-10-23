@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,25 +40,68 @@ class NetworkFunctionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vendor_name: The vendor name for the network function. Once set, it cannot be updated.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NetworkFunctionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            device=device,
+            location=location,
+            managed_application_parameters=managed_application_parameters,
+            network_function_container_configurations=network_function_container_configurations,
+            network_function_name=network_function_name,
+            network_function_user_configurations=network_function_user_configurations,
+            sku_name=sku_name,
+            tags=tags,
+            vendor_name=vendor_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             device: Optional[pulumi.Input['SubResourceArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_application_parameters: Optional[Any] = None,
+             network_function_container_configurations: Optional[Any] = None,
+             network_function_name: Optional[pulumi.Input[str]] = None,
+             network_function_user_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkFunctionUserConfigurationArgs']]]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vendor_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'managedApplicationParameters' in kwargs:
+            managed_application_parameters = kwargs['managedApplicationParameters']
+        if 'networkFunctionContainerConfigurations' in kwargs:
+            network_function_container_configurations = kwargs['networkFunctionContainerConfigurations']
+        if 'networkFunctionName' in kwargs:
+            network_function_name = kwargs['networkFunctionName']
+        if 'networkFunctionUserConfigurations' in kwargs:
+            network_function_user_configurations = kwargs['networkFunctionUserConfigurations']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'vendorName' in kwargs:
+            vendor_name = kwargs['vendorName']
+
+        _setter("resource_group_name", resource_group_name)
         if device is not None:
-            pulumi.set(__self__, "device", device)
+            _setter("device", device)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_application_parameters is not None:
-            pulumi.set(__self__, "managed_application_parameters", managed_application_parameters)
+            _setter("managed_application_parameters", managed_application_parameters)
         if network_function_container_configurations is not None:
-            pulumi.set(__self__, "network_function_container_configurations", network_function_container_configurations)
+            _setter("network_function_container_configurations", network_function_container_configurations)
         if network_function_name is not None:
-            pulumi.set(__self__, "network_function_name", network_function_name)
+            _setter("network_function_name", network_function_name)
         if network_function_user_configurations is not None:
-            pulumi.set(__self__, "network_function_user_configurations", network_function_user_configurations)
+            _setter("network_function_user_configurations", network_function_user_configurations)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vendor_name is not None:
-            pulumi.set(__self__, "vendor_name", vendor_name)
+            _setter("vendor_name", vendor_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -234,6 +277,10 @@ class NetworkFunction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkFunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -258,6 +305,11 @@ class NetworkFunction(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkFunctionArgs.__new__(NetworkFunctionArgs)
 
+            if device is not None and not isinstance(device, SubResourceArgs):
+                device = device or {}
+                def _setter(key, value):
+                    device[key] = value
+                SubResourceArgs._configure(_setter, **device)
             __props__.__dict__["device"] = device
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_application_parameters"] = managed_application_parameters

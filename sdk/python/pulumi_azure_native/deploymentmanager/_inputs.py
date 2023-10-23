@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -43,10 +43,29 @@ class ApiKeyAuthenticationArgs:
                Expected value is 'ApiKey'.
         :param pulumi.Input[str] value: The value of the authentication key/value pair.
         """
-        pulumi.set(__self__, "in_", in_)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'ApiKey')
-        pulumi.set(__self__, "value", value)
+        ApiKeyAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            in_=in_,
+            name=name,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             in_: pulumi.Input['RestAuthLocation'],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'in' in kwargs:
+            in_ = kwargs['in']
+
+        _setter("in_", in_)
+        _setter("name", name)
+        _setter("type", 'ApiKey')
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="in")
@@ -109,8 +128,23 @@ class HealthCheckStepPropertiesArgs:
         :param pulumi.Input[str] step_type: The type of step.
                Expected value is 'HealthCheck'.
         """
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "step_type", 'HealthCheck')
+        HealthCheckStepPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            step_type=step_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: pulumi.Input['RestHealthCheckStepAttributesArgs'],
+             step_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stepType' in kwargs:
+            step_type = kwargs['stepType']
+
+        _setter("attributes", attributes)
+        _setter("step_type", 'HealthCheck')
 
     @property
     @pulumi.getter
@@ -148,8 +182,23 @@ class IdentityArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: The list of identities.
         :param pulumi.Input[str] type: The identity type.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "type", type)
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+
+        _setter("identity_ids", identity_ids)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -184,7 +233,20 @@ class PrePostStepArgs:
         The properties that define a step.
         :param pulumi.Input[str] step_id: The resource Id of the step to be run.
         """
-        pulumi.set(__self__, "step_id", step_id)
+        PrePostStepArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            step_id=step_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             step_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stepId' in kwargs:
+            step_id = kwargs['stepId']
+
+        _setter("step_id", step_id)
 
     @property
     @pulumi.getter(name="stepId")
@@ -216,13 +278,40 @@ class RestHealthCheckStepAttributesArgs:
         :param pulumi.Input[str] max_elastic_duration: The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
         :param pulumi.Input[str] wait_duration: The duration in ISO 8601 format for which health check waits idly without any checks.
         """
-        pulumi.set(__self__, "health_checks", health_checks)
-        pulumi.set(__self__, "healthy_state_duration", healthy_state_duration)
-        pulumi.set(__self__, "type", 'REST')
+        RestHealthCheckStepAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health_checks=health_checks,
+            healthy_state_duration=healthy_state_duration,
+            type=type,
+            max_elastic_duration=max_elastic_duration,
+            wait_duration=wait_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health_checks: pulumi.Input[Sequence[pulumi.Input['RestHealthCheckArgs']]],
+             healthy_state_duration: pulumi.Input[str],
+             type: pulumi.Input[str],
+             max_elastic_duration: Optional[pulumi.Input[str]] = None,
+             wait_duration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'healthChecks' in kwargs:
+            health_checks = kwargs['healthChecks']
+        if 'healthyStateDuration' in kwargs:
+            healthy_state_duration = kwargs['healthyStateDuration']
+        if 'maxElasticDuration' in kwargs:
+            max_elastic_duration = kwargs['maxElasticDuration']
+        if 'waitDuration' in kwargs:
+            wait_duration = kwargs['waitDuration']
+
+        _setter("health_checks", health_checks)
+        _setter("healthy_state_duration", healthy_state_duration)
+        _setter("type", 'REST')
         if max_elastic_duration is not None:
-            pulumi.set(__self__, "max_elastic_duration", max_elastic_duration)
+            _setter("max_elastic_duration", max_elastic_duration)
         if wait_duration is not None:
-            pulumi.set(__self__, "wait_duration", wait_duration)
+            _setter("wait_duration", wait_duration)
 
     @property
     @pulumi.getter(name="healthChecks")
@@ -298,10 +387,25 @@ class RestHealthCheckArgs:
         :param pulumi.Input['RestRequestArgs'] request: The request to the health provider.
         :param pulumi.Input['RestResponseArgs'] response: The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "request", request)
+        RestHealthCheckArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            request=request,
+            response=response,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             request: pulumi.Input['RestRequestArgs'],
+             response: Optional[pulumi.Input['RestResponseArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("request", request)
         if response is not None:
-            pulumi.set(__self__, "response", response)
+            _setter("response", response)
 
     @property
     @pulumi.getter
@@ -352,9 +456,24 @@ class RestRequestArgs:
         :param pulumi.Input['RestRequestMethod'] method: The HTTP method to use for the request.
         :param pulumi.Input[str] uri: The HTTP URI to use for the request.
         """
-        pulumi.set(__self__, "authentication", authentication)
-        pulumi.set(__self__, "method", method)
-        pulumi.set(__self__, "uri", uri)
+        RestRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            method=method,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: pulumi.Input[Union['ApiKeyAuthenticationArgs', 'RolloutIdentityAuthenticationArgs']],
+             method: pulumi.Input['RestRequestMethod'],
+             uri: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("authentication", authentication)
+        _setter("method", method)
+        _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -403,10 +522,25 @@ class RestResponseRegexArgs:
         :param pulumi.Input['RestMatchQuantifier'] match_quantifier: Indicates whether any or all of the expressions should match with the response content.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] matches: The list of regular expressions.
         """
+        RestResponseRegexArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_quantifier=match_quantifier,
+            matches=matches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_quantifier: Optional[pulumi.Input['RestMatchQuantifier']] = None,
+             matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchQuantifier' in kwargs:
+            match_quantifier = kwargs['matchQuantifier']
+
         if match_quantifier is not None:
-            pulumi.set(__self__, "match_quantifier", match_quantifier)
+            _setter("match_quantifier", match_quantifier)
         if matches is not None:
-            pulumi.set(__self__, "matches", matches)
+            _setter("matches", matches)
 
     @property
     @pulumi.getter(name="matchQuantifier")
@@ -443,10 +577,25 @@ class RestResponseArgs:
         :param pulumi.Input['RestResponseRegexArgs'] regex: The regular expressions to match the response content with.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] success_status_codes: The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
         """
+        RestResponseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            regex=regex,
+            success_status_codes=success_status_codes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             regex: Optional[pulumi.Input['RestResponseRegexArgs']] = None,
+             success_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'successStatusCodes' in kwargs:
+            success_status_codes = kwargs['successStatusCodes']
+
         if regex is not None:
-            pulumi.set(__self__, "regex", regex)
+            _setter("regex", regex)
         if success_status_codes is not None:
-            pulumi.set(__self__, "success_status_codes", success_status_codes)
+            _setter("success_status_codes", success_status_codes)
 
     @property
     @pulumi.getter
@@ -482,7 +631,18 @@ class RolloutIdentityAuthenticationArgs:
         :param pulumi.Input[str] type: The authentication type.
                Expected value is 'RolloutIdentity'.
         """
-        pulumi.set(__self__, "type", 'RolloutIdentity')
+        RolloutIdentityAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("type", 'RolloutIdentity')
 
     @property
     @pulumi.getter
@@ -509,8 +669,23 @@ class SasAuthenticationArgs:
         :param pulumi.Input[str] type: The authentication type
                Expected value is 'Sas'.
         """
-        pulumi.set(__self__, "sas_uri", sas_uri)
-        pulumi.set(__self__, "type", 'Sas')
+        SasAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sas_uri=sas_uri,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sas_uri: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sasUri' in kwargs:
+            sas_uri = kwargs['sasUri']
+
+        _setter("sas_uri", sas_uri)
+        _setter("type", 'Sas')
 
     @property
     @pulumi.getter(name="sasUri")
@@ -552,14 +727,39 @@ class ServiceUnitArtifactsArgs:
         :param pulumi.Input[str] template_artifact_source_relative_path: The path to the ARM template file relative to the artifact source.
         :param pulumi.Input[str] template_uri: The full URI of the ARM template file with the SAS token.
         """
+        ServiceUnitArtifactsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameters_artifact_source_relative_path=parameters_artifact_source_relative_path,
+            parameters_uri=parameters_uri,
+            template_artifact_source_relative_path=template_artifact_source_relative_path,
+            template_uri=template_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameters_artifact_source_relative_path: Optional[pulumi.Input[str]] = None,
+             parameters_uri: Optional[pulumi.Input[str]] = None,
+             template_artifact_source_relative_path: Optional[pulumi.Input[str]] = None,
+             template_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parametersArtifactSourceRelativePath' in kwargs:
+            parameters_artifact_source_relative_path = kwargs['parametersArtifactSourceRelativePath']
+        if 'parametersUri' in kwargs:
+            parameters_uri = kwargs['parametersUri']
+        if 'templateArtifactSourceRelativePath' in kwargs:
+            template_artifact_source_relative_path = kwargs['templateArtifactSourceRelativePath']
+        if 'templateUri' in kwargs:
+            template_uri = kwargs['templateUri']
+
         if parameters_artifact_source_relative_path is not None:
-            pulumi.set(__self__, "parameters_artifact_source_relative_path", parameters_artifact_source_relative_path)
+            _setter("parameters_artifact_source_relative_path", parameters_artifact_source_relative_path)
         if parameters_uri is not None:
-            pulumi.set(__self__, "parameters_uri", parameters_uri)
+            _setter("parameters_uri", parameters_uri)
         if template_artifact_source_relative_path is not None:
-            pulumi.set(__self__, "template_artifact_source_relative_path", template_artifact_source_relative_path)
+            _setter("template_artifact_source_relative_path", template_artifact_source_relative_path)
         if template_uri is not None:
-            pulumi.set(__self__, "template_uri", template_uri)
+            _setter("template_uri", template_uri)
 
     @property
     @pulumi.getter(name="parametersArtifactSourceRelativePath")
@@ -626,14 +826,41 @@ class StepGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]] post_deployment_steps: The list of steps to be run after deploying the target.
         :param pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]] pre_deployment_steps: The list of steps to be run before deploying the target.
         """
-        pulumi.set(__self__, "deployment_target_id", deployment_target_id)
-        pulumi.set(__self__, "name", name)
+        StepGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_target_id=deployment_target_id,
+            name=name,
+            depends_on_step_groups=depends_on_step_groups,
+            post_deployment_steps=post_deployment_steps,
+            pre_deployment_steps=pre_deployment_steps,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_target_id: pulumi.Input[str],
+             name: pulumi.Input[str],
+             depends_on_step_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             post_deployment_steps: Optional[pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]]] = None,
+             pre_deployment_steps: Optional[pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deploymentTargetId' in kwargs:
+            deployment_target_id = kwargs['deploymentTargetId']
+        if 'dependsOnStepGroups' in kwargs:
+            depends_on_step_groups = kwargs['dependsOnStepGroups']
+        if 'postDeploymentSteps' in kwargs:
+            post_deployment_steps = kwargs['postDeploymentSteps']
+        if 'preDeploymentSteps' in kwargs:
+            pre_deployment_steps = kwargs['preDeploymentSteps']
+
+        _setter("deployment_target_id", deployment_target_id)
+        _setter("name", name)
         if depends_on_step_groups is not None:
-            pulumi.set(__self__, "depends_on_step_groups", depends_on_step_groups)
+            _setter("depends_on_step_groups", depends_on_step_groups)
         if post_deployment_steps is not None:
-            pulumi.set(__self__, "post_deployment_steps", post_deployment_steps)
+            _setter("post_deployment_steps", post_deployment_steps)
         if pre_deployment_steps is not None:
-            pulumi.set(__self__, "pre_deployment_steps", pre_deployment_steps)
+            _setter("pre_deployment_steps", pre_deployment_steps)
 
     @property
     @pulumi.getter(name="deploymentTargetId")
@@ -704,7 +931,18 @@ class WaitStepAttributesArgs:
         The parameters for the wait step.
         :param pulumi.Input[str] duration: The duration in ISO 8601 format of how long the wait should be.
         """
-        pulumi.set(__self__, "duration", duration)
+        WaitStepAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("duration", duration)
 
     @property
     @pulumi.getter
@@ -730,8 +968,23 @@ class WaitStepPropertiesArgs:
         :param pulumi.Input[str] step_type: The type of step.
                Expected value is 'Wait'.
         """
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "step_type", 'Wait')
+        WaitStepPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            step_type=step_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: pulumi.Input['WaitStepAttributesArgs'],
+             step_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stepType' in kwargs:
+            step_type = kwargs['stepType']
+
+        _setter("attributes", attributes)
+        _setter("step_type", 'Wait')
 
     @property
     @pulumi.getter

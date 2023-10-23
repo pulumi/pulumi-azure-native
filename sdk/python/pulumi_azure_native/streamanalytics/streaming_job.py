@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -64,49 +64,128 @@ class StreamingJobArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['TransformationArgs'] transformation: Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        StreamingJobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            cluster=cluster,
+            compatibility_level=compatibility_level,
+            content_storage_policy=content_storage_policy,
+            data_locale=data_locale,
+            events_late_arrival_max_delay_in_seconds=events_late_arrival_max_delay_in_seconds,
+            events_out_of_order_max_delay_in_seconds=events_out_of_order_max_delay_in_seconds,
+            events_out_of_order_policy=events_out_of_order_policy,
+            functions=functions,
+            identity=identity,
+            inputs=inputs,
+            job_name=job_name,
+            job_storage_account=job_storage_account,
+            job_type=job_type,
+            location=location,
+            output_error_policy=output_error_policy,
+            output_start_mode=output_start_mode,
+            output_start_time=output_start_time,
+            outputs=outputs,
+            sku=sku,
+            tags=tags,
+            transformation=transformation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             cluster: Optional[pulumi.Input['ClusterInfoArgs']] = None,
+             compatibility_level: Optional[pulumi.Input[Union[str, 'CompatibilityLevel']]] = None,
+             content_storage_policy: Optional[pulumi.Input[Union[str, 'ContentStoragePolicy']]] = None,
+             data_locale: Optional[pulumi.Input[str]] = None,
+             events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
+             events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
+             events_out_of_order_policy: Optional[pulumi.Input[Union[str, 'EventsOutOfOrderPolicy']]] = None,
+             functions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArgs']]]] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             inputs: Optional[pulumi.Input[Sequence[pulumi.Input['InputArgs']]]] = None,
+             job_name: Optional[pulumi.Input[str]] = None,
+             job_storage_account: Optional[pulumi.Input['JobStorageAccountArgs']] = None,
+             job_type: Optional[pulumi.Input[Union[str, 'JobType']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             output_error_policy: Optional[pulumi.Input[Union[str, 'OutputErrorPolicy']]] = None,
+             output_start_mode: Optional[pulumi.Input[Union[str, 'OutputStartMode']]] = None,
+             output_start_time: Optional[pulumi.Input[str]] = None,
+             outputs: Optional[pulumi.Input[Sequence[pulumi.Input['OutputArgs']]]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transformation: Optional[pulumi.Input['TransformationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'compatibilityLevel' in kwargs:
+            compatibility_level = kwargs['compatibilityLevel']
+        if 'contentStoragePolicy' in kwargs:
+            content_storage_policy = kwargs['contentStoragePolicy']
+        if 'dataLocale' in kwargs:
+            data_locale = kwargs['dataLocale']
+        if 'eventsLateArrivalMaxDelayInSeconds' in kwargs:
+            events_late_arrival_max_delay_in_seconds = kwargs['eventsLateArrivalMaxDelayInSeconds']
+        if 'eventsOutOfOrderMaxDelayInSeconds' in kwargs:
+            events_out_of_order_max_delay_in_seconds = kwargs['eventsOutOfOrderMaxDelayInSeconds']
+        if 'eventsOutOfOrderPolicy' in kwargs:
+            events_out_of_order_policy = kwargs['eventsOutOfOrderPolicy']
+        if 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if 'jobStorageAccount' in kwargs:
+            job_storage_account = kwargs['jobStorageAccount']
+        if 'jobType' in kwargs:
+            job_type = kwargs['jobType']
+        if 'outputErrorPolicy' in kwargs:
+            output_error_policy = kwargs['outputErrorPolicy']
+        if 'outputStartMode' in kwargs:
+            output_start_mode = kwargs['outputStartMode']
+        if 'outputStartTime' in kwargs:
+            output_start_time = kwargs['outputStartTime']
+
+        _setter("resource_group_name", resource_group_name)
         if cluster is not None:
-            pulumi.set(__self__, "cluster", cluster)
+            _setter("cluster", cluster)
         if compatibility_level is not None:
-            pulumi.set(__self__, "compatibility_level", compatibility_level)
+            _setter("compatibility_level", compatibility_level)
         if content_storage_policy is not None:
-            pulumi.set(__self__, "content_storage_policy", content_storage_policy)
+            _setter("content_storage_policy", content_storage_policy)
         if data_locale is not None:
-            pulumi.set(__self__, "data_locale", data_locale)
+            _setter("data_locale", data_locale)
         if events_late_arrival_max_delay_in_seconds is not None:
-            pulumi.set(__self__, "events_late_arrival_max_delay_in_seconds", events_late_arrival_max_delay_in_seconds)
+            _setter("events_late_arrival_max_delay_in_seconds", events_late_arrival_max_delay_in_seconds)
         if events_out_of_order_max_delay_in_seconds is not None:
-            pulumi.set(__self__, "events_out_of_order_max_delay_in_seconds", events_out_of_order_max_delay_in_seconds)
+            _setter("events_out_of_order_max_delay_in_seconds", events_out_of_order_max_delay_in_seconds)
         if events_out_of_order_policy is not None:
-            pulumi.set(__self__, "events_out_of_order_policy", events_out_of_order_policy)
+            _setter("events_out_of_order_policy", events_out_of_order_policy)
         if functions is not None:
-            pulumi.set(__self__, "functions", functions)
+            _setter("functions", functions)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
+            _setter("inputs", inputs)
         if job_name is not None:
-            pulumi.set(__self__, "job_name", job_name)
+            _setter("job_name", job_name)
         if job_storage_account is not None:
-            pulumi.set(__self__, "job_storage_account", job_storage_account)
+            _setter("job_storage_account", job_storage_account)
         if job_type is not None:
-            pulumi.set(__self__, "job_type", job_type)
+            _setter("job_type", job_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if output_error_policy is not None:
-            pulumi.set(__self__, "output_error_policy", output_error_policy)
+            _setter("output_error_policy", output_error_policy)
         if output_start_mode is not None:
-            pulumi.set(__self__, "output_start_mode", output_start_mode)
+            _setter("output_start_mode", output_start_mode)
         if output_start_time is not None:
-            pulumi.set(__self__, "output_start_time", output_start_time)
+            _setter("output_start_time", output_start_time)
         if outputs is not None:
-            pulumi.set(__self__, "outputs", outputs)
+            _setter("outputs", outputs)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if transformation is not None:
-            pulumi.set(__self__, "transformation", transformation)
+            _setter("transformation", transformation)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -454,6 +533,10 @@ class StreamingJob(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StreamingJobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -490,6 +573,11 @@ class StreamingJob(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StreamingJobArgs.__new__(StreamingJobArgs)
 
+            if cluster is not None and not isinstance(cluster, ClusterInfoArgs):
+                cluster = cluster or {}
+                def _setter(key, value):
+                    cluster[key] = value
+                ClusterInfoArgs._configure(_setter, **cluster)
             __props__.__dict__["cluster"] = cluster
             __props__.__dict__["compatibility_level"] = compatibility_level
             __props__.__dict__["content_storage_policy"] = content_storage_policy
@@ -498,9 +586,19 @@ class StreamingJob(pulumi.CustomResource):
             __props__.__dict__["events_out_of_order_max_delay_in_seconds"] = events_out_of_order_max_delay_in_seconds
             __props__.__dict__["events_out_of_order_policy"] = events_out_of_order_policy
             __props__.__dict__["functions"] = functions
+            if identity is not None and not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inputs"] = inputs
             __props__.__dict__["job_name"] = job_name
+            if job_storage_account is not None and not isinstance(job_storage_account, JobStorageAccountArgs):
+                job_storage_account = job_storage_account or {}
+                def _setter(key, value):
+                    job_storage_account[key] = value
+                JobStorageAccountArgs._configure(_setter, **job_storage_account)
             __props__.__dict__["job_storage_account"] = job_storage_account
             __props__.__dict__["job_type"] = job_type
             __props__.__dict__["location"] = location
@@ -511,8 +609,18 @@ class StreamingJob(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            if transformation is not None and not isinstance(transformation, TransformationArgs):
+                transformation = transformation or {}
+                def _setter(key, value):
+                    transformation[key] = value
+                TransformationArgs._configure(_setter, **transformation)
             __props__.__dict__["transformation"] = transformation
             __props__.__dict__["created_date"] = None
             __props__.__dict__["etag"] = None

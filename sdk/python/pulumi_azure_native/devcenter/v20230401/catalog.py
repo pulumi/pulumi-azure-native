@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,43 @@ class CatalogArgs:
         :param pulumi.Input[str] catalog_name: The name of the Catalog.
         :param pulumi.Input['GitCatalogArgs'] git_hub: Properties for a GitHub catalog type.
         """
-        pulumi.set(__self__, "dev_center_name", dev_center_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CatalogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dev_center_name=dev_center_name,
+            resource_group_name=resource_group_name,
+            ado_git=ado_git,
+            catalog_name=catalog_name,
+            git_hub=git_hub,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dev_center_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             ado_git: Optional[pulumi.Input['GitCatalogArgs']] = None,
+             catalog_name: Optional[pulumi.Input[str]] = None,
+             git_hub: Optional[pulumi.Input['GitCatalogArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'devCenterName' in kwargs:
+            dev_center_name = kwargs['devCenterName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'adoGit' in kwargs:
+            ado_git = kwargs['adoGit']
+        if 'catalogName' in kwargs:
+            catalog_name = kwargs['catalogName']
+        if 'gitHub' in kwargs:
+            git_hub = kwargs['gitHub']
+
+        _setter("dev_center_name", dev_center_name)
+        _setter("resource_group_name", resource_group_name)
         if ado_git is not None:
-            pulumi.set(__self__, "ado_git", ado_git)
+            _setter("ado_git", ado_git)
         if catalog_name is not None:
-            pulumi.set(__self__, "catalog_name", catalog_name)
+            _setter("catalog_name", catalog_name)
         if git_hub is not None:
-            pulumi.set(__self__, "git_hub", git_hub)
+            _setter("git_hub", git_hub)
 
     @property
     @pulumi.getter(name="devCenterName")
@@ -140,6 +169,10 @@ class Catalog(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CatalogArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -159,11 +192,21 @@ class Catalog(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CatalogArgs.__new__(CatalogArgs)
 
+            if ado_git is not None and not isinstance(ado_git, GitCatalogArgs):
+                ado_git = ado_git or {}
+                def _setter(key, value):
+                    ado_git[key] = value
+                GitCatalogArgs._configure(_setter, **ado_git)
             __props__.__dict__["ado_git"] = ado_git
             __props__.__dict__["catalog_name"] = catalog_name
             if dev_center_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dev_center_name'")
             __props__.__dict__["dev_center_name"] = dev_center_name
+            if git_hub is not None and not isinstance(git_hub, GitCatalogArgs):
+                git_hub = git_hub or {}
+                def _setter(key, value):
+                    git_hub[key] = value
+                GitCatalogArgs._configure(_setter, **git_hub)
             __props__.__dict__["git_hub"] = git_hub
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

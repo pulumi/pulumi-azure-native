@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -24,10 +24,31 @@ class SyncGroupArgs:
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[str] sync_group_name: Name of Sync Group resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
+        SyncGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            storage_sync_service_name=storage_sync_service_name,
+            sync_group_name=sync_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             storage_sync_service_name: pulumi.Input[str],
+             sync_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageSyncServiceName' in kwargs:
+            storage_sync_service_name = kwargs['storageSyncServiceName']
+        if 'syncGroupName' in kwargs:
+            sync_group_name = kwargs['syncGroupName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_sync_service_name", storage_sync_service_name)
         if sync_group_name is not None:
-            pulumi.set(__self__, "sync_group_name", sync_group_name)
+            _setter("sync_group_name", sync_group_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -103,6 +124,10 @@ class SyncGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SyncGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

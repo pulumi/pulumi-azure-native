@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -24,10 +24,31 @@ class VendorSkuPreviewArgs:
         :param pulumi.Input[str] vendor_name: The name of the vendor.
         :param pulumi.Input[str] preview_subscription: Preview subscription ID.
         """
-        pulumi.set(__self__, "sku_name", sku_name)
-        pulumi.set(__self__, "vendor_name", vendor_name)
+        VendorSkuPreviewArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sku_name=sku_name,
+            vendor_name=vendor_name,
+            preview_subscription=preview_subscription,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sku_name: pulumi.Input[str],
+             vendor_name: pulumi.Input[str],
+             preview_subscription: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'vendorName' in kwargs:
+            vendor_name = kwargs['vendorName']
+        if 'previewSubscription' in kwargs:
+            preview_subscription = kwargs['previewSubscription']
+
+        _setter("sku_name", sku_name)
+        _setter("vendor_name", vendor_name)
         if preview_subscription is not None:
-            pulumi.set(__self__, "preview_subscription", preview_subscription)
+            _setter("preview_subscription", preview_subscription)
 
     @property
     @pulumi.getter(name="skuName")
@@ -103,6 +124,10 @@ class VendorSkuPreview(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VendorSkuPreviewArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

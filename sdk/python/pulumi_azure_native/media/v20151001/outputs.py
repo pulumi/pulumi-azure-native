@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -44,10 +44,25 @@ class ApiEndpointResponse(dict):
         :param str endpoint: The Media Services REST endpoint.
         :param str major_version: The version of Media Services REST API.
         """
+        ApiEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            major_version=major_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: Optional[str] = None,
+             major_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'majorVersion' in kwargs:
+            major_version = kwargs['majorVersion']
+
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if major_version is not None:
-            pulumi.set(__self__, "major_version", major_version)
+            _setter("major_version", major_version)
 
     @property
     @pulumi.getter
@@ -96,8 +111,23 @@ class StorageAccountResponse(dict):
         :param str id: The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
         :param bool is_primary: Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "is_primary", is_primary)
+        StorageAccountResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            is_primary=is_primary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             is_primary: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isPrimary' in kwargs:
+            is_primary = kwargs['isPrimary']
+
+        _setter("id", id)
+        _setter("is_primary", is_primary)
 
     @property
     @pulumi.getter

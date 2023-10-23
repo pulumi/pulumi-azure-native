@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,25 +39,68 @@ class P2sVpnGatewayArgs:
         :param pulumi.Input['AddressSpaceArgs'] vpn_client_address_pool: The reference of the address space resource which represents Address space for P2S VpnClient.
         :param pulumi.Input[int] vpn_gateway_scale_unit: The scale unit for this p2s vpn gateway.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        P2sVpnGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            custom_routes=custom_routes,
+            gateway_name=gateway_name,
+            id=id,
+            location=location,
+            p2_s_vpn_server_configuration=p2_s_vpn_server_configuration,
+            tags=tags,
+            virtual_hub=virtual_hub,
+            vpn_client_address_pool=vpn_client_address_pool,
+            vpn_gateway_scale_unit=vpn_gateway_scale_unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             custom_routes: Optional[pulumi.Input['AddressSpaceArgs']] = None,
+             gateway_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             p2_s_vpn_server_configuration: Optional[pulumi.Input['SubResourceArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_hub: Optional[pulumi.Input['SubResourceArgs']] = None,
+             vpn_client_address_pool: Optional[pulumi.Input['AddressSpaceArgs']] = None,
+             vpn_gateway_scale_unit: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'customRoutes' in kwargs:
+            custom_routes = kwargs['customRoutes']
+        if 'gatewayName' in kwargs:
+            gateway_name = kwargs['gatewayName']
+        if 'p2SVpnServerConfiguration' in kwargs:
+            p2_s_vpn_server_configuration = kwargs['p2SVpnServerConfiguration']
+        if 'virtualHub' in kwargs:
+            virtual_hub = kwargs['virtualHub']
+        if 'vpnClientAddressPool' in kwargs:
+            vpn_client_address_pool = kwargs['vpnClientAddressPool']
+        if 'vpnGatewayScaleUnit' in kwargs:
+            vpn_gateway_scale_unit = kwargs['vpnGatewayScaleUnit']
+
+        _setter("resource_group_name", resource_group_name)
         if custom_routes is not None:
-            pulumi.set(__self__, "custom_routes", custom_routes)
+            _setter("custom_routes", custom_routes)
         if gateway_name is not None:
-            pulumi.set(__self__, "gateway_name", gateway_name)
+            _setter("gateway_name", gateway_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if p2_s_vpn_server_configuration is not None:
-            pulumi.set(__self__, "p2_s_vpn_server_configuration", p2_s_vpn_server_configuration)
+            _setter("p2_s_vpn_server_configuration", p2_s_vpn_server_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_hub is not None:
-            pulumi.set(__self__, "virtual_hub", virtual_hub)
+            _setter("virtual_hub", virtual_hub)
         if vpn_client_address_pool is not None:
-            pulumi.set(__self__, "vpn_client_address_pool", vpn_client_address_pool)
+            _setter("vpn_client_address_pool", vpn_client_address_pool)
         if vpn_gateway_scale_unit is not None:
-            pulumi.set(__self__, "vpn_gateway_scale_unit", vpn_gateway_scale_unit)
+            _setter("vpn_gateway_scale_unit", vpn_gateway_scale_unit)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -231,6 +274,10 @@ class P2sVpnGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            P2sVpnGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -255,16 +302,36 @@ class P2sVpnGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = P2sVpnGatewayArgs.__new__(P2sVpnGatewayArgs)
 
+            if custom_routes is not None and not isinstance(custom_routes, AddressSpaceArgs):
+                custom_routes = custom_routes or {}
+                def _setter(key, value):
+                    custom_routes[key] = value
+                AddressSpaceArgs._configure(_setter, **custom_routes)
             __props__.__dict__["custom_routes"] = custom_routes
             __props__.__dict__["gateway_name"] = gateway_name
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
+            if p2_s_vpn_server_configuration is not None and not isinstance(p2_s_vpn_server_configuration, SubResourceArgs):
+                p2_s_vpn_server_configuration = p2_s_vpn_server_configuration or {}
+                def _setter(key, value):
+                    p2_s_vpn_server_configuration[key] = value
+                SubResourceArgs._configure(_setter, **p2_s_vpn_server_configuration)
             __props__.__dict__["p2_s_vpn_server_configuration"] = p2_s_vpn_server_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if virtual_hub is not None and not isinstance(virtual_hub, SubResourceArgs):
+                virtual_hub = virtual_hub or {}
+                def _setter(key, value):
+                    virtual_hub[key] = value
+                SubResourceArgs._configure(_setter, **virtual_hub)
             __props__.__dict__["virtual_hub"] = virtual_hub
+            if vpn_client_address_pool is not None and not isinstance(vpn_client_address_pool, AddressSpaceArgs):
+                vpn_client_address_pool = vpn_client_address_pool or {}
+                def _setter(key, value):
+                    vpn_client_address_pool[key] = value
+                AddressSpaceArgs._configure(_setter, **vpn_client_address_pool)
             __props__.__dict__["vpn_client_address_pool"] = vpn_client_address_pool
             __props__.__dict__["vpn_gateway_scale_unit"] = vpn_gateway_scale_unit
             __props__.__dict__["etag"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,18 +34,51 @@ class RouteMapArgs:
         :param pulumi.Input[str] route_map_name: The name of the RouteMap.
         :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleArgs']]] rules: List of RouteMap rules to be applied.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
+        RouteMapArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            virtual_hub_name=virtual_hub_name,
+            associated_inbound_connections=associated_inbound_connections,
+            associated_outbound_connections=associated_outbound_connections,
+            id=id,
+            route_map_name=route_map_name,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             virtual_hub_name: pulumi.Input[str],
+             associated_inbound_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             associated_outbound_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             route_map_name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualHubName' in kwargs:
+            virtual_hub_name = kwargs['virtualHubName']
+        if 'associatedInboundConnections' in kwargs:
+            associated_inbound_connections = kwargs['associatedInboundConnections']
+        if 'associatedOutboundConnections' in kwargs:
+            associated_outbound_connections = kwargs['associatedOutboundConnections']
+        if 'routeMapName' in kwargs:
+            route_map_name = kwargs['routeMapName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_hub_name", virtual_hub_name)
         if associated_inbound_connections is not None:
-            pulumi.set(__self__, "associated_inbound_connections", associated_inbound_connections)
+            _setter("associated_inbound_connections", associated_inbound_connections)
         if associated_outbound_connections is not None:
-            pulumi.set(__self__, "associated_outbound_connections", associated_outbound_connections)
+            _setter("associated_outbound_connections", associated_outbound_connections)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if route_map_name is not None:
-            pulumi.set(__self__, "route_map_name", route_map_name)
+            _setter("route_map_name", route_map_name)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -183,6 +216,10 @@ class RouteMap(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteMapArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -53,51 +53,120 @@ class BastionHostArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['SubResourceArgs'] virtual_network: Reference to an existing virtual network required for Developer Bastion Host only.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        BastionHostArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            bastion_host_name=bastion_host_name,
+            disable_copy_paste=disable_copy_paste,
+            dns_name=dns_name,
+            enable_file_copy=enable_file_copy,
+            enable_ip_connect=enable_ip_connect,
+            enable_kerberos=enable_kerberos,
+            enable_shareable_link=enable_shareable_link,
+            enable_tunneling=enable_tunneling,
+            id=id,
+            ip_configurations=ip_configurations,
+            location=location,
+            network_acls=network_acls,
+            scale_units=scale_units,
+            sku=sku,
+            tags=tags,
+            virtual_network=virtual_network,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             bastion_host_name: Optional[pulumi.Input[str]] = None,
+             disable_copy_paste: Optional[pulumi.Input[bool]] = None,
+             dns_name: Optional[pulumi.Input[str]] = None,
+             enable_file_copy: Optional[pulumi.Input[bool]] = None,
+             enable_ip_connect: Optional[pulumi.Input[bool]] = None,
+             enable_kerberos: Optional[pulumi.Input[bool]] = None,
+             enable_shareable_link: Optional[pulumi.Input[bool]] = None,
+             enable_tunneling: Optional[pulumi.Input[bool]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BastionHostIPConfigurationArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_acls: Optional[pulumi.Input['BastionHostPropertiesFormatNetworkAclsArgs']] = None,
+             scale_units: Optional[pulumi.Input[int]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'bastionHostName' in kwargs:
+            bastion_host_name = kwargs['bastionHostName']
+        if 'disableCopyPaste' in kwargs:
+            disable_copy_paste = kwargs['disableCopyPaste']
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'enableFileCopy' in kwargs:
+            enable_file_copy = kwargs['enableFileCopy']
+        if 'enableIpConnect' in kwargs:
+            enable_ip_connect = kwargs['enableIpConnect']
+        if 'enableKerberos' in kwargs:
+            enable_kerberos = kwargs['enableKerberos']
+        if 'enableShareableLink' in kwargs:
+            enable_shareable_link = kwargs['enableShareableLink']
+        if 'enableTunneling' in kwargs:
+            enable_tunneling = kwargs['enableTunneling']
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'networkAcls' in kwargs:
+            network_acls = kwargs['networkAcls']
+        if 'scaleUnits' in kwargs:
+            scale_units = kwargs['scaleUnits']
+        if 'virtualNetwork' in kwargs:
+            virtual_network = kwargs['virtualNetwork']
+
+        _setter("resource_group_name", resource_group_name)
         if bastion_host_name is not None:
-            pulumi.set(__self__, "bastion_host_name", bastion_host_name)
+            _setter("bastion_host_name", bastion_host_name)
         if disable_copy_paste is None:
             disable_copy_paste = False
         if disable_copy_paste is not None:
-            pulumi.set(__self__, "disable_copy_paste", disable_copy_paste)
+            _setter("disable_copy_paste", disable_copy_paste)
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if enable_file_copy is None:
             enable_file_copy = False
         if enable_file_copy is not None:
-            pulumi.set(__self__, "enable_file_copy", enable_file_copy)
+            _setter("enable_file_copy", enable_file_copy)
         if enable_ip_connect is None:
             enable_ip_connect = False
         if enable_ip_connect is not None:
-            pulumi.set(__self__, "enable_ip_connect", enable_ip_connect)
+            _setter("enable_ip_connect", enable_ip_connect)
         if enable_kerberos is None:
             enable_kerberos = False
         if enable_kerberos is not None:
-            pulumi.set(__self__, "enable_kerberos", enable_kerberos)
+            _setter("enable_kerberos", enable_kerberos)
         if enable_shareable_link is None:
             enable_shareable_link = False
         if enable_shareable_link is not None:
-            pulumi.set(__self__, "enable_shareable_link", enable_shareable_link)
+            _setter("enable_shareable_link", enable_shareable_link)
         if enable_tunneling is None:
             enable_tunneling = False
         if enable_tunneling is not None:
-            pulumi.set(__self__, "enable_tunneling", enable_tunneling)
+            _setter("enable_tunneling", enable_tunneling)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_configurations is not None:
-            pulumi.set(__self__, "ip_configurations", ip_configurations)
+            _setter("ip_configurations", ip_configurations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
+            _setter("network_acls", network_acls)
         if scale_units is not None:
-            pulumi.set(__self__, "scale_units", scale_units)
+            _setter("scale_units", scale_units)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_network is not None:
-            pulumi.set(__self__, "virtual_network", virtual_network)
+            _setter("virtual_network", virtual_network)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -365,6 +434,10 @@ class BastionHost(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BastionHostArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -419,13 +492,28 @@ class BastionHost(pulumi.CustomResource):
             __props__.__dict__["id"] = id
             __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
+            if network_acls is not None and not isinstance(network_acls, BastionHostPropertiesFormatNetworkAclsArgs):
+                network_acls = network_acls or {}
+                def _setter(key, value):
+                    network_acls[key] = value
+                BastionHostPropertiesFormatNetworkAclsArgs._configure(_setter, **network_acls)
             __props__.__dict__["network_acls"] = network_acls
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["scale_units"] = scale_units
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            if virtual_network is not None and not isinstance(virtual_network, SubResourceArgs):
+                virtual_network = virtual_network or {}
+                def _setter(key, value):
+                    virtual_network[key] = value
+                SubResourceArgs._configure(_setter, **virtual_network)
             __props__.__dict__["virtual_network"] = virtual_network
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None

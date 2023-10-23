@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -39,17 +39,64 @@ class SqlDWTableDataSetMappingArgs:
         :param pulumi.Input[str] table_name: SQL DW table name.
         :param pulumi.Input[str] data_set_mapping_name: The name of the data set mapping to be created.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        pulumi.set(__self__, "data_warehouse_name", data_warehouse_name)
-        pulumi.set(__self__, "kind", 'SqlDWTable')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schema_name", schema_name)
-        pulumi.set(__self__, "share_subscription_name", share_subscription_name)
-        pulumi.set(__self__, "sql_server_resource_id", sql_server_resource_id)
-        pulumi.set(__self__, "table_name", table_name)
+        SqlDWTableDataSetMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            data_set_id=data_set_id,
+            data_warehouse_name=data_warehouse_name,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            schema_name=schema_name,
+            share_subscription_name=share_subscription_name,
+            sql_server_resource_id=sql_server_resource_id,
+            table_name=table_name,
+            data_set_mapping_name=data_set_mapping_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             data_set_id: pulumi.Input[str],
+             data_warehouse_name: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             schema_name: pulumi.Input[str],
+             share_subscription_name: pulumi.Input[str],
+             sql_server_resource_id: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             data_set_mapping_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'dataSetId' in kwargs:
+            data_set_id = kwargs['dataSetId']
+        if 'dataWarehouseName' in kwargs:
+            data_warehouse_name = kwargs['dataWarehouseName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if 'shareSubscriptionName' in kwargs:
+            share_subscription_name = kwargs['shareSubscriptionName']
+        if 'sqlServerResourceId' in kwargs:
+            sql_server_resource_id = kwargs['sqlServerResourceId']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'dataSetMappingName' in kwargs:
+            data_set_mapping_name = kwargs['dataSetMappingName']
+
+        _setter("account_name", account_name)
+        _setter("data_set_id", data_set_id)
+        _setter("data_warehouse_name", data_warehouse_name)
+        _setter("kind", 'SqlDWTable')
+        _setter("resource_group_name", resource_group_name)
+        _setter("schema_name", schema_name)
+        _setter("share_subscription_name", share_subscription_name)
+        _setter("sql_server_resource_id", sql_server_resource_id)
+        _setter("table_name", table_name)
         if data_set_mapping_name is not None:
-            pulumi.set(__self__, "data_set_mapping_name", data_set_mapping_name)
+            _setter("data_set_mapping_name", data_set_mapping_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -225,6 +272,10 @@ class SqlDWTableDataSetMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlDWTableDataSetMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -42,23 +42,72 @@ class StorageAccountCredentialArgs:
         :param pulumi.Input[str] storage_account_id: Id of the storage account.
         :param pulumi.Input[str] user_name: Username for the storage account.
         """
-        pulumi.set(__self__, "account_type", account_type)
-        pulumi.set(__self__, "alias", alias)
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "ssl_status", ssl_status)
+        StorageAccountCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_type=account_type,
+            alias=alias,
+            device_name=device_name,
+            resource_group_name=resource_group_name,
+            ssl_status=ssl_status,
+            account_key=account_key,
+            blob_domain_name=blob_domain_name,
+            connection_string=connection_string,
+            name=name,
+            storage_account_id=storage_account_id,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_type: pulumi.Input[Union[str, 'AccountType']],
+             alias: pulumi.Input[str],
+             device_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             ssl_status: pulumi.Input[Union[str, 'SSLStatus']],
+             account_key: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
+             blob_domain_name: Optional[pulumi.Input[str]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountType' in kwargs:
+            account_type = kwargs['accountType']
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sslStatus' in kwargs:
+            ssl_status = kwargs['sslStatus']
+        if 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if 'blobDomainName' in kwargs:
+            blob_domain_name = kwargs['blobDomainName']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("account_type", account_type)
+        _setter("alias", alias)
+        _setter("device_name", device_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("ssl_status", ssl_status)
         if account_key is not None:
-            pulumi.set(__self__, "account_key", account_key)
+            _setter("account_key", account_key)
         if blob_domain_name is not None:
-            pulumi.set(__self__, "blob_domain_name", blob_domain_name)
+            _setter("blob_domain_name", blob_domain_name)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="accountType")
@@ -246,6 +295,10 @@ class StorageAccountCredential(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StorageAccountCredentialArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -271,6 +324,11 @@ class StorageAccountCredential(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StorageAccountCredentialArgs.__new__(StorageAccountCredentialArgs)
 
+            if account_key is not None and not isinstance(account_key, AsymmetricEncryptedSecretArgs):
+                account_key = account_key or {}
+                def _setter(key, value):
+                    account_key[key] = value
+                AsymmetricEncryptedSecretArgs._configure(_setter, **account_key)
             __props__.__dict__["account_key"] = account_key
             if account_type is None and not opts.urn:
                 raise TypeError("Missing required property 'account_type'")

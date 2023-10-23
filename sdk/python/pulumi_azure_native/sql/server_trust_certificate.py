@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServerTrustCertificateArgs', 'ServerTrustCertificate']
@@ -25,12 +25,37 @@ class ServerTrustCertificateArgs:
         :param pulumi.Input[str] certificate_name: Name of of the certificate to upload.
         :param pulumi.Input[str] public_blob: The certificate public blob
         """
-        pulumi.set(__self__, "managed_instance_name", managed_instance_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ServerTrustCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_instance_name=managed_instance_name,
+            resource_group_name=resource_group_name,
+            certificate_name=certificate_name,
+            public_blob=public_blob,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_instance_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             certificate_name: Optional[pulumi.Input[str]] = None,
+             public_blob: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedInstanceName' in kwargs:
+            managed_instance_name = kwargs['managedInstanceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if 'publicBlob' in kwargs:
+            public_blob = kwargs['publicBlob']
+
+        _setter("managed_instance_name", managed_instance_name)
+        _setter("resource_group_name", resource_group_name)
         if certificate_name is not None:
-            pulumi.set(__self__, "certificate_name", certificate_name)
+            _setter("certificate_name", certificate_name)
         if public_blob is not None:
-            pulumi.set(__self__, "public_blob", public_blob)
+            _setter("public_blob", public_blob)
 
     @property
     @pulumi.getter(name="managedInstanceName")
@@ -126,6 +151,10 @@ class ServerTrustCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerTrustCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

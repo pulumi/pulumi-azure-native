@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -33,14 +33,35 @@ class AccountResourcePropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EndpointAuthenticationArgs']]] endpoint_authentications: The list of service endpoints authentication details.
         :param pulumi.Input[str] reports_connection_string: Connection string to write Accounts reports to.
         """
+        AccountResourcePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration=configuration,
+            cors=cors,
+            endpoint_authentications=endpoint_authentications,
+            reports_connection_string=reports_connection_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration: Optional[pulumi.Input[Union[str, 'AccountConfiguration']]] = None,
+             cors: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]] = None,
+             endpoint_authentications: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAuthenticationArgs']]]] = None,
+             reports_connection_string: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointAuthentications' in kwargs:
+            endpoint_authentications = kwargs['endpointAuthentications']
+        if 'reportsConnectionString' in kwargs:
+            reports_connection_string = kwargs['reportsConnectionString']
+
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if endpoint_authentications is not None:
-            pulumi.set(__self__, "endpoint_authentications", endpoint_authentications)
+            _setter("endpoint_authentications", endpoint_authentications)
         if reports_connection_string is not None:
-            pulumi.set(__self__, "reports_connection_string", reports_connection_string)
+            _setter("reports_connection_string", reports_connection_string)
 
     @property
     @pulumi.getter
@@ -107,15 +128,44 @@ class CorsRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exposed_headers: The response headers to expose to CORS clients.
         :param pulumi.Input[int] max_age_in_seconds: The number of seconds that the client/browser should cache a preflight response.
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        CorsRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_origins=allowed_origins,
+            allowed_headers=allowed_headers,
+            allowed_methods=allowed_methods,
+            exposed_headers=exposed_headers,
+            max_age_in_seconds=max_age_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+             allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             exposed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             max_age_in_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'allowedHeaders' in kwargs:
+            allowed_headers = kwargs['allowedHeaders']
+        if 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if 'exposedHeaders' in kwargs:
+            exposed_headers = kwargs['exposedHeaders']
+        if 'maxAgeInSeconds' in kwargs:
+            max_age_in_seconds = kwargs['maxAgeInSeconds']
+
+        _setter("allowed_origins", allowed_origins)
         if allowed_headers is not None:
-            pulumi.set(__self__, "allowed_headers", allowed_headers)
+            _setter("allowed_headers", allowed_headers)
         if allowed_methods is not None:
-            pulumi.set(__self__, "allowed_methods", allowed_methods)
+            _setter("allowed_methods", allowed_methods)
         if exposed_headers is not None:
-            pulumi.set(__self__, "exposed_headers", exposed_headers)
+            _setter("exposed_headers", exposed_headers)
         if max_age_in_seconds is not None:
-            pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+            _setter("max_age_in_seconds", max_age_in_seconds)
 
     @property
     @pulumi.getter(name="allowedOrigins")
@@ -190,12 +240,33 @@ class EndpointAuthenticationArgs:
         :param pulumi.Input[str] principal_id: AAD principal ID.
         :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: AAD principal type.
         """
+        EndpointAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_tenant_id=aad_tenant_id,
+            principal_id=principal_id,
+            principal_type=principal_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_tenant_id: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input[Union[str, 'PrincipalType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aadTenantID' in kwargs:
+            aad_tenant_id = kwargs['aadTenantID']
+        if 'principalID' in kwargs:
+            principal_id = kwargs['principalID']
+        if 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+
         if aad_tenant_id is not None:
-            pulumi.set(__self__, "aad_tenant_id", aad_tenant_id)
+            _setter("aad_tenant_id", aad_tenant_id)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if principal_type is not None:
-            pulumi.set(__self__, "principal_type", principal_type)
+            _setter("principal_type", principal_type)
 
     @property
     @pulumi.getter(name="aadTenantID")
@@ -242,8 +313,21 @@ class ModelingInputDataArgs:
         The configuration to raw CDM data to be used as Modeling resource input.
         :param pulumi.Input[str] connection_string: Connection string to raw input data.
         """
+        ModelingInputDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -272,14 +356,33 @@ class ModelingResourcePropertiesArgs:
         :param pulumi.Input['ModelingInputDataArgs'] input_data: The configuration to raw CDM data to be used as Modeling resource input.
         :param pulumi.Input[Union[str, 'ModelingSize']] size: Modeling size controls the maximum supported input data size.
         """
+        ModelingResourcePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            features=features,
+            frequency=frequency,
+            input_data=input_data,
+            size=size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             features: Optional[pulumi.Input[Union[str, 'ModelingFeatures']]] = None,
+             frequency: Optional[pulumi.Input[Union[str, 'ModelingFrequency']]] = None,
+             input_data: Optional[pulumi.Input['ModelingInputDataArgs']] = None,
+             size: Optional[pulumi.Input[Union[str, 'ModelingSize']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputData' in kwargs:
+            input_data = kwargs['inputData']
+
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if input_data is not None:
-            pulumi.set(__self__, "input_data", input_data)
+            _setter("input_data", input_data)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
 
     @property
     @pulumi.getter
@@ -338,8 +441,21 @@ class ServiceEndpointResourcePropertiesArgs:
         ServiceEndpoint resource properties.
         :param pulumi.Input[int] pre_allocated_capacity: ServiceEndpoint pre-allocated capacity controls the maximum requests-per-second allowed for that endpoint. Only applicable when Account configuration is Capacity.
         """
+        ServiceEndpointResourcePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pre_allocated_capacity=pre_allocated_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pre_allocated_capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'preAllocatedCapacity' in kwargs:
+            pre_allocated_capacity = kwargs['preAllocatedCapacity']
+
         if pre_allocated_capacity is not None:
-            pulumi.set(__self__, "pre_allocated_capacity", pre_allocated_capacity)
+            _setter("pre_allocated_capacity", pre_allocated_capacity)
 
     @property
     @pulumi.getter(name="preAllocatedCapacity")

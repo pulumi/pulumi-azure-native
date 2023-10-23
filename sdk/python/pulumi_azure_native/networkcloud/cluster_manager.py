@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,22 +37,63 @@ class ClusterManagerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vm_size: Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource.
         """
-        pulumi.set(__self__, "fabric_controller_id", fabric_controller_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ClusterManagerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_controller_id=fabric_controller_id,
+            resource_group_name=resource_group_name,
+            analytics_workspace_id=analytics_workspace_id,
+            availability_zones=availability_zones,
+            cluster_manager_name=cluster_manager_name,
+            location=location,
+            managed_resource_group_configuration=managed_resource_group_configuration,
+            tags=tags,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_controller_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cluster_manager_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_resource_group_configuration: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fabricControllerId' in kwargs:
+            fabric_controller_id = kwargs['fabricControllerId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'analyticsWorkspaceId' in kwargs:
+            analytics_workspace_id = kwargs['analyticsWorkspaceId']
+        if 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if 'clusterManagerName' in kwargs:
+            cluster_manager_name = kwargs['clusterManagerName']
+        if 'managedResourceGroupConfiguration' in kwargs:
+            managed_resource_group_configuration = kwargs['managedResourceGroupConfiguration']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+
+        _setter("fabric_controller_id", fabric_controller_id)
+        _setter("resource_group_name", resource_group_name)
         if analytics_workspace_id is not None:
-            pulumi.set(__self__, "analytics_workspace_id", analytics_workspace_id)
+            _setter("analytics_workspace_id", analytics_workspace_id)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if cluster_manager_name is not None:
-            pulumi.set(__self__, "cluster_manager_name", cluster_manager_name)
+            _setter("cluster_manager_name", cluster_manager_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_resource_group_configuration is not None:
-            pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+            _setter("managed_resource_group_configuration", managed_resource_group_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter(name="fabricControllerId")
@@ -216,6 +257,10 @@ class ClusterManager(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterManagerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -246,6 +291,11 @@ class ClusterManager(pulumi.CustomResource):
                 raise TypeError("Missing required property 'fabric_controller_id'")
             __props__.__dict__["fabric_controller_id"] = fabric_controller_id
             __props__.__dict__["location"] = location
+            if managed_resource_group_configuration is not None and not isinstance(managed_resource_group_configuration, ManagedResourceGroupConfigurationArgs):
+                managed_resource_group_configuration = managed_resource_group_configuration or {}
+                def _setter(key, value):
+                    managed_resource_group_configuration[key] = value
+                ManagedResourceGroupConfigurationArgs._configure(_setter, **managed_resource_group_configuration)
             __props__.__dict__["managed_resource_group_configuration"] = managed_resource_group_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,29 +44,72 @@ class PolicyAssignmentArgs:
         :param pulumi.Input[str] policy_definition_id: The ID of the policy definition or policy set definition being assigned.
         :param pulumi.Input['PolicySkuArgs'] sku: The policy sku. This property is optional, obsolete, and will be ignored.
         """
-        pulumi.set(__self__, "scope", scope)
+        PolicyAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+            description=description,
+            display_name=display_name,
+            enforcement_mode=enforcement_mode,
+            identity=identity,
+            location=location,
+            metadata=metadata,
+            not_scopes=not_scopes,
+            parameters=parameters,
+            policy_assignment_name=policy_assignment_name,
+            policy_definition_id=policy_definition_id,
+            sku=sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             enforcement_mode: Optional[pulumi.Input[Union[str, 'EnforcementMode']]] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]] = None,
+             policy_assignment_name: Optional[pulumi.Input[str]] = None,
+             policy_definition_id: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['PolicySkuArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'enforcementMode' in kwargs:
+            enforcement_mode = kwargs['enforcementMode']
+        if 'notScopes' in kwargs:
+            not_scopes = kwargs['notScopes']
+        if 'policyAssignmentName' in kwargs:
+            policy_assignment_name = kwargs['policyAssignmentName']
+        if 'policyDefinitionId' in kwargs:
+            policy_definition_id = kwargs['policyDefinitionId']
+
+        _setter("scope", scope)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if enforcement_mode is not None:
-            pulumi.set(__self__, "enforcement_mode", enforcement_mode)
+            _setter("enforcement_mode", enforcement_mode)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if not_scopes is not None:
-            pulumi.set(__self__, "not_scopes", not_scopes)
+            _setter("not_scopes", not_scopes)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_assignment_name is not None:
-            pulumi.set(__self__, "policy_assignment_name", policy_assignment_name)
+            _setter("policy_assignment_name", policy_assignment_name)
         if policy_definition_id is not None:
-            pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+            _setter("policy_definition_id", policy_definition_id)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
 
     @property
     @pulumi.getter
@@ -268,6 +311,10 @@ class PolicyAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -297,6 +344,11 @@ class PolicyAssignment(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["enforcement_mode"] = enforcement_mode
+            if identity is not None and not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["metadata"] = metadata
@@ -307,6 +359,11 @@ class PolicyAssignment(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
+            if sku is not None and not isinstance(sku, PolicySkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                PolicySkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None

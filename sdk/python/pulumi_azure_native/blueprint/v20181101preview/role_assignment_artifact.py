@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['RoleAssignmentArtifactArgs', 'RoleAssignmentArtifact']
@@ -38,21 +38,66 @@ class RoleAssignmentArtifactArgs:
         :param pulumi.Input[str] display_name: One-liner string explain this resource.
         :param pulumi.Input[str] resource_group: RoleAssignment will be scope to this resourceGroup. If empty, it scopes to the subscription.
         """
-        pulumi.set(__self__, "blueprint_name", blueprint_name)
-        pulumi.set(__self__, "kind", 'roleAssignment')
-        pulumi.set(__self__, "principal_ids", principal_ids)
-        pulumi.set(__self__, "resource_scope", resource_scope)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        RoleAssignmentArtifactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blueprint_name=blueprint_name,
+            kind=kind,
+            principal_ids=principal_ids,
+            resource_scope=resource_scope,
+            role_definition_id=role_definition_id,
+            artifact_name=artifact_name,
+            depends_on=depends_on,
+            description=description,
+            display_name=display_name,
+            resource_group=resource_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blueprint_name: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             principal_ids: Any,
+             resource_scope: pulumi.Input[str],
+             role_definition_id: pulumi.Input[str],
+             artifact_name: Optional[pulumi.Input[str]] = None,
+             depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blueprintName' in kwargs:
+            blueprint_name = kwargs['blueprintName']
+        if 'principalIds' in kwargs:
+            principal_ids = kwargs['principalIds']
+        if 'resourceScope' in kwargs:
+            resource_scope = kwargs['resourceScope']
+        if 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if 'artifactName' in kwargs:
+            artifact_name = kwargs['artifactName']
+        if 'dependsOn' in kwargs:
+            depends_on = kwargs['dependsOn']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+
+        _setter("blueprint_name", blueprint_name)
+        _setter("kind", 'roleAssignment')
+        _setter("principal_ids", principal_ids)
+        _setter("resource_scope", resource_scope)
+        _setter("role_definition_id", role_definition_id)
         if artifact_name is not None:
-            pulumi.set(__self__, "artifact_name", artifact_name)
+            _setter("artifact_name", artifact_name)
         if depends_on is not None:
-            pulumi.set(__self__, "depends_on", depends_on)
+            _setter("depends_on", depends_on)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
 
     @property
     @pulumi.getter(name="blueprintName")
@@ -228,6 +273,10 @@ class RoleAssignmentArtifact(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoleAssignmentArtifactArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -28,13 +28,40 @@ class SqlPoolTransparentDataEncryptionArgs:
         :param pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']] status: The status of the database transparent data encryption.
         :param pulumi.Input[str] transparent_data_encryption_name: The name of the transparent data encryption configuration.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sql_pool_name", sql_pool_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        SqlPoolTransparentDataEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sql_pool_name=sql_pool_name,
+            workspace_name=workspace_name,
+            status=status,
+            transparent_data_encryption_name=transparent_data_encryption_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sql_pool_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             status: Optional[pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']]] = None,
+             transparent_data_encryption_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sqlPoolName' in kwargs:
+            sql_pool_name = kwargs['sqlPoolName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'transparentDataEncryptionName' in kwargs:
+            transparent_data_encryption_name = kwargs['transparentDataEncryptionName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sql_pool_name", sql_pool_name)
+        _setter("workspace_name", workspace_name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if transparent_data_encryption_name is not None:
-            pulumi.set(__self__, "transparent_data_encryption_name", transparent_data_encryption_name)
+            _setter("transparent_data_encryption_name", transparent_data_encryption_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -144,6 +171,10 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlPoolTransparentDataEncryptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,12 +28,35 @@ class QueueServicePropertiesArgs:
         :param pulumi.Input['CorsRulesArgs'] cors: Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
         :param pulumi.Input[str] queue_service_name: The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        QueueServicePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            cors=cors,
+            queue_service_name=queue_service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             cors: Optional[pulumi.Input['CorsRulesArgs']] = None,
+             queue_service_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'queueServiceName' in kwargs:
+            queue_service_name = kwargs['queueServiceName']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if queue_service_name is not None:
-            pulumi.set(__self__, "queue_service_name", queue_service_name)
+            _setter("queue_service_name", queue_service_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -129,6 +152,10 @@ class QueueServiceProperties(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            QueueServicePropertiesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -150,6 +177,11 @@ class QueueServiceProperties(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if cors is not None and not isinstance(cors, CorsRulesArgs):
+                cors = cors or {}
+                def _setter(key, value):
+                    cors[key] = value
+                CorsRulesArgs._configure(_setter, **cors)
             __props__.__dict__["cors"] = cors
             __props__.__dict__["queue_service_name"] = queue_service_name
             if resource_group_name is None and not opts.urn:

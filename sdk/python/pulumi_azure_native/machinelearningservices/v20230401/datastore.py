@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,13 +30,40 @@ class DatastoreArgs:
         :param pulumi.Input[str] name: Datastore name.
         :param pulumi.Input[bool] skip_validation: Flag to skip validation.
         """
-        pulumi.set(__self__, "datastore_properties", datastore_properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        DatastoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datastore_properties=datastore_properties,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            name=name,
+            skip_validation=skip_validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datastore_properties: pulumi.Input[Union['AzureBlobDatastoreArgs', 'AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen2DatastoreArgs', 'AzureFileDatastoreArgs']],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             skip_validation: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datastoreProperties' in kwargs:
+            datastore_properties = kwargs['datastoreProperties']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'skipValidation' in kwargs:
+            skip_validation = kwargs['skipValidation']
+
+        _setter("datastore_properties", datastore_properties)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if skip_validation is not None:
-            pulumi.set(__self__, "skip_validation", skip_validation)
+            _setter("skip_validation", skip_validation)
 
     @property
     @pulumi.getter(name="datastoreProperties")
@@ -140,6 +167,10 @@ class Datastore(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatastoreArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

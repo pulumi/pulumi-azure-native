@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,13 +40,32 @@ class DatadogApiKeyResponse(dict):
         :param str created_by: The user that created the API key.
         :param str name: The name of the API key.
         """
-        pulumi.set(__self__, "key", key)
+        DatadogApiKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            created=created,
+            created_by=created_by,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             created: Optional[str] = None,
+             created_by: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+
+        _setter("key", key)
         if created is not None:
-            pulumi.set(__self__, "created", created)
+            _setter("created", created)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -90,12 +109,33 @@ class DatadogHostMetadataResponse(dict):
         """
         :param str agent_version: The agent version.
         """
+        DatadogHostMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_version=agent_version,
+            install_method=install_method,
+            logs_agent=logs_agent,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_version: Optional[str] = None,
+             install_method: Optional['outputs.DatadogInstallMethodResponse'] = None,
+             logs_agent: Optional['outputs.DatadogLogsAgentResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if 'installMethod' in kwargs:
+            install_method = kwargs['installMethod']
+        if 'logsAgent' in kwargs:
+            logs_agent = kwargs['logsAgent']
+
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if install_method is not None:
-            pulumi.set(__self__, "install_method", install_method)
+            _setter("install_method", install_method)
         if logs_agent is not None:
-            pulumi.set(__self__, "logs_agent", logs_agent)
+            _setter("logs_agent", logs_agent)
 
     @property
     @pulumi.getter(name="agentVersion")
@@ -128,14 +168,31 @@ class DatadogHostResponse(dict):
         :param Sequence[str] apps: The Datadog integrations reporting metrics for the host.
         :param str name: The name of the host.
         """
+        DatadogHostResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aliases=aliases,
+            apps=apps,
+            meta=meta,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aliases: Optional[Sequence[str]] = None,
+             apps: Optional[Sequence[str]] = None,
+             meta: Optional['outputs.DatadogHostMetadataResponse'] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if aliases is not None:
-            pulumi.set(__self__, "aliases", aliases)
+            _setter("aliases", aliases)
         if apps is not None:
-            pulumi.set(__self__, "apps", apps)
+            _setter("apps", apps)
         if meta is not None:
-            pulumi.set(__self__, "meta", meta)
+            _setter("meta", meta)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -178,12 +235,31 @@ class DatadogInstallMethodResponse(dict):
         :param str tool: The tool.
         :param str tool_version: The tool version.
         """
+        DatadogInstallMethodResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            installer_version=installer_version,
+            tool=tool,
+            tool_version=tool_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             installer_version: Optional[str] = None,
+             tool: Optional[str] = None,
+             tool_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'installerVersion' in kwargs:
+            installer_version = kwargs['installerVersion']
+        if 'toolVersion' in kwargs:
+            tool_version = kwargs['toolVersion']
+
         if installer_version is not None:
-            pulumi.set(__self__, "installer_version", installer_version)
+            _setter("installer_version", installer_version)
         if tool is not None:
-            pulumi.set(__self__, "tool", tool)
+            _setter("tool", tool)
         if tool_version is not None:
-            pulumi.set(__self__, "tool_version", tool_version)
+            _setter("tool_version", tool_version)
 
     @property
     @pulumi.getter(name="installerVersion")
@@ -217,8 +293,19 @@ class DatadogLogsAgentResponse(dict):
         """
         :param str transport: The transport.
         """
+        DatadogLogsAgentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            transport=transport,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             transport: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if transport is not None:
-            pulumi.set(__self__, "transport", transport)
+            _setter("transport", transport)
 
     @property
     @pulumi.getter
@@ -244,12 +331,27 @@ class DatadogOrganizationPropertiesResponse(dict):
         :param str id: Id of the Datadog organization.
         :param str name: Name of the Datadog organization.
         """
+        DatadogOrganizationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cspm=cspm,
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cspm: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cspm is not None:
-            pulumi.set(__self__, "cspm", cspm)
+            _setter("cspm", cspm)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -306,10 +408,29 @@ class IdentityPropertiesResponse(dict):
         :param str tenant_id: The tenant ID of resource.
         :param str type: Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -347,8 +468,19 @@ class LinkedResourceResponse(dict):
         The definition of a linked resource.
         :param str id: The ARM id of the linked resource.
         """
+        LinkedResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -409,16 +541,53 @@ class MonitorPropertiesResponse(dict):
         :param str monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
         :param 'UserInfoResponse' user_info: Includes name, email and optionally, phone number. User Information can't be null.
         """
-        pulumi.set(__self__, "liftr_resource_category", liftr_resource_category)
-        pulumi.set(__self__, "liftr_resource_preference", liftr_resource_preference)
-        pulumi.set(__self__, "marketplace_subscription_status", marketplace_subscription_status)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        MonitorPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            liftr_resource_category=liftr_resource_category,
+            liftr_resource_preference=liftr_resource_preference,
+            marketplace_subscription_status=marketplace_subscription_status,
+            provisioning_state=provisioning_state,
+            datadog_organization_properties=datadog_organization_properties,
+            monitoring_status=monitoring_status,
+            user_info=user_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             liftr_resource_category: str,
+             liftr_resource_preference: int,
+             marketplace_subscription_status: str,
+             provisioning_state: str,
+             datadog_organization_properties: Optional['outputs.DatadogOrganizationPropertiesResponse'] = None,
+             monitoring_status: Optional[str] = None,
+             user_info: Optional['outputs.UserInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'liftrResourceCategory' in kwargs:
+            liftr_resource_category = kwargs['liftrResourceCategory']
+        if 'liftrResourcePreference' in kwargs:
+            liftr_resource_preference = kwargs['liftrResourcePreference']
+        if 'marketplaceSubscriptionStatus' in kwargs:
+            marketplace_subscription_status = kwargs['marketplaceSubscriptionStatus']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'datadogOrganizationProperties' in kwargs:
+            datadog_organization_properties = kwargs['datadogOrganizationProperties']
+        if 'monitoringStatus' in kwargs:
+            monitoring_status = kwargs['monitoringStatus']
+        if 'userInfo' in kwargs:
+            user_info = kwargs['userInfo']
+
+        _setter("liftr_resource_category", liftr_resource_category)
+        _setter("liftr_resource_preference", liftr_resource_preference)
+        _setter("marketplace_subscription_status", marketplace_subscription_status)
+        _setter("provisioning_state", provisioning_state)
         if datadog_organization_properties is not None:
-            pulumi.set(__self__, "datadog_organization_properties", datadog_organization_properties)
+            _setter("datadog_organization_properties", datadog_organization_properties)
         if monitoring_status is not None:
-            pulumi.set(__self__, "monitoring_status", monitoring_status)
+            _setter("monitoring_status", monitoring_status)
         if user_info is not None:
-            pulumi.set(__self__, "user_info", user_info)
+            _setter("user_info", user_info)
 
     @property
     @pulumi.getter(name="liftrResourceCategory")
@@ -490,16 +659,43 @@ class MonitoredResourceResponse(dict):
         :param bool sending_logs: Flag indicating if resource is sending logs to Datadog.
         :param bool sending_metrics: Flag indicating if resource is sending metrics to Datadog.
         """
+        MonitoredResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            reason_for_logs_status=reason_for_logs_status,
+            reason_for_metrics_status=reason_for_metrics_status,
+            sending_logs=sending_logs,
+            sending_metrics=sending_metrics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             reason_for_logs_status: Optional[str] = None,
+             reason_for_metrics_status: Optional[str] = None,
+             sending_logs: Optional[bool] = None,
+             sending_metrics: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'reasonForLogsStatus' in kwargs:
+            reason_for_logs_status = kwargs['reasonForLogsStatus']
+        if 'reasonForMetricsStatus' in kwargs:
+            reason_for_metrics_status = kwargs['reasonForMetricsStatus']
+        if 'sendingLogs' in kwargs:
+            sending_logs = kwargs['sendingLogs']
+        if 'sendingMetrics' in kwargs:
+            sending_metrics = kwargs['sendingMetrics']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if reason_for_logs_status is not None:
-            pulumi.set(__self__, "reason_for_logs_status", reason_for_logs_status)
+            _setter("reason_for_logs_status", reason_for_logs_status)
         if reason_for_metrics_status is not None:
-            pulumi.set(__self__, "reason_for_metrics_status", reason_for_metrics_status)
+            _setter("reason_for_metrics_status", reason_for_metrics_status)
         if sending_logs is not None:
-            pulumi.set(__self__, "sending_logs", sending_logs)
+            _setter("sending_logs", sending_logs)
         if sending_metrics is not None:
-            pulumi.set(__self__, "sending_metrics", sending_metrics)
+            _setter("sending_metrics", sending_metrics)
 
     @property
     @pulumi.getter
@@ -549,7 +745,18 @@ class ResourceSkuResponse(dict):
         """
         :param str name: Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'linking'.
         """
-        pulumi.set(__self__, "name", name)
+        ResourceSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -608,18 +815,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -704,12 +944,31 @@ class UserInfoResponse(dict):
         :param str name: Name of the user
         :param str phone_number: Phone number of the user used by Datadog for contacting them if needed
         """
+        UserInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            name=name,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: Optional[str] = None,
+             name: Optional[str] = None,
+             phone_number: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         if email_address is not None:
-            pulumi.set(__self__, "email_address", email_address)
+            _setter("email_address", email_address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
 
     @property
     @pulumi.getter(name="emailAddress")

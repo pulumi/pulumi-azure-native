@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,8 +30,19 @@ class AuthorizationInfoResponse(dict):
                Only used during PUT operations. The secret is cleared during GET.
                In general, RPaaS does not return any property marked as a secret.
         """
+        AuthorizationInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
 
     @property
     @pulumi.getter
@@ -71,11 +82,28 @@ class AzureDevOpsConnectorPropertiesResponse(dict):
         """
         :param Sequence['AzureDevOpsOrgMetadataResponse'] orgs: Gets or sets org onboarding information.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        AzureDevOpsConnectorPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            authorization=authorization,
+            orgs=orgs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: str,
+             authorization: Optional['outputs.AuthorizationInfoResponse'] = None,
+             orgs: Optional[Sequence['outputs.AzureDevOpsOrgMetadataResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("provisioning_state", provisioning_state)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if orgs is not None:
-            pulumi.set(__self__, "orgs", orgs)
+            _setter("orgs", orgs)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -126,12 +154,29 @@ class AzureDevOpsOrgMetadataResponse(dict):
         Org onboarding info.
         :param str name: Gets or sets name of the AzureDevOps Org.
         """
+        AzureDevOpsOrgMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_discovery=auto_discovery,
+            name=name,
+            projects=projects,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_discovery: Optional[str] = None,
+             name: Optional[str] = None,
+             projects: Optional[Sequence['outputs.AzureDevOpsProjectMetadataResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoDiscovery' in kwargs:
+            auto_discovery = kwargs['autoDiscovery']
+
         if auto_discovery is not None:
-            pulumi.set(__self__, "auto_discovery", auto_discovery)
+            _setter("auto_discovery", auto_discovery)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if projects is not None:
-            pulumi.set(__self__, "projects", projects)
+            _setter("projects", projects)
 
     @property
     @pulumi.getter(name="autoDiscovery")
@@ -183,12 +228,29 @@ class AzureDevOpsProjectMetadataResponse(dict):
         :param str name: Gets or sets name of the AzureDevOps Project.
         :param Sequence[str] repos: Gets or sets repositories.
         """
+        AzureDevOpsProjectMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_discovery=auto_discovery,
+            name=name,
+            repos=repos,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_discovery: Optional[str] = None,
+             name: Optional[str] = None,
+             repos: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoDiscovery' in kwargs:
+            auto_discovery = kwargs['autoDiscovery']
+
         if auto_discovery is not None:
-            pulumi.set(__self__, "auto_discovery", auto_discovery)
+            _setter("auto_discovery", auto_discovery)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if repos is not None:
-            pulumi.set(__self__, "repos", repos)
+            _setter("repos", repos)
 
     @property
     @pulumi.getter(name="autoDiscovery")
@@ -244,9 +306,24 @@ class GitHubConnectorPropertiesResponse(dict):
                Only used during PUT operations. The secret is cleared during GET.
                In general, RPaaS does not return any property marked as a secret.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        GitHubConnectorPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            code=code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: str,
+             code: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("provisioning_state", provisioning_state)
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -313,18 +390,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -34,20 +34,55 @@ class NetworkDeviceArgs:
         :param pulumi.Input[str] network_device_sku: Network Device SKU name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "serial_number", serial_number)
+        NetworkDeviceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            serial_number=serial_number,
+            annotation=annotation,
+            host_name=host_name,
+            location=location,
+            network_device_name=network_device_name,
+            network_device_sku=network_device_sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             serial_number: pulumi.Input[str],
+             annotation: Optional[pulumi.Input[str]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_device_name: Optional[pulumi.Input[str]] = None,
+             network_device_sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'networkDeviceName' in kwargs:
+            network_device_name = kwargs['networkDeviceName']
+        if 'networkDeviceSku' in kwargs:
+            network_device_sku = kwargs['networkDeviceSku']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("serial_number", serial_number)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_device_name is not None:
-            pulumi.set(__self__, "network_device_name", network_device_name)
+            _setter("network_device_name", network_device_name)
         if network_device_sku is not None:
-            pulumi.set(__self__, "network_device_sku", network_device_sku)
+            _setter("network_device_sku", network_device_sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -193,6 +228,10 @@ class NetworkDevice(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkDeviceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

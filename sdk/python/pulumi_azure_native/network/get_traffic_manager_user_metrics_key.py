@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
     'GetTrafficManagerUserMetricsKeyResult',
     'AwaitableGetTrafficManagerUserMetricsKeyResult',
     'get_traffic_manager_user_metrics_key',
+    'get_traffic_manager_user_metrics_key_output',
 ]
 
 @pulumi.output_type
@@ -95,3 +96,14 @@ def get_traffic_manager_user_metrics_key(opts: Optional[pulumi.InvokeOptions] = 
         key=pulumi.get(__ret__, 'key'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_traffic_manager_user_metrics_key)
+def get_traffic_manager_user_metrics_key_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficManagerUserMetricsKeyResult]:
+    """
+    Get the subscription-level key used for Real User Metrics collection.
+    Azure REST API version: 2022-04-01.
+
+    Other available API versions: 2017-09-01-preview, 2022-04-01-preview.
+    """
+    ...

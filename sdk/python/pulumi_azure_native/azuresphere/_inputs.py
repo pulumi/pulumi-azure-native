@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -26,12 +26,31 @@ class ImageArgs:
         :param pulumi.Input[str] image_id: Image ID
         :param pulumi.Input[Union[str, 'RegionalDataBoundary']] regional_data_boundary: Regional data boundary for an image
         """
+        ImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image=image,
+            image_id=image_id,
+            regional_data_boundary=regional_data_boundary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image: Optional[pulumi.Input[str]] = None,
+             image_id: Optional[pulumi.Input[str]] = None,
+             regional_data_boundary: Optional[pulumi.Input[Union[str, 'RegionalDataBoundary']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if 'regionalDataBoundary' in kwargs:
+            regional_data_boundary = kwargs['regionalDataBoundary']
+
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if image_id is not None:
-            pulumi.set(__self__, "image_id", image_id)
+            _setter("image_id", image_id)
         if regional_data_boundary is not None:
-            pulumi.set(__self__, "regional_data_boundary", regional_data_boundary)
+            _setter("regional_data_boundary", regional_data_boundary)
 
     @property
     @pulumi.getter

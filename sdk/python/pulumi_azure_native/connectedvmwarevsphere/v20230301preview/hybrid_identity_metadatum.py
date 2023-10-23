@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,14 +28,43 @@ class HybridIdentityMetadatumArgs:
         :param pulumi.Input[str] public_key: Gets or sets the Public Key.
         :param pulumi.Input[str] vm_id: Gets or sets the Vm Id.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
+        HybridIdentityMetadatumArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            virtual_machine_name=virtual_machine_name,
+            metadata_name=metadata_name,
+            public_key=public_key,
+            vm_id=vm_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             virtual_machine_name: pulumi.Input[str],
+             metadata_name: Optional[pulumi.Input[str]] = None,
+             public_key: Optional[pulumi.Input[str]] = None,
+             vm_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualMachineName' in kwargs:
+            virtual_machine_name = kwargs['virtualMachineName']
+        if 'metadataName' in kwargs:
+            metadata_name = kwargs['metadataName']
+        if 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if 'vmId' in kwargs:
+            vm_id = kwargs['vmId']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_machine_name", virtual_machine_name)
         if metadata_name is not None:
-            pulumi.set(__self__, "metadata_name", metadata_name)
+            _setter("metadata_name", metadata_name)
         if public_key is not None:
-            pulumi.set(__self__, "public_key", public_key)
+            _setter("public_key", public_key)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -139,6 +168,10 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HybridIdentityMetadatumArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

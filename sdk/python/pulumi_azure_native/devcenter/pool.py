@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,20 +40,65 @@ class PoolArgs:
         :param pulumi.Input['StopOnDisconnectConfigurationArgs'] stop_on_disconnect: Stop on disconnect configuration settings for Dev Boxes created in this pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "dev_box_definition_name", dev_box_definition_name)
-        pulumi.set(__self__, "license_type", license_type)
-        pulumi.set(__self__, "local_administrator", local_administrator)
-        pulumi.set(__self__, "network_connection_name", network_connection_name)
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dev_box_definition_name=dev_box_definition_name,
+            license_type=license_type,
+            local_administrator=local_administrator,
+            network_connection_name=network_connection_name,
+            project_name=project_name,
+            resource_group_name=resource_group_name,
+            location=location,
+            pool_name=pool_name,
+            stop_on_disconnect=stop_on_disconnect,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dev_box_definition_name: pulumi.Input[str],
+             license_type: pulumi.Input[Union[str, 'LicenseType']],
+             local_administrator: pulumi.Input[Union[str, 'LocalAdminStatus']],
+             network_connection_name: pulumi.Input[str],
+             project_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             pool_name: Optional[pulumi.Input[str]] = None,
+             stop_on_disconnect: Optional[pulumi.Input['StopOnDisconnectConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'devBoxDefinitionName' in kwargs:
+            dev_box_definition_name = kwargs['devBoxDefinitionName']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'localAdministrator' in kwargs:
+            local_administrator = kwargs['localAdministrator']
+        if 'networkConnectionName' in kwargs:
+            network_connection_name = kwargs['networkConnectionName']
+        if 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'poolName' in kwargs:
+            pool_name = kwargs['poolName']
+        if 'stopOnDisconnect' in kwargs:
+            stop_on_disconnect = kwargs['stopOnDisconnect']
+
+        _setter("dev_box_definition_name", dev_box_definition_name)
+        _setter("license_type", license_type)
+        _setter("local_administrator", local_administrator)
+        _setter("network_connection_name", network_connection_name)
+        _setter("project_name", project_name)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if pool_name is not None:
-            pulumi.set(__self__, "pool_name", pool_name)
+            _setter("pool_name", pool_name)
         if stop_on_disconnect is not None:
-            pulumi.set(__self__, "stop_on_disconnect", stop_on_disconnect)
+            _setter("stop_on_disconnect", stop_on_disconnect)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="devBoxDefinitionName")
@@ -233,6 +278,10 @@ class Pool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -277,6 +326,11 @@ class Pool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if stop_on_disconnect is not None and not isinstance(stop_on_disconnect, StopOnDisconnectConfigurationArgs):
+                stop_on_disconnect = stop_on_disconnect or {}
+                def _setter(key, value):
+                    stop_on_disconnect[key] = value
+                StopOnDisconnectConfigurationArgs._configure(_setter, **stop_on_disconnect)
             __props__.__dict__["stop_on_disconnect"] = stop_on_disconnect
             __props__.__dict__["tags"] = tags
             __props__.__dict__["health_status"] = None

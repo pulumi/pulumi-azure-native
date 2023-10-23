@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,12 +28,35 @@ class RulesEngineArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]] rules: A list of rules that define a particular Rules Engine Configuration.
         :param pulumi.Input[str] rules_engine_name: Name of the Rules Engine which is unique within the Front Door.
         """
-        pulumi.set(__self__, "front_door_name", front_door_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        RulesEngineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            front_door_name=front_door_name,
+            resource_group_name=resource_group_name,
+            rules=rules,
+            rules_engine_name=rules_engine_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             front_door_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None,
+             rules_engine_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frontDoorName' in kwargs:
+            front_door_name = kwargs['frontDoorName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'rulesEngineName' in kwargs:
+            rules_engine_name = kwargs['rulesEngineName']
+
+        _setter("front_door_name", front_door_name)
+        _setter("resource_group_name", resource_group_name)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
         if rules_engine_name is not None:
-            pulumi.set(__self__, "rules_engine_name", rules_engine_name)
+            _setter("rules_engine_name", rules_engine_name)
 
     @property
     @pulumi.getter(name="frontDoorName")
@@ -125,6 +148,10 @@ class RulesEngine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RulesEngineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

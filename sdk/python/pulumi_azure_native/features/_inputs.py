@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -27,16 +27,35 @@ class SubscriptionFeatureRegistrationPropertiesArgs:
         :param pulumi.Input[bool] should_feature_display_in_portal: Indicates whether feature should be displayed in Portal.
         :param pulumi.Input[Union[str, 'SubscriptionFeatureRegistrationState']] state: The state.
         """
+        SubscriptionFeatureRegistrationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            metadata=metadata,
+            should_feature_display_in_portal=should_feature_display_in_portal,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             should_feature_display_in_portal: Optional[pulumi.Input[bool]] = None,
+             state: Optional[pulumi.Input[Union[str, 'SubscriptionFeatureRegistrationState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'shouldFeatureDisplayInPortal' in kwargs:
+            should_feature_display_in_portal = kwargs['shouldFeatureDisplayInPortal']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if should_feature_display_in_portal is None:
             should_feature_display_in_portal = False
         if should_feature_display_in_portal is not None:
-            pulumi.set(__self__, "should_feature_display_in_portal", should_feature_display_in_portal)
+            _setter("should_feature_display_in_portal", should_feature_display_in_portal)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter

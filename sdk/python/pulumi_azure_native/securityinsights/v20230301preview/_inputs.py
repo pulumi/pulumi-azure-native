@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -23,7 +23,20 @@ class IncidentLabelArgs:
         Represents an incident label
         :param pulumi.Input[str] label_name: The name of the label
         """
-        pulumi.set(__self__, "label_name", label_name)
+        IncidentLabelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label_name=label_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labelName' in kwargs:
+            label_name = kwargs['labelName']
+
+        _setter("label_name", label_name)
 
     @property
     @pulumi.getter(name="labelName")
@@ -54,16 +67,43 @@ class IncidentOwnerInfoArgs:
         :param pulumi.Input[Union[str, 'OwnerType']] owner_type: The type of the owner the incident is assigned to.
         :param pulumi.Input[str] user_principal_name: The user principal name of the user the incident is assigned to.
         """
+        IncidentOwnerInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assigned_to=assigned_to,
+            email=email,
+            object_id=object_id,
+            owner_type=owner_type,
+            user_principal_name=user_principal_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assigned_to: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             owner_type: Optional[pulumi.Input[Union[str, 'OwnerType']]] = None,
+             user_principal_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignedTo' in kwargs:
+            assigned_to = kwargs['assignedTo']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'ownerType' in kwargs:
+            owner_type = kwargs['ownerType']
+        if 'userPrincipalName' in kwargs:
+            user_principal_name = kwargs['userPrincipalName']
+
         if assigned_to is not None:
-            pulumi.set(__self__, "assigned_to", assigned_to)
+            _setter("assigned_to", assigned_to)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if owner_type is not None:
-            pulumi.set(__self__, "owner_type", owner_type)
+            _setter("owner_type", owner_type)
         if user_principal_name is not None:
-            pulumi.set(__self__, "user_principal_name", user_principal_name)
+            _setter("user_principal_name", user_principal_name)
 
     @property
     @pulumi.getter(name="assignedTo")

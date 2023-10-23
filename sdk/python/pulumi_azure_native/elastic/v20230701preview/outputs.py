@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -52,14 +52,37 @@ class ConnectedPartnerResourcePropertiesResponse(dict):
         :param str partner_deployment_name: Elastic deployment name
         :param str partner_deployment_uri: Deployment URL of the elasticsearch in Elastic cloud deployment.
         """
+        ConnectedPartnerResourcePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_resource_id=azure_resource_id,
+            location=location,
+            partner_deployment_name=partner_deployment_name,
+            partner_deployment_uri=partner_deployment_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_resource_id: Optional[str] = None,
+             location: Optional[str] = None,
+             partner_deployment_name: Optional[str] = None,
+             partner_deployment_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureResourceId' in kwargs:
+            azure_resource_id = kwargs['azureResourceId']
+        if 'partnerDeploymentName' in kwargs:
+            partner_deployment_name = kwargs['partnerDeploymentName']
+        if 'partnerDeploymentUri' in kwargs:
+            partner_deployment_uri = kwargs['partnerDeploymentUri']
+
         if azure_resource_id is not None:
-            pulumi.set(__self__, "azure_resource_id", azure_resource_id)
+            _setter("azure_resource_id", azure_resource_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if partner_deployment_name is not None:
-            pulumi.set(__self__, "partner_deployment_name", partner_deployment_name)
+            _setter("partner_deployment_name", partner_deployment_name)
         if partner_deployment_uri is not None:
-            pulumi.set(__self__, "partner_deployment_uri", partner_deployment_uri)
+            _setter("partner_deployment_uri", partner_deployment_uri)
 
     @property
     @pulumi.getter(name="azureResourceId")
@@ -105,8 +128,19 @@ class ConnectedPartnerResourcesListFormatResponse(dict):
         Connected Partner Resources List Format
         :param 'ConnectedPartnerResourcePropertiesResponse' properties: Connected Partner Resource Properties
         """
+        ConnectedPartnerResourcesListFormatResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional['outputs.ConnectedPartnerResourcePropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -167,13 +201,48 @@ class ElasticCloudDeploymentResponse(dict):
         :param str kibana_sso_url: Kibana dashboard sso URL of the Elastic deployment.
         :param str name: Elastic deployment name
         """
-        pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
-        pulumi.set(__self__, "deployment_id", deployment_id)
-        pulumi.set(__self__, "elasticsearch_region", elasticsearch_region)
-        pulumi.set(__self__, "elasticsearch_service_url", elasticsearch_service_url)
-        pulumi.set(__self__, "kibana_service_url", kibana_service_url)
-        pulumi.set(__self__, "kibana_sso_url", kibana_sso_url)
-        pulumi.set(__self__, "name", name)
+        ElasticCloudDeploymentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_subscription_id=azure_subscription_id,
+            deployment_id=deployment_id,
+            elasticsearch_region=elasticsearch_region,
+            elasticsearch_service_url=elasticsearch_service_url,
+            kibana_service_url=kibana_service_url,
+            kibana_sso_url=kibana_sso_url,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_subscription_id: str,
+             deployment_id: str,
+             elasticsearch_region: str,
+             elasticsearch_service_url: str,
+             kibana_service_url: str,
+             kibana_sso_url: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureSubscriptionId' in kwargs:
+            azure_subscription_id = kwargs['azureSubscriptionId']
+        if 'deploymentId' in kwargs:
+            deployment_id = kwargs['deploymentId']
+        if 'elasticsearchRegion' in kwargs:
+            elasticsearch_region = kwargs['elasticsearchRegion']
+        if 'elasticsearchServiceUrl' in kwargs:
+            elasticsearch_service_url = kwargs['elasticsearchServiceUrl']
+        if 'kibanaServiceUrl' in kwargs:
+            kibana_service_url = kwargs['kibanaServiceUrl']
+        if 'kibanaSsoUrl' in kwargs:
+            kibana_sso_url = kwargs['kibanaSsoUrl']
+
+        _setter("azure_subscription_id", azure_subscription_id)
+        _setter("deployment_id", deployment_id)
+        _setter("elasticsearch_region", elasticsearch_region)
+        _setter("elasticsearch_service_url", elasticsearch_service_url)
+        _setter("kibana_service_url", kibana_service_url)
+        _setter("kibana_sso_url", kibana_sso_url)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="azureSubscriptionId")
@@ -266,9 +335,28 @@ class ElasticCloudUserResponse(dict):
         :param str email_address: Email of the Elastic User Account.
         :param str id: User Id of the elastic account of the User.
         """
-        pulumi.set(__self__, "elastic_cloud_sso_default_url", elastic_cloud_sso_default_url)
-        pulumi.set(__self__, "email_address", email_address)
-        pulumi.set(__self__, "id", id)
+        ElasticCloudUserResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            elastic_cloud_sso_default_url=elastic_cloud_sso_default_url,
+            email_address=email_address,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             elastic_cloud_sso_default_url: str,
+             email_address: str,
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'elasticCloudSsoDefaultUrl' in kwargs:
+            elastic_cloud_sso_default_url = kwargs['elasticCloudSsoDefaultUrl']
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+
+        _setter("elastic_cloud_sso_default_url", elastic_cloud_sso_default_url)
+        _setter("email_address", email_address)
+        _setter("id", id)
 
     @property
     @pulumi.getter(name="elasticCloudSsoDefaultUrl")
@@ -312,13 +400,38 @@ class ElasticOrganizationToAzureSubscriptionMappingResponsePropertiesResponse(di
         :param str elastic_organization_id: The Elastic Organization Id.
         :param str elastic_organization_name: The Elastic Organization Name.
         """
-        pulumi.set(__self__, "marketplace_saas_info", marketplace_saas_info)
+        ElasticOrganizationToAzureSubscriptionMappingResponsePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            marketplace_saas_info=marketplace_saas_info,
+            billed_azure_subscription_id=billed_azure_subscription_id,
+            elastic_organization_id=elastic_organization_id,
+            elastic_organization_name=elastic_organization_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             marketplace_saas_info: 'outputs.MarketplaceSaaSInfoResponse',
+             billed_azure_subscription_id: Optional[str] = None,
+             elastic_organization_id: Optional[str] = None,
+             elastic_organization_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'marketplaceSaasInfo' in kwargs:
+            marketplace_saas_info = kwargs['marketplaceSaasInfo']
+        if 'billedAzureSubscriptionId' in kwargs:
+            billed_azure_subscription_id = kwargs['billedAzureSubscriptionId']
+        if 'elasticOrganizationId' in kwargs:
+            elastic_organization_id = kwargs['elasticOrganizationId']
+        if 'elasticOrganizationName' in kwargs:
+            elastic_organization_name = kwargs['elasticOrganizationName']
+
+        _setter("marketplace_saas_info", marketplace_saas_info)
         if billed_azure_subscription_id is not None:
-            pulumi.set(__self__, "billed_azure_subscription_id", billed_azure_subscription_id)
+            _setter("billed_azure_subscription_id", billed_azure_subscription_id)
         if elastic_organization_id is not None:
-            pulumi.set(__self__, "elastic_organization_id", elastic_organization_id)
+            _setter("elastic_organization_id", elastic_organization_id)
         if elastic_organization_name is not None:
-            pulumi.set(__self__, "elastic_organization_name", elastic_organization_name)
+            _setter("elastic_organization_name", elastic_organization_name)
 
     @property
     @pulumi.getter(name="marketplaceSaasInfo")
@@ -385,10 +498,27 @@ class ElasticPropertiesResponse(dict):
         :param 'ElasticCloudDeploymentResponse' elastic_cloud_deployment: Details of the elastic cloud deployment.
         :param 'ElasticCloudUserResponse' elastic_cloud_user: Details of the user's elastic account.
         """
+        ElasticPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            elastic_cloud_deployment=elastic_cloud_deployment,
+            elastic_cloud_user=elastic_cloud_user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             elastic_cloud_deployment: Optional['outputs.ElasticCloudDeploymentResponse'] = None,
+             elastic_cloud_user: Optional['outputs.ElasticCloudUserResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'elasticCloudDeployment' in kwargs:
+            elastic_cloud_deployment = kwargs['elasticCloudDeployment']
+        if 'elasticCloudUser' in kwargs:
+            elastic_cloud_user = kwargs['elasticCloudUser']
+
         if elastic_cloud_deployment is not None:
-            pulumi.set(__self__, "elastic_cloud_deployment", elastic_cloud_deployment)
+            _setter("elastic_cloud_deployment", elastic_cloud_deployment)
         if elastic_cloud_user is not None:
-            pulumi.set(__self__, "elastic_cloud_user", elastic_cloud_user)
+            _setter("elastic_cloud_user", elastic_cloud_user)
 
     @property
     @pulumi.getter(name="elasticCloudDeployment")
@@ -430,20 +560,45 @@ class ElasticTrafficFilterResponse(dict):
         :param Sequence['ElasticTrafficFilterRuleResponse'] rules: Rules in the elastic filter
         :param str type: Type of the elastic filter
         """
+        ElasticTrafficFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            id=id,
+            include_by_default=include_by_default,
+            name=name,
+            region=region,
+            rules=rules,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             id: Optional[str] = None,
+             include_by_default: Optional[bool] = None,
+             name: Optional[str] = None,
+             region: Optional[str] = None,
+             rules: Optional[Sequence['outputs.ElasticTrafficFilterRuleResponse']] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includeByDefault' in kwargs:
+            include_by_default = kwargs['includeByDefault']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if include_by_default is not None:
-            pulumi.set(__self__, "include_by_default", include_by_default)
+            _setter("include_by_default", include_by_default)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -521,16 +676,39 @@ class ElasticTrafficFilterRuleResponse(dict):
         :param str id: Id of the elastic filter rule
         :param str source: IP of the elastic filter rule
         """
+        ElasticTrafficFilterRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_endpoint_guid=azure_endpoint_guid,
+            azure_endpoint_name=azure_endpoint_name,
+            description=description,
+            id=id,
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_endpoint_guid: Optional[str] = None,
+             azure_endpoint_name: Optional[str] = None,
+             description: Optional[str] = None,
+             id: Optional[str] = None,
+             source: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureEndpointGuid' in kwargs:
+            azure_endpoint_guid = kwargs['azureEndpointGuid']
+        if 'azureEndpointName' in kwargs:
+            azure_endpoint_name = kwargs['azureEndpointName']
+
         if azure_endpoint_guid is not None:
-            pulumi.set(__self__, "azure_endpoint_guid", azure_endpoint_guid)
+            _setter("azure_endpoint_guid", azure_endpoint_guid)
         if azure_endpoint_name is not None:
-            pulumi.set(__self__, "azure_endpoint_name", azure_endpoint_name)
+            _setter("azure_endpoint_name", azure_endpoint_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
 
     @property
     @pulumi.getter(name="azureEndpointGuid")
@@ -588,12 +766,27 @@ class FilteringTagResponse(dict):
         :param str name: The name (also known as the key) of the tag.
         :param str value: The value of the tag.
         """
+        FilteringTagResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -654,10 +847,29 @@ class IdentityPropertiesResponse(dict):
         :param str tenant_id: The tenant ID of resource.
         :param str type: Managed identity type.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -724,14 +936,39 @@ class LogRulesResponse(dict):
         :param bool send_activity_logs: Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
         :param bool send_subscription_logs: Flag specifying if subscription logs should be sent for the Monitor resource.
         """
+        LogRulesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filtering_tags=filtering_tags,
+            send_aad_logs=send_aad_logs,
+            send_activity_logs=send_activity_logs,
+            send_subscription_logs=send_subscription_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filtering_tags: Optional[Sequence['outputs.FilteringTagResponse']] = None,
+             send_aad_logs: Optional[bool] = None,
+             send_activity_logs: Optional[bool] = None,
+             send_subscription_logs: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filteringTags' in kwargs:
+            filtering_tags = kwargs['filteringTags']
+        if 'sendAadLogs' in kwargs:
+            send_aad_logs = kwargs['sendAadLogs']
+        if 'sendActivityLogs' in kwargs:
+            send_activity_logs = kwargs['sendActivityLogs']
+        if 'sendSubscriptionLogs' in kwargs:
+            send_subscription_logs = kwargs['sendSubscriptionLogs']
+
         if filtering_tags is not None:
-            pulumi.set(__self__, "filtering_tags", filtering_tags)
+            _setter("filtering_tags", filtering_tags)
         if send_aad_logs is not None:
-            pulumi.set(__self__, "send_aad_logs", send_aad_logs)
+            _setter("send_aad_logs", send_aad_logs)
         if send_activity_logs is not None:
-            pulumi.set(__self__, "send_activity_logs", send_activity_logs)
+            _setter("send_activity_logs", send_activity_logs)
         if send_subscription_logs is not None:
-            pulumi.set(__self__, "send_subscription_logs", send_subscription_logs)
+            _setter("send_subscription_logs", send_subscription_logs)
 
     @property
     @pulumi.getter(name="filteringTags")
@@ -787,18 +1024,49 @@ class MarketplaceSaaSInfoResponse(dict):
         :param 'MarketplaceSaaSInfoResponseMarketplaceSubscription' marketplace_subscription: Marketplace Subscription
         :param bool subscribed: Flag specifying if the Marketplace status is subscribed or not.
         """
+        MarketplaceSaaSInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billed_azure_subscription_id=billed_azure_subscription_id,
+            marketplace_name=marketplace_name,
+            marketplace_resource_id=marketplace_resource_id,
+            marketplace_status=marketplace_status,
+            marketplace_subscription=marketplace_subscription,
+            subscribed=subscribed,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billed_azure_subscription_id: Optional[str] = None,
+             marketplace_name: Optional[str] = None,
+             marketplace_resource_id: Optional[str] = None,
+             marketplace_status: Optional[str] = None,
+             marketplace_subscription: Optional['outputs.MarketplaceSaaSInfoResponseMarketplaceSubscription'] = None,
+             subscribed: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billedAzureSubscriptionId' in kwargs:
+            billed_azure_subscription_id = kwargs['billedAzureSubscriptionId']
+        if 'marketplaceName' in kwargs:
+            marketplace_name = kwargs['marketplaceName']
+        if 'marketplaceResourceId' in kwargs:
+            marketplace_resource_id = kwargs['marketplaceResourceId']
+        if 'marketplaceStatus' in kwargs:
+            marketplace_status = kwargs['marketplaceStatus']
+        if 'marketplaceSubscription' in kwargs:
+            marketplace_subscription = kwargs['marketplaceSubscription']
+
         if billed_azure_subscription_id is not None:
-            pulumi.set(__self__, "billed_azure_subscription_id", billed_azure_subscription_id)
+            _setter("billed_azure_subscription_id", billed_azure_subscription_id)
         if marketplace_name is not None:
-            pulumi.set(__self__, "marketplace_name", marketplace_name)
+            _setter("marketplace_name", marketplace_name)
         if marketplace_resource_id is not None:
-            pulumi.set(__self__, "marketplace_resource_id", marketplace_resource_id)
+            _setter("marketplace_resource_id", marketplace_resource_id)
         if marketplace_status is not None:
-            pulumi.set(__self__, "marketplace_status", marketplace_status)
+            _setter("marketplace_status", marketplace_status)
         if marketplace_subscription is not None:
-            pulumi.set(__self__, "marketplace_subscription", marketplace_subscription)
+            _setter("marketplace_subscription", marketplace_subscription)
         if subscribed is not None:
-            pulumi.set(__self__, "subscribed", subscribed)
+            _setter("subscribed", subscribed)
 
     @property
     @pulumi.getter(name="billedAzureSubscriptionId")
@@ -860,8 +1128,19 @@ class MarketplaceSaaSInfoResponseMarketplaceSubscription(dict):
         Marketplace Subscription
         :param str id: Marketplace Subscription Id. This is a GUID-formatted string.
         """
+        MarketplaceSaaSInfoResponseMarketplaceSubscription._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -921,18 +1200,53 @@ class MonitorPropertiesResponse(dict):
         :param str provisioning_state: Provisioning state of the monitor resource.
         :param str version: Version of elastic of the monitor resource
         """
-        pulumi.set(__self__, "liftr_resource_category", liftr_resource_category)
-        pulumi.set(__self__, "liftr_resource_preference", liftr_resource_preference)
+        MonitorPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            liftr_resource_category=liftr_resource_category,
+            liftr_resource_preference=liftr_resource_preference,
+            elastic_properties=elastic_properties,
+            generate_api_key=generate_api_key,
+            monitoring_status=monitoring_status,
+            provisioning_state=provisioning_state,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             liftr_resource_category: str,
+             liftr_resource_preference: int,
+             elastic_properties: Optional['outputs.ElasticPropertiesResponse'] = None,
+             generate_api_key: Optional[bool] = None,
+             monitoring_status: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'liftrResourceCategory' in kwargs:
+            liftr_resource_category = kwargs['liftrResourceCategory']
+        if 'liftrResourcePreference' in kwargs:
+            liftr_resource_preference = kwargs['liftrResourcePreference']
+        if 'elasticProperties' in kwargs:
+            elastic_properties = kwargs['elasticProperties']
+        if 'generateApiKey' in kwargs:
+            generate_api_key = kwargs['generateApiKey']
+        if 'monitoringStatus' in kwargs:
+            monitoring_status = kwargs['monitoringStatus']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("liftr_resource_category", liftr_resource_category)
+        _setter("liftr_resource_preference", liftr_resource_preference)
         if elastic_properties is not None:
-            pulumi.set(__self__, "elastic_properties", elastic_properties)
+            _setter("elastic_properties", elastic_properties)
         if generate_api_key is not None:
-            pulumi.set(__self__, "generate_api_key", generate_api_key)
+            _setter("generate_api_key", generate_api_key)
         if monitoring_status is not None:
-            pulumi.set(__self__, "monitoring_status", monitoring_status)
+            _setter("monitoring_status", monitoring_status)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="liftrResourceCategory")
@@ -1003,12 +1317,31 @@ class MonitoredResourceResponse(dict):
         :param str reason_for_logs_status: Reason for why the resource is sending logs (or why it is not sending).
         :param str sending_logs: Flag indicating the status of the resource for sending logs operation to Elastic.
         """
+        MonitoredResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            reason_for_logs_status=reason_for_logs_status,
+            sending_logs=sending_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             reason_for_logs_status: Optional[str] = None,
+             sending_logs: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'reasonForLogsStatus' in kwargs:
+            reason_for_logs_status = kwargs['reasonForLogsStatus']
+        if 'sendingLogs' in kwargs:
+            sending_logs = kwargs['sendingLogs']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if reason_for_logs_status is not None:
-            pulumi.set(__self__, "reason_for_logs_status", reason_for_logs_status)
+            _setter("reason_for_logs_status", reason_for_logs_status)
         if sending_logs is not None:
-            pulumi.set(__self__, "sending_logs", sending_logs)
+            _setter("sending_logs", sending_logs)
 
     @property
     @pulumi.getter
@@ -1067,10 +1400,27 @@ class MonitoringTagRulesPropertiesResponse(dict):
         :param 'LogRulesResponse' log_rules: Rules for sending logs.
         :param str provisioning_state: Provisioning state of the monitoring tag rules.
         """
+        MonitoringTagRulesPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_rules=log_rules,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_rules: Optional['outputs.LogRulesResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logRules' in kwargs:
+            log_rules = kwargs['logRules']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
         if log_rules is not None:
-            pulumi.set(__self__, "log_rules", log_rules)
+            _setter("log_rules", log_rules)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="logRules")
@@ -1104,12 +1454,29 @@ class PartnerBillingEntityResponse(dict):
         :param str name: The Elastic Organization Name.
         :param str partner_entity_uri: Link to the elastic organization page
         """
+        PartnerBillingEntityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            partner_entity_uri=partner_entity_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             partner_entity_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partnerEntityUri' in kwargs:
+            partner_entity_uri = kwargs['partnerEntityUri']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partner_entity_uri is not None:
-            pulumi.set(__self__, "partner_entity_uri", partner_entity_uri)
+            _setter("partner_entity_uri", partner_entity_uri)
 
     @property
     @pulumi.getter
@@ -1147,7 +1514,18 @@ class ResourceSkuResponse(dict):
         Microsoft.Elastic SKU.
         :param str name: Name of the SKU.
         """
-        pulumi.set(__self__, "name", name)
+        ResourceSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1206,18 +1584,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1275,8 +1686,21 @@ class UserApiKeyResponsePropertiesResponse(dict):
         """
         :param str api_key: The User Api Key Generated based on GenerateApiKey flag. This is applicable for non-Portal clients only.
         """
+        UserApiKeyResponsePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -1298,8 +1722,21 @@ class VMResourcesResponse(dict):
         The vm resource properties that is currently being monitored by the Elastic monitor resource.
         :param str vm_resource_id: The ARM id of the VM resource.
         """
+        VMResourcesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vm_resource_id=vm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vm_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vmResourceId' in kwargs:
+            vm_resource_id = kwargs['vmResourceId']
+
         if vm_resource_id is not None:
-            pulumi.set(__self__, "vm_resource_id", vm_resource_id)
+            _setter("vm_resource_id", vm_resource_id)
 
     @property
     @pulumi.getter(name="vmResourceId")

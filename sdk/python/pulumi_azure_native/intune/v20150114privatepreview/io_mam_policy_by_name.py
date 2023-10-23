@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['IoMAMPolicyByNameArgs', 'IoMAMPolicyByName']
@@ -42,68 +42,151 @@ class IoMAMPolicyByNameArgs:
         :param pulumi.Input[str] policy_name: Unique name for the policy
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource Tags
         """
-        pulumi.set(__self__, "friendly_name", friendly_name)
-        pulumi.set(__self__, "host_name", host_name)
+        IoMAMPolicyByNameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            friendly_name=friendly_name,
+            host_name=host_name,
+            access_recheck_offline_timeout=access_recheck_offline_timeout,
+            access_recheck_online_timeout=access_recheck_online_timeout,
+            app_sharing_from_level=app_sharing_from_level,
+            app_sharing_to_level=app_sharing_to_level,
+            authentication=authentication,
+            clipboard_sharing_level=clipboard_sharing_level,
+            data_backup=data_backup,
+            description=description,
+            device_compliance=device_compliance,
+            file_encryption_level=file_encryption_level,
+            file_sharing_save_as=file_sharing_save_as,
+            location=location,
+            managed_browser=managed_browser,
+            offline_wipe_timeout=offline_wipe_timeout,
+            pin=pin,
+            pin_num_retry=pin_num_retry,
+            policy_name=policy_name,
+            tags=tags,
+            touch_id=touch_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             friendly_name: pulumi.Input[str],
+             host_name: pulumi.Input[str],
+             access_recheck_offline_timeout: Optional[pulumi.Input[str]] = None,
+             access_recheck_online_timeout: Optional[pulumi.Input[str]] = None,
+             app_sharing_from_level: Optional[pulumi.Input[str]] = None,
+             app_sharing_to_level: Optional[pulumi.Input[str]] = None,
+             authentication: Optional[pulumi.Input[str]] = None,
+             clipboard_sharing_level: Optional[pulumi.Input[str]] = None,
+             data_backup: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             device_compliance: Optional[pulumi.Input[str]] = None,
+             file_encryption_level: Optional[pulumi.Input[str]] = None,
+             file_sharing_save_as: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_browser: Optional[pulumi.Input[str]] = None,
+             offline_wipe_timeout: Optional[pulumi.Input[str]] = None,
+             pin: Optional[pulumi.Input[str]] = None,
+             pin_num_retry: Optional[pulumi.Input[int]] = None,
+             policy_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             touch_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'accessRecheckOfflineTimeout' in kwargs:
+            access_recheck_offline_timeout = kwargs['accessRecheckOfflineTimeout']
+        if 'accessRecheckOnlineTimeout' in kwargs:
+            access_recheck_online_timeout = kwargs['accessRecheckOnlineTimeout']
+        if 'appSharingFromLevel' in kwargs:
+            app_sharing_from_level = kwargs['appSharingFromLevel']
+        if 'appSharingToLevel' in kwargs:
+            app_sharing_to_level = kwargs['appSharingToLevel']
+        if 'clipboardSharingLevel' in kwargs:
+            clipboard_sharing_level = kwargs['clipboardSharingLevel']
+        if 'dataBackup' in kwargs:
+            data_backup = kwargs['dataBackup']
+        if 'deviceCompliance' in kwargs:
+            device_compliance = kwargs['deviceCompliance']
+        if 'fileEncryptionLevel' in kwargs:
+            file_encryption_level = kwargs['fileEncryptionLevel']
+        if 'fileSharingSaveAs' in kwargs:
+            file_sharing_save_as = kwargs['fileSharingSaveAs']
+        if 'managedBrowser' in kwargs:
+            managed_browser = kwargs['managedBrowser']
+        if 'offlineWipeTimeout' in kwargs:
+            offline_wipe_timeout = kwargs['offlineWipeTimeout']
+        if 'pinNumRetry' in kwargs:
+            pin_num_retry = kwargs['pinNumRetry']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'touchId' in kwargs:
+            touch_id = kwargs['touchId']
+
+        _setter("friendly_name", friendly_name)
+        _setter("host_name", host_name)
         if access_recheck_offline_timeout is not None:
-            pulumi.set(__self__, "access_recheck_offline_timeout", access_recheck_offline_timeout)
+            _setter("access_recheck_offline_timeout", access_recheck_offline_timeout)
         if access_recheck_online_timeout is not None:
-            pulumi.set(__self__, "access_recheck_online_timeout", access_recheck_online_timeout)
+            _setter("access_recheck_online_timeout", access_recheck_online_timeout)
         if app_sharing_from_level is None:
             app_sharing_from_level = 'none'
         if app_sharing_from_level is not None:
-            pulumi.set(__self__, "app_sharing_from_level", app_sharing_from_level)
+            _setter("app_sharing_from_level", app_sharing_from_level)
         if app_sharing_to_level is None:
             app_sharing_to_level = 'none'
         if app_sharing_to_level is not None:
-            pulumi.set(__self__, "app_sharing_to_level", app_sharing_to_level)
+            _setter("app_sharing_to_level", app_sharing_to_level)
         if authentication is None:
             authentication = 'required'
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if clipboard_sharing_level is None:
             clipboard_sharing_level = 'blocked'
         if clipboard_sharing_level is not None:
-            pulumi.set(__self__, "clipboard_sharing_level", clipboard_sharing_level)
+            _setter("clipboard_sharing_level", clipboard_sharing_level)
         if data_backup is None:
             data_backup = 'allow'
         if data_backup is not None:
-            pulumi.set(__self__, "data_backup", data_backup)
+            _setter("data_backup", data_backup)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if device_compliance is None:
             device_compliance = 'enable'
         if device_compliance is not None:
-            pulumi.set(__self__, "device_compliance", device_compliance)
+            _setter("device_compliance", device_compliance)
         if file_encryption_level is None:
             file_encryption_level = 'deviceLocked'
         if file_encryption_level is not None:
-            pulumi.set(__self__, "file_encryption_level", file_encryption_level)
+            _setter("file_encryption_level", file_encryption_level)
         if file_sharing_save_as is None:
             file_sharing_save_as = 'allow'
         if file_sharing_save_as is not None:
-            pulumi.set(__self__, "file_sharing_save_as", file_sharing_save_as)
+            _setter("file_sharing_save_as", file_sharing_save_as)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_browser is None:
             managed_browser = 'required'
         if managed_browser is not None:
-            pulumi.set(__self__, "managed_browser", managed_browser)
+            _setter("managed_browser", managed_browser)
         if offline_wipe_timeout is not None:
-            pulumi.set(__self__, "offline_wipe_timeout", offline_wipe_timeout)
+            _setter("offline_wipe_timeout", offline_wipe_timeout)
         if pin is None:
             pin = 'required'
         if pin is not None:
-            pulumi.set(__self__, "pin", pin)
+            _setter("pin", pin)
         if pin_num_retry is not None:
-            pulumi.set(__self__, "pin_num_retry", pin_num_retry)
+            _setter("pin_num_retry", pin_num_retry)
         if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+            _setter("policy_name", policy_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if touch_id is None:
             touch_id = 'enable'
         if touch_id is not None:
-            pulumi.set(__self__, "touch_id", touch_id)
+            _setter("touch_id", touch_id)
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -363,6 +446,10 @@ class IoMAMPolicyByName(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IoMAMPolicyByNameArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

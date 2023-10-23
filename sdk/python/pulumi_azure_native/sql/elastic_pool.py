@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -52,30 +52,85 @@ class ElasticPoolArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        ElasticPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            elastic_pool_name=elastic_pool_name,
+            high_availability_replica_count=high_availability_replica_count,
+            license_type=license_type,
+            location=location,
+            maintenance_configuration_id=maintenance_configuration_id,
+            max_size_bytes=max_size_bytes,
+            min_capacity=min_capacity,
+            per_database_settings=per_database_settings,
+            sku=sku,
+            tags=tags,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             elastic_pool_name: Optional[pulumi.Input[str]] = None,
+             high_availability_replica_count: Optional[pulumi.Input[int]] = None,
+             license_type: Optional[pulumi.Input[Union[str, 'ElasticPoolLicenseType']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+             max_size_bytes: Optional[pulumi.Input[float]] = None,
+             min_capacity: Optional[pulumi.Input[float]] = None,
+             per_database_settings: Optional[pulumi.Input['ElasticPoolPerDatabaseSettingsArgs']] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone_redundant: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'elasticPoolName' in kwargs:
+            elastic_pool_name = kwargs['elasticPoolName']
+        if 'highAvailabilityReplicaCount' in kwargs:
+            high_availability_replica_count = kwargs['highAvailabilityReplicaCount']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'maintenanceConfigurationId' in kwargs:
+            maintenance_configuration_id = kwargs['maintenanceConfigurationId']
+        if 'maxSizeBytes' in kwargs:
+            max_size_bytes = kwargs['maxSizeBytes']
+        if 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if 'perDatabaseSettings' in kwargs:
+            per_database_settings = kwargs['perDatabaseSettings']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if elastic_pool_name is not None:
-            pulumi.set(__self__, "elastic_pool_name", elastic_pool_name)
+            _setter("elastic_pool_name", elastic_pool_name)
         if high_availability_replica_count is not None:
-            pulumi.set(__self__, "high_availability_replica_count", high_availability_replica_count)
+            _setter("high_availability_replica_count", high_availability_replica_count)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maintenance_configuration_id is not None:
-            pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
+            _setter("maintenance_configuration_id", maintenance_configuration_id)
         if max_size_bytes is not None:
-            pulumi.set(__self__, "max_size_bytes", max_size_bytes)
+            _setter("max_size_bytes", max_size_bytes)
         if min_capacity is not None:
-            pulumi.set(__self__, "min_capacity", min_capacity)
+            _setter("min_capacity", min_capacity)
         if per_database_settings is not None:
-            pulumi.set(__self__, "per_database_settings", per_database_settings)
+            _setter("per_database_settings", per_database_settings)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -309,6 +364,10 @@ class ElasticPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ElasticPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -343,6 +402,11 @@ class ElasticPool(pulumi.CustomResource):
             __props__.__dict__["maintenance_configuration_id"] = maintenance_configuration_id
             __props__.__dict__["max_size_bytes"] = max_size_bytes
             __props__.__dict__["min_capacity"] = min_capacity
+            if per_database_settings is not None and not isinstance(per_database_settings, ElasticPoolPerDatabaseSettingsArgs):
+                per_database_settings = per_database_settings or {}
+                def _setter(key, value):
+                    per_database_settings[key] = value
+                ElasticPoolPerDatabaseSettingsArgs._configure(_setter, **per_database_settings)
             __props__.__dict__["per_database_settings"] = per_database_settings
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -350,6 +414,11 @@ class ElasticPool(pulumi.CustomResource):
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zone_redundant"] = zone_redundant

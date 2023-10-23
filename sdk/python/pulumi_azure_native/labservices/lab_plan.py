@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,29 +44,80 @@ class LabPlanArgs:
         :param pulumi.Input['SupportInfoArgs'] support_info: Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        LabPlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            allowed_regions=allowed_regions,
+            default_auto_shutdown_profile=default_auto_shutdown_profile,
+            default_connection_profile=default_connection_profile,
+            default_network_profile=default_network_profile,
+            identity=identity,
+            lab_plan_name=lab_plan_name,
+            linked_lms_instance=linked_lms_instance,
+            location=location,
+            shared_gallery_id=shared_gallery_id,
+            support_info=support_info,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             allowed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_auto_shutdown_profile: Optional[pulumi.Input['AutoShutdownProfileArgs']] = None,
+             default_connection_profile: Optional[pulumi.Input['ConnectionProfileArgs']] = None,
+             default_network_profile: Optional[pulumi.Input['LabPlanNetworkProfileArgs']] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             lab_plan_name: Optional[pulumi.Input[str]] = None,
+             linked_lms_instance: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             shared_gallery_id: Optional[pulumi.Input[str]] = None,
+             support_info: Optional[pulumi.Input['SupportInfoArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'allowedRegions' in kwargs:
+            allowed_regions = kwargs['allowedRegions']
+        if 'defaultAutoShutdownProfile' in kwargs:
+            default_auto_shutdown_profile = kwargs['defaultAutoShutdownProfile']
+        if 'defaultConnectionProfile' in kwargs:
+            default_connection_profile = kwargs['defaultConnectionProfile']
+        if 'defaultNetworkProfile' in kwargs:
+            default_network_profile = kwargs['defaultNetworkProfile']
+        if 'labPlanName' in kwargs:
+            lab_plan_name = kwargs['labPlanName']
+        if 'linkedLmsInstance' in kwargs:
+            linked_lms_instance = kwargs['linkedLmsInstance']
+        if 'sharedGalleryId' in kwargs:
+            shared_gallery_id = kwargs['sharedGalleryId']
+        if 'supportInfo' in kwargs:
+            support_info = kwargs['supportInfo']
+
+        _setter("resource_group_name", resource_group_name)
         if allowed_regions is not None:
-            pulumi.set(__self__, "allowed_regions", allowed_regions)
+            _setter("allowed_regions", allowed_regions)
         if default_auto_shutdown_profile is not None:
-            pulumi.set(__self__, "default_auto_shutdown_profile", default_auto_shutdown_profile)
+            _setter("default_auto_shutdown_profile", default_auto_shutdown_profile)
         if default_connection_profile is not None:
-            pulumi.set(__self__, "default_connection_profile", default_connection_profile)
+            _setter("default_connection_profile", default_connection_profile)
         if default_network_profile is not None:
-            pulumi.set(__self__, "default_network_profile", default_network_profile)
+            _setter("default_network_profile", default_network_profile)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if lab_plan_name is not None:
-            pulumi.set(__self__, "lab_plan_name", lab_plan_name)
+            _setter("lab_plan_name", lab_plan_name)
         if linked_lms_instance is not None:
-            pulumi.set(__self__, "linked_lms_instance", linked_lms_instance)
+            _setter("linked_lms_instance", linked_lms_instance)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if shared_gallery_id is not None:
-            pulumi.set(__self__, "shared_gallery_id", shared_gallery_id)
+            _setter("shared_gallery_id", shared_gallery_id)
         if support_info is not None:
-            pulumi.set(__self__, "support_info", support_info)
+            _setter("support_info", support_info)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -274,6 +325,10 @@ class LabPlan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LabPlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -301,9 +356,29 @@ class LabPlan(pulumi.CustomResource):
             __props__ = LabPlanArgs.__new__(LabPlanArgs)
 
             __props__.__dict__["allowed_regions"] = allowed_regions
+            if default_auto_shutdown_profile is not None and not isinstance(default_auto_shutdown_profile, AutoShutdownProfileArgs):
+                default_auto_shutdown_profile = default_auto_shutdown_profile or {}
+                def _setter(key, value):
+                    default_auto_shutdown_profile[key] = value
+                AutoShutdownProfileArgs._configure(_setter, **default_auto_shutdown_profile)
             __props__.__dict__["default_auto_shutdown_profile"] = default_auto_shutdown_profile
+            if default_connection_profile is not None and not isinstance(default_connection_profile, ConnectionProfileArgs):
+                default_connection_profile = default_connection_profile or {}
+                def _setter(key, value):
+                    default_connection_profile[key] = value
+                ConnectionProfileArgs._configure(_setter, **default_connection_profile)
             __props__.__dict__["default_connection_profile"] = default_connection_profile
+            if default_network_profile is not None and not isinstance(default_network_profile, LabPlanNetworkProfileArgs):
+                default_network_profile = default_network_profile or {}
+                def _setter(key, value):
+                    default_network_profile[key] = value
+                LabPlanNetworkProfileArgs._configure(_setter, **default_network_profile)
             __props__.__dict__["default_network_profile"] = default_network_profile
+            if identity is not None and not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["lab_plan_name"] = lab_plan_name
             __props__.__dict__["linked_lms_instance"] = linked_lms_instance
@@ -312,6 +387,11 @@ class LabPlan(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["shared_gallery_id"] = shared_gallery_id
+            if support_info is not None and not isinstance(support_info, SupportInfoArgs):
+                support_info = support_info or {}
+                def _setter(key, value):
+                    support_info[key] = value
+                SupportInfoArgs._configure(_setter, **support_info)
             __props__.__dict__["support_info"] = support_info
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None

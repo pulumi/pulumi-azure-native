@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,19 +33,56 @@ class MachineLearningDatasetArgs:
         :param pulumi.Input[str] dataset_name: The Dataset name.
         :param pulumi.Input[bool] skip_validation: Skip validation that ensures data can be loaded from the dataset before registration.
         """
-        pulumi.set(__self__, "dataset_type", dataset_type)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "registration", registration)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        MachineLearningDatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dataset_type=dataset_type,
+            parameters=parameters,
+            registration=registration,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            dataset_name=dataset_name,
+            skip_validation=skip_validation,
+            time_series=time_series,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dataset_type: pulumi.Input[Union[str, 'DatasetType']],
+             parameters: pulumi.Input['DatasetCreateRequestParametersArgs'],
+             registration: pulumi.Input['DatasetCreateRequestRegistrationArgs'],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             dataset_name: Optional[pulumi.Input[str]] = None,
+             skip_validation: Optional[pulumi.Input[bool]] = None,
+             time_series: Optional[pulumi.Input['DatasetCreateRequestTimeSeriesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datasetType' in kwargs:
+            dataset_type = kwargs['datasetType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'datasetName' in kwargs:
+            dataset_name = kwargs['datasetName']
+        if 'skipValidation' in kwargs:
+            skip_validation = kwargs['skipValidation']
+        if 'timeSeries' in kwargs:
+            time_series = kwargs['timeSeries']
+
+        _setter("dataset_type", dataset_type)
+        _setter("parameters", parameters)
+        _setter("registration", registration)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if dataset_name is not None:
-            pulumi.set(__self__, "dataset_name", dataset_name)
+            _setter("dataset_name", dataset_name)
         if skip_validation is None:
             skip_validation = False
         if skip_validation is not None:
-            pulumi.set(__self__, "skip_validation", skip_validation)
+            _setter("skip_validation", skip_validation)
         if time_series is not None:
-            pulumi.set(__self__, "time_series", time_series)
+            _setter("time_series", time_series)
 
     @property
     @pulumi.getter(name="datasetType")
@@ -181,6 +218,10 @@ class MachineLearningDataset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MachineLearningDatasetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -207,9 +248,19 @@ class MachineLearningDataset(pulumi.CustomResource):
             if dataset_type is None and not opts.urn:
                 raise TypeError("Missing required property 'dataset_type'")
             __props__.__dict__["dataset_type"] = dataset_type
+            if parameters is not None and not isinstance(parameters, DatasetCreateRequestParametersArgs):
+                parameters = parameters or {}
+                def _setter(key, value):
+                    parameters[key] = value
+                DatasetCreateRequestParametersArgs._configure(_setter, **parameters)
             if parameters is None and not opts.urn:
                 raise TypeError("Missing required property 'parameters'")
             __props__.__dict__["parameters"] = parameters
+            if registration is not None and not isinstance(registration, DatasetCreateRequestRegistrationArgs):
+                registration = registration or {}
+                def _setter(key, value):
+                    registration[key] = value
+                DatasetCreateRequestRegistrationArgs._configure(_setter, **registration)
             if registration is None and not opts.urn:
                 raise TypeError("Missing required property 'registration'")
             __props__.__dict__["registration"] = registration
@@ -219,6 +270,11 @@ class MachineLearningDataset(pulumi.CustomResource):
             if skip_validation is None:
                 skip_validation = False
             __props__.__dict__["skip_validation"] = skip_validation
+            if time_series is not None and not isinstance(time_series, DatasetCreateRequestTimeSeriesArgs):
+                time_series = time_series or {}
+                def _setter(key, value):
+                    time_series[key] = value
+                DatasetCreateRequestTimeSeriesArgs._configure(_setter, **time_series)
             __props__.__dict__["time_series"] = time_series
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

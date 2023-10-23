@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -49,10 +49,27 @@ class StorageBillingPropertiesResponse(dict):
         :param str azure_bare_metal_storage_instance_size: the SKU type that is provisioned
         :param str billing_mode: the billing mode for the storage instance
         """
+        StorageBillingPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_bare_metal_storage_instance_size=azure_bare_metal_storage_instance_size,
+            billing_mode=billing_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_bare_metal_storage_instance_size: Optional[str] = None,
+             billing_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureBareMetalStorageInstanceSize' in kwargs:
+            azure_bare_metal_storage_instance_size = kwargs['azureBareMetalStorageInstanceSize']
+        if 'billingMode' in kwargs:
+            billing_mode = kwargs['billingMode']
+
         if azure_bare_metal_storage_instance_size is not None:
-            pulumi.set(__self__, "azure_bare_metal_storage_instance_size", azure_bare_metal_storage_instance_size)
+            _setter("azure_bare_metal_storage_instance_size", azure_bare_metal_storage_instance_size)
         if billing_mode is not None:
-            pulumi.set(__self__, "billing_mode", billing_mode)
+            _setter("billing_mode", billing_mode)
 
     @property
     @pulumi.getter(name="azureBareMetalStorageInstanceSize")
@@ -121,20 +138,55 @@ class StoragePropertiesResponse(dict):
         :param str storage_type: the storage protocol for which the resource is getting provisioned
         :param str workload_type: the workload for which the resource is getting provisioned
         """
+        StoragePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            generation=generation,
+            hardware_type=hardware_type,
+            offering_type=offering_type,
+            provisioning_state=provisioning_state,
+            storage_billing_properties=storage_billing_properties,
+            storage_type=storage_type,
+            workload_type=workload_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             generation: Optional[str] = None,
+             hardware_type: Optional[str] = None,
+             offering_type: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             storage_billing_properties: Optional['outputs.StorageBillingPropertiesResponse'] = None,
+             storage_type: Optional[str] = None,
+             workload_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hardwareType' in kwargs:
+            hardware_type = kwargs['hardwareType']
+        if 'offeringType' in kwargs:
+            offering_type = kwargs['offeringType']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'storageBillingProperties' in kwargs:
+            storage_billing_properties = kwargs['storageBillingProperties']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if 'workloadType' in kwargs:
+            workload_type = kwargs['workloadType']
+
         if generation is not None:
-            pulumi.set(__self__, "generation", generation)
+            _setter("generation", generation)
         if hardware_type is not None:
-            pulumi.set(__self__, "hardware_type", hardware_type)
+            _setter("hardware_type", hardware_type)
         if offering_type is not None:
-            pulumi.set(__self__, "offering_type", offering_type)
+            _setter("offering_type", offering_type)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if storage_billing_properties is not None:
-            pulumi.set(__self__, "storage_billing_properties", storage_billing_properties)
+            _setter("storage_billing_properties", storage_billing_properties)
         if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
+            _setter("storage_type", storage_type)
         if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
+            _setter("workload_type", workload_type)
 
     @property
     @pulumi.getter
@@ -241,18 +293,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

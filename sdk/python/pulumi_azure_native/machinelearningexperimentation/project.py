@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProjectArgs', 'Project']
@@ -35,20 +35,57 @@ class ProjectArgs:
         :param pulumi.Input[str] project_name: The name of the machine learning project under a team account workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "friendly_name", friendly_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        ProjectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            friendly_name=friendly_name,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            description=description,
+            gitrepo=gitrepo,
+            location=location,
+            project_name=project_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             friendly_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             gitrepo: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+
+        _setter("account_name", account_name)
+        _setter("friendly_name", friendly_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if gitrepo is not None:
-            pulumi.set(__self__, "gitrepo", gitrepo)
+            _setter("gitrepo", gitrepo)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if project_name is not None:
-            pulumi.set(__self__, "project_name", project_name)
+            _setter("project_name", project_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accountName")
@@ -210,6 +247,10 @@ class Project(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

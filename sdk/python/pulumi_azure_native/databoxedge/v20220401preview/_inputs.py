@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -37,19 +37,50 @@ class AddressArgs:
         :param pulumi.Input[str] postal_code: The postal code.
         :param pulumi.Input[str] state: The state name.
         """
-        pulumi.set(__self__, "country", country)
+        AddressArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country=country,
+            address_line1=address_line1,
+            address_line2=address_line2,
+            address_line3=address_line3,
+            city=city,
+            postal_code=postal_code,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country: pulumi.Input[str],
+             address_line1: Optional[pulumi.Input[str]] = None,
+             address_line2: Optional[pulumi.Input[str]] = None,
+             address_line3: Optional[pulumi.Input[str]] = None,
+             city: Optional[pulumi.Input[str]] = None,
+             postal_code: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressLine1' in kwargs:
+            address_line1 = kwargs['addressLine1']
+        if 'addressLine2' in kwargs:
+            address_line2 = kwargs['addressLine2']
+        if 'addressLine3' in kwargs:
+            address_line3 = kwargs['addressLine3']
+        if 'postalCode' in kwargs:
+            postal_code = kwargs['postalCode']
+
+        _setter("country", country)
         if address_line1 is not None:
-            pulumi.set(__self__, "address_line1", address_line1)
+            _setter("address_line1", address_line1)
         if address_line2 is not None:
-            pulumi.set(__self__, "address_line2", address_line2)
+            _setter("address_line2", address_line2)
         if address_line3 is not None:
-            pulumi.set(__self__, "address_line3", address_line3)
+            _setter("address_line3", address_line3)
         if city is not None:
-            pulumi.set(__self__, "city", city)
+            _setter("city", city)
         if postal_code is not None:
-            pulumi.set(__self__, "postal_code", postal_code)
+            _setter("postal_code", postal_code)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -150,10 +181,33 @@ class ContactDetailsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_list: The email list.
         :param pulumi.Input[str] phone: The phone number.
         """
-        pulumi.set(__self__, "company_name", company_name)
-        pulumi.set(__self__, "contact_person", contact_person)
-        pulumi.set(__self__, "email_list", email_list)
-        pulumi.set(__self__, "phone", phone)
+        ContactDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            company_name=company_name,
+            contact_person=contact_person,
+            email_list=email_list,
+            phone=phone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             company_name: pulumi.Input[str],
+             contact_person: pulumi.Input[str],
+             email_list: pulumi.Input[Sequence[pulumi.Input[str]]],
+             phone: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if 'contactPerson' in kwargs:
+            contact_person = kwargs['contactPerson']
+        if 'emailList' in kwargs:
+            email_list = kwargs['emailList']
+
+        _setter("company_name", company_name)
+        _setter("contact_person", contact_person)
+        _setter("email_list", email_list)
+        _setter("phone", phone)
 
     @property
     @pulumi.getter(name="companyName")
@@ -212,8 +266,19 @@ class DataResidencyArgs:
         Wraps data-residency related information for edge-resource and this should be used with ARM layer.
         :param pulumi.Input[Union[str, 'DataResidencyType']] type: DataResidencyType enum
         """
+        DataResidencyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'DataResidencyType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -238,10 +303,23 @@ class SkuArgs:
         :param pulumi.Input[Union[str, 'SkuName']] name: SKU name.
         :param pulumi.Input[Union[str, 'SkuTier']] tier: The SKU tier. This is based on the SKU name.
         """
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None,
+             tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter

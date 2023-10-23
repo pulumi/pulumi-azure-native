@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -39,19 +39,56 @@ class Gen2EnvironmentArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
         :param pulumi.Input['WarmStoreConfigurationPropertiesArgs'] warm_store_configuration: The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
         """
-        pulumi.set(__self__, "kind", 'Gen2')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "storage_configuration", storage_configuration)
-        pulumi.set(__self__, "time_series_id_properties", time_series_id_properties)
+        Gen2EnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            storage_configuration=storage_configuration,
+            time_series_id_properties=time_series_id_properties,
+            environment_name=environment_name,
+            location=location,
+            tags=tags,
+            warm_store_configuration=warm_store_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['SkuArgs'],
+             storage_configuration: pulumi.Input['Gen2StorageConfigurationInputArgs'],
+             time_series_id_properties: pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]],
+             environment_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             warm_store_configuration: Optional[pulumi.Input['WarmStoreConfigurationPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageConfiguration' in kwargs:
+            storage_configuration = kwargs['storageConfiguration']
+        if 'timeSeriesIdProperties' in kwargs:
+            time_series_id_properties = kwargs['timeSeriesIdProperties']
+        if 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if 'warmStoreConfiguration' in kwargs:
+            warm_store_configuration = kwargs['warmStoreConfiguration']
+
+        _setter("kind", 'Gen2')
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
+        _setter("storage_configuration", storage_configuration)
+        _setter("time_series_id_properties", time_series_id_properties)
         if environment_name is not None:
-            pulumi.set(__self__, "environment_name", environment_name)
+            _setter("environment_name", environment_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if warm_store_configuration is not None:
-            pulumi.set(__self__, "warm_store_configuration", warm_store_configuration)
+            _setter("warm_store_configuration", warm_store_configuration)
 
     @property
     @pulumi.getter
@@ -213,6 +250,10 @@ class Gen2Environment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            Gen2EnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -244,9 +285,19 @@ class Gen2Environment(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
+            if storage_configuration is not None and not isinstance(storage_configuration, Gen2StorageConfigurationInputArgs):
+                storage_configuration = storage_configuration or {}
+                def _setter(key, value):
+                    storage_configuration[key] = value
+                Gen2StorageConfigurationInputArgs._configure(_setter, **storage_configuration)
             if storage_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_configuration'")
             __props__.__dict__["storage_configuration"] = storage_configuration
@@ -254,6 +305,11 @@ class Gen2Environment(pulumi.CustomResource):
             if time_series_id_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'time_series_id_properties'")
             __props__.__dict__["time_series_id_properties"] = time_series_id_properties
+            if warm_store_configuration is not None and not isinstance(warm_store_configuration, WarmStoreConfigurationPropertiesArgs):
+                warm_store_configuration = warm_store_configuration or {}
+                def _setter(key, value):
+                    warm_store_configuration[key] = value
+                WarmStoreConfigurationPropertiesArgs._configure(_setter, **warm_store_configuration)
             __props__.__dict__["warm_store_configuration"] = warm_store_configuration
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["data_access_fqdn"] = None

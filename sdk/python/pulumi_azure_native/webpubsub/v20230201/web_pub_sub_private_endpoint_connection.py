@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,14 +30,43 @@ class WebPubSubPrivateEndpointConnectionArgs:
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Connection state of the private endpoint connection
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        WebPubSubPrivateEndpointConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            private_endpoint=private_endpoint,
+            private_endpoint_connection_name=private_endpoint_connection_name,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             resource_name: pulumi.Input[str],
+             private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
+             private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+             private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if 'privateEndpointConnectionName' in kwargs:
+            private_endpoint_connection_name = kwargs['privateEndpointConnectionName']
+        if 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_endpoint_connection_name is not None:
-            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
+            _setter("private_endpoint_connection_name", private_endpoint_connection_name)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -141,6 +170,10 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebPubSubPrivateEndpointConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -160,8 +193,18 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebPubSubPrivateEndpointConnectionArgs.__new__(WebPubSubPrivateEndpointConnectionArgs)
 
+            if private_endpoint is not None and not isinstance(private_endpoint, PrivateEndpointArgs):
+                private_endpoint = private_endpoint or {}
+                def _setter(key, value):
+                    private_endpoint[key] = value
+                PrivateEndpointArgs._configure(_setter, **private_endpoint)
             __props__.__dict__["private_endpoint"] = private_endpoint
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
+            if private_link_service_connection_state is not None and not isinstance(private_link_service_connection_state, PrivateLinkServiceConnectionStateArgs):
+                private_link_service_connection_state = private_link_service_connection_state or {}
+                def _setter(key, value):
+                    private_link_service_connection_state[key] = value
+                PrivateLinkServiceConnectionStateArgs._configure(_setter, **private_link_service_connection_state)
             __props__.__dict__["private_link_service_connection_state"] = private_link_service_connection_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

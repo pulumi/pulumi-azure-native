@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,19 +38,54 @@ class BudgetArgs:
         :param pulumi.Input['BudgetFilterArgs'] filter: May be used to filter budgets by user-specified dimensions and/or tags.
         :param pulumi.Input[Mapping[str, pulumi.Input['NotificationArgs']]] notifications: Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         """
-        pulumi.set(__self__, "amount", amount)
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "time_grain", time_grain)
-        pulumi.set(__self__, "time_period", time_period)
+        BudgetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amount=amount,
+            category=category,
+            scope=scope,
+            time_grain=time_grain,
+            time_period=time_period,
+            budget_name=budget_name,
+            e_tag=e_tag,
+            filter=filter,
+            notifications=notifications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amount: pulumi.Input[float],
+             category: pulumi.Input[Union[str, 'CategoryType']],
+             scope: pulumi.Input[str],
+             time_grain: pulumi.Input[Union[str, 'TimeGrainType']],
+             time_period: pulumi.Input['BudgetTimePeriodArgs'],
+             budget_name: Optional[pulumi.Input[str]] = None,
+             e_tag: Optional[pulumi.Input[str]] = None,
+             filter: Optional[pulumi.Input['BudgetFilterArgs']] = None,
+             notifications: Optional[pulumi.Input[Mapping[str, pulumi.Input['NotificationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeGrain' in kwargs:
+            time_grain = kwargs['timeGrain']
+        if 'timePeriod' in kwargs:
+            time_period = kwargs['timePeriod']
+        if 'budgetName' in kwargs:
+            budget_name = kwargs['budgetName']
+        if 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+
+        _setter("amount", amount)
+        _setter("category", category)
+        _setter("scope", scope)
+        _setter("time_grain", time_grain)
+        _setter("time_period", time_period)
         if budget_name is not None:
-            pulumi.set(__self__, "budget_name", budget_name)
+            _setter("budget_name", budget_name)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
 
     @property
     @pulumi.getter
@@ -216,6 +251,10 @@ class Budget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BudgetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -247,6 +286,11 @@ class Budget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'category'")
             __props__.__dict__["category"] = category
             __props__.__dict__["e_tag"] = e_tag
+            if filter is not None and not isinstance(filter, BudgetFilterArgs):
+                filter = filter or {}
+                def _setter(key, value):
+                    filter[key] = value
+                BudgetFilterArgs._configure(_setter, **filter)
             __props__.__dict__["filter"] = filter
             __props__.__dict__["notifications"] = notifications
             if scope is None and not opts.urn:
@@ -255,6 +299,11 @@ class Budget(pulumi.CustomResource):
             if time_grain is None and not opts.urn:
                 raise TypeError("Missing required property 'time_grain'")
             __props__.__dict__["time_grain"] = time_grain
+            if time_period is not None and not isinstance(time_period, BudgetTimePeriodArgs):
+                time_period = time_period or {}
+                def _setter(key, value):
+                    time_period[key] = value
+                BudgetTimePeriodArgs._configure(_setter, **time_period)
             if time_period is None and not opts.urn:
                 raise TypeError("Missing required property 'time_period'")
             __props__.__dict__["time_period"] = time_period

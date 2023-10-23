@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -62,51 +62,134 @@ class ACIServiceArgs:
         :param pulumi.Input[str] ssl_key: The public SSL key in PEM format for the certificate.
         :param pulumi.Input['ACIServiceCreateRequestVnetConfigurationArgs'] vnet_configuration: The virtual network configuration.
         """
-        pulumi.set(__self__, "compute_type", 'ACI')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        ACIServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            app_insights_enabled=app_insights_enabled,
+            auth_enabled=auth_enabled,
+            cname=cname,
+            container_resource_requirements=container_resource_requirements,
+            data_collection=data_collection,
+            description=description,
+            dns_name_label=dns_name_label,
+            encryption_properties=encryption_properties,
+            environment_image_request=environment_image_request,
+            keys=keys,
+            kv_tags=kv_tags,
+            location=location,
+            properties=properties,
+            service_name=service_name,
+            ssl_certificate=ssl_certificate,
+            ssl_enabled=ssl_enabled,
+            ssl_key=ssl_key,
+            vnet_configuration=vnet_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             app_insights_enabled: Optional[pulumi.Input[bool]] = None,
+             auth_enabled: Optional[pulumi.Input[bool]] = None,
+             cname: Optional[pulumi.Input[str]] = None,
+             container_resource_requirements: Optional[pulumi.Input['ContainerResourceRequirementsArgs']] = None,
+             data_collection: Optional[pulumi.Input['ACIServiceCreateRequestDataCollectionArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dns_name_label: Optional[pulumi.Input[str]] = None,
+             encryption_properties: Optional[pulumi.Input['ACIServiceCreateRequestEncryptionPropertiesArgs']] = None,
+             environment_image_request: Optional[pulumi.Input['CreateServiceRequestEnvironmentImageRequestArgs']] = None,
+             keys: Optional[pulumi.Input['CreateServiceRequestKeysArgs']] = None,
+             kv_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             ssl_certificate: Optional[pulumi.Input[str]] = None,
+             ssl_enabled: Optional[pulumi.Input[bool]] = None,
+             ssl_key: Optional[pulumi.Input[str]] = None,
+             vnet_configuration: Optional[pulumi.Input['ACIServiceCreateRequestVnetConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'appInsightsEnabled' in kwargs:
+            app_insights_enabled = kwargs['appInsightsEnabled']
+        if 'authEnabled' in kwargs:
+            auth_enabled = kwargs['authEnabled']
+        if 'containerResourceRequirements' in kwargs:
+            container_resource_requirements = kwargs['containerResourceRequirements']
+        if 'dataCollection' in kwargs:
+            data_collection = kwargs['dataCollection']
+        if 'dnsNameLabel' in kwargs:
+            dns_name_label = kwargs['dnsNameLabel']
+        if 'encryptionProperties' in kwargs:
+            encryption_properties = kwargs['encryptionProperties']
+        if 'environmentImageRequest' in kwargs:
+            environment_image_request = kwargs['environmentImageRequest']
+        if 'kvTags' in kwargs:
+            kv_tags = kwargs['kvTags']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'sslCertificate' in kwargs:
+            ssl_certificate = kwargs['sslCertificate']
+        if 'sslEnabled' in kwargs:
+            ssl_enabled = kwargs['sslEnabled']
+        if 'sslKey' in kwargs:
+            ssl_key = kwargs['sslKey']
+        if 'vnetConfiguration' in kwargs:
+            vnet_configuration = kwargs['vnetConfiguration']
+
+        _setter("compute_type", 'ACI')
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if app_insights_enabled is None:
             app_insights_enabled = False
         if app_insights_enabled is not None:
-            pulumi.set(__self__, "app_insights_enabled", app_insights_enabled)
+            _setter("app_insights_enabled", app_insights_enabled)
         if auth_enabled is None:
             auth_enabled = False
         if auth_enabled is not None:
-            pulumi.set(__self__, "auth_enabled", auth_enabled)
+            _setter("auth_enabled", auth_enabled)
         if cname is not None:
-            pulumi.set(__self__, "cname", cname)
+            _setter("cname", cname)
         if container_resource_requirements is not None:
-            pulumi.set(__self__, "container_resource_requirements", container_resource_requirements)
+            _setter("container_resource_requirements", container_resource_requirements)
         if data_collection is not None:
-            pulumi.set(__self__, "data_collection", data_collection)
+            _setter("data_collection", data_collection)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dns_name_label is not None:
-            pulumi.set(__self__, "dns_name_label", dns_name_label)
+            _setter("dns_name_label", dns_name_label)
         if encryption_properties is not None:
-            pulumi.set(__self__, "encryption_properties", encryption_properties)
+            _setter("encryption_properties", encryption_properties)
         if environment_image_request is not None:
-            pulumi.set(__self__, "environment_image_request", environment_image_request)
+            _setter("environment_image_request", environment_image_request)
         if keys is not None:
-            pulumi.set(__self__, "keys", keys)
+            _setter("keys", keys)
         if kv_tags is not None:
-            pulumi.set(__self__, "kv_tags", kv_tags)
+            _setter("kv_tags", kv_tags)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if ssl_certificate is not None:
-            pulumi.set(__self__, "ssl_certificate", ssl_certificate)
+            _setter("ssl_certificate", ssl_certificate)
         if ssl_enabled is None:
             ssl_enabled = False
         if ssl_enabled is not None:
-            pulumi.set(__self__, "ssl_enabled", ssl_enabled)
+            _setter("ssl_enabled", ssl_enabled)
         if ssl_key is not None:
-            pulumi.set(__self__, "ssl_key", ssl_key)
+            _setter("ssl_key", ssl_key)
         if vnet_configuration is not None:
-            pulumi.set(__self__, "vnet_configuration", vnet_configuration)
+            _setter("vnet_configuration", vnet_configuration)
 
     @property
     @pulumi.getter(name="computeType")
@@ -436,6 +519,10 @@ class ACIService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ACIServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -481,12 +568,37 @@ class ACIService(pulumi.CustomResource):
             if compute_type is None and not opts.urn:
                 raise TypeError("Missing required property 'compute_type'")
             __props__.__dict__["compute_type"] = 'ACI'
+            if container_resource_requirements is not None and not isinstance(container_resource_requirements, ContainerResourceRequirementsArgs):
+                container_resource_requirements = container_resource_requirements or {}
+                def _setter(key, value):
+                    container_resource_requirements[key] = value
+                ContainerResourceRequirementsArgs._configure(_setter, **container_resource_requirements)
             __props__.__dict__["container_resource_requirements"] = container_resource_requirements
+            if data_collection is not None and not isinstance(data_collection, ACIServiceCreateRequestDataCollectionArgs):
+                data_collection = data_collection or {}
+                def _setter(key, value):
+                    data_collection[key] = value
+                ACIServiceCreateRequestDataCollectionArgs._configure(_setter, **data_collection)
             __props__.__dict__["data_collection"] = data_collection
             __props__.__dict__["description"] = description
             __props__.__dict__["dns_name_label"] = dns_name_label
+            if encryption_properties is not None and not isinstance(encryption_properties, ACIServiceCreateRequestEncryptionPropertiesArgs):
+                encryption_properties = encryption_properties or {}
+                def _setter(key, value):
+                    encryption_properties[key] = value
+                ACIServiceCreateRequestEncryptionPropertiesArgs._configure(_setter, **encryption_properties)
             __props__.__dict__["encryption_properties"] = encryption_properties
+            if environment_image_request is not None and not isinstance(environment_image_request, CreateServiceRequestEnvironmentImageRequestArgs):
+                environment_image_request = environment_image_request or {}
+                def _setter(key, value):
+                    environment_image_request[key] = value
+                CreateServiceRequestEnvironmentImageRequestArgs._configure(_setter, **environment_image_request)
             __props__.__dict__["environment_image_request"] = environment_image_request
+            if keys is not None and not isinstance(keys, CreateServiceRequestKeysArgs):
+                keys = keys or {}
+                def _setter(key, value):
+                    keys[key] = value
+                CreateServiceRequestKeysArgs._configure(_setter, **keys)
             __props__.__dict__["keys"] = keys
             __props__.__dict__["kv_tags"] = kv_tags
             __props__.__dict__["location"] = location
@@ -500,6 +612,11 @@ class ACIService(pulumi.CustomResource):
                 ssl_enabled = False
             __props__.__dict__["ssl_enabled"] = ssl_enabled
             __props__.__dict__["ssl_key"] = ssl_key
+            if vnet_configuration is not None and not isinstance(vnet_configuration, ACIServiceCreateRequestVnetConfigurationArgs):
+                vnet_configuration = vnet_configuration or {}
+                def _setter(key, value):
+                    vnet_configuration[key] = value
+                ACIServiceCreateRequestVnetConfigurationArgs._configure(_setter, **vnet_configuration)
             __props__.__dict__["vnet_configuration"] = vnet_configuration
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

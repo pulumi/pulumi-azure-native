@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -39,18 +39,63 @@ class BlobStorageAccountDataSetMappingArgs:
         :param pulumi.Input[str] data_set_mapping_name: The name of the data set mapping to be created.
         :param pulumi.Input[str] mount_path: Gets or sets the mount path on the consumer side where the dataset is to be mapped.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        pulumi.set(__self__, "folder", folder)
-        pulumi.set(__self__, "kind", 'BlobStorageAccount')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "share_subscription_name", share_subscription_name)
-        pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+        BlobStorageAccountDataSetMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            container_name=container_name,
+            data_set_id=data_set_id,
+            folder=folder,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            share_subscription_name=share_subscription_name,
+            storage_account_resource_id=storage_account_resource_id,
+            data_set_mapping_name=data_set_mapping_name,
+            mount_path=mount_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             container_name: pulumi.Input[str],
+             data_set_id: pulumi.Input[str],
+             folder: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             share_subscription_name: pulumi.Input[str],
+             storage_account_resource_id: pulumi.Input[str],
+             data_set_mapping_name: Optional[pulumi.Input[str]] = None,
+             mount_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'dataSetId' in kwargs:
+            data_set_id = kwargs['dataSetId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'shareSubscriptionName' in kwargs:
+            share_subscription_name = kwargs['shareSubscriptionName']
+        if 'storageAccountResourceId' in kwargs:
+            storage_account_resource_id = kwargs['storageAccountResourceId']
+        if 'dataSetMappingName' in kwargs:
+            data_set_mapping_name = kwargs['dataSetMappingName']
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+
+        _setter("account_name", account_name)
+        _setter("container_name", container_name)
+        _setter("data_set_id", data_set_id)
+        _setter("folder", folder)
+        _setter("kind", 'BlobStorageAccount')
+        _setter("resource_group_name", resource_group_name)
+        _setter("share_subscription_name", share_subscription_name)
+        _setter("storage_account_resource_id", storage_account_resource_id)
         if data_set_mapping_name is not None:
-            pulumi.set(__self__, "data_set_mapping_name", data_set_mapping_name)
+            _setter("data_set_mapping_name", data_set_mapping_name)
         if mount_path is not None:
-            pulumi.set(__self__, "mount_path", mount_path)
+            _setter("mount_path", mount_path)
 
     @property
     @pulumi.getter(name="accountName")
@@ -226,6 +271,10 @@ class BlobStorageAccountDataSetMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BlobStorageAccountDataSetMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

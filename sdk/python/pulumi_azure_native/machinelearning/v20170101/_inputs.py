@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -58,19 +58,50 @@ class AssetItemArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['OutputPortArgs']]] output_ports: Information about the asset's output ports.
         :param pulumi.Input[Sequence[pulumi.Input['ModuleAssetParameterArgs']]] parameters: If the asset is a custom module, this holds the module's parameters.
         """
-        pulumi.set(__self__, "location_info", location_info)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        AssetItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location_info=location_info,
+            name=name,
+            type=type,
+            id=id,
+            input_ports=input_ports,
+            metadata=metadata,
+            output_ports=output_ports,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location_info: pulumi.Input['BlobLocationArgs'],
+             name: pulumi.Input[str],
+             type: pulumi.Input[Union[str, 'AssetType']],
+             id: Optional[pulumi.Input[str]] = None,
+             input_ports: Optional[pulumi.Input[Mapping[str, pulumi.Input['InputPortArgs']]]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             output_ports: Optional[pulumi.Input[Mapping[str, pulumi.Input['OutputPortArgs']]]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ModuleAssetParameterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'locationInfo' in kwargs:
+            location_info = kwargs['locationInfo']
+        if 'inputPorts' in kwargs:
+            input_ports = kwargs['inputPorts']
+        if 'outputPorts' in kwargs:
+            output_ports = kwargs['outputPorts']
+
+        _setter("location_info", location_info)
+        _setter("name", name)
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if input_ports is not None:
-            pulumi.set(__self__, "input_ports", input_ports)
+            _setter("input_ports", input_ports)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if output_ports is not None:
-            pulumi.set(__self__, "output_ports", output_ports)
+            _setter("output_ports", output_ports)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="locationInfo")
@@ -179,9 +210,22 @@ class BlobLocationArgs:
         :param pulumi.Input[str] uri: The URI from which the blob is accessible from. For example, aml://abc for system assets or https://xyz for user assets or payload.
         :param pulumi.Input[str] credentials: Access credentials for the blob, if applicable (e.g. blob specified by storage account connection string + blob URI)
         """
-        pulumi.set(__self__, "uri", uri)
+        BlobLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uri=uri,
+            credentials=credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uri: pulumi.Input[str],
+             credentials: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("uri", uri)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
 
     @property
     @pulumi.getter
@@ -224,15 +268,38 @@ class ColumnSpecificationArgs:
         :param pulumi.Input[bool] x_ms_isnullable: Flag indicating if the type supports null values or not.
         :param pulumi.Input[bool] x_ms_isordered: Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
         """
-        pulumi.set(__self__, "type", type)
+        ColumnSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            enum=enum,
+            format=format,
+            x_ms_isnullable=x_ms_isnullable,
+            x_ms_isordered=x_ms_isordered,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'ColumnType']],
+             enum: Optional[pulumi.Input[Sequence[Any]]] = None,
+             format: Optional[pulumi.Input[Union[str, 'ColumnFormat']]] = None,
+             x_ms_isnullable: Optional[pulumi.Input[bool]] = None,
+             x_ms_isordered: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xMsIsnullable' in kwargs:
+            x_ms_isnullable = kwargs['xMsIsnullable']
+        if 'xMsIsordered' in kwargs:
+            x_ms_isordered = kwargs['xMsIsordered']
+
+        _setter("type", type)
         if enum is not None:
-            pulumi.set(__self__, "enum", enum)
+            _setter("enum", enum)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if x_ms_isnullable is not None:
-            pulumi.set(__self__, "x_ms_isnullable", x_ms_isnullable)
+            _setter("x_ms_isnullable", x_ms_isnullable)
         if x_ms_isordered is not None:
-            pulumi.set(__self__, "x_ms_isordered", x_ms_isordered)
+            _setter("x_ms_isordered", x_ms_isordered)
 
     @property
     @pulumi.getter
@@ -303,7 +370,18 @@ class CommitmentPlanArgs:
         Information about the machine learning commitment plan associated with the web service.
         :param pulumi.Input[str] id: Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
         """
-        pulumi.set(__self__, "id", id)
+        CommitmentPlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -328,9 +406,22 @@ class DiagnosticsConfigurationArgs:
         :param pulumi.Input[Union[str, 'DiagnosticsLevel']] level: Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
         :param pulumi.Input[str] expiry: Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
         """
-        pulumi.set(__self__, "level", level)
+        DiagnosticsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            level=level,
+            expiry=expiry,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             level: pulumi.Input[Union[str, 'DiagnosticsLevel']],
+             expiry: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("level", level)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
 
     @property
     @pulumi.getter
@@ -367,10 +458,25 @@ class ExampleRequestArgs:
         :param pulumi.Input[Mapping[str, Any]] global_parameters: Sample input data for the web service's global parameters
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Sequence[Any]]]]]] inputs: Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
         """
+        ExampleRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            global_parameters=global_parameters,
+            inputs=inputs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             global_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             inputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Sequence[Any]]]]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'globalParameters' in kwargs:
+            global_parameters = kwargs['globalParameters']
+
         if global_parameters is not None:
-            pulumi.set(__self__, "global_parameters", global_parameters)
+            _setter("global_parameters", global_parameters)
         if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
+            _setter("inputs", inputs)
 
     @property
     @pulumi.getter(name="globalParameters")
@@ -411,14 +517,39 @@ class GraphEdgeArgs:
         :param pulumi.Input[str] target_node_id: The destination graph node's identifier.
         :param pulumi.Input[str] target_port_id: The identifier of the destination node's port that the edge connects into.
         """
+        GraphEdgeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_node_id=source_node_id,
+            source_port_id=source_port_id,
+            target_node_id=target_node_id,
+            target_port_id=target_port_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_node_id: Optional[pulumi.Input[str]] = None,
+             source_port_id: Optional[pulumi.Input[str]] = None,
+             target_node_id: Optional[pulumi.Input[str]] = None,
+             target_port_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceNodeId' in kwargs:
+            source_node_id = kwargs['sourceNodeId']
+        if 'sourcePortId' in kwargs:
+            source_port_id = kwargs['sourcePortId']
+        if 'targetNodeId' in kwargs:
+            target_node_id = kwargs['targetNodeId']
+        if 'targetPortId' in kwargs:
+            target_port_id = kwargs['targetPortId']
+
         if source_node_id is not None:
-            pulumi.set(__self__, "source_node_id", source_node_id)
+            _setter("source_node_id", source_node_id)
         if source_port_id is not None:
-            pulumi.set(__self__, "source_port_id", source_port_id)
+            _setter("source_port_id", source_port_id)
         if target_node_id is not None:
-            pulumi.set(__self__, "target_node_id", target_node_id)
+            _setter("target_node_id", target_node_id)
         if target_port_id is not None:
-            pulumi.set(__self__, "target_port_id", target_port_id)
+            _setter("target_port_id", target_port_id)
 
     @property
     @pulumi.getter(name="sourceNodeId")
@@ -483,14 +614,37 @@ class GraphNodeArgs:
         :param pulumi.Input[str] output_id: The id of the output element represented by this node.
         :param pulumi.Input[Mapping[str, pulumi.Input['WebServiceParameterArgs']]] parameters: If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
         """
+        GraphNodeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_id=asset_id,
+            input_id=input_id,
+            output_id=output_id,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_id: Optional[pulumi.Input[str]] = None,
+             input_id: Optional[pulumi.Input[str]] = None,
+             output_id: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['WebServiceParameterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assetId' in kwargs:
+            asset_id = kwargs['assetId']
+        if 'inputId' in kwargs:
+            input_id = kwargs['inputId']
+        if 'outputId' in kwargs:
+            output_id = kwargs['outputId']
+
         if asset_id is not None:
-            pulumi.set(__self__, "asset_id", asset_id)
+            _setter("asset_id", asset_id)
         if input_id is not None:
-            pulumi.set(__self__, "input_id", input_id)
+            _setter("input_id", input_id)
         if output_id is not None:
-            pulumi.set(__self__, "output_id", output_id)
+            _setter("output_id", output_id)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="assetId")
@@ -553,12 +707,29 @@ class GraphPackageArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['GraphParameterArgs']]] graph_parameters: The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
         :param pulumi.Input[Mapping[str, pulumi.Input['GraphNodeArgs']]] nodes: The set of nodes making up the graph, provided as a nodeId to GraphNode map
         """
+        GraphPackageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            edges=edges,
+            graph_parameters=graph_parameters,
+            nodes=nodes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             edges: Optional[pulumi.Input[Sequence[pulumi.Input['GraphEdgeArgs']]]] = None,
+             graph_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['GraphParameterArgs']]]] = None,
+             nodes: Optional[pulumi.Input[Mapping[str, pulumi.Input['GraphNodeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'graphParameters' in kwargs:
+            graph_parameters = kwargs['graphParameters']
+
         if edges is not None:
-            pulumi.set(__self__, "edges", edges)
+            _setter("edges", edges)
         if graph_parameters is not None:
-            pulumi.set(__self__, "graph_parameters", graph_parameters)
+            _setter("graph_parameters", graph_parameters)
         if nodes is not None:
-            pulumi.set(__self__, "nodes", nodes)
+            _setter("nodes", nodes)
 
     @property
     @pulumi.getter
@@ -607,8 +778,25 @@ class GraphParameterLinkArgs:
         :param pulumi.Input[str] node_id: The graph node's identifier
         :param pulumi.Input[str] parameter_key: The identifier of the node parameter that the global parameter maps to.
         """
-        pulumi.set(__self__, "node_id", node_id)
-        pulumi.set(__self__, "parameter_key", parameter_key)
+        GraphParameterLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node_id=node_id,
+            parameter_key=parameter_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node_id: pulumi.Input[str],
+             parameter_key: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nodeId' in kwargs:
+            node_id = kwargs['nodeId']
+        if 'parameterKey' in kwargs:
+            parameter_key = kwargs['parameterKey']
+
+        _setter("node_id", node_id)
+        _setter("parameter_key", parameter_key)
 
     @property
     @pulumi.getter(name="nodeId")
@@ -647,10 +835,25 @@ class GraphParameterArgs:
         :param pulumi.Input[Union[str, 'ParameterType']] type: Graph parameter's type.
         :param pulumi.Input[str] description: Description of this graph parameter.
         """
-        pulumi.set(__self__, "links", links)
-        pulumi.set(__self__, "type", type)
+        GraphParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            links=links,
+            type=type,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             links: pulumi.Input[Sequence[pulumi.Input['GraphParameterLinkArgs']]],
+             type: pulumi.Input[Union[str, 'ParameterType']],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("links", links)
+        _setter("type", type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -697,10 +900,21 @@ class InputPortArgs:
         Asset input port
         :param pulumi.Input[Union[str, 'InputPortType']] type: Port data type.
         """
+        InputPortArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'InputPortType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is None:
             type = 'Dataset'
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -723,7 +937,18 @@ class MachineLearningWorkspaceArgs:
         Information about the machine learning workspace containing the experiment that is source for the web service.
         :param pulumi.Input[str] id: Specifies the workspace ID of the machine learning workspace associated with the web service
         """
-        pulumi.set(__self__, "id", id)
+        MachineLearningWorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -748,10 +973,25 @@ class ModeValueInfoArgs:
         :param pulumi.Input[str] interface_string: The interface string name for the nested parameter.
         :param pulumi.Input[Sequence[pulumi.Input['ModuleAssetParameterArgs']]] parameters: The definition of the parameter.
         """
+        ModeValueInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interface_string=interface_string,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interface_string: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ModuleAssetParameterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'interfaceString' in kwargs:
+            interface_string = kwargs['interfaceString']
+
         if interface_string is not None:
-            pulumi.set(__self__, "interface_string", interface_string)
+            _setter("interface_string", interface_string)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="interfaceString")
@@ -790,12 +1030,31 @@ class ModuleAssetParameterArgs:
         :param pulumi.Input[str] name: Parameter name.
         :param pulumi.Input[str] parameter_type: Parameter type.
         """
+        ModuleAssetParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode_values_info=mode_values_info,
+            name=name,
+            parameter_type=parameter_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode_values_info: Optional[pulumi.Input[Mapping[str, pulumi.Input['ModeValueInfoArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameter_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'modeValuesInfo' in kwargs:
+            mode_values_info = kwargs['modeValuesInfo']
+        if 'parameterType' in kwargs:
+            parameter_type = kwargs['parameterType']
+
         if mode_values_info is not None:
-            pulumi.set(__self__, "mode_values_info", mode_values_info)
+            _setter("mode_values_info", mode_values_info)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameter_type is not None:
-            pulumi.set(__self__, "parameter_type", parameter_type)
+            _setter("parameter_type", parameter_type)
 
     @property
     @pulumi.getter(name="modeValuesInfo")
@@ -842,10 +1101,21 @@ class OutputPortArgs:
         Asset output port
         :param pulumi.Input[Union[str, 'OutputPortType']] type: Port data type.
         """
+        OutputPortArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'OutputPortType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is None:
             type = 'Dataset'
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -868,8 +1138,21 @@ class RealtimeConfigurationArgs:
         Holds the available configuration options for an Azure ML web service endpoint.
         :param pulumi.Input[int] max_concurrent_calls: Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
         """
+        RealtimeConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_concurrent_calls=max_concurrent_calls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_concurrent_calls: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxConcurrentCalls' in kwargs:
+            max_concurrent_calls = kwargs['maxConcurrentCalls']
+
         if max_concurrent_calls is not None:
-            pulumi.set(__self__, "max_concurrent_calls", max_concurrent_calls)
+            _setter("max_concurrent_calls", max_concurrent_calls)
 
     @property
     @pulumi.getter(name="maxConcurrentCalls")
@@ -898,14 +1181,31 @@ class ServiceInputOutputSpecificationArgs:
         :param pulumi.Input[str] description: The description of the Swagger schema.
         :param pulumi.Input[str] title: The title of your Swagger schema.
         """
-        pulumi.set(__self__, "properties", properties)
+        ServiceInputOutputSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            type=type,
+            description=description,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: pulumi.Input[Mapping[str, pulumi.Input['TableSpecificationArgs']]],
+             type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("properties", properties)
         if type is None:
             type = 'object'
-        pulumi.set(__self__, "type", type)
+        _setter("type", type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter
@@ -966,10 +1266,23 @@ class StorageAccountArgs:
         :param pulumi.Input[str] key: Specifies the key used to access the storage account.
         :param pulumi.Input[str] name: Specifies the name of the storage account.
         """
+        StorageAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1012,17 +1325,36 @@ class TableSpecificationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['ColumnSpecificationArgs']]] properties: The set of columns within the data table.
         :param pulumi.Input[str] title: Swagger schema title.
         """
+        TableSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            description=description,
+            format=format,
+            properties=properties,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             format: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['ColumnSpecificationArgs']]]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is None:
             type = 'object'
-        pulumi.set(__self__, "type", type)
+        _setter("type", type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter
@@ -1095,10 +1427,23 @@ class WebServiceKeysArgs:
         :param pulumi.Input[str] primary: The primary access key.
         :param pulumi.Input[str] secondary: The secondary access key.
         """
+        WebServiceKeysArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary=primary,
+            secondary=secondary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary: Optional[pulumi.Input[str]] = None,
+             secondary: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if primary is not None:
-            pulumi.set(__self__, "primary", primary)
+            _setter("primary", primary)
         if secondary is not None:
-            pulumi.set(__self__, "secondary", secondary)
+            _setter("secondary", secondary)
 
     @property
     @pulumi.getter
@@ -1135,10 +1480,25 @@ class WebServiceParameterArgs:
         :param pulumi.Input[str] certificate_thumbprint: If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
         :param Any value: The parameter value
         """
+        WebServiceParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_thumbprint=certificate_thumbprint,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+             value: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateThumbprint' in kwargs:
+            certificate_thumbprint = kwargs['certificateThumbprint']
+
         if certificate_thumbprint is not None:
-            pulumi.set(__self__, "certificate_thumbprint", certificate_thumbprint)
+            _setter("certificate_thumbprint", certificate_thumbprint)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="certificateThumbprint")
@@ -1210,43 +1570,110 @@ class WebServicePropertiesForGraphArgs:
         :param pulumi.Input['StorageAccountArgs'] storage_account: Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
         :param pulumi.Input[str] title: The title of the web service.
         """
-        pulumi.set(__self__, "package_type", 'Graph')
+        WebServicePropertiesForGraphArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            package_type=package_type,
+            assets=assets,
+            commitment_plan=commitment_plan,
+            description=description,
+            diagnostics=diagnostics,
+            example_request=example_request,
+            expose_sample_data=expose_sample_data,
+            input=input,
+            keys=keys,
+            machine_learning_workspace=machine_learning_workspace,
+            output=output,
+            package=package,
+            parameters=parameters,
+            payloads_in_blob_storage=payloads_in_blob_storage,
+            payloads_location=payloads_location,
+            read_only=read_only,
+            realtime_configuration=realtime_configuration,
+            storage_account=storage_account,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             package_type: pulumi.Input[str],
+             assets: Optional[pulumi.Input[Mapping[str, pulumi.Input['AssetItemArgs']]]] = None,
+             commitment_plan: Optional[pulumi.Input['CommitmentPlanArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             diagnostics: Optional[pulumi.Input['DiagnosticsConfigurationArgs']] = None,
+             example_request: Optional[pulumi.Input['ExampleRequestArgs']] = None,
+             expose_sample_data: Optional[pulumi.Input[bool]] = None,
+             input: Optional[pulumi.Input['ServiceInputOutputSpecificationArgs']] = None,
+             keys: Optional[pulumi.Input['WebServiceKeysArgs']] = None,
+             machine_learning_workspace: Optional[pulumi.Input['MachineLearningWorkspaceArgs']] = None,
+             output: Optional[pulumi.Input['ServiceInputOutputSpecificationArgs']] = None,
+             package: Optional[pulumi.Input['GraphPackageArgs']] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['WebServiceParameterArgs']]]] = None,
+             payloads_in_blob_storage: Optional[pulumi.Input[bool]] = None,
+             payloads_location: Optional[pulumi.Input['BlobLocationArgs']] = None,
+             read_only: Optional[pulumi.Input[bool]] = None,
+             realtime_configuration: Optional[pulumi.Input['RealtimeConfigurationArgs']] = None,
+             storage_account: Optional[pulumi.Input['StorageAccountArgs']] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'packageType' in kwargs:
+            package_type = kwargs['packageType']
+        if 'commitmentPlan' in kwargs:
+            commitment_plan = kwargs['commitmentPlan']
+        if 'exampleRequest' in kwargs:
+            example_request = kwargs['exampleRequest']
+        if 'exposeSampleData' in kwargs:
+            expose_sample_data = kwargs['exposeSampleData']
+        if 'machineLearningWorkspace' in kwargs:
+            machine_learning_workspace = kwargs['machineLearningWorkspace']
+        if 'payloadsInBlobStorage' in kwargs:
+            payloads_in_blob_storage = kwargs['payloadsInBlobStorage']
+        if 'payloadsLocation' in kwargs:
+            payloads_location = kwargs['payloadsLocation']
+        if 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+        if 'realtimeConfiguration' in kwargs:
+            realtime_configuration = kwargs['realtimeConfiguration']
+        if 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+
+        _setter("package_type", 'Graph')
         if assets is not None:
-            pulumi.set(__self__, "assets", assets)
+            _setter("assets", assets)
         if commitment_plan is not None:
-            pulumi.set(__self__, "commitment_plan", commitment_plan)
+            _setter("commitment_plan", commitment_plan)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if diagnostics is not None:
-            pulumi.set(__self__, "diagnostics", diagnostics)
+            _setter("diagnostics", diagnostics)
         if example_request is not None:
-            pulumi.set(__self__, "example_request", example_request)
+            _setter("example_request", example_request)
         if expose_sample_data is not None:
-            pulumi.set(__self__, "expose_sample_data", expose_sample_data)
+            _setter("expose_sample_data", expose_sample_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
         if keys is not None:
-            pulumi.set(__self__, "keys", keys)
+            _setter("keys", keys)
         if machine_learning_workspace is not None:
-            pulumi.set(__self__, "machine_learning_workspace", machine_learning_workspace)
+            _setter("machine_learning_workspace", machine_learning_workspace)
         if output is not None:
-            pulumi.set(__self__, "output", output)
+            _setter("output", output)
         if package is not None:
-            pulumi.set(__self__, "package", package)
+            _setter("package", package)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if payloads_in_blob_storage is not None:
-            pulumi.set(__self__, "payloads_in_blob_storage", payloads_in_blob_storage)
+            _setter("payloads_in_blob_storage", payloads_in_blob_storage)
         if payloads_location is not None:
-            pulumi.set(__self__, "payloads_location", payloads_location)
+            _setter("payloads_location", payloads_location)
         if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
+            _setter("read_only", read_only)
         if realtime_configuration is not None:
-            pulumi.set(__self__, "realtime_configuration", realtime_configuration)
+            _setter("realtime_configuration", realtime_configuration)
         if storage_account is not None:
-            pulumi.set(__self__, "storage_account", storage_account)
+            _setter("storage_account", storage_account)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter(name="packageType")

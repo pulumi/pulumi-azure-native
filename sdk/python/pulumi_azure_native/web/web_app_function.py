@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WebAppFunctionArgs', 'WebAppFunction']
@@ -51,38 +51,103 @@ class WebAppFunctionArgs:
         :param pulumi.Input[str] test_data: Test data used when testing via the Azure Portal.
         :param pulumi.Input[str] test_data_href: Test data URI.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WebAppFunctionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            config=config,
+            config_href=config_href,
+            files=files,
+            function_app_id=function_app_id,
+            function_name=function_name,
+            href=href,
+            invoke_url_template=invoke_url_template,
+            is_disabled=is_disabled,
+            kind=kind,
+            language=language,
+            script_href=script_href,
+            script_root_path_href=script_root_path_href,
+            secrets_file_href=secrets_file_href,
+            test_data=test_data,
+            test_data_href=test_data_href,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             config: Optional[Any] = None,
+             config_href: Optional[pulumi.Input[str]] = None,
+             files: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             function_app_id: Optional[pulumi.Input[str]] = None,
+             function_name: Optional[pulumi.Input[str]] = None,
+             href: Optional[pulumi.Input[str]] = None,
+             invoke_url_template: Optional[pulumi.Input[str]] = None,
+             is_disabled: Optional[pulumi.Input[bool]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             language: Optional[pulumi.Input[str]] = None,
+             script_href: Optional[pulumi.Input[str]] = None,
+             script_root_path_href: Optional[pulumi.Input[str]] = None,
+             secrets_file_href: Optional[pulumi.Input[str]] = None,
+             test_data: Optional[pulumi.Input[str]] = None,
+             test_data_href: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'configHref' in kwargs:
+            config_href = kwargs['configHref']
+        if 'functionAppId' in kwargs:
+            function_app_id = kwargs['functionAppId']
+        if 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if 'invokeUrlTemplate' in kwargs:
+            invoke_url_template = kwargs['invokeUrlTemplate']
+        if 'isDisabled' in kwargs:
+            is_disabled = kwargs['isDisabled']
+        if 'scriptHref' in kwargs:
+            script_href = kwargs['scriptHref']
+        if 'scriptRootPathHref' in kwargs:
+            script_root_path_href = kwargs['scriptRootPathHref']
+        if 'secretsFileHref' in kwargs:
+            secrets_file_href = kwargs['secretsFileHref']
+        if 'testData' in kwargs:
+            test_data = kwargs['testData']
+        if 'testDataHref' in kwargs:
+            test_data_href = kwargs['testDataHref']
+
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if config_href is not None:
-            pulumi.set(__self__, "config_href", config_href)
+            _setter("config_href", config_href)
         if files is not None:
-            pulumi.set(__self__, "files", files)
+            _setter("files", files)
         if function_app_id is not None:
-            pulumi.set(__self__, "function_app_id", function_app_id)
+            _setter("function_app_id", function_app_id)
         if function_name is not None:
-            pulumi.set(__self__, "function_name", function_name)
+            _setter("function_name", function_name)
         if href is not None:
-            pulumi.set(__self__, "href", href)
+            _setter("href", href)
         if invoke_url_template is not None:
-            pulumi.set(__self__, "invoke_url_template", invoke_url_template)
+            _setter("invoke_url_template", invoke_url_template)
         if is_disabled is not None:
-            pulumi.set(__self__, "is_disabled", is_disabled)
+            _setter("is_disabled", is_disabled)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if script_href is not None:
-            pulumi.set(__self__, "script_href", script_href)
+            _setter("script_href", script_href)
         if script_root_path_href is not None:
-            pulumi.set(__self__, "script_root_path_href", script_root_path_href)
+            _setter("script_root_path_href", script_root_path_href)
         if secrets_file_href is not None:
-            pulumi.set(__self__, "secrets_file_href", secrets_file_href)
+            _setter("secrets_file_href", secrets_file_href)
         if test_data is not None:
-            pulumi.set(__self__, "test_data", test_data)
+            _setter("test_data", test_data)
         if test_data_href is not None:
-            pulumi.set(__self__, "test_data_href", test_data_href)
+            _setter("test_data_href", test_data_href)
 
     @property
     @pulumi.getter
@@ -360,6 +425,10 @@ class WebAppFunction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppFunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

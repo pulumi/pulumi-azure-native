@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -78,10 +78,25 @@ class AccessControlListActionArgs:
         :param pulumi.Input[str] counter_name: Name of the counter block to get match count information.
         :param pulumi.Input[Union[str, 'AclActionType']] type: Type of actions that can be performed.
         """
+        AccessControlListActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            counter_name=counter_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             counter_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'AclActionType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'counterName' in kwargs:
+            counter_name = kwargs['counterName']
+
         if counter_name is not None:
-            pulumi.set(__self__, "counter_name", counter_name)
+            _setter("counter_name", counter_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="counterName")
@@ -132,24 +147,67 @@ class AccessControlListMatchConditionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ttl_values: List of TTL [Time To Live] values that need to be matched.
         :param pulumi.Input['VlanMatchConditionArgs'] vlan_match_condition: Vlan match condition that needs to be matched.
         """
+        AccessControlListMatchConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dscp_markings=dscp_markings,
+            ether_types=ether_types,
+            fragments=fragments,
+            ip_condition=ip_condition,
+            ip_lengths=ip_lengths,
+            port_condition=port_condition,
+            protocol_types=protocol_types,
+            ttl_values=ttl_values,
+            vlan_match_condition=vlan_match_condition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dscp_markings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ether_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             fragments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_condition: Optional[pulumi.Input['IpMatchConditionArgs']] = None,
+             ip_lengths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             port_condition: Optional[pulumi.Input['AccessControlListPortConditionArgs']] = None,
+             protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ttl_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vlan_match_condition: Optional[pulumi.Input['VlanMatchConditionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dscpMarkings' in kwargs:
+            dscp_markings = kwargs['dscpMarkings']
+        if 'etherTypes' in kwargs:
+            ether_types = kwargs['etherTypes']
+        if 'ipCondition' in kwargs:
+            ip_condition = kwargs['ipCondition']
+        if 'ipLengths' in kwargs:
+            ip_lengths = kwargs['ipLengths']
+        if 'portCondition' in kwargs:
+            port_condition = kwargs['portCondition']
+        if 'protocolTypes' in kwargs:
+            protocol_types = kwargs['protocolTypes']
+        if 'ttlValues' in kwargs:
+            ttl_values = kwargs['ttlValues']
+        if 'vlanMatchCondition' in kwargs:
+            vlan_match_condition = kwargs['vlanMatchCondition']
+
         if dscp_markings is not None:
-            pulumi.set(__self__, "dscp_markings", dscp_markings)
+            _setter("dscp_markings", dscp_markings)
         if ether_types is not None:
-            pulumi.set(__self__, "ether_types", ether_types)
+            _setter("ether_types", ether_types)
         if fragments is not None:
-            pulumi.set(__self__, "fragments", fragments)
+            _setter("fragments", fragments)
         if ip_condition is not None:
-            pulumi.set(__self__, "ip_condition", ip_condition)
+            _setter("ip_condition", ip_condition)
         if ip_lengths is not None:
-            pulumi.set(__self__, "ip_lengths", ip_lengths)
+            _setter("ip_lengths", ip_lengths)
         if port_condition is not None:
-            pulumi.set(__self__, "port_condition", port_condition)
+            _setter("port_condition", port_condition)
         if protocol_types is not None:
-            pulumi.set(__self__, "protocol_types", protocol_types)
+            _setter("protocol_types", protocol_types)
         if ttl_values is not None:
-            pulumi.set(__self__, "ttl_values", ttl_values)
+            _setter("ttl_values", ttl_values)
         if vlan_match_condition is not None:
-            pulumi.set(__self__, "vlan_match_condition", vlan_match_condition)
+            _setter("vlan_match_condition", vlan_match_condition)
 
     @property
     @pulumi.getter(name="dscpMarkings")
@@ -276,16 +334,43 @@ class AccessControlListMatchConfigurationArgs:
         :param pulumi.Input[str] match_configuration_name: The name of the match configuration.
         :param pulumi.Input[float] sequence_number: Sequence Number of the match configuration.
         """
+        AccessControlListMatchConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            ip_address_type=ip_address_type,
+            match_conditions=match_conditions,
+            match_configuration_name=match_configuration_name,
+            sequence_number=sequence_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlListActionArgs']]]] = None,
+             ip_address_type: Optional[pulumi.Input[Union[str, 'IPAddressType']]] = None,
+             match_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlListMatchConditionArgs']]]] = None,
+             match_configuration_name: Optional[pulumi.Input[str]] = None,
+             sequence_number: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if 'matchConditions' in kwargs:
+            match_conditions = kwargs['matchConditions']
+        if 'matchConfigurationName' in kwargs:
+            match_configuration_name = kwargs['matchConfigurationName']
+        if 'sequenceNumber' in kwargs:
+            sequence_number = kwargs['sequenceNumber']
+
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if match_conditions is not None:
-            pulumi.set(__self__, "match_conditions", match_conditions)
+            _setter("match_conditions", match_conditions)
         if match_configuration_name is not None:
-            pulumi.set(__self__, "match_configuration_name", match_configuration_name)
+            _setter("match_configuration_name", match_configuration_name)
         if sequence_number is not None:
-            pulumi.set(__self__, "sequence_number", sequence_number)
+            _setter("sequence_number", sequence_number)
 
     @property
     @pulumi.getter
@@ -364,15 +449,40 @@ class AccessControlListPortConditionArgs:
         :param pulumi.Input[Union[str, 'PortType']] port_type: Port type that needs to be matched.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ports: List of the Ports that need to be matched.
         """
-        pulumi.set(__self__, "layer4_protocol", layer4_protocol)
+        AccessControlListPortConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            layer4_protocol=layer4_protocol,
+            flags=flags,
+            port_group_names=port_group_names,
+            port_type=port_type,
+            ports=ports,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             layer4_protocol: pulumi.Input[Union[str, 'Layer4Protocol']],
+             flags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             port_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             port_type: Optional[pulumi.Input[Union[str, 'PortType']]] = None,
+             ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'layer4Protocol' in kwargs:
+            layer4_protocol = kwargs['layer4Protocol']
+        if 'portGroupNames' in kwargs:
+            port_group_names = kwargs['portGroupNames']
+        if 'portType' in kwargs:
+            port_type = kwargs['portType']
+
+        _setter("layer4_protocol", layer4_protocol)
         if flags is not None:
-            pulumi.set(__self__, "flags", flags)
+            _setter("flags", flags)
         if port_group_names is not None:
-            pulumi.set(__self__, "port_group_names", port_group_names)
+            _setter("port_group_names", port_group_names)
         if port_type is not None:
-            pulumi.set(__self__, "port_type", port_type)
+            _setter("port_type", port_type)
         if ports is not None:
-            pulumi.set(__self__, "ports", ports)
+            _setter("ports", ports)
 
     @property
     @pulumi.getter(name="layer4Protocol")
@@ -447,12 +557,27 @@ class ActionIpCommunityPropertiesArgs:
         :param pulumi.Input['IpCommunityIdListArgs'] delete: List of IP Community IDs.
         :param pulumi.Input['IpCommunityIdListArgs'] set: List of IP Community IDs.
         """
+        ActionIpCommunityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add=add,
+            delete=delete,
+            set=set,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add: Optional[pulumi.Input['IpCommunityIdListArgs']] = None,
+             delete: Optional[pulumi.Input['IpCommunityIdListArgs']] = None,
+             set: Optional[pulumi.Input['IpCommunityIdListArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if add is not None:
-            pulumi.set(__self__, "add", add)
+            _setter("add", add)
         if delete is not None:
-            pulumi.set(__self__, "delete", delete)
+            _setter("delete", delete)
         if set is not None:
-            pulumi.set(__self__, "set", set)
+            _setter("set", set)
 
     @property
     @pulumi.getter
@@ -503,12 +628,27 @@ class ActionIpExtendedCommunityPropertiesArgs:
         :param pulumi.Input['IpExtendedCommunityIdListArgs'] delete: List of IP Extended Community IDs.
         :param pulumi.Input['IpExtendedCommunityIdListArgs'] set: List of IP Extended Community IDs.
         """
+        ActionIpExtendedCommunityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add=add,
+            delete=delete,
+            set=set,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add: Optional[pulumi.Input['IpExtendedCommunityIdListArgs']] = None,
+             delete: Optional[pulumi.Input['IpExtendedCommunityIdListArgs']] = None,
+             set: Optional[pulumi.Input['IpExtendedCommunityIdListArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if add is not None:
-            pulumi.set(__self__, "add", add)
+            _setter("add", add)
         if delete is not None:
-            pulumi.set(__self__, "delete", delete)
+            _setter("delete", delete)
         if set is not None:
-            pulumi.set(__self__, "set", set)
+            _setter("set", set)
 
     @property
     @pulumi.getter
@@ -557,10 +697,27 @@ class AggregateRouteConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]] ipv4_routes: List of IPv4 Route prefixes.
         :param pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]] ipv6_routes: List of Ipv6Routes prefixes.
         """
+        AggregateRouteConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipv4_routes=ipv4_routes,
+            ipv6_routes=ipv6_routes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipv4_routes: Optional[pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]]] = None,
+             ipv6_routes: Optional[pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipv4Routes' in kwargs:
+            ipv4_routes = kwargs['ipv4Routes']
+        if 'ipv6Routes' in kwargs:
+            ipv6_routes = kwargs['ipv6Routes']
+
         if ipv4_routes is not None:
-            pulumi.set(__self__, "ipv4_routes", ipv4_routes)
+            _setter("ipv4_routes", ipv4_routes)
         if ipv6_routes is not None:
-            pulumi.set(__self__, "ipv6_routes", ipv6_routes)
+            _setter("ipv6_routes", ipv6_routes)
 
     @property
     @pulumi.getter(name="ipv4Routes")
@@ -595,7 +752,18 @@ class AggregateRouteArgs:
         aggregateIpv4Route model.
         :param pulumi.Input[str] prefix: IPv4 Prefix of the aggregate Ipv4Route.
         """
-        pulumi.set(__self__, "prefix", prefix)
+        AggregateRouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             prefix: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("prefix", prefix)
 
     @property
     @pulumi.getter
@@ -620,14 +788,29 @@ class BfdConfigurationArgs:
         :param pulumi.Input[int] interval_in_milli_seconds: Interval in milliseconds. Example: 300.
         :param pulumi.Input[int] multiplier: Multiplier for the Bfd Configuration. Example: 5.
         """
+        BfdConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interval_in_milli_seconds=interval_in_milli_seconds,
+            multiplier=multiplier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interval_in_milli_seconds: Optional[pulumi.Input[int]] = None,
+             multiplier: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intervalInMilliSeconds' in kwargs:
+            interval_in_milli_seconds = kwargs['intervalInMilliSeconds']
+
         if interval_in_milli_seconds is None:
             interval_in_milli_seconds = 300
         if interval_in_milli_seconds is not None:
-            pulumi.set(__self__, "interval_in_milli_seconds", interval_in_milli_seconds)
+            _setter("interval_in_milli_seconds", interval_in_milli_seconds)
         if multiplier is None:
             multiplier = 5
         if multiplier is not None:
-            pulumi.set(__self__, "multiplier", multiplier)
+            _setter("multiplier", multiplier)
 
     @property
     @pulumi.getter(name="intervalInMilliSeconds")
@@ -666,12 +849,33 @@ class CommonDynamicMatchConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PortGroupPropertiesArgs']]] port_groups: List of the port groups.
         :param pulumi.Input[Sequence[pulumi.Input['VlanGroupPropertiesArgs']]] vlan_groups: List of vlan groups.
         """
+        CommonDynamicMatchConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_groups=ip_groups,
+            port_groups=port_groups,
+            vlan_groups=vlan_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input['IpGroupPropertiesArgs']]]] = None,
+             port_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PortGroupPropertiesArgs']]]] = None,
+             vlan_groups: Optional[pulumi.Input[Sequence[pulumi.Input['VlanGroupPropertiesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipGroups' in kwargs:
+            ip_groups = kwargs['ipGroups']
+        if 'portGroups' in kwargs:
+            port_groups = kwargs['portGroups']
+        if 'vlanGroups' in kwargs:
+            vlan_groups = kwargs['vlanGroups']
+
         if ip_groups is not None:
-            pulumi.set(__self__, "ip_groups", ip_groups)
+            _setter("ip_groups", ip_groups)
         if port_groups is not None:
-            pulumi.set(__self__, "port_groups", port_groups)
+            _setter("port_groups", port_groups)
         if vlan_groups is not None:
-            pulumi.set(__self__, "vlan_groups", vlan_groups)
+            _setter("vlan_groups", vlan_groups)
 
     @property
     @pulumi.getter(name="ipGroups")
@@ -720,10 +924,27 @@ class ConnectedSubnetRoutePolicyArgs:
         :param pulumi.Input['L3ExportRoutePolicyArgs'] export_route_policy: Array of ARM Resource ID of the RoutePolicies.
         :param pulumi.Input[str] export_route_policy_id: ARM Resource ID of the Route Policy. This is used for the backward compatibility.
         """
+        ConnectedSubnetRoutePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            export_route_policy=export_route_policy,
+            export_route_policy_id=export_route_policy_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             export_route_policy: Optional[pulumi.Input['L3ExportRoutePolicyArgs']] = None,
+             export_route_policy_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exportRoutePolicy' in kwargs:
+            export_route_policy = kwargs['exportRoutePolicy']
+        if 'exportRoutePolicyId' in kwargs:
+            export_route_policy_id = kwargs['exportRoutePolicyId']
+
         if export_route_policy is not None:
-            pulumi.set(__self__, "export_route_policy", export_route_policy)
+            _setter("export_route_policy", export_route_policy)
         if export_route_policy_id is not None:
-            pulumi.set(__self__, "export_route_policy_id", export_route_policy_id)
+            _setter("export_route_policy_id", export_route_policy_id)
 
     @property
     @pulumi.getter(name="exportRoutePolicy")
@@ -760,9 +981,22 @@ class ConnectedSubnetArgs:
         :param pulumi.Input[str] prefix: Prefix of the Connected Subnet.
         :param pulumi.Input[str] annotation: Switch configuration description.
         """
-        pulumi.set(__self__, "prefix", prefix)
+        ConnectedSubnetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            prefix=prefix,
+            annotation=annotation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             prefix: pulumi.Input[str],
+             annotation: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("prefix", prefix)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
 
     @property
     @pulumi.getter
@@ -799,10 +1033,27 @@ class ExportRoutePolicyInformationArgs:
         :param pulumi.Input[str] export_ipv4_route_policy_id: Export IPv4 Route Policy Id.
         :param pulumi.Input[str] export_ipv6_route_policy_id: Export IPv6 Route Policy Id.
         """
+        ExportRoutePolicyInformationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            export_ipv4_route_policy_id=export_ipv4_route_policy_id,
+            export_ipv6_route_policy_id=export_ipv6_route_policy_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             export_ipv4_route_policy_id: Optional[pulumi.Input[str]] = None,
+             export_ipv6_route_policy_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exportIpv4RoutePolicyId' in kwargs:
+            export_ipv4_route_policy_id = kwargs['exportIpv4RoutePolicyId']
+        if 'exportIpv6RoutePolicyId' in kwargs:
+            export_ipv6_route_policy_id = kwargs['exportIpv6RoutePolicyId']
+
         if export_ipv4_route_policy_id is not None:
-            pulumi.set(__self__, "export_ipv4_route_policy_id", export_ipv4_route_policy_id)
+            _setter("export_ipv4_route_policy_id", export_ipv4_route_policy_id)
         if export_ipv6_route_policy_id is not None:
-            pulumi.set(__self__, "export_ipv6_route_policy_id", export_ipv6_route_policy_id)
+            _setter("export_ipv6_route_policy_id", export_ipv6_route_policy_id)
 
     @property
     @pulumi.getter(name="exportIpv4RoutePolicyId")
@@ -839,10 +1090,27 @@ class ExportRoutePolicyArgs:
         :param pulumi.Input[str] export_ipv4_route_policy_id: ARM resource ID of RoutePolicy.
         :param pulumi.Input[str] export_ipv6_route_policy_id: ARM resource ID of RoutePolicy.
         """
+        ExportRoutePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            export_ipv4_route_policy_id=export_ipv4_route_policy_id,
+            export_ipv6_route_policy_id=export_ipv6_route_policy_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             export_ipv4_route_policy_id: Optional[pulumi.Input[str]] = None,
+             export_ipv6_route_policy_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exportIpv4RoutePolicyId' in kwargs:
+            export_ipv4_route_policy_id = kwargs['exportIpv4RoutePolicyId']
+        if 'exportIpv6RoutePolicyId' in kwargs:
+            export_ipv6_route_policy_id = kwargs['exportIpv6RoutePolicyId']
+
         if export_ipv4_route_policy_id is not None:
-            pulumi.set(__self__, "export_ipv4_route_policy_id", export_ipv4_route_policy_id)
+            _setter("export_ipv4_route_policy_id", export_ipv4_route_policy_id)
         if export_ipv6_route_policy_id is not None:
-            pulumi.set(__self__, "export_ipv6_route_policy_id", export_ipv6_route_policy_id)
+            _setter("export_ipv6_route_policy_id", export_ipv6_route_policy_id)
 
     @property
     @pulumi.getter(name="exportIpv4RoutePolicyId")
@@ -879,8 +1147,25 @@ class ExpressRouteConnectionInformationArgs:
         :param pulumi.Input[str] express_route_authorization_key: Authorization key for the circuit, must be of type Microsoft.Network/expressRouteCircuits/authorizations. The Auth Key is a mandatory attribute.
         :param pulumi.Input[str] express_route_circuit_id: The express route circuit Azure resource ID, must be of type Microsoft.Network/expressRouteCircuits/circuitName. The ExpressRoute Circuit is a mandatory attribute.
         """
-        pulumi.set(__self__, "express_route_authorization_key", express_route_authorization_key)
-        pulumi.set(__self__, "express_route_circuit_id", express_route_circuit_id)
+        ExpressRouteConnectionInformationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            express_route_authorization_key=express_route_authorization_key,
+            express_route_circuit_id=express_route_circuit_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             express_route_authorization_key: pulumi.Input[str],
+             express_route_circuit_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expressRouteAuthorizationKey' in kwargs:
+            express_route_authorization_key = kwargs['expressRouteAuthorizationKey']
+        if 'expressRouteCircuitId' in kwargs:
+            express_route_circuit_id = kwargs['expressRouteCircuitId']
+
+        _setter("express_route_authorization_key", express_route_authorization_key)
+        _setter("express_route_circuit_id", express_route_circuit_id)
 
     @property
     @pulumi.getter(name="expressRouteAuthorizationKey")
@@ -933,26 +1218,73 @@ class ExternalNetworkPropertiesOptionAPropertiesArgs:
         :param pulumi.Input[str] secondary_ipv4_prefix: Secondary IPv4 Address Prefix.
         :param pulumi.Input[str] secondary_ipv6_prefix: Secondary IPv6 Address Prefix.
         """
-        pulumi.set(__self__, "peer_asn", peer_asn)
-        pulumi.set(__self__, "vlan_id", vlan_id)
+        ExternalNetworkPropertiesOptionAPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            peer_asn=peer_asn,
+            vlan_id=vlan_id,
+            bfd_configuration=bfd_configuration,
+            egress_acl_id=egress_acl_id,
+            ingress_acl_id=ingress_acl_id,
+            mtu=mtu,
+            primary_ipv4_prefix=primary_ipv4_prefix,
+            primary_ipv6_prefix=primary_ipv6_prefix,
+            secondary_ipv4_prefix=secondary_ipv4_prefix,
+            secondary_ipv6_prefix=secondary_ipv6_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             peer_asn: pulumi.Input[float],
+             vlan_id: pulumi.Input[int],
+             bfd_configuration: Optional[pulumi.Input['BfdConfigurationArgs']] = None,
+             egress_acl_id: Optional[pulumi.Input[str]] = None,
+             ingress_acl_id: Optional[pulumi.Input[str]] = None,
+             mtu: Optional[pulumi.Input[int]] = None,
+             primary_ipv4_prefix: Optional[pulumi.Input[str]] = None,
+             primary_ipv6_prefix: Optional[pulumi.Input[str]] = None,
+             secondary_ipv4_prefix: Optional[pulumi.Input[str]] = None,
+             secondary_ipv6_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peerASN' in kwargs:
+            peer_asn = kwargs['peerASN']
+        if 'vlanId' in kwargs:
+            vlan_id = kwargs['vlanId']
+        if 'bfdConfiguration' in kwargs:
+            bfd_configuration = kwargs['bfdConfiguration']
+        if 'egressAclId' in kwargs:
+            egress_acl_id = kwargs['egressAclId']
+        if 'ingressAclId' in kwargs:
+            ingress_acl_id = kwargs['ingressAclId']
+        if 'primaryIpv4Prefix' in kwargs:
+            primary_ipv4_prefix = kwargs['primaryIpv4Prefix']
+        if 'primaryIpv6Prefix' in kwargs:
+            primary_ipv6_prefix = kwargs['primaryIpv6Prefix']
+        if 'secondaryIpv4Prefix' in kwargs:
+            secondary_ipv4_prefix = kwargs['secondaryIpv4Prefix']
+        if 'secondaryIpv6Prefix' in kwargs:
+            secondary_ipv6_prefix = kwargs['secondaryIpv6Prefix']
+
+        _setter("peer_asn", peer_asn)
+        _setter("vlan_id", vlan_id)
         if bfd_configuration is not None:
-            pulumi.set(__self__, "bfd_configuration", bfd_configuration)
+            _setter("bfd_configuration", bfd_configuration)
         if egress_acl_id is not None:
-            pulumi.set(__self__, "egress_acl_id", egress_acl_id)
+            _setter("egress_acl_id", egress_acl_id)
         if ingress_acl_id is not None:
-            pulumi.set(__self__, "ingress_acl_id", ingress_acl_id)
+            _setter("ingress_acl_id", ingress_acl_id)
         if mtu is None:
             mtu = 1500
         if mtu is not None:
-            pulumi.set(__self__, "mtu", mtu)
+            _setter("mtu", mtu)
         if primary_ipv4_prefix is not None:
-            pulumi.set(__self__, "primary_ipv4_prefix", primary_ipv4_prefix)
+            _setter("primary_ipv4_prefix", primary_ipv4_prefix)
         if primary_ipv6_prefix is not None:
-            pulumi.set(__self__, "primary_ipv6_prefix", primary_ipv6_prefix)
+            _setter("primary_ipv6_prefix", primary_ipv6_prefix)
         if secondary_ipv4_prefix is not None:
-            pulumi.set(__self__, "secondary_ipv4_prefix", secondary_ipv4_prefix)
+            _setter("secondary_ipv4_prefix", secondary_ipv4_prefix)
         if secondary_ipv6_prefix is not None:
-            pulumi.set(__self__, "secondary_ipv6_prefix", secondary_ipv6_prefix)
+            _setter("secondary_ipv6_prefix", secondary_ipv6_prefix)
 
     @property
     @pulumi.getter(name="peerASN")
@@ -1087,12 +1419,33 @@ class FabricOptionBPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] import_route_targets: Route Targets to be applied for incoming routes into CE. This is for backward compatibility.
         :param pulumi.Input['RouteTargetInformationArgs'] route_targets: Route Targets to be applied.
         """
+        FabricOptionBPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            export_route_targets=export_route_targets,
+            import_route_targets=import_route_targets,
+            route_targets=route_targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             export_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             import_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             route_targets: Optional[pulumi.Input['RouteTargetInformationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exportRouteTargets' in kwargs:
+            export_route_targets = kwargs['exportRouteTargets']
+        if 'importRouteTargets' in kwargs:
+            import_route_targets = kwargs['importRouteTargets']
+        if 'routeTargets' in kwargs:
+            route_targets = kwargs['routeTargets']
+
         if export_route_targets is not None:
-            pulumi.set(__self__, "export_route_targets", export_route_targets)
+            _setter("export_route_targets", export_route_targets)
         if import_route_targets is not None:
-            pulumi.set(__self__, "import_route_targets", import_route_targets)
+            _setter("import_route_targets", import_route_targets)
         if route_targets is not None:
-            pulumi.set(__self__, "route_targets", route_targets)
+            _setter("route_targets", route_targets)
 
     @property
     @pulumi.getter(name="exportRouteTargets")
@@ -1141,10 +1494,27 @@ class ImportRoutePolicyInformationArgs:
         :param pulumi.Input[str] import_ipv4_route_policy_id: Import IPv4 Route Policy Id.
         :param pulumi.Input[str] import_ipv6_route_policy_id: Import IPv6 Route Policy Id.
         """
+        ImportRoutePolicyInformationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            import_ipv4_route_policy_id=import_ipv4_route_policy_id,
+            import_ipv6_route_policy_id=import_ipv6_route_policy_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             import_ipv4_route_policy_id: Optional[pulumi.Input[str]] = None,
+             import_ipv6_route_policy_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'importIpv4RoutePolicyId' in kwargs:
+            import_ipv4_route_policy_id = kwargs['importIpv4RoutePolicyId']
+        if 'importIpv6RoutePolicyId' in kwargs:
+            import_ipv6_route_policy_id = kwargs['importIpv6RoutePolicyId']
+
         if import_ipv4_route_policy_id is not None:
-            pulumi.set(__self__, "import_ipv4_route_policy_id", import_ipv4_route_policy_id)
+            _setter("import_ipv4_route_policy_id", import_ipv4_route_policy_id)
         if import_ipv6_route_policy_id is not None:
-            pulumi.set(__self__, "import_ipv6_route_policy_id", import_ipv6_route_policy_id)
+            _setter("import_ipv6_route_policy_id", import_ipv6_route_policy_id)
 
     @property
     @pulumi.getter(name="importIpv4RoutePolicyId")
@@ -1181,10 +1551,27 @@ class ImportRoutePolicyArgs:
         :param pulumi.Input[str] import_ipv4_route_policy_id: ARM resource ID of RoutePolicy.
         :param pulumi.Input[str] import_ipv6_route_policy_id: ARM resource ID of RoutePolicy.
         """
+        ImportRoutePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            import_ipv4_route_policy_id=import_ipv4_route_policy_id,
+            import_ipv6_route_policy_id=import_ipv6_route_policy_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             import_ipv4_route_policy_id: Optional[pulumi.Input[str]] = None,
+             import_ipv6_route_policy_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'importIpv4RoutePolicyId' in kwargs:
+            import_ipv4_route_policy_id = kwargs['importIpv4RoutePolicyId']
+        if 'importIpv6RoutePolicyId' in kwargs:
+            import_ipv6_route_policy_id = kwargs['importIpv6RoutePolicyId']
+
         if import_ipv4_route_policy_id is not None:
-            pulumi.set(__self__, "import_ipv4_route_policy_id", import_ipv4_route_policy_id)
+            _setter("import_ipv4_route_policy_id", import_ipv4_route_policy_id)
         if import_ipv6_route_policy_id is not None:
-            pulumi.set(__self__, "import_ipv6_route_policy_id", import_ipv6_route_policy_id)
+            _setter("import_ipv6_route_policy_id", import_ipv6_route_policy_id)
 
     @property
     @pulumi.getter(name="importIpv4RoutePolicyId")
@@ -1237,27 +1624,74 @@ class InternalNetworkPropertiesBgpConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_listen_range_prefixes: List of BGP IPv6 Listen Ranges prefixes.
         :param pulumi.Input[Sequence[pulumi.Input['NeighborAddressArgs']]] ipv6_neighbor_address: List with stringified IPv6 Neighbor Address.
         """
-        pulumi.set(__self__, "peer_asn", peer_asn)
+        InternalNetworkPropertiesBgpConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            peer_asn=peer_asn,
+            allow_as=allow_as,
+            allow_as_override=allow_as_override,
+            annotation=annotation,
+            bfd_configuration=bfd_configuration,
+            default_route_originate=default_route_originate,
+            ipv4_listen_range_prefixes=ipv4_listen_range_prefixes,
+            ipv4_neighbor_address=ipv4_neighbor_address,
+            ipv6_listen_range_prefixes=ipv6_listen_range_prefixes,
+            ipv6_neighbor_address=ipv6_neighbor_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             peer_asn: pulumi.Input[float],
+             allow_as: Optional[pulumi.Input[int]] = None,
+             allow_as_override: Optional[pulumi.Input[Union[str, 'AllowASOverride']]] = None,
+             annotation: Optional[pulumi.Input[str]] = None,
+             bfd_configuration: Optional[pulumi.Input['BfdConfigurationArgs']] = None,
+             default_route_originate: Optional[pulumi.Input[Union[str, 'BooleanEnumProperty']]] = None,
+             ipv4_listen_range_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ipv4_neighbor_address: Optional[pulumi.Input[Sequence[pulumi.Input['NeighborAddressArgs']]]] = None,
+             ipv6_listen_range_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ipv6_neighbor_address: Optional[pulumi.Input[Sequence[pulumi.Input['NeighborAddressArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peerASN' in kwargs:
+            peer_asn = kwargs['peerASN']
+        if 'allowAS' in kwargs:
+            allow_as = kwargs['allowAS']
+        if 'allowASOverride' in kwargs:
+            allow_as_override = kwargs['allowASOverride']
+        if 'bfdConfiguration' in kwargs:
+            bfd_configuration = kwargs['bfdConfiguration']
+        if 'defaultRouteOriginate' in kwargs:
+            default_route_originate = kwargs['defaultRouteOriginate']
+        if 'ipv4ListenRangePrefixes' in kwargs:
+            ipv4_listen_range_prefixes = kwargs['ipv4ListenRangePrefixes']
+        if 'ipv4NeighborAddress' in kwargs:
+            ipv4_neighbor_address = kwargs['ipv4NeighborAddress']
+        if 'ipv6ListenRangePrefixes' in kwargs:
+            ipv6_listen_range_prefixes = kwargs['ipv6ListenRangePrefixes']
+        if 'ipv6NeighborAddress' in kwargs:
+            ipv6_neighbor_address = kwargs['ipv6NeighborAddress']
+
+        _setter("peer_asn", peer_asn)
         if allow_as is None:
             allow_as = 2
         if allow_as is not None:
-            pulumi.set(__self__, "allow_as", allow_as)
+            _setter("allow_as", allow_as)
         if allow_as_override is not None:
-            pulumi.set(__self__, "allow_as_override", allow_as_override)
+            _setter("allow_as_override", allow_as_override)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if bfd_configuration is not None:
-            pulumi.set(__self__, "bfd_configuration", bfd_configuration)
+            _setter("bfd_configuration", bfd_configuration)
         if default_route_originate is not None:
-            pulumi.set(__self__, "default_route_originate", default_route_originate)
+            _setter("default_route_originate", default_route_originate)
         if ipv4_listen_range_prefixes is not None:
-            pulumi.set(__self__, "ipv4_listen_range_prefixes", ipv4_listen_range_prefixes)
+            _setter("ipv4_listen_range_prefixes", ipv4_listen_range_prefixes)
         if ipv4_neighbor_address is not None:
-            pulumi.set(__self__, "ipv4_neighbor_address", ipv4_neighbor_address)
+            _setter("ipv4_neighbor_address", ipv4_neighbor_address)
         if ipv6_listen_range_prefixes is not None:
-            pulumi.set(__self__, "ipv6_listen_range_prefixes", ipv6_listen_range_prefixes)
+            _setter("ipv6_listen_range_prefixes", ipv6_listen_range_prefixes)
         if ipv6_neighbor_address is not None:
-            pulumi.set(__self__, "ipv6_neighbor_address", ipv6_neighbor_address)
+            _setter("ipv6_neighbor_address", ipv6_neighbor_address)
 
     @property
     @pulumi.getter(name="peerASN")
@@ -1394,16 +1828,39 @@ class InternalNetworkPropertiesStaticRouteConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]] ipv4_routes: List of IPv4 Routes.
         :param pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]] ipv6_routes: List of IPv6 Routes.
         """
+        InternalNetworkPropertiesStaticRouteConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bfd_configuration=bfd_configuration,
+            extension=extension,
+            ipv4_routes=ipv4_routes,
+            ipv6_routes=ipv6_routes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bfd_configuration: Optional[pulumi.Input['BfdConfigurationArgs']] = None,
+             extension: Optional[pulumi.Input[Union[str, 'Extension']]] = None,
+             ipv4_routes: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]] = None,
+             ipv6_routes: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bfdConfiguration' in kwargs:
+            bfd_configuration = kwargs['bfdConfiguration']
+        if 'ipv4Routes' in kwargs:
+            ipv4_routes = kwargs['ipv4Routes']
+        if 'ipv6Routes' in kwargs:
+            ipv6_routes = kwargs['ipv6Routes']
+
         if bfd_configuration is not None:
-            pulumi.set(__self__, "bfd_configuration", bfd_configuration)
+            _setter("bfd_configuration", bfd_configuration)
         if extension is None:
             extension = 'NoExtension'
         if extension is not None:
-            pulumi.set(__self__, "extension", extension)
+            _setter("extension", extension)
         if ipv4_routes is not None:
-            pulumi.set(__self__, "ipv4_routes", ipv4_routes)
+            _setter("ipv4_routes", ipv4_routes)
         if ipv6_routes is not None:
-            pulumi.set(__self__, "ipv6_routes", ipv6_routes)
+            _setter("ipv6_routes", ipv6_routes)
 
     @property
     @pulumi.getter(name="bfdConfiguration")
@@ -1462,8 +1919,21 @@ class IpCommunityIdListArgs:
         IP Community ID list properties.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_community_ids: List of IP Community resource IDs.
         """
+        IpCommunityIdListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_community_ids=ip_community_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_community_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipCommunityIds' in kwargs:
+            ip_community_ids = kwargs['ipCommunityIds']
+
         if ip_community_ids is not None:
-            pulumi.set(__self__, "ip_community_ids", ip_community_ids)
+            _setter("ip_community_ids", ip_community_ids)
 
     @property
     @pulumi.getter(name="ipCommunityIds")
@@ -1492,11 +1962,34 @@ class IpCommunityRuleArgs:
         :param pulumi.Input[float] sequence_number: Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'WellKnownCommunities']]]] well_known_communities: Supported well known Community List.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "community_members", community_members)
-        pulumi.set(__self__, "sequence_number", sequence_number)
+        IpCommunityRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            community_members=community_members,
+            sequence_number=sequence_number,
+            well_known_communities=well_known_communities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[Union[str, 'CommunityActionTypes']],
+             community_members: pulumi.Input[Sequence[pulumi.Input[str]]],
+             sequence_number: pulumi.Input[float],
+             well_known_communities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WellKnownCommunities']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'communityMembers' in kwargs:
+            community_members = kwargs['communityMembers']
+        if 'sequenceNumber' in kwargs:
+            sequence_number = kwargs['sequenceNumber']
+        if 'wellKnownCommunities' in kwargs:
+            well_known_communities = kwargs['wellKnownCommunities']
+
+        _setter("action", action)
+        _setter("community_members", community_members)
+        _setter("sequence_number", sequence_number)
         if well_known_communities is not None:
-            pulumi.set(__self__, "well_known_communities", well_known_communities)
+            _setter("well_known_communities", well_known_communities)
 
     @property
     @pulumi.getter
@@ -1555,8 +2048,21 @@ class IpExtendedCommunityIdListArgs:
         IP Extended Community Id list properties.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_extended_community_ids: List of IP Extended Community resource IDs.
         """
+        IpExtendedCommunityIdListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_extended_community_ids=ip_extended_community_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_extended_community_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipExtendedCommunityIds' in kwargs:
+            ip_extended_community_ids = kwargs['ipExtendedCommunityIds']
+
         if ip_extended_community_ids is not None:
-            pulumi.set(__self__, "ip_extended_community_ids", ip_extended_community_ids)
+            _setter("ip_extended_community_ids", ip_extended_community_ids)
 
     @property
     @pulumi.getter(name="ipExtendedCommunityIds")
@@ -1583,9 +2089,28 @@ class IpExtendedCommunityRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_targets: Route Target List.The expected formats are ASN(plain):NN >> example 4294967294:50, ASN.ASN:NN >> example 65533.65333:40, IP-address:NN >> example 10.10.10.10:65535. The possible values of ASN,NN are in range of 0-65535, ASN(plain) is in range of 0-4294967295.
         :param pulumi.Input[float] sequence_number: Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "route_targets", route_targets)
-        pulumi.set(__self__, "sequence_number", sequence_number)
+        IpExtendedCommunityRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            route_targets=route_targets,
+            sequence_number=sequence_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[Union[str, 'CommunityActionTypes']],
+             route_targets: pulumi.Input[Sequence[pulumi.Input[str]]],
+             sequence_number: pulumi.Input[float],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routeTargets' in kwargs:
+            route_targets = kwargs['routeTargets']
+        if 'sequenceNumber' in kwargs:
+            sequence_number = kwargs['sequenceNumber']
+
+        _setter("action", action)
+        _setter("route_targets", route_targets)
+        _setter("sequence_number", sequence_number)
 
     @property
     @pulumi.getter
@@ -1636,12 +2161,31 @@ class IpGroupPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_prefixes: List of IP Prefixes.
         :param pulumi.Input[str] name: IP Group name.
         """
+        IpGroupPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_address_type=ip_address_type,
+            ip_prefixes=ip_prefixes,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_address_type: Optional[pulumi.Input[Union[str, 'IPAddressType']]] = None,
+             ip_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if 'ipPrefixes' in kwargs:
+            ip_prefixes = kwargs['ipPrefixes']
+
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if ip_prefixes is not None:
-            pulumi.set(__self__, "ip_prefixes", ip_prefixes)
+            _setter("ip_prefixes", ip_prefixes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="ipAddressType")
@@ -1694,14 +2238,37 @@ class IpMatchConditionArgs:
         :param pulumi.Input[Union[str, 'PrefixType']] prefix_type: IP Prefix Type that needs to be matched.
         :param pulumi.Input[Union[str, 'SourceDestinationType']] type: IP Address type that needs to be matched.
         """
+        IpMatchConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_group_names=ip_group_names,
+            ip_prefix_values=ip_prefix_values,
+            prefix_type=prefix_type,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_prefix_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             prefix_type: Optional[pulumi.Input[Union[str, 'PrefixType']]] = None,
+             type: Optional[pulumi.Input[Union[str, 'SourceDestinationType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipGroupNames' in kwargs:
+            ip_group_names = kwargs['ipGroupNames']
+        if 'ipPrefixValues' in kwargs:
+            ip_prefix_values = kwargs['ipPrefixValues']
+        if 'prefixType' in kwargs:
+            prefix_type = kwargs['prefixType']
+
         if ip_group_names is not None:
-            pulumi.set(__self__, "ip_group_names", ip_group_names)
+            _setter("ip_group_names", ip_group_names)
         if ip_prefix_values is not None:
-            pulumi.set(__self__, "ip_prefix_values", ip_prefix_values)
+            _setter("ip_prefix_values", ip_prefix_values)
         if prefix_type is not None:
-            pulumi.set(__self__, "prefix_type", prefix_type)
+            _setter("prefix_type", prefix_type)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="ipGroupNames")
@@ -1768,13 +2335,38 @@ class IpPrefixRuleArgs:
         :param pulumi.Input[Union[str, 'Condition']] condition: Specify prefix-list bounds.
         :param pulumi.Input[str] subnet_mask_length: SubnetMaskLength gives the minimum NetworkPrefix length to be matched. Possible values for IPv4 are 1 - 32 . Possible values of IPv6 are 1 - 128.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "network_prefix", network_prefix)
-        pulumi.set(__self__, "sequence_number", sequence_number)
+        IpPrefixRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            network_prefix=network_prefix,
+            sequence_number=sequence_number,
+            condition=condition,
+            subnet_mask_length=subnet_mask_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[Union[str, 'CommunityActionTypes']],
+             network_prefix: pulumi.Input[str],
+             sequence_number: pulumi.Input[float],
+             condition: Optional[pulumi.Input[Union[str, 'Condition']]] = None,
+             subnet_mask_length: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkPrefix' in kwargs:
+            network_prefix = kwargs['networkPrefix']
+        if 'sequenceNumber' in kwargs:
+            sequence_number = kwargs['sequenceNumber']
+        if 'subnetMaskLength' in kwargs:
+            subnet_mask_length = kwargs['subnetMaskLength']
+
+        _setter("action", action)
+        _setter("network_prefix", network_prefix)
+        _setter("sequence_number", sequence_number)
         if condition is not None:
-            pulumi.set(__self__, "condition", condition)
+            _setter("condition", condition)
         if subnet_mask_length is not None:
-            pulumi.set(__self__, "subnet_mask_length", subnet_mask_length)
+            _setter("subnet_mask_length", subnet_mask_length)
 
     @property
     @pulumi.getter
@@ -1847,10 +2439,25 @@ class IsolationDomainPropertiesArgs:
         :param pulumi.Input[Union[str, 'Encapsulation']] encapsulation: Type of encapsulation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] neighbor_group_ids: List of Neighbor Group IDs.
         """
+        IsolationDomainPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encapsulation=encapsulation,
+            neighbor_group_ids=neighbor_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encapsulation: Optional[pulumi.Input[Union[str, 'Encapsulation']]] = None,
+             neighbor_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'neighborGroupIds' in kwargs:
+            neighbor_group_ids = kwargs['neighborGroupIds']
+
         if encapsulation is not None:
-            pulumi.set(__self__, "encapsulation", encapsulation)
+            _setter("encapsulation", encapsulation)
         if neighbor_group_ids is not None:
-            pulumi.set(__self__, "neighbor_group_ids", neighbor_group_ids)
+            _setter("neighbor_group_ids", neighbor_group_ids)
 
     @property
     @pulumi.getter
@@ -1887,10 +2494,27 @@ class L3ExportRoutePolicyArgs:
         :param pulumi.Input[str] export_ipv4_route_policy_id: ARM Resource ID of the RoutePolicy.
         :param pulumi.Input[str] export_ipv6_route_policy_id: ARM Resource ID of the RoutePolicy.
         """
+        L3ExportRoutePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            export_ipv4_route_policy_id=export_ipv4_route_policy_id,
+            export_ipv6_route_policy_id=export_ipv6_route_policy_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             export_ipv4_route_policy_id: Optional[pulumi.Input[str]] = None,
+             export_ipv6_route_policy_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exportIpv4RoutePolicyId' in kwargs:
+            export_ipv4_route_policy_id = kwargs['exportIpv4RoutePolicyId']
+        if 'exportIpv6RoutePolicyId' in kwargs:
+            export_ipv6_route_policy_id = kwargs['exportIpv6RoutePolicyId']
+
         if export_ipv4_route_policy_id is not None:
-            pulumi.set(__self__, "export_ipv4_route_policy_id", export_ipv4_route_policy_id)
+            _setter("export_ipv4_route_policy_id", export_ipv4_route_policy_id)
         if export_ipv6_route_policy_id is not None:
-            pulumi.set(__self__, "export_ipv6_route_policy_id", export_ipv6_route_policy_id)
+            _setter("export_ipv6_route_policy_id", export_ipv6_route_policy_id)
 
     @property
     @pulumi.getter(name="exportIpv4RoutePolicyId")
@@ -1929,12 +2553,33 @@ class L3OptionBPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] import_route_targets: RouteTargets to be applied. This is used for the backward compatibility.
         :param pulumi.Input['RouteTargetInformationArgs'] route_targets: RouteTargets to be applied.
         """
+        L3OptionBPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            export_route_targets=export_route_targets,
+            import_route_targets=import_route_targets,
+            route_targets=route_targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             export_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             import_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             route_targets: Optional[pulumi.Input['RouteTargetInformationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exportRouteTargets' in kwargs:
+            export_route_targets = kwargs['exportRouteTargets']
+        if 'importRouteTargets' in kwargs:
+            import_route_targets = kwargs['importRouteTargets']
+        if 'routeTargets' in kwargs:
+            route_targets = kwargs['routeTargets']
+
         if export_route_targets is not None:
-            pulumi.set(__self__, "export_route_targets", export_route_targets)
+            _setter("export_route_targets", export_route_targets)
         if import_route_targets is not None:
-            pulumi.set(__self__, "import_route_targets", import_route_targets)
+            _setter("import_route_targets", import_route_targets)
         if route_targets is not None:
-            pulumi.set(__self__, "route_targets", route_targets)
+            _setter("route_targets", route_targets)
 
     @property
     @pulumi.getter(name="exportRouteTargets")
@@ -1983,12 +2628,25 @@ class Layer2ConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] interfaces: List of network device interfaces resource IDs.
         :param pulumi.Input[int] mtu: MTU of the packets between PE & CE.
         """
+        Layer2ConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interfaces=interfaces,
+            mtu=mtu,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             mtu: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if interfaces is not None:
-            pulumi.set(__self__, "interfaces", interfaces)
+            _setter("interfaces", interfaces)
         if mtu is None:
             mtu = 1500
         if mtu is not None:
-            pulumi.set(__self__, "mtu", mtu)
+            _setter("mtu", mtu)
 
     @property
     @pulumi.getter
@@ -2025,10 +2683,23 @@ class ManagedResourceGroupConfigurationArgs:
         :param pulumi.Input[str] location: Managed resource group location.
         :param pulumi.Input[str] name: The NFC service will be hosted in a Managed resource group.
         """
+        ManagedResourceGroupConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2065,8 +2736,25 @@ class ManagementNetworkConfigurationPropertiesArgs:
         :param pulumi.Input['VpnConfigurationPropertiesArgs'] infrastructure_vpn_configuration: VPN Configuration properties.
         :param pulumi.Input['VpnConfigurationPropertiesArgs'] workload_vpn_configuration: VPN Configuration properties.
         """
-        pulumi.set(__self__, "infrastructure_vpn_configuration", infrastructure_vpn_configuration)
-        pulumi.set(__self__, "workload_vpn_configuration", workload_vpn_configuration)
+        ManagementNetworkConfigurationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            infrastructure_vpn_configuration=infrastructure_vpn_configuration,
+            workload_vpn_configuration=workload_vpn_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             infrastructure_vpn_configuration: pulumi.Input['VpnConfigurationPropertiesArgs'],
+             workload_vpn_configuration: pulumi.Input['VpnConfigurationPropertiesArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'infrastructureVpnConfiguration' in kwargs:
+            infrastructure_vpn_configuration = kwargs['infrastructureVpnConfiguration']
+        if 'workloadVpnConfiguration' in kwargs:
+            workload_vpn_configuration = kwargs['workloadVpnConfiguration']
+
+        _setter("infrastructure_vpn_configuration", infrastructure_vpn_configuration)
+        _setter("workload_vpn_configuration", workload_vpn_configuration)
 
     @property
     @pulumi.getter(name="infrastructureVpnConfiguration")
@@ -2101,8 +2789,19 @@ class NeighborAddressArgs:
         Neighbor Address properties.
         :param pulumi.Input[str] address: IP Address.
         """
+        NeighborAddressArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
 
     @property
     @pulumi.getter
@@ -2127,10 +2826,27 @@ class NeighborGroupDestinationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv4_addresses: Array of IPv4 Addresses.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Array of IPv6 Addresses.
         """
+        NeighborGroupDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipv4_addresses=ipv4_addresses,
+            ipv6_addresses=ipv6_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipv4Addresses' in kwargs:
+            ipv4_addresses = kwargs['ipv4Addresses']
+        if 'ipv6Addresses' in kwargs:
+            ipv6_addresses = kwargs['ipv6Addresses']
+
         if ipv4_addresses is not None:
-            pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+            _setter("ipv4_addresses", ipv4_addresses)
         if ipv6_addresses is not None:
-            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+            _setter("ipv6_addresses", ipv6_addresses)
 
     @property
     @pulumi.getter(name="ipv4Addresses")
@@ -2173,13 +2889,40 @@ class NetworkTapPropertiesDestinationsArgs:
         :param pulumi.Input[str] destination_tap_rule_id: ARM Resource ID of destination Tap Rule that contains match configurations.
         :param pulumi.Input['IsolationDomainPropertiesArgs'] isolation_domain_properties: Isolation Domain Properties.
         """
-        pulumi.set(__self__, "destination_id", destination_id)
-        pulumi.set(__self__, "destination_type", destination_type)
-        pulumi.set(__self__, "name", name)
+        NetworkTapPropertiesDestinationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_id=destination_id,
+            destination_type=destination_type,
+            name=name,
+            destination_tap_rule_id=destination_tap_rule_id,
+            isolation_domain_properties=isolation_domain_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_id: pulumi.Input[str],
+             destination_type: pulumi.Input[Union[str, 'DestinationType']],
+             name: pulumi.Input[str],
+             destination_tap_rule_id: Optional[pulumi.Input[str]] = None,
+             isolation_domain_properties: Optional[pulumi.Input['IsolationDomainPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationId' in kwargs:
+            destination_id = kwargs['destinationId']
+        if 'destinationType' in kwargs:
+            destination_type = kwargs['destinationType']
+        if 'destinationTapRuleId' in kwargs:
+            destination_tap_rule_id = kwargs['destinationTapRuleId']
+        if 'isolationDomainProperties' in kwargs:
+            isolation_domain_properties = kwargs['isolationDomainProperties']
+
+        _setter("destination_id", destination_id)
+        _setter("destination_type", destination_type)
+        _setter("name", name)
         if destination_tap_rule_id is not None:
-            pulumi.set(__self__, "destination_tap_rule_id", destination_tap_rule_id)
+            _setter("destination_tap_rule_id", destination_tap_rule_id)
         if isolation_domain_properties is not None:
-            pulumi.set(__self__, "isolation_domain_properties", isolation_domain_properties)
+            _setter("isolation_domain_properties", isolation_domain_properties)
 
     @property
     @pulumi.getter(name="destinationId")
@@ -2258,16 +3001,41 @@ class NetworkTapRuleActionArgs:
         :param pulumi.Input[str] truncate: Truncate. 0 indicates do not truncate.
         :param pulumi.Input[Union[str, 'TapRuleActionType']] type: Type of actions that can be performed.
         """
+        NetworkTapRuleActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_id=destination_id,
+            is_timestamp_enabled=is_timestamp_enabled,
+            match_configuration_name=match_configuration_name,
+            truncate=truncate,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_id: Optional[pulumi.Input[str]] = None,
+             is_timestamp_enabled: Optional[pulumi.Input[Union[str, 'BooleanEnumProperty']]] = None,
+             match_configuration_name: Optional[pulumi.Input[str]] = None,
+             truncate: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'TapRuleActionType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationId' in kwargs:
+            destination_id = kwargs['destinationId']
+        if 'isTimestampEnabled' in kwargs:
+            is_timestamp_enabled = kwargs['isTimestampEnabled']
+        if 'matchConfigurationName' in kwargs:
+            match_configuration_name = kwargs['matchConfigurationName']
+
         if destination_id is not None:
-            pulumi.set(__self__, "destination_id", destination_id)
+            _setter("destination_id", destination_id)
         if is_timestamp_enabled is not None:
-            pulumi.set(__self__, "is_timestamp_enabled", is_timestamp_enabled)
+            _setter("is_timestamp_enabled", is_timestamp_enabled)
         if match_configuration_name is not None:
-            pulumi.set(__self__, "match_configuration_name", match_configuration_name)
+            _setter("match_configuration_name", match_configuration_name)
         if truncate is not None:
-            pulumi.set(__self__, "truncate", truncate)
+            _setter("truncate", truncate)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="destinationId")
@@ -2346,18 +3114,47 @@ class NetworkTapRuleMatchConditionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: List of the protocols that need to be matched.
         :param pulumi.Input['VlanMatchConditionArgs'] vlan_match_condition: Vlan match condition that needs to be matched.
         """
+        NetworkTapRuleMatchConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encapsulation_type=encapsulation_type,
+            ip_condition=ip_condition,
+            port_condition=port_condition,
+            protocol_types=protocol_types,
+            vlan_match_condition=vlan_match_condition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encapsulation_type: Optional[pulumi.Input[Union[str, 'EncapsulationType']]] = None,
+             ip_condition: Optional[pulumi.Input['IpMatchConditionArgs']] = None,
+             port_condition: Optional[pulumi.Input['PortConditionArgs']] = None,
+             protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vlan_match_condition: Optional[pulumi.Input['VlanMatchConditionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encapsulationType' in kwargs:
+            encapsulation_type = kwargs['encapsulationType']
+        if 'ipCondition' in kwargs:
+            ip_condition = kwargs['ipCondition']
+        if 'portCondition' in kwargs:
+            port_condition = kwargs['portCondition']
+        if 'protocolTypes' in kwargs:
+            protocol_types = kwargs['protocolTypes']
+        if 'vlanMatchCondition' in kwargs:
+            vlan_match_condition = kwargs['vlanMatchCondition']
+
         if encapsulation_type is None:
             encapsulation_type = 'None'
         if encapsulation_type is not None:
-            pulumi.set(__self__, "encapsulation_type", encapsulation_type)
+            _setter("encapsulation_type", encapsulation_type)
         if ip_condition is not None:
-            pulumi.set(__self__, "ip_condition", ip_condition)
+            _setter("ip_condition", ip_condition)
         if port_condition is not None:
-            pulumi.set(__self__, "port_condition", port_condition)
+            _setter("port_condition", port_condition)
         if protocol_types is not None:
-            pulumi.set(__self__, "protocol_types", protocol_types)
+            _setter("protocol_types", protocol_types)
         if vlan_match_condition is not None:
-            pulumi.set(__self__, "vlan_match_condition", vlan_match_condition)
+            _setter("vlan_match_condition", vlan_match_condition)
 
     @property
     @pulumi.getter(name="encapsulationType")
@@ -2436,16 +3233,43 @@ class NetworkTapRuleMatchConfigurationArgs:
         :param pulumi.Input[str] match_configuration_name: The name of the match configuration.
         :param pulumi.Input[float] sequence_number: Sequence Number of the match configuration..
         """
+        NetworkTapRuleMatchConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            ip_address_type=ip_address_type,
+            match_conditions=match_conditions,
+            match_configuration_name=match_configuration_name,
+            sequence_number=sequence_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleActionArgs']]]] = None,
+             ip_address_type: Optional[pulumi.Input[Union[str, 'IPAddressType']]] = None,
+             match_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleMatchConditionArgs']]]] = None,
+             match_configuration_name: Optional[pulumi.Input[str]] = None,
+             sequence_number: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if 'matchConditions' in kwargs:
+            match_conditions = kwargs['matchConditions']
+        if 'matchConfigurationName' in kwargs:
+            match_configuration_name = kwargs['matchConfigurationName']
+        if 'sequenceNumber' in kwargs:
+            sequence_number = kwargs['sequenceNumber']
+
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if match_conditions is not None:
-            pulumi.set(__self__, "match_conditions", match_conditions)
+            _setter("match_conditions", match_conditions)
         if match_configuration_name is not None:
-            pulumi.set(__self__, "match_configuration_name", match_configuration_name)
+            _setter("match_configuration_name", match_configuration_name)
         if sequence_number is not None:
-            pulumi.set(__self__, "sequence_number", sequence_number)
+            _setter("sequence_number", sequence_number)
 
     @property
     @pulumi.getter
@@ -2526,16 +3350,49 @@ class NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs:
         :param pulumi.Input[str] secondary_ipv4_prefix: Secondary IPv4 Address Prefix.
         :param pulumi.Input[str] secondary_ipv6_prefix: Secondary IPv6 Address Prefix.
         """
-        pulumi.set(__self__, "peer_asn", peer_asn)
-        pulumi.set(__self__, "vlan_id", vlan_id)
+        NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            peer_asn=peer_asn,
+            vlan_id=vlan_id,
+            primary_ipv4_prefix=primary_ipv4_prefix,
+            primary_ipv6_prefix=primary_ipv6_prefix,
+            secondary_ipv4_prefix=secondary_ipv4_prefix,
+            secondary_ipv6_prefix=secondary_ipv6_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             peer_asn: pulumi.Input[float],
+             vlan_id: pulumi.Input[int],
+             primary_ipv4_prefix: Optional[pulumi.Input[str]] = None,
+             primary_ipv6_prefix: Optional[pulumi.Input[str]] = None,
+             secondary_ipv4_prefix: Optional[pulumi.Input[str]] = None,
+             secondary_ipv6_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peerASN' in kwargs:
+            peer_asn = kwargs['peerASN']
+        if 'vlanId' in kwargs:
+            vlan_id = kwargs['vlanId']
+        if 'primaryIpv4Prefix' in kwargs:
+            primary_ipv4_prefix = kwargs['primaryIpv4Prefix']
+        if 'primaryIpv6Prefix' in kwargs:
+            primary_ipv6_prefix = kwargs['primaryIpv6Prefix']
+        if 'secondaryIpv4Prefix' in kwargs:
+            secondary_ipv4_prefix = kwargs['secondaryIpv4Prefix']
+        if 'secondaryIpv6Prefix' in kwargs:
+            secondary_ipv6_prefix = kwargs['secondaryIpv6Prefix']
+
+        _setter("peer_asn", peer_asn)
+        _setter("vlan_id", vlan_id)
         if primary_ipv4_prefix is not None:
-            pulumi.set(__self__, "primary_ipv4_prefix", primary_ipv4_prefix)
+            _setter("primary_ipv4_prefix", primary_ipv4_prefix)
         if primary_ipv6_prefix is not None:
-            pulumi.set(__self__, "primary_ipv6_prefix", primary_ipv6_prefix)
+            _setter("primary_ipv6_prefix", primary_ipv6_prefix)
         if secondary_ipv4_prefix is not None:
-            pulumi.set(__self__, "secondary_ipv4_prefix", secondary_ipv4_prefix)
+            _setter("secondary_ipv4_prefix", secondary_ipv4_prefix)
         if secondary_ipv6_prefix is not None:
-            pulumi.set(__self__, "secondary_ipv6_prefix", secondary_ipv6_prefix)
+            _setter("secondary_ipv6_prefix", secondary_ipv6_prefix)
 
     @property
     @pulumi.getter(name="peerASN")
@@ -2622,12 +3479,33 @@ class NpbStaticRouteConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]] ipv4_routes: List of IPv4 Routes.
         :param pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]] ipv6_routes: List of IPv6 Routes.
         """
+        NpbStaticRouteConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bfd_configuration=bfd_configuration,
+            ipv4_routes=ipv4_routes,
+            ipv6_routes=ipv6_routes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bfd_configuration: Optional[pulumi.Input['BfdConfigurationArgs']] = None,
+             ipv4_routes: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]] = None,
+             ipv6_routes: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bfdConfiguration' in kwargs:
+            bfd_configuration = kwargs['bfdConfiguration']
+        if 'ipv4Routes' in kwargs:
+            ipv4_routes = kwargs['ipv4Routes']
+        if 'ipv6Routes' in kwargs:
+            ipv6_routes = kwargs['ipv6Routes']
+
         if bfd_configuration is not None:
-            pulumi.set(__self__, "bfd_configuration", bfd_configuration)
+            _setter("bfd_configuration", bfd_configuration)
         if ipv4_routes is not None:
-            pulumi.set(__self__, "ipv4_routes", ipv4_routes)
+            _setter("ipv4_routes", ipv4_routes)
         if ipv6_routes is not None:
-            pulumi.set(__self__, "ipv6_routes", ipv6_routes)
+            _setter("ipv6_routes", ipv6_routes)
 
     @property
     @pulumi.getter(name="bfdConfiguration")
@@ -2680,13 +3558,36 @@ class PortConditionArgs:
         :param pulumi.Input[Union[str, 'PortType']] port_type: Port type that needs to be matched.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ports: List of the Ports that need to be matched.
         """
-        pulumi.set(__self__, "layer4_protocol", layer4_protocol)
+        PortConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            layer4_protocol=layer4_protocol,
+            port_group_names=port_group_names,
+            port_type=port_type,
+            ports=ports,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             layer4_protocol: pulumi.Input[Union[str, 'Layer4Protocol']],
+             port_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             port_type: Optional[pulumi.Input[Union[str, 'PortType']]] = None,
+             ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'layer4Protocol' in kwargs:
+            layer4_protocol = kwargs['layer4Protocol']
+        if 'portGroupNames' in kwargs:
+            port_group_names = kwargs['portGroupNames']
+        if 'portType' in kwargs:
+            port_type = kwargs['portType']
+
+        _setter("layer4_protocol", layer4_protocol)
         if port_group_names is not None:
-            pulumi.set(__self__, "port_group_names", port_group_names)
+            _setter("port_group_names", port_group_names)
         if port_type is not None:
-            pulumi.set(__self__, "port_type", port_type)
+            _setter("port_type", port_type)
         if ports is not None:
-            pulumi.set(__self__, "ports", ports)
+            _setter("ports", ports)
 
     @property
     @pulumi.getter(name="layer4Protocol")
@@ -2747,10 +3648,23 @@ class PortGroupPropertiesArgs:
         :param pulumi.Input[str] name: The name of the port group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ports: List of the ports that need to be matched.
         """
+        PortGroupPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            ports=ports,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if ports is not None:
-            pulumi.set(__self__, "ports", ports)
+            _setter("ports", ports)
 
     @property
     @pulumi.getter
@@ -2791,11 +3705,30 @@ class RoutePolicyStatementPropertiesArgs:
         :param pulumi.Input[float] sequence_number: Sequence to insert to/delete from existing route.
         :param pulumi.Input[str] annotation: Switch configuration description.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "condition", condition)
-        pulumi.set(__self__, "sequence_number", sequence_number)
+        RoutePolicyStatementPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            condition=condition,
+            sequence_number=sequence_number,
+            annotation=annotation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input['StatementActionPropertiesArgs'],
+             condition: pulumi.Input['StatementConditionPropertiesArgs'],
+             sequence_number: pulumi.Input[float],
+             annotation: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sequenceNumber' in kwargs:
+            sequence_number = kwargs['sequenceNumber']
+
+        _setter("action", action)
+        _setter("condition", condition)
+        _setter("sequence_number", sequence_number)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
 
     @property
     @pulumi.getter
@@ -2860,14 +3793,39 @@ class RouteTargetInformationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] import_ipv4_route_targets: Route Targets to be applied for incoming routes into CE.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] import_ipv6_route_targets: Route Targets to be applied for incoming routes from CE.
         """
+        RouteTargetInformationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            export_ipv4_route_targets=export_ipv4_route_targets,
+            export_ipv6_route_targets=export_ipv6_route_targets,
+            import_ipv4_route_targets=import_ipv4_route_targets,
+            import_ipv6_route_targets=import_ipv6_route_targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             export_ipv4_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             export_ipv6_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             import_ipv4_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             import_ipv6_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exportIpv4RouteTargets' in kwargs:
+            export_ipv4_route_targets = kwargs['exportIpv4RouteTargets']
+        if 'exportIpv6RouteTargets' in kwargs:
+            export_ipv6_route_targets = kwargs['exportIpv6RouteTargets']
+        if 'importIpv4RouteTargets' in kwargs:
+            import_ipv4_route_targets = kwargs['importIpv4RouteTargets']
+        if 'importIpv6RouteTargets' in kwargs:
+            import_ipv6_route_targets = kwargs['importIpv6RouteTargets']
+
         if export_ipv4_route_targets is not None:
-            pulumi.set(__self__, "export_ipv4_route_targets", export_ipv4_route_targets)
+            _setter("export_ipv4_route_targets", export_ipv4_route_targets)
         if export_ipv6_route_targets is not None:
-            pulumi.set(__self__, "export_ipv6_route_targets", export_ipv6_route_targets)
+            _setter("export_ipv6_route_targets", export_ipv6_route_targets)
         if import_ipv4_route_targets is not None:
-            pulumi.set(__self__, "import_ipv4_route_targets", import_ipv4_route_targets)
+            _setter("import_ipv4_route_targets", import_ipv4_route_targets)
         if import_ipv6_route_targets is not None:
-            pulumi.set(__self__, "import_ipv6_route_targets", import_ipv6_route_targets)
+            _setter("import_ipv6_route_targets", import_ipv6_route_targets)
 
     @property
     @pulumi.getter(name="exportIpv4RouteTargets")
@@ -2928,8 +3886,23 @@ class RulePropertiesArgs:
         :param pulumi.Input[Union[str, 'Action']] action: Specify action.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_list: List of Addresses to be allowed or denied.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "address_list", address_list)
+        RulePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            address_list=address_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[Union[str, 'Action']],
+             address_list: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressList' in kwargs:
+            address_list = kwargs['addressList']
+
+        _setter("action", action)
+        _setter("address_list", address_list)
 
     @property
     @pulumi.getter
@@ -2970,13 +3943,38 @@ class StatementActionPropertiesArgs:
         :param pulumi.Input['ActionIpExtendedCommunityPropertiesArgs'] ip_extended_community_properties: IP Extended Community Properties.
         :param pulumi.Input[float] local_preference: Local Preference of the route policy.
         """
-        pulumi.set(__self__, "action_type", action_type)
+        StatementActionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_type=action_type,
+            ip_community_properties=ip_community_properties,
+            ip_extended_community_properties=ip_extended_community_properties,
+            local_preference=local_preference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_type: pulumi.Input[Union[str, 'RoutePolicyActionType']],
+             ip_community_properties: Optional[pulumi.Input['ActionIpCommunityPropertiesArgs']] = None,
+             ip_extended_community_properties: Optional[pulumi.Input['ActionIpExtendedCommunityPropertiesArgs']] = None,
+             local_preference: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if 'ipCommunityProperties' in kwargs:
+            ip_community_properties = kwargs['ipCommunityProperties']
+        if 'ipExtendedCommunityProperties' in kwargs:
+            ip_extended_community_properties = kwargs['ipExtendedCommunityProperties']
+        if 'localPreference' in kwargs:
+            local_preference = kwargs['localPreference']
+
+        _setter("action_type", action_type)
         if ip_community_properties is not None:
-            pulumi.set(__self__, "ip_community_properties", ip_community_properties)
+            _setter("ip_community_properties", ip_community_properties)
         if ip_extended_community_properties is not None:
-            pulumi.set(__self__, "ip_extended_community_properties", ip_extended_community_properties)
+            _setter("ip_extended_community_properties", ip_extended_community_properties)
         if local_preference is not None:
-            pulumi.set(__self__, "local_preference", local_preference)
+            _setter("local_preference", local_preference)
 
     @property
     @pulumi.getter(name="actionType")
@@ -3041,16 +4039,39 @@ class StatementConditionPropertiesArgs:
         :param pulumi.Input[str] ip_prefix_id: Arm Resource Id of IpPrefix.
         :param pulumi.Input[Union[str, 'RoutePolicyConditionType']] type: Type of the condition used.
         """
+        StatementConditionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_community_ids=ip_community_ids,
+            ip_extended_community_ids=ip_extended_community_ids,
+            ip_prefix_id=ip_prefix_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_community_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_extended_community_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_prefix_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'RoutePolicyConditionType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipCommunityIds' in kwargs:
+            ip_community_ids = kwargs['ipCommunityIds']
+        if 'ipExtendedCommunityIds' in kwargs:
+            ip_extended_community_ids = kwargs['ipExtendedCommunityIds']
+        if 'ipPrefixId' in kwargs:
+            ip_prefix_id = kwargs['ipPrefixId']
+
         if ip_community_ids is not None:
-            pulumi.set(__self__, "ip_community_ids", ip_community_ids)
+            _setter("ip_community_ids", ip_community_ids)
         if ip_extended_community_ids is not None:
-            pulumi.set(__self__, "ip_extended_community_ids", ip_extended_community_ids)
+            _setter("ip_extended_community_ids", ip_extended_community_ids)
         if ip_prefix_id is not None:
-            pulumi.set(__self__, "ip_prefix_id", ip_prefix_id)
+            _setter("ip_prefix_id", ip_prefix_id)
         if type is None:
             type = 'Or'
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="ipCommunityIds")
@@ -3111,8 +4132,23 @@ class StaticRoutePropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] next_hop: List of next hop addresses.
         :param pulumi.Input[str] prefix: Prefix of the route.
         """
-        pulumi.set(__self__, "next_hop", next_hop)
-        pulumi.set(__self__, "prefix", prefix)
+        StaticRoutePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            next_hop=next_hop,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             next_hop: pulumi.Input[Sequence[pulumi.Input[str]]],
+             prefix: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nextHop' in kwargs:
+            next_hop = kwargs['nextHop']
+
+        _setter("next_hop", next_hop)
+        _setter("prefix", prefix)
 
     @property
     @pulumi.getter(name="nextHop")
@@ -3159,16 +4195,49 @@ class TerminalServerConfigurationArgs:
         :param pulumi.Input[str] secondary_ipv6_prefix: Secondary IPv6 Address Prefix.
         :param pulumi.Input[str] serial_number: Serial Number of Terminal server.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "primary_ipv4_prefix", primary_ipv4_prefix)
-        pulumi.set(__self__, "secondary_ipv4_prefix", secondary_ipv4_prefix)
-        pulumi.set(__self__, "username", username)
+        TerminalServerConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            primary_ipv4_prefix=primary_ipv4_prefix,
+            secondary_ipv4_prefix=secondary_ipv4_prefix,
+            username=username,
+            primary_ipv6_prefix=primary_ipv6_prefix,
+            secondary_ipv6_prefix=secondary_ipv6_prefix,
+            serial_number=serial_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: pulumi.Input[str],
+             primary_ipv4_prefix: pulumi.Input[str],
+             secondary_ipv4_prefix: pulumi.Input[str],
+             username: pulumi.Input[str],
+             primary_ipv6_prefix: Optional[pulumi.Input[str]] = None,
+             secondary_ipv6_prefix: Optional[pulumi.Input[str]] = None,
+             serial_number: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'primaryIpv4Prefix' in kwargs:
+            primary_ipv4_prefix = kwargs['primaryIpv4Prefix']
+        if 'secondaryIpv4Prefix' in kwargs:
+            secondary_ipv4_prefix = kwargs['secondaryIpv4Prefix']
+        if 'primaryIpv6Prefix' in kwargs:
+            primary_ipv6_prefix = kwargs['primaryIpv6Prefix']
+        if 'secondaryIpv6Prefix' in kwargs:
+            secondary_ipv6_prefix = kwargs['secondaryIpv6Prefix']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+
+        _setter("password", password)
+        _setter("primary_ipv4_prefix", primary_ipv4_prefix)
+        _setter("secondary_ipv4_prefix", secondary_ipv4_prefix)
+        _setter("username", username)
         if primary_ipv6_prefix is not None:
-            pulumi.set(__self__, "primary_ipv6_prefix", primary_ipv6_prefix)
+            _setter("primary_ipv6_prefix", primary_ipv6_prefix)
         if secondary_ipv6_prefix is not None:
-            pulumi.set(__self__, "secondary_ipv6_prefix", secondary_ipv6_prefix)
+            _setter("secondary_ipv6_prefix", secondary_ipv6_prefix)
         if serial_number is not None:
-            pulumi.set(__self__, "serial_number", serial_number)
+            _setter("serial_number", serial_number)
 
     @property
     @pulumi.getter
@@ -3265,10 +4334,23 @@ class VlanGroupPropertiesArgs:
         :param pulumi.Input[str] name: Vlan group name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: List of vlans.
         """
+        VlanGroupPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            vlans=vlans,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if vlans is not None:
-            pulumi.set(__self__, "vlans", vlans)
+            _setter("vlans", vlans)
 
     @property
     @pulumi.getter
@@ -3307,12 +4389,31 @@ class VlanMatchConditionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlan_group_names: List of vlan group names that need to be matched.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: List of vlans that need to be matched.
         """
+        VlanMatchConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inner_vlans=inner_vlans,
+            vlan_group_names=vlan_group_names,
+            vlans=vlans,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inner_vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vlan_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'innerVlans' in kwargs:
+            inner_vlans = kwargs['innerVlans']
+        if 'vlanGroupNames' in kwargs:
+            vlan_group_names = kwargs['vlanGroupNames']
+
         if inner_vlans is not None:
-            pulumi.set(__self__, "inner_vlans", inner_vlans)
+            _setter("inner_vlans", inner_vlans)
         if vlan_group_names is not None:
-            pulumi.set(__self__, "vlan_group_names", vlan_group_names)
+            _setter("vlan_group_names", vlan_group_names)
         if vlans is not None:
-            pulumi.set(__self__, "vlans", vlans)
+            _setter("vlans", vlans)
 
     @property
     @pulumi.getter(name="innerVlans")
@@ -3373,22 +4474,61 @@ class VpnConfigurationPropertiesOptionAPropertiesArgs:
         :param pulumi.Input[str] secondary_ipv4_prefix: Secondary IPv4 Address Prefix.
         :param pulumi.Input[str] secondary_ipv6_prefix: Secondary IPv6 Address Prefix.
         """
-        pulumi.set(__self__, "peer_asn", peer_asn)
-        pulumi.set(__self__, "vlan_id", vlan_id)
+        VpnConfigurationPropertiesOptionAPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            peer_asn=peer_asn,
+            vlan_id=vlan_id,
+            bfd_configuration=bfd_configuration,
+            mtu=mtu,
+            primary_ipv4_prefix=primary_ipv4_prefix,
+            primary_ipv6_prefix=primary_ipv6_prefix,
+            secondary_ipv4_prefix=secondary_ipv4_prefix,
+            secondary_ipv6_prefix=secondary_ipv6_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             peer_asn: pulumi.Input[float],
+             vlan_id: pulumi.Input[int],
+             bfd_configuration: Optional[pulumi.Input['BfdConfigurationArgs']] = None,
+             mtu: Optional[pulumi.Input[int]] = None,
+             primary_ipv4_prefix: Optional[pulumi.Input[str]] = None,
+             primary_ipv6_prefix: Optional[pulumi.Input[str]] = None,
+             secondary_ipv4_prefix: Optional[pulumi.Input[str]] = None,
+             secondary_ipv6_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peerASN' in kwargs:
+            peer_asn = kwargs['peerASN']
+        if 'vlanId' in kwargs:
+            vlan_id = kwargs['vlanId']
+        if 'bfdConfiguration' in kwargs:
+            bfd_configuration = kwargs['bfdConfiguration']
+        if 'primaryIpv4Prefix' in kwargs:
+            primary_ipv4_prefix = kwargs['primaryIpv4Prefix']
+        if 'primaryIpv6Prefix' in kwargs:
+            primary_ipv6_prefix = kwargs['primaryIpv6Prefix']
+        if 'secondaryIpv4Prefix' in kwargs:
+            secondary_ipv4_prefix = kwargs['secondaryIpv4Prefix']
+        if 'secondaryIpv6Prefix' in kwargs:
+            secondary_ipv6_prefix = kwargs['secondaryIpv6Prefix']
+
+        _setter("peer_asn", peer_asn)
+        _setter("vlan_id", vlan_id)
         if bfd_configuration is not None:
-            pulumi.set(__self__, "bfd_configuration", bfd_configuration)
+            _setter("bfd_configuration", bfd_configuration)
         if mtu is None:
             mtu = 1500
         if mtu is not None:
-            pulumi.set(__self__, "mtu", mtu)
+            _setter("mtu", mtu)
         if primary_ipv4_prefix is not None:
-            pulumi.set(__self__, "primary_ipv4_prefix", primary_ipv4_prefix)
+            _setter("primary_ipv4_prefix", primary_ipv4_prefix)
         if primary_ipv6_prefix is not None:
-            pulumi.set(__self__, "primary_ipv6_prefix", primary_ipv6_prefix)
+            _setter("primary_ipv6_prefix", primary_ipv6_prefix)
         if secondary_ipv4_prefix is not None:
-            pulumi.set(__self__, "secondary_ipv4_prefix", secondary_ipv4_prefix)
+            _setter("secondary_ipv4_prefix", secondary_ipv4_prefix)
         if secondary_ipv6_prefix is not None:
-            pulumi.set(__self__, "secondary_ipv6_prefix", secondary_ipv6_prefix)
+            _setter("secondary_ipv6_prefix", secondary_ipv6_prefix)
 
     @property
     @pulumi.getter(name="peerASN")
@@ -3501,13 +4641,38 @@ class VpnConfigurationPropertiesArgs:
         :param pulumi.Input['VpnConfigurationPropertiesOptionAPropertiesArgs'] option_a_properties: option A properties
         :param pulumi.Input['FabricOptionBPropertiesArgs'] option_b_properties: option B properties
         """
-        pulumi.set(__self__, "peering_option", peering_option)
+        VpnConfigurationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            peering_option=peering_option,
+            network_to_network_interconnect_id=network_to_network_interconnect_id,
+            option_a_properties=option_a_properties,
+            option_b_properties=option_b_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             peering_option: pulumi.Input[Union[str, 'PeeringOption']],
+             network_to_network_interconnect_id: Optional[pulumi.Input[str]] = None,
+             option_a_properties: Optional[pulumi.Input['VpnConfigurationPropertiesOptionAPropertiesArgs']] = None,
+             option_b_properties: Optional[pulumi.Input['FabricOptionBPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peeringOption' in kwargs:
+            peering_option = kwargs['peeringOption']
+        if 'networkToNetworkInterconnectId' in kwargs:
+            network_to_network_interconnect_id = kwargs['networkToNetworkInterconnectId']
+        if 'optionAProperties' in kwargs:
+            option_a_properties = kwargs['optionAProperties']
+        if 'optionBProperties' in kwargs:
+            option_b_properties = kwargs['optionBProperties']
+
+        _setter("peering_option", peering_option)
         if network_to_network_interconnect_id is not None:
-            pulumi.set(__self__, "network_to_network_interconnect_id", network_to_network_interconnect_id)
+            _setter("network_to_network_interconnect_id", network_to_network_interconnect_id)
         if option_a_properties is not None:
-            pulumi.set(__self__, "option_a_properties", option_a_properties)
+            _setter("option_a_properties", option_a_properties)
         if option_b_properties is not None:
-            pulumi.set(__self__, "option_b_properties", option_b_properties)
+            _setter("option_b_properties", option_b_properties)
 
     @property
     @pulumi.getter(name="peeringOption")

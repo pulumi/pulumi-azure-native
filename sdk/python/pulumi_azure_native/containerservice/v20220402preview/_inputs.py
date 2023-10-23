@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -27,8 +27,21 @@ class AgentPoolUpgradeSettingsArgs:
         Settings for upgrading an agentpool
         :param pulumi.Input[str] max_surge: This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
         """
+        AgentPoolUpgradeSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_surge=max_surge,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_surge: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxSurge' in kwargs:
+            max_surge = kwargs['maxSurge']
+
         if max_surge is not None:
-            pulumi.set(__self__, "max_surge", max_surge)
+            _setter("max_surge", max_surge)
 
     @property
     @pulumi.getter(name="maxSurge")
@@ -51,8 +64,21 @@ class CreationDataArgs:
         Data used when creating a target resource from a source resource.
         :param pulumi.Input[str] source_resource_id: This is the ARM ID of the source object to be used to create the target object.
         """
+        CreationDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_resource_id=source_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceResourceId' in kwargs:
+            source_resource_id = kwargs['sourceResourceId']
+
         if source_resource_id is not None:
-            pulumi.set(__self__, "source_resource_id", source_resource_id)
+            _setter("source_resource_id", source_resource_id)
 
     @property
     @pulumi.getter(name="sourceResourceId")
@@ -95,28 +121,81 @@ class KubeletConfigArgs:
         :param pulumi.Input[int] pod_max_pids: The maximum number of processes per pod.
         :param pulumi.Input[str] topology_manager_policy: For more information see [Kubernetes Topology Manager](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager). The default is 'none'. Allowed values are 'none', 'best-effort', 'restricted', and 'single-numa-node'.
         """
+        KubeletConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_unsafe_sysctls=allowed_unsafe_sysctls,
+            container_log_max_files=container_log_max_files,
+            container_log_max_size_mb=container_log_max_size_mb,
+            cpu_cfs_quota=cpu_cfs_quota,
+            cpu_cfs_quota_period=cpu_cfs_quota_period,
+            cpu_manager_policy=cpu_manager_policy,
+            fail_swap_on=fail_swap_on,
+            image_gc_high_threshold=image_gc_high_threshold,
+            image_gc_low_threshold=image_gc_low_threshold,
+            pod_max_pids=pod_max_pids,
+            topology_manager_policy=topology_manager_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_unsafe_sysctls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             container_log_max_files: Optional[pulumi.Input[int]] = None,
+             container_log_max_size_mb: Optional[pulumi.Input[int]] = None,
+             cpu_cfs_quota: Optional[pulumi.Input[bool]] = None,
+             cpu_cfs_quota_period: Optional[pulumi.Input[str]] = None,
+             cpu_manager_policy: Optional[pulumi.Input[str]] = None,
+             fail_swap_on: Optional[pulumi.Input[bool]] = None,
+             image_gc_high_threshold: Optional[pulumi.Input[int]] = None,
+             image_gc_low_threshold: Optional[pulumi.Input[int]] = None,
+             pod_max_pids: Optional[pulumi.Input[int]] = None,
+             topology_manager_policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedUnsafeSysctls' in kwargs:
+            allowed_unsafe_sysctls = kwargs['allowedUnsafeSysctls']
+        if 'containerLogMaxFiles' in kwargs:
+            container_log_max_files = kwargs['containerLogMaxFiles']
+        if 'containerLogMaxSizeMB' in kwargs:
+            container_log_max_size_mb = kwargs['containerLogMaxSizeMB']
+        if 'cpuCfsQuota' in kwargs:
+            cpu_cfs_quota = kwargs['cpuCfsQuota']
+        if 'cpuCfsQuotaPeriod' in kwargs:
+            cpu_cfs_quota_period = kwargs['cpuCfsQuotaPeriod']
+        if 'cpuManagerPolicy' in kwargs:
+            cpu_manager_policy = kwargs['cpuManagerPolicy']
+        if 'failSwapOn' in kwargs:
+            fail_swap_on = kwargs['failSwapOn']
+        if 'imageGcHighThreshold' in kwargs:
+            image_gc_high_threshold = kwargs['imageGcHighThreshold']
+        if 'imageGcLowThreshold' in kwargs:
+            image_gc_low_threshold = kwargs['imageGcLowThreshold']
+        if 'podMaxPids' in kwargs:
+            pod_max_pids = kwargs['podMaxPids']
+        if 'topologyManagerPolicy' in kwargs:
+            topology_manager_policy = kwargs['topologyManagerPolicy']
+
         if allowed_unsafe_sysctls is not None:
-            pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
+            _setter("allowed_unsafe_sysctls", allowed_unsafe_sysctls)
         if container_log_max_files is not None:
-            pulumi.set(__self__, "container_log_max_files", container_log_max_files)
+            _setter("container_log_max_files", container_log_max_files)
         if container_log_max_size_mb is not None:
-            pulumi.set(__self__, "container_log_max_size_mb", container_log_max_size_mb)
+            _setter("container_log_max_size_mb", container_log_max_size_mb)
         if cpu_cfs_quota is not None:
-            pulumi.set(__self__, "cpu_cfs_quota", cpu_cfs_quota)
+            _setter("cpu_cfs_quota", cpu_cfs_quota)
         if cpu_cfs_quota_period is not None:
-            pulumi.set(__self__, "cpu_cfs_quota_period", cpu_cfs_quota_period)
+            _setter("cpu_cfs_quota_period", cpu_cfs_quota_period)
         if cpu_manager_policy is not None:
-            pulumi.set(__self__, "cpu_manager_policy", cpu_manager_policy)
+            _setter("cpu_manager_policy", cpu_manager_policy)
         if fail_swap_on is not None:
-            pulumi.set(__self__, "fail_swap_on", fail_swap_on)
+            _setter("fail_swap_on", fail_swap_on)
         if image_gc_high_threshold is not None:
-            pulumi.set(__self__, "image_gc_high_threshold", image_gc_high_threshold)
+            _setter("image_gc_high_threshold", image_gc_high_threshold)
         if image_gc_low_threshold is not None:
-            pulumi.set(__self__, "image_gc_low_threshold", image_gc_low_threshold)
+            _setter("image_gc_low_threshold", image_gc_low_threshold)
         if pod_max_pids is not None:
-            pulumi.set(__self__, "pod_max_pids", pod_max_pids)
+            _setter("pod_max_pids", pod_max_pids)
         if topology_manager_policy is not None:
-            pulumi.set(__self__, "topology_manager_policy", topology_manager_policy)
+            _setter("topology_manager_policy", topology_manager_policy)
 
     @property
     @pulumi.getter(name="allowedUnsafeSysctls")
@@ -265,14 +344,37 @@ class LinuxOSConfigArgs:
         :param pulumi.Input[str] transparent_huge_page_defrag: Valid values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. The default is 'madvise'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
         :param pulumi.Input[str] transparent_huge_page_enabled: Valid values are 'always', 'madvise', and 'never'. The default is 'always'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
         """
+        LinuxOSConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            swap_file_size_mb=swap_file_size_mb,
+            sysctls=sysctls,
+            transparent_huge_page_defrag=transparent_huge_page_defrag,
+            transparent_huge_page_enabled=transparent_huge_page_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             swap_file_size_mb: Optional[pulumi.Input[int]] = None,
+             sysctls: Optional[pulumi.Input['SysctlConfigArgs']] = None,
+             transparent_huge_page_defrag: Optional[pulumi.Input[str]] = None,
+             transparent_huge_page_enabled: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'swapFileSizeMB' in kwargs:
+            swap_file_size_mb = kwargs['swapFileSizeMB']
+        if 'transparentHugePageDefrag' in kwargs:
+            transparent_huge_page_defrag = kwargs['transparentHugePageDefrag']
+        if 'transparentHugePageEnabled' in kwargs:
+            transparent_huge_page_enabled = kwargs['transparentHugePageEnabled']
+
         if swap_file_size_mb is not None:
-            pulumi.set(__self__, "swap_file_size_mb", swap_file_size_mb)
+            _setter("swap_file_size_mb", swap_file_size_mb)
         if sysctls is not None:
-            pulumi.set(__self__, "sysctls", sysctls)
+            _setter("sysctls", sysctls)
         if transparent_huge_page_defrag is not None:
-            pulumi.set(__self__, "transparent_huge_page_defrag", transparent_huge_page_defrag)
+            _setter("transparent_huge_page_defrag", transparent_huge_page_defrag)
         if transparent_huge_page_enabled is not None:
-            pulumi.set(__self__, "transparent_huge_page_enabled", transparent_huge_page_enabled)
+            _setter("transparent_huge_page_enabled", transparent_huge_page_enabled)
 
     @property
     @pulumi.getter(name="swapFileSizeMB")
@@ -331,8 +433,19 @@ class PowerStateArgs:
         Describes the Power State of the cluster
         :param pulumi.Input[Union[str, 'Code']] code: Tells whether the cluster is Running or Stopped
         """
+        PowerStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[pulumi.Input[Union[str, 'Code']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
 
     @property
     @pulumi.getter
@@ -409,62 +522,183 @@ class SysctlConfigArgs:
         :param pulumi.Input[int] vm_swappiness: Sysctl setting vm.swappiness.
         :param pulumi.Input[int] vm_vfs_cache_pressure: Sysctl setting vm.vfs_cache_pressure.
         """
+        SysctlConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fs_aio_max_nr=fs_aio_max_nr,
+            fs_file_max=fs_file_max,
+            fs_inotify_max_user_watches=fs_inotify_max_user_watches,
+            fs_nr_open=fs_nr_open,
+            kernel_threads_max=kernel_threads_max,
+            net_core_netdev_max_backlog=net_core_netdev_max_backlog,
+            net_core_optmem_max=net_core_optmem_max,
+            net_core_rmem_default=net_core_rmem_default,
+            net_core_rmem_max=net_core_rmem_max,
+            net_core_somaxconn=net_core_somaxconn,
+            net_core_wmem_default=net_core_wmem_default,
+            net_core_wmem_max=net_core_wmem_max,
+            net_ipv4_ip_local_port_range=net_ipv4_ip_local_port_range,
+            net_ipv4_neigh_default_gc_thresh1=net_ipv4_neigh_default_gc_thresh1,
+            net_ipv4_neigh_default_gc_thresh2=net_ipv4_neigh_default_gc_thresh2,
+            net_ipv4_neigh_default_gc_thresh3=net_ipv4_neigh_default_gc_thresh3,
+            net_ipv4_tcp_fin_timeout=net_ipv4_tcp_fin_timeout,
+            net_ipv4_tcp_keepalive_probes=net_ipv4_tcp_keepalive_probes,
+            net_ipv4_tcp_keepalive_time=net_ipv4_tcp_keepalive_time,
+            net_ipv4_tcp_max_syn_backlog=net_ipv4_tcp_max_syn_backlog,
+            net_ipv4_tcp_max_tw_buckets=net_ipv4_tcp_max_tw_buckets,
+            net_ipv4_tcp_tw_reuse=net_ipv4_tcp_tw_reuse,
+            net_ipv4_tcpkeepalive_intvl=net_ipv4_tcpkeepalive_intvl,
+            net_netfilter_nf_conntrack_buckets=net_netfilter_nf_conntrack_buckets,
+            net_netfilter_nf_conntrack_max=net_netfilter_nf_conntrack_max,
+            vm_max_map_count=vm_max_map_count,
+            vm_swappiness=vm_swappiness,
+            vm_vfs_cache_pressure=vm_vfs_cache_pressure,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fs_aio_max_nr: Optional[pulumi.Input[int]] = None,
+             fs_file_max: Optional[pulumi.Input[int]] = None,
+             fs_inotify_max_user_watches: Optional[pulumi.Input[int]] = None,
+             fs_nr_open: Optional[pulumi.Input[int]] = None,
+             kernel_threads_max: Optional[pulumi.Input[int]] = None,
+             net_core_netdev_max_backlog: Optional[pulumi.Input[int]] = None,
+             net_core_optmem_max: Optional[pulumi.Input[int]] = None,
+             net_core_rmem_default: Optional[pulumi.Input[int]] = None,
+             net_core_rmem_max: Optional[pulumi.Input[int]] = None,
+             net_core_somaxconn: Optional[pulumi.Input[int]] = None,
+             net_core_wmem_default: Optional[pulumi.Input[int]] = None,
+             net_core_wmem_max: Optional[pulumi.Input[int]] = None,
+             net_ipv4_ip_local_port_range: Optional[pulumi.Input[str]] = None,
+             net_ipv4_neigh_default_gc_thresh1: Optional[pulumi.Input[int]] = None,
+             net_ipv4_neigh_default_gc_thresh2: Optional[pulumi.Input[int]] = None,
+             net_ipv4_neigh_default_gc_thresh3: Optional[pulumi.Input[int]] = None,
+             net_ipv4_tcp_fin_timeout: Optional[pulumi.Input[int]] = None,
+             net_ipv4_tcp_keepalive_probes: Optional[pulumi.Input[int]] = None,
+             net_ipv4_tcp_keepalive_time: Optional[pulumi.Input[int]] = None,
+             net_ipv4_tcp_max_syn_backlog: Optional[pulumi.Input[int]] = None,
+             net_ipv4_tcp_max_tw_buckets: Optional[pulumi.Input[int]] = None,
+             net_ipv4_tcp_tw_reuse: Optional[pulumi.Input[bool]] = None,
+             net_ipv4_tcpkeepalive_intvl: Optional[pulumi.Input[int]] = None,
+             net_netfilter_nf_conntrack_buckets: Optional[pulumi.Input[int]] = None,
+             net_netfilter_nf_conntrack_max: Optional[pulumi.Input[int]] = None,
+             vm_max_map_count: Optional[pulumi.Input[int]] = None,
+             vm_swappiness: Optional[pulumi.Input[int]] = None,
+             vm_vfs_cache_pressure: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fsAioMaxNr' in kwargs:
+            fs_aio_max_nr = kwargs['fsAioMaxNr']
+        if 'fsFileMax' in kwargs:
+            fs_file_max = kwargs['fsFileMax']
+        if 'fsInotifyMaxUserWatches' in kwargs:
+            fs_inotify_max_user_watches = kwargs['fsInotifyMaxUserWatches']
+        if 'fsNrOpen' in kwargs:
+            fs_nr_open = kwargs['fsNrOpen']
+        if 'kernelThreadsMax' in kwargs:
+            kernel_threads_max = kwargs['kernelThreadsMax']
+        if 'netCoreNetdevMaxBacklog' in kwargs:
+            net_core_netdev_max_backlog = kwargs['netCoreNetdevMaxBacklog']
+        if 'netCoreOptmemMax' in kwargs:
+            net_core_optmem_max = kwargs['netCoreOptmemMax']
+        if 'netCoreRmemDefault' in kwargs:
+            net_core_rmem_default = kwargs['netCoreRmemDefault']
+        if 'netCoreRmemMax' in kwargs:
+            net_core_rmem_max = kwargs['netCoreRmemMax']
+        if 'netCoreSomaxconn' in kwargs:
+            net_core_somaxconn = kwargs['netCoreSomaxconn']
+        if 'netCoreWmemDefault' in kwargs:
+            net_core_wmem_default = kwargs['netCoreWmemDefault']
+        if 'netCoreWmemMax' in kwargs:
+            net_core_wmem_max = kwargs['netCoreWmemMax']
+        if 'netIpv4IpLocalPortRange' in kwargs:
+            net_ipv4_ip_local_port_range = kwargs['netIpv4IpLocalPortRange']
+        if 'netIpv4NeighDefaultGcThresh1' in kwargs:
+            net_ipv4_neigh_default_gc_thresh1 = kwargs['netIpv4NeighDefaultGcThresh1']
+        if 'netIpv4NeighDefaultGcThresh2' in kwargs:
+            net_ipv4_neigh_default_gc_thresh2 = kwargs['netIpv4NeighDefaultGcThresh2']
+        if 'netIpv4NeighDefaultGcThresh3' in kwargs:
+            net_ipv4_neigh_default_gc_thresh3 = kwargs['netIpv4NeighDefaultGcThresh3']
+        if 'netIpv4TcpFinTimeout' in kwargs:
+            net_ipv4_tcp_fin_timeout = kwargs['netIpv4TcpFinTimeout']
+        if 'netIpv4TcpKeepaliveProbes' in kwargs:
+            net_ipv4_tcp_keepalive_probes = kwargs['netIpv4TcpKeepaliveProbes']
+        if 'netIpv4TcpKeepaliveTime' in kwargs:
+            net_ipv4_tcp_keepalive_time = kwargs['netIpv4TcpKeepaliveTime']
+        if 'netIpv4TcpMaxSynBacklog' in kwargs:
+            net_ipv4_tcp_max_syn_backlog = kwargs['netIpv4TcpMaxSynBacklog']
+        if 'netIpv4TcpMaxTwBuckets' in kwargs:
+            net_ipv4_tcp_max_tw_buckets = kwargs['netIpv4TcpMaxTwBuckets']
+        if 'netIpv4TcpTwReuse' in kwargs:
+            net_ipv4_tcp_tw_reuse = kwargs['netIpv4TcpTwReuse']
+        if 'netIpv4TcpkeepaliveIntvl' in kwargs:
+            net_ipv4_tcpkeepalive_intvl = kwargs['netIpv4TcpkeepaliveIntvl']
+        if 'netNetfilterNfConntrackBuckets' in kwargs:
+            net_netfilter_nf_conntrack_buckets = kwargs['netNetfilterNfConntrackBuckets']
+        if 'netNetfilterNfConntrackMax' in kwargs:
+            net_netfilter_nf_conntrack_max = kwargs['netNetfilterNfConntrackMax']
+        if 'vmMaxMapCount' in kwargs:
+            vm_max_map_count = kwargs['vmMaxMapCount']
+        if 'vmSwappiness' in kwargs:
+            vm_swappiness = kwargs['vmSwappiness']
+        if 'vmVfsCachePressure' in kwargs:
+            vm_vfs_cache_pressure = kwargs['vmVfsCachePressure']
+
         if fs_aio_max_nr is not None:
-            pulumi.set(__self__, "fs_aio_max_nr", fs_aio_max_nr)
+            _setter("fs_aio_max_nr", fs_aio_max_nr)
         if fs_file_max is not None:
-            pulumi.set(__self__, "fs_file_max", fs_file_max)
+            _setter("fs_file_max", fs_file_max)
         if fs_inotify_max_user_watches is not None:
-            pulumi.set(__self__, "fs_inotify_max_user_watches", fs_inotify_max_user_watches)
+            _setter("fs_inotify_max_user_watches", fs_inotify_max_user_watches)
         if fs_nr_open is not None:
-            pulumi.set(__self__, "fs_nr_open", fs_nr_open)
+            _setter("fs_nr_open", fs_nr_open)
         if kernel_threads_max is not None:
-            pulumi.set(__self__, "kernel_threads_max", kernel_threads_max)
+            _setter("kernel_threads_max", kernel_threads_max)
         if net_core_netdev_max_backlog is not None:
-            pulumi.set(__self__, "net_core_netdev_max_backlog", net_core_netdev_max_backlog)
+            _setter("net_core_netdev_max_backlog", net_core_netdev_max_backlog)
         if net_core_optmem_max is not None:
-            pulumi.set(__self__, "net_core_optmem_max", net_core_optmem_max)
+            _setter("net_core_optmem_max", net_core_optmem_max)
         if net_core_rmem_default is not None:
-            pulumi.set(__self__, "net_core_rmem_default", net_core_rmem_default)
+            _setter("net_core_rmem_default", net_core_rmem_default)
         if net_core_rmem_max is not None:
-            pulumi.set(__self__, "net_core_rmem_max", net_core_rmem_max)
+            _setter("net_core_rmem_max", net_core_rmem_max)
         if net_core_somaxconn is not None:
-            pulumi.set(__self__, "net_core_somaxconn", net_core_somaxconn)
+            _setter("net_core_somaxconn", net_core_somaxconn)
         if net_core_wmem_default is not None:
-            pulumi.set(__self__, "net_core_wmem_default", net_core_wmem_default)
+            _setter("net_core_wmem_default", net_core_wmem_default)
         if net_core_wmem_max is not None:
-            pulumi.set(__self__, "net_core_wmem_max", net_core_wmem_max)
+            _setter("net_core_wmem_max", net_core_wmem_max)
         if net_ipv4_ip_local_port_range is not None:
-            pulumi.set(__self__, "net_ipv4_ip_local_port_range", net_ipv4_ip_local_port_range)
+            _setter("net_ipv4_ip_local_port_range", net_ipv4_ip_local_port_range)
         if net_ipv4_neigh_default_gc_thresh1 is not None:
-            pulumi.set(__self__, "net_ipv4_neigh_default_gc_thresh1", net_ipv4_neigh_default_gc_thresh1)
+            _setter("net_ipv4_neigh_default_gc_thresh1", net_ipv4_neigh_default_gc_thresh1)
         if net_ipv4_neigh_default_gc_thresh2 is not None:
-            pulumi.set(__self__, "net_ipv4_neigh_default_gc_thresh2", net_ipv4_neigh_default_gc_thresh2)
+            _setter("net_ipv4_neigh_default_gc_thresh2", net_ipv4_neigh_default_gc_thresh2)
         if net_ipv4_neigh_default_gc_thresh3 is not None:
-            pulumi.set(__self__, "net_ipv4_neigh_default_gc_thresh3", net_ipv4_neigh_default_gc_thresh3)
+            _setter("net_ipv4_neigh_default_gc_thresh3", net_ipv4_neigh_default_gc_thresh3)
         if net_ipv4_tcp_fin_timeout is not None:
-            pulumi.set(__self__, "net_ipv4_tcp_fin_timeout", net_ipv4_tcp_fin_timeout)
+            _setter("net_ipv4_tcp_fin_timeout", net_ipv4_tcp_fin_timeout)
         if net_ipv4_tcp_keepalive_probes is not None:
-            pulumi.set(__self__, "net_ipv4_tcp_keepalive_probes", net_ipv4_tcp_keepalive_probes)
+            _setter("net_ipv4_tcp_keepalive_probes", net_ipv4_tcp_keepalive_probes)
         if net_ipv4_tcp_keepalive_time is not None:
-            pulumi.set(__self__, "net_ipv4_tcp_keepalive_time", net_ipv4_tcp_keepalive_time)
+            _setter("net_ipv4_tcp_keepalive_time", net_ipv4_tcp_keepalive_time)
         if net_ipv4_tcp_max_syn_backlog is not None:
-            pulumi.set(__self__, "net_ipv4_tcp_max_syn_backlog", net_ipv4_tcp_max_syn_backlog)
+            _setter("net_ipv4_tcp_max_syn_backlog", net_ipv4_tcp_max_syn_backlog)
         if net_ipv4_tcp_max_tw_buckets is not None:
-            pulumi.set(__self__, "net_ipv4_tcp_max_tw_buckets", net_ipv4_tcp_max_tw_buckets)
+            _setter("net_ipv4_tcp_max_tw_buckets", net_ipv4_tcp_max_tw_buckets)
         if net_ipv4_tcp_tw_reuse is not None:
-            pulumi.set(__self__, "net_ipv4_tcp_tw_reuse", net_ipv4_tcp_tw_reuse)
+            _setter("net_ipv4_tcp_tw_reuse", net_ipv4_tcp_tw_reuse)
         if net_ipv4_tcpkeepalive_intvl is not None:
-            pulumi.set(__self__, "net_ipv4_tcpkeepalive_intvl", net_ipv4_tcpkeepalive_intvl)
+            _setter("net_ipv4_tcpkeepalive_intvl", net_ipv4_tcpkeepalive_intvl)
         if net_netfilter_nf_conntrack_buckets is not None:
-            pulumi.set(__self__, "net_netfilter_nf_conntrack_buckets", net_netfilter_nf_conntrack_buckets)
+            _setter("net_netfilter_nf_conntrack_buckets", net_netfilter_nf_conntrack_buckets)
         if net_netfilter_nf_conntrack_max is not None:
-            pulumi.set(__self__, "net_netfilter_nf_conntrack_max", net_netfilter_nf_conntrack_max)
+            _setter("net_netfilter_nf_conntrack_max", net_netfilter_nf_conntrack_max)
         if vm_max_map_count is not None:
-            pulumi.set(__self__, "vm_max_map_count", vm_max_map_count)
+            _setter("vm_max_map_count", vm_max_map_count)
         if vm_swappiness is not None:
-            pulumi.set(__self__, "vm_swappiness", vm_swappiness)
+            _setter("vm_swappiness", vm_swappiness)
         if vm_vfs_cache_pressure is not None:
-            pulumi.set(__self__, "vm_vfs_cache_pressure", vm_vfs_cache_pressure)
+            _setter("vm_vfs_cache_pressure", vm_vfs_cache_pressure)
 
     @property
     @pulumi.getter(name="fsAioMaxNr")

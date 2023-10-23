@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -42,10 +42,25 @@ class BlobNfsTargetArgs:
         :param pulumi.Input[str] target: Resource ID of the storage container.
         :param pulumi.Input[str] usage_model: Identifies the StorageCache usage model to be used for this storage target.
         """
+        BlobNfsTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target=target,
+            usage_model=usage_model,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target: Optional[pulumi.Input[str]] = None,
+             usage_model: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'usageModel' in kwargs:
+            usage_model = kwargs['usageModel']
+
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
         if usage_model is not None:
-            pulumi.set(__self__, "usage_model", usage_model)
+            _setter("usage_model", usage_model)
 
     @property
     @pulumi.getter
@@ -82,8 +97,21 @@ class CacheActiveDirectorySettingsCredentialsArgs:
         :param pulumi.Input[str] password: Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         :param pulumi.Input[str] username: Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        CacheActiveDirectorySettingsCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: pulumi.Input[str],
+             username: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -128,14 +156,45 @@ class CacheActiveDirectorySettingsArgs:
         :param pulumi.Input['CacheActiveDirectorySettingsCredentialsArgs'] credentials: Active Directory admin credentials used to join the HPC Cache to a domain.
         :param pulumi.Input[str] secondary_dns_ip_address: Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
         """
-        pulumi.set(__self__, "cache_net_bios_name", cache_net_bios_name)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "domain_net_bios_name", domain_net_bios_name)
-        pulumi.set(__self__, "primary_dns_ip_address", primary_dns_ip_address)
+        CacheActiveDirectorySettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_net_bios_name=cache_net_bios_name,
+            domain_name=domain_name,
+            domain_net_bios_name=domain_net_bios_name,
+            primary_dns_ip_address=primary_dns_ip_address,
+            credentials=credentials,
+            secondary_dns_ip_address=secondary_dns_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_net_bios_name: pulumi.Input[str],
+             domain_name: pulumi.Input[str],
+             domain_net_bios_name: pulumi.Input[str],
+             primary_dns_ip_address: pulumi.Input[str],
+             credentials: Optional[pulumi.Input['CacheActiveDirectorySettingsCredentialsArgs']] = None,
+             secondary_dns_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cacheNetBiosName' in kwargs:
+            cache_net_bios_name = kwargs['cacheNetBiosName']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'domainNetBiosName' in kwargs:
+            domain_net_bios_name = kwargs['domainNetBiosName']
+        if 'primaryDnsIpAddress' in kwargs:
+            primary_dns_ip_address = kwargs['primaryDnsIpAddress']
+        if 'secondaryDnsIpAddress' in kwargs:
+            secondary_dns_ip_address = kwargs['secondaryDnsIpAddress']
+
+        _setter("cache_net_bios_name", cache_net_bios_name)
+        _setter("domain_name", domain_name)
+        _setter("domain_net_bios_name", domain_net_bios_name)
+        _setter("primary_dns_ip_address", primary_dns_ip_address)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if secondary_dns_ip_address is not None:
-            pulumi.set(__self__, "secondary_dns_ip_address", secondary_dns_ip_address)
+            _setter("secondary_dns_ip_address", secondary_dns_ip_address)
 
     @property
     @pulumi.getter(name="cacheNetBiosName")
@@ -220,10 +279,27 @@ class CacheDirectorySettingsArgs:
         :param pulumi.Input['CacheActiveDirectorySettingsArgs'] active_directory: Specifies settings for joining the HPC Cache to an Active Directory domain.
         :param pulumi.Input['CacheUsernameDownloadSettingsArgs'] username_download: Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
         """
+        CacheDirectorySettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_directory=active_directory,
+            username_download=username_download,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_directory: Optional[pulumi.Input['CacheActiveDirectorySettingsArgs']] = None,
+             username_download: Optional[pulumi.Input['CacheUsernameDownloadSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+        if 'usernameDownload' in kwargs:
+            username_download = kwargs['usernameDownload']
+
         if active_directory is not None:
-            pulumi.set(__self__, "active_directory", active_directory)
+            _setter("active_directory", active_directory)
         if username_download is not None:
-            pulumi.set(__self__, "username_download", username_download)
+            _setter("username_download", username_download)
 
     @property
     @pulumi.getter(name="activeDirectory")
@@ -258,8 +334,21 @@ class CacheEncryptionSettingsArgs:
         Cache encryption settings.
         :param pulumi.Input['KeyVaultKeyReferenceArgs'] key_encryption_key: Specifies the location of the key encryption key in Key Vault.
         """
+        CacheEncryptionSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_encryption_key=key_encryption_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_encryption_key: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyEncryptionKey' in kwargs:
+            key_encryption_key = kwargs['keyEncryptionKey']
+
         if key_encryption_key is not None:
-            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+            _setter("key_encryption_key", key_encryption_key)
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
@@ -282,8 +371,19 @@ class CacheIdentityArgs:
         Cache identity properties.
         :param pulumi.Input['CacheIdentityType'] type: The type of identity used for the cache
         """
+        CacheIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['CacheIdentityType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -312,18 +412,41 @@ class CacheNetworkSettingsArgs:
         :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet.
         :param pulumi.Input[str] ntp_server: NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
         """
+        CacheNetworkSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_search_domain=dns_search_domain,
+            dns_servers=dns_servers,
+            mtu=mtu,
+            ntp_server=ntp_server,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_search_domain: Optional[pulumi.Input[str]] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             mtu: Optional[pulumi.Input[int]] = None,
+             ntp_server: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsSearchDomain' in kwargs:
+            dns_search_domain = kwargs['dnsSearchDomain']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'ntpServer' in kwargs:
+            ntp_server = kwargs['ntpServer']
+
         if dns_search_domain is not None:
-            pulumi.set(__self__, "dns_search_domain", dns_search_domain)
+            _setter("dns_search_domain", dns_search_domain)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if mtu is None:
             mtu = 1500
         if mtu is not None:
-            pulumi.set(__self__, "mtu", mtu)
+            _setter("mtu", mtu)
         if ntp_server is None:
             ntp_server = 'time.windows.com'
         if ntp_server is not None:
-            pulumi.set(__self__, "ntp_server", ntp_server)
+            _setter("ntp_server", ntp_server)
 
     @property
     @pulumi.getter(name="dnsSearchDomain")
@@ -382,8 +505,21 @@ class CacheSecuritySettingsArgs:
         Cache security settings.
         :param pulumi.Input[Sequence[pulumi.Input['NfsAccessPolicyArgs']]] access_policies: NFS access policies defined for this cache.
         """
+        CacheSecuritySettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policies=access_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['NfsAccessPolicyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPolicies' in kwargs:
+            access_policies = kwargs['accessPolicies']
+
         if access_policies is not None:
-            pulumi.set(__self__, "access_policies", access_policies)
+            _setter("access_policies", access_policies)
 
     @property
     @pulumi.getter(name="accessPolicies")
@@ -406,8 +542,19 @@ class CacheSkuArgs:
         SKU for the Cache.
         :param pulumi.Input[str] name: SKU name for this Cache.
         """
+        CacheSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -432,10 +579,27 @@ class CacheUsernameDownloadSettingsCredentialsArgs:
         :param pulumi.Input[str] bind_dn: The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
         :param pulumi.Input[str] bind_password: The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
         """
+        CacheUsernameDownloadSettingsCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bind_dn=bind_dn,
+            bind_password=bind_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bind_dn: Optional[pulumi.Input[str]] = None,
+             bind_password: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bindDn' in kwargs:
+            bind_dn = kwargs['bindDn']
+        if 'bindPassword' in kwargs:
+            bind_password = kwargs['bindPassword']
+
         if bind_dn is not None:
-            pulumi.set(__self__, "bind_dn", bind_dn)
+            _setter("bind_dn", bind_dn)
         if bind_password is not None:
-            pulumi.set(__self__, "bind_password", bind_password)
+            _setter("bind_password", bind_password)
 
     @property
     @pulumi.getter(name="bindDn")
@@ -490,30 +654,81 @@ class CacheUsernameDownloadSettingsArgs:
         :param pulumi.Input[str] user_file_uri: The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
         :param pulumi.Input[Union[str, 'UsernameSource']] username_source: This setting determines how the cache gets username and group names for clients.
         """
+        CacheUsernameDownloadSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_download_certificate=auto_download_certificate,
+            ca_certificate_uri=ca_certificate_uri,
+            credentials=credentials,
+            encrypt_ldap_connection=encrypt_ldap_connection,
+            extended_groups=extended_groups,
+            group_file_uri=group_file_uri,
+            ldap_base_dn=ldap_base_dn,
+            ldap_server=ldap_server,
+            require_valid_certificate=require_valid_certificate,
+            user_file_uri=user_file_uri,
+            username_source=username_source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_download_certificate: Optional[pulumi.Input[bool]] = None,
+             ca_certificate_uri: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['CacheUsernameDownloadSettingsCredentialsArgs']] = None,
+             encrypt_ldap_connection: Optional[pulumi.Input[bool]] = None,
+             extended_groups: Optional[pulumi.Input[bool]] = None,
+             group_file_uri: Optional[pulumi.Input[str]] = None,
+             ldap_base_dn: Optional[pulumi.Input[str]] = None,
+             ldap_server: Optional[pulumi.Input[str]] = None,
+             require_valid_certificate: Optional[pulumi.Input[bool]] = None,
+             user_file_uri: Optional[pulumi.Input[str]] = None,
+             username_source: Optional[pulumi.Input[Union[str, 'UsernameSource']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoDownloadCertificate' in kwargs:
+            auto_download_certificate = kwargs['autoDownloadCertificate']
+        if 'caCertificateURI' in kwargs:
+            ca_certificate_uri = kwargs['caCertificateURI']
+        if 'encryptLdapConnection' in kwargs:
+            encrypt_ldap_connection = kwargs['encryptLdapConnection']
+        if 'extendedGroups' in kwargs:
+            extended_groups = kwargs['extendedGroups']
+        if 'groupFileURI' in kwargs:
+            group_file_uri = kwargs['groupFileURI']
+        if 'ldapBaseDN' in kwargs:
+            ldap_base_dn = kwargs['ldapBaseDN']
+        if 'ldapServer' in kwargs:
+            ldap_server = kwargs['ldapServer']
+        if 'requireValidCertificate' in kwargs:
+            require_valid_certificate = kwargs['requireValidCertificate']
+        if 'userFileURI' in kwargs:
+            user_file_uri = kwargs['userFileURI']
+        if 'usernameSource' in kwargs:
+            username_source = kwargs['usernameSource']
+
         if auto_download_certificate is not None:
-            pulumi.set(__self__, "auto_download_certificate", auto_download_certificate)
+            _setter("auto_download_certificate", auto_download_certificate)
         if ca_certificate_uri is not None:
-            pulumi.set(__self__, "ca_certificate_uri", ca_certificate_uri)
+            _setter("ca_certificate_uri", ca_certificate_uri)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if encrypt_ldap_connection is not None:
-            pulumi.set(__self__, "encrypt_ldap_connection", encrypt_ldap_connection)
+            _setter("encrypt_ldap_connection", encrypt_ldap_connection)
         if extended_groups is not None:
-            pulumi.set(__self__, "extended_groups", extended_groups)
+            _setter("extended_groups", extended_groups)
         if group_file_uri is not None:
-            pulumi.set(__self__, "group_file_uri", group_file_uri)
+            _setter("group_file_uri", group_file_uri)
         if ldap_base_dn is not None:
-            pulumi.set(__self__, "ldap_base_dn", ldap_base_dn)
+            _setter("ldap_base_dn", ldap_base_dn)
         if ldap_server is not None:
-            pulumi.set(__self__, "ldap_server", ldap_server)
+            _setter("ldap_server", ldap_server)
         if require_valid_certificate is not None:
-            pulumi.set(__self__, "require_valid_certificate", require_valid_certificate)
+            _setter("require_valid_certificate", require_valid_certificate)
         if user_file_uri is not None:
-            pulumi.set(__self__, "user_file_uri", user_file_uri)
+            _setter("user_file_uri", user_file_uri)
         if username_source is None:
             username_source = 'None'
         if username_source is not None:
-            pulumi.set(__self__, "username_source", username_source)
+            _setter("username_source", username_source)
 
     @property
     @pulumi.getter(name="autoDownloadCertificate")
@@ -656,8 +871,19 @@ class ClfsTargetArgs:
         Properties pertaining to the ClfsTarget
         :param pulumi.Input[str] target: Resource ID of storage container.
         """
+        ClfsTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter
@@ -680,8 +906,19 @@ class KeyVaultKeyReferenceSourceVaultArgs:
         Describes a resource Id to source Key Vault.
         :param pulumi.Input[str] id: Resource Id.
         """
+        KeyVaultKeyReferenceSourceVaultArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -706,8 +943,25 @@ class KeyVaultKeyReferenceArgs:
         :param pulumi.Input[str] key_url: The URL referencing a key encryption key in Key Vault.
         :param pulumi.Input['KeyVaultKeyReferenceSourceVaultArgs'] source_vault: Describes a resource Id to source Key Vault.
         """
-        pulumi.set(__self__, "key_url", key_url)
-        pulumi.set(__self__, "source_vault", source_vault)
+        KeyVaultKeyReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_url=key_url,
+            source_vault=source_vault,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_url: pulumi.Input[str],
+             source_vault: pulumi.Input['KeyVaultKeyReferenceSourceVaultArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyUrl' in kwargs:
+            key_url = kwargs['keyUrl']
+        if 'sourceVault' in kwargs:
+            source_vault = kwargs['sourceVault']
+
+        _setter("key_url", key_url)
+        _setter("source_vault", source_vault)
 
     @property
     @pulumi.getter(name="keyUrl")
@@ -748,16 +1002,41 @@ class NamespaceJunctionArgs:
         :param pulumi.Input[str] nfs_export: NFS export where targetPath exists.
         :param pulumi.Input[str] target_path: Path in Storage Target to which namespacePath points.
         """
+        NamespaceJunctionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_path=namespace_path,
+            nfs_access_policy=nfs_access_policy,
+            nfs_export=nfs_export,
+            target_path=target_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_path: Optional[pulumi.Input[str]] = None,
+             nfs_access_policy: Optional[pulumi.Input[str]] = None,
+             nfs_export: Optional[pulumi.Input[str]] = None,
+             target_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespacePath' in kwargs:
+            namespace_path = kwargs['namespacePath']
+        if 'nfsAccessPolicy' in kwargs:
+            nfs_access_policy = kwargs['nfsAccessPolicy']
+        if 'nfsExport' in kwargs:
+            nfs_export = kwargs['nfsExport']
+        if 'targetPath' in kwargs:
+            target_path = kwargs['targetPath']
+
         if namespace_path is not None:
-            pulumi.set(__self__, "namespace_path", namespace_path)
+            _setter("namespace_path", namespace_path)
         if nfs_access_policy is None:
             nfs_access_policy = 'default'
         if nfs_access_policy is not None:
-            pulumi.set(__self__, "nfs_access_policy", nfs_access_policy)
+            _setter("nfs_access_policy", nfs_access_policy)
         if nfs_export is not None:
-            pulumi.set(__self__, "nfs_export", nfs_export)
+            _setter("nfs_export", nfs_export)
         if target_path is not None:
-            pulumi.set(__self__, "target_path", target_path)
+            _setter("target_path", target_path)
 
     @property
     @pulumi.getter(name="namespacePath")
@@ -818,10 +1097,25 @@ class Nfs3TargetArgs:
         :param pulumi.Input[str] target: IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
         :param pulumi.Input[str] usage_model: Identifies the StorageCache usage model to be used for this storage target.
         """
+        Nfs3TargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target=target,
+            usage_model=usage_model,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target: Optional[pulumi.Input[str]] = None,
+             usage_model: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'usageModel' in kwargs:
+            usage_model = kwargs['usageModel']
+
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
         if usage_model is not None:
-            pulumi.set(__self__, "usage_model", usage_model)
+            _setter("usage_model", usage_model)
 
     @property
     @pulumi.getter
@@ -858,8 +1152,23 @@ class NfsAccessPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NfsAccessRuleArgs']]] access_rules: The set of rules describing client accesses allowed under this policy.
         :param pulumi.Input[str] name: Name identifying this policy. Access Policy names are not case sensitive.
         """
-        pulumi.set(__self__, "access_rules", access_rules)
-        pulumi.set(__self__, "name", name)
+        NfsAccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_rules=access_rules,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_rules: pulumi.Input[Sequence[pulumi.Input['NfsAccessRuleArgs']]],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessRules' in kwargs:
+            access_rules = kwargs['accessRules']
+
+        _setter("access_rules", access_rules)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="accessRules")
@@ -908,20 +1217,53 @@ class NfsAccessRuleArgs:
         :param pulumi.Input[bool] submount_access: For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
         :param pulumi.Input[bool] suid: Allow SUID semantics.
         """
-        pulumi.set(__self__, "access", access)
-        pulumi.set(__self__, "scope", scope)
+        NfsAccessRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            scope=scope,
+            anonymous_gid=anonymous_gid,
+            anonymous_uid=anonymous_uid,
+            filter=filter,
+            root_squash=root_squash,
+            submount_access=submount_access,
+            suid=suid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: pulumi.Input[Union[str, 'NfsAccessRuleAccess']],
+             scope: pulumi.Input[Union[str, 'NfsAccessRuleScope']],
+             anonymous_gid: Optional[pulumi.Input[str]] = None,
+             anonymous_uid: Optional[pulumi.Input[str]] = None,
+             filter: Optional[pulumi.Input[str]] = None,
+             root_squash: Optional[pulumi.Input[bool]] = None,
+             submount_access: Optional[pulumi.Input[bool]] = None,
+             suid: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anonymousGID' in kwargs:
+            anonymous_gid = kwargs['anonymousGID']
+        if 'anonymousUID' in kwargs:
+            anonymous_uid = kwargs['anonymousUID']
+        if 'rootSquash' in kwargs:
+            root_squash = kwargs['rootSquash']
+        if 'submountAccess' in kwargs:
+            submount_access = kwargs['submountAccess']
+
+        _setter("access", access)
+        _setter("scope", scope)
         if anonymous_gid is not None:
-            pulumi.set(__self__, "anonymous_gid", anonymous_gid)
+            _setter("anonymous_gid", anonymous_gid)
         if anonymous_uid is not None:
-            pulumi.set(__self__, "anonymous_uid", anonymous_uid)
+            _setter("anonymous_uid", anonymous_uid)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if root_squash is not None:
-            pulumi.set(__self__, "root_squash", root_squash)
+            _setter("root_squash", root_squash)
         if submount_access is not None:
-            pulumi.set(__self__, "submount_access", submount_access)
+            _setter("submount_access", submount_access)
         if suid is not None:
-            pulumi.set(__self__, "suid", suid)
+            _setter("suid", suid)
 
     @property
     @pulumi.getter
@@ -1028,8 +1370,19 @@ class UnknownTargetArgs:
         Properties pertaining to the UnknownTarget
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: Dictionary of string->string pairs containing information about the Storage Target.
         """
+        UnknownTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
 
     @property
     @pulumi.getter

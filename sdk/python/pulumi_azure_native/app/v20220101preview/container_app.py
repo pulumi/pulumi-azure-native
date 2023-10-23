@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,21 +36,50 @@ class ContainerAppArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['TemplateArgs'] template: Container App versioned application definition.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ContainerAppArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            configuration=configuration,
+            identity=identity,
+            location=location,
+            managed_environment_id=managed_environment_id,
+            name=name,
+            tags=tags,
+            template=template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             configuration: Optional[pulumi.Input['ConfigurationArgs']] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_environment_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template: Optional[pulumi.Input['TemplateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'managedEnvironmentId' in kwargs:
+            managed_environment_id = kwargs['managedEnvironmentId']
+
+        _setter("resource_group_name", resource_group_name)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_environment_id is not None:
-            pulumi.set(__self__, "managed_environment_id", managed_environment_id)
+            _setter("managed_environment_id", managed_environment_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template is not None:
-            pulumi.set(__self__, "template", template)
+            _setter("template", template)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -196,6 +225,10 @@ class ContainerApp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContainerAppArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -218,7 +251,17 @@ class ContainerApp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContainerAppArgs.__new__(ContainerAppArgs)
 
+            if configuration is not None and not isinstance(configuration, ConfigurationArgs):
+                configuration = configuration or {}
+                def _setter(key, value):
+                    configuration[key] = value
+                ConfigurationArgs._configure(_setter, **configuration)
             __props__.__dict__["configuration"] = configuration
+            if identity is not None and not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_environment_id"] = managed_environment_id
@@ -227,6 +270,11 @@ class ContainerApp(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if template is not None and not isinstance(template, TemplateArgs):
+                template = template or {}
+                def _setter(key, value):
+                    template[key] = value
+                TemplateArgs._configure(_setter, **template)
             __props__.__dict__["template"] = template
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["latest_revision_fqdn"] = None

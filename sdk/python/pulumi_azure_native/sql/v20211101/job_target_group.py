@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,12 +30,39 @@ class JobTargetGroupArgs:
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] target_group_name: The name of the target group.
         """
-        pulumi.set(__self__, "job_agent_name", job_agent_name)
-        pulumi.set(__self__, "members", members)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        JobTargetGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_agent_name=job_agent_name,
+            members=members,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            target_group_name=target_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_agent_name: pulumi.Input[str],
+             members: pulumi.Input[Sequence[pulumi.Input['JobTargetArgs']]],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             target_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jobAgentName' in kwargs:
+            job_agent_name = kwargs['jobAgentName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'targetGroupName' in kwargs:
+            target_group_name = kwargs['targetGroupName']
+
+        _setter("job_agent_name", job_agent_name)
+        _setter("members", members)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if target_group_name is not None:
-            pulumi.set(__self__, "target_group_name", target_group_name)
+            _setter("target_group_name", target_group_name)
 
     @property
     @pulumi.getter(name="jobAgentName")
@@ -139,6 +166,10 @@ class JobTargetGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobTargetGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

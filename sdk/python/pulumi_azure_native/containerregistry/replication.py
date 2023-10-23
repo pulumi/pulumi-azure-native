@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,22 +33,55 @@ class ReplicationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[Union[str, 'ZoneRedundancy']] zone_redundancy: Whether or not zone redundancy is enabled for this container registry replication
         """
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ReplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            location=location,
+            region_endpoint_enabled=region_endpoint_enabled,
+            replication_name=replication_name,
+            tags=tags,
+            zone_redundancy=zone_redundancy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             region_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+             replication_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone_redundancy: Optional[pulumi.Input[Union[str, 'ZoneRedundancy']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'regionEndpointEnabled' in kwargs:
+            region_endpoint_enabled = kwargs['regionEndpointEnabled']
+        if 'replicationName' in kwargs:
+            replication_name = kwargs['replicationName']
+        if 'zoneRedundancy' in kwargs:
+            zone_redundancy = kwargs['zoneRedundancy']
+
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if region_endpoint_enabled is None:
             region_endpoint_enabled = True
         if region_endpoint_enabled is not None:
-            pulumi.set(__self__, "region_endpoint_enabled", region_endpoint_enabled)
+            _setter("region_endpoint_enabled", region_endpoint_enabled)
         if replication_name is not None:
-            pulumi.set(__self__, "replication_name", replication_name)
+            _setter("replication_name", replication_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone_redundancy is None:
             zone_redundancy = 'Disabled'
         if zone_redundancy is not None:
-            pulumi.set(__self__, "zone_redundancy", zone_redundancy)
+            _setter("zone_redundancy", zone_redundancy)
 
     @property
     @pulumi.getter(name="registryName")
@@ -186,6 +219,10 @@ class Replication(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

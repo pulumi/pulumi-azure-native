@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,27 +44,76 @@ class OrchestratorInstanceServiceDetailsArgs:
         :param pulumi.Input[str] resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "controller_details", controller_details)
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        OrchestratorInstanceServiceDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            controller_details=controller_details,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            api_server_endpoint=api_server_endpoint,
+            cluster_root_ca=cluster_root_ca,
+            identity=identity,
+            location=location,
+            orchestrator_app_id=orchestrator_app_id,
+            orchestrator_tenant_id=orchestrator_tenant_id,
+            private_link_resource_id=private_link_resource_id,
+            resource_name=resource_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             controller_details: pulumi.Input['ControllerDetailsArgs'],
+             kind: pulumi.Input[Union[str, 'OrchestratorKind']],
+             resource_group_name: pulumi.Input[str],
+             api_server_endpoint: Optional[pulumi.Input[str]] = None,
+             cluster_root_ca: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['OrchestratorIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             orchestrator_app_id: Optional[pulumi.Input[str]] = None,
+             orchestrator_tenant_id: Optional[pulumi.Input[str]] = None,
+             private_link_resource_id: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'controllerDetails' in kwargs:
+            controller_details = kwargs['controllerDetails']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'apiServerEndpoint' in kwargs:
+            api_server_endpoint = kwargs['apiServerEndpoint']
+        if 'clusterRootCA' in kwargs:
+            cluster_root_ca = kwargs['clusterRootCA']
+        if 'orchestratorAppId' in kwargs:
+            orchestrator_app_id = kwargs['orchestratorAppId']
+        if 'orchestratorTenantId' in kwargs:
+            orchestrator_tenant_id = kwargs['orchestratorTenantId']
+        if 'privateLinkResourceId' in kwargs:
+            private_link_resource_id = kwargs['privateLinkResourceId']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+
+        _setter("controller_details", controller_details)
+        _setter("kind", kind)
+        _setter("resource_group_name", resource_group_name)
         if api_server_endpoint is not None:
-            pulumi.set(__self__, "api_server_endpoint", api_server_endpoint)
+            _setter("api_server_endpoint", api_server_endpoint)
         if cluster_root_ca is not None:
-            pulumi.set(__self__, "cluster_root_ca", cluster_root_ca)
+            _setter("cluster_root_ca", cluster_root_ca)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if orchestrator_app_id is not None:
-            pulumi.set(__self__, "orchestrator_app_id", orchestrator_app_id)
+            _setter("orchestrator_app_id", orchestrator_app_id)
         if orchestrator_tenant_id is not None:
-            pulumi.set(__self__, "orchestrator_tenant_id", orchestrator_tenant_id)
+            _setter("orchestrator_tenant_id", orchestrator_tenant_id)
         if private_link_resource_id is not None:
-            pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
+            _setter("private_link_resource_id", private_link_resource_id)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="controllerDetails")
@@ -272,6 +321,10 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrchestratorInstanceServiceDetailsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -300,9 +353,19 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
 
             __props__.__dict__["api_server_endpoint"] = api_server_endpoint
             __props__.__dict__["cluster_root_ca"] = cluster_root_ca
+            if controller_details is not None and not isinstance(controller_details, ControllerDetailsArgs):
+                controller_details = controller_details or {}
+                def _setter(key, value):
+                    controller_details[key] = value
+                ControllerDetailsArgs._configure(_setter, **controller_details)
             if controller_details is None and not opts.urn:
                 raise TypeError("Missing required property 'controller_details'")
             __props__.__dict__["controller_details"] = controller_details
+            if identity is not None and not isinstance(identity, OrchestratorIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                OrchestratorIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")

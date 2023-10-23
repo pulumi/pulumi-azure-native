@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -56,41 +56,116 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workload_type: WorkloadType of the NetworkInterface for BareMetal resources
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NetworkInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            auxiliary_mode=auxiliary_mode,
+            auxiliary_sku=auxiliary_sku,
+            disable_tcp_state_tracking=disable_tcp_state_tracking,
+            dns_settings=dns_settings,
+            enable_accelerated_networking=enable_accelerated_networking,
+            enable_ip_forwarding=enable_ip_forwarding,
+            extended_location=extended_location,
+            id=id,
+            ip_configurations=ip_configurations,
+            location=location,
+            migration_phase=migration_phase,
+            network_interface_name=network_interface_name,
+            network_security_group=network_security_group,
+            nic_type=nic_type,
+            private_link_service=private_link_service,
+            tags=tags,
+            workload_type=workload_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             auxiliary_mode: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']]] = None,
+             auxiliary_sku: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliarySku']]] = None,
+             disable_tcp_state_tracking: Optional[pulumi.Input[bool]] = None,
+             dns_settings: Optional[pulumi.Input['NetworkInterfaceDnsSettingsArgs']] = None,
+             enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
+             enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             migration_phase: Optional[pulumi.Input[Union[str, 'NetworkInterfaceMigrationPhase']]] = None,
+             network_interface_name: Optional[pulumi.Input[str]] = None,
+             network_security_group: Optional[pulumi.Input['NetworkSecurityGroupArgs']] = None,
+             nic_type: Optional[pulumi.Input[Union[str, 'NetworkInterfaceNicType']]] = None,
+             private_link_service: Optional[pulumi.Input['PrivateLinkServiceArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workload_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'auxiliaryMode' in kwargs:
+            auxiliary_mode = kwargs['auxiliaryMode']
+        if 'auxiliarySku' in kwargs:
+            auxiliary_sku = kwargs['auxiliarySku']
+        if 'disableTcpStateTracking' in kwargs:
+            disable_tcp_state_tracking = kwargs['disableTcpStateTracking']
+        if 'dnsSettings' in kwargs:
+            dns_settings = kwargs['dnsSettings']
+        if 'enableAcceleratedNetworking' in kwargs:
+            enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
+        if 'enableIPForwarding' in kwargs:
+            enable_ip_forwarding = kwargs['enableIPForwarding']
+        if 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'migrationPhase' in kwargs:
+            migration_phase = kwargs['migrationPhase']
+        if 'networkInterfaceName' in kwargs:
+            network_interface_name = kwargs['networkInterfaceName']
+        if 'networkSecurityGroup' in kwargs:
+            network_security_group = kwargs['networkSecurityGroup']
+        if 'nicType' in kwargs:
+            nic_type = kwargs['nicType']
+        if 'privateLinkService' in kwargs:
+            private_link_service = kwargs['privateLinkService']
+        if 'workloadType' in kwargs:
+            workload_type = kwargs['workloadType']
+
+        _setter("resource_group_name", resource_group_name)
         if auxiliary_mode is not None:
-            pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
+            _setter("auxiliary_mode", auxiliary_mode)
         if auxiliary_sku is not None:
-            pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
+            _setter("auxiliary_sku", auxiliary_sku)
         if disable_tcp_state_tracking is not None:
-            pulumi.set(__self__, "disable_tcp_state_tracking", disable_tcp_state_tracking)
+            _setter("disable_tcp_state_tracking", disable_tcp_state_tracking)
         if dns_settings is not None:
-            pulumi.set(__self__, "dns_settings", dns_settings)
+            _setter("dns_settings", dns_settings)
         if enable_accelerated_networking is not None:
-            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+            _setter("enable_accelerated_networking", enable_accelerated_networking)
         if enable_ip_forwarding is not None:
-            pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
+            _setter("enable_ip_forwarding", enable_ip_forwarding)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_configurations is not None:
-            pulumi.set(__self__, "ip_configurations", ip_configurations)
+            _setter("ip_configurations", ip_configurations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if migration_phase is not None:
-            pulumi.set(__self__, "migration_phase", migration_phase)
+            _setter("migration_phase", migration_phase)
         if network_interface_name is not None:
-            pulumi.set(__self__, "network_interface_name", network_interface_name)
+            _setter("network_interface_name", network_interface_name)
         if network_security_group is not None:
-            pulumi.set(__self__, "network_security_group", network_security_group)
+            _setter("network_security_group", network_security_group)
         if nic_type is not None:
-            pulumi.set(__self__, "nic_type", nic_type)
+            _setter("nic_type", nic_type)
         if private_link_service is not None:
-            pulumi.set(__self__, "private_link_service", private_link_service)
+            _setter("private_link_service", private_link_service)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
+            _setter("workload_type", workload_type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -376,6 +451,10 @@ class NetworkInterface(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkInterfaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -411,17 +490,37 @@ class NetworkInterface(pulumi.CustomResource):
             __props__.__dict__["auxiliary_mode"] = auxiliary_mode
             __props__.__dict__["auxiliary_sku"] = auxiliary_sku
             __props__.__dict__["disable_tcp_state_tracking"] = disable_tcp_state_tracking
+            if dns_settings is not None and not isinstance(dns_settings, NetworkInterfaceDnsSettingsArgs):
+                dns_settings = dns_settings or {}
+                def _setter(key, value):
+                    dns_settings[key] = value
+                NetworkInterfaceDnsSettingsArgs._configure(_setter, **dns_settings)
             __props__.__dict__["dns_settings"] = dns_settings
             __props__.__dict__["enable_accelerated_networking"] = enable_accelerated_networking
             __props__.__dict__["enable_ip_forwarding"] = enable_ip_forwarding
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["id"] = id
             __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
             __props__.__dict__["migration_phase"] = migration_phase
             __props__.__dict__["network_interface_name"] = network_interface_name
+            if network_security_group is not None and not isinstance(network_security_group, NetworkSecurityGroupArgs):
+                network_security_group = network_security_group or {}
+                def _setter(key, value):
+                    network_security_group[key] = value
+                NetworkSecurityGroupArgs._configure(_setter, **network_security_group)
             __props__.__dict__["network_security_group"] = network_security_group
             __props__.__dict__["nic_type"] = nic_type
+            if private_link_service is not None and not isinstance(private_link_service, PrivateLinkServiceArgs):
+                private_link_service = private_link_service or {}
+                def _setter(key, value):
+                    private_link_service[key] = value
+                PrivateLinkServiceArgs._configure(_setter, **private_link_service)
             __props__.__dict__["private_link_service"] = private_link_service
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

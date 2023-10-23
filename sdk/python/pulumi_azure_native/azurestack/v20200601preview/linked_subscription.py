@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -29,13 +29,40 @@ class LinkedSubscriptionArgs:
         :param pulumi.Input[str] linked_subscription_name: Name of the Linked Subscription resource.
         :param pulumi.Input[Union[str, 'Location']] location: Location of the resource.
         """
-        pulumi.set(__self__, "linked_subscription_id", linked_subscription_id)
-        pulumi.set(__self__, "registration_resource_id", registration_resource_id)
-        pulumi.set(__self__, "resource_group", resource_group)
+        LinkedSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_subscription_id=linked_subscription_id,
+            registration_resource_id=registration_resource_id,
+            resource_group=resource_group,
+            linked_subscription_name=linked_subscription_name,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_subscription_id: pulumi.Input[str],
+             registration_resource_id: pulumi.Input[str],
+             resource_group: pulumi.Input[str],
+             linked_subscription_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[Union[str, 'Location']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedSubscriptionId' in kwargs:
+            linked_subscription_id = kwargs['linkedSubscriptionId']
+        if 'registrationResourceId' in kwargs:
+            registration_resource_id = kwargs['registrationResourceId']
+        if 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if 'linkedSubscriptionName' in kwargs:
+            linked_subscription_name = kwargs['linkedSubscriptionName']
+
+        _setter("linked_subscription_id", linked_subscription_id)
+        _setter("registration_resource_id", registration_resource_id)
+        _setter("resource_group", resource_group)
         if linked_subscription_name is not None:
-            pulumi.set(__self__, "linked_subscription_name", linked_subscription_name)
+            _setter("linked_subscription_name", linked_subscription_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="linkedSubscriptionId")
@@ -139,6 +166,10 @@ class LinkedSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkedSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

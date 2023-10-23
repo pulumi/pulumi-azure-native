@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -46,24 +46,69 @@ class BgpSessionArgs:
         :param pulumi.Input[str] session_prefix_v4: The IPv4 prefix that contains both ends' IPv4 addresses.
         :param pulumi.Input[str] session_prefix_v6: The IPv6 prefix that contains both ends' IPv6 addresses.
         """
+        BgpSessionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_prefixes_advertised_v4=max_prefixes_advertised_v4,
+            max_prefixes_advertised_v6=max_prefixes_advertised_v6,
+            md5_authentication_key=md5_authentication_key,
+            microsoft_session_i_pv4_address=microsoft_session_i_pv4_address,
+            microsoft_session_i_pv6_address=microsoft_session_i_pv6_address,
+            peer_session_i_pv4_address=peer_session_i_pv4_address,
+            peer_session_i_pv6_address=peer_session_i_pv6_address,
+            session_prefix_v4=session_prefix_v4,
+            session_prefix_v6=session_prefix_v6,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_prefixes_advertised_v4: Optional[pulumi.Input[int]] = None,
+             max_prefixes_advertised_v6: Optional[pulumi.Input[int]] = None,
+             md5_authentication_key: Optional[pulumi.Input[str]] = None,
+             microsoft_session_i_pv4_address: Optional[pulumi.Input[str]] = None,
+             microsoft_session_i_pv6_address: Optional[pulumi.Input[str]] = None,
+             peer_session_i_pv4_address: Optional[pulumi.Input[str]] = None,
+             peer_session_i_pv6_address: Optional[pulumi.Input[str]] = None,
+             session_prefix_v4: Optional[pulumi.Input[str]] = None,
+             session_prefix_v6: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxPrefixesAdvertisedV4' in kwargs:
+            max_prefixes_advertised_v4 = kwargs['maxPrefixesAdvertisedV4']
+        if 'maxPrefixesAdvertisedV6' in kwargs:
+            max_prefixes_advertised_v6 = kwargs['maxPrefixesAdvertisedV6']
+        if 'md5AuthenticationKey' in kwargs:
+            md5_authentication_key = kwargs['md5AuthenticationKey']
+        if 'microsoftSessionIPv4Address' in kwargs:
+            microsoft_session_i_pv4_address = kwargs['microsoftSessionIPv4Address']
+        if 'microsoftSessionIPv6Address' in kwargs:
+            microsoft_session_i_pv6_address = kwargs['microsoftSessionIPv6Address']
+        if 'peerSessionIPv4Address' in kwargs:
+            peer_session_i_pv4_address = kwargs['peerSessionIPv4Address']
+        if 'peerSessionIPv6Address' in kwargs:
+            peer_session_i_pv6_address = kwargs['peerSessionIPv6Address']
+        if 'sessionPrefixV4' in kwargs:
+            session_prefix_v4 = kwargs['sessionPrefixV4']
+        if 'sessionPrefixV6' in kwargs:
+            session_prefix_v6 = kwargs['sessionPrefixV6']
+
         if max_prefixes_advertised_v4 is not None:
-            pulumi.set(__self__, "max_prefixes_advertised_v4", max_prefixes_advertised_v4)
+            _setter("max_prefixes_advertised_v4", max_prefixes_advertised_v4)
         if max_prefixes_advertised_v6 is not None:
-            pulumi.set(__self__, "max_prefixes_advertised_v6", max_prefixes_advertised_v6)
+            _setter("max_prefixes_advertised_v6", max_prefixes_advertised_v6)
         if md5_authentication_key is not None:
-            pulumi.set(__self__, "md5_authentication_key", md5_authentication_key)
+            _setter("md5_authentication_key", md5_authentication_key)
         if microsoft_session_i_pv4_address is not None:
-            pulumi.set(__self__, "microsoft_session_i_pv4_address", microsoft_session_i_pv4_address)
+            _setter("microsoft_session_i_pv4_address", microsoft_session_i_pv4_address)
         if microsoft_session_i_pv6_address is not None:
-            pulumi.set(__self__, "microsoft_session_i_pv6_address", microsoft_session_i_pv6_address)
+            _setter("microsoft_session_i_pv6_address", microsoft_session_i_pv6_address)
         if peer_session_i_pv4_address is not None:
-            pulumi.set(__self__, "peer_session_i_pv4_address", peer_session_i_pv4_address)
+            _setter("peer_session_i_pv4_address", peer_session_i_pv4_address)
         if peer_session_i_pv6_address is not None:
-            pulumi.set(__self__, "peer_session_i_pv6_address", peer_session_i_pv6_address)
+            _setter("peer_session_i_pv6_address", peer_session_i_pv6_address)
         if session_prefix_v4 is not None:
-            pulumi.set(__self__, "session_prefix_v4", session_prefix_v4)
+            _setter("session_prefix_v4", session_prefix_v4)
         if session_prefix_v6 is not None:
-            pulumi.set(__self__, "session_prefix_v6", session_prefix_v6)
+            _setter("session_prefix_v6", session_prefix_v6)
 
     @property
     @pulumi.getter(name="maxPrefixesAdvertisedV4")
@@ -186,12 +231,27 @@ class ContactDetailArgs:
         :param pulumi.Input[str] phone: The phone number of the contact.
         :param pulumi.Input[Union[str, 'Role']] role: The role of the contact.
         """
+        ContactDetailArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            phone=phone,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: Optional[pulumi.Input[str]] = None,
+             phone: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[Union[str, 'Role']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if phone is not None:
-            pulumi.set(__self__, "phone", phone)
+            _setter("phone", phone)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter
@@ -248,18 +308,51 @@ class DirectConnectionArgs:
         :param pulumi.Input[Union[str, 'SessionAddressProvider']] session_address_provider: The field indicating if Microsoft provides session ip addresses.
         :param pulumi.Input[bool] use_for_peering_service: The flag that indicates whether or not the connection is used for peering service.
         """
+        DirectConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bandwidth_in_mbps=bandwidth_in_mbps,
+            bgp_session=bgp_session,
+            connection_identifier=connection_identifier,
+            peering_db_facility_id=peering_db_facility_id,
+            session_address_provider=session_address_provider,
+            use_for_peering_service=use_for_peering_service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bandwidth_in_mbps: Optional[pulumi.Input[int]] = None,
+             bgp_session: Optional[pulumi.Input['BgpSessionArgs']] = None,
+             connection_identifier: Optional[pulumi.Input[str]] = None,
+             peering_db_facility_id: Optional[pulumi.Input[int]] = None,
+             session_address_provider: Optional[pulumi.Input[Union[str, 'SessionAddressProvider']]] = None,
+             use_for_peering_service: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bandwidthInMbps' in kwargs:
+            bandwidth_in_mbps = kwargs['bandwidthInMbps']
+        if 'bgpSession' in kwargs:
+            bgp_session = kwargs['bgpSession']
+        if 'connectionIdentifier' in kwargs:
+            connection_identifier = kwargs['connectionIdentifier']
+        if 'peeringDBFacilityId' in kwargs:
+            peering_db_facility_id = kwargs['peeringDBFacilityId']
+        if 'sessionAddressProvider' in kwargs:
+            session_address_provider = kwargs['sessionAddressProvider']
+        if 'useForPeeringService' in kwargs:
+            use_for_peering_service = kwargs['useForPeeringService']
+
         if bandwidth_in_mbps is not None:
-            pulumi.set(__self__, "bandwidth_in_mbps", bandwidth_in_mbps)
+            _setter("bandwidth_in_mbps", bandwidth_in_mbps)
         if bgp_session is not None:
-            pulumi.set(__self__, "bgp_session", bgp_session)
+            _setter("bgp_session", bgp_session)
         if connection_identifier is not None:
-            pulumi.set(__self__, "connection_identifier", connection_identifier)
+            _setter("connection_identifier", connection_identifier)
         if peering_db_facility_id is not None:
-            pulumi.set(__self__, "peering_db_facility_id", peering_db_facility_id)
+            _setter("peering_db_facility_id", peering_db_facility_id)
         if session_address_provider is not None:
-            pulumi.set(__self__, "session_address_provider", session_address_provider)
+            _setter("session_address_provider", session_address_provider)
         if use_for_peering_service is not None:
-            pulumi.set(__self__, "use_for_peering_service", use_for_peering_service)
+            _setter("use_for_peering_service", use_for_peering_service)
 
     @property
     @pulumi.getter(name="bandwidthInMbps")
@@ -346,12 +439,33 @@ class ExchangeConnectionArgs:
         :param pulumi.Input[str] connection_identifier: The unique identifier (GUID) for the connection.
         :param pulumi.Input[int] peering_db_facility_id: The PeeringDB.com ID of the facility at which the connection has to be set up.
         """
+        ExchangeConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bgp_session=bgp_session,
+            connection_identifier=connection_identifier,
+            peering_db_facility_id=peering_db_facility_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bgp_session: Optional[pulumi.Input['BgpSessionArgs']] = None,
+             connection_identifier: Optional[pulumi.Input[str]] = None,
+             peering_db_facility_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bgpSession' in kwargs:
+            bgp_session = kwargs['bgpSession']
+        if 'connectionIdentifier' in kwargs:
+            connection_identifier = kwargs['connectionIdentifier']
+        if 'peeringDBFacilityId' in kwargs:
+            peering_db_facility_id = kwargs['peeringDBFacilityId']
+
         if bgp_session is not None:
-            pulumi.set(__self__, "bgp_session", bgp_session)
+            _setter("bgp_session", bgp_session)
         if connection_identifier is not None:
-            pulumi.set(__self__, "connection_identifier", connection_identifier)
+            _setter("connection_identifier", connection_identifier)
         if peering_db_facility_id is not None:
-            pulumi.set(__self__, "peering_db_facility_id", peering_db_facility_id)
+            _setter("peering_db_facility_id", peering_db_facility_id)
 
     @property
     @pulumi.getter(name="bgpSession")
@@ -402,12 +516,31 @@ class PeeringPropertiesDirectArgs:
         :param pulumi.Input[Union[str, 'DirectPeeringType']] direct_peering_type: The type of direct peering.
         :param pulumi.Input['SubResourceArgs'] peer_asn: The reference of the peer ASN.
         """
+        PeeringPropertiesDirectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connections=connections,
+            direct_peering_type=direct_peering_type,
+            peer_asn=peer_asn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connections: Optional[pulumi.Input[Sequence[pulumi.Input['DirectConnectionArgs']]]] = None,
+             direct_peering_type: Optional[pulumi.Input[Union[str, 'DirectPeeringType']]] = None,
+             peer_asn: Optional[pulumi.Input['SubResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'directPeeringType' in kwargs:
+            direct_peering_type = kwargs['directPeeringType']
+        if 'peerAsn' in kwargs:
+            peer_asn = kwargs['peerAsn']
+
         if connections is not None:
-            pulumi.set(__self__, "connections", connections)
+            _setter("connections", connections)
         if direct_peering_type is not None:
-            pulumi.set(__self__, "direct_peering_type", direct_peering_type)
+            _setter("direct_peering_type", direct_peering_type)
         if peer_asn is not None:
-            pulumi.set(__self__, "peer_asn", peer_asn)
+            _setter("peer_asn", peer_asn)
 
     @property
     @pulumi.getter
@@ -456,10 +589,25 @@ class PeeringPropertiesExchangeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ExchangeConnectionArgs']]] connections: The set of connections that constitute an exchange peering.
         :param pulumi.Input['SubResourceArgs'] peer_asn: The reference of the peer ASN.
         """
+        PeeringPropertiesExchangeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connections=connections,
+            peer_asn=peer_asn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connections: Optional[pulumi.Input[Sequence[pulumi.Input['ExchangeConnectionArgs']]]] = None,
+             peer_asn: Optional[pulumi.Input['SubResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peerAsn' in kwargs:
+            peer_asn = kwargs['peerAsn']
+
         if connections is not None:
-            pulumi.set(__self__, "connections", connections)
+            _setter("connections", connections)
         if peer_asn is not None:
-            pulumi.set(__self__, "peer_asn", peer_asn)
+            _setter("peer_asn", peer_asn)
 
     @property
     @pulumi.getter
@@ -494,8 +642,19 @@ class PeeringServiceSkuArgs:
         The SKU that defines the type of the peering service.
         :param pulumi.Input[str] name: The name of the peering service SKU.
         """
+        PeeringServiceSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -518,8 +677,19 @@ class PeeringSkuArgs:
         The SKU that defines the tier and kind of the peering.
         :param pulumi.Input[str] name: The name of the peering SKU.
         """
+        PeeringSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -545,8 +715,19 @@ class SubResourceArgs:
                A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
                Example of a relative ID: $self/frontEndConfigurations/my-frontend.
         """
+        SubResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter

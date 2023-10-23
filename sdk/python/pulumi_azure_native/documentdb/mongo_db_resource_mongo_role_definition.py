@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,20 +36,55 @@ class MongoDBResourceMongoRoleDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RoleArgs']]] roles: The set of roles inherited by this Role Definition.
         :param pulumi.Input['MongoRoleDefinitionType'] type: Indicates whether the Role Definition was built-in or user created.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MongoDBResourceMongoRoleDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            database_name=database_name,
+            mongo_role_definition_id=mongo_role_definition_id,
+            privileges=privileges,
+            role_name=role_name,
+            roles=roles,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             database_name: Optional[pulumi.Input[str]] = None,
+             mongo_role_definition_id: Optional[pulumi.Input[str]] = None,
+             privileges: Optional[pulumi.Input[Sequence[pulumi.Input['PrivilegeArgs']]]] = None,
+             role_name: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input['RoleArgs']]]] = None,
+             type: Optional[pulumi.Input['MongoRoleDefinitionType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'mongoRoleDefinitionId' in kwargs:
+            mongo_role_definition_id = kwargs['mongoRoleDefinitionId']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if mongo_role_definition_id is not None:
-            pulumi.set(__self__, "mongo_role_definition_id", mongo_role_definition_id)
+            _setter("mongo_role_definition_id", mongo_role_definition_id)
         if privileges is not None:
-            pulumi.set(__self__, "privileges", privileges)
+            _setter("privileges", privileges)
         if role_name is not None:
-            pulumi.set(__self__, "role_name", role_name)
+            _setter("role_name", role_name)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="accountName")
@@ -201,6 +236,10 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MongoDBResourceMongoRoleDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

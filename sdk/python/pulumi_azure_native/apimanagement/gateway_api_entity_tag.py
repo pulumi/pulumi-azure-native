@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,13 +29,42 @@ class GatewayApiEntityTagArgs:
         :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input['ProvisioningState'] provisioning_state: Provisioning state.
         """
-        pulumi.set(__self__, "gateway_id", gateway_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        GatewayApiEntityTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gateway_id=gateway_id,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            api_id=api_id,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gateway_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             api_id: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input['ProvisioningState']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'gatewayId' in kwargs:
+            gateway_id = kwargs['gatewayId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("gateway_id", gateway_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if api_id is not None:
-            pulumi.set(__self__, "api_id", api_id)
+            _setter("api_id", api_id)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="gatewayId")
@@ -145,6 +174,10 @@ class GatewayApiEntityTag(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GatewayApiEntityTagArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

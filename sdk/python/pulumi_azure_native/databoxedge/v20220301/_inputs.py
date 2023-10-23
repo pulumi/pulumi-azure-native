@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -50,19 +50,50 @@ class AddressArgs:
         :param pulumi.Input[str] postal_code: The postal code.
         :param pulumi.Input[str] state: The state name.
         """
-        pulumi.set(__self__, "country", country)
+        AddressArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country=country,
+            address_line1=address_line1,
+            address_line2=address_line2,
+            address_line3=address_line3,
+            city=city,
+            postal_code=postal_code,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country: pulumi.Input[str],
+             address_line1: Optional[pulumi.Input[str]] = None,
+             address_line2: Optional[pulumi.Input[str]] = None,
+             address_line3: Optional[pulumi.Input[str]] = None,
+             city: Optional[pulumi.Input[str]] = None,
+             postal_code: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressLine1' in kwargs:
+            address_line1 = kwargs['addressLine1']
+        if 'addressLine2' in kwargs:
+            address_line2 = kwargs['addressLine2']
+        if 'addressLine3' in kwargs:
+            address_line3 = kwargs['addressLine3']
+        if 'postalCode' in kwargs:
+            postal_code = kwargs['postalCode']
+
+        _setter("country", country)
         if address_line1 is not None:
-            pulumi.set(__self__, "address_line1", address_line1)
+            _setter("address_line1", address_line1)
         if address_line2 is not None:
-            pulumi.set(__self__, "address_line2", address_line2)
+            _setter("address_line2", address_line2)
         if address_line3 is not None:
-            pulumi.set(__self__, "address_line3", address_line3)
+            _setter("address_line3", address_line3)
         if city is not None:
-            pulumi.set(__self__, "city", city)
+            _setter("city", city)
         if postal_code is not None:
-            pulumi.set(__self__, "postal_code", postal_code)
+            _setter("postal_code", postal_code)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -161,10 +192,29 @@ class AsymmetricEncryptedSecretArgs:
         :param pulumi.Input[str] value: The value of the secret.
         :param pulumi.Input[str] encryption_cert_thumbprint: Thumbprint certificate used to encrypt \\"Value\\". If the value is unencrypted, it will be null.
         """
-        pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
-        pulumi.set(__self__, "value", value)
+        AsymmetricEncryptedSecretArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_algorithm=encryption_algorithm,
+            value=value,
+            encryption_cert_thumbprint=encryption_cert_thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_algorithm: pulumi.Input[Union[str, 'EncryptionAlgorithm']],
+             value: pulumi.Input[str],
+             encryption_cert_thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionAlgorithm' in kwargs:
+            encryption_algorithm = kwargs['encryptionAlgorithm']
+        if 'encryptionCertThumbprint' in kwargs:
+            encryption_cert_thumbprint = kwargs['encryptionCertThumbprint']
+
+        _setter("encryption_algorithm", encryption_algorithm)
+        _setter("value", value)
         if encryption_cert_thumbprint is not None:
-            pulumi.set(__self__, "encryption_cert_thumbprint", encryption_cert_thumbprint)
+            _setter("encryption_cert_thumbprint", encryption_cert_thumbprint)
 
     @property
     @pulumi.getter(name="encryptionAlgorithm")
@@ -211,8 +261,21 @@ class AuthenticationArgs:
         Authentication mechanism for IoT devices.
         :param pulumi.Input['SymmetricKeyArgs'] symmetric_key: Symmetric key for authentication.
         """
+        AuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            symmetric_key=symmetric_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             symmetric_key: Optional[pulumi.Input['SymmetricKeyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'symmetricKey' in kwargs:
+            symmetric_key = kwargs['symmetricKey']
+
         if symmetric_key is not None:
-            pulumi.set(__self__, "symmetric_key", symmetric_key)
+            _setter("symmetric_key", symmetric_key)
 
     @property
     @pulumi.getter(name="symmetricKey")
@@ -239,9 +302,30 @@ class AzureContainerInfoArgs:
         :param pulumi.Input[Union[str, 'AzureContainerDataFormat']] data_format: Storage format used for the file represented by the share.
         :param pulumi.Input[str] storage_account_credential_id: ID of the storage account credential used to access storage.
         """
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "data_format", data_format)
-        pulumi.set(__self__, "storage_account_credential_id", storage_account_credential_id)
+        AzureContainerInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            data_format=data_format,
+            storage_account_credential_id=storage_account_credential_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: pulumi.Input[str],
+             data_format: pulumi.Input[Union[str, 'AzureContainerDataFormat']],
+             storage_account_credential_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if 'storageAccountCredentialId' in kwargs:
+            storage_account_credential_id = kwargs['storageAccountCredentialId']
+
+        _setter("container_name", container_name)
+        _setter("data_format", data_format)
+        _setter("storage_account_credential_id", storage_account_credential_id)
 
     @property
     @pulumi.getter(name="containerName")
@@ -290,8 +374,23 @@ class ClientAccessRightArgs:
         :param pulumi.Input[Union[str, 'ClientPermissionType']] access_permission: Type of access to be allowed for the client.
         :param pulumi.Input[str] client: IP of the client.
         """
-        pulumi.set(__self__, "access_permission", access_permission)
-        pulumi.set(__self__, "client", client)
+        ClientAccessRightArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_permission=access_permission,
+            client=client,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_permission: pulumi.Input[Union[str, 'ClientPermissionType']],
+             client: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPermission' in kwargs:
+            access_permission = kwargs['accessPermission']
+
+        _setter("access_permission", access_permission)
+        _setter("client", client)
 
     @property
     @pulumi.getter(name="accessPermission")
@@ -332,10 +431,33 @@ class ContactDetailsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_list: The email list.
         :param pulumi.Input[str] phone: The phone number.
         """
-        pulumi.set(__self__, "company_name", company_name)
-        pulumi.set(__self__, "contact_person", contact_person)
-        pulumi.set(__self__, "email_list", email_list)
-        pulumi.set(__self__, "phone", phone)
+        ContactDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            company_name=company_name,
+            contact_person=contact_person,
+            email_list=email_list,
+            phone=phone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             company_name: pulumi.Input[str],
+             contact_person: pulumi.Input[str],
+             email_list: pulumi.Input[Sequence[pulumi.Input[str]]],
+             phone: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if 'contactPerson' in kwargs:
+            contact_person = kwargs['contactPerson']
+        if 'emailList' in kwargs:
+            email_list = kwargs['emailList']
+
+        _setter("company_name", company_name)
+        _setter("contact_person", contact_person)
+        _setter("email_list", email_list)
+        _setter("phone", phone)
 
     @property
     @pulumi.getter(name="companyName")
@@ -394,8 +516,19 @@ class DataResidencyArgs:
         Wraps data-residency related information for edge-resource and this should be used with ARM layer.
         :param pulumi.Input[Union[str, 'DataResidencyType']] type: DataResidencyType enum
         """
+        DataResidencyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'DataResidencyType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -424,12 +557,35 @@ class IoTDeviceInfoArgs:
         :param pulumi.Input['AuthenticationArgs'] authentication: Encrypted IoT device/IoT edge device connection string.
         :param pulumi.Input[str] io_t_host_hub_id: Id for the IoT hub associated to the device.
         """
-        pulumi.set(__self__, "device_id", device_id)
-        pulumi.set(__self__, "io_t_host_hub", io_t_host_hub)
+        IoTDeviceInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_id=device_id,
+            io_t_host_hub=io_t_host_hub,
+            authentication=authentication,
+            io_t_host_hub_id=io_t_host_hub_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_id: pulumi.Input[str],
+             io_t_host_hub: pulumi.Input[str],
+             authentication: Optional[pulumi.Input['AuthenticationArgs']] = None,
+             io_t_host_hub_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if 'ioTHostHub' in kwargs:
+            io_t_host_hub = kwargs['ioTHostHub']
+        if 'ioTHostHubId' in kwargs:
+            io_t_host_hub_id = kwargs['ioTHostHubId']
+
+        _setter("device_id", device_id)
+        _setter("io_t_host_hub", io_t_host_hub)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if io_t_host_hub_id is not None:
-            pulumi.set(__self__, "io_t_host_hub_id", io_t_host_hub_id)
+            _setter("io_t_host_hub_id", io_t_host_hub_id)
 
     @property
     @pulumi.getter(name="deviceId")
@@ -494,12 +650,37 @@ class MetricConfigurationArgs:
         :param pulumi.Input[str] mdm_account: The MDM account to which the counters should be pushed.
         :param pulumi.Input[str] metric_name_space: The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
         """
-        pulumi.set(__self__, "counter_sets", counter_sets)
-        pulumi.set(__self__, "resource_id", resource_id)
+        MetricConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            counter_sets=counter_sets,
+            resource_id=resource_id,
+            mdm_account=mdm_account,
+            metric_name_space=metric_name_space,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             counter_sets: pulumi.Input[Sequence[pulumi.Input['MetricCounterSetArgs']]],
+             resource_id: pulumi.Input[str],
+             mdm_account: Optional[pulumi.Input[str]] = None,
+             metric_name_space: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'counterSets' in kwargs:
+            counter_sets = kwargs['counterSets']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'mdmAccount' in kwargs:
+            mdm_account = kwargs['mdmAccount']
+        if 'metricNameSpace' in kwargs:
+            metric_name_space = kwargs['metricNameSpace']
+
+        _setter("counter_sets", counter_sets)
+        _setter("resource_id", resource_id)
         if mdm_account is not None:
-            pulumi.set(__self__, "mdm_account", mdm_account)
+            _setter("mdm_account", mdm_account)
         if metric_name_space is not None:
-            pulumi.set(__self__, "metric_name_space", metric_name_space)
+            _setter("metric_name_space", metric_name_space)
 
     @property
     @pulumi.getter(name="counterSets")
@@ -558,7 +739,18 @@ class MetricCounterSetArgs:
         The metric counter set
         :param pulumi.Input[Sequence[pulumi.Input['MetricCounterArgs']]] counters: The counters that should be collected in this set.
         """
-        pulumi.set(__self__, "counters", counters)
+        MetricCounterSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            counters=counters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             counters: pulumi.Input[Sequence[pulumi.Input['MetricCounterArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("counters", counters)
 
     @property
     @pulumi.getter
@@ -587,13 +779,34 @@ class MetricCounterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]] dimension_filter: The dimension filter.
         :param pulumi.Input[str] instance: The instance from which counter should be collected.
         """
-        pulumi.set(__self__, "name", name)
+        MetricCounterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            additional_dimensions=additional_dimensions,
+            dimension_filter=dimension_filter,
+            instance=instance,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             additional_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]] = None,
+             dimension_filter: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]] = None,
+             instance: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalDimensions' in kwargs:
+            additional_dimensions = kwargs['additionalDimensions']
+        if 'dimensionFilter' in kwargs:
+            dimension_filter = kwargs['dimensionFilter']
+
+        _setter("name", name)
         if additional_dimensions is not None:
-            pulumi.set(__self__, "additional_dimensions", additional_dimensions)
+            _setter("additional_dimensions", additional_dimensions)
         if dimension_filter is not None:
-            pulumi.set(__self__, "dimension_filter", dimension_filter)
+            _setter("dimension_filter", dimension_filter)
         if instance is not None:
-            pulumi.set(__self__, "instance", instance)
+            _setter("instance", instance)
 
     @property
     @pulumi.getter
@@ -654,8 +867,25 @@ class MetricDimensionArgs:
         :param pulumi.Input[str] source_name: The dimension value.
         :param pulumi.Input[str] source_type: The dimension type.
         """
-        pulumi.set(__self__, "source_name", source_name)
-        pulumi.set(__self__, "source_type", source_type)
+        MetricDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_name=source_name,
+            source_type=source_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_name: pulumi.Input[str],
+             source_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceName' in kwargs:
+            source_name = kwargs['sourceName']
+        if 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+
+        _setter("source_name", source_name)
+        _setter("source_type", source_type)
 
     @property
     @pulumi.getter(name="sourceName")
@@ -696,14 +926,39 @@ class RefreshDetailsArgs:
         :param pulumi.Input[str] last_completed_refresh_job_time_in_utc: Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
         :param pulumi.Input[str] last_job: Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
         """
+        RefreshDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_manifest_file=error_manifest_file,
+            in_progress_refresh_job_id=in_progress_refresh_job_id,
+            last_completed_refresh_job_time_in_utc=last_completed_refresh_job_time_in_utc,
+            last_job=last_job,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_manifest_file: Optional[pulumi.Input[str]] = None,
+             in_progress_refresh_job_id: Optional[pulumi.Input[str]] = None,
+             last_completed_refresh_job_time_in_utc: Optional[pulumi.Input[str]] = None,
+             last_job: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorManifestFile' in kwargs:
+            error_manifest_file = kwargs['errorManifestFile']
+        if 'inProgressRefreshJobId' in kwargs:
+            in_progress_refresh_job_id = kwargs['inProgressRefreshJobId']
+        if 'lastCompletedRefreshJobTimeInUTC' in kwargs:
+            last_completed_refresh_job_time_in_utc = kwargs['lastCompletedRefreshJobTimeInUTC']
+        if 'lastJob' in kwargs:
+            last_job = kwargs['lastJob']
+
         if error_manifest_file is not None:
-            pulumi.set(__self__, "error_manifest_file", error_manifest_file)
+            _setter("error_manifest_file", error_manifest_file)
         if in_progress_refresh_job_id is not None:
-            pulumi.set(__self__, "in_progress_refresh_job_id", in_progress_refresh_job_id)
+            _setter("in_progress_refresh_job_id", in_progress_refresh_job_id)
         if last_completed_refresh_job_time_in_utc is not None:
-            pulumi.set(__self__, "last_completed_refresh_job_time_in_utc", last_completed_refresh_job_time_in_utc)
+            _setter("last_completed_refresh_job_time_in_utc", last_completed_refresh_job_time_in_utc)
         if last_job is not None:
-            pulumi.set(__self__, "last_job", last_job)
+            _setter("last_job", last_job)
 
     @property
     @pulumi.getter(name="errorManifestFile")
@@ -762,8 +1017,19 @@ class ResourceIdentityArgs:
         Msi identity details of the resource
         :param pulumi.Input[Union[str, 'MsiIdentityType']] type: Identity type
         """
+        ResourceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'MsiIdentityType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -788,10 +1054,23 @@ class SkuArgs:
         :param pulumi.Input[Union[str, 'SkuName']] name: SKU name.
         :param pulumi.Input[Union[str, 'SkuTier']] tier: The SKU tier. This is based on the SKU name.
         """
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None,
+             tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -826,8 +1105,21 @@ class SymmetricKeyArgs:
         Symmetric key for authentication.
         :param pulumi.Input['AsymmetricEncryptedSecretArgs'] connection_string: Connection string based on the symmetric key.
         """
+        SymmetricKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -852,8 +1144,25 @@ class UserAccessRightArgs:
         :param pulumi.Input[Union[str, 'ShareAccessType']] access_type: Type of access to be allowed for the user.
         :param pulumi.Input[str] user_id: User ID (already existing in the device).
         """
-        pulumi.set(__self__, "access_type", access_type)
-        pulumi.set(__self__, "user_id", user_id)
+        UserAccessRightArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_type=access_type,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_type: pulumi.Input[Union[str, 'ShareAccessType']],
+             user_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessType' in kwargs:
+            access_type = kwargs['accessType']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
+        _setter("access_type", access_type)
+        _setter("user_id", user_id)
 
     @property
     @pulumi.getter(name="accessType")

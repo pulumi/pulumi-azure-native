@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -47,18 +47,45 @@ class CaptureDescriptionArgs:
         :param pulumi.Input[int] size_limit_in_bytes: The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
         :param pulumi.Input[bool] skip_empty_archives: A value that indicates whether to Skip Empty Archives
         """
+        CaptureDescriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+            enabled=enabled,
+            encoding=encoding,
+            interval_in_seconds=interval_in_seconds,
+            size_limit_in_bytes=size_limit_in_bytes,
+            skip_empty_archives=skip_empty_archives,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: Optional[pulumi.Input['DestinationArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             encoding: Optional[pulumi.Input['EncodingCaptureDescription']] = None,
+             interval_in_seconds: Optional[pulumi.Input[int]] = None,
+             size_limit_in_bytes: Optional[pulumi.Input[int]] = None,
+             skip_empty_archives: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intervalInSeconds' in kwargs:
+            interval_in_seconds = kwargs['intervalInSeconds']
+        if 'sizeLimitInBytes' in kwargs:
+            size_limit_in_bytes = kwargs['sizeLimitInBytes']
+        if 'skipEmptyArchives' in kwargs:
+            skip_empty_archives = kwargs['skipEmptyArchives']
+
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if interval_in_seconds is not None:
-            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+            _setter("interval_in_seconds", interval_in_seconds)
         if size_limit_in_bytes is not None:
-            pulumi.set(__self__, "size_limit_in_bytes", size_limit_in_bytes)
+            _setter("size_limit_in_bytes", size_limit_in_bytes)
         if skip_empty_archives is not None:
-            pulumi.set(__self__, "skip_empty_archives", skip_empty_archives)
+            _setter("skip_empty_archives", skip_empty_archives)
 
     @property
     @pulumi.getter
@@ -143,9 +170,22 @@ class ClusterSkuArgs:
         :param pulumi.Input[Union[str, 'ClusterSkuName']] name: Name of this SKU.
         :param pulumi.Input[int] capacity: The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
         """
-        pulumi.set(__self__, "name", name)
+        ClusterSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'ClusterSkuName']],
+             capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -182,10 +222,23 @@ class ConnectionStateArgs:
         :param pulumi.Input[str] description: Description of the connection state.
         :param pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']] status: Status of the connection.
         """
+        ConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -232,20 +285,55 @@ class DestinationArgs:
         :param pulumi.Input[str] name: Name for capture destination
         :param pulumi.Input[str] storage_account_resource_id: Resource id of the storage account to be used to create the blobs
         """
+        DestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            archive_name_format=archive_name_format,
+            blob_container=blob_container,
+            data_lake_account_name=data_lake_account_name,
+            data_lake_folder_path=data_lake_folder_path,
+            data_lake_subscription_id=data_lake_subscription_id,
+            name=name,
+            storage_account_resource_id=storage_account_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             archive_name_format: Optional[pulumi.Input[str]] = None,
+             blob_container: Optional[pulumi.Input[str]] = None,
+             data_lake_account_name: Optional[pulumi.Input[str]] = None,
+             data_lake_folder_path: Optional[pulumi.Input[str]] = None,
+             data_lake_subscription_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             storage_account_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveNameFormat' in kwargs:
+            archive_name_format = kwargs['archiveNameFormat']
+        if 'blobContainer' in kwargs:
+            blob_container = kwargs['blobContainer']
+        if 'dataLakeAccountName' in kwargs:
+            data_lake_account_name = kwargs['dataLakeAccountName']
+        if 'dataLakeFolderPath' in kwargs:
+            data_lake_folder_path = kwargs['dataLakeFolderPath']
+        if 'dataLakeSubscriptionId' in kwargs:
+            data_lake_subscription_id = kwargs['dataLakeSubscriptionId']
+        if 'storageAccountResourceId' in kwargs:
+            storage_account_resource_id = kwargs['storageAccountResourceId']
+
         if archive_name_format is not None:
-            pulumi.set(__self__, "archive_name_format", archive_name_format)
+            _setter("archive_name_format", archive_name_format)
         if blob_container is not None:
-            pulumi.set(__self__, "blob_container", blob_container)
+            _setter("blob_container", blob_container)
         if data_lake_account_name is not None:
-            pulumi.set(__self__, "data_lake_account_name", data_lake_account_name)
+            _setter("data_lake_account_name", data_lake_account_name)
         if data_lake_folder_path is not None:
-            pulumi.set(__self__, "data_lake_folder_path", data_lake_folder_path)
+            _setter("data_lake_folder_path", data_lake_folder_path)
         if data_lake_subscription_id is not None:
-            pulumi.set(__self__, "data_lake_subscription_id", data_lake_subscription_id)
+            _setter("data_lake_subscription_id", data_lake_subscription_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if storage_account_resource_id is not None:
-            pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+            _setter("storage_account_resource_id", storage_account_resource_id)
 
     @property
     @pulumi.getter(name="archiveNameFormat")
@@ -344,14 +432,35 @@ class EncryptionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]] key_vault_properties: Properties of KeyVault
         :param pulumi.Input[bool] require_infrastructure_encryption: Enable Infrastructure Encryption (Double Encryption)
         """
+        EncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_source=key_source,
+            key_vault_properties=key_vault_properties,
+            require_infrastructure_encryption=require_infrastructure_encryption,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_source: Optional[pulumi.Input['KeySource']] = None,
+             key_vault_properties: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]] = None,
+             require_infrastructure_encryption: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keySource' in kwargs:
+            key_source = kwargs['keySource']
+        if 'keyVaultProperties' in kwargs:
+            key_vault_properties = kwargs['keyVaultProperties']
+        if 'requireInfrastructureEncryption' in kwargs:
+            require_infrastructure_encryption = kwargs['requireInfrastructureEncryption']
+
         if key_source is None:
             key_source = 'Microsoft.KeyVault'
         if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
+            _setter("key_source", key_source)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
         if require_infrastructure_encryption is not None:
-            pulumi.set(__self__, "require_infrastructure_encryption", require_infrastructure_encryption)
+            _setter("require_infrastructure_encryption", require_infrastructure_encryption)
 
     @property
     @pulumi.getter(name="keySource")
@@ -400,10 +509,25 @@ class IdentityArgs:
         :param pulumi.Input['ManagedServiceIdentityType'] type: Type of managed service identity.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: Properties for User Assigned Identities
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ManagedServiceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -443,14 +567,37 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] key_vault_uri: Uri of KeyVault
         :param pulumi.Input[str] key_version: Key Version
         """
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity=identity,
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity: Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_vault_uri: Optional[pulumi.Input[str]] = None,
+             key_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+        if 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+            _setter("key_vault_uri", key_vault_uri)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
 
     @property
     @pulumi.getter
@@ -508,10 +655,25 @@ class NWRuleSetIpRulesArgs:
         :param pulumi.Input[Union[str, 'NetworkRuleIPAction']] action: The IP Filter Action
         :param pulumi.Input[str] ip_mask: IP Mask
         """
+        NWRuleSetIpRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            ip_mask=ip_mask,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[Union[str, 'NetworkRuleIPAction']]] = None,
+             ip_mask: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipMask' in kwargs:
+            ip_mask = kwargs['ipMask']
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if ip_mask is not None:
-            pulumi.set(__self__, "ip_mask", ip_mask)
+            _setter("ip_mask", ip_mask)
 
     @property
     @pulumi.getter
@@ -548,10 +710,25 @@ class NWRuleSetVirtualNetworkRulesArgs:
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing Vnet Service Endpoint
         :param pulumi.Input['SubnetArgs'] subnet: Subnet properties
         """
+        NWRuleSetVirtualNetworkRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ignore_missing_vnet_service_endpoint=ignore_missing_vnet_service_endpoint,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
+             subnet: Optional[pulumi.Input['SubnetArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ignoreMissingVnetServiceEndpoint' in kwargs:
+            ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
+
         if ignore_missing_vnet_service_endpoint is not None:
-            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+            _setter("ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
@@ -590,12 +767,33 @@ class PrivateEndpointConnectionArgs:
         :param pulumi.Input['ConnectionStateArgs'] private_link_service_connection_state: Details about the state of the connection.
         :param pulumi.Input[Union[str, 'EndPointProvisioningState']] provisioning_state: Provisioning state of the Private Endpoint Connection.
         """
+        PrivateEndpointConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_endpoint=private_endpoint,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
+             private_link_service_connection_state: Optional[pulumi.Input['ConnectionStateArgs']] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'EndPointProvisioningState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -642,8 +840,19 @@ class PrivateEndpointArgs:
         PrivateEndpoint information.
         :param pulumi.Input[str] id: The ARM identifier for Private Endpoint.
         """
+        PrivateEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -670,12 +879,33 @@ class RetentionDescriptionArgs:
         :param pulumi.Input[float] retention_time_in_hours: Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue 
         :param pulumi.Input[int] tombstone_retention_time_in_hours: Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
         """
+        RetentionDescriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cleanup_policy=cleanup_policy,
+            retention_time_in_hours=retention_time_in_hours,
+            tombstone_retention_time_in_hours=tombstone_retention_time_in_hours,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cleanup_policy: Optional[pulumi.Input[Union[str, 'CleanupPolicyRetentionDescription']]] = None,
+             retention_time_in_hours: Optional[pulumi.Input[float]] = None,
+             tombstone_retention_time_in_hours: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cleanupPolicy' in kwargs:
+            cleanup_policy = kwargs['cleanupPolicy']
+        if 'retentionTimeInHours' in kwargs:
+            retention_time_in_hours = kwargs['retentionTimeInHours']
+        if 'tombstoneRetentionTimeInHours' in kwargs:
+            tombstone_retention_time_in_hours = kwargs['tombstoneRetentionTimeInHours']
+
         if cleanup_policy is not None:
-            pulumi.set(__self__, "cleanup_policy", cleanup_policy)
+            _setter("cleanup_policy", cleanup_policy)
         if retention_time_in_hours is not None:
-            pulumi.set(__self__, "retention_time_in_hours", retention_time_in_hours)
+            _setter("retention_time_in_hours", retention_time_in_hours)
         if tombstone_retention_time_in_hours is not None:
-            pulumi.set(__self__, "tombstone_retention_time_in_hours", tombstone_retention_time_in_hours)
+            _setter("tombstone_retention_time_in_hours", tombstone_retention_time_in_hours)
 
     @property
     @pulumi.getter(name="cleanupPolicy")
@@ -726,11 +956,26 @@ class SkuArgs:
         :param pulumi.Input[int] capacity: The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
         :param pulumi.Input[Union[str, 'SkuTier']] tier: The billing tier of this particular SKU.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'SkuName']],
+             capacity: Optional[pulumi.Input[int]] = None,
+             tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -777,8 +1022,19 @@ class SubnetArgs:
         Properties supplied for Subnet
         :param pulumi.Input[str] id: Resource ID of Virtual Network Subnet
         """
+        SubnetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -808,10 +1064,31 @@ class ThrottlingPolicyArgs:
         :param pulumi.Input[str] type: Application Group Policy types
                Expected value is 'ThrottlingPolicy'.
         """
-        pulumi.set(__self__, "metric_id", metric_id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "rate_limit_threshold", rate_limit_threshold)
-        pulumi.set(__self__, "type", 'ThrottlingPolicy')
+        ThrottlingPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_id=metric_id,
+            name=name,
+            rate_limit_threshold=rate_limit_threshold,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_id: pulumi.Input[Union[str, 'MetricId']],
+             name: pulumi.Input[str],
+             rate_limit_threshold: pulumi.Input[float],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricId' in kwargs:
+            metric_id = kwargs['metricId']
+        if 'rateLimitThreshold' in kwargs:
+            rate_limit_threshold = kwargs['rateLimitThreshold']
+
+        _setter("metric_id", metric_id)
+        _setter("name", name)
+        _setter("rate_limit_threshold", rate_limit_threshold)
+        _setter("type", 'ThrottlingPolicy')
 
     @property
     @pulumi.getter(name="metricId")
@@ -870,8 +1147,21 @@ class UserAssignedIdentityPropertiesArgs:
         """
         :param pulumi.Input[str] user_assigned_identity: ARM ID of user Identity selected for encryption
         """
+        UserAssignedIdentityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_assigned_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentity' in kwargs:
+            user_assigned_identity = kwargs['userAssignedIdentity']
+
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="userAssignedIdentity")

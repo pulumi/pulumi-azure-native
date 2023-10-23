@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,34 @@ class VariableValueAtManagementGroupArgs:
         :param pulumi.Input[str] variable_name: The name of the variable to operate on.
         :param pulumi.Input[str] variable_value_name: The name of the variable value to operate on.
         """
-        pulumi.set(__self__, "management_group_id", management_group_id)
-        pulumi.set(__self__, "values", values)
-        pulumi.set(__self__, "variable_name", variable_name)
+        VariableValueAtManagementGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_group_id=management_group_id,
+            values=values,
+            variable_name=variable_name,
+            variable_value_name=variable_value_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_group_id: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input['PolicyVariableValueColumnValueArgs']]],
+             variable_name: pulumi.Input[str],
+             variable_value_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if 'variableName' in kwargs:
+            variable_name = kwargs['variableName']
+        if 'variableValueName' in kwargs:
+            variable_value_name = kwargs['variableValueName']
+
+        _setter("management_group_id", management_group_id)
+        _setter("values", values)
+        _setter("variable_name", variable_name)
         if variable_value_name is not None:
-            pulumi.set(__self__, "variable_value_name", variable_value_name)
+            _setter("variable_value_name", variable_value_name)
 
     @property
     @pulumi.getter(name="managementGroupId")
@@ -121,6 +144,10 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VariableValueAtManagementGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

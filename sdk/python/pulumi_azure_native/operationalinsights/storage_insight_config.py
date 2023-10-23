@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,19 +35,54 @@ class StorageInsightConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tables: The names of the Azure tables that the workspace should read
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_account", storage_account)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        StorageInsightConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            storage_account=storage_account,
+            workspace_name=workspace_name,
+            containers=containers,
+            e_tag=e_tag,
+            storage_insight_name=storage_insight_name,
+            tables=tables,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             storage_account: pulumi.Input['StorageAccountArgs'],
+             workspace_name: pulumi.Input[str],
+             containers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             e_tag: Optional[pulumi.Input[str]] = None,
+             storage_insight_name: Optional[pulumi.Input[str]] = None,
+             tables: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+        if 'storageInsightName' in kwargs:
+            storage_insight_name = kwargs['storageInsightName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_account", storage_account)
+        _setter("workspace_name", workspace_name)
         if containers is not None:
-            pulumi.set(__self__, "containers", containers)
+            _setter("containers", containers)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if storage_insight_name is not None:
-            pulumi.set(__self__, "storage_insight_name", storage_insight_name)
+            _setter("storage_insight_name", storage_insight_name)
         if tables is not None:
-            pulumi.set(__self__, "tables", tables)
+            _setter("tables", tables)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -195,6 +230,10 @@ class StorageInsightConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StorageInsightConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -222,6 +261,11 @@ class StorageInsightConfig(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if storage_account is not None and not isinstance(storage_account, StorageAccountArgs):
+                storage_account = storage_account or {}
+                def _setter(key, value):
+                    storage_account[key] = value
+                StorageAccountArgs._configure(_setter, **storage_account)
             if storage_account is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account'")
             __props__.__dict__["storage_account"] = storage_account

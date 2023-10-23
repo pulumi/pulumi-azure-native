@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -45,20 +45,47 @@ class AutomationRuleModifyPropertiesActionActionConfigurationArgs:
         :param pulumi.Input[Union[str, 'IncidentSeverity']] severity: The severity of the incident
         :param pulumi.Input[Union[str, 'IncidentStatus']] status: The status of the incident
         """
+        AutomationRuleModifyPropertiesActionActionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classification=classification,
+            classification_comment=classification_comment,
+            classification_reason=classification_reason,
+            labels=labels,
+            owner=owner,
+            severity=severity,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classification: Optional[pulumi.Input[Union[str, 'IncidentClassification']]] = None,
+             classification_comment: Optional[pulumi.Input[str]] = None,
+             classification_reason: Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]] = None,
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]]] = None,
+             owner: Optional[pulumi.Input['IncidentOwnerInfoArgs']] = None,
+             severity: Optional[pulumi.Input[Union[str, 'IncidentSeverity']]] = None,
+             status: Optional[pulumi.Input[Union[str, 'IncidentStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classificationComment' in kwargs:
+            classification_comment = kwargs['classificationComment']
+        if 'classificationReason' in kwargs:
+            classification_reason = kwargs['classificationReason']
+
         if classification is not None:
-            pulumi.set(__self__, "classification", classification)
+            _setter("classification", classification)
         if classification_comment is not None:
-            pulumi.set(__self__, "classification_comment", classification_comment)
+            _setter("classification_comment", classification_comment)
         if classification_reason is not None:
-            pulumi.set(__self__, "classification_reason", classification_reason)
+            _setter("classification_reason", classification_reason)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -158,9 +185,28 @@ class AutomationRuleModifyPropertiesActionArgs:
                Expected value is 'ModifyProperties'.
         :param pulumi.Input[int] order: The order of execution of the automation rule action
         """
-        pulumi.set(__self__, "action_configuration", action_configuration)
-        pulumi.set(__self__, "action_type", 'ModifyProperties')
-        pulumi.set(__self__, "order", order)
+        AutomationRuleModifyPropertiesActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_configuration=action_configuration,
+            action_type=action_type,
+            order=order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_configuration: pulumi.Input['AutomationRuleModifyPropertiesActionActionConfigurationArgs'],
+             action_type: pulumi.Input[str],
+             order: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionConfiguration' in kwargs:
+            action_configuration = kwargs['actionConfiguration']
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+
+        _setter("action_configuration", action_configuration)
+        _setter("action_type", 'ModifyProperties')
+        _setter("order", order)
 
     @property
     @pulumi.getter(name="actionConfiguration")
@@ -212,12 +258,31 @@ class AutomationRulePropertyValuesConditionConditionPropertiesArgs:
         :param pulumi.Input[Union[str, 'AutomationRulePropertyConditionSupportedProperty']] property_name: The property to evaluate
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_values: The values to use for evaluating the condition
         """
+        AutomationRulePropertyValuesConditionConditionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            property_name=property_name,
+            property_values=property_values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: Optional[pulumi.Input[Union[str, 'AutomationRulePropertyConditionSupportedOperator']]] = None,
+             property_name: Optional[pulumi.Input[Union[str, 'AutomationRulePropertyConditionSupportedProperty']]] = None,
+             property_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertyName' in kwargs:
+            property_name = kwargs['propertyName']
+        if 'propertyValues' in kwargs:
+            property_values = kwargs['propertyValues']
+
         if operator is not None:
-            pulumi.set(__self__, "operator", operator)
+            _setter("operator", operator)
         if property_name is not None:
-            pulumi.set(__self__, "property_name", property_name)
+            _setter("property_name", property_name)
         if property_values is not None:
-            pulumi.set(__self__, "property_values", property_values)
+            _setter("property_values", property_values)
 
     @property
     @pulumi.getter
@@ -267,8 +332,25 @@ class AutomationRulePropertyValuesConditionArgs:
         :param pulumi.Input[str] condition_type: The type of the automation rule condition
                Expected value is 'Property'.
         """
-        pulumi.set(__self__, "condition_properties", condition_properties)
-        pulumi.set(__self__, "condition_type", 'Property')
+        AutomationRulePropertyValuesConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            condition_properties=condition_properties,
+            condition_type=condition_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             condition_properties: pulumi.Input['AutomationRulePropertyValuesConditionConditionPropertiesArgs'],
+             condition_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'conditionProperties' in kwargs:
+            condition_properties = kwargs['conditionProperties']
+        if 'conditionType' in kwargs:
+            condition_type = kwargs['conditionType']
+
+        _setter("condition_properties", condition_properties)
+        _setter("condition_type", 'Property')
 
     @property
     @pulumi.getter(name="conditionProperties")
@@ -306,10 +388,27 @@ class AutomationRuleRunPlaybookActionActionConfigurationArgs:
         :param pulumi.Input[str] logic_app_resource_id: The resource id of the playbook resource
         :param pulumi.Input[str] tenant_id: The tenant id of the playbook resource
         """
+        AutomationRuleRunPlaybookActionActionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            logic_app_resource_id=logic_app_resource_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             logic_app_resource_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logicAppResourceId' in kwargs:
+            logic_app_resource_id = kwargs['logicAppResourceId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if logic_app_resource_id is not None:
-            pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
+            _setter("logic_app_resource_id", logic_app_resource_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="logicAppResourceId")
@@ -349,9 +448,28 @@ class AutomationRuleRunPlaybookActionArgs:
                Expected value is 'RunPlaybook'.
         :param pulumi.Input[int] order: The order of execution of the automation rule action
         """
-        pulumi.set(__self__, "action_configuration", action_configuration)
-        pulumi.set(__self__, "action_type", 'RunPlaybook')
-        pulumi.set(__self__, "order", order)
+        AutomationRuleRunPlaybookActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_configuration=action_configuration,
+            action_type=action_type,
+            order=order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_configuration: pulumi.Input['AutomationRuleRunPlaybookActionActionConfigurationArgs'],
+             action_type: pulumi.Input[str],
+             order: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionConfiguration' in kwargs:
+            action_configuration = kwargs['actionConfiguration']
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+
+        _setter("action_configuration", action_configuration)
+        _setter("action_type", 'RunPlaybook')
+        _setter("order", order)
 
     @property
     @pulumi.getter(name="actionConfiguration")
@@ -407,13 +525,40 @@ class AutomationRuleTriggeringLogicArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRulePropertyValuesConditionArgs']]] conditions: The conditions to evaluate to determine if the automation rule should be triggered on a given object
         :param pulumi.Input[str] expiration_time_utc: Determines when the automation rule should automatically expire and be disabled.
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "triggers_on", triggers_on)
-        pulumi.set(__self__, "triggers_when", triggers_when)
+        AutomationRuleTriggeringLogicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            triggers_on=triggers_on,
+            triggers_when=triggers_when,
+            conditions=conditions,
+            expiration_time_utc=expiration_time_utc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: pulumi.Input[bool],
+             triggers_on: pulumi.Input[Union[str, 'TriggersOn']],
+             triggers_when: pulumi.Input[Union[str, 'TriggersWhen']],
+             conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRulePropertyValuesConditionArgs']]]] = None,
+             expiration_time_utc: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'triggersOn' in kwargs:
+            triggers_on = kwargs['triggersOn']
+        if 'triggersWhen' in kwargs:
+            triggers_when = kwargs['triggersWhen']
+        if 'expirationTimeUtc' in kwargs:
+            expiration_time_utc = kwargs['expirationTimeUtc']
+
+        _setter("is_enabled", is_enabled)
+        _setter("triggers_on", triggers_on)
+        _setter("triggers_when", triggers_when)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if expiration_time_utc is not None:
-            pulumi.set(__self__, "expiration_time_utc", expiration_time_utc)
+            _setter("expiration_time_utc", expiration_time_utc)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -490,14 +635,35 @@ class IncidentInfoArgs:
         :param pulumi.Input[Union[str, 'IncidentSeverity']] severity: The severity of the incident
         :param pulumi.Input[str] title: The title of the incident
         """
+        IncidentInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            incident_id=incident_id,
+            relation_name=relation_name,
+            severity=severity,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             incident_id: Optional[pulumi.Input[str]] = None,
+             relation_name: Optional[pulumi.Input[str]] = None,
+             severity: Optional[pulumi.Input[Union[str, 'IncidentSeverity']]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'incidentId' in kwargs:
+            incident_id = kwargs['incidentId']
+        if 'relationName' in kwargs:
+            relation_name = kwargs['relationName']
+
         if incident_id is not None:
-            pulumi.set(__self__, "incident_id", incident_id)
+            _setter("incident_id", incident_id)
         if relation_name is not None:
-            pulumi.set(__self__, "relation_name", relation_name)
+            _setter("relation_name", relation_name)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter(name="incidentId")
@@ -556,7 +722,20 @@ class IncidentLabelArgs:
         Represents an incident label
         :param pulumi.Input[str] label_name: The name of the label
         """
-        pulumi.set(__self__, "label_name", label_name)
+        IncidentLabelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label_name=label_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labelName' in kwargs:
+            label_name = kwargs['labelName']
+
+        _setter("label_name", label_name)
 
     @property
     @pulumi.getter(name="labelName")
@@ -585,14 +764,37 @@ class IncidentOwnerInfoArgs:
         :param pulumi.Input[str] object_id: The object id of the user the incident is assigned to.
         :param pulumi.Input[str] user_principal_name: The user principal name of the user the incident is assigned to.
         """
+        IncidentOwnerInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assigned_to=assigned_to,
+            email=email,
+            object_id=object_id,
+            user_principal_name=user_principal_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assigned_to: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             user_principal_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignedTo' in kwargs:
+            assigned_to = kwargs['assignedTo']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'userPrincipalName' in kwargs:
+            user_principal_name = kwargs['userPrincipalName']
+
         if assigned_to is not None:
-            pulumi.set(__self__, "assigned_to", assigned_to)
+            _setter("assigned_to", assigned_to)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if user_principal_name is not None:
-            pulumi.set(__self__, "user_principal_name", user_principal_name)
+            _setter("user_principal_name", user_principal_name)
 
     @property
     @pulumi.getter(name="assignedTo")
@@ -651,8 +853,21 @@ class UserInfoArgs:
         User information that made some action
         :param pulumi.Input[str] object_id: The object id of the user.
         """
+        UserInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_id=object_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
 
     @property
     @pulumi.getter(name="objectId")
@@ -675,8 +890,21 @@ class WatchlistUserInfoArgs:
         User information that made some action
         :param pulumi.Input[str] object_id: The object id of the user.
         """
+        WatchlistUserInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_id=object_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
 
     @property
     @pulumi.getter(name="objectId")

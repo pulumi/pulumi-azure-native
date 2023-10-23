@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['RegisteredAsnArgs', 'RegisteredAsn']
@@ -25,12 +25,35 @@ class RegisteredAsnArgs:
         :param pulumi.Input[int] asn: The customer's ASN from which traffic originates.
         :param pulumi.Input[str] registered_asn_name: The name of the ASN.
         """
-        pulumi.set(__self__, "peering_name", peering_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        RegisteredAsnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            peering_name=peering_name,
+            resource_group_name=resource_group_name,
+            asn=asn,
+            registered_asn_name=registered_asn_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             peering_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             asn: Optional[pulumi.Input[int]] = None,
+             registered_asn_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peeringName' in kwargs:
+            peering_name = kwargs['peeringName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'registeredAsnName' in kwargs:
+            registered_asn_name = kwargs['registeredAsnName']
+
+        _setter("peering_name", peering_name)
+        _setter("resource_group_name", resource_group_name)
         if asn is not None:
-            pulumi.set(__self__, "asn", asn)
+            _setter("asn", asn)
         if registered_asn_name is not None:
-            pulumi.set(__self__, "registered_asn_name", registered_asn_name)
+            _setter("registered_asn_name", registered_asn_name)
 
     @property
     @pulumi.getter(name="peeringName")
@@ -120,6 +143,10 @@ class RegisteredAsn(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegisteredAsnArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

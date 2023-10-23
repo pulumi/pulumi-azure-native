@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -103,10 +103,33 @@ class AddRemoveIncrementalNamedPartitionScalingMechanismResponse(dict):
         :param int min_partition_count: Minimum number of named partitions of the service.
         :param int scale_increment: The number of instances to add or remove during a scaling operation.
         """
-        pulumi.set(__self__, "kind", 'AddRemoveIncrementalNamedPartition')
-        pulumi.set(__self__, "max_partition_count", max_partition_count)
-        pulumi.set(__self__, "min_partition_count", min_partition_count)
-        pulumi.set(__self__, "scale_increment", scale_increment)
+        AddRemoveIncrementalNamedPartitionScalingMechanismResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            max_partition_count=max_partition_count,
+            min_partition_count=min_partition_count,
+            scale_increment=scale_increment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: str,
+             max_partition_count: int,
+             min_partition_count: int,
+             scale_increment: int,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxPartitionCount' in kwargs:
+            max_partition_count = kwargs['maxPartitionCount']
+        if 'minPartitionCount' in kwargs:
+            min_partition_count = kwargs['minPartitionCount']
+        if 'scaleIncrement' in kwargs:
+            scale_increment = kwargs['scaleIncrement']
+
+        _setter("kind", 'AddRemoveIncrementalNamedPartition')
+        _setter("max_partition_count", max_partition_count)
+        _setter("min_partition_count", min_partition_count)
+        _setter("scale_increment", scale_increment)
 
     @property
     @pulumi.getter
@@ -180,12 +203,35 @@ class AdditionalNetworkInterfaceConfigurationResponse(dict):
         :param 'SubResourceResponse' dscp_configuration: Specifies the DSCP configuration to apply to the network interface.
         :param bool enable_accelerated_networking: Specifies whether the network interface is accelerated networking-enabled.
         """
-        pulumi.set(__self__, "ip_configurations", ip_configurations)
-        pulumi.set(__self__, "name", name)
+        AdditionalNetworkInterfaceConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_configurations=ip_configurations,
+            name=name,
+            dscp_configuration=dscp_configuration,
+            enable_accelerated_networking=enable_accelerated_networking,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_configurations: Sequence['outputs.IpConfigurationResponse'],
+             name: str,
+             dscp_configuration: Optional['outputs.SubResourceResponse'] = None,
+             enable_accelerated_networking: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'dscpConfiguration' in kwargs:
+            dscp_configuration = kwargs['dscpConfiguration']
+        if 'enableAcceleratedNetworking' in kwargs:
+            enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
+
+        _setter("ip_configurations", ip_configurations)
+        _setter("name", name)
         if dscp_configuration is not None:
-            pulumi.set(__self__, "dscp_configuration", dscp_configuration)
+            _setter("dscp_configuration", dscp_configuration)
         if enable_accelerated_networking is not None:
-            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+            _setter("enable_accelerated_networking", enable_accelerated_networking)
 
     @property
     @pulumi.getter(name="ipConfigurations")
@@ -264,12 +310,37 @@ class ApplicationHealthPolicyResponse(dict):
         :param 'ServiceTypeHealthPolicyResponse' default_service_type_health_policy: The health policy used by default to evaluate the health of a service type.
         :param Mapping[str, 'ServiceTypeHealthPolicyResponse'] service_type_health_policy_map: The map with service type health policy per service type name. The map is empty by default.
         """
-        pulumi.set(__self__, "consider_warning_as_error", consider_warning_as_error)
-        pulumi.set(__self__, "max_percent_unhealthy_deployed_applications", max_percent_unhealthy_deployed_applications)
+        ApplicationHealthPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consider_warning_as_error=consider_warning_as_error,
+            max_percent_unhealthy_deployed_applications=max_percent_unhealthy_deployed_applications,
+            default_service_type_health_policy=default_service_type_health_policy,
+            service_type_health_policy_map=service_type_health_policy_map,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consider_warning_as_error: bool,
+             max_percent_unhealthy_deployed_applications: int,
+             default_service_type_health_policy: Optional['outputs.ServiceTypeHealthPolicyResponse'] = None,
+             service_type_health_policy_map: Optional[Mapping[str, 'outputs.ServiceTypeHealthPolicyResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'considerWarningAsError' in kwargs:
+            consider_warning_as_error = kwargs['considerWarningAsError']
+        if 'maxPercentUnhealthyDeployedApplications' in kwargs:
+            max_percent_unhealthy_deployed_applications = kwargs['maxPercentUnhealthyDeployedApplications']
+        if 'defaultServiceTypeHealthPolicy' in kwargs:
+            default_service_type_health_policy = kwargs['defaultServiceTypeHealthPolicy']
+        if 'serviceTypeHealthPolicyMap' in kwargs:
+            service_type_health_policy_map = kwargs['serviceTypeHealthPolicyMap']
+
+        _setter("consider_warning_as_error", consider_warning_as_error)
+        _setter("max_percent_unhealthy_deployed_applications", max_percent_unhealthy_deployed_applications)
         if default_service_type_health_policy is not None:
-            pulumi.set(__self__, "default_service_type_health_policy", default_service_type_health_policy)
+            _setter("default_service_type_health_policy", default_service_type_health_policy)
         if service_type_health_policy_map is not None:
-            pulumi.set(__self__, "service_type_health_policy_map", service_type_health_policy_map)
+            _setter("service_type_health_policy_map", service_type_health_policy_map)
 
     @property
     @pulumi.getter(name="considerWarningAsError")
@@ -335,7 +406,20 @@ class ApplicationTypeVersionsCleanupPolicyResponse(dict):
         The policy used to clean up unused versions. When the policy is not specified explicitly, the default unused application versions to keep will be 3.
         :param int max_unused_versions_to_keep: Number of unused versions per application type to keep.
         """
-        pulumi.set(__self__, "max_unused_versions_to_keep", max_unused_versions_to_keep)
+        ApplicationTypeVersionsCleanupPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_unused_versions_to_keep=max_unused_versions_to_keep,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_unused_versions_to_keep: int,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxUnusedVersionsToKeep' in kwargs:
+            max_unused_versions_to_keep = kwargs['maxUnusedVersionsToKeep']
+
+        _setter("max_unused_versions_to_keep", max_unused_versions_to_keep)
 
     @property
     @pulumi.getter(name="maxUnusedVersionsToKeep")
@@ -398,20 +482,57 @@ class ApplicationUpgradePolicyResponse(dict):
         :param str upgrade_mode: The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
         :param float upgrade_replica_set_check_timeout: The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
         """
+        ApplicationUpgradePolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_health_policy=application_health_policy,
+            force_restart=force_restart,
+            instance_close_delay_duration=instance_close_delay_duration,
+            recreate_application=recreate_application,
+            rolling_upgrade_monitoring_policy=rolling_upgrade_monitoring_policy,
+            upgrade_mode=upgrade_mode,
+            upgrade_replica_set_check_timeout=upgrade_replica_set_check_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_health_policy: Optional['outputs.ApplicationHealthPolicyResponse'] = None,
+             force_restart: Optional[bool] = None,
+             instance_close_delay_duration: Optional[float] = None,
+             recreate_application: Optional[bool] = None,
+             rolling_upgrade_monitoring_policy: Optional['outputs.RollingUpgradeMonitoringPolicyResponse'] = None,
+             upgrade_mode: Optional[str] = None,
+             upgrade_replica_set_check_timeout: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationHealthPolicy' in kwargs:
+            application_health_policy = kwargs['applicationHealthPolicy']
+        if 'forceRestart' in kwargs:
+            force_restart = kwargs['forceRestart']
+        if 'instanceCloseDelayDuration' in kwargs:
+            instance_close_delay_duration = kwargs['instanceCloseDelayDuration']
+        if 'recreateApplication' in kwargs:
+            recreate_application = kwargs['recreateApplication']
+        if 'rollingUpgradeMonitoringPolicy' in kwargs:
+            rolling_upgrade_monitoring_policy = kwargs['rollingUpgradeMonitoringPolicy']
+        if 'upgradeMode' in kwargs:
+            upgrade_mode = kwargs['upgradeMode']
+        if 'upgradeReplicaSetCheckTimeout' in kwargs:
+            upgrade_replica_set_check_timeout = kwargs['upgradeReplicaSetCheckTimeout']
+
         if application_health_policy is not None:
-            pulumi.set(__self__, "application_health_policy", application_health_policy)
+            _setter("application_health_policy", application_health_policy)
         if force_restart is not None:
-            pulumi.set(__self__, "force_restart", force_restart)
+            _setter("force_restart", force_restart)
         if instance_close_delay_duration is not None:
-            pulumi.set(__self__, "instance_close_delay_duration", instance_close_delay_duration)
+            _setter("instance_close_delay_duration", instance_close_delay_duration)
         if recreate_application is not None:
-            pulumi.set(__self__, "recreate_application", recreate_application)
+            _setter("recreate_application", recreate_application)
         if rolling_upgrade_monitoring_policy is not None:
-            pulumi.set(__self__, "rolling_upgrade_monitoring_policy", rolling_upgrade_monitoring_policy)
+            _setter("rolling_upgrade_monitoring_policy", rolling_upgrade_monitoring_policy)
         if upgrade_mode is not None:
-            pulumi.set(__self__, "upgrade_mode", upgrade_mode)
+            _setter("upgrade_mode", upgrade_mode)
         if upgrade_replica_set_check_timeout is not None:
-            pulumi.set(__self__, "upgrade_replica_set_check_timeout", upgrade_replica_set_check_timeout)
+            _setter("upgrade_replica_set_check_timeout", upgrade_replica_set_check_timeout)
 
     @property
     @pulumi.getter(name="applicationHealthPolicy")
@@ -496,8 +617,23 @@ class ApplicationUserAssignedIdentityResponse(dict):
         :param str name: The friendly name of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "principal_id", principal_id)
+        ApplicationUserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
+        _setter("name", name)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter
@@ -559,11 +695,38 @@ class AveragePartitionLoadScalingTriggerResponse(dict):
         :param str scale_interval: The period in seconds on which a decision is made whether to scale or not. This property should come in ISO 8601 format "hh:mm:ss".
         :param float upper_load_threshold: The upper limit of the load beyond which a scale out operation should be performed.
         """
-        pulumi.set(__self__, "kind", 'AveragePartitionLoadTrigger')
-        pulumi.set(__self__, "lower_load_threshold", lower_load_threshold)
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "scale_interval", scale_interval)
-        pulumi.set(__self__, "upper_load_threshold", upper_load_threshold)
+        AveragePartitionLoadScalingTriggerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            lower_load_threshold=lower_load_threshold,
+            metric_name=metric_name,
+            scale_interval=scale_interval,
+            upper_load_threshold=upper_load_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: str,
+             lower_load_threshold: float,
+             metric_name: str,
+             scale_interval: str,
+             upper_load_threshold: float,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lowerLoadThreshold' in kwargs:
+            lower_load_threshold = kwargs['lowerLoadThreshold']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'scaleInterval' in kwargs:
+            scale_interval = kwargs['scaleInterval']
+        if 'upperLoadThreshold' in kwargs:
+            upper_load_threshold = kwargs['upperLoadThreshold']
+
+        _setter("kind", 'AveragePartitionLoadTrigger')
+        _setter("lower_load_threshold", lower_load_threshold)
+        _setter("metric_name", metric_name)
+        _setter("scale_interval", scale_interval)
+        _setter("upper_load_threshold", upper_load_threshold)
 
     @property
     @pulumi.getter
@@ -654,12 +817,43 @@ class AverageServiceLoadScalingTriggerResponse(dict):
         :param float upper_load_threshold: The upper limit of the load beyond which a scale out operation should be performed.
         :param bool use_only_primary_load: Flag determines whether only the load of primary replica should be considered for scaling. If set to true, then trigger will only consider the load of primary replicas of stateful service. If set to false, trigger will consider load of all replicas. This parameter cannot be set to true for stateless service.
         """
-        pulumi.set(__self__, "kind", 'AverageServiceLoadTrigger')
-        pulumi.set(__self__, "lower_load_threshold", lower_load_threshold)
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "scale_interval", scale_interval)
-        pulumi.set(__self__, "upper_load_threshold", upper_load_threshold)
-        pulumi.set(__self__, "use_only_primary_load", use_only_primary_load)
+        AverageServiceLoadScalingTriggerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            lower_load_threshold=lower_load_threshold,
+            metric_name=metric_name,
+            scale_interval=scale_interval,
+            upper_load_threshold=upper_load_threshold,
+            use_only_primary_load=use_only_primary_load,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: str,
+             lower_load_threshold: float,
+             metric_name: str,
+             scale_interval: str,
+             upper_load_threshold: float,
+             use_only_primary_load: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lowerLoadThreshold' in kwargs:
+            lower_load_threshold = kwargs['lowerLoadThreshold']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'scaleInterval' in kwargs:
+            scale_interval = kwargs['scaleInterval']
+        if 'upperLoadThreshold' in kwargs:
+            upper_load_threshold = kwargs['upperLoadThreshold']
+        if 'useOnlyPrimaryLoad' in kwargs:
+            use_only_primary_load = kwargs['useOnlyPrimaryLoad']
+
+        _setter("kind", 'AverageServiceLoadTrigger')
+        _setter("lower_load_threshold", lower_load_threshold)
+        _setter("metric_name", metric_name)
+        _setter("scale_interval", scale_interval)
+        _setter("upper_load_threshold", upper_load_threshold)
+        _setter("use_only_primary_load", use_only_primary_load)
 
     @property
     @pulumi.getter
@@ -747,12 +941,33 @@ class AzureActiveDirectoryResponse(dict):
         :param str cluster_application: Azure active directory cluster application id.
         :param str tenant_id: Azure active directory tenant id.
         """
+        AzureActiveDirectoryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_application=client_application,
+            cluster_application=cluster_application,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_application: Optional[str] = None,
+             cluster_application: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientApplication' in kwargs:
+            client_application = kwargs['clientApplication']
+        if 'clusterApplication' in kwargs:
+            cluster_application = kwargs['clusterApplication']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if client_application is not None:
-            pulumi.set(__self__, "client_application", client_application)
+            _setter("client_application", client_application)
         if cluster_application is not None:
-            pulumi.set(__self__, "cluster_application", cluster_application)
+            _setter("cluster_application", cluster_application)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientApplication")
@@ -817,13 +1032,36 @@ class ClientCertificateResponse(dict):
         :param str issuer_thumbprint: Issuer thumbprint for the certificate. Only used together with CommonName.
         :param str thumbprint: Certificate thumbprint.
         """
-        pulumi.set(__self__, "is_admin", is_admin)
+        ClientCertificateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_admin=is_admin,
+            common_name=common_name,
+            issuer_thumbprint=issuer_thumbprint,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_admin: bool,
+             common_name: Optional[str] = None,
+             issuer_thumbprint: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isAdmin' in kwargs:
+            is_admin = kwargs['isAdmin']
+        if 'commonName' in kwargs:
+            common_name = kwargs['commonName']
+        if 'issuerThumbprint' in kwargs:
+            issuer_thumbprint = kwargs['issuerThumbprint']
+
+        _setter("is_admin", is_admin)
         if common_name is not None:
-            pulumi.set(__self__, "common_name", common_name)
+            _setter("common_name", common_name)
         if issuer_thumbprint is not None:
-            pulumi.set(__self__, "issuer_thumbprint", issuer_thumbprint)
+            _setter("issuer_thumbprint", issuer_thumbprint)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="isAdmin")
@@ -890,8 +1128,25 @@ class EndpointRangeDescriptionResponse(dict):
         :param int end_port: End port of a range of ports
         :param int start_port: Starting port of a range of ports
         """
-        pulumi.set(__self__, "end_port", end_port)
-        pulumi.set(__self__, "start_port", start_port)
+        EndpointRangeDescriptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_port=end_port,
+            start_port=start_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_port: int,
+             start_port: int,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endPort' in kwargs:
+            end_port = kwargs['endPort']
+        if 'startPort' in kwargs:
+            start_port = kwargs['startPort']
+
+        _setter("end_port", end_port)
+        _setter("start_port", start_port)
 
     @property
     @pulumi.getter(name="endPort")
@@ -950,14 +1205,39 @@ class FrontendConfigurationResponse(dict):
         :param str load_balancer_backend_address_pool_id: The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
         :param str load_balancer_inbound_nat_pool_id: The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/inboundNatPools/<inboundNatPoolName>'.
         """
+        FrontendConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_gateway_backend_address_pool_id=application_gateway_backend_address_pool_id,
+            ip_address_type=ip_address_type,
+            load_balancer_backend_address_pool_id=load_balancer_backend_address_pool_id,
+            load_balancer_inbound_nat_pool_id=load_balancer_inbound_nat_pool_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_gateway_backend_address_pool_id: Optional[str] = None,
+             ip_address_type: Optional[str] = None,
+             load_balancer_backend_address_pool_id: Optional[str] = None,
+             load_balancer_inbound_nat_pool_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationGatewayBackendAddressPoolId' in kwargs:
+            application_gateway_backend_address_pool_id = kwargs['applicationGatewayBackendAddressPoolId']
+        if 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if 'loadBalancerBackendAddressPoolId' in kwargs:
+            load_balancer_backend_address_pool_id = kwargs['loadBalancerBackendAddressPoolId']
+        if 'loadBalancerInboundNatPoolId' in kwargs:
+            load_balancer_inbound_nat_pool_id = kwargs['loadBalancerInboundNatPoolId']
+
         if application_gateway_backend_address_pool_id is not None:
-            pulumi.set(__self__, "application_gateway_backend_address_pool_id", application_gateway_backend_address_pool_id)
+            _setter("application_gateway_backend_address_pool_id", application_gateway_backend_address_pool_id)
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if load_balancer_backend_address_pool_id is not None:
-            pulumi.set(__self__, "load_balancer_backend_address_pool_id", load_balancer_backend_address_pool_id)
+            _setter("load_balancer_backend_address_pool_id", load_balancer_backend_address_pool_id)
         if load_balancer_inbound_nat_pool_id is not None:
-            pulumi.set(__self__, "load_balancer_inbound_nat_pool_id", load_balancer_inbound_nat_pool_id)
+            _setter("load_balancer_inbound_nat_pool_id", load_balancer_inbound_nat_pool_id)
 
     @property
     @pulumi.getter(name="applicationGatewayBackendAddressPoolId")
@@ -1022,8 +1302,23 @@ class IPTagResponse(dict):
         :param str ip_tag_type: IP tag type. Example: FirstPartyUsage.
         :param str tag: IP tag associated with the public IP. Example: SQL, Storage etc.
         """
-        pulumi.set(__self__, "ip_tag_type", ip_tag_type)
-        pulumi.set(__self__, "tag", tag)
+        IPTagResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_tag_type=ip_tag_type,
+            tag=tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_tag_type: str,
+             tag: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipTagType' in kwargs:
+            ip_tag_type = kwargs['ipTagType']
+
+        _setter("ip_tag_type", ip_tag_type)
+        _setter("tag", tag)
 
     @property
     @pulumi.getter(name="ipTagType")
@@ -1090,21 +1385,54 @@ class IpConfigurationResponse(dict):
         :param 'IpConfigurationResponsePublicIPAddressConfiguration' public_ip_address_configuration: The public IP address configuration of the network interface.
         :param 'SubResourceResponse' subnet: Specifies the subnet of the network interface.
         """
-        pulumi.set(__self__, "name", name)
+        IpConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            application_gateway_backend_address_pools=application_gateway_backend_address_pools,
+            load_balancer_backend_address_pools=load_balancer_backend_address_pools,
+            load_balancer_inbound_nat_pools=load_balancer_inbound_nat_pools,
+            private_ip_address_version=private_ip_address_version,
+            public_ip_address_configuration=public_ip_address_configuration,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             application_gateway_backend_address_pools: Optional[Sequence['outputs.SubResourceResponse']] = None,
+             load_balancer_backend_address_pools: Optional[Sequence['outputs.SubResourceResponse']] = None,
+             load_balancer_inbound_nat_pools: Optional[Sequence['outputs.SubResourceResponse']] = None,
+             private_ip_address_version: Optional[str] = None,
+             public_ip_address_configuration: Optional['outputs.IpConfigurationResponsePublicIPAddressConfiguration'] = None,
+             subnet: Optional['outputs.SubResourceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationGatewayBackendAddressPools' in kwargs:
+            application_gateway_backend_address_pools = kwargs['applicationGatewayBackendAddressPools']
+        if 'loadBalancerBackendAddressPools' in kwargs:
+            load_balancer_backend_address_pools = kwargs['loadBalancerBackendAddressPools']
+        if 'loadBalancerInboundNatPools' in kwargs:
+            load_balancer_inbound_nat_pools = kwargs['loadBalancerInboundNatPools']
+        if 'privateIPAddressVersion' in kwargs:
+            private_ip_address_version = kwargs['privateIPAddressVersion']
+        if 'publicIPAddressConfiguration' in kwargs:
+            public_ip_address_configuration = kwargs['publicIPAddressConfiguration']
+
+        _setter("name", name)
         if application_gateway_backend_address_pools is not None:
-            pulumi.set(__self__, "application_gateway_backend_address_pools", application_gateway_backend_address_pools)
+            _setter("application_gateway_backend_address_pools", application_gateway_backend_address_pools)
         if load_balancer_backend_address_pools is not None:
-            pulumi.set(__self__, "load_balancer_backend_address_pools", load_balancer_backend_address_pools)
+            _setter("load_balancer_backend_address_pools", load_balancer_backend_address_pools)
         if load_balancer_inbound_nat_pools is not None:
-            pulumi.set(__self__, "load_balancer_inbound_nat_pools", load_balancer_inbound_nat_pools)
+            _setter("load_balancer_inbound_nat_pools", load_balancer_inbound_nat_pools)
         if private_ip_address_version is None:
             private_ip_address_version = 'IPv4'
         if private_ip_address_version is not None:
-            pulumi.set(__self__, "private_ip_address_version", private_ip_address_version)
+            _setter("private_ip_address_version", private_ip_address_version)
         if public_ip_address_configuration is not None:
-            pulumi.set(__self__, "public_ip_address_configuration", public_ip_address_configuration)
+            _setter("public_ip_address_configuration", public_ip_address_configuration)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter
@@ -1197,13 +1525,32 @@ class IpConfigurationResponsePublicIPAddressConfiguration(dict):
         :param Sequence['IPTagResponse'] ip_tags: Specifies the list of IP tags associated with the public IP address.
         :param str public_ip_address_version: Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
         """
-        pulumi.set(__self__, "name", name)
+        IpConfigurationResponsePublicIPAddressConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            ip_tags=ip_tags,
+            public_ip_address_version=public_ip_address_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             ip_tags: Optional[Sequence['outputs.IPTagResponse']] = None,
+             public_ip_address_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipTags' in kwargs:
+            ip_tags = kwargs['ipTags']
+        if 'publicIPAddressVersion' in kwargs:
+            public_ip_address_version = kwargs['publicIPAddressVersion']
+
+        _setter("name", name)
         if ip_tags is not None:
-            pulumi.set(__self__, "ip_tags", ip_tags)
+            _setter("ip_tags", ip_tags)
         if public_ip_address_version is None:
             public_ip_address_version = 'IPv4'
         if public_ip_address_version is not None:
-            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+            _setter("public_ip_address_version", public_ip_address_version)
 
     @property
     @pulumi.getter
@@ -1280,16 +1627,51 @@ class LoadBalancingRuleResponse(dict):
         :param int probe_port: The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.
         :param str probe_request_path: The probe request path. Only supported for HTTP/HTTPS probes.
         """
-        pulumi.set(__self__, "backend_port", backend_port)
-        pulumi.set(__self__, "frontend_port", frontend_port)
-        pulumi.set(__self__, "probe_protocol", probe_protocol)
-        pulumi.set(__self__, "protocol", protocol)
+        LoadBalancingRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_port=backend_port,
+            frontend_port=frontend_port,
+            probe_protocol=probe_protocol,
+            protocol=protocol,
+            load_distribution=load_distribution,
+            probe_port=probe_port,
+            probe_request_path=probe_request_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_port: int,
+             frontend_port: int,
+             probe_protocol: str,
+             protocol: str,
+             load_distribution: Optional[str] = None,
+             probe_port: Optional[int] = None,
+             probe_request_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'frontendPort' in kwargs:
+            frontend_port = kwargs['frontendPort']
+        if 'probeProtocol' in kwargs:
+            probe_protocol = kwargs['probeProtocol']
+        if 'loadDistribution' in kwargs:
+            load_distribution = kwargs['loadDistribution']
+        if 'probePort' in kwargs:
+            probe_port = kwargs['probePort']
+        if 'probeRequestPath' in kwargs:
+            probe_request_path = kwargs['probeRequestPath']
+
+        _setter("backend_port", backend_port)
+        _setter("frontend_port", frontend_port)
+        _setter("probe_protocol", probe_protocol)
+        _setter("protocol", protocol)
         if load_distribution is not None:
-            pulumi.set(__self__, "load_distribution", load_distribution)
+            _setter("load_distribution", load_distribution)
         if probe_port is not None:
-            pulumi.set(__self__, "probe_port", probe_port)
+            _setter("probe_port", probe_port)
         if probe_request_path is not None:
-            pulumi.set(__self__, "probe_request_path", probe_request_path)
+            _setter("probe_request_path", probe_request_path)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -1387,12 +1769,35 @@ class ManagedIdentityResponse(dict):
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ManagedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -1459,8 +1864,23 @@ class NamedPartitionSchemeResponse(dict):
         :param str partition_scheme: Enumerates the ways that a service can be partitioned.
                Expected value is 'Named'.
         """
-        pulumi.set(__self__, "names", names)
-        pulumi.set(__self__, "partition_scheme", 'Named')
+        NamedPartitionSchemeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            names=names,
+            partition_scheme=partition_scheme,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             names: Sequence[str],
+             partition_scheme: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partitionScheme' in kwargs:
+            partition_scheme = kwargs['partitionScheme']
+
+        _setter("names", names)
+        _setter("partition_scheme", 'Named')
 
     @property
     @pulumi.getter
@@ -1548,29 +1968,82 @@ class NetworkSecurityRuleResponse(dict):
         :param str source_port_range: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         :param Sequence[str] source_port_ranges: The source port ranges.
         """
-        pulumi.set(__self__, "access", access)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "protocol", protocol)
+        NetworkSecurityRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            direction=direction,
+            name=name,
+            priority=priority,
+            protocol=protocol,
+            description=description,
+            destination_address_prefix=destination_address_prefix,
+            destination_address_prefixes=destination_address_prefixes,
+            destination_port_range=destination_port_range,
+            destination_port_ranges=destination_port_ranges,
+            source_address_prefix=source_address_prefix,
+            source_address_prefixes=source_address_prefixes,
+            source_port_range=source_port_range,
+            source_port_ranges=source_port_ranges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: str,
+             direction: str,
+             name: str,
+             priority: int,
+             protocol: str,
+             description: Optional[str] = None,
+             destination_address_prefix: Optional[str] = None,
+             destination_address_prefixes: Optional[Sequence[str]] = None,
+             destination_port_range: Optional[str] = None,
+             destination_port_ranges: Optional[Sequence[str]] = None,
+             source_address_prefix: Optional[str] = None,
+             source_address_prefixes: Optional[Sequence[str]] = None,
+             source_port_range: Optional[str] = None,
+             source_port_ranges: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationAddressPrefix' in kwargs:
+            destination_address_prefix = kwargs['destinationAddressPrefix']
+        if 'destinationAddressPrefixes' in kwargs:
+            destination_address_prefixes = kwargs['destinationAddressPrefixes']
+        if 'destinationPortRange' in kwargs:
+            destination_port_range = kwargs['destinationPortRange']
+        if 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if 'sourceAddressPrefix' in kwargs:
+            source_address_prefix = kwargs['sourceAddressPrefix']
+        if 'sourceAddressPrefixes' in kwargs:
+            source_address_prefixes = kwargs['sourceAddressPrefixes']
+        if 'sourcePortRange' in kwargs:
+            source_port_range = kwargs['sourcePortRange']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+
+        _setter("access", access)
+        _setter("direction", direction)
+        _setter("name", name)
+        _setter("priority", priority)
+        _setter("protocol", protocol)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_address_prefix is not None:
-            pulumi.set(__self__, "destination_address_prefix", destination_address_prefix)
+            _setter("destination_address_prefix", destination_address_prefix)
         if destination_address_prefixes is not None:
-            pulumi.set(__self__, "destination_address_prefixes", destination_address_prefixes)
+            _setter("destination_address_prefixes", destination_address_prefixes)
         if destination_port_range is not None:
-            pulumi.set(__self__, "destination_port_range", destination_port_range)
+            _setter("destination_port_range", destination_port_range)
         if destination_port_ranges is not None:
-            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+            _setter("destination_port_ranges", destination_port_ranges)
         if source_address_prefix is not None:
-            pulumi.set(__self__, "source_address_prefix", source_address_prefix)
+            _setter("source_address_prefix", source_address_prefix)
         if source_address_prefixes is not None:
-            pulumi.set(__self__, "source_address_prefixes", source_address_prefixes)
+            _setter("source_address_prefixes", source_address_prefixes)
         if source_port_range is not None:
-            pulumi.set(__self__, "source_port_range", source_port_range)
+            _setter("source_port_range", source_port_range)
         if source_port_ranges is not None:
-            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+            _setter("source_port_ranges", source_port_ranges)
 
     @property
     @pulumi.getter
@@ -1700,11 +2173,26 @@ class NodeTypeSkuResponse(dict):
         :param str name: The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
         :param str tier: Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
         """
-        pulumi.set(__self__, "capacity", capacity)
+        NodeTypeSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: int,
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("capacity", capacity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -1770,10 +2258,33 @@ class PartitionInstanceCountScaleMechanismResponse(dict):
         :param int min_instance_count: Minimum number of instances of the partition.
         :param int scale_increment: The number of instances to add or remove during a scaling operation.
         """
-        pulumi.set(__self__, "kind", 'ScalePartitionInstanceCount')
-        pulumi.set(__self__, "max_instance_count", max_instance_count)
-        pulumi.set(__self__, "min_instance_count", min_instance_count)
-        pulumi.set(__self__, "scale_increment", scale_increment)
+        PartitionInstanceCountScaleMechanismResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            max_instance_count=max_instance_count,
+            min_instance_count=min_instance_count,
+            scale_increment=scale_increment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: str,
+             max_instance_count: int,
+             min_instance_count: int,
+             scale_increment: int,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxInstanceCount' in kwargs:
+            max_instance_count = kwargs['maxInstanceCount']
+        if 'minInstanceCount' in kwargs:
+            min_instance_count = kwargs['minInstanceCount']
+        if 'scaleIncrement' in kwargs:
+            scale_increment = kwargs['scaleIncrement']
+
+        _setter("kind", 'ScalePartitionInstanceCount')
+        _setter("max_instance_count", max_instance_count)
+        _setter("min_instance_count", min_instance_count)
+        _setter("scale_increment", scale_increment)
 
     @property
     @pulumi.getter
@@ -1824,9 +2335,30 @@ class ResourceAzStatusResponse(dict):
         :param str resource_name: VM Size properties.
         :param str resource_type: VM Size id.
         """
-        pulumi.set(__self__, "is_zone_resilient", is_zone_resilient)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "resource_type", resource_type)
+        ResourceAzStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_zone_resilient=is_zone_resilient,
+            resource_name=resource_name,
+            resource_type=resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_zone_resilient: bool,
+             resource_name: str,
+             resource_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isZoneResilient' in kwargs:
+            is_zone_resilient = kwargs['isZoneResilient']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
+        _setter("is_zone_resilient", is_zone_resilient)
+        _setter("resource_name", resource_name)
+        _setter("resource_type", resource_type)
 
     @property
     @pulumi.getter(name="isZoneResilient")
@@ -1901,12 +2433,45 @@ class RollingUpgradeMonitoringPolicyResponse(dict):
         :param str upgrade_domain_timeout: The amount of time each upgrade domain has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
         :param str upgrade_timeout: The amount of time the overall upgrade has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
         """
-        pulumi.set(__self__, "failure_action", failure_action)
-        pulumi.set(__self__, "health_check_retry_timeout", health_check_retry_timeout)
-        pulumi.set(__self__, "health_check_stable_duration", health_check_stable_duration)
-        pulumi.set(__self__, "health_check_wait_duration", health_check_wait_duration)
-        pulumi.set(__self__, "upgrade_domain_timeout", upgrade_domain_timeout)
-        pulumi.set(__self__, "upgrade_timeout", upgrade_timeout)
+        RollingUpgradeMonitoringPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_action=failure_action,
+            health_check_retry_timeout=health_check_retry_timeout,
+            health_check_stable_duration=health_check_stable_duration,
+            health_check_wait_duration=health_check_wait_duration,
+            upgrade_domain_timeout=upgrade_domain_timeout,
+            upgrade_timeout=upgrade_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_action: str,
+             health_check_retry_timeout: str,
+             health_check_stable_duration: str,
+             health_check_wait_duration: str,
+             upgrade_domain_timeout: str,
+             upgrade_timeout: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureAction' in kwargs:
+            failure_action = kwargs['failureAction']
+        if 'healthCheckRetryTimeout' in kwargs:
+            health_check_retry_timeout = kwargs['healthCheckRetryTimeout']
+        if 'healthCheckStableDuration' in kwargs:
+            health_check_stable_duration = kwargs['healthCheckStableDuration']
+        if 'healthCheckWaitDuration' in kwargs:
+            health_check_wait_duration = kwargs['healthCheckWaitDuration']
+        if 'upgradeDomainTimeout' in kwargs:
+            upgrade_domain_timeout = kwargs['upgradeDomainTimeout']
+        if 'upgradeTimeout' in kwargs:
+            upgrade_timeout = kwargs['upgradeTimeout']
+
+        _setter("failure_action", failure_action)
+        _setter("health_check_retry_timeout", health_check_retry_timeout)
+        _setter("health_check_stable_duration", health_check_stable_duration)
+        _setter("health_check_wait_duration", health_check_wait_duration)
+        _setter("upgrade_domain_timeout", upgrade_domain_timeout)
+        _setter("upgrade_timeout", upgrade_timeout)
 
     @property
     @pulumi.getter(name="failureAction")
@@ -1989,8 +2554,25 @@ class ScalingPolicyResponse(dict):
         :param Union['AddRemoveIncrementalNamedPartitionScalingMechanismResponse', 'PartitionInstanceCountScaleMechanismResponse'] scaling_mechanism: Specifies the mechanism associated with this scaling policy
         :param Union['AveragePartitionLoadScalingTriggerResponse', 'AverageServiceLoadScalingTriggerResponse'] scaling_trigger: Specifies the trigger associated with this scaling policy.
         """
-        pulumi.set(__self__, "scaling_mechanism", scaling_mechanism)
-        pulumi.set(__self__, "scaling_trigger", scaling_trigger)
+        ScalingPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scaling_mechanism=scaling_mechanism,
+            scaling_trigger=scaling_trigger,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scaling_mechanism: Any,
+             scaling_trigger: Any,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scalingMechanism' in kwargs:
+            scaling_mechanism = kwargs['scalingMechanism']
+        if 'scalingTrigger' in kwargs:
+            scaling_trigger = kwargs['scalingTrigger']
+
+        _setter("scaling_mechanism", scaling_mechanism)
+        _setter("scaling_trigger", scaling_trigger)
 
     @property
     @pulumi.getter(name="scalingMechanism")
@@ -2039,8 +2621,23 @@ class ServiceCorrelationResponse(dict):
         :param str scheme: The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
         :param str service_name: The Arm Resource ID of the service that the correlation relationship is established with.
         """
-        pulumi.set(__self__, "scheme", scheme)
-        pulumi.set(__self__, "service_name", service_name)
+        ServiceCorrelationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scheme=scheme,
+            service_name=service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scheme: str,
+             service_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+
+        _setter("scheme", scheme)
+        _setter("service_name", service_name)
 
     @property
     @pulumi.getter
@@ -2072,9 +2669,22 @@ class ServiceEndpointResponse(dict):
         :param str service: The type of the endpoint service.
         :param Sequence[str] locations: A list of locations.
         """
-        pulumi.set(__self__, "service", service)
+        ServiceEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service=service,
+            locations=locations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service: str,
+             locations: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("service", service)
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
 
     @property
     @pulumi.getter
@@ -2133,15 +2743,40 @@ class ServiceLoadMetricResponse(dict):
         :param int secondary_default_load: Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
         :param str weight: The service load metric relative weight, compared to other metrics configured for this service, as a number.
         """
-        pulumi.set(__self__, "name", name)
+        ServiceLoadMetricResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            default_load=default_load,
+            primary_default_load=primary_default_load,
+            secondary_default_load=secondary_default_load,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             default_load: Optional[int] = None,
+             primary_default_load: Optional[int] = None,
+             secondary_default_load: Optional[int] = None,
+             weight: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultLoad' in kwargs:
+            default_load = kwargs['defaultLoad']
+        if 'primaryDefaultLoad' in kwargs:
+            primary_default_load = kwargs['primaryDefaultLoad']
+        if 'secondaryDefaultLoad' in kwargs:
+            secondary_default_load = kwargs['secondaryDefaultLoad']
+
+        _setter("name", name)
         if default_load is not None:
-            pulumi.set(__self__, "default_load", default_load)
+            _setter("default_load", default_load)
         if primary_default_load is not None:
-            pulumi.set(__self__, "primary_default_load", primary_default_load)
+            _setter("primary_default_load", primary_default_load)
         if secondary_default_load is not None:
-            pulumi.set(__self__, "secondary_default_load", secondary_default_load)
+            _setter("secondary_default_load", secondary_default_load)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter
@@ -2215,8 +2850,23 @@ class ServicePlacementInvalidDomainPolicyResponse(dict):
         :param str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'InvalidDomain'.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "type", 'InvalidDomain')
+        ServicePlacementInvalidDomainPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+
+        _setter("domain_name", domain_name)
+        _setter("type", 'InvalidDomain')
 
     @property
     @pulumi.getter(name="domainName")
@@ -2248,7 +2898,18 @@ class ServicePlacementNonPartiallyPlaceServicePolicyResponse(dict):
         :param str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'NonPartiallyPlaceService'.
         """
-        pulumi.set(__self__, "type", 'NonPartiallyPlaceService')
+        ServicePlacementNonPartiallyPlaceServicePolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("type", 'NonPartiallyPlaceService')
 
     @property
     @pulumi.getter
@@ -2306,8 +2967,23 @@ class ServicePlacementPreferPrimaryDomainPolicyResponse(dict):
         :param str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'PreferredPrimaryDomain'.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "type", 'PreferredPrimaryDomain')
+        ServicePlacementPreferPrimaryDomainPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+
+        _setter("domain_name", domain_name)
+        _setter("type", 'PreferredPrimaryDomain')
 
     @property
     @pulumi.getter(name="domainName")
@@ -2375,8 +3051,23 @@ class ServicePlacementRequireDomainDistributionPolicyResponse(dict):
         :param str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'RequiredDomainDistribution'.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "type", 'RequiredDomainDistribution')
+        ServicePlacementRequireDomainDistributionPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+
+        _setter("domain_name", domain_name)
+        _setter("type", 'RequiredDomainDistribution')
 
     @property
     @pulumi.getter(name="domainName")
@@ -2427,8 +3118,23 @@ class ServicePlacementRequiredDomainPolicyResponse(dict):
         :param str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'RequiredDomain'.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "type", 'RequiredDomain')
+        ServicePlacementRequiredDomainPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+
+        _setter("domain_name", domain_name)
+        _setter("type", 'RequiredDomain')
 
     @property
     @pulumi.getter(name="domainName")
@@ -2500,9 +3206,30 @@ class ServiceTypeHealthPolicyResponse(dict):
                This is calculated by dividing the number of unhealthy services of the specific service type over the total number of services of the specific service type.
                The computation rounds up to tolerate one failure on small numbers of services.
         """
-        pulumi.set(__self__, "max_percent_unhealthy_partitions_per_service", max_percent_unhealthy_partitions_per_service)
-        pulumi.set(__self__, "max_percent_unhealthy_replicas_per_partition", max_percent_unhealthy_replicas_per_partition)
-        pulumi.set(__self__, "max_percent_unhealthy_services", max_percent_unhealthy_services)
+        ServiceTypeHealthPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_percent_unhealthy_partitions_per_service=max_percent_unhealthy_partitions_per_service,
+            max_percent_unhealthy_replicas_per_partition=max_percent_unhealthy_replicas_per_partition,
+            max_percent_unhealthy_services=max_percent_unhealthy_services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_percent_unhealthy_partitions_per_service: int,
+             max_percent_unhealthy_replicas_per_partition: int,
+             max_percent_unhealthy_services: int,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxPercentUnhealthyPartitionsPerService' in kwargs:
+            max_percent_unhealthy_partitions_per_service = kwargs['maxPercentUnhealthyPartitionsPerService']
+        if 'maxPercentUnhealthyReplicasPerPartition' in kwargs:
+            max_percent_unhealthy_replicas_per_partition = kwargs['maxPercentUnhealthyReplicasPerPartition']
+        if 'maxPercentUnhealthyServices' in kwargs:
+            max_percent_unhealthy_services = kwargs['maxPercentUnhealthyServices']
+
+        _setter("max_percent_unhealthy_partitions_per_service", max_percent_unhealthy_partitions_per_service)
+        _setter("max_percent_unhealthy_replicas_per_partition", max_percent_unhealthy_replicas_per_partition)
+        _setter("max_percent_unhealthy_services", max_percent_unhealthy_services)
 
     @property
     @pulumi.getter(name="maxPercentUnhealthyPartitionsPerService")
@@ -2557,8 +3284,21 @@ class SettingsParameterDescriptionResponse(dict):
         :param str name: The parameter name of fabric setting.
         :param str value: The parameter value of fabric setting.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        SettingsParameterDescriptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2590,8 +3330,21 @@ class SettingsSectionDescriptionResponse(dict):
         :param str name: The section name of the fabric settings.
         :param Sequence['SettingsParameterDescriptionResponse'] parameters: The collection of parameters in the section.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "parameters", parameters)
+        SettingsSectionDescriptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             parameters: Sequence['outputs.SettingsParameterDescriptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -2639,7 +3392,20 @@ class SingletonPartitionSchemeResponse(dict):
         :param str partition_scheme: Enumerates the ways that a service can be partitioned.
                Expected value is 'Singleton'.
         """
-        pulumi.set(__self__, "partition_scheme", 'Singleton')
+        SingletonPartitionSchemeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partition_scheme=partition_scheme,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partition_scheme: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partitionScheme' in kwargs:
+            partition_scheme = kwargs['partitionScheme']
+
+        _setter("partition_scheme", 'Singleton')
 
     @property
     @pulumi.getter(name="partitionScheme")
@@ -2662,7 +3428,18 @@ class SkuResponse(dict):
         Service Fabric managed cluster Sku definition
         :param str name: Sku Name.
         """
-        pulumi.set(__self__, "name", name)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2776,40 +3553,125 @@ class StatefulServicePropertiesResponse(dict):
         :param str stand_by_replica_keep_duration: The definition on how long StandBy replicas should be maintained before being removed, represented in ISO 8601 format "hh:mm:ss".
         :param int target_replica_set_size: The target replica set size as a number.
         """
-        pulumi.set(__self__, "partition_description", partition_description)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "service_kind", 'Stateful')
-        pulumi.set(__self__, "service_type_name", service_type_name)
+        StatefulServicePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partition_description=partition_description,
+            provisioning_state=provisioning_state,
+            service_kind=service_kind,
+            service_type_name=service_type_name,
+            correlation_scheme=correlation_scheme,
+            default_move_cost=default_move_cost,
+            has_persisted_state=has_persisted_state,
+            min_replica_set_size=min_replica_set_size,
+            placement_constraints=placement_constraints,
+            quorum_loss_wait_duration=quorum_loss_wait_duration,
+            replica_restart_wait_duration=replica_restart_wait_duration,
+            scaling_policies=scaling_policies,
+            service_dns_name=service_dns_name,
+            service_load_metrics=service_load_metrics,
+            service_package_activation_mode=service_package_activation_mode,
+            service_placement_policies=service_placement_policies,
+            service_placement_time_limit=service_placement_time_limit,
+            stand_by_replica_keep_duration=stand_by_replica_keep_duration,
+            target_replica_set_size=target_replica_set_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partition_description: Any,
+             provisioning_state: str,
+             service_kind: str,
+             service_type_name: str,
+             correlation_scheme: Optional[Sequence['outputs.ServiceCorrelationResponse']] = None,
+             default_move_cost: Optional[str] = None,
+             has_persisted_state: Optional[bool] = None,
+             min_replica_set_size: Optional[int] = None,
+             placement_constraints: Optional[str] = None,
+             quorum_loss_wait_duration: Optional[str] = None,
+             replica_restart_wait_duration: Optional[str] = None,
+             scaling_policies: Optional[Sequence['outputs.ScalingPolicyResponse']] = None,
+             service_dns_name: Optional[str] = None,
+             service_load_metrics: Optional[Sequence['outputs.ServiceLoadMetricResponse']] = None,
+             service_package_activation_mode: Optional[str] = None,
+             service_placement_policies: Optional[Sequence[Any]] = None,
+             service_placement_time_limit: Optional[str] = None,
+             stand_by_replica_keep_duration: Optional[str] = None,
+             target_replica_set_size: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partitionDescription' in kwargs:
+            partition_description = kwargs['partitionDescription']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'serviceKind' in kwargs:
+            service_kind = kwargs['serviceKind']
+        if 'serviceTypeName' in kwargs:
+            service_type_name = kwargs['serviceTypeName']
+        if 'correlationScheme' in kwargs:
+            correlation_scheme = kwargs['correlationScheme']
+        if 'defaultMoveCost' in kwargs:
+            default_move_cost = kwargs['defaultMoveCost']
+        if 'hasPersistedState' in kwargs:
+            has_persisted_state = kwargs['hasPersistedState']
+        if 'minReplicaSetSize' in kwargs:
+            min_replica_set_size = kwargs['minReplicaSetSize']
+        if 'placementConstraints' in kwargs:
+            placement_constraints = kwargs['placementConstraints']
+        if 'quorumLossWaitDuration' in kwargs:
+            quorum_loss_wait_duration = kwargs['quorumLossWaitDuration']
+        if 'replicaRestartWaitDuration' in kwargs:
+            replica_restart_wait_duration = kwargs['replicaRestartWaitDuration']
+        if 'scalingPolicies' in kwargs:
+            scaling_policies = kwargs['scalingPolicies']
+        if 'serviceDnsName' in kwargs:
+            service_dns_name = kwargs['serviceDnsName']
+        if 'serviceLoadMetrics' in kwargs:
+            service_load_metrics = kwargs['serviceLoadMetrics']
+        if 'servicePackageActivationMode' in kwargs:
+            service_package_activation_mode = kwargs['servicePackageActivationMode']
+        if 'servicePlacementPolicies' in kwargs:
+            service_placement_policies = kwargs['servicePlacementPolicies']
+        if 'servicePlacementTimeLimit' in kwargs:
+            service_placement_time_limit = kwargs['servicePlacementTimeLimit']
+        if 'standByReplicaKeepDuration' in kwargs:
+            stand_by_replica_keep_duration = kwargs['standByReplicaKeepDuration']
+        if 'targetReplicaSetSize' in kwargs:
+            target_replica_set_size = kwargs['targetReplicaSetSize']
+
+        _setter("partition_description", partition_description)
+        _setter("provisioning_state", provisioning_state)
+        _setter("service_kind", 'Stateful')
+        _setter("service_type_name", service_type_name)
         if correlation_scheme is not None:
-            pulumi.set(__self__, "correlation_scheme", correlation_scheme)
+            _setter("correlation_scheme", correlation_scheme)
         if default_move_cost is not None:
-            pulumi.set(__self__, "default_move_cost", default_move_cost)
+            _setter("default_move_cost", default_move_cost)
         if has_persisted_state is not None:
-            pulumi.set(__self__, "has_persisted_state", has_persisted_state)
+            _setter("has_persisted_state", has_persisted_state)
         if min_replica_set_size is not None:
-            pulumi.set(__self__, "min_replica_set_size", min_replica_set_size)
+            _setter("min_replica_set_size", min_replica_set_size)
         if placement_constraints is not None:
-            pulumi.set(__self__, "placement_constraints", placement_constraints)
+            _setter("placement_constraints", placement_constraints)
         if quorum_loss_wait_duration is not None:
-            pulumi.set(__self__, "quorum_loss_wait_duration", quorum_loss_wait_duration)
+            _setter("quorum_loss_wait_duration", quorum_loss_wait_duration)
         if replica_restart_wait_duration is not None:
-            pulumi.set(__self__, "replica_restart_wait_duration", replica_restart_wait_duration)
+            _setter("replica_restart_wait_duration", replica_restart_wait_duration)
         if scaling_policies is not None:
-            pulumi.set(__self__, "scaling_policies", scaling_policies)
+            _setter("scaling_policies", scaling_policies)
         if service_dns_name is not None:
-            pulumi.set(__self__, "service_dns_name", service_dns_name)
+            _setter("service_dns_name", service_dns_name)
         if service_load_metrics is not None:
-            pulumi.set(__self__, "service_load_metrics", service_load_metrics)
+            _setter("service_load_metrics", service_load_metrics)
         if service_package_activation_mode is not None:
-            pulumi.set(__self__, "service_package_activation_mode", service_package_activation_mode)
+            _setter("service_package_activation_mode", service_package_activation_mode)
         if service_placement_policies is not None:
-            pulumi.set(__self__, "service_placement_policies", service_placement_policies)
+            _setter("service_placement_policies", service_placement_policies)
         if service_placement_time_limit is not None:
-            pulumi.set(__self__, "service_placement_time_limit", service_placement_time_limit)
+            _setter("service_placement_time_limit", service_placement_time_limit)
         if stand_by_replica_keep_duration is not None:
-            pulumi.set(__self__, "stand_by_replica_keep_duration", stand_by_replica_keep_duration)
+            _setter("stand_by_replica_keep_duration", stand_by_replica_keep_duration)
         if target_replica_set_size is not None:
-            pulumi.set(__self__, "target_replica_set_size", target_replica_set_size)
+            _setter("target_replica_set_size", target_replica_set_size)
 
     @property
     @pulumi.getter(name="partitionDescription")
@@ -3054,31 +3916,100 @@ class StatelessServicePropertiesResponse(dict):
         :param str service_package_activation_mode: The activation Mode of the service package
         :param Sequence[Union['ServicePlacementInvalidDomainPolicyResponse', 'ServicePlacementNonPartiallyPlaceServicePolicyResponse', 'ServicePlacementPreferPrimaryDomainPolicyResponse', 'ServicePlacementRequireDomainDistributionPolicyResponse', 'ServicePlacementRequiredDomainPolicyResponse']] service_placement_policies: A list that describes the correlation of the service with other services.
         """
-        pulumi.set(__self__, "instance_count", instance_count)
-        pulumi.set(__self__, "partition_description", partition_description)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "service_kind", 'Stateless')
-        pulumi.set(__self__, "service_type_name", service_type_name)
+        StatelessServicePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_count=instance_count,
+            partition_description=partition_description,
+            provisioning_state=provisioning_state,
+            service_kind=service_kind,
+            service_type_name=service_type_name,
+            correlation_scheme=correlation_scheme,
+            default_move_cost=default_move_cost,
+            min_instance_count=min_instance_count,
+            min_instance_percentage=min_instance_percentage,
+            placement_constraints=placement_constraints,
+            scaling_policies=scaling_policies,
+            service_dns_name=service_dns_name,
+            service_load_metrics=service_load_metrics,
+            service_package_activation_mode=service_package_activation_mode,
+            service_placement_policies=service_placement_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_count: int,
+             partition_description: Any,
+             provisioning_state: str,
+             service_kind: str,
+             service_type_name: str,
+             correlation_scheme: Optional[Sequence['outputs.ServiceCorrelationResponse']] = None,
+             default_move_cost: Optional[str] = None,
+             min_instance_count: Optional[int] = None,
+             min_instance_percentage: Optional[int] = None,
+             placement_constraints: Optional[str] = None,
+             scaling_policies: Optional[Sequence['outputs.ScalingPolicyResponse']] = None,
+             service_dns_name: Optional[str] = None,
+             service_load_metrics: Optional[Sequence['outputs.ServiceLoadMetricResponse']] = None,
+             service_package_activation_mode: Optional[str] = None,
+             service_placement_policies: Optional[Sequence[Any]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'partitionDescription' in kwargs:
+            partition_description = kwargs['partitionDescription']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'serviceKind' in kwargs:
+            service_kind = kwargs['serviceKind']
+        if 'serviceTypeName' in kwargs:
+            service_type_name = kwargs['serviceTypeName']
+        if 'correlationScheme' in kwargs:
+            correlation_scheme = kwargs['correlationScheme']
+        if 'defaultMoveCost' in kwargs:
+            default_move_cost = kwargs['defaultMoveCost']
+        if 'minInstanceCount' in kwargs:
+            min_instance_count = kwargs['minInstanceCount']
+        if 'minInstancePercentage' in kwargs:
+            min_instance_percentage = kwargs['minInstancePercentage']
+        if 'placementConstraints' in kwargs:
+            placement_constraints = kwargs['placementConstraints']
+        if 'scalingPolicies' in kwargs:
+            scaling_policies = kwargs['scalingPolicies']
+        if 'serviceDnsName' in kwargs:
+            service_dns_name = kwargs['serviceDnsName']
+        if 'serviceLoadMetrics' in kwargs:
+            service_load_metrics = kwargs['serviceLoadMetrics']
+        if 'servicePackageActivationMode' in kwargs:
+            service_package_activation_mode = kwargs['servicePackageActivationMode']
+        if 'servicePlacementPolicies' in kwargs:
+            service_placement_policies = kwargs['servicePlacementPolicies']
+
+        _setter("instance_count", instance_count)
+        _setter("partition_description", partition_description)
+        _setter("provisioning_state", provisioning_state)
+        _setter("service_kind", 'Stateless')
+        _setter("service_type_name", service_type_name)
         if correlation_scheme is not None:
-            pulumi.set(__self__, "correlation_scheme", correlation_scheme)
+            _setter("correlation_scheme", correlation_scheme)
         if default_move_cost is not None:
-            pulumi.set(__self__, "default_move_cost", default_move_cost)
+            _setter("default_move_cost", default_move_cost)
         if min_instance_count is not None:
-            pulumi.set(__self__, "min_instance_count", min_instance_count)
+            _setter("min_instance_count", min_instance_count)
         if min_instance_percentage is not None:
-            pulumi.set(__self__, "min_instance_percentage", min_instance_percentage)
+            _setter("min_instance_percentage", min_instance_percentage)
         if placement_constraints is not None:
-            pulumi.set(__self__, "placement_constraints", placement_constraints)
+            _setter("placement_constraints", placement_constraints)
         if scaling_policies is not None:
-            pulumi.set(__self__, "scaling_policies", scaling_policies)
+            _setter("scaling_policies", scaling_policies)
         if service_dns_name is not None:
-            pulumi.set(__self__, "service_dns_name", service_dns_name)
+            _setter("service_dns_name", service_dns_name)
         if service_load_metrics is not None:
-            pulumi.set(__self__, "service_load_metrics", service_load_metrics)
+            _setter("service_load_metrics", service_load_metrics)
         if service_package_activation_mode is not None:
-            pulumi.set(__self__, "service_package_activation_mode", service_package_activation_mode)
+            _setter("service_package_activation_mode", service_package_activation_mode)
         if service_placement_policies is not None:
-            pulumi.set(__self__, "service_placement_policies", service_placement_policies)
+            _setter("service_placement_policies", service_placement_policies)
 
     @property
     @pulumi.getter(name="instanceCount")
@@ -3215,8 +4146,19 @@ class SubResourceResponse(dict):
         Azure resource identifier.
         :param str id: Azure resource identifier.
         """
+        SubResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3269,15 +4211,42 @@ class SubnetResponse(dict):
         :param str private_endpoint_network_policies: Enable or Disable apply network policies on private end point in the subnet.
         :param str private_link_service_network_policies: Enable or Disable apply network policies on private link service in the subnet.
         """
-        pulumi.set(__self__, "name", name)
+        SubnetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            enable_ipv6=enable_ipv6,
+            network_security_group_id=network_security_group_id,
+            private_endpoint_network_policies=private_endpoint_network_policies,
+            private_link_service_network_policies=private_link_service_network_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             enable_ipv6: Optional[bool] = None,
+             network_security_group_id: Optional[str] = None,
+             private_endpoint_network_policies: Optional[str] = None,
+             private_link_service_network_policies: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableIpv6' in kwargs:
+            enable_ipv6 = kwargs['enableIpv6']
+        if 'networkSecurityGroupId' in kwargs:
+            network_security_group_id = kwargs['networkSecurityGroupId']
+        if 'privateEndpointNetworkPolicies' in kwargs:
+            private_endpoint_network_policies = kwargs['privateEndpointNetworkPolicies']
+        if 'privateLinkServiceNetworkPolicies' in kwargs:
+            private_link_service_network_policies = kwargs['privateLinkServiceNetworkPolicies']
+
+        _setter("name", name)
         if enable_ipv6 is not None:
-            pulumi.set(__self__, "enable_ipv6", enable_ipv6)
+            _setter("enable_ipv6", enable_ipv6)
         if network_security_group_id is not None:
-            pulumi.set(__self__, "network_security_group_id", network_security_group_id)
+            _setter("network_security_group_id", network_security_group_id)
         if private_endpoint_network_policies is not None:
-            pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
+            _setter("private_endpoint_network_policies", private_endpoint_network_policies)
         if private_link_service_network_policies is not None:
-            pulumi.set(__self__, "private_link_service_network_policies", private_link_service_network_policies)
+            _setter("private_link_service_network_policies", private_link_service_network_policies)
 
     @property
     @pulumi.getter
@@ -3368,18 +4337,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -3471,10 +4473,33 @@ class UniformInt64RangePartitionSchemeResponse(dict):
         :param str partition_scheme: Enumerates the ways that a service can be partitioned.
                Expected value is 'UniformInt64Range'.
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "high_key", high_key)
-        pulumi.set(__self__, "low_key", low_key)
-        pulumi.set(__self__, "partition_scheme", 'UniformInt64Range')
+        UniformInt64RangePartitionSchemeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            high_key=high_key,
+            low_key=low_key,
+            partition_scheme=partition_scheme,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: int,
+             high_key: float,
+             low_key: float,
+             partition_scheme: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'highKey' in kwargs:
+            high_key = kwargs['highKey']
+        if 'lowKey' in kwargs:
+            low_key = kwargs['lowKey']
+        if 'partitionScheme' in kwargs:
+            partition_scheme = kwargs['partitionScheme']
+
+        _setter("count", count)
+        _setter("high_key", high_key)
+        _setter("low_key", low_key)
+        _setter("partition_scheme", 'UniformInt64Range')
 
     @property
     @pulumi.getter
@@ -3540,8 +4565,25 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -3624,25 +4666,74 @@ class VMSSExtensionResponse(dict):
         :param Any settings: Json formatted public settings for the extension.
         :param Sequence[str] setup_order: Indicates the setup order for the extension.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "type_handler_version", type_handler_version)
+        VMSSExtensionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            provisioning_state=provisioning_state,
+            publisher=publisher,
+            type=type,
+            type_handler_version=type_handler_version,
+            auto_upgrade_minor_version=auto_upgrade_minor_version,
+            enable_automatic_upgrade=enable_automatic_upgrade,
+            force_update_tag=force_update_tag,
+            protected_settings=protected_settings,
+            provision_after_extensions=provision_after_extensions,
+            settings=settings,
+            setup_order=setup_order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             provisioning_state: str,
+             publisher: str,
+             type: str,
+             type_handler_version: str,
+             auto_upgrade_minor_version: Optional[bool] = None,
+             enable_automatic_upgrade: Optional[bool] = None,
+             force_update_tag: Optional[str] = None,
+             protected_settings: Optional[Any] = None,
+             provision_after_extensions: Optional[Sequence[str]] = None,
+             settings: Optional[Any] = None,
+             setup_order: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+        if 'autoUpgradeMinorVersion' in kwargs:
+            auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
+        if 'enableAutomaticUpgrade' in kwargs:
+            enable_automatic_upgrade = kwargs['enableAutomaticUpgrade']
+        if 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if 'protectedSettings' in kwargs:
+            protected_settings = kwargs['protectedSettings']
+        if 'provisionAfterExtensions' in kwargs:
+            provision_after_extensions = kwargs['provisionAfterExtensions']
+        if 'setupOrder' in kwargs:
+            setup_order = kwargs['setupOrder']
+
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("publisher", publisher)
+        _setter("type", type)
+        _setter("type_handler_version", type_handler_version)
         if auto_upgrade_minor_version is not None:
-            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+            _setter("auto_upgrade_minor_version", auto_upgrade_minor_version)
         if enable_automatic_upgrade is not None:
-            pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
+            _setter("enable_automatic_upgrade", enable_automatic_upgrade)
         if force_update_tag is not None:
-            pulumi.set(__self__, "force_update_tag", force_update_tag)
+            _setter("force_update_tag", force_update_tag)
         if protected_settings is not None:
-            pulumi.set(__self__, "protected_settings", protected_settings)
+            _setter("protected_settings", protected_settings)
         if provision_after_extensions is not None:
-            pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
+            _setter("provision_after_extensions", provision_after_extensions)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if setup_order is not None:
-            pulumi.set(__self__, "setup_order", setup_order)
+            _setter("setup_order", setup_order)
 
     @property
     @pulumi.getter
@@ -3773,8 +4864,25 @@ class VaultCertificateResponse(dict):
         :param str certificate_store: For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
         :param str certificate_url: This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
         """
-        pulumi.set(__self__, "certificate_store", certificate_store)
-        pulumi.set(__self__, "certificate_url", certificate_url)
+        VaultCertificateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_store=certificate_store,
+            certificate_url=certificate_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_store: str,
+             certificate_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateStore' in kwargs:
+            certificate_store = kwargs['certificateStore']
+        if 'certificateUrl' in kwargs:
+            certificate_url = kwargs['certificateUrl']
+
+        _setter("certificate_store", certificate_store)
+        _setter("certificate_url", certificate_url)
 
     @property
     @pulumi.getter(name="certificateStore")
@@ -3825,8 +4933,25 @@ class VaultSecretGroupResponse(dict):
         :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
         :param Sequence['VaultCertificateResponse'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
         """
-        pulumi.set(__self__, "source_vault", source_vault)
-        pulumi.set(__self__, "vault_certificates", vault_certificates)
+        VaultSecretGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_vault=source_vault,
+            vault_certificates=vault_certificates,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_vault: 'outputs.SubResourceResponse',
+             vault_certificates: Sequence['outputs.VaultCertificateResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceVault' in kwargs:
+            source_vault = kwargs['sourceVault']
+        if 'vaultCertificates' in kwargs:
+            vault_certificates = kwargs['vaultCertificates']
+
+        _setter("source_vault", source_vault)
+        _setter("vault_certificates", vault_certificates)
 
     @property
     @pulumi.getter(name="sourceVault")
@@ -3879,14 +5004,33 @@ class VmImagePlanResponse(dict):
         :param str promotion_code: The promotion code.
         :param str publisher: The publisher ID.
         """
+        VmImagePlanResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            product=product,
+            promotion_code=promotion_code,
+            publisher=publisher,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             product: Optional[str] = None,
+             promotion_code: Optional[str] = None,
+             publisher: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'promotionCode' in kwargs:
+            promotion_code = kwargs['promotionCode']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if product is not None:
-            pulumi.set(__self__, "product", product)
+            _setter("product", product)
         if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
+            _setter("promotion_code", promotion_code)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
 
     @property
     @pulumi.getter
@@ -3949,8 +5093,21 @@ class VmManagedIdentityResponse(dict):
         Identities for the virtual machine scale set under the node type.
         :param Sequence[str] user_assigned_identities: The list of user identities associated with the virtual machine scale set under the node type. Each entry will be an ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
+        VmManagedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_assigned_identities: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
@@ -3999,10 +5156,33 @@ class VmssDataDiskResponse(dict):
         :param str disk_type: Managed data disk type. Specifies the storage account type for the managed disk
         :param int lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM. Lun 0 is reserved for the service fabric data disk.
         """
-        pulumi.set(__self__, "disk_letter", disk_letter)
-        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
-        pulumi.set(__self__, "disk_type", disk_type)
-        pulumi.set(__self__, "lun", lun)
+        VmssDataDiskResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_letter=disk_letter,
+            disk_size_gb=disk_size_gb,
+            disk_type=disk_type,
+            lun=lun,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_letter: str,
+             disk_size_gb: int,
+             disk_type: str,
+             lun: int,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskLetter' in kwargs:
+            disk_letter = kwargs['diskLetter']
+        if 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+        if 'diskType' in kwargs:
+            disk_type = kwargs['diskType']
+
+        _setter("disk_letter", disk_letter)
+        _setter("disk_size_gb", disk_size_gb)
+        _setter("disk_type", disk_type)
+        _setter("lun", lun)
 
     @property
     @pulumi.getter(name="diskLetter")

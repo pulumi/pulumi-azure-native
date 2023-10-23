@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,12 +28,41 @@ class WorkspaceManagerMemberArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] workspace_manager_member_name: The name of the workspace manager member
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target_workspace_resource_id", target_workspace_resource_id)
-        pulumi.set(__self__, "target_workspace_tenant_id", target_workspace_tenant_id)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        WorkspaceManagerMemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            target_workspace_resource_id=target_workspace_resource_id,
+            target_workspace_tenant_id=target_workspace_tenant_id,
+            workspace_name=workspace_name,
+            workspace_manager_member_name=workspace_manager_member_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             target_workspace_resource_id: pulumi.Input[str],
+             target_workspace_tenant_id: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             workspace_manager_member_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'targetWorkspaceResourceId' in kwargs:
+            target_workspace_resource_id = kwargs['targetWorkspaceResourceId']
+        if 'targetWorkspaceTenantId' in kwargs:
+            target_workspace_tenant_id = kwargs['targetWorkspaceTenantId']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'workspaceManagerMemberName' in kwargs:
+            workspace_manager_member_name = kwargs['workspaceManagerMemberName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("target_workspace_resource_id", target_workspace_resource_id)
+        _setter("target_workspace_tenant_id", target_workspace_tenant_id)
+        _setter("workspace_name", workspace_name)
         if workspace_manager_member_name is not None:
-            pulumi.set(__self__, "workspace_manager_member_name", workspace_manager_member_name)
+            _setter("workspace_manager_member_name", workspace_manager_member_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -143,6 +172,10 @@ class WorkspaceManagerMember(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceManagerMemberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

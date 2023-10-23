@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -45,8 +45,19 @@ class AcceptedAudiencesResponse(dict):
         Represents an accepted audience trusted by the cluster.
         :param str value: GUID or valid URL representing an accepted audience.
         """
+        AcceptedAudiencesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -72,10 +83,25 @@ class AzureSkuResponse(dict):
         :param str tier: SKU tier.
         :param int capacity: The number of instances of the cluster.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        AzureSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             tier: str,
+             capacity: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("tier", tier)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -125,16 +151,43 @@ class DatabasePrincipalResponse(dict):
         :param str email: Database principal email if exists.
         :param str fqn: Database principal fully qualified name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "role", role)
-        pulumi.set(__self__, "tenant_name", tenant_name)
-        pulumi.set(__self__, "type", type)
+        DatabasePrincipalResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            role=role,
+            tenant_name=tenant_name,
+            type=type,
+            app_id=app_id,
+            email=email,
+            fqn=fqn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             role: str,
+             tenant_name: str,
+             type: str,
+             app_id: Optional[str] = None,
+             email: Optional[str] = None,
+             fqn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tenantName' in kwargs:
+            tenant_name = kwargs['tenantName']
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+
+        _setter("name", name)
+        _setter("role", role)
+        _setter("tenant_name", tenant_name)
+        _setter("type", type)
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if fqn is not None:
-            pulumi.set(__self__, "fqn", fqn)
+            _setter("fqn", fqn)
 
     @property
     @pulumi.getter
@@ -204,8 +257,19 @@ class DatabaseStatisticsResponse(dict):
         A class that contains database statistics information.
         :param float size: The database size - the total size of compressed data and index in bytes.
         """
+        DatabaseStatisticsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size=size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
 
     @property
     @pulumi.getter
@@ -235,11 +299,40 @@ class FollowerDatabaseDefinitionResponse(dict):
         :param str database_share_origin: The origin of the following setup.
         :param 'TableLevelSharingPropertiesResponse' table_level_sharing_properties: Table level sharing specifications
         """
-        pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
-        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "database_share_origin", database_share_origin)
-        pulumi.set(__self__, "table_level_sharing_properties", table_level_sharing_properties)
+        FollowerDatabaseDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attached_database_configuration_name=attached_database_configuration_name,
+            cluster_resource_id=cluster_resource_id,
+            database_name=database_name,
+            database_share_origin=database_share_origin,
+            table_level_sharing_properties=table_level_sharing_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attached_database_configuration_name: str,
+             cluster_resource_id: str,
+             database_name: str,
+             database_share_origin: str,
+             table_level_sharing_properties: 'outputs.TableLevelSharingPropertiesResponse',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attachedDatabaseConfigurationName' in kwargs:
+            attached_database_configuration_name = kwargs['attachedDatabaseConfigurationName']
+        if 'clusterResourceId' in kwargs:
+            cluster_resource_id = kwargs['clusterResourceId']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'databaseShareOrigin' in kwargs:
+            database_share_origin = kwargs['databaseShareOrigin']
+        if 'tableLevelSharingProperties' in kwargs:
+            table_level_sharing_properties = kwargs['tableLevelSharingProperties']
+
+        _setter("attached_database_configuration_name", attached_database_configuration_name)
+        _setter("cluster_resource_id", cluster_resource_id)
+        _setter("database_name", database_name)
+        _setter("database_share_origin", database_share_origin)
+        _setter("table_level_sharing_properties", table_level_sharing_properties)
 
     @property
     @pulumi.getter(name="attachedDatabaseConfigurationName")
@@ -320,11 +413,34 @@ class IdentityResponse(dict):
         :param str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
         :param Mapping[str, 'IdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -387,8 +503,25 @@ class IdentityResponseUserAssignedIdentities(dict):
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        IdentityResponseUserAssignedIdentities._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -447,14 +580,39 @@ class KeyVaultPropertiesResponse(dict):
         :param str key_version: The version of the key vault key.
         :param str user_identity: The user assigned identity (ARM resource id) that has access to the key.
         """
+        KeyVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            key_version=key_version,
+            user_identity=user_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[str] = None,
+             key_vault_uri: Optional[str] = None,
+             key_version: Optional[str] = None,
+             user_identity: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+        if 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+        if 'userIdentity' in kwargs:
+            user_identity = kwargs['userIdentity']
+
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+            _setter("key_vault_uri", key_vault_uri)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
         if user_identity is not None:
-            pulumi.set(__self__, "user_identity", user_identity)
+            _setter("user_identity", user_identity)
 
     @property
     @pulumi.getter(name="keyName")
@@ -521,10 +679,27 @@ class LanguageExtensionResponse(dict):
         :param str language_extension_image_name: The language extension image name.
         :param str language_extension_name: The language extension name.
         """
+        LanguageExtensionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            language_extension_image_name=language_extension_image_name,
+            language_extension_name=language_extension_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             language_extension_image_name: Optional[str] = None,
+             language_extension_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'languageExtensionImageName' in kwargs:
+            language_extension_image_name = kwargs['languageExtensionImageName']
+        if 'languageExtensionName' in kwargs:
+            language_extension_name = kwargs['languageExtensionName']
+
         if language_extension_image_name is not None:
-            pulumi.set(__self__, "language_extension_image_name", language_extension_image_name)
+            _setter("language_extension_image_name", language_extension_image_name)
         if language_extension_name is not None:
-            pulumi.set(__self__, "language_extension_name", language_extension_name)
+            _setter("language_extension_name", language_extension_name)
 
     @property
     @pulumi.getter(name="languageExtensionImageName")
@@ -554,8 +729,19 @@ class LanguageExtensionsListResponse(dict):
         The list of language extension objects.
         :param Sequence['LanguageExtensionResponse'] value: The list of language extensions.
         """
+        LanguageExtensionsListResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[Sequence['outputs.LanguageExtensionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -600,10 +786,29 @@ class MigrationClusterPropertiesResponse(dict):
         :param str role: The role of the cluster in the migration process.
         :param str uri: The public URL of the cluster.
         """
-        pulumi.set(__self__, "data_ingestion_uri", data_ingestion_uri)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "role", role)
-        pulumi.set(__self__, "uri", uri)
+        MigrationClusterPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_ingestion_uri=data_ingestion_uri,
+            id=id,
+            role=role,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_ingestion_uri: str,
+             id: str,
+             role: str,
+             uri: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataIngestionUri' in kwargs:
+            data_ingestion_uri = kwargs['dataIngestionUri']
+
+        _setter("data_ingestion_uri", data_ingestion_uri)
+        _setter("id", id)
+        _setter("role", role)
+        _setter("uri", uri)
 
     @property
     @pulumi.getter(name="dataIngestionUri")
@@ -672,10 +877,29 @@ class OptimizedAutoscaleResponse(dict):
         :param int minimum: Minimum allowed instances count.
         :param int version: The version of the template defined, for instance 1.
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "maximum", maximum)
-        pulumi.set(__self__, "minimum", minimum)
-        pulumi.set(__self__, "version", version)
+        OptimizedAutoscaleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            maximum=maximum,
+            minimum=minimum,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: bool,
+             maximum: int,
+             minimum: int,
+             version: int,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
+        _setter("is_enabled", is_enabled)
+        _setter("maximum", maximum)
+        _setter("minimum", minimum)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -760,14 +984,49 @@ class PrivateEndpointConnectionResponse(dict):
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
-        pulumi.set(__self__, "group_id", group_id)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_endpoint", private_endpoint)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            id=id,
+            name=name,
+            private_endpoint=private_endpoint,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: str,
+             id: str,
+             name: str,
+             private_endpoint: 'outputs.PrivateEndpointPropertyResponse',
+             private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStatePropertyResponse',
+             provisioning_state: str,
+             system_data: 'outputs.SystemDataResponse',
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+
+        _setter("group_id", group_id)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("private_endpoint", private_endpoint)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="groupId")
@@ -845,7 +1104,18 @@ class PrivateEndpointPropertyResponse(dict):
         Private endpoint which the connection belongs to.
         :param str id: Resource id of the private endpoint.
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointPropertyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -888,11 +1158,28 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
         :param str description: The private link service connection description.
         :param str status: The private link service connection status.
         """
-        pulumi.set(__self__, "actions_required", actions_required)
+        PrivateLinkServiceConnectionStatePropertyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: str,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
+        _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -947,8 +1234,21 @@ class SuspensionDetailsResponse(dict):
         The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
         :param str suspension_start_date: The starting date and time of the suspension state.
         """
+        SuspensionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            suspension_start_date=suspension_start_date,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             suspension_start_date: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'suspensionStartDate' in kwargs:
+            suspension_start_date = kwargs['suspensionStartDate']
+
         if suspension_start_date is not None:
-            pulumi.set(__self__, "suspension_start_date", suspension_start_date)
+            _setter("suspension_start_date", suspension_start_date)
 
     @property
     @pulumi.getter(name="suspensionStartDate")
@@ -1007,18 +1307,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1125,22 +1458,63 @@ class TableLevelSharingPropertiesResponse(dict):
         :param Sequence[str] tables_to_exclude: List of tables to exclude from the follower database
         :param Sequence[str] tables_to_include: List of tables to include in the follower database
         """
+        TableLevelSharingPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            external_tables_to_exclude=external_tables_to_exclude,
+            external_tables_to_include=external_tables_to_include,
+            functions_to_exclude=functions_to_exclude,
+            functions_to_include=functions_to_include,
+            materialized_views_to_exclude=materialized_views_to_exclude,
+            materialized_views_to_include=materialized_views_to_include,
+            tables_to_exclude=tables_to_exclude,
+            tables_to_include=tables_to_include,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             external_tables_to_exclude: Optional[Sequence[str]] = None,
+             external_tables_to_include: Optional[Sequence[str]] = None,
+             functions_to_exclude: Optional[Sequence[str]] = None,
+             functions_to_include: Optional[Sequence[str]] = None,
+             materialized_views_to_exclude: Optional[Sequence[str]] = None,
+             materialized_views_to_include: Optional[Sequence[str]] = None,
+             tables_to_exclude: Optional[Sequence[str]] = None,
+             tables_to_include: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalTablesToExclude' in kwargs:
+            external_tables_to_exclude = kwargs['externalTablesToExclude']
+        if 'externalTablesToInclude' in kwargs:
+            external_tables_to_include = kwargs['externalTablesToInclude']
+        if 'functionsToExclude' in kwargs:
+            functions_to_exclude = kwargs['functionsToExclude']
+        if 'functionsToInclude' in kwargs:
+            functions_to_include = kwargs['functionsToInclude']
+        if 'materializedViewsToExclude' in kwargs:
+            materialized_views_to_exclude = kwargs['materializedViewsToExclude']
+        if 'materializedViewsToInclude' in kwargs:
+            materialized_views_to_include = kwargs['materializedViewsToInclude']
+        if 'tablesToExclude' in kwargs:
+            tables_to_exclude = kwargs['tablesToExclude']
+        if 'tablesToInclude' in kwargs:
+            tables_to_include = kwargs['tablesToInclude']
+
         if external_tables_to_exclude is not None:
-            pulumi.set(__self__, "external_tables_to_exclude", external_tables_to_exclude)
+            _setter("external_tables_to_exclude", external_tables_to_exclude)
         if external_tables_to_include is not None:
-            pulumi.set(__self__, "external_tables_to_include", external_tables_to_include)
+            _setter("external_tables_to_include", external_tables_to_include)
         if functions_to_exclude is not None:
-            pulumi.set(__self__, "functions_to_exclude", functions_to_exclude)
+            _setter("functions_to_exclude", functions_to_exclude)
         if functions_to_include is not None:
-            pulumi.set(__self__, "functions_to_include", functions_to_include)
+            _setter("functions_to_include", functions_to_include)
         if materialized_views_to_exclude is not None:
-            pulumi.set(__self__, "materialized_views_to_exclude", materialized_views_to_exclude)
+            _setter("materialized_views_to_exclude", materialized_views_to_exclude)
         if materialized_views_to_include is not None:
-            pulumi.set(__self__, "materialized_views_to_include", materialized_views_to_include)
+            _setter("materialized_views_to_include", materialized_views_to_include)
         if tables_to_exclude is not None:
-            pulumi.set(__self__, "tables_to_exclude", tables_to_exclude)
+            _setter("tables_to_exclude", tables_to_exclude)
         if tables_to_include is not None:
-            pulumi.set(__self__, "tables_to_include", tables_to_include)
+            _setter("tables_to_include", tables_to_include)
 
     @property
     @pulumi.getter(name="externalTablesToExclude")
@@ -1218,8 +1592,19 @@ class TrustedExternalTenantResponse(dict):
         Represents a tenant ID that is trusted by the cluster.
         :param str value: GUID representing an external tenant.
         """
+        TrustedExternalTenantResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1266,9 +1651,30 @@ class VirtualNetworkConfigurationResponse(dict):
         :param str engine_public_ip_id: Engine service's public IP address resource id.
         :param str subnet_id: The subnet resource id.
         """
-        pulumi.set(__self__, "data_management_public_ip_id", data_management_public_ip_id)
-        pulumi.set(__self__, "engine_public_ip_id", engine_public_ip_id)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        VirtualNetworkConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_management_public_ip_id=data_management_public_ip_id,
+            engine_public_ip_id=engine_public_ip_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_management_public_ip_id: str,
+             engine_public_ip_id: str,
+             subnet_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataManagementPublicIpId' in kwargs:
+            data_management_public_ip_id = kwargs['dataManagementPublicIpId']
+        if 'enginePublicIpId' in kwargs:
+            engine_public_ip_id = kwargs['enginePublicIpId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
+        _setter("data_management_public_ip_id", data_management_public_ip_id)
+        _setter("engine_public_ip_id", engine_public_ip_id)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="dataManagementPublicIpId")

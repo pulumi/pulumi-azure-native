@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -29,14 +29,37 @@ class PutAliasRequestAdditionalPropertiesArgs:
         :param pulumi.Input[str] subscription_tenant_id: Tenant Id of the subscription
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the subscription
         """
+        PutAliasRequestAdditionalPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_group_id=management_group_id,
+            subscription_owner_id=subscription_owner_id,
+            subscription_tenant_id=subscription_tenant_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             subscription_owner_id: Optional[pulumi.Input[str]] = None,
+             subscription_tenant_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if 'subscriptionOwnerId' in kwargs:
+            subscription_owner_id = kwargs['subscriptionOwnerId']
+        if 'subscriptionTenantId' in kwargs:
+            subscription_tenant_id = kwargs['subscriptionTenantId']
+
         if management_group_id is not None:
-            pulumi.set(__self__, "management_group_id", management_group_id)
+            _setter("management_group_id", management_group_id)
         if subscription_owner_id is not None:
-            pulumi.set(__self__, "subscription_owner_id", subscription_owner_id)
+            _setter("subscription_owner_id", subscription_owner_id)
         if subscription_tenant_id is not None:
-            pulumi.set(__self__, "subscription_tenant_id", subscription_tenant_id)
+            _setter("subscription_tenant_id", subscription_tenant_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="managementGroupId")
@@ -108,18 +131,49 @@ class PutAliasRequestPropertiesArgs:
         :param pulumi.Input[str] subscription_id: This parameter can be used to create alias for existing subscription Id
         :param pulumi.Input[Union[str, 'Workload']] workload: The workload type of the subscription. It can be either Production or DevTest.
         """
+        PutAliasRequestPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_properties=additional_properties,
+            billing_scope=billing_scope,
+            display_name=display_name,
+            reseller_id=reseller_id,
+            subscription_id=subscription_id,
+            workload=workload,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_properties: Optional[pulumi.Input['PutAliasRequestAdditionalPropertiesArgs']] = None,
+             billing_scope: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             reseller_id: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             workload: Optional[pulumi.Input[Union[str, 'Workload']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'billingScope' in kwargs:
+            billing_scope = kwargs['billingScope']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'resellerId' in kwargs:
+            reseller_id = kwargs['resellerId']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if billing_scope is not None:
-            pulumi.set(__self__, "billing_scope", billing_scope)
+            _setter("billing_scope", billing_scope)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if reseller_id is not None:
-            pulumi.set(__self__, "reseller_id", reseller_id)
+            _setter("reseller_id", reseller_id)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if workload is not None:
-            pulumi.set(__self__, "workload", workload)
+            _setter("workload", workload)
 
     @property
     @pulumi.getter(name="additionalProperties")

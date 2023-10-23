@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,34 +50,89 @@ class IntegrationAccountAgreementArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[str] type: The resource type.
         """
-        pulumi.set(__self__, "integration_account_name", integration_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        IntegrationAccountAgreementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            integration_account_name=integration_account_name,
+            resource_group_name=resource_group_name,
+            agreement_name=agreement_name,
+            agreement_type=agreement_type,
+            content=content,
+            guest_identity=guest_identity,
+            guest_partner=guest_partner,
+            host_identity=host_identity,
+            host_partner=host_partner,
+            id=id,
+            location=location,
+            metadata=metadata,
+            name=name,
+            tags=tags,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             integration_account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             agreement_name: Optional[pulumi.Input[str]] = None,
+             agreement_type: Optional[pulumi.Input['AgreementType']] = None,
+             content: Optional[pulumi.Input['AgreementContentArgs']] = None,
+             guest_identity: Optional[pulumi.Input['BusinessIdentityArgs']] = None,
+             guest_partner: Optional[pulumi.Input[str]] = None,
+             host_identity: Optional[pulumi.Input['BusinessIdentityArgs']] = None,
+             host_partner: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'integrationAccountName' in kwargs:
+            integration_account_name = kwargs['integrationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'agreementName' in kwargs:
+            agreement_name = kwargs['agreementName']
+        if 'agreementType' in kwargs:
+            agreement_type = kwargs['agreementType']
+        if 'guestIdentity' in kwargs:
+            guest_identity = kwargs['guestIdentity']
+        if 'guestPartner' in kwargs:
+            guest_partner = kwargs['guestPartner']
+        if 'hostIdentity' in kwargs:
+            host_identity = kwargs['hostIdentity']
+        if 'hostPartner' in kwargs:
+            host_partner = kwargs['hostPartner']
+
+        _setter("integration_account_name", integration_account_name)
+        _setter("resource_group_name", resource_group_name)
         if agreement_name is not None:
-            pulumi.set(__self__, "agreement_name", agreement_name)
+            _setter("agreement_name", agreement_name)
         if agreement_type is not None:
-            pulumi.set(__self__, "agreement_type", agreement_type)
+            _setter("agreement_type", agreement_type)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if guest_identity is not None:
-            pulumi.set(__self__, "guest_identity", guest_identity)
+            _setter("guest_identity", guest_identity)
         if guest_partner is not None:
-            pulumi.set(__self__, "guest_partner", guest_partner)
+            _setter("guest_partner", guest_partner)
         if host_identity is not None:
-            pulumi.set(__self__, "host_identity", host_identity)
+            _setter("host_identity", host_identity)
         if host_partner is not None:
-            pulumi.set(__self__, "host_partner", host_partner)
+            _setter("host_partner", host_partner)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="integrationAccountName")
@@ -319,6 +374,10 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationAccountAgreementArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -350,9 +409,24 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
             __props__.__dict__["agreement_name"] = agreement_name
             __props__.__dict__["agreement_type"] = agreement_type
+            if content is not None and not isinstance(content, AgreementContentArgs):
+                content = content or {}
+                def _setter(key, value):
+                    content[key] = value
+                AgreementContentArgs._configure(_setter, **content)
             __props__.__dict__["content"] = content
+            if guest_identity is not None and not isinstance(guest_identity, BusinessIdentityArgs):
+                guest_identity = guest_identity or {}
+                def _setter(key, value):
+                    guest_identity[key] = value
+                BusinessIdentityArgs._configure(_setter, **guest_identity)
             __props__.__dict__["guest_identity"] = guest_identity
             __props__.__dict__["guest_partner"] = guest_partner
+            if host_identity is not None and not isinstance(host_identity, BusinessIdentityArgs):
+                host_identity = host_identity or {}
+                def _setter(key, value):
+                    host_identity[key] = value
+                BusinessIdentityArgs._configure(_setter, **host_identity)
             __props__.__dict__["host_identity"] = host_identity
             __props__.__dict__["host_partner"] = host_partner
             __props__.__dict__["id"] = id

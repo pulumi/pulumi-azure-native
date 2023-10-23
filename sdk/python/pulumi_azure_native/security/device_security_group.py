@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,17 +31,50 @@ class DeviceSecurityGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ThresholdCustomAlertRuleArgs']]] threshold_rules: The list of custom alert threshold rules.
         :param pulumi.Input[Sequence[pulumi.Input['TimeWindowCustomAlertRuleArgs']]] time_window_rules: The list of custom alert time-window rules.
         """
-        pulumi.set(__self__, "resource_id", resource_id)
+        DeviceSecurityGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            allowlist_rules=allowlist_rules,
+            denylist_rules=denylist_rules,
+            device_security_group_name=device_security_group_name,
+            threshold_rules=threshold_rules,
+            time_window_rules=time_window_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: pulumi.Input[str],
+             allowlist_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AllowlistCustomAlertRuleArgs']]]] = None,
+             denylist_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DenylistCustomAlertRuleArgs']]]] = None,
+             device_security_group_name: Optional[pulumi.Input[str]] = None,
+             threshold_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ThresholdCustomAlertRuleArgs']]]] = None,
+             time_window_rules: Optional[pulumi.Input[Sequence[pulumi.Input['TimeWindowCustomAlertRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'allowlistRules' in kwargs:
+            allowlist_rules = kwargs['allowlistRules']
+        if 'denylistRules' in kwargs:
+            denylist_rules = kwargs['denylistRules']
+        if 'deviceSecurityGroupName' in kwargs:
+            device_security_group_name = kwargs['deviceSecurityGroupName']
+        if 'thresholdRules' in kwargs:
+            threshold_rules = kwargs['thresholdRules']
+        if 'timeWindowRules' in kwargs:
+            time_window_rules = kwargs['timeWindowRules']
+
+        _setter("resource_id", resource_id)
         if allowlist_rules is not None:
-            pulumi.set(__self__, "allowlist_rules", allowlist_rules)
+            _setter("allowlist_rules", allowlist_rules)
         if denylist_rules is not None:
-            pulumi.set(__self__, "denylist_rules", denylist_rules)
+            _setter("denylist_rules", denylist_rules)
         if device_security_group_name is not None:
-            pulumi.set(__self__, "device_security_group_name", device_security_group_name)
+            _setter("device_security_group_name", device_security_group_name)
         if threshold_rules is not None:
-            pulumi.set(__self__, "threshold_rules", threshold_rules)
+            _setter("threshold_rules", threshold_rules)
         if time_window_rules is not None:
-            pulumi.set(__self__, "time_window_rules", time_window_rules)
+            _setter("time_window_rules", time_window_rules)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -161,6 +194,10 @@ class DeviceSecurityGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeviceSecurityGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

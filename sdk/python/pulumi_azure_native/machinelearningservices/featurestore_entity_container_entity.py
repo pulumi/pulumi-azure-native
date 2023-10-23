@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,34 @@ class FeaturestoreEntityContainerEntityArgs:
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] name: Container name. This is case-sensitive.
         """
-        pulumi.set(__self__, "featurestore_entity_container_properties", featurestore_entity_container_properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        FeaturestoreEntityContainerEntityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            featurestore_entity_container_properties=featurestore_entity_container_properties,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             featurestore_entity_container_properties: pulumi.Input['FeaturestoreEntityContainerArgs'],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'featurestoreEntityContainerProperties' in kwargs:
+            featurestore_entity_container_properties = kwargs['featurestoreEntityContainerProperties']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+
+        _setter("featurestore_entity_container_properties", featurestore_entity_container_properties)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="featurestoreEntityContainerProperties")
@@ -127,6 +150,10 @@ class FeaturestoreEntityContainerEntity(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FeaturestoreEntityContainerEntityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -145,6 +172,11 @@ class FeaturestoreEntityContainerEntity(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FeaturestoreEntityContainerEntityArgs.__new__(FeaturestoreEntityContainerEntityArgs)
 
+            if featurestore_entity_container_properties is not None and not isinstance(featurestore_entity_container_properties, FeaturestoreEntityContainerArgs):
+                featurestore_entity_container_properties = featurestore_entity_container_properties or {}
+                def _setter(key, value):
+                    featurestore_entity_container_properties[key] = value
+                FeaturestoreEntityContainerArgs._configure(_setter, **featurestore_entity_container_properties)
             if featurestore_entity_container_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'featurestore_entity_container_properties'")
             __props__.__dict__["featurestore_entity_container_properties"] = featurestore_entity_container_properties

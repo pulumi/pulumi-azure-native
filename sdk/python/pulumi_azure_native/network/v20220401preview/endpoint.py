@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -62,45 +62,124 @@ class EndpointInitArgs:
         :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         :param pulumi.Input[float] weight: The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
-        pulumi.set(__self__, "profile_name", profile_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        EndpointInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            profile_name=profile_name,
+            resource_group_name=resource_group_name,
+            always_serve=always_serve,
+            custom_headers=custom_headers,
+            endpoint_location=endpoint_location,
+            endpoint_monitor_status=endpoint_monitor_status,
+            endpoint_name=endpoint_name,
+            endpoint_status=endpoint_status,
+            geo_mapping=geo_mapping,
+            id=id,
+            min_child_endpoints=min_child_endpoints,
+            min_child_endpoints_i_pv4=min_child_endpoints_i_pv4,
+            min_child_endpoints_i_pv6=min_child_endpoints_i_pv6,
+            name=name,
+            priority=priority,
+            subnets=subnets,
+            target=target,
+            target_resource_id=target_resource_id,
+            type=type,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: pulumi.Input[str],
+             profile_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             always_serve: Optional[pulumi.Input[Union[str, 'AlwaysServe']]] = None,
+             custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersArgs']]]] = None,
+             endpoint_location: Optional[pulumi.Input[str]] = None,
+             endpoint_monitor_status: Optional[pulumi.Input[Union[str, 'EndpointMonitorStatus']]] = None,
+             endpoint_name: Optional[pulumi.Input[str]] = None,
+             endpoint_status: Optional[pulumi.Input[Union[str, 'EndpointStatus']]] = None,
+             geo_mapping: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             min_child_endpoints: Optional[pulumi.Input[float]] = None,
+             min_child_endpoints_i_pv4: Optional[pulumi.Input[float]] = None,
+             min_child_endpoints_i_pv6: Optional[pulumi.Input[float]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[float]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsArgs']]]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             weight: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'profileName' in kwargs:
+            profile_name = kwargs['profileName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'alwaysServe' in kwargs:
+            always_serve = kwargs['alwaysServe']
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'endpointLocation' in kwargs:
+            endpoint_location = kwargs['endpointLocation']
+        if 'endpointMonitorStatus' in kwargs:
+            endpoint_monitor_status = kwargs['endpointMonitorStatus']
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'endpointStatus' in kwargs:
+            endpoint_status = kwargs['endpointStatus']
+        if 'geoMapping' in kwargs:
+            geo_mapping = kwargs['geoMapping']
+        if 'minChildEndpoints' in kwargs:
+            min_child_endpoints = kwargs['minChildEndpoints']
+        if 'minChildEndpointsIPv4' in kwargs:
+            min_child_endpoints_i_pv4 = kwargs['minChildEndpointsIPv4']
+        if 'minChildEndpointsIPv6' in kwargs:
+            min_child_endpoints_i_pv6 = kwargs['minChildEndpointsIPv6']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
+        _setter("endpoint_type", endpoint_type)
+        _setter("profile_name", profile_name)
+        _setter("resource_group_name", resource_group_name)
         if always_serve is not None:
-            pulumi.set(__self__, "always_serve", always_serve)
+            _setter("always_serve", always_serve)
         if custom_headers is not None:
-            pulumi.set(__self__, "custom_headers", custom_headers)
+            _setter("custom_headers", custom_headers)
         if endpoint_location is not None:
-            pulumi.set(__self__, "endpoint_location", endpoint_location)
+            _setter("endpoint_location", endpoint_location)
         if endpoint_monitor_status is not None:
-            pulumi.set(__self__, "endpoint_monitor_status", endpoint_monitor_status)
+            _setter("endpoint_monitor_status", endpoint_monitor_status)
         if endpoint_name is not None:
-            pulumi.set(__self__, "endpoint_name", endpoint_name)
+            _setter("endpoint_name", endpoint_name)
         if endpoint_status is not None:
-            pulumi.set(__self__, "endpoint_status", endpoint_status)
+            _setter("endpoint_status", endpoint_status)
         if geo_mapping is not None:
-            pulumi.set(__self__, "geo_mapping", geo_mapping)
+            _setter("geo_mapping", geo_mapping)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if min_child_endpoints is not None:
-            pulumi.set(__self__, "min_child_endpoints", min_child_endpoints)
+            _setter("min_child_endpoints", min_child_endpoints)
         if min_child_endpoints_i_pv4 is not None:
-            pulumi.set(__self__, "min_child_endpoints_i_pv4", min_child_endpoints_i_pv4)
+            _setter("min_child_endpoints_i_pv4", min_child_endpoints_i_pv4)
         if min_child_endpoints_i_pv6 is not None:
-            pulumi.set(__self__, "min_child_endpoints_i_pv6", min_child_endpoints_i_pv6)
+            _setter("min_child_endpoints_i_pv6", min_child_endpoints_i_pv6)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -428,6 +507,10 @@ class Endpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EndpointInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

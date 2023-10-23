@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,22 +37,65 @@ class LocalUserArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]] ssh_authorized_keys: Optional, local user ssh authorized keys for SFTP.
         :param pulumi.Input[str] username: The name of local user. The username must contain lowercase letters and numbers only. It must be unique only within the storage account.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        LocalUserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            has_shared_key=has_shared_key,
+            has_ssh_key=has_ssh_key,
+            has_ssh_password=has_ssh_password,
+            home_directory=home_directory,
+            permission_scopes=permission_scopes,
+            ssh_authorized_keys=ssh_authorized_keys,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             has_shared_key: Optional[pulumi.Input[bool]] = None,
+             has_ssh_key: Optional[pulumi.Input[bool]] = None,
+             has_ssh_password: Optional[pulumi.Input[bool]] = None,
+             home_directory: Optional[pulumi.Input[str]] = None,
+             permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionScopeArgs']]]] = None,
+             ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'hasSharedKey' in kwargs:
+            has_shared_key = kwargs['hasSharedKey']
+        if 'hasSshKey' in kwargs:
+            has_ssh_key = kwargs['hasSshKey']
+        if 'hasSshPassword' in kwargs:
+            has_ssh_password = kwargs['hasSshPassword']
+        if 'homeDirectory' in kwargs:
+            home_directory = kwargs['homeDirectory']
+        if 'permissionScopes' in kwargs:
+            permission_scopes = kwargs['permissionScopes']
+        if 'sshAuthorizedKeys' in kwargs:
+            ssh_authorized_keys = kwargs['sshAuthorizedKeys']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if has_shared_key is not None:
-            pulumi.set(__self__, "has_shared_key", has_shared_key)
+            _setter("has_shared_key", has_shared_key)
         if has_ssh_key is not None:
-            pulumi.set(__self__, "has_ssh_key", has_ssh_key)
+            _setter("has_ssh_key", has_ssh_key)
         if has_ssh_password is not None:
-            pulumi.set(__self__, "has_ssh_password", has_ssh_password)
+            _setter("has_ssh_password", has_ssh_password)
         if home_directory is not None:
-            pulumi.set(__self__, "home_directory", home_directory)
+            _setter("home_directory", home_directory)
         if permission_scopes is not None:
-            pulumi.set(__self__, "permission_scopes", permission_scopes)
+            _setter("permission_scopes", permission_scopes)
         if ssh_authorized_keys is not None:
-            pulumi.set(__self__, "ssh_authorized_keys", ssh_authorized_keys)
+            _setter("ssh_authorized_keys", ssh_authorized_keys)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="accountName")
@@ -212,6 +255,10 @@ class LocalUser(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocalUserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
