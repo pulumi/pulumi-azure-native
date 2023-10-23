@@ -100,7 +100,12 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 
 	generationResult, err := gen.PulumiSchema(args.RootDir, providers, versionMetadata)
 	if err != nil {
-		return nil, err
+		return &BuildSchemaResult{
+			PackageSpec: schema.PackageSpec{},
+			Metadata:    resources.AzureAPIMetadata{},
+			Version:     versionMetadata,
+			Reports:     BuildSchemaReports{},
+		}, err
 	}
 
 	pkgSpec := generationResult.Schema
