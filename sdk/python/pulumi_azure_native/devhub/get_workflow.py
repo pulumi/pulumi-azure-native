@@ -430,6 +430,8 @@ def get_workflow(resource_group_name: Optional[str] = None,
     Resource representation of a workflow
     Azure REST API version: 2022-10-11-preview.
 
+    Other available API versions: 2023-08-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workflow_name: The name of the workflow resource.
@@ -483,6 +485,8 @@ def get_workflow_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Resource representation of a workflow
     Azure REST API version: 2022-10-11-preview.
+
+    Other available API versions: 2023-08-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

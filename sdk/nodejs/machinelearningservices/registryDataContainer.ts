@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01.
  */
 export class RegistryDataContainer extends pulumi.CustomResource {
     /**
@@ -90,7 +90,7 @@ export class RegistryDataContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230201preview:RegistryDataContainer" }, { type: "azure-native:machinelearningservices/v20230401:RegistryDataContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:RegistryDataContainer" }, { type: "azure-native:machinelearningservices/v20230601preview:RegistryDataContainer" }, { type: "azure-native:machinelearningservices/v20230801preview:RegistryDataContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230201preview:RegistryDataContainer" }, { type: "azure-native:machinelearningservices/v20230401:RegistryDataContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:RegistryDataContainer" }, { type: "azure-native:machinelearningservices/v20230601preview:RegistryDataContainer" }, { type: "azure-native:machinelearningservices/v20230801preview:RegistryDataContainer" }, { type: "azure-native:machinelearningservices/v20231001:RegistryDataContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegistryDataContainer.__pulumiType, name, resourceInputs, opts);
     }

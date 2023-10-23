@@ -127,6 +127,7 @@ namespace Pulumi.AzureNative.ScVmm.V20230401Preview
                     new global::Pulumi.Alias { Type = "azure-native:scvmm:VmmServer"},
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:VmmServer"},
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:VmmServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20231007:VmmServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

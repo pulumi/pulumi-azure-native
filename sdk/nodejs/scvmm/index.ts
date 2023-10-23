@@ -132,10 +132,12 @@ export * from "../types/enums/scvmm";
 // Export sub-modules:
 import * as v20220521preview from "./v20220521preview";
 import * as v20230401preview from "./v20230401preview";
+import * as v20231007 from "./v20231007";
 
 export {
     v20220521preview,
     v20230401preview,
+    v20231007,
 };
 
 const _module = {

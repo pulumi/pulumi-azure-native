@@ -38,6 +38,7 @@ import * as cognitiveservices from "./cognitiveservices";
 import * as communication from "./communication";
 import * as compute from "./compute";
 import * as confidentialledger from "./confidentialledger";
+import * as confluent from "./confluent";
 import * as connectedvmwarevsphere from "./connectedvmwarevsphere";
 import * as consumption from "./consumption";
 import * as containerinstance from "./containerinstance";
@@ -68,6 +69,7 @@ import * as deploymentmanager from "./deploymentmanager";
 import * as desktopvirtualization from "./desktopvirtualization";
 import * as devcenter from "./devcenter";
 import * as devhub from "./devhub";
+import * as deviceregistry from "./deviceregistry";
 import * as devices from "./devices";
 import * as deviceupdate from "./deviceupdate";
 import * as devspaces from "./devspaces";
@@ -227,6 +229,7 @@ export {
     communication,
     compute,
     confidentialledger,
+    confluent,
     connectedvmwarevsphere,
     consumption,
     containerinstance,
@@ -257,6 +260,7 @@ export {
     desktopvirtualization,
     devcenter,
     devhub,
+    deviceregistry,
     devices,
     deviceupdate,
     devspaces,

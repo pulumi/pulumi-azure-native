@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20231001Preview.Inputs
 {
 
     /// <summary>
-    /// Properties of Cognitive Services account deployment model.
+    /// Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
     /// </summary>
     public sealed class DeploymentScaleSettingsArgs : global::Pulumi.ResourceArgs
     {

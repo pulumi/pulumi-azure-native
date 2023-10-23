@@ -7,21 +7,39 @@ from enum import Enum
 __all__ = [
     'AssessmentSizingCriterion',
     'AssessmentStage',
+    'AssessmentType',
+    'AsyncCommitModeIntent',
     'AutomationArtifactStatus',
+    'AzureAvsNodeType',
+    'AzureCurrency',
     'AzureDiskType',
     'AzureHybridUseBenefit',
     'AzureLocation',
     'AzureOfferCode',
     'AzurePricingTier',
+    'AzureReservedInstance',
+    'AzureSecurityOfferingType',
+    'AzureSqlDataBaseType',
+    'AzureSqlInstanceType',
+    'AzureSqlPurchaseModel',
+    'AzureSqlServiceTier',
     'AzureStorageRedundancy',
     'AzureVmFamily',
     'CleanupState',
+    'ComputeTier',
     'ConfigurationType',
     'Currency',
+    'EnvironmentType',
+    'FttAndRaidLevel',
     'Goal',
+    'GroupType',
     'LoadBalancerType',
+    'MultiSubnetIntent',
     'OperatingSystemType',
+    'OptimizationLogic',
+    'OsLicense',
     'Percentile',
+    'PrivateEndpointServiceConnectionStatus',
     'ProjectStatus',
     'ProvisioningState',
     'Purpose',
@@ -29,6 +47,7 @@ __all__ = [
     'ResourceIdentityType',
     'ResourceIdentityTypes',
     'SecretStoreType',
+    'SqlServerLicense',
     'Status',
     'TargetAvailabilityZone',
     'TargetHydrationStorageProviderType',
@@ -48,7 +67,13 @@ class AssessmentSizingCriterion(str, Enum):
     Assessment sizing criterion.
     """
     PERFORMANCE_BASED = "PerformanceBased"
+    """
+    Performance Data based Sizing.
+    """
     AS_ON_PREMISES = "AsOnPremises"
+    """
+    As On Premises or Static Data based Sizing.
+    """
 
 
 class AssessmentStage(str, Enum):
@@ -60,12 +85,72 @@ class AssessmentStage(str, Enum):
     APPROVED = "Approved"
 
 
+class AssessmentType(str, Enum):
+    """
+    Assessment type of the assessment.
+    """
+    UNKNOWN = "Unknown"
+    MACHINE_ASSESSMENT = "MachineAssessment"
+    AVS_ASSESSMENT = "AvsAssessment"
+    SQL_ASSESSMENT = "SqlAssessment"
+    WEB_APP_ASSESSMENT = "WebAppAssessment"
+
+
+class AsyncCommitModeIntent(str, Enum):
+    """
+    Gets or sets user preference indicating intent of async commit mode.
+    """
+    NONE = "None"
+    HIGH_AVAILABILITY = "HighAvailability"
+    DISASTER_RECOVERY = "DisasterRecovery"
+
+
 class AutomationArtifactStatus(str, Enum):
     """
     Gets or sets the status of automation artifacts.
     """
     NOT_GENERATED = "NotGenerated"
     GENERATED = "Generated"
+
+
+class AzureAvsNodeType(str, Enum):
+    """
+    AVS node type.
+    """
+    UNKNOWN = "Unknown"
+    AV36 = "AV36"
+
+
+class AzureCurrency(str, Enum):
+    """
+    Currency in which prices should be reported.
+    """
+    UNKNOWN = "Unknown"
+    USD = "USD"
+    DKK = "DKK"
+    CAD = "CAD"
+    IDR = "IDR"
+    JPY = "JPY"
+    KRW = "KRW"
+    NZD = "NZD"
+    NOK = "NOK"
+    RUB = "RUB"
+    SAR = "SAR"
+    ZAR = "ZAR"
+    SEK = "SEK"
+    TRY_ = "TRY"
+    GBP = "GBP"
+    MXN = "MXN"
+    MYR = "MYR"
+    INR = "INR"
+    HKD = "HKD"
+    BRL = "BRL"
+    TWD = "TWD"
+    EUR = "EUR"
+    CHF = "CHF"
+    ARS = "ARS"
+    AUD = "AUD"
+    CNY = "CNY"
 
 
 class AzureDiskType(str, Enum):
@@ -90,7 +175,8 @@ class AzureHybridUseBenefit(str, Enum):
 
 class AzureLocation(str, Enum):
     """
-    Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+    Gets or sets the Azure Location or Azure region where to which the machines
+    will be migrated.
     """
     UNKNOWN = "Unknown"
     EAST_ASIA = "EastAsia"
@@ -129,11 +215,34 @@ class AzureLocation(str, Enum):
     US_GOV_VIRGINIA = "USGovVirginia"
     US_DO_D_CENTRAL = "USDoDCentral"
     US_DO_D_EAST = "USDoDEast"
+    FRANCE_CENTRAL = "FranceCentral"
+    AUSTRALIA_CENTRAL = "AustraliaCentral"
+    SOUTH_AFRICA_NORTH = "SouthAfricaNorth"
+    FRANCE_SOUTH = "FranceSouth"
+    AUSTRALIA_CENTRAL2 = "AustraliaCentral2"
+    SOUTH_AFRICA_WEST = "SouthAfricaWest"
+    GERMANY_NORTH = "GermanyNorth"
+    GERMANY_WEST_CENTRAL = "GermanyWestCentral"
+    NORWAY_EAST = "NorwayEast"
+    NORWAY_WEST = "NorwayWest"
+    CHINA_EAST2 = "ChinaEast2"
+    CHINA_NORTH2 = "ChinaNorth2"
+    SWITZERLAND_NORTH = "SwitzerlandNorth"
+    SWITZERLAND_WEST = "SwitzerlandWest"
+    UAE_NORTH = "UAENorth"
+    UAE_CENTRAL = "UAECentral"
+    US_NAT_EAST = "UsNatEast"
+    US_NAT_WEST = "UsNatWest"
+    US_SEC_EAST = "UsSecEast"
+    US_SEC_CENTRAL = "UsSecCentral"
+    US_SEC_WEST = "UsSecWest"
+    SWEDEN_CENTRAL = "SwedenCentral"
+    QATAR_CENTRAL = "QatarCentral"
 
 
 class AzureOfferCode(str, Enum):
     """
-    Offer code according to which cost estimation is done.
+    Gets or sets Azure Offer Code for VM.
     """
     UNKNOWN = "Unknown"
     MSAZR0003_P = "MSAZR0003P"
@@ -175,6 +284,9 @@ class AzureOfferCode(str, Enum):
     MSAZRDE0044_P = "MSAZRDE0044P"
     MSAZRUSGOV0003_P = "MSAZRUSGOV0003P"
     EA = "EA"
+    MSAZR0243_P = "MSAZR0243P"
+    SAVINGS_PLAN1_YEAR = "SavingsPlan1Year"
+    SAVINGS_PLAN3_YEAR = "SavingsPlan3Year"
 
 
 class AzurePricingTier(str, Enum):
@@ -183,6 +295,63 @@ class AzurePricingTier(str, Enum):
     """
     STANDARD = "Standard"
     BASIC = "Basic"
+
+
+class AzureReservedInstance(str, Enum):
+    """
+    Gets or sets azure reserved instance for VM.
+    """
+    NONE = "None"
+    RI1_YEAR = "RI1Year"
+    RI3_YEAR = "RI3Year"
+
+
+class AzureSecurityOfferingType(str, Enum):
+    """
+    Gets or sets a value indicating azure security offering type.
+    """
+    NO = "NO"
+    MDC = "MDC"
+
+
+class AzureSqlDataBaseType(str, Enum):
+    """
+    Gets or sets the azure PAAS SQL instance type.
+    """
+    UNKNOWN = "Unknown"
+    AUTOMATIC = "Automatic"
+    SINGLE_DATABASE = "SingleDatabase"
+    ELASTIC_POOL = "ElasticPool"
+
+
+class AzureSqlInstanceType(str, Enum):
+    """
+    Gets or sets the azure PAAS SQL instance type.
+    """
+    UNKNOWN = "Unknown"
+    AUTOMATIC = "Automatic"
+    SINGLE_INSTANCE = "SingleInstance"
+    INSTANCE_POOLS = "InstancePools"
+
+
+class AzureSqlPurchaseModel(str, Enum):
+    """
+    Gets or sets the azure SQL purchase model.
+    """
+    UNKNOWN = "Unknown"
+    V_CORE = "VCore"
+    DTU = "DTU"
+
+
+class AzureSqlServiceTier(str, Enum):
+    """
+    Gets or sets the azure SQL service tier.
+    """
+    UNKNOWN = "Unknown"
+    AUTOMATIC = "Automatic"
+    GENERAL_PURPOSE = "GeneralPurpose"
+    BUSINESS_CRITICAL = "BusinessCritical"
+    HYPER_SCALE = "HyperScale"
 
 
 class AzureStorageRedundancy(str, Enum):
@@ -197,9 +366,6 @@ class AzureStorageRedundancy(str, Enum):
 
 
 class AzureVmFamily(str, Enum):
-    """
-    Azure VM family.
-    """
     UNKNOWN = "Unknown"
     BASIC_A0_A4 = "Basic_A0_A4"
     STANDARD_A0_A7 = "Standard_A0_A7"
@@ -207,12 +373,12 @@ class AzureVmFamily(str, Enum):
     AV2_SERIES = "Av2_series"
     D_SERIES = "D_series"
     DV2_SERIES = "Dv2_series"
-    D_S_SERIES = "DS_series"
+    DS_SERIES = "DS_series"
     D_SV2_SERIES = "DSv2_series"
     F_SERIES = "F_series"
     FS_SERIES = "Fs_series"
     G_SERIES = "G_series"
-    G_S_SERIES = "GS_series"
+    GS_SERIES = "GS_series"
     H_SERIES = "H_series"
     LS_SERIES = "Ls_series"
     DSV3_SERIES = "Dsv3_series"
@@ -221,7 +387,37 @@ class AzureVmFamily(str, Enum):
     EV3_SERIES = "Ev3_series"
     ESV3_SERIES = "Esv3_series"
     M_SERIES = "M_series"
-    D_C_SERIES = "DC_Series"
+    DC_SERIES = "DC_Series"
+    LSV2_SERIES = "Lsv2_series"
+    EV4_SERIES = "Ev4_series"
+    ESV4_SERIES = "Esv4_series"
+    EDV4_SERIES = "Edv4_series"
+    EDSV4_SERIES = "Edsv4_series"
+    DV4_SERIES = "Dv4_series"
+    DSV4_SERIES = "Dsv4_series"
+    DDV4_SERIES = "Ddv4_series"
+    DDSV4_SERIES = "Ddsv4_series"
+    EASV4_SERIES = "Easv4_series"
+    DASV4_SERIES = "Dasv4_series"
+    MV2_SERIES = "Mv2_series"
+    EAV4_SERIES = "Eav4_series"
+    DAV4_SERIES = "Dav4_series"
+    MSV2_SERIES = "Msv2_series"
+    MDSV2_SERIES = "Mdsv2_series"
+    DV5_SERIES = "Dv5_series"
+    DSV5_SERIES = "Dsv5_series"
+    DDV5_SERIES = "Ddv5_series"
+    DDSV5_SERIES = "Ddsv5_series"
+    DASV5_SERIES = "Dasv5_series"
+    DADSV5_SERIES = "Dadsv5_series"
+    EV5_SERIES = "Ev5_series"
+    ESV5_SERIES = "Esv5_series"
+    EDV5_SERIES = "Edv5_series"
+    EDSV5_SERIES = "Edsv5_series"
+    EASV5_SERIES = "Easv5_series"
+    EADSV5_SERIES = "Eadsv5_series"
+    EBSV5_SERIES = "Ebsv5_series"
+    EBDSV5_SERIES = "Ebdsv5_series"
 
 
 class CleanupState(str, Enum):
@@ -233,6 +429,16 @@ class CleanupState(str, Enum):
     IN_PROGRESS = "InProgress"
     COMPLETED = "Completed"
     FAILED = "Failed"
+
+
+class ComputeTier(str, Enum):
+    """
+    Gets or sets the azure SQL compute tier.
+    """
+    UNKNOWN = "Unknown"
+    AUTOMATIC = "Automatic"
+    PROVISIONED = "Provisioned"
+    SERVERLESS = "Serverless"
 
 
 class ConfigurationType(str, Enum):
@@ -276,6 +482,26 @@ class Currency(str, Enum):
     CNY = "CNY"
 
 
+class EnvironmentType(str, Enum):
+    """
+    Gets or sets user configurable setting to display the environment type.
+    """
+    PRODUCTION = "Production"
+    TEST = "Test"
+
+
+class FttAndRaidLevel(str, Enum):
+    """
+    Failures to tolerate and RAID level in a common property.
+    """
+    UNKNOWN = "Unknown"
+    FTT1_RAID1 = "Ftt1Raid1"
+    FTT1_RAID5 = "Ftt1Raid5"
+    FTT2_RAID1 = "Ftt2Raid1"
+    FTT2_RAID6 = "Ftt2Raid6"
+    FTT3_RAID1 = "Ftt3Raid1"
+
+
 class Goal(str, Enum):
     """
     Gets or sets the goal of the solution.
@@ -287,6 +513,14 @@ class Goal(str, Enum):
     DATA_CENTER = "DataCenter"
 
 
+class GroupType(str, Enum):
+    """
+    Gets the group type for the assessment.
+    """
+    DEFAULT = "Default"
+    IMPORT_ = "Import"
+
+
 class LoadBalancerType(str, Enum):
     """
     Gets or sets the load balancer type.
@@ -295,19 +529,57 @@ class LoadBalancerType(str, Enum):
     PUBLIC = "Public"
 
 
+class MultiSubnetIntent(str, Enum):
+    """
+    Gets or sets user preference indicating intent of multi-subnet configuration.
+    """
+    NONE = "None"
+    HIGH_AVAILABILITY = "HighAvailability"
+    DISASTER_RECOVERY = "DisasterRecovery"
+
+
 class OperatingSystemType(str, Enum):
     WINDOWS = "Windows"
     LINUX = "Linux"
 
 
+class OptimizationLogic(str, Enum):
+    """
+    Gets or sets SQL optimization logic.
+    """
+    MINIMIZE_COST = "MinimizeCost"
+    MODERNIZE_TO_PAA_S = "ModernizeToPaaS"
+    MODERNIZE_TO_AZURE_SQL_MI = "ModernizeToAzureSqlMi"
+    MODERNIZE_TO_AZURE_SQL_DB = "ModernizeToAzureSqlDb"
+
+
+class OsLicense(str, Enum):
+    """
+    Gets or sets user configurable setting to display the azure hybrid use benefit.
+    """
+    UNKNOWN = "Unknown"
+    YES = "Yes"
+    NO = "No"
+
+
 class Percentile(str, Enum):
     """
-    Percentile of performance data used to recommend Azure size.
+    Percentile of the utilization data values to be considered while assessing
+    machines.
     """
     PERCENTILE50 = "Percentile50"
     PERCENTILE90 = "Percentile90"
     PERCENTILE95 = "Percentile95"
     PERCENTILE99 = "Percentile99"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 class ProjectStatus(str, Enum):
@@ -320,14 +592,36 @@ class ProjectStatus(str, Enum):
 
 class ProvisioningState(str, Enum):
     """
-    Provisioning state of the migrate project.
+    The status of the last operation.
+    """
+    SUCCEEDED = "Succeeded"
+    """
+    Resource has been created.
+    """
+    FAILED = "Failed"
+    """
+    Resource creation failed.
+    """
+    CANCELED = "Canceled"
+    """
+    Resource creation was canceled.
+    """
+    PROVISIONING = "Provisioning"
+    """
+    Resource is being Provisioned.
+    """
+    UPDATING = "Updating"
+    """
+    Resource is being Updated.
+    """
+    DELETING = "Deleting"
+    """
+    Resource is being Deleted.
     """
     ACCEPTED = "Accepted"
-    CREATING = "Creating"
-    DELETING = "Deleting"
-    FAILED = "Failed"
-    MOVING = "Moving"
-    SUCCEEDED = "Succeeded"
+    """
+    Resource is being Accepted.
+    """
 
 
 class Purpose(str, Enum):
@@ -368,6 +662,15 @@ class SecretStoreType(str, Enum):
     KUBE_SECRET = "KubeSecret"
     KEY_VAULT_SECRET = "KeyVaultSecret"
     APP_SERVICE_APP_SETTINGS = "AppServiceAppSettings"
+
+
+class SqlServerLicense(str, Enum):
+    """
+    SQL server license.
+    """
+    UNKNOWN = "Unknown"
+    YES = "Yes"
+    NO = "No"
 
 
 class Status(str, Enum):
@@ -414,7 +717,8 @@ class TargetStorageProjectionType(str, Enum):
 
 class TimeRange(str, Enum):
     """
-    Time range of performance data used to recommend a size.
+    Time Range for which the historic utilization data should be considered for
+    assessment.
     """
     DAY = "Day"
     WEEK = "Week"

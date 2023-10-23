@@ -113,7 +113,7 @@ class Database(pulumi.CustomResource):
         Represents a Database.
         Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
 
-        Other available API versions: 2017-12-01, 2023-06-01-preview.
+        Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,7 +133,7 @@ class Database(pulumi.CustomResource):
         Represents a Database.
         Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
 
-        Other available API versions: 2017-12-01, 2023-06-01-preview.
+        Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30.
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -176,7 +176,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20200701preview:Database"), pulumi.Alias(type_="azure-native:dbformysql/v20200701privatepreview:Database"), pulumi.Alias(type_="azure-native:dbformysql/v20210501:Database"), pulumi.Alias(type_="azure-native:dbformysql/v20210501preview:Database"), pulumi.Alias(type_="azure-native:dbformysql/v20211201preview:Database"), pulumi.Alias(type_="azure-native:dbformysql/v20220101:Database"), pulumi.Alias(type_="azure-native:dbformysql/v20230601preview:Database")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20200701preview:Database"), pulumi.Alias(type_="azure-native:dbformysql/v20200701privatepreview:Database"), pulumi.Alias(type_="azure-native:dbformysql/v20210501:Database"), pulumi.Alias(type_="azure-native:dbformysql/v20210501preview:Database"), pulumi.Alias(type_="azure-native:dbformysql/v20211201preview:Database"), pulumi.Alias(type_="azure-native:dbformysql/v20220101:Database"), pulumi.Alias(type_="azure-native:dbformysql/v20230601preview:Database"), pulumi.Alias(type_="azure-native:dbformysql/v20230630:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
             'azure-native:dbformysql:Database',

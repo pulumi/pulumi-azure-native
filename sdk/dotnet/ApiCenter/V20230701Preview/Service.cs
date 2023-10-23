@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.ApiCenter.V20230701Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apicenter:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240301:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

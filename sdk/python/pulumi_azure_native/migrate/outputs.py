@@ -27,7 +27,9 @@ __all__ = [
     'AzureFileShareHydrationProfileResponse',
     'BindingResponse',
     'CertResponse',
+    'CollectorAgentPropertiesBaseResponse',
     'CollectorAgentPropertiesResponse',
+    'CollectorAgentSpnPropertiesBaseResponse',
     'CollectorBodyAgentSpnPropertiesResponse',
     'CollectorPropertiesResponse',
     'ContainerImagePropertiesResponse',
@@ -36,6 +38,7 @@ __all__ = [
     'DeployedResourcesPropertiesResponse',
     'DirectoryPathResponse',
     'DiskEncryptionSetResourceSettingsResponse',
+    'EntityUptimeResponse',
     'GmsaAuthenticationPropertiesResponse',
     'GroupConnectivityInformationResponse',
     'GroupPropertiesResponse',
@@ -89,6 +92,7 @@ __all__ = [
     'PrivateEndpointConnectionProxyPropertiesResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointDetailsResponse',
+    'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'PrivateLinkServiceProxyResponse',
@@ -108,8 +112,11 @@ __all__ = [
     'SolutionPropertiesResponse',
     'SolutionSummaryResponse',
     'SqlDatabaseResourceSettingsResponse',
+    'SqlDbSettingsResponse',
     'SqlElasticPoolResourceSettingsResponse',
+    'SqlMiSettingsResponse',
     'SqlServerResourceSettingsResponse',
+    'SqlVmSettingsResponse',
     'SubnetReferenceResponse',
     'SubnetResourceSettingsResponse',
     'SystemDataResponse',
@@ -1945,6 +1952,84 @@ class CertResponse(dict):
 
 
 @pulumi.output_type
+class CollectorAgentPropertiesBaseResponse(dict):
+    """
+    Collector agent property class.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastHeartbeatUtc":
+            suggest = "last_heartbeat_utc"
+        elif key == "spnDetails":
+            suggest = "spn_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CollectorAgentPropertiesBaseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CollectorAgentPropertiesBaseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CollectorAgentPropertiesBaseResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 last_heartbeat_utc: Optional[str] = None,
+                 spn_details: Optional['outputs.CollectorAgentSpnPropertiesBaseResponse'] = None,
+                 version: Optional[str] = None):
+        """
+        Collector agent property class.
+        :param str id: Gets the collector agent id.
+        :param str last_heartbeat_utc: Gets the collector last heartbeat time.
+        :param 'CollectorAgentSpnPropertiesBaseResponse' spn_details: Gets or sets the SPN details.
+        :param str version: Gets the collector agent version.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if last_heartbeat_utc is not None:
+            pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
+        if spn_details is not None:
+            pulumi.set(__self__, "spn_details", spn_details)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Gets the collector agent id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastHeartbeatUtc")
+    def last_heartbeat_utc(self) -> Optional[str]:
+        """
+        Gets the collector last heartbeat time.
+        """
+        return pulumi.get(self, "last_heartbeat_utc")
+
+    @property
+    @pulumi.getter(name="spnDetails")
+    def spn_details(self) -> Optional['outputs.CollectorAgentSpnPropertiesBaseResponse']:
+        """
+        Gets or sets the SPN details.
+        """
+        return pulumi.get(self, "spn_details")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Gets the collector agent version.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
 class CollectorAgentPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1995,6 +2080,98 @@ class CollectorAgentPropertiesResponse(dict):
     @pulumi.getter(name="spnDetails")
     def spn_details(self) -> Optional['outputs.CollectorBodyAgentSpnPropertiesResponse']:
         return pulumi.get(self, "spn_details")
+
+
+@pulumi.output_type
+class CollectorAgentSpnPropertiesBaseResponse(dict):
+    """
+    Collector agent SPN details class.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationId":
+            suggest = "application_id"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CollectorAgentSpnPropertiesBaseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CollectorAgentSpnPropertiesBaseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CollectorAgentSpnPropertiesBaseResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_id: Optional[str] = None,
+                 audience: Optional[str] = None,
+                 authority: Optional[str] = None,
+                 object_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        Collector agent SPN details class.
+        :param str application_id: Gets the AAD application id.
+        :param str audience: Gets the AAD audience url.
+        :param str authority: Gets the AAD authority endpoint.
+        :param str object_id: Gets the object id of the AAD application.
+        :param str tenant_id: Gets the tenant id of the AAD application.
+        """
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+        if audience is not None:
+            pulumi.set(__self__, "audience", audience)
+        if authority is not None:
+            pulumi.set(__self__, "authority", authority)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[str]:
+        """
+        Gets the AAD application id.
+        """
+        return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter
+    def audience(self) -> Optional[str]:
+        """
+        Gets the AAD audience url.
+        """
+        return pulumi.get(self, "audience")
+
+    @property
+    @pulumi.getter
+    def authority(self) -> Optional[str]:
+        """
+        Gets the AAD authority endpoint.
+        """
+        return pulumi.get(self, "authority")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        Gets the object id of the AAD application.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        Gets the tenant id of the AAD application.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -2689,6 +2866,60 @@ class DiskEncryptionSetResourceSettingsResponse(dict):
         Gets or sets the target resource group name.
         """
         return pulumi.get(self, "target_resource_group_name")
+
+
+@pulumi.output_type
+class EntityUptimeResponse(dict):
+    """
+    Entity Uptime.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysPerMonth":
+            suggest = "days_per_month"
+        elif key == "hoursPerDay":
+            suggest = "hours_per_day"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EntityUptimeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EntityUptimeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EntityUptimeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days_per_month: Optional[int] = None,
+                 hours_per_day: Optional[int] = None):
+        """
+        Entity Uptime.
+        :param int days_per_month: Gets the days per month.
+        :param int hours_per_day: Gets the hours per day.
+        """
+        if days_per_month is not None:
+            pulumi.set(__self__, "days_per_month", days_per_month)
+        if hours_per_day is not None:
+            pulumi.set(__self__, "hours_per_day", hours_per_day)
+
+    @property
+    @pulumi.getter(name="daysPerMonth")
+    def days_per_month(self) -> Optional[int]:
+        """
+        Gets the days per month.
+        """
+        return pulumi.get(self, "days_per_month")
+
+    @property
+    @pulumi.getter(name="hoursPerDay")
+    def hours_per_day(self) -> Optional[int]:
+        """
+        Gets the hours per day.
+        """
+        return pulumi.get(self, "hours_per_day")
 
 
 @pulumi.output_type
@@ -7544,6 +7775,14 @@ class PrivateEndpointConnectionResponse(dict):
         suggest = None
         if key == "eTag":
             suggest = "e_tag"
+        elif key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
         elif key == "systemData":
             suggest = "system_data"
 
@@ -7564,6 +7803,10 @@ class PrivateEndpointConnectionResponse(dict):
                  properties: 'outputs.PrivateEndpointConnectionPropertiesResponse',
                  type: str,
                  e_tag: Optional[str] = None,
+                 group_ids: Optional[Sequence[str]] = None,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+                 provisioning_state: Optional[str] = None,
                  system_data: Optional['outputs.SystemDataResponse'] = None):
         """
         A private endpoint connection for a project.
@@ -7572,6 +7815,10 @@ class PrivateEndpointConnectionResponse(dict):
         :param 'PrivateEndpointConnectionPropertiesResponse' properties: Properties of the private endpoint endpoint connection.
         :param str type: Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
         :param str e_tag: For optimistic concurrency control.
+        :param Sequence[str] group_ids: The group ids for the private endpoint resource.
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         """
         pulumi.set(__self__, "id", id)
@@ -7580,6 +7827,14 @@ class PrivateEndpointConnectionResponse(dict):
         pulumi.set(__self__, "type", type)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if system_data is not None:
             pulumi.set(__self__, "system_data", system_data)
 
@@ -7622,6 +7877,38 @@ class PrivateEndpointConnectionResponse(dict):
         For optimistic concurrency control.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[Sequence[str]]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The private endpoint resource.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="systemData")
@@ -7704,6 +7991,28 @@ class PrivateEndpointDetailsResponse(dict):
     @pulumi.getter(name="privateLinkServiceProxies")
     def private_link_service_proxies(self) -> Optional[Sequence['outputs.PrivateLinkServiceProxyResponse']]:
         return pulumi.get(self, "private_link_service_proxies")
+
+
+@pulumi.output_type
+class PrivateEndpointResponse(dict):
+    """
+    The private endpoint resource.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        The private endpoint resource.
+        :param str id: The ARM identifier for private endpoint.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ARM identifier for private endpoint.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -9231,6 +9540,88 @@ class SqlDatabaseResourceSettingsResponse(dict):
 
 
 @pulumi.output_type
+class SqlDbSettingsResponse(dict):
+    """
+    SQL database assessment settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureSqlComputeTier":
+            suggest = "azure_sql_compute_tier"
+        elif key == "azureSqlDataBaseType":
+            suggest = "azure_sql_data_base_type"
+        elif key == "azureSqlPurchaseModel":
+            suggest = "azure_sql_purchase_model"
+        elif key == "azureSqlServiceTier":
+            suggest = "azure_sql_service_tier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlDbSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlDbSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlDbSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_sql_compute_tier: Optional[str] = None,
+                 azure_sql_data_base_type: Optional[str] = None,
+                 azure_sql_purchase_model: Optional[str] = None,
+                 azure_sql_service_tier: Optional[str] = None):
+        """
+        SQL database assessment settings.
+        :param str azure_sql_compute_tier: Gets or sets the azure SQL compute tier.
+        :param str azure_sql_data_base_type: Gets or sets the azure PAAS SQL instance type.
+        :param str azure_sql_purchase_model: Gets or sets the azure SQL purchase model.
+        :param str azure_sql_service_tier: Gets or sets the azure SQL service tier.
+        """
+        if azure_sql_compute_tier is not None:
+            pulumi.set(__self__, "azure_sql_compute_tier", azure_sql_compute_tier)
+        if azure_sql_data_base_type is not None:
+            pulumi.set(__self__, "azure_sql_data_base_type", azure_sql_data_base_type)
+        if azure_sql_purchase_model is not None:
+            pulumi.set(__self__, "azure_sql_purchase_model", azure_sql_purchase_model)
+        if azure_sql_service_tier is not None:
+            pulumi.set(__self__, "azure_sql_service_tier", azure_sql_service_tier)
+
+    @property
+    @pulumi.getter(name="azureSqlComputeTier")
+    def azure_sql_compute_tier(self) -> Optional[str]:
+        """
+        Gets or sets the azure SQL compute tier.
+        """
+        return pulumi.get(self, "azure_sql_compute_tier")
+
+    @property
+    @pulumi.getter(name="azureSqlDataBaseType")
+    def azure_sql_data_base_type(self) -> Optional[str]:
+        """
+        Gets or sets the azure PAAS SQL instance type.
+        """
+        return pulumi.get(self, "azure_sql_data_base_type")
+
+    @property
+    @pulumi.getter(name="azureSqlPurchaseModel")
+    def azure_sql_purchase_model(self) -> Optional[str]:
+        """
+        Gets or sets the azure SQL purchase model.
+        """
+        return pulumi.get(self, "azure_sql_purchase_model")
+
+    @property
+    @pulumi.getter(name="azureSqlServiceTier")
+    def azure_sql_service_tier(self) -> Optional[str]:
+        """
+        Gets or sets the azure SQL service tier.
+        """
+        return pulumi.get(self, "azure_sql_service_tier")
+
+
+@pulumi.output_type
 class SqlElasticPoolResourceSettingsResponse(dict):
     """
     Defines the Sql ElasticPool resource settings.
@@ -9325,6 +9716,60 @@ class SqlElasticPoolResourceSettingsResponse(dict):
 
 
 @pulumi.output_type
+class SqlMiSettingsResponse(dict):
+    """
+    SQL managed instance assessment settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureSqlInstanceType":
+            suggest = "azure_sql_instance_type"
+        elif key == "azureSqlServiceTier":
+            suggest = "azure_sql_service_tier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlMiSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlMiSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlMiSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_sql_instance_type: Optional[str] = None,
+                 azure_sql_service_tier: Optional[str] = None):
+        """
+        SQL managed instance assessment settings.
+        :param str azure_sql_instance_type: Gets or sets the azure PAAS SQL instance type.
+        :param str azure_sql_service_tier: Gets or sets the azure SQL service tier.
+        """
+        if azure_sql_instance_type is not None:
+            pulumi.set(__self__, "azure_sql_instance_type", azure_sql_instance_type)
+        if azure_sql_service_tier is not None:
+            pulumi.set(__self__, "azure_sql_service_tier", azure_sql_service_tier)
+
+    @property
+    @pulumi.getter(name="azureSqlInstanceType")
+    def azure_sql_instance_type(self) -> Optional[str]:
+        """
+        Gets or sets the azure PAAS SQL instance type.
+        """
+        return pulumi.get(self, "azure_sql_instance_type")
+
+    @property
+    @pulumi.getter(name="azureSqlServiceTier")
+    def azure_sql_service_tier(self) -> Optional[str]:
+        """
+        Gets or sets the azure SQL service tier.
+        """
+        return pulumi.get(self, "azure_sql_service_tier")
+
+
+@pulumi.output_type
 class SqlServerResourceSettingsResponse(dict):
     """
     Defines the SQL Server resource settings.
@@ -9390,6 +9835,48 @@ class SqlServerResourceSettingsResponse(dict):
         Gets or sets the target resource group name.
         """
         return pulumi.get(self, "target_resource_group_name")
+
+
+@pulumi.output_type
+class SqlVmSettingsResponse(dict):
+    """
+    SQL VM assessment settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceSeries":
+            suggest = "instance_series"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlVmSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlVmSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlVmSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_series: Optional[Sequence[str]] = None):
+        """
+        SQL VM assessment settings.
+        :param Sequence[str] instance_series: Gets or sets the Azure VM families (calling instance series to keep it
+               consistent with other targets).
+        """
+        if instance_series is not None:
+            pulumi.set(__self__, "instance_series", instance_series)
+
+    @property
+    @pulumi.getter(name="instanceSeries")
+    def instance_series(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets the Azure VM families (calling instance series to keep it
+        consistent with other targets).
+        """
+        return pulumi.get(self, "instance_series")
 
 
 @pulumi.output_type

@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// The group ids for the private endpoint resource.
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
         /// Path reference to this private endpoint endpoint connection. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
         /// </summary>
         public readonly string Id;
@@ -29,9 +33,21 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The private endpoint resource.
+        /// </summary>
+        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        /// <summary>
+        /// A collection of information about the state of the connection between service consumer and provider.
+        /// </summary>
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
+        /// <summary>
         /// Properties of the private endpoint endpoint connection.
         /// </summary>
         public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
+        /// <summary>
+        /// The provisioning state of the private endpoint connection resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -45,20 +61,32 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         private PrivateEndpointConnectionResponse(
             string? eTag,
 
+            ImmutableArray<string> groupIds,
+
             string id,
 
             string name,
 
+            Outputs.PrivateEndpointResponse? privateEndpoint,
+
+            Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
+
             Outputs.PrivateEndpointConnectionPropertiesResponse properties,
+
+            string? provisioningState,
 
             Outputs.SystemDataResponse? systemData,
 
             string type)
         {
             ETag = eTag;
+            GroupIds = groupIds;
             Id = id;
             Name = name;
+            PrivateEndpoint = privateEndpoint;
+            PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             Properties = properties;
+            ProvisioningState = provisioningState;
             SystemData = systemData;
             Type = type;
         }

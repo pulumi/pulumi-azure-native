@@ -71,6 +71,10 @@ export class AFDCustomDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The JSON object list that contains the overall picture of how routes are used for the shared custom domain across different profiles.
+     */
+    public /*out*/ readonly referencedRoutePaths!: pulumi.Output<outputs.cdn.v20230701preview.AFDDomainReferencedRoutePathResponse[]>;
+    /**
      * Read only system data
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.v20230701preview.SystemDataResponse>;
@@ -119,6 +123,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
             resourceInputs["domainValidationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["referencedRoutePaths"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["validationProperties"] = undefined /*out*/;
@@ -132,6 +137,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
             resourceInputs["preValidatedCustomDomainResourceId"] = undefined /*out*/;
             resourceInputs["profileName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["referencedRoutePaths"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tlsSettings"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

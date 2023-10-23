@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a Administrator.
  * Azure REST API version: 2022-01-01.
  *
- * Other available API versions: 2023-06-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-06-30.
  */
 export class AzureADAdministrator extends pulumi.CustomResource {
     /**
@@ -112,7 +112,7 @@ export class AzureADAdministrator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20211201preview:AzureADAdministrator" }, { type: "azure-native:dbformysql/v20220101:AzureADAdministrator" }, { type: "azure-native:dbformysql/v20230601preview:AzureADAdministrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20211201preview:AzureADAdministrator" }, { type: "azure-native:dbformysql/v20220101:AzureADAdministrator" }, { type: "azure-native:dbformysql/v20230601preview:AzureADAdministrator" }, { type: "azure-native:dbformysql/v20230630:AzureADAdministrator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureADAdministrator.__pulumiType, name, resourceInputs, opts);
     }

@@ -11,27 +11,27 @@ namespace Pulumi.AzureNative.Migrate.Inputs
 {
 
     /// <summary>
-    /// Private endpoint connection state.
+    /// A collection of information about the state of the connection between service consumer and provider.
     /// </summary>
     public sealed class PrivateLinkServiceConnectionStateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action required.
+        /// A message indicating if changes on the service provider require any updates on the consumer.
         /// </summary>
         [Input("actionsRequired")]
         public Input<string>? ActionsRequired { get; set; }
 
         /// <summary>
-        /// Description of the object.
+        /// The reason for approval/rejection of the connection.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Private link connection state.
+        /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNative.Migrate.Status>? Status { get; set; }
+        public object? Status { get; set; }
 
         public PrivateLinkServiceConnectionStateArgs()
         {

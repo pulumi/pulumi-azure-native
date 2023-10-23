@@ -116,7 +116,6 @@ __all__ = [
     'IdentityResponse',
     'InformationProtectionAwsOfferingResponse',
     'InformationProtectionAwsOfferingResponseInformationProtection',
-    'IngestionConnectionStringResponse',
     'JitNetworkAccessPolicyVirtualMachineResponse',
     'JitNetworkAccessPortRuleResponse',
     'JitNetworkAccessRequestPortResponse',
@@ -6629,39 +6628,6 @@ class InformationProtectionAwsOfferingResponseInformationProtection(dict):
         The cloud role ARN in AWS for this feature
         """
         return pulumi.get(self, "cloud_role_arn")
-
-
-@pulumi.output_type
-class IngestionConnectionStringResponse(dict):
-    """
-    Connection string for ingesting security data and logs
-    """
-    def __init__(__self__, *,
-                 location: str,
-                 value: str):
-        """
-        Connection string for ingesting security data and logs
-        :param str location: The region where ingested logs and data resides
-        :param str value: Connection string value
-        """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def location(self) -> str:
-        """
-        The region where ingested logs and data resides
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Connection string value
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

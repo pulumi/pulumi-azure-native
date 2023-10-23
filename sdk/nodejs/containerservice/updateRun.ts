@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A multi-stage process to perform update operations across members of a Fleet.
  * Azure REST API version: 2023-03-15-preview.
  *
- * Other available API versions: 2023-06-15-preview, 2023-08-15-preview.
+ * Other available API versions: 2023-06-15-preview, 2023-08-15-preview, 2023-10-15.
  */
 export class UpdateRun extends pulumi.CustomResource {
     /**
@@ -117,7 +117,7 @@ export class UpdateRun extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20230315preview:UpdateRun" }, { type: "azure-native:containerservice/v20230615preview:UpdateRun" }, { type: "azure-native:containerservice/v20230815preview:UpdateRun" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20230315preview:UpdateRun" }, { type: "azure-native:containerservice/v20230615preview:UpdateRun" }, { type: "azure-native:containerservice/v20230815preview:UpdateRun" }, { type: "azure-native:containerservice/v20231015:UpdateRun" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(UpdateRun.__pulumiType, name, resourceInputs, opts);
     }

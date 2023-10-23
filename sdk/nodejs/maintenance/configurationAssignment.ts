@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Configuration Assignment
  * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview.
  *
- * Other available API versions: 2023-04-01.
+ * Other available API versions: 2023-04-01, 2023-09-01-preview.
  */
 export class ConfigurationAssignment extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class ConfigurationAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:maintenance/v20210401preview:ConfigurationAssignment" }, { type: "azure-native:maintenance/v20210901preview:ConfigurationAssignment" }, { type: "azure-native:maintenance/v20220701preview:ConfigurationAssignment" }, { type: "azure-native:maintenance/v20221101preview:ConfigurationAssignment" }, { type: "azure-native:maintenance/v20230401:ConfigurationAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maintenance/v20210401preview:ConfigurationAssignment" }, { type: "azure-native:maintenance/v20210901preview:ConfigurationAssignment" }, { type: "azure-native:maintenance/v20220701preview:ConfigurationAssignment" }, { type: "azure-native:maintenance/v20221101preview:ConfigurationAssignment" }, { type: "azure-native:maintenance/v20230401:ConfigurationAssignment" }, { type: "azure-native:maintenance/v20230901preview:ConfigurationAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationAssignment.__pulumiType, name, resourceInputs, opts);
     }

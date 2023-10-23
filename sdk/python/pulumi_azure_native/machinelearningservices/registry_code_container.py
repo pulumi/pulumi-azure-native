@@ -96,7 +96,7 @@ class RegistryCodeContainer(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         Azure REST API version: 2023-04-01.
 
-        Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+        Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,7 +115,7 @@ class RegistryCodeContainer(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         Azure REST API version: 2023-04-01.
 
-        Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+        Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01.
 
         :param str resource_name: The name of the resource.
         :param RegistryCodeContainerArgs args: The arguments to use to populate this resource's properties.
@@ -158,7 +158,7 @@ class RegistryCodeContainer(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:RegistryCodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:RegistryCodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:RegistryCodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:RegistryCodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:RegistryCodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:RegistryCodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:RegistryCodeContainer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:RegistryCodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:RegistryCodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:RegistryCodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:RegistryCodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:RegistryCodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:RegistryCodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:RegistryCodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:RegistryCodeContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegistryCodeContainer, __self__).__init__(
             'azure-native:machinelearningservices:RegistryCodeContainer',

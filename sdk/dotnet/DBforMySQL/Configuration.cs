@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// Represents a Configuration.
     /// Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
     /// 
-    /// Other available API versions: 2017-12-01, 2020-07-01-privatepreview, 2023-06-01-preview.
+    /// Other available API versions: 2017-12-01, 2020-07-01-privatepreview, 2023-06-01-preview, 2023-06-30.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Configuration")]
     public partial class Configuration : global::Pulumi.CustomResource
@@ -134,6 +134,7 @@ namespace Pulumi.AzureNative.DBforMySQL
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20211201preview:Configuration"},
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20220101:Configuration"},
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20230601preview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20230630:Configuration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

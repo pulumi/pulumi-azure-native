@@ -161,7 +161,7 @@ def get_inventory_item(inventory_item_name: Optional[str] = None,
     Shows an inventory item.
     Azure REST API version: 2022-05-21-preview.
 
-    Other available API versions: 2023-04-01-preview.
+    Other available API versions: 2023-04-01-preview, 2023-10-07.
 
 
     :param str inventory_item_name: Name of the inventoryItem.
@@ -197,7 +197,7 @@ def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[str]] =
     Shows an inventory item.
     Azure REST API version: 2022-05-21-preview.
 
-    Other available API versions: 2023-04-01-preview.
+    Other available API versions: 2023-04-01-preview, 2023-10-07.
 
 
     :param str inventory_item_name: Name of the inventoryItem.

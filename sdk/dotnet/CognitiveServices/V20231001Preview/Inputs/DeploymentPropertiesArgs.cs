@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20231001Preview.Inputs
     public sealed class DeploymentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maps to reserved Capacity for fungible deployments (MSS).
+        /// Internal use only.
         /// </summary>
         [Input("capacitySettings")]
         public Input<Inputs.DeploymentCapacitySettingsArgs>? CapacitySettings { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20231001Preview.Inputs
         public Input<string>? RaiPolicyName { get; set; }
 
         /// <summary>
-        /// Properties of Cognitive Services account deployment model.
+        /// Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         /// </summary>
         [Input("scaleSettings")]
         public Input<Inputs.DeploymentScaleSettingsArgs>? ScaleSettings { get; set; }

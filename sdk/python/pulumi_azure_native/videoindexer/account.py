@@ -152,6 +152,8 @@ class Account(pulumi.CustomResource):
         An Azure Video Indexer account.
         Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-18-preview.
 
+        Other available API versions: 2024-01-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The account's data-plane ID. This can be set only when connecting an existing classic account
@@ -171,6 +173,8 @@ class Account(pulumi.CustomResource):
         """
         An Azure Video Indexer account.
         Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-18-preview.
+
+        Other available API versions: 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -220,7 +224,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["total_seconds_indexed"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:videoindexer/v20211018preview:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20211027preview:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20211110preview:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20220413preview:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20220720preview:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20220801:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:videoindexer/v20211018preview:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20211027preview:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20211110preview:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20220413preview:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20220720preview:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20220801:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20240101:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:videoindexer:Account',

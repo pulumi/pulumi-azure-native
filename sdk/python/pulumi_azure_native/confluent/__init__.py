@@ -6,6 +6,12 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_organization import *
+from .list_access_clusters import *
+from .list_access_environments import *
+from .list_access_invitations import *
+from .list_access_role_bindings import *
+from .list_access_service_accounts import *
+from .list_access_users import *
 from .organization import *
 from ._inputs import *
 from . import outputs
@@ -16,7 +22,10 @@ if typing.TYPE_CHECKING:
     v20200301preview = __v20200301preview
     import pulumi_azure_native.confluent.v20211201 as __v20211201
     v20211201 = __v20211201
+    import pulumi_azure_native.confluent.v20230822 as __v20230822
+    v20230822 = __v20230822
 else:
     v20200301preview = _utilities.lazy_import('pulumi_azure_native.confluent.v20200301preview')
     v20211201 = _utilities.lazy_import('pulumi_azure_native.confluent.v20211201')
+    v20230822 = _utilities.lazy_import('pulumi_azure_native.confluent.v20230822')
 

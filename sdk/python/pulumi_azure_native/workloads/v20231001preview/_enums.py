@@ -5,12 +5,19 @@
 from enum import Enum
 
 __all__ = [
+    'BackupType',
     'ConfigurationType',
+    'DayOfWeek',
     'DiskSkuName',
+    'IAASVMPolicyType',
     'ManagedResourcesNetworkAccessType',
     'ManagedServiceIdentityType',
+    'MonthOfYear',
     'NamingPatternType',
     'OSType',
+    'PolicyType',
+    'RetentionDurationType',
+    'RetentionScheduleFormat',
     'SAPConfigurationType',
     'SAPDatabaseScaleMethod',
     'SAPDatabaseType',
@@ -19,7 +26,22 @@ __all__ = [
     'SAPHighAvailabilityType',
     'SAPProductType',
     'SAPSoftwareInstallationType',
+    'ScheduleRunType',
+    'SslCryptoProvider',
+    'TieringMode',
+    'VaultType',
+    'WeekOfMonth',
+    'WorkloadType',
 ]
+
+
+class BackupType(str, Enum):
+    """
+    The type of backup, VM, SQL or HANA.
+    """
+    VM = "VM"
+    SQL = "SQL"
+    HANA = "HANA"
 
 
 class ConfigurationType(str, Enum):
@@ -29,6 +51,16 @@ class ConfigurationType(str, Enum):
     SKIP = "Skip"
     CREATE_AND_MOUNT = "CreateAndMount"
     MOUNT = "Mount"
+
+
+class DayOfWeek(str, Enum):
+    SUNDAY = "Sunday"
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
 
 
 class DiskSkuName(str, Enum):
@@ -42,6 +74,15 @@ class DiskSkuName(str, Enum):
     PREMIUM_ZRS = "Premium_ZRS"
     STANDARD_SS_D_ZRS = "StandardSSD_ZRS"
     PREMIUM_V2_LRS = "PremiumV2_LRS"
+
+
+class IAASVMPolicyType(str, Enum):
+    """
+    The policy type.
+    """
+    INVALID = "Invalid"
+    V1 = "V1"
+    V2 = "V2"
 
 
 class ManagedResourcesNetworkAccessType(str, Enum):
@@ -60,6 +101,22 @@ class ManagedServiceIdentityType(str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+class MonthOfYear(str, Enum):
+    INVALID = "Invalid"
+    JANUARY = "January"
+    FEBRUARY = "February"
+    MARCH = "March"
+    APRIL = "April"
+    MAY = "May"
+    JUNE = "June"
+    JULY = "July"
+    AUGUST = "August"
+    SEPTEMBER = "September"
+    OCTOBER = "October"
+    NOVEMBER = "November"
+    DECEMBER = "December"
+
+
 class NamingPatternType(str, Enum):
     """
     The pattern type to be used for resource naming.
@@ -73,6 +130,41 @@ class OSType(str, Enum):
     """
     LINUX = "Linux"
     WINDOWS = "Windows"
+
+
+class PolicyType(str, Enum):
+    """
+    Type of backup policy type
+    """
+    INVALID = "Invalid"
+    FULL = "Full"
+    DIFFERENTIAL = "Differential"
+    LOG = "Log"
+    COPY_ONLY_FULL = "CopyOnlyFull"
+    INCREMENTAL = "Incremental"
+    SNAPSHOT_FULL = "SnapshotFull"
+    SNAPSHOT_COPY_ONLY_FULL = "SnapshotCopyOnlyFull"
+
+
+class RetentionDurationType(str, Enum):
+    """
+    Retention duration type: days/weeks/months/years
+    Used only if TieringMode is set to TierAfter
+    """
+    INVALID = "Invalid"
+    DAYS = "Days"
+    WEEKS = "Weeks"
+    MONTHS = "Months"
+    YEARS = "Years"
+
+
+class RetentionScheduleFormat(str, Enum):
+    """
+    Retention schedule format for yearly retention policy.
+    """
+    INVALID = "Invalid"
+    DAILY = "Daily"
+    WEEKLY = "Weekly"
 
 
 class SAPConfigurationType(str, Enum):
@@ -139,3 +231,73 @@ class SAPSoftwareInstallationType(str, Enum):
     SERVICE_INITIATED = "ServiceInitiated"
     SAP_INSTALL_WITHOUT_OS_CONFIG = "SAPInstallWithoutOSConfig"
     EXTERNAL = "External"
+
+
+class ScheduleRunType(str, Enum):
+    """
+    Frequency of the schedule operation of this policy.
+    """
+    INVALID = "Invalid"
+    DAILY = "Daily"
+    WEEKLY = "Weekly"
+    HOURLY = "Hourly"
+
+
+class SslCryptoProvider(str, Enum):
+    """
+    Specify the crypto provider being used (commoncrypto/openssl). If this argument is not provided, it is automatically determined by searching in the configuration files.
+    """
+    COMMONCRYPTO = "commoncrypto"
+    OPENSSL = "openssl"
+
+
+class TieringMode(str, Enum):
+    """
+    Tiering Mode to control automatic tiering of recovery points. Supported values are:
+    1. TierRecommended: Tier all recovery points recommended to be tiered
+    2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+    3. DoNotTier: Do not tier any recovery points
+    """
+    INVALID = "Invalid"
+    TIER_RECOMMENDED = "TierRecommended"
+    TIER_AFTER = "TierAfter"
+    DO_NOT_TIER = "DoNotTier"
+
+
+class VaultType(str, Enum):
+    """
+    The vault type, whether it is existing or has to be created.
+    """
+    EXISTING = "Existing"
+    NEW = "New"
+
+
+class WeekOfMonth(str, Enum):
+    FIRST = "First"
+    SECOND = "Second"
+    THIRD = "Third"
+    FOURTH = "Fourth"
+    LAST = "Last"
+    INVALID = "Invalid"
+
+
+class WorkloadType(str, Enum):
+    """
+    Type of workload for the backup management
+    """
+    INVALID = "Invalid"
+    VM = "VM"
+    FILE_FOLDER = "FileFolder"
+    AZURE_SQL_DB = "AzureSqlDb"
+    SQLDB = "SQLDB"
+    EXCHANGE = "Exchange"
+    SHAREPOINT = "Sharepoint"
+    V_MWARE_VM = "VMwareVM"
+    SYSTEM_STATE = "SystemState"
+    CLIENT = "Client"
+    GENERIC_DATA_SOURCE = "GenericDataSource"
+    SQL_DATA_BASE = "SQLDataBase"
+    AZURE_FILE_SHARE = "AzureFileShare"
+    SAP_HANA_DATABASE = "SAPHanaDatabase"
+    SAPASE_DATABASE = "SAPAseDatabase"
+    SAP_HANA_DB_INSTANCE = "SAPHanaDBInstance"

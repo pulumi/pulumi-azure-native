@@ -10,6 +10,36 @@ export const getOrganization: typeof import("./getOrganization").getOrganization
 export const getOrganizationOutput: typeof import("./getOrganization").getOrganizationOutput = null as any;
 utilities.lazyLoad(exports, ["getOrganization","getOrganizationOutput"], () => require("./getOrganization"));
 
+export { ListAccessClustersArgs, ListAccessClustersResult, ListAccessClustersOutputArgs } from "./listAccessClusters";
+export const listAccessClusters: typeof import("./listAccessClusters").listAccessClusters = null as any;
+export const listAccessClustersOutput: typeof import("./listAccessClusters").listAccessClustersOutput = null as any;
+utilities.lazyLoad(exports, ["listAccessClusters","listAccessClustersOutput"], () => require("./listAccessClusters"));
+
+export { ListAccessEnvironmentsArgs, ListAccessEnvironmentsResult, ListAccessEnvironmentsOutputArgs } from "./listAccessEnvironments";
+export const listAccessEnvironments: typeof import("./listAccessEnvironments").listAccessEnvironments = null as any;
+export const listAccessEnvironmentsOutput: typeof import("./listAccessEnvironments").listAccessEnvironmentsOutput = null as any;
+utilities.lazyLoad(exports, ["listAccessEnvironments","listAccessEnvironmentsOutput"], () => require("./listAccessEnvironments"));
+
+export { ListAccessInvitationsArgs, ListAccessInvitationsResult, ListAccessInvitationsOutputArgs } from "./listAccessInvitations";
+export const listAccessInvitations: typeof import("./listAccessInvitations").listAccessInvitations = null as any;
+export const listAccessInvitationsOutput: typeof import("./listAccessInvitations").listAccessInvitationsOutput = null as any;
+utilities.lazyLoad(exports, ["listAccessInvitations","listAccessInvitationsOutput"], () => require("./listAccessInvitations"));
+
+export { ListAccessRoleBindingsArgs, ListAccessRoleBindingsResult, ListAccessRoleBindingsOutputArgs } from "./listAccessRoleBindings";
+export const listAccessRoleBindings: typeof import("./listAccessRoleBindings").listAccessRoleBindings = null as any;
+export const listAccessRoleBindingsOutput: typeof import("./listAccessRoleBindings").listAccessRoleBindingsOutput = null as any;
+utilities.lazyLoad(exports, ["listAccessRoleBindings","listAccessRoleBindingsOutput"], () => require("./listAccessRoleBindings"));
+
+export { ListAccessServiceAccountsArgs, ListAccessServiceAccountsResult, ListAccessServiceAccountsOutputArgs } from "./listAccessServiceAccounts";
+export const listAccessServiceAccounts: typeof import("./listAccessServiceAccounts").listAccessServiceAccounts = null as any;
+export const listAccessServiceAccountsOutput: typeof import("./listAccessServiceAccounts").listAccessServiceAccountsOutput = null as any;
+utilities.lazyLoad(exports, ["listAccessServiceAccounts","listAccessServiceAccountsOutput"], () => require("./listAccessServiceAccounts"));
+
+export { ListAccessUsersArgs, ListAccessUsersResult, ListAccessUsersOutputArgs } from "./listAccessUsers";
+export const listAccessUsers: typeof import("./listAccessUsers").listAccessUsers = null as any;
+export const listAccessUsersOutput: typeof import("./listAccessUsers").listAccessUsersOutput = null as any;
+utilities.lazyLoad(exports, ["listAccessUsers","listAccessUsersOutput"], () => require("./listAccessUsers"));
+
 export { OrganizationArgs } from "./organization";
 export type Organization = import("./organization").Organization;
 export const Organization: typeof import("./organization").Organization = null as any;
@@ -19,10 +49,12 @@ utilities.lazyLoad(exports, ["Organization"], () => require("./organization"));
 // Export sub-modules:
 import * as v20200301preview from "./v20200301preview";
 import * as v20211201 from "./v20211201";
+import * as v20230822 from "./v20230822";
 
 export {
     v20200301preview,
     v20211201,
+    v20230822,
 };
 
 const _module = {
