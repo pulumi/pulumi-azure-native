@@ -62,6 +62,8 @@ def list_account_sas(account_name: Optional[str] = None,
     2. Create or update an Azure Map account with the same Azure region as the User Assigned Managed Identity is placed.
        Azure REST API version: 2021-12-01-preview.
 
+    Other available API versions: 2023-06-01.
+
 
     :param str account_name: The name of the Maps Account.
     :param str expiry: The date time offset of when the token validity expires. For example "2017-05-24T10:42:03.1567373Z"
@@ -105,6 +107,8 @@ def list_account_sas_output(account_name: Optional[pulumi.Input[str]] = None,
     1. Create or have an existing User Assigned Managed Identity in the same Azure region as the account.
     2. Create or update an Azure Map account with the same Azure region as the User Assigned Managed Identity is placed.
        Azure REST API version: 2021-12-01-preview.
+
+    Other available API versions: 2023-06-01.
 
 
     :param str account_name: The name of the Maps Account.

@@ -149,6 +149,8 @@ def get_slice(mobile_network_name: Optional[str] = None,
     Gets information about the specified network slice.
     Azure REST API version: 2023-06-01.
 
+    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
+
 
     :param str mobile_network_name: The name of the mobile network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -181,6 +183,8 @@ def get_slice_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about the specified network slice.
     Azure REST API version: 2023-06-01.
+
+    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
 
 
     :param str mobile_network_name: The name of the mobile network.

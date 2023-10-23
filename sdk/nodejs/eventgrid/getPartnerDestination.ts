@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get properties of a partner destination.
  * Azure REST API version: 2023-06-01-preview.
+ *
+ * Other available API versions: 2021-10-15-preview.
  */
 export function getPartnerDestination(args: GetPartnerDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerDestinationResult> {
 
@@ -92,6 +94,8 @@ export interface GetPartnerDestinationResult {
 /**
  * Get properties of a partner destination.
  * Azure REST API version: 2023-06-01-preview.
+ *
+ * Other available API versions: 2021-10-15-preview.
  */
 export function getPartnerDestinationOutput(args: GetPartnerDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerDestinationResult> {
     return pulumi.output(args).apply((a: any) => getPartnerDestination(a, opts))

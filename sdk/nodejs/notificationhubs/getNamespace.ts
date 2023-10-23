@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Notification Hubs Namespace Resource.
  * Azure REST API version: 2023-01-01-preview.
+ *
+ * Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
 
@@ -71,6 +73,8 @@ export interface GetNamespaceResult {
 /**
  * Notification Hubs Namespace Resource.
  * Azure REST API version: 2023-01-01-preview.
+ *
+ * Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getNamespace(a, opts))

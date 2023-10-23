@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Dapr component Secrets Collection for ListSecrets Action.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
         /// </summary>
         public static Task<ListDaprComponentSecretsResult> InvokeAsync(ListDaprComponentSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDaprComponentSecretsResult>("azure-native:app:listDaprComponentSecrets", args ?? new ListDaprComponentSecretsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Dapr component Secrets Collection for ListSecrets Action.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
         /// </summary>
         public static Output<ListDaprComponentSecretsResult> Invoke(ListDaprComponentSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDaprComponentSecretsResult>("azure-native:app:listDaprComponentSecrets", args ?? new ListDaprComponentSecretsInvokeArgs(), options.WithDefaults());

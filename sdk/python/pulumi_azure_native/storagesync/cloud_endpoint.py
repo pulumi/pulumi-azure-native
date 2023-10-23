@@ -161,7 +161,9 @@ class CloudEndpoint(pulumi.CustomResource):
                  __props__=None):
         """
         Cloud Endpoint object.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01
+        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
+
+        Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2018-10-01, 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,7 +184,9 @@ class CloudEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cloud Endpoint object.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01
+        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
+
+        Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2018-10-01, 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param CloudEndpointArgs args: The arguments to use to populate this resource's properties.

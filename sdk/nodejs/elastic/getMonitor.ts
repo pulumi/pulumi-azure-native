@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Monitor resource.
  * Azure REST API version: 2023-06-01.
+ *
+ * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
 
@@ -75,6 +77,8 @@ export interface GetMonitorResult {
 /**
  * Monitor resource.
  * Azure REST API version: 2023-06-01.
+ *
+ * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
  */
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
     return pulumi.output(args).apply((a: any) => getMonitor(a, opts))

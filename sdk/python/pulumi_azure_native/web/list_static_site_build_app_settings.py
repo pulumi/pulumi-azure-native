@@ -100,6 +100,8 @@ def list_static_site_build_app_settings(environment_name: Optional[str] = None,
     Description for Gets the application settings of a static site build.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2021-02-01.
+
 
     :param str environment_name: The stage site identifier.
     :param str name: Name of the static site.
@@ -128,6 +130,8 @@ def list_static_site_build_app_settings_output(environment_name: Optional[pulumi
     """
     Description for Gets the application settings of a static site build.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2021-02-01.
 
 
     :param str environment_name: The stage site identifier.

@@ -353,6 +353,8 @@ def get_app_service_environment(name: Optional[str] = None,
     Description for Get the properties of an App Service Environment.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15.
+
 
     :param str name: Name of the App Service Environment.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
@@ -399,6 +401,8 @@ def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
     """
     Description for Get the properties of an App Service Environment.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15.
 
 
     :param str name: Name of the App Service Environment.

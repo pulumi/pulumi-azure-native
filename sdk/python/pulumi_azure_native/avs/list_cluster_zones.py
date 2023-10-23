@@ -53,6 +53,8 @@ def list_cluster_zones(cluster_name: Optional[str] = None,
     List of all zones and associated hosts for a cluster
     Azure REST API version: 2022-05-01.
 
+    Other available API versions: 2023-03-01.
+
 
     :param str cluster_name: Name of the cluster in the private cloud
     :param str private_cloud_name: Name of the private cloud
@@ -77,6 +79,8 @@ def list_cluster_zones_output(cluster_name: Optional[pulumi.Input[str]] = None,
     """
     List of all zones and associated hosts for a cluster
     Azure REST API version: 2022-05-01.
+
+    Other available API versions: 2023-03-01.
 
 
     :param str cluster_name: Name of the cluster in the private cloud

@@ -111,6 +111,8 @@ def get_hierarchy_setting(group_id: Optional[str] = None,
 
     Azure REST API version: 2021-04-01.
 
+    Other available API versions: 2023-04-01.
+
 
     :param str group_id: Management Group ID.
     """
@@ -135,6 +137,8 @@ def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[str]] = None,
     Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
 
     Azure REST API version: 2021-04-01.
+
+    Other available API versions: 2023-04-01.
 
 
     :param str group_id: Management Group ID.

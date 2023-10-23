@@ -112,6 +112,8 @@ def get_ip_firewall_rule(resource_group_name: Optional[str] = None,
     Get a firewall rule
     Azure REST API version: 2021-06-01.
 
+    Other available API versions: 2021-06-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The IP firewall rule name
@@ -141,6 +143,8 @@ def get_ip_firewall_rule_output(resource_group_name: Optional[pulumi.Input[str]]
     """
     Get a firewall rule
     Azure REST API version: 2021-06-01.
+
+    Other available API versions: 2021-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

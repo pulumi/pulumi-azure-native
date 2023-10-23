@@ -102,6 +102,8 @@ def get_replication_recovery_services_provider(fabric_name: Optional[str] = None
     Gets the details of registered recovery services provider.
     Azure REST API version: 2023-04-01.
 
+    Other available API versions: 2023-06-01.
+
 
     :param str fabric_name: Fabric name.
     :param str provider_name: Recovery services provider name.
@@ -133,6 +135,8 @@ def get_replication_recovery_services_provider_output(fabric_name: Optional[pulu
     """
     Gets the details of registered recovery services provider.
     Azure REST API version: 2023-04-01.
+
+    Other available API versions: 2023-06-01.
 
 
     :param str fabric_name: Fabric name.

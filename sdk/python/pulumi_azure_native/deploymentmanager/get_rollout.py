@@ -209,6 +209,8 @@ def get_rollout(resource_group_name: Optional[str] = None,
     Defines the PUT rollout request body.
     Azure REST API version: 2019-11-01-preview.
 
+    Other available API versions: 2018-09-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param int retry_attempt: Rollout retry attempt ordinal to get the result of. If not specified, result of the latest attempt will be returned.
@@ -246,6 +248,8 @@ def get_rollout_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Defines the PUT rollout request body.
     Azure REST API version: 2019-11-01-preview.
+
+    Other available API versions: 2018-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets information about an azure ad administrator.
  * Azure REST API version: 2022-01-01.
+ *
+ * Other available API versions: 2023-06-01-preview.
  */
 export function getAzureADAdministrator(args: GetAzureADAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureADAdministratorResult> {
 
@@ -80,6 +82,8 @@ export interface GetAzureADAdministratorResult {
 /**
  * Gets information about an azure ad administrator.
  * Azure REST API version: 2022-01-01.
+ *
+ * Other available API versions: 2023-06-01-preview.
  */
 export function getAzureADAdministratorOutput(args: GetAzureADAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureADAdministratorResult> {
     return pulumi.output(args).apply((a: any) => getAzureADAdministrator(a, opts))

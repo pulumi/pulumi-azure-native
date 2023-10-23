@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.ContainerService
     /// <summary>
     /// The Fleet resource.
     /// Azure REST API version: 2023-03-15-preview.
+    /// 
+    /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource

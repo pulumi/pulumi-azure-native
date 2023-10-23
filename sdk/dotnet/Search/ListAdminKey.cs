@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Search
         /// <summary>
         /// Gets the primary and secondary admin API keys for the specified Azure Cognitive Search service.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2015-02-28, 2021-04-01-preview, 2023-11-01.
         /// </summary>
         public static Task<ListAdminKeyResult> InvokeAsync(ListAdminKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAdminKeyResult>("azure-native:search:listAdminKey", args ?? new ListAdminKeyArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Search
         /// <summary>
         /// Gets the primary and secondary admin API keys for the specified Azure Cognitive Search service.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2015-02-28, 2021-04-01-preview, 2023-11-01.
         /// </summary>
         public static Output<ListAdminKeyResult> Invoke(ListAdminKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAdminKeyResult>("azure-native:search:listAdminKey", args ?? new ListAdminKeyInvokeArgs(), options.WithDefaults());

@@ -149,6 +149,8 @@ def get_proactive_detection_configuration(configuration_id: Optional[str] = None
     Get the ProactiveDetection configuration for this configuration id.
     Azure REST API version: 2018-05-01-preview.
 
+    Other available API versions: 2015-05-01.
+
 
     :param str configuration_id: The ProactiveDetection configuration ID. This is unique within a Application Insights component.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -181,6 +183,8 @@ def get_proactive_detection_configuration_output(configuration_id: Optional[pulu
     """
     Get the ProactiveDetection configuration for this configuration id.
     Azure REST API version: 2018-05-01-preview.
+
+    Other available API versions: 2015-05-01.
 
 
     :param str configuration_id: The ProactiveDetection configuration ID. This is unique within a Application Insights component.

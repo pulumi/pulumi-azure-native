@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Description of the WCF relay resource.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01.
+ *
+ * Other available API versions: 2016-07-01.
  */
 export class WCFRelay extends pulumi.CustomResource {
     /**

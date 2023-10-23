@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
     /// The private endpoint connection resource.
-    /// Azure REST API version: 2022-11-08. Prior API version in Azure Native 1.x: 2018-06-01
+    /// Azure REST API version: 2022-11-08. Prior API version in Azure Native 1.x: 2018-06-01.
+    /// 
+    /// Other available API versions: 2018-06-01-privatepreview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

@@ -110,7 +110,7 @@ class AccessControlRecord(pulumi.CustomResource):
                  __props__=None):
         """
         The access control record.
-        Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01
+        Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +128,7 @@ class AccessControlRecord(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The access control record.
-        Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01
+        Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
 
         :param str resource_name: The name of the resource.
         :param AccessControlRecordArgs args: The arguments to use to populate this resource's properties.

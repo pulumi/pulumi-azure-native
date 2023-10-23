@@ -208,6 +208,8 @@ def get_custom_location(resource_group_name: Optional[str] = None,
     Gets the details of the customLocation with a specified resource group and name.
     Azure REST API version: 2021-08-15.
 
+    Other available API versions: 2021-08-31-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: Custom Locations name.
@@ -242,6 +244,8 @@ def get_custom_location_output(resource_group_name: Optional[pulumi.Input[str]] 
     """
     Gets the details of the customLocation with a specified resource group and name.
     Azure REST API version: 2021-08-15.
+
+    Other available API versions: 2021-08-31-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

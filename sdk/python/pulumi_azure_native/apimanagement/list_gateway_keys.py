@@ -64,6 +64,8 @@ def list_gateway_keys(gateway_id: Optional[str] = None,
     Retrieves gateway keys.
     Azure REST API version: 2022-08-01.
 
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -89,6 +91,8 @@ def list_gateway_keys_output(gateway_id: Optional[pulumi.Input[str]] = None,
     """
     Retrieves gateway keys.
     Azure REST API version: 2022-08-01.
+
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'

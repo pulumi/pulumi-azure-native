@@ -147,7 +147,7 @@ class ProfessionalServiceSubscriptionLevel(pulumi.CustomResource):
                  __props__=None):
         """
         ProfessionalService REST API resource definition.
-        Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 1.x: 2023-07-01-preview
+        Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 1.x: 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,7 +167,7 @@ class ProfessionalServiceSubscriptionLevel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ProfessionalService REST API resource definition.
-        Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 1.x: 2023-07-01-preview
+        Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 1.x: 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ProfessionalServiceSubscriptionLevelArgs args: The arguments to use to populate this resource's properties.

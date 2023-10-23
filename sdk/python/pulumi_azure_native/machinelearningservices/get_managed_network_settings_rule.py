@@ -101,6 +101,8 @@ def get_managed_network_settings_rule(resource_group_name: Optional[str] = None,
     Gets an outbound rule from the managed network of a machine learning workspace.
     Azure REST API version: 2023-04-01-preview.
 
+    Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: Name of the workspace managed network outbound rule
@@ -129,6 +131,8 @@ def get_managed_network_settings_rule_output(resource_group_name: Optional[pulum
     """
     Gets an outbound rule from the managed network of a machine learning workspace.
     Azure REST API version: 2023-04-01-preview.
+
+    Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

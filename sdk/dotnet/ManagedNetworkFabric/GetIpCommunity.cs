@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Implements an IP Community GET method.
         /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-15.
         /// </summary>
         public static Task<GetIpCommunityResult> InvokeAsync(GetIpCommunityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpCommunityResult>("azure-native:managednetworkfabric:getIpCommunity", args ?? new GetIpCommunityArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Implements an IP Community GET method.
         /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-15.
         /// </summary>
         public static Output<GetIpCommunityResult> Invoke(GetIpCommunityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpCommunityResult>("azure-native:managednetworkfabric:getIpCommunity", args ?? new GetIpCommunityInvokeArgs(), options.WithDefaults());

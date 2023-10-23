@@ -102,6 +102,8 @@ def get_gateway_custom_domain(domain_name: Optional[str] = None,
     Get the Spring Cloud Gateway custom domain.
     Azure REST API version: 2023-05-01-preview.
 
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
 
     :param str domain_name: The name of the Spring Cloud Gateway custom domain.
     :param str gateway_name: The name of Spring Cloud Gateway.
@@ -133,6 +135,8 @@ def get_gateway_custom_domain_output(domain_name: Optional[pulumi.Input[str]] = 
     """
     Get the Spring Cloud Gateway custom domain.
     Azure REST API version: 2023-05-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str domain_name: The name of the Spring Cloud Gateway custom domain.

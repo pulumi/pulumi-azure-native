@@ -241,6 +241,8 @@ def get_l2_network(l2_network_name: Optional[str] = None,
     Get properties of the provided layer 2 (L2) network.
     Azure REST API version: 2023-05-01-preview.
 
+    Other available API versions: 2023-07-01.
+
 
     :param str l2_network_name: The name of the L2 network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -278,6 +280,8 @@ def get_l2_network_output(l2_network_name: Optional[pulumi.Input[str]] = None,
     """
     Get properties of the provided layer 2 (L2) network.
     Azure REST API version: 2023-05-01-preview.
+
+    Other available API versions: 2023-07-01.
 
 
     :param str l2_network_name: The name of the L2 network.

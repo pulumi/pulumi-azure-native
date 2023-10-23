@@ -160,6 +160,8 @@ def get_ip_extended_community(ip_extended_community_name: Optional[str] = None,
     Implements IP Extended Community GET method.
     Azure REST API version: 2023-02-01-preview.
 
+    Other available API versions: 2023-06-15.
+
 
     :param str ip_extended_community_name: Name of the IP Extended Community
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -190,6 +192,8 @@ def get_ip_extended_community_output(ip_extended_community_name: Optional[pulumi
     """
     Implements IP Extended Community GET method.
     Azure REST API version: 2023-02-01-preview.
+
+    Other available API versions: 2023-06-15.
 
 
     :param str ip_extended_community_name: Name of the IP Extended Community

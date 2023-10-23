@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a devcenter.
  * Azure REST API version: 2023-04-01.
+ *
+ * Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
  */
 export function getDevCenter(args: GetDevCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetDevCenterResult> {
 
@@ -75,6 +77,8 @@ export interface GetDevCenterResult {
 /**
  * Gets a devcenter.
  * Azure REST API version: 2023-04-01.
+ *
+ * Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
  */
 export function getDevCenterOutput(args: GetDevCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevCenterResult> {
     return pulumi.output(args).apply((a: any) => getDevCenter(a, opts))

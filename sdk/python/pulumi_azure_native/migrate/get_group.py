@@ -101,6 +101,8 @@ def get_group(group_name: Optional[str] = None,
     Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
     Azure REST API version: 2019-10-01.
 
+    Other available API versions: 2018-02-02.
+
 
     :param str group_name: Unique name of a group within a project.
     :param str project_name: Name of the Azure Migrate project.
@@ -129,6 +131,8 @@ def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
     """
     Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
     Azure REST API version: 2019-10-01.
+
+    Other available API versions: 2018-02-02.
 
 
     :param str group_name: Unique name of a group within a project.

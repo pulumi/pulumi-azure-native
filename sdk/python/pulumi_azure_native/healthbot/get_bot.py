@@ -148,6 +148,8 @@ def get_bot(bot_name: Optional[str] = None,
     Get a HealthBot.
     Azure REST API version: 2023-05-01.
 
+    Other available API versions: 2020-12-08-preview.
+
 
     :param str bot_name: The name of the Bot resource.
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
@@ -177,6 +179,8 @@ def get_bot_output(bot_name: Optional[pulumi.Input[str]] = None,
     """
     Get a HealthBot.
     Azure REST API version: 2023-05-01.
+
+    Other available API versions: 2020-12-08-preview.
 
 
     :param str bot_name: The name of the Bot resource.

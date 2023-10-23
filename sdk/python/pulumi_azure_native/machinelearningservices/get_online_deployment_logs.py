@@ -52,6 +52,8 @@ def get_online_deployment_logs(container_type: Optional[Union[str, 'ContainerTyp
     """
     Azure REST API version: 2023-04-01.
 
+    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
 
     :param Union[str, 'ContainerType'] container_type: The type of container to retrieve logs from.
     :param str deployment_name: The name and identifier for the endpoint.
@@ -84,6 +86,8 @@ def get_online_deployment_logs_output(container_type: Optional[pulumi.Input[Opti
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOnlineDeploymentLogsResult]:
     """
     Azure REST API version: 2023-04-01.
+
+    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param Union[str, 'ContainerType'] container_type: The type of container to retrieve logs from.

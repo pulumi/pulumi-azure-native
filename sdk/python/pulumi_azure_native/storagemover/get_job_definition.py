@@ -258,6 +258,8 @@ def get_job_definition(job_definition_name: Optional[str] = None,
     Gets a Job Definition resource.
     Azure REST API version: 2023-03-01.
 
+    Other available API versions: 2023-07-01-preview, 2023-10-01.
+
 
     :param str job_definition_name: The name of the Job Definition resource.
     :param str project_name: The name of the Project resource.
@@ -302,6 +304,8 @@ def get_job_definition_output(job_definition_name: Optional[pulumi.Input[str]] =
     """
     Gets a Job Definition resource.
     Azure REST API version: 2023-03-01.
+
+    Other available API versions: 2023-07-01-preview, 2023-10-01.
 
 
     :param str job_definition_name: The name of the Job Definition resource.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Relay
 {
     /// <summary>
     /// Description of a namespace resource.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:relay:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource

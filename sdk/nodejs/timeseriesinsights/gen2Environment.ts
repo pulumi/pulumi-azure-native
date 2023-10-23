@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
- * Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15
+ * Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
  */
 export class Gen2Environment extends pulumi.CustomResource {
     /**

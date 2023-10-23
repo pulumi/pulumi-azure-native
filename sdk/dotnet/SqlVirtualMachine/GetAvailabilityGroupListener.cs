@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// <summary>
         /// Gets an availability group listener.
         /// Azure REST API version: 2022-02-01.
+        /// 
+        /// Other available API versions: 2023-01-01-preview.
         /// </summary>
         public static Task<GetAvailabilityGroupListenerResult> InvokeAsync(GetAvailabilityGroupListenerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityGroupListenerResult>("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// <summary>
         /// Gets an availability group listener.
         /// Azure REST API version: 2022-02-01.
+        /// 
+        /// Other available API versions: 2023-01-01-preview.
         /// </summary>
         public static Output<GetAvailabilityGroupListenerResult> Invoke(GetAvailabilityGroupListenerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilityGroupListenerResult>("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerInvokeArgs(), options.WithDefaults());

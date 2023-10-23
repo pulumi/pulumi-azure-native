@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Search
         /// <summary>
         /// Returns the list of query API keys for the given Azure Cognitive Search service.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2021-04-01-preview, 2023-11-01.
         /// </summary>
         public static Task<ListQueryKeyBySearchServiceResult> InvokeAsync(ListQueryKeyBySearchServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListQueryKeyBySearchServiceResult>("azure-native:search:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Search
         /// <summary>
         /// Returns the list of query API keys for the given Azure Cognitive Search service.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2021-04-01-preview, 2023-11-01.
         /// </summary>
         public static Output<ListQueryKeyBySearchServiceResult> Invoke(ListQueryKeyBySearchServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListQueryKeyBySearchServiceResult>("azure-native:search:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceInvokeArgs(), options.WithDefaults());

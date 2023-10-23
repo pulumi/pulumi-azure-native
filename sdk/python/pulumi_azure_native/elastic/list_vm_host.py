@@ -64,6 +64,8 @@ def list_vm_host(monitor_name: Optional[str] = None,
     Response of a list operation.
     Azure REST API version: 2023-06-01.
 
+    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
+
 
     :param str monitor_name: Monitor resource name
     :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
@@ -86,6 +88,8 @@ def list_vm_host_output(monitor_name: Optional[pulumi.Input[str]] = None,
     """
     Response of a list operation.
     Azure REST API version: 2023-06-01.
+
+    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name

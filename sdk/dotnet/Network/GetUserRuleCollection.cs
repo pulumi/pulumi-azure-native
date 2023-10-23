@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a network manager security user configuration rule collection.
         /// Azure REST API version: 2022-04-01-preview.
+        /// 
+        /// Other available API versions: 2021-02-01-preview, 2021-05-01-preview.
         /// </summary>
         public static Task<GetUserRuleCollectionResult> InvokeAsync(GetUserRuleCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserRuleCollectionResult>("azure-native:network:getUserRuleCollection", args ?? new GetUserRuleCollectionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a network manager security user configuration rule collection.
         /// Azure REST API version: 2022-04-01-preview.
+        /// 
+        /// Other available API versions: 2021-02-01-preview, 2021-05-01-preview.
         /// </summary>
         public static Output<GetUserRuleCollectionResult> Invoke(GetUserRuleCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserRuleCollectionResult>("azure-native:network:getUserRuleCollection", args ?? new GetUserRuleCollectionInvokeArgs(), options.WithDefaults());

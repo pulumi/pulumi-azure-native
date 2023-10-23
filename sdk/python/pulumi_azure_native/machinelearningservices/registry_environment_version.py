@@ -113,6 +113,8 @@ class RegistryEnvironmentVersion(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         Azure REST API version: 2023-04-01.
 
+        Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] environment_name: Container name.
@@ -130,6 +132,8 @@ class RegistryEnvironmentVersion(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
         Azure REST API version: 2023-04-01.
+
+        Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param RegistryEnvironmentVersionArgs args: The arguments to use to populate this resource's properties.

@@ -386,7 +386,9 @@ class VirtualMachine(pulumi.CustomResource):
                  vm_image_repository_credentials: Optional[pulumi.Input[pulumi.InputType['ImageRepositoryCredentialsArgs']]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+
+        Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -419,7 +421,9 @@ class VirtualMachine(pulumi.CustomResource):
                  args: VirtualMachineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+
+        Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.

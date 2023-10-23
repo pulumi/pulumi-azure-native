@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Single item in List or Get Migration Config operation
- * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
+ * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
+ *
+ * Other available API versions: 2022-10-01-preview.
  */
 export class MigrationConfig extends pulumi.CustomResource {
     /**

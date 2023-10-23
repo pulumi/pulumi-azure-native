@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Get function information by its ID for web site, or a deployment slot.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2016-08-01, 2020-10-01.
         /// </summary>
         public static Task<GetWebAppFunctionResult> InvokeAsync(GetWebAppFunctionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppFunctionResult>("azure-native:web:getWebAppFunction", args ?? new GetWebAppFunctionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Get function information by its ID for web site, or a deployment slot.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2016-08-01, 2020-10-01.
         /// </summary>
         public static Output<GetWebAppFunctionResult> Invoke(GetWebAppFunctionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppFunctionResult>("azure-native:web:getWebAppFunction", args ?? new GetWebAppFunctionInvokeArgs(), options.WithDefaults());

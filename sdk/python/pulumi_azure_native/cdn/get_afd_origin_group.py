@@ -170,6 +170,8 @@ def get_afd_origin_group(origin_group_name: Optional[str] = None,
     Gets an existing origin group within a profile.
     Azure REST API version: 2023-05-01.
 
+    Other available API versions: 2020-09-01, 2023-07-01-preview.
+
 
     :param str origin_group_name: Name of the origin group which is unique within the endpoint.
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
@@ -204,6 +206,8 @@ def get_afd_origin_group_output(origin_group_name: Optional[pulumi.Input[str]] =
     """
     Gets an existing origin group within a profile.
     Azure REST API version: 2023-05-01.
+
+    Other available API versions: 2020-09-01, 2023-07-01-preview.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the endpoint.

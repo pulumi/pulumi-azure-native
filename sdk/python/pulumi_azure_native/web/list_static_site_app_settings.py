@@ -99,6 +99,8 @@ def list_static_site_app_settings(name: Optional[str] = None,
     Description for Gets the application settings of a static site.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2021-02-01.
+
 
     :param str name: Name of the static site.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
@@ -124,6 +126,8 @@ def list_static_site_app_settings_output(name: Optional[pulumi.Input[str]] = Non
     """
     Description for Gets the application settings of a static site.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2021-02-01.
 
 
     :param str name: Name of the static site.

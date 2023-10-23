@@ -100,6 +100,8 @@ def get_workspace(resource_group_name: Optional[str] = None,
     Gets the details of the workspace specified by its identifier.
     Azure REST API version: 2022-09-01-preview.
 
+    Other available API versions: 2023-03-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
@@ -128,6 +130,8 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     """
     Gets the details of the workspace specified by its identifier.
     Azure REST API version: 2022-09-01-preview.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

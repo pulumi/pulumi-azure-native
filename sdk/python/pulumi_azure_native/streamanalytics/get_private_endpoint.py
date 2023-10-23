@@ -113,6 +113,8 @@ def get_private_endpoint(cluster_name: Optional[str] = None,
     Gets information about the specified Private Endpoint.
     Azure REST API version: 2020-03-01.
 
+    Other available API versions: 2020-03-01-preview.
+
 
     :param str cluster_name: The name of the cluster.
     :param str private_endpoint_name: The name of the private endpoint.
@@ -142,6 +144,8 @@ def get_private_endpoint_output(cluster_name: Optional[pulumi.Input[str]] = None
     """
     Gets information about the specified Private Endpoint.
     Azure REST API version: 2020-03-01.
+
+    Other available API versions: 2020-03-01-preview.
 
 
     :param str cluster_name: The name of the cluster.

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get properties of a domain topic.
  * Azure REST API version: 2022-06-15.
+ *
+ * Other available API versions: 2023-06-01-preview.
  */
 export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicResult> {
 
@@ -64,6 +66,8 @@ export interface GetDomainTopicResult {
 /**
  * Get properties of a domain topic.
  * Azure REST API version: 2022-06-15.
+ *
+ * Other available API versions: 2023-06-01-preview.
  */
 export function getDomainTopicOutput(args: GetDomainTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicResult> {
     return pulumi.output(args).apply((a: any) => getDomainTopic(a, opts))

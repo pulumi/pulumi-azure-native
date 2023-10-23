@@ -172,6 +172,8 @@ def get_spacecraft(resource_group_name: Optional[str] = None,
     Gets the specified spacecraft in a specified resource group.
     Azure REST API version: 2022-11-01.
 
+    Other available API versions: 2022-03-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str spacecraft_name: Spacecraft ID.
@@ -203,6 +205,8 @@ def get_spacecraft_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     """
     Gets the specified spacecraft in a specified resource group.
     Azure REST API version: 2022-11-01.
+
+    Other available API versions: 2022-03-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

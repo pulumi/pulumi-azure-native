@@ -232,6 +232,8 @@ def get_virtual_network(resource_group_name: Optional[str] = None,
     Implements virtual network GET method.
     Azure REST API version: 2022-07-15-preview.
 
+    Other available API versions: 2023-03-01-preview, 2023-10-01.
+
 
     :param str resource_group_name: The Resource Group Name.
     :param str virtual_network_name: Name of the virtual network resource.
@@ -268,6 +270,8 @@ def get_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] 
     """
     Implements virtual network GET method.
     Azure REST API version: 2022-07-15-preview.
+
+    Other available API versions: 2023-03-01-preview, 2023-10-01.
 
 
     :param str resource_group_name: The Resource Group Name.

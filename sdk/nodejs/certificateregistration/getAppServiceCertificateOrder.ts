@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Description for Get a certificate order.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2020-10-01.
  */
 export function getAppServiceCertificateOrder(args: GetAppServiceCertificateOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceCertificateOrderResult> {
 
@@ -143,6 +145,8 @@ export interface GetAppServiceCertificateOrderResult {
 /**
  * Description for Get a certificate order.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2020-10-01.
  */
 export function getAppServiceCertificateOrderOutput(args: GetAppServiceCertificateOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceCertificateOrderResult> {
     return pulumi.output(args).apply((a: any) => getAppServiceCertificateOrder(a, opts))

@@ -161,6 +161,8 @@ def get_integration_account_partner(integration_account_name: Optional[str] = No
     Gets an integration account partner.
     Azure REST API version: 2019-05-01.
 
+    Other available API versions: 2015-08-01-preview.
+
 
     :param str integration_account_name: The integration account name.
     :param str partner_name: The integration account partner name.
@@ -194,6 +196,8 @@ def get_integration_account_partner_output(integration_account_name: Optional[pu
     """
     Gets an integration account partner.
     Azure REST API version: 2019-05-01.
+
+    Other available API versions: 2015-08-01-preview.
 
 
     :param str integration_account_name: The integration account name.

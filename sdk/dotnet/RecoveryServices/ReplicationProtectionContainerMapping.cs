@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Protection container mapping object.
-    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10.
+    /// 
+    /// Other available API versions: 2023-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationProtectionContainerMapping")]
     public partial class ReplicationProtectionContainerMapping : global::Pulumi.CustomResource

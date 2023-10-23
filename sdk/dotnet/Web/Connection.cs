@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// API connection
-    /// Azure REST API version: 2016-06-01. Prior API version in Azure Native 1.x: 2016-06-01
+    /// Azure REST API version: 2016-06-01. Prior API version in Azure Native 1.x: 2016-06-01.
+    /// 
+    /// Other available API versions: 2015-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:Connection")]
     public partial class Connection : global::Pulumi.CustomResource

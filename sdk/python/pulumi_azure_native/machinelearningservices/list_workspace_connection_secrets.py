@@ -94,6 +94,8 @@ def list_workspace_connection_secrets(connection_name: Optional[str] = None,
     """
     Azure REST API version: 2023-06-01-preview.
 
+    Other available API versions: 2023-08-01-preview.
+
 
     :param str connection_name: Friendly name of the workspace connection
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -121,6 +123,8 @@ def list_workspace_connection_secrets_output(connection_name: Optional[pulumi.In
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceConnectionSecretsResult]:
     """
     Azure REST API version: 2023-06-01-preview.
+
+    Other available API versions: 2023-08-01-preview.
 
 
     :param str connection_name: Friendly name of the workspace connection

@@ -52,6 +52,8 @@ def get_virtual_network_gateway_learned_routes(resource_group_name: Optional[str
     This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_name: The name of the virtual network gateway.
@@ -73,6 +75,8 @@ def get_virtual_network_gateway_learned_routes_output(resource_group_name: Optio
     """
     This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01.
 
 
     :param str resource_group_name: The name of the resource group.

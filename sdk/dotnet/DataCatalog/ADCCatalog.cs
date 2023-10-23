@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataCatalog
 {
     /// <summary>
     /// Azure Data Catalog.
-    /// Azure REST API version: 2016-03-30. Prior API version in Azure Native 1.x: 2016-03-30
+    /// Azure REST API version: 2016-03-30. Prior API version in Azure Native 1.x: 2016-03-30.
     /// </summary>
     [AzureNativeResourceType("azure-native:datacatalog:ADCCatalog")]
     public partial class ADCCatalog : global::Pulumi.CustomResource

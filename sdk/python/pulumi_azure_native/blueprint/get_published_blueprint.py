@@ -173,6 +173,8 @@ def get_published_blueprint(blueprint_name: Optional[str] = None,
     Get a published version of a blueprint definition.
     Azure REST API version: 2018-11-01-preview.
 
+    Other available API versions: 2017-11-11-preview.
+
 
     :param str blueprint_name: Name of the blueprint definition.
     :param str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
@@ -207,6 +209,8 @@ def get_published_blueprint_output(blueprint_name: Optional[pulumi.Input[str]] =
     """
     Get a published version of a blueprint definition.
     Azure REST API version: 2018-11-01-preview.
+
+    Other available API versions: 2017-11-11-preview.
 
 
     :param str blueprint_name: Name of the blueprint definition.

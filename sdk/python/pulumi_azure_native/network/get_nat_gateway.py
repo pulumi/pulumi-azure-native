@@ -209,6 +209,8 @@ def get_nat_gateway(expand: Optional[str] = None,
     Gets the specified nat gateway in a specified resource group.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
+
 
     :param str expand: Expands referenced resources.
     :param str nat_gateway_name: The name of the nat gateway.
@@ -246,6 +248,8 @@ def get_nat_gateway_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Gets the specified nat gateway in a specified resource group.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
 
 
     :param str expand: Expands referenced resources.

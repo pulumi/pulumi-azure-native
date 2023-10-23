@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Response of a list operation.
  * Azure REST API version: 2022-06-01.
+ *
+ * Other available API versions: 2022-08-01, 2023-01-01.
  */
 export function listMonitorLinkedResources(args: ListMonitorLinkedResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorLinkedResourcesResult> {
 
@@ -47,6 +49,8 @@ export interface ListMonitorLinkedResourcesResult {
 /**
  * Response of a list operation.
  * Azure REST API version: 2022-06-01.
+ *
+ * Other available API versions: 2022-08-01, 2023-01-01.
  */
 export function listMonitorLinkedResourcesOutput(args: ListMonitorLinkedResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorLinkedResourcesResult> {
     return pulumi.output(args).apply((a: any) => listMonitorLinkedResources(a, opts))

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The preview of Virtual Machine Cloud Management from the Azure supports deploying and managing VMs on your Azure Stack Edge device from Azure Portal.
  * For more information, refer to: https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-virtual-machine-overview
  * By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
- * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
+ * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
  */
 export class CloudEdgeManagementRole extends pulumi.CustomResource {
     /**

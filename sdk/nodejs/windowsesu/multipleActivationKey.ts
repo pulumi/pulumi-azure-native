@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * MAK key details.
- * Azure REST API version: 2019-09-16-preview. Prior API version in Azure Native 1.x: 2019-09-16-preview
+ * Azure REST API version: 2019-09-16-preview. Prior API version in Azure Native 1.x: 2019-09-16-preview.
  */
 export class MultipleActivationKey extends pulumi.CustomResource {
     /**

@@ -77,6 +77,8 @@ def get_catalog_sync_error_details(catalog_name: Optional[str] = None,
     Gets catalog synchronization error details
     Azure REST API version: 2023-08-01-preview.
 
+    Other available API versions: 2023-10-01-preview.
+
 
     :param str catalog_name: The name of the Catalog.
     :param str dev_center_name: The name of the devcenter.
@@ -103,6 +105,8 @@ def get_catalog_sync_error_details_output(catalog_name: Optional[pulumi.Input[st
     """
     Gets catalog synchronization error details
     Azure REST API version: 2023-08-01-preview.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str catalog_name: The name of the Catalog.

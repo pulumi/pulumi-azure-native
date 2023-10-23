@@ -229,6 +229,8 @@ def get_cluster_manager(cluster_manager_name: Optional[str] = None,
     Get the properties of the provided cluster manager.
     Azure REST API version: 2023-05-01-preview.
 
+    Other available API versions: 2023-07-01.
+
 
     :param str cluster_manager_name: The name of the cluster manager.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -265,6 +267,8 @@ def get_cluster_manager_output(cluster_manager_name: Optional[pulumi.Input[str]]
     """
     Get the properties of the provided cluster manager.
     Azure REST API version: 2023-05-01-preview.
+
+    Other available API versions: 2023-07-01.
 
 
     :param str cluster_manager_name: The name of the cluster manager.

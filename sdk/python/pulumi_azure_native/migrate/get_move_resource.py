@@ -101,6 +101,8 @@ def get_move_resource(move_collection_name: Optional[str] = None,
     Gets the Move Resource.
     Azure REST API version: 2022-08-01.
 
+    Other available API versions: 2023-08-01.
+
 
     :param str move_collection_name: The Move Collection Name.
     :param str move_resource_name: The Move Resource Name.
@@ -129,6 +131,8 @@ def get_move_resource_output(move_collection_name: Optional[pulumi.Input[str]] =
     """
     Gets the Move Resource.
     Azure REST API version: 2022-08-01.
+
+    Other available API versions: 2023-08-01.
 
 
     :param str move_collection_name: The Move Collection Name.

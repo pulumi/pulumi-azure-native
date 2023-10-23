@@ -114,6 +114,8 @@ def get_workspace_policy_fragment(format: Optional[str] = None,
     Gets a policy fragment.
     Azure REST API version: 2022-09-01-preview.
 
+    Other available API versions: 2023-03-01-preview.
+
 
     :param str format: Policy fragment content format.
     :param str id: A resource identifier.
@@ -149,6 +151,8 @@ def get_workspace_policy_fragment_output(format: Optional[pulumi.Input[Optional[
     """
     Gets a policy fragment.
     Azure REST API version: 2022-09-01-preview.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param str format: Policy fragment content format.

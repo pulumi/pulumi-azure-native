@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// ArcSetting details.
-    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview
+    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
+    /// 
+    /// Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:ArcSetting")]
     public partial class ArcSetting : global::Pulumi.CustomResource

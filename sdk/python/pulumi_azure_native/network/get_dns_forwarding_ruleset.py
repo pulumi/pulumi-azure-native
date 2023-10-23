@@ -160,6 +160,8 @@ def get_dns_forwarding_ruleset(dns_forwarding_ruleset_name: Optional[str] = None
     Gets a DNS forwarding ruleset properties.
     Azure REST API version: 2022-07-01.
 
+    Other available API versions: 2020-04-01-preview.
+
 
     :param str dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -190,6 +192,8 @@ def get_dns_forwarding_ruleset_output(dns_forwarding_ruleset_name: Optional[pulu
     """
     Gets a DNS forwarding ruleset properties.
     Azure REST API version: 2022-07-01.
+
+    Other available API versions: 2020-04-01-preview.
 
 
     :param str dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.

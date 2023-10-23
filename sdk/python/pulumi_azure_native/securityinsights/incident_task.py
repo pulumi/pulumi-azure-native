@@ -175,6 +175,8 @@ class IncidentTask(pulumi.CustomResource):
         """
         Azure REST API version: 2023-06-01-preview.
 
+        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ClientInfoArgs']] created_by: Information on the client (user or application) that made some action
@@ -194,6 +196,8 @@ class IncidentTask(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure REST API version: 2023-06-01-preview.
+
+        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param IncidentTaskArgs args: The arguments to use to populate this resource's properties.

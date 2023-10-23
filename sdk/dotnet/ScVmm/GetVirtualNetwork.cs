@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Implements VirtualNetwork GET method.
         /// Azure REST API version: 2022-05-21-preview.
+        /// 
+        /// Other available API versions: 2023-04-01-preview.
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-native:scvmm:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Implements VirtualNetwork GET method.
         /// Azure REST API version: 2022-05-21-preview.
+        /// 
+        /// Other available API versions: 2023-04-01-preview.
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:scvmm:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());

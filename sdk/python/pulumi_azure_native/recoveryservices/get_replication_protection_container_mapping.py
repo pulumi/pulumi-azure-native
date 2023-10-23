@@ -103,6 +103,8 @@ def get_replication_protection_container_mapping(fabric_name: Optional[str] = No
     Gets the details of a protection container mapping.
     Azure REST API version: 2023-04-01.
 
+    Other available API versions: 2023-06-01.
+
 
     :param str fabric_name: Fabric name.
     :param str mapping_name: Protection Container mapping name.
@@ -137,6 +139,8 @@ def get_replication_protection_container_mapping_output(fabric_name: Optional[pu
     """
     Gets the details of a protection container mapping.
     Azure REST API version: 2023-04-01.
+
+    Other available API versions: 2023-06-01.
 
 
     :param str fabric_name: Fabric name.

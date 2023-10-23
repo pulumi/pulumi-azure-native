@@ -124,6 +124,8 @@ def get_vault(resource_group_name: Optional[str] = None,
     Gets the specified Azure key vault.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2018-02-14-preview, 2023-07-01.
+
 
     :param str resource_group_name: The name of the Resource Group to which the vault belongs.
     :param str vault_name: The name of the vault.
@@ -151,6 +153,8 @@ def get_vault_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the specified Azure key vault.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2018-02-14-preview, 2023-07-01.
 
 
     :param str resource_group_name: The name of the Resource Group to which the vault belongs.

@@ -238,7 +238,9 @@ class ServerDetails(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an instance of an Analysis Services resource.
-        Azure REST API version: 2017-08-01. Prior API version in Azure Native 1.x: 2017-08-01
+        Azure REST API version: 2017-08-01. Prior API version in Azure Native 1.x: 2017-08-01.
+
+        Other available API versions: 2017-08-01-beta.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -263,7 +265,9 @@ class ServerDetails(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an instance of an Analysis Services resource.
-        Azure REST API version: 2017-08-01. Prior API version in Azure Native 1.x: 2017-08-01
+        Azure REST API version: 2017-08-01. Prior API version in Azure Native 1.x: 2017-08-01.
+
+        Other available API versions: 2017-08-01-beta.
 
         :param str resource_name: The name of the resource.
         :param ServerDetailsArgs args: The arguments to use to populate this resource's properties.

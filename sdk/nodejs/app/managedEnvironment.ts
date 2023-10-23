@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * An environment for hosting container apps
- * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01
+ * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01.
+ *
+ * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
  */
 export class ManagedEnvironment extends pulumi.CustomResource {
     /**

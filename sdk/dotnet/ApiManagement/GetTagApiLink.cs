@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the API link for the tag.
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Task<GetTagApiLinkResult> InvokeAsync(GetTagApiLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagApiLinkResult>("azure-native:apimanagement:getTagApiLink", args ?? new GetTagApiLinkArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the API link for the tag.
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Output<GetTagApiLinkResult> Invoke(GetTagApiLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagApiLinkResult>("azure-native:apimanagement:getTagApiLink", args ?? new GetTagApiLinkInvokeArgs(), options.WithDefaults());

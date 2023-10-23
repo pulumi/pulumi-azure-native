@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// Returns an Application Insights component.
         /// Azure REST API version: 2020-02-02.
+        /// 
+        /// Other available API versions: 2020-02-02-preview.
         /// </summary>
         public static Task<GetComponentResult> InvokeAsync(GetComponentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("azure-native:insights:getComponent", args ?? new GetComponentArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// Returns an Application Insights component.
         /// Azure REST API version: 2020-02-02.
+        /// 
+        /// Other available API versions: 2020-02-02-preview.
         /// </summary>
         public static Output<GetComponentResult> Invoke(GetComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComponentResult>("azure-native:insights:getComponent", args ?? new GetComponentInvokeArgs(), options.WithDefaults());

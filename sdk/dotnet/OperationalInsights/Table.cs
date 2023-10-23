@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 {
     /// <summary>
     /// Workspace data table definition.
-    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
+    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:Table")]
     public partial class Table : global::Pulumi.CustomResource

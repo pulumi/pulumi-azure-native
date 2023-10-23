@@ -254,6 +254,8 @@ def list_web_app_backup_status_secrets_slot(backup_id: Optional[str] = None,
     Description for Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
+
 
     :param str backup_id: ID of backup.
     :param str backup_name: Name of the backup.
@@ -315,6 +317,8 @@ def list_web_app_backup_status_secrets_slot_output(backup_id: Optional[pulumi.In
     """
     Description for Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
 
 
     :param str backup_id: ID of backup.

@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Role Assignments
- * Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2020-10-01-preview
+ * Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2020-10-01-preview.
+ *
+ * Other available API versions: 2015-07-01, 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
  */
 export class RoleAssignment extends pulumi.CustomResource {
     /**

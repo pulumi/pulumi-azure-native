@@ -125,7 +125,9 @@ class Capability(pulumi.CustomResource):
                  __props__=None):
         """
         Model that represents a Capability resource.
-        Azure REST API version: 2023-04-15-preview. Prior API version in Azure Native 1.x: 2021-09-15-preview
+        Azure REST API version: 2023-04-15-preview. Prior API version in Azure Native 1.x: 2021-09-15-preview.
+
+        Other available API versions: 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +146,9 @@ class Capability(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Model that represents a Capability resource.
-        Azure REST API version: 2023-04-15-preview. Prior API version in Azure Native 1.x: 2021-09-15-preview
+        Azure REST API version: 2023-04-15-preview. Prior API version in Azure Native 1.x: 2021-09-15-preview.
+
+        Other available API versions: 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CapabilityArgs args: The arguments to use to populate this resource's properties.

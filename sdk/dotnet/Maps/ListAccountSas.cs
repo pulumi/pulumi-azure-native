@@ -18,6 +18,8 @@ namespace Pulumi.AzureNative.Maps
         /// 1. Create or have an existing User Assigned Managed Identity in the same Azure region as the account. 
         /// 2. Create or update an Azure Map account with the same Azure region as the User Assigned Managed Identity is placed.
         /// Azure REST API version: 2021-12-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-01.
         /// </summary>
         public static Task<ListAccountSasResult> InvokeAsync(ListAccountSasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccountSasResult>("azure-native:maps:listAccountSas", args ?? new ListAccountSasArgs(), options.WithDefaults());
@@ -29,6 +31,8 @@ namespace Pulumi.AzureNative.Maps
         /// 1. Create or have an existing User Assigned Managed Identity in the same Azure region as the account. 
         /// 2. Create or update an Azure Map account with the same Azure region as the User Assigned Managed Identity is placed.
         /// Azure REST API version: 2021-12-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-01.
         /// </summary>
         public static Output<ListAccountSasResult> Invoke(ListAccountSasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccountSasResult>("azure-native:maps:listAccountSas", args ?? new ListAccountSasInvokeArgs(), options.WithDefaults());

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the credentials for the specified cluster such as Storage, ACR and ACS credentials. This is a long running operation because it fetches keys from dependencies.
  * Azure REST API version: 2017-08-01-preview.
+ *
+ * Other available API versions: 2017-06-01-preview.
  */
 export function listOperationalizationClusterKeys(args: ListOperationalizationClusterKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListOperationalizationClusterKeysResult> {
 
@@ -63,6 +65,8 @@ export interface ListOperationalizationClusterKeysResult {
 /**
  * Gets the credentials for the specified cluster such as Storage, ACR and ACS credentials. This is a long running operation because it fetches keys from dependencies.
  * Azure REST API version: 2017-08-01-preview.
+ *
+ * Other available API versions: 2017-06-01-preview.
  */
 export function listOperationalizationClusterKeysOutput(args: ListOperationalizationClusterKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOperationalizationClusterKeysResult> {
     return pulumi.output(args).apply((a: any) => listOperationalizationClusterKeys(a, opts))

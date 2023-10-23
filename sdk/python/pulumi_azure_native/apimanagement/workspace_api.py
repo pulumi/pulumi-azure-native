@@ -529,6 +529,8 @@ class WorkspaceApi(pulumi.CustomResource):
         API details.
         Azure REST API version: 2022-09-01-preview.
 
+        Other available API versions: 2023-03-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -574,6 +576,8 @@ class WorkspaceApi(pulumi.CustomResource):
         """
         API details.
         Azure REST API version: 2022-09-01-preview.
+
+        Other available API versions: 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceApiArgs args: The arguments to use to populate this resource's properties.

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// Get the Application Configuration Service and its properties.
         /// Azure REST API version: 2023-05-01-preview.
+        /// 
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Task<GetConfigurationServiceResult> InvokeAsync(GetConfigurationServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationServiceResult>("azure-native:appplatform:getConfigurationService", args ?? new GetConfigurationServiceArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// Get the Application Configuration Service and its properties.
         /// Azure REST API version: 2023-05-01-preview.
+        /// 
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Output<GetConfigurationServiceResult> Invoke(GetConfigurationServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationServiceResult>("azure-native:appplatform:getConfigurationService", args ?? new GetConfigurationServiceInvokeArgs(), options.WithDefaults());

@@ -175,6 +175,8 @@ def get_environment(expand: Optional[str] = None,
     Get environment.
     Azure REST API version: 2018-09-15.
 
+    Other available API versions: 2016-05-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=deploymentProperties)'
     :param str lab_name: The name of the lab.
@@ -215,6 +217,8 @@ def get_environment_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Get environment.
     Azure REST API version: 2018-09-15.
+
+    Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=deploymentProperties)'

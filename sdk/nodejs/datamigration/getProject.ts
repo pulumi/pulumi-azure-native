@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
  * Azure REST API version: 2021-06-30.
+ *
+ * Other available API versions: 2017-11-15-preview, 2018-03-31-preview, 2021-10-30-preview, 2022-03-30-preview.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
 
@@ -96,6 +98,8 @@ export interface GetProjectResult {
 /**
  * The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
  * Azure REST API version: 2021-06-30.
+ *
+ * Other available API versions: 2017-11-15-preview, 2018-03-31-preview, 2021-10-30-preview, 2022-03-30-preview.
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
     return pulumi.output(args).apply((a: any) => getProject(a, opts))

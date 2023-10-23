@@ -173,6 +173,8 @@ def get_server_advisor(advisor_name: Optional[str] = None,
     Gets a server advisor.
     Azure REST API version: 2021-11-01.
 
+    Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview.
+
 
     :param str advisor_name: The name of the Server Advisor.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -207,6 +209,8 @@ def get_server_advisor_output(advisor_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a server advisor.
     Azure REST API version: 2021-11-01.
+
+    Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str advisor_name: The name of the Server Advisor.

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided layer 3 (L3) network.
         /// Azure REST API version: 2023-05-01-preview.
+        /// 
+        /// Other available API versions: 2023-07-01.
         /// </summary>
         public static Task<GetL3NetworkResult> InvokeAsync(GetL3NetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetL3NetworkResult>("azure-native:networkcloud:getL3Network", args ?? new GetL3NetworkArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided layer 3 (L3) network.
         /// Azure REST API version: 2023-05-01-preview.
+        /// 
+        /// Other available API versions: 2023-07-01.
         /// </summary>
         public static Output<GetL3NetworkResult> Invoke(GetL3NetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetL3NetworkResult>("azure-native:networkcloud:getL3Network", args ?? new GetL3NetworkInvokeArgs(), options.WithDefaults());

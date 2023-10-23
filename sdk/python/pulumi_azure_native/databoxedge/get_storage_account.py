@@ -161,6 +161,8 @@ def get_storage_account(device_name: Optional[str] = None,
     Represents a Storage Account on the  Data Box Edge/Gateway device.
     Azure REST API version: 2022-03-01.
 
+    Other available API versions: 2020-05-01-preview, 2023-01-01-preview, 2023-07-01.
+
 
     :param str device_name: The device name.
     :param str resource_group_name: The resource group name.
@@ -194,6 +196,8 @@ def get_storage_account_output(device_name: Optional[pulumi.Input[str]] = None,
     """
     Represents a Storage Account on the  Data Box Edge/Gateway device.
     Azure REST API version: 2022-03-01.
+
+    Other available API versions: 2020-05-01-preview, 2023-01-01-preview, 2023-07-01.
 
 
     :param str device_name: The device name.

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Devices
         /// <summary>
         /// Get the certificate from the provisioning service.
         /// Azure REST API version: 2022-12-12.
+        /// 
+        /// Other available API versions: 2021-10-15, 2023-03-01-preview.
         /// </summary>
         public static Task<GetDpsCertificateResult> InvokeAsync(GetDpsCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDpsCertificateResult>("azure-native:devices:getDpsCertificate", args ?? new GetDpsCertificateArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Devices
         /// <summary>
         /// Get the certificate from the provisioning service.
         /// Azure REST API version: 2022-12-12.
+        /// 
+        /// Other available API versions: 2021-10-15, 2023-03-01-preview.
         /// </summary>
         public static Output<GetDpsCertificateResult> Invoke(GetDpsCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDpsCertificateResult>("azure-native:devices:getDpsCertificate", args ?? new GetDpsCertificateInvokeArgs(), options.WithDefaults());

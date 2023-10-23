@@ -310,6 +310,8 @@ def get_batch_account(account_name: Optional[str] = None,
     Gets information about the specified Batch account.
     Azure REST API version: 2023-05-01.
 
+    Other available API versions: 2017-01-01, 2022-01-01.
+
 
     :param str account_name: The name of the Batch account.
     :param str resource_group_name: The name of the resource group that contains the Batch account.
@@ -353,6 +355,8 @@ def get_batch_account_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about the specified Batch account.
     Azure REST API version: 2023-05-01.
+
+    Other available API versions: 2017-01-01, 2022-01-01.
 
 
     :param str account_name: The name of the Batch account.

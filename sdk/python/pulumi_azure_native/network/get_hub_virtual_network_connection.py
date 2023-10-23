@@ -149,6 +149,8 @@ def get_hub_virtual_network_connection(connection_name: Optional[str] = None,
     Retrieves the details of a HubVirtualNetworkConnection.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2023-04-01, 2023-05-01.
+
 
     :param str connection_name: The name of the vpn connection.
     :param str resource_group_name: The resource group name of the VirtualHub.
@@ -181,6 +183,8 @@ def get_hub_virtual_network_connection_output(connection_name: Optional[pulumi.I
     """
     Retrieves the details of a HubVirtualNetworkConnection.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str connection_name: The name of the vpn connection.

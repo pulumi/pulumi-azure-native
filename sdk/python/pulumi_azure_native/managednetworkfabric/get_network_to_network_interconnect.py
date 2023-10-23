@@ -173,6 +173,8 @@ def get_network_to_network_interconnect(network_fabric_name: Optional[str] = Non
     Implements NetworkToNetworkInterconnects GET method.
     Azure REST API version: 2023-02-01-preview.
 
+    Other available API versions: 2023-06-15.
+
 
     :param str network_fabric_name: Name of the NetworkFabric.
     :param str network_to_network_interconnect_name: Name of the NetworkToNetworkInterconnect
@@ -207,6 +209,8 @@ def get_network_to_network_interconnect_output(network_fabric_name: Optional[pul
     """
     Implements NetworkToNetworkInterconnects GET method.
     Azure REST API version: 2023-02-01-preview.
+
+    Other available API versions: 2023-06-15.
 
 
     :param str network_fabric_name: Name of the NetworkFabric.

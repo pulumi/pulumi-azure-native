@@ -125,6 +125,8 @@ def get_connected_environments_certificate(certificate_name: Optional[str] = Non
     Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
     Azure REST API version: 2022-10-01.
 
+    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+
 
     :param str certificate_name: Name of the Certificate.
     :param str connected_environment_name: Name of the Connected Environment.
@@ -155,6 +157,8 @@ def get_connected_environments_certificate_output(certificate_name: Optional[pul
     """
     Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
     Azure REST API version: 2022-10-01.
+
+    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
 
 
     :param str certificate_name: Name of the Certificate.

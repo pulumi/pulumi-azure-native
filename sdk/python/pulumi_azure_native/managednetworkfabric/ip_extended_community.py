@@ -147,6 +147,8 @@ class IpExtendedCommunity(pulumi.CustomResource):
         The IpExtendedCommunity resource definition.
         Azure REST API version: 2023-02-01-preview.
 
+        Other available API versions: 2023-06-15.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'CommunityActionTypes']] action: Action to be taken on the configuration. Example: Permit | Deny.
@@ -166,6 +168,8 @@ class IpExtendedCommunity(pulumi.CustomResource):
         """
         The IpExtendedCommunity resource definition.
         Azure REST API version: 2023-02-01-preview.
+
+        Other available API versions: 2023-06-15.
 
         :param str resource_name: The name of the resource.
         :param IpExtendedCommunityArgs args: The arguments to use to populate this resource's properties.

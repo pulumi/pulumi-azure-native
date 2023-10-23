@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Notification Hub Resource.
  * Azure REST API version: 2023-01-01-preview.
+ *
+ * Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
  */
 export function getNotificationHub(args: GetNotificationHubArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubResult> {
 
@@ -76,6 +78,8 @@ export interface GetNotificationHubResult {
 /**
  * Notification Hub Resource.
  * Azure REST API version: 2023-01-01-preview.
+ *
+ * Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
  */
 export function getNotificationHubOutput(args: GetNotificationHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubResult> {
     return pulumi.output(args).apply((a: any) => getNotificationHub(a, opts))

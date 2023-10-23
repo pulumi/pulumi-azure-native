@@ -292,6 +292,8 @@ def get_namespace(namespace_name: Optional[str] = None,
     Gets a description for the specified namespace.
     Azure REST API version: 2022-01-01-preview.
 
+    Other available API versions: 2015-08-01, 2022-10-01-preview.
+
 
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
@@ -333,6 +335,8 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a description for the specified namespace.
     Azure REST API version: 2022-01-01-preview.
+
+    Other available API versions: 2015-08-01, 2022-10-01-preview.
 
 
     :param str namespace_name: The namespace name

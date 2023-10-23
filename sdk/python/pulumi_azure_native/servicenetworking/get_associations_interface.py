@@ -149,6 +149,8 @@ def get_associations_interface(association_name: Optional[str] = None,
     Get a Association
     Azure REST API version: 2023-05-01-preview.
 
+    Other available API versions: 2022-10-01-preview.
+
 
     :param str association_name: Name of Association
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -181,6 +183,8 @@ def get_associations_interface_output(association_name: Optional[pulumi.Input[st
     """
     Get a Association
     Azure REST API version: 2023-05-01-preview.
+
+    Other available API versions: 2022-10-01-preview.
 
 
     :param str association_name: Name of Association

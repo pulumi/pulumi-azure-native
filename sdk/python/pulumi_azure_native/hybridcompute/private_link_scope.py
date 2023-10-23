@@ -114,7 +114,9 @@ class PrivateLinkScope(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure Arc PrivateLinkScope definition.
-        Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2021-03-25-preview
+        Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2021-03-25-preview.
+
+        Other available API versions: 2020-08-15-preview, 2023-06-20-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,7 +134,9 @@ class PrivateLinkScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Arc PrivateLinkScope definition.
-        Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2021-03-25-preview
+        Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2021-03-25-preview.
+
+        Other available API versions: 2020-08-15-preview, 2023-06-20-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkScopeArgs args: The arguments to use to populate this resource's properties.

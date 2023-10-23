@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.WebPubSub
         /// <summary>
         /// Get the replica and its properties.
         /// Azure REST API version: 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
         /// </summary>
         public static Task<GetWebPubSubReplicaResult> InvokeAsync(GetWebPubSubReplicaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubReplicaResult>("azure-native:webpubsub:getWebPubSubReplica", args ?? new GetWebPubSubReplicaArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.WebPubSub
         /// <summary>
         /// Get the replica and its properties.
         /// Azure REST API version: 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
         /// </summary>
         public static Output<GetWebPubSubReplicaResult> Invoke(GetWebPubSubReplicaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubReplicaResult>("azure-native:webpubsub:getWebPubSubReplica", args ?? new GetWebPubSubReplicaInvokeArgs(), options.WithDefaults());

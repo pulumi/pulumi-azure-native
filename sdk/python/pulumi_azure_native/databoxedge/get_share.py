@@ -209,6 +209,8 @@ def get_share(device_name: Optional[str] = None,
     Represents a share on the  Data Box Edge/Gateway device.
     Azure REST API version: 2022-03-01.
 
+    Other available API versions: 2023-01-01-preview, 2023-07-01.
+
 
     :param str device_name: The device name.
     :param str name: The share name.
@@ -246,6 +248,8 @@ def get_share_output(device_name: Optional[pulumi.Input[str]] = None,
     """
     Represents a share on the  Data Box Edge/Gateway device.
     Azure REST API version: 2022-03-01.
+
+    Other available API versions: 2023-01-01-preview, 2023-07-01.
 
 
     :param str device_name: The device name.

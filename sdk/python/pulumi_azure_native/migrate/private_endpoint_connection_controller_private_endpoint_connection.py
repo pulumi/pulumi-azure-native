@@ -115,6 +115,8 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnection(pulumi.Custom
         REST model used to encapsulate the user visible state of a PrivateEndpoint.
         Azure REST API version: 2020-05-01.
 
+        Other available API versions: 2023-01-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Gets the tag for optimistic concurrency control.
@@ -132,6 +134,8 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnection(pulumi.Custom
         """
         REST model used to encapsulate the user visible state of a PrivateEndpoint.
         Azure REST API version: 2020-05-01.
+
+        Other available API versions: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties that define an Analytics item that is associated to an Application Insights component.
- * Azure REST API version: 2015-05-01. Prior API version in Azure Native 1.x: 2015-05-01
+ * Azure REST API version: 2015-05-01. Prior API version in Azure Native 1.x: 2015-05-01.
  */
 export class AnalyticsItem extends pulumi.CustomResource {
     /**

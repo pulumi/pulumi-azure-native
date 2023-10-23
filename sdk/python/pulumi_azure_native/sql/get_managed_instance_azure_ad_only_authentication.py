@@ -88,6 +88,8 @@ def get_managed_instance_azure_ad_only_authentication(authentication_name: Optio
     Gets a specific Azure Active Directory only authentication property.
     Azure REST API version: 2021-11-01.
 
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+
 
     :param str authentication_name: The name of server azure active directory only authentication.
     :param str managed_instance_name: The name of the managed instance.
@@ -115,6 +117,8 @@ def get_managed_instance_azure_ad_only_authentication_output(authentication_name
     """
     Gets a specific Azure Active Directory only authentication property.
     Azure REST API version: 2021-11-01.
+
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str authentication_name: The name of server azure active directory only authentication.

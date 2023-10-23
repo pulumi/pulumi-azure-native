@@ -101,6 +101,8 @@ def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name: Optio
     Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
     Azure REST API version: 2022-04-30-preview.
 
+    Other available API versions: 2017-07-01, 2021-03-03-preview, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+
 
     :param str event_hub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub.
     :param str name: The name of the consumer group to retrieve.
@@ -132,6 +134,8 @@ def get_iot_hub_resource_event_hub_consumer_group_output(event_hub_endpoint_name
     """
     Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
     Azure REST API version: 2022-04-30-preview.
+
+    Other available API versions: 2017-07-01, 2021-03-03-preview, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
 
 
     :param str event_hub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub.

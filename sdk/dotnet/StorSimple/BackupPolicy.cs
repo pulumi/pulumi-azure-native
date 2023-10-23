@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StorSimple
 {
     /// <summary>
     /// The backup policy.
-    /// Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01
+    /// Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:BackupPolicy")]
     public partial class BackupPolicy : global::Pulumi.CustomResource

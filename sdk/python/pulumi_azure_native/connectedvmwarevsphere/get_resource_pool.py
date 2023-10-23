@@ -334,6 +334,8 @@ def get_resource_pool(resource_group_name: Optional[str] = None,
     Implements resourcePool GET method.
     Azure REST API version: 2022-07-15-preview.
 
+    Other available API versions: 2023-03-01-preview, 2023-10-01.
+
 
     :param str resource_group_name: The Resource Group Name.
     :param str resource_pool_name: Name of the resourcePool.
@@ -378,6 +380,8 @@ def get_resource_pool_output(resource_group_name: Optional[pulumi.Input[str]] = 
     """
     Implements resourcePool GET method.
     Azure REST API version: 2022-07-15-preview.
+
+    Other available API versions: 2023-03-01-preview, 2023-10-01.
 
 
     :param str resource_group_name: The Resource Group Name.

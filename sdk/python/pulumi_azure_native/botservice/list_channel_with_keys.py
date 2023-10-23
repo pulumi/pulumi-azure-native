@@ -221,6 +221,8 @@ def list_channel_with_keys(channel_name: Optional[str] = None,
     Lists a Channel registration for a Bot Service including secrets
     Azure REST API version: 2022-09-15.
 
+    Other available API versions: 2023-09-15-preview.
+
 
     :param str channel_name: The name of the Channel resource.
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
@@ -259,6 +261,8 @@ def list_channel_with_keys_output(channel_name: Optional[pulumi.Input[str]] = No
     """
     Lists a Channel registration for a Bot Service including secrets
     Azure REST API version: 2022-09-15.
+
+    Other available API versions: 2023-09-15-preview.
 
 
     :param str channel_name: The name of the Channel resource.

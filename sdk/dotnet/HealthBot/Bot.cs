@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.HealthBot
 {
     /// <summary>
     /// Azure Health Bot resource definition
-    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-12-08
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-12-08.
+    /// 
+    /// Other available API versions: 2020-12-08-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthbot:Bot")]
     public partial class Bot : global::Pulumi.CustomResource

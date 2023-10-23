@@ -112,6 +112,8 @@ def get_access_policy(access_policy_name: Optional[str] = None,
     Gets the access policy with the specified name in the specified environment.
     Azure REST API version: 2020-05-15.
 
+    Other available API versions: 2017-11-15, 2021-06-30-preview.
+
 
     :param str access_policy_name: The name of the Time Series Insights access policy associated with the specified environment.
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
@@ -141,6 +143,8 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
     """
     Gets the access policy with the specified name in the specified environment.
     Azure REST API version: 2020-05-15.
+
+    Other available API versions: 2017-11-15, 2021-06-30-preview.
 
 
     :param str access_policy_name: The name of the Time Series Insights access policy associated with the specified environment.

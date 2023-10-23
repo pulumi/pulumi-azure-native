@@ -127,7 +127,9 @@ class GlobalReachConnection(pulumi.CustomResource):
                  __props__=None):
         """
         A global reach connection resource
-        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview
+        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
+
+        Other available API versions: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +148,9 @@ class GlobalReachConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A global reach connection resource
-        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview
+        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
+
+        Other available API versions: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param GlobalReachConnectionArgs args: The arguments to use to populate this resource's properties.

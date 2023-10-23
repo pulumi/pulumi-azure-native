@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Returns a description for the specified topic.
  * Azure REST API version: 2022-01-01-preview.
+ *
+ * Other available API versions: 2015-08-01, 2022-10-01-preview.
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
 
@@ -132,6 +134,8 @@ export interface GetTopicResult {
 /**
  * Returns a description for the specified topic.
  * Azure REST API version: 2022-01-01-preview.
+ *
+ * Other available API versions: 2015-08-01, 2022-10-01-preview.
  */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
     return pulumi.output(args).apply((a: any) => getTopic(a, opts))

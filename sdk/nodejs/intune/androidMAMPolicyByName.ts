@@ -6,7 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Android Policy entity for Intune MAM.
- * Azure REST API version: 2015-01-14-preview. Prior API version in Azure Native 1.x: 2015-01-14-preview
+ * Azure REST API version: 2015-01-14-preview. Prior API version in Azure Native 1.x: 2015-01-14-preview.
+ *
+ * Other available API versions: 2015-01-14-privatepreview.
  */
 export class AndroidMAMPolicyByName extends pulumi.CustomResource {
     /**

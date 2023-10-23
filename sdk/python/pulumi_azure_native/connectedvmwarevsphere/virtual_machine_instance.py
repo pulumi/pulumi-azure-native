@@ -184,6 +184,8 @@ class VirtualMachineInstance(pulumi.CustomResource):
         Define the virtualMachineInstance.
         Azure REST API version: 2023-03-01-preview.
 
+        Other available API versions: 2023-10-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Gets or sets the extended location.
@@ -205,6 +207,8 @@ class VirtualMachineInstance(pulumi.CustomResource):
         """
         Define the virtualMachineInstance.
         Azure REST API version: 2023-03-01-preview.
+
+        Other available API versions: 2023-10-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineInstanceArgs args: The arguments to use to populate this resource's properties.

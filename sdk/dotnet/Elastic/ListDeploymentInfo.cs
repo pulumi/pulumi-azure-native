@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
         /// Azure REST API version: 2023-06-01.
+        /// 
+        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
         /// </summary>
         public static Task<ListDeploymentInfoResult> InvokeAsync(ListDeploymentInfoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDeploymentInfoResult>("azure-native:elastic:listDeploymentInfo", args ?? new ListDeploymentInfoArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
         /// Azure REST API version: 2023-06-01.
+        /// 
+        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
         /// </summary>
         public static Output<ListDeploymentInfoResult> Invoke(ListDeploymentInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDeploymentInfoResult>("azure-native:elastic:listDeploymentInfo", args ?? new ListDeploymentInfoInvokeArgs(), options.WithDefaults());

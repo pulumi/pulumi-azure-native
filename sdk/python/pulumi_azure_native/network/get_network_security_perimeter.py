@@ -147,6 +147,8 @@ def get_network_security_perimeter(network_security_perimeter_name: Optional[str
     Gets the specified network security perimeter by the name.
     Azure REST API version: 2021-03-01-preview.
 
+    Other available API versions: 2021-02-01-preview.
+
 
     :param str network_security_perimeter_name: The name of the network security perimeter.
     :param str resource_group_name: The name of the resource group.
@@ -176,6 +178,8 @@ def get_network_security_perimeter_output(network_security_perimeter_name: Optio
     """
     Gets the specified network security perimeter by the name.
     Azure REST API version: 2021-03-01-preview.
+
+    Other available API versions: 2021-02-01-preview.
 
 
     :param str network_security_perimeter_name: The name of the network security perimeter.

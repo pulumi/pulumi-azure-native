@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     /// <summary>
     /// MachinePool represents a MachinePool
     /// Azure REST API version: 2022-09-04.
+    /// 
+    /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04.
     /// </summary>
     [AzureNativeResourceType("azure-native:redhatopenshift:MachinePool")]
     public partial class MachinePool : global::Pulumi.CustomResource

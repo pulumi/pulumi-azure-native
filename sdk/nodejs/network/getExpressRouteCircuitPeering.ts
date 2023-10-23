@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified peering for the express route circuit.
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2017-09-01, 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
  */
 export function getExpressRouteCircuitPeering(args: GetExpressRouteCircuitPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitPeeringResult> {
 
@@ -140,6 +142,8 @@ export interface GetExpressRouteCircuitPeeringResult {
 /**
  * Gets the specified peering for the express route circuit.
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2017-09-01, 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
  */
 export function getExpressRouteCircuitPeeringOutput(args: GetExpressRouteCircuitPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitPeeringResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteCircuitPeering(a, opts))

@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets information about a server firewall rule.
  * Azure REST API version: 2018-06-01.
+ *
+ * Other available API versions: 2018-06-01-preview.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
 
@@ -61,6 +63,8 @@ export interface GetFirewallRuleResult {
 /**
  * Gets information about a server firewall rule.
  * Azure REST API version: 2018-06-01.
+ *
+ * Other available API versions: 2018-06-01-preview.
  */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))

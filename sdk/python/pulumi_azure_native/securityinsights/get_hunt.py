@@ -197,6 +197,8 @@ def get_hunt(hunt_id: Optional[str] = None,
     Gets a hunt, without relations and comments.
     Azure REST API version: 2023-06-01-preview.
 
+    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+
 
     :param str hunt_id: The hunt id (GUID)
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -233,6 +235,8 @@ def get_hunt_output(hunt_id: Optional[pulumi.Input[str]] = None,
     """
     Gets a hunt, without relations and comments.
     Azure REST API version: 2023-06-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
 
     :param str hunt_id: The hunt id (GUID)

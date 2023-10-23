@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The resource representation of a rollout step.
  * Azure REST API version: 2019-11-01-preview.
+ *
+ * Other available API versions: 2018-09-01-preview.
  */
 export function getStep(args: GetStepArgs, opts?: pulumi.InvokeOptions): Promise<GetStepResult> {
 
@@ -63,6 +65,8 @@ export interface GetStepResult {
 /**
  * The resource representation of a rollout step.
  * Azure REST API version: 2019-11-01-preview.
+ *
+ * Other available API versions: 2018-09-01-preview.
  */
 export function getStepOutput(args: GetStepOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStepResult> {
     return pulumi.output(args).apply((a: any) => getStep(a, opts))

@@ -194,6 +194,8 @@ def get_automation_rule(automation_rule_id: Optional[str] = None,
     Gets the automation rule.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+
 
     :param str automation_rule_id: Automation rule ID
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -230,6 +232,8 @@ def get_automation_rule_output(automation_rule_id: Optional[pulumi.Input[str]] =
     """
     Gets the automation rule.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
 
     :param str automation_rule_id: Automation rule ID

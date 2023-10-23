@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
  */
 export function getVirtualNetworkGatewayVpnclientIpsecParameters(args: GetVirtualNetworkGatewayVpnclientIpsecParametersArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayVpnclientIpsecParametersResult> {
 
@@ -68,6 +70,8 @@ export interface GetVirtualNetworkGatewayVpnclientIpsecParametersResult {
 /**
  * The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
  */
 export function getVirtualNetworkGatewayVpnclientIpsecParametersOutput(args: GetVirtualNetworkGatewayVpnclientIpsecParametersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayVpnclientIpsecParametersResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayVpnclientIpsecParameters(a, opts))

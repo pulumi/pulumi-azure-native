@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview
+    /// Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview.
+    /// 
+    /// Other available API versions: 2019-10-17-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

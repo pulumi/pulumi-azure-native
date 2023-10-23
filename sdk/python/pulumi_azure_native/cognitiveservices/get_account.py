@@ -172,6 +172,8 @@ def get_account(account_name: Optional[str] = None,
     Returns a Cognitive Services account specified by the parameters.
     Azure REST API version: 2023-05-01.
 
+    Other available API versions: 2017-04-18, 2023-10-01-preview.
+
 
     :param str account_name: The name of Cognitive Services account.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -203,6 +205,8 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Returns a Cognitive Services account specified by the parameters.
     Azure REST API version: 2023-05-01.
+
+    Other available API versions: 2017-04-18, 2023-10-01-preview.
 
 
     :param str account_name: The name of Cognitive Services account.

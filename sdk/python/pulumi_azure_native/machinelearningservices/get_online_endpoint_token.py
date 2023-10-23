@@ -88,6 +88,8 @@ def get_online_endpoint_token(endpoint_name: Optional[str] = None,
     Service Token
     Azure REST API version: 2023-04-01.
 
+    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
 
     :param str endpoint_name: Online Endpoint name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -115,6 +117,8 @@ def get_online_endpoint_token_output(endpoint_name: Optional[pulumi.Input[str]] 
     """
     Service Token
     Azure REST API version: 2023-04-01.
+
+    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str endpoint_name: Online Endpoint name.

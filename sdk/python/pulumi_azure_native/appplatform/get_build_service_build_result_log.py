@@ -54,6 +54,8 @@ def get_build_service_build_result_log(build_name: Optional[str] = None,
     Get a KPack build result log download URL.
     Azure REST API version: 2023-05-01-preview.
 
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
 
     :param str build_name: The name of the build resource.
     :param str build_result_name: The name of the build result resource.
@@ -84,6 +86,8 @@ def get_build_service_build_result_log_output(build_name: Optional[pulumi.Input[
     """
     Get a KPack build result log download URL.
     Azure REST API version: 2023-05-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str build_name: The name of the build resource.

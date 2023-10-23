@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Lists the account keys for the specified Cognitive Services account.
  * Azure REST API version: 2023-05-01.
+ *
+ * Other available API versions: 2017-04-18, 2023-10-01-preview.
  */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
 
@@ -44,6 +46,8 @@ export interface ListAccountKeysResult {
 /**
  * Lists the account keys for the specified Cognitive Services account.
  * Azure REST API version: 2023-05-01.
+ *
+ * Other available API versions: 2017-04-18, 2023-10-01-preview.
  */
 export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listAccountKeys(a, opts))

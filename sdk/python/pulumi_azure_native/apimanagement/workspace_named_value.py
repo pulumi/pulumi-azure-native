@@ -180,6 +180,8 @@ class WorkspaceNamedValue(pulumi.CustomResource):
         NamedValue details.
         Azure REST API version: 2022-09-01-preview.
 
+        Other available API versions: 2023-03-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
@@ -201,6 +203,8 @@ class WorkspaceNamedValue(pulumi.CustomResource):
         """
         NamedValue details.
         Azure REST API version: 2022-09-01-preview.
+
+        Other available API versions: 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceNamedValueArgs args: The arguments to use to populate this resource's properties.

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Retrieves information about an availability set.
         /// Azure REST API version: 2023-03-01.
+        /// 
+        /// Other available API versions: 2016-04-30-preview, 2023-07-01.
         /// </summary>
         public static Task<GetAvailabilitySetResult> InvokeAsync(GetAvailabilitySetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure-native:compute:getAvailabilitySet", args ?? new GetAvailabilitySetArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Retrieves information about an availability set.
         /// Azure REST API version: 2023-03-01.
+        /// 
+        /// Other available API versions: 2016-04-30-preview, 2023-07-01.
         /// </summary>
         public static Output<GetAvailabilitySetResult> Invoke(GetAvailabilitySetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilitySetResult>("azure-native:compute:getAvailabilitySet", args ?? new GetAvailabilitySetInvokeArgs(), options.WithDefaults());

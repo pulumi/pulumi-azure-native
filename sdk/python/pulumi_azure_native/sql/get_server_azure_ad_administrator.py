@@ -136,6 +136,8 @@ def get_server_azure_ad_administrator(administrator_name: Optional[str] = None,
     Gets a Azure Active Directory administrator.
     Azure REST API version: 2021-11-01.
 
+    Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview.
+
 
     :param str administrator_name: The name of server active directory administrator.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -167,6 +169,8 @@ def get_server_azure_ad_administrator_output(administrator_name: Optional[pulumi
     """
     Gets a Azure Active Directory administrator.
     Azure REST API version: 2021-11-01.
+
+    Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str administrator_name: The name of server active directory administrator.

@@ -124,6 +124,8 @@ def get_ledger(ledger_name: Optional[str] = None,
     Retrieves the properties of a Confidential Ledger.
     Azure REST API version: 2022-05-13.
 
+    Other available API versions: 2023-01-26-preview, 2023-06-28-preview.
+
 
     :param str ledger_name: Name of the Confidential Ledger
     :param str resource_group_name: The name of the resource group.
@@ -151,6 +153,8 @@ def get_ledger_output(ledger_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieves the properties of a Confidential Ledger.
     Azure REST API version: 2022-05-13.
+
+    Other available API versions: 2023-01-26-preview, 2023-06-28-preview.
 
 
     :param str ledger_name: Name of the Confidential Ledger

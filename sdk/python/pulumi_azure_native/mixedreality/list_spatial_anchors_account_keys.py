@@ -63,6 +63,8 @@ def list_spatial_anchors_account_keys(account_name: Optional[str] = None,
     List Both of the 2 Keys of a Spatial Anchors Account
     Azure REST API version: 2021-01-01.
 
+    Other available API versions: 2021-03-01-preview.
+
 
     :param str account_name: Name of an Mixed Reality Account.
     :param str resource_group_name: Name of an Azure resource group.
@@ -85,6 +87,8 @@ def list_spatial_anchors_account_keys_output(account_name: Optional[pulumi.Input
     """
     List Both of the 2 Keys of a Spatial Anchors Account
     Azure REST API version: 2021-01-01.
+
+    Other available API versions: 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.

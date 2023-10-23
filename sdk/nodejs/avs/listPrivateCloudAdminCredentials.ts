@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Administrative credentials for accessing vCenter and NSX-T
  * Azure REST API version: 2022-05-01.
+ *
+ * Other available API versions: 2023-03-01.
  */
 export function listPrivateCloudAdminCredentials(args: ListPrivateCloudAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateCloudAdminCredentialsResult> {
 
@@ -52,6 +54,8 @@ export interface ListPrivateCloudAdminCredentialsResult {
 /**
  * Administrative credentials for accessing vCenter and NSX-T
  * Azure REST API version: 2022-05-01.
+ *
+ * Other available API versions: 2023-03-01.
  */
 export function listPrivateCloudAdminCredentialsOutput(args: ListPrivateCloudAdminCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateCloudAdminCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listPrivateCloudAdminCredentials(a, opts))

@@ -125,6 +125,8 @@ def get_signal_r_custom_domain(name: Optional[str] = None,
     Get a custom domain.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
 
     :param str name: Custom domain name.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -155,6 +157,8 @@ def get_signal_r_custom_domain_output(name: Optional[pulumi.Input[str]] = None,
     """
     Get a custom domain.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str name: Custom domain name.

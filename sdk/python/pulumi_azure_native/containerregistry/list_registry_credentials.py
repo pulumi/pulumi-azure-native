@@ -64,6 +64,8 @@ def list_registry_credentials(registry_name: Optional[str] = None,
     Lists the login credentials for the specified container registry.
     Azure REST API version: 2022-12-01.
 
+    Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
+
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -86,6 +88,8 @@ def list_registry_credentials_output(registry_name: Optional[pulumi.Input[str]] 
     """
     Lists the login credentials for the specified container registry.
     Azure REST API version: 2022-12-01.
+
+    Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
 
 
     :param str registry_name: The name of the container registry.

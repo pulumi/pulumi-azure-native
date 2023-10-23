@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
  * Azure REST API version: 2023-04-01.
+ *
+ * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function listComputeNodes(args: ListComputeNodesArgs, opts?: pulumi.InvokeOptions): Promise<ListComputeNodesResult> {
 
@@ -52,6 +54,8 @@ export interface ListComputeNodesResult {
 /**
  * Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
  * Azure REST API version: 2023-04-01.
+ *
+ * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function listComputeNodesOutput(args: ListComputeNodesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListComputeNodesResult> {
     return pulumi.output(args).apply((a: any) => listComputeNodes(a, opts))

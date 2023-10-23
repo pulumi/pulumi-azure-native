@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
         /// Azure REST API version: 2021-06-30.
+        /// 
+        /// Other available API versions: 2022-03-30-preview.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:datamigration:getService", args ?? new GetServiceArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
         /// Azure REST API version: 2021-06-30.
+        /// 
+        /// Other available API versions: 2022-03-30-preview.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:datamigration:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

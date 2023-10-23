@@ -329,6 +329,8 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
     Get a Big Data pool.
     Azure REST API version: 2021-06-01.
 
+    Other available API versions: 2021-05-01, 2021-06-01-preview.
+
 
     :param str big_data_pool_name: Big Data pool name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -376,6 +378,8 @@ def get_big_data_pool_output(big_data_pool_name: Optional[pulumi.Input[str]] = N
     """
     Get a Big Data pool.
     Azure REST API version: 2021-06-01.
+
+    Other available API versions: 2021-05-01, 2021-06-01-preview.
 
 
     :param str big_data_pool_name: Big Data pool name

@@ -208,6 +208,8 @@ def get_scheduled_action_by_scope(name: Optional[str] = None,
     Get the shared scheduled action from the given scope by name.
     Azure REST API version: 2023-03-01.
 
+    Other available API versions: 2023-04-01-preview, 2023-08-01.
+
 
     :param str name: Scheduled action name.
     :param str scope: The scope associated with scheduled action operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope. Note: Insight Alerts are only available on subscription scope.
@@ -242,6 +244,8 @@ def get_scheduled_action_by_scope_output(name: Optional[pulumi.Input[str]] = Non
     """
     Get the shared scheduled action from the given scope by name.
     Azure REST API version: 2023-03-01.
+
+    Other available API versions: 2023-04-01-preview, 2023-08-01.
 
 
     :param str name: Scheduled action name.

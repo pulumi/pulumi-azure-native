@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the group link for the product.
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Task<GetProductGroupLinkResult> InvokeAsync(GetProductGroupLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductGroupLinkResult>("azure-native:apimanagement:getProductGroupLink", args ?? new GetProductGroupLinkArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the group link for the product.
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Output<GetProductGroupLinkResult> Invoke(GetProductGroupLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductGroupLinkResult>("azure-native:apimanagement:getProductGroupLink", args ?? new GetProductGroupLinkInvokeArgs(), options.WithDefaults());

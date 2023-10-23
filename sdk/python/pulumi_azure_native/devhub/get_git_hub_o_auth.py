@@ -63,6 +63,8 @@ def get_git_hub_o_auth(location: Optional[str] = None,
     URL used to authorize the Developer Hub GitHub App
     Azure REST API version: 2022-10-11-preview.
 
+    Other available API versions: 2022-04-01-preview.
+
 
     :param str location: The name of Azure region.
     :param str redirect_url: The URL the client will redirect to on successful authentication. If empty, no redirect will occur.
@@ -85,6 +87,8 @@ def get_git_hub_o_auth_output(location: Optional[pulumi.Input[str]] = None,
     """
     URL used to authorize the Developer Hub GitHub App
     Azure REST API version: 2022-10-11-preview.
+
+    Other available API versions: 2022-04-01-preview.
 
 
     :param str location: The name of Azure region.

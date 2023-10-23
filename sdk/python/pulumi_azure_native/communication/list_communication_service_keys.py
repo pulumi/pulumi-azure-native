@@ -87,6 +87,8 @@ def list_communication_service_keys(communication_service_name: Optional[str] = 
     Get the access keys of the CommunicationService resource.
     Azure REST API version: 2023-03-31.
 
+    Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
+
 
     :param str communication_service_name: The name of the CommunicationService resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -111,6 +113,8 @@ def list_communication_service_keys_output(communication_service_name: Optional[
     """
     Get the access keys of the CommunicationService resource.
     Azure REST API version: 2023-03-31.
+
+    Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents Fusion alert rule.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01.
  */
 export class FusionAlertRule extends pulumi.CustomResource {
     /**

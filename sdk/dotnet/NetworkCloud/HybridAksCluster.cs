@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
     /// The details are specific to the Network Cloud use of the Hybrid AKS cluster.
-    /// Azure REST API version: 2022-12-12-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
+    /// Azure REST API version: 2022-12-12-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:HybridAksCluster")]
     public partial class HybridAksCluster : global::Pulumi.CustomResource

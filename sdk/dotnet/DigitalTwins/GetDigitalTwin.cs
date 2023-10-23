@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// <summary>
         /// Get DigitalTwinsInstances resource.
         /// Azure REST API version: 2023-01-31.
+        /// 
+        /// Other available API versions: 2020-03-01-preview.
         /// </summary>
         public static Task<GetDigitalTwinResult> InvokeAsync(GetDigitalTwinArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinResult>("azure-native:digitaltwins:getDigitalTwin", args ?? new GetDigitalTwinArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// <summary>
         /// Get DigitalTwinsInstances resource.
         /// Azure REST API version: 2023-01-31.
+        /// 
+        /// Other available API versions: 2020-03-01-preview.
         /// </summary>
         public static Output<GetDigitalTwinResult> Invoke(GetDigitalTwinInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDigitalTwinResult>("azure-native:digitaltwins:getDigitalTwin", args ?? new GetDigitalTwinInvokeArgs(), options.WithDefaults());

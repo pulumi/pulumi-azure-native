@@ -64,6 +64,8 @@ def list_job_credentials(job_name: Optional[str] = None,
     This method gets the unencrypted secrets related to the job.
     Azure REST API version: 2022-12-01.
 
+    Other available API versions: 2019-09-01, 2023-03-01.
+
 
     :param str job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str resource_group_name: The Resource Group Name
@@ -86,6 +88,8 @@ def list_job_credentials_output(job_name: Optional[pulumi.Input[str]] = None,
     """
     This method gets the unencrypted secrets related to the job.
     Azure REST API version: 2022-12-01.
+
+    Other available API versions: 2019-09-01, 2023-03-01.
 
 
     :param str job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only

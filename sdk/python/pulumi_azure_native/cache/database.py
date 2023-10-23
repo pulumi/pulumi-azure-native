@@ -198,7 +198,9 @@ class Database(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a database on the RedisEnterprise cluster
-        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01
+        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01.
+
+        Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,7 +223,9 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a database on the RedisEnterprise cluster
-        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01
+        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01.
+
+        Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.

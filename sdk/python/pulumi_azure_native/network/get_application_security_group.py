@@ -135,6 +135,8 @@ def get_application_security_group(application_security_group_name: Optional[str
     Gets information about the specified application security group.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2023-04-01, 2023-05-01.
+
 
     :param str application_security_group_name: The name of the application security group.
     :param str resource_group_name: The name of the resource group.
@@ -163,6 +165,8 @@ def get_application_security_group_output(application_security_group_name: Optio
     """
     Gets information about the specified application security group.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str application_security_group_name: The name of the application security group.

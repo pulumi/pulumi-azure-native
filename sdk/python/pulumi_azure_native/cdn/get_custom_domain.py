@@ -174,6 +174,8 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
     Gets an existing custom domain within an endpoint.
     Azure REST API version: 2023-05-01.
 
+    Other available API versions: 2016-10-02, 2023-07-01-preview.
+
 
     :param str custom_domain_name: Name of the custom domain within an endpoint.
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -211,6 +213,8 @@ def get_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]] = N
     """
     Gets an existing custom domain within an endpoint.
     Azure REST API version: 2023-05-01.
+
+    Other available API versions: 2016-10-02, 2023-07-01-preview.
 
 
     :param str custom_domain_name: Name of the custom domain within an endpoint.

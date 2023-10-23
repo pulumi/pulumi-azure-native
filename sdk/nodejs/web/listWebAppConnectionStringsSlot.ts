@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Description for Gets the connection strings of an app.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2020-10-01.
  */
 export function listWebAppConnectionStringsSlot(args: ListWebAppConnectionStringsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppConnectionStringsSlotResult> {
 
@@ -64,6 +66,8 @@ export interface ListWebAppConnectionStringsSlotResult {
 /**
  * Description for Gets the connection strings of an app.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2020-10-01.
  */
 export function listWebAppConnectionStringsSlotOutput(args: ListWebAppConnectionStringsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppConnectionStringsSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppConnectionStringsSlot(a, opts))

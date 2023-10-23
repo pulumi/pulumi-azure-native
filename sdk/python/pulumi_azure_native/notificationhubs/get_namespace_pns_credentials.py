@@ -126,6 +126,8 @@ def get_namespace_pns_credentials(namespace_name: Optional[str] = None,
     PNS credentials.
     Azure REST API version: 2023-01-01-preview.
 
+    Other available API versions: 2023-09-01.
+
 
     :param str namespace_name: Namespace name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -154,6 +156,8 @@ def get_namespace_pns_credentials_output(namespace_name: Optional[pulumi.Input[s
     Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
     PNS credentials.
     Azure REST API version: 2023-01-01-preview.
+
+    Other available API versions: 2023-09-01.
 
 
     :param str namespace_name: Namespace name

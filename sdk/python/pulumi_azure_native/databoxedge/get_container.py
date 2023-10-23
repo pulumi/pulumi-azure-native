@@ -138,6 +138,8 @@ def get_container(container_name: Optional[str] = None,
     Represents a container on the  Data Box Edge/Gateway device.
     Azure REST API version: 2022-03-01.
 
+    Other available API versions: 2023-01-01-preview, 2023-07-01.
+
 
     :param str container_name: The container Name
     :param str device_name: The device name.
@@ -172,6 +174,8 @@ def get_container_output(container_name: Optional[pulumi.Input[str]] = None,
     """
     Represents a container on the  Data Box Edge/Gateway device.
     Azure REST API version: 2022-03-01.
+
+    Other available API versions: 2023-01-01-preview, 2023-07-01.
 
 
     :param str container_name: The container Name

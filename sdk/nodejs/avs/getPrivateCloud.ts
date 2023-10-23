@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * A private cloud resource
  * Azure REST API version: 2022-05-01.
+ *
+ * Other available API versions: 2023-03-01.
  */
 export function getPrivateCloud(args: GetPrivateCloudArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateCloudResult> {
 
@@ -143,6 +145,8 @@ export interface GetPrivateCloudResult {
 /**
  * A private cloud resource
  * Azure REST API version: 2022-05-01.
+ *
+ * Other available API versions: 2023-03-01.
  */
 export function getPrivateCloudOutput(args: GetPrivateCloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateCloudResult> {
     return pulumi.output(args).apply((a: any) => getPrivateCloud(a, opts))

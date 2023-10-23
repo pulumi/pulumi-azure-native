@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Video Indexer account.
- * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-18-preview
+ * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-18-preview.
  */
 export class Account extends pulumi.CustomResource {
     /**

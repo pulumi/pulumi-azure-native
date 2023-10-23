@@ -173,6 +173,8 @@ def get_saved_search(resource_group_name: Optional[str] = None,
     Gets the specified saved search for a given workspace.
     Azure REST API version: 2020-08-01.
 
+    Other available API versions: 2015-03-20.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str saved_search_id: The id of the saved search.
@@ -207,6 +209,8 @@ def get_saved_search_output(resource_group_name: Optional[pulumi.Input[str]] = N
     """
     Gets the specified saved search for a given workspace.
     Azure REST API version: 2020-08-01.
+
+    Other available API versions: 2015-03-20.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

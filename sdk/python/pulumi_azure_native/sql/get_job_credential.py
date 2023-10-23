@@ -89,6 +89,8 @@ def get_job_credential(credential_name: Optional[str] = None,
     Gets a jobs credential.
     Azure REST API version: 2021-11-01.
 
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+
 
     :param str credential_name: The name of the credential.
     :param str job_agent_name: The name of the job agent.
@@ -119,6 +121,8 @@ def get_job_credential_output(credential_name: Optional[pulumi.Input[str]] = Non
     """
     Gets a jobs credential.
     Azure REST API version: 2021-11-01.
+
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str credential_name: The name of the credential.

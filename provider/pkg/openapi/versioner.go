@@ -74,8 +74,21 @@ func calculatePathVersions(versionMap ProviderVersions) map[string]codegen.Strin
 	return pathVersions
 }
 
+// 2022-02-02-preview -> v20220202preview
 func ApiToSdkVersion(apiVersion ApiVersion) SdkVersion {
 	return "v" + strings.ReplaceAll(apiVersion, "-", "")
+}
+
+// v20220202preview -> 2022-02-02-preview
+func SdkToApiVersion(v SdkVersion) (ApiVersion, error) {
+	if !strings.HasPrefix(v, "v") || len(v) < len("v20220202") || len(v) > len("v20220202preview") {
+		return "", fmt.Errorf("invalid sdk version: %s", v)
+	}
+	res := v[1:5] + "-" + v[5:7] + "-" + v[7:9]
+	if strings.HasSuffix(v, "preview") {
+		res += "-preview"
+	}
+	return res, nil
 }
 
 // RemovableResources represents removable resources mapped to the resource that can replace them since the two are

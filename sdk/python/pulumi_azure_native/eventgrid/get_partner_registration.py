@@ -137,6 +137,8 @@ def get_partner_registration(partner_registration_name: Optional[str] = None,
     Gets a partner registration with the specified parameters.
     Azure REST API version: 2022-06-15.
 
+    Other available API versions: 2021-10-15-preview, 2023-06-01-preview.
+
 
     :param str partner_registration_name: Name of the partner registration.
     :param str resource_group_name: The name of the resource group within the user's subscription.
@@ -165,6 +167,8 @@ def get_partner_registration_output(partner_registration_name: Optional[pulumi.I
     """
     Gets a partner registration with the specified parameters.
     Azure REST API version: 2022-06-15.
+
+    Other available API versions: 2021-10-15-preview, 2023-06-01-preview.
 
 
     :param str partner_registration_name: Name of the partner registration.

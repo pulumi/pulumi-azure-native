@@ -197,6 +197,8 @@ def get_snapshot_policy(account_name: Optional[str] = None,
     Get a snapshot Policy
     Azure REST API version: 2022-11-01.
 
+    Other available API versions: 2022-11-01-preview, 2023-05-01.
+
 
     :param str account_name: The name of the NetApp account
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -233,6 +235,8 @@ def get_snapshot_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Get a snapshot Policy
     Azure REST API version: 2022-11-01.
+
+    Other available API versions: 2022-11-01-preview, 2023-05-01.
 
 
     :param str account_name: The name of the NetApp account

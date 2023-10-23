@@ -138,6 +138,8 @@ def list_web_app_site_push_settings(name: Optional[str] = None,
     Description for Gets the Push settings associated with web app.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2020-10-01.
+
 
     :param str name: Name of web app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
@@ -166,6 +168,8 @@ def list_web_app_site_push_settings_output(name: Optional[pulumi.Input[str]] = N
     """
     Description for Gets the Push settings associated with web app.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2020-10-01.
 
 
     :param str name: Name of web app.

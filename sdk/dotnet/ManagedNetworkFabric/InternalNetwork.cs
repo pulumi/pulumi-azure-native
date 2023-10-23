@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
     /// Defines the InternalNetwork item.
-    /// Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview
+    /// Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
+    /// 
+    /// Other available API versions: 2023-06-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:InternalNetwork")]
     public partial class InternalNetwork : global::Pulumi.CustomResource

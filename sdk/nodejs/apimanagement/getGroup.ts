@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the group specified by its identifier.
  * Azure REST API version: 2022-08-01.
+ *
+ * Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
 
@@ -69,6 +71,8 @@ export interface GetGroupResult {
 /**
  * Gets the details of the group specified by its identifier.
  * Azure REST API version: 2022-08-01.
+ *
+ * Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
     return pulumi.output(args).apply((a: any) => getGroup(a, opts))

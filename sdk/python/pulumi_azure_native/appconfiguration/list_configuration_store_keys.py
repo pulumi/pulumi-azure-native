@@ -65,6 +65,8 @@ def list_configuration_store_keys(config_store_name: Optional[str] = None,
     Lists the access key for the specified configuration store.
     Azure REST API version: 2023-03-01.
 
+    Other available API versions: 2019-02-01-preview.
+
 
     :param str config_store_name: The name of the configuration store.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
@@ -90,6 +92,8 @@ def list_configuration_store_keys_output(config_store_name: Optional[pulumi.Inpu
     """
     Lists the access key for the specified configuration store.
     Azure REST API version: 2023-03-01.
+
+    Other available API versions: 2019-02-01-preview.
 
 
     :param str config_store_name: The name of the configuration store.

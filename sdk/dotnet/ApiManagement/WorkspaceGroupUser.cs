@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.ApiManagement
     /// <summary>
     /// User details.
     /// Azure REST API version: 2022-09-01-preview.
+    /// 
+    /// Other available API versions: 2023-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceGroupUser")]
     public partial class WorkspaceGroupUser : global::Pulumi.CustomResource

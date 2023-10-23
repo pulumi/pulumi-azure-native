@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Returns the DNS records specified by the referencing targetResourceIds.
  * Azure REST API version: 2018-05-01.
+ *
+ * Other available API versions: 2023-07-01-preview.
  */
 export function getDnsResourceReferenceByTarResources(args?: GetDnsResourceReferenceByTarResourcesArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsResourceReferenceByTarResourcesResult> {
     args = args || {};
@@ -39,6 +41,8 @@ export interface GetDnsResourceReferenceByTarResourcesResult {
 /**
  * Returns the DNS records specified by the referencing targetResourceIds.
  * Azure REST API version: 2018-05-01.
+ *
+ * Other available API versions: 2023-07-01-preview.
  */
 export function getDnsResourceReferenceByTarResourcesOutput(args?: GetDnsResourceReferenceByTarResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResourceReferenceByTarResourcesResult> {
     return pulumi.output(args).apply((a: any) => getDnsResourceReferenceByTarResources(a, opts))

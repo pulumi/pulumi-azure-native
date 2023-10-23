@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Get the schema configuration at the API level.
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Task<GetWorkspaceApiSchemaResult> InvokeAsync(GetWorkspaceApiSchemaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceApiSchemaResult>("azure-native:apimanagement:getWorkspaceApiSchema", args ?? new GetWorkspaceApiSchemaArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Get the schema configuration at the API level.
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Output<GetWorkspaceApiSchemaResult> Invoke(GetWorkspaceApiSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceApiSchemaResult>("azure-native:apimanagement:getWorkspaceApiSchema", args ?? new GetWorkspaceApiSchemaInvokeArgs(), options.WithDefaults());

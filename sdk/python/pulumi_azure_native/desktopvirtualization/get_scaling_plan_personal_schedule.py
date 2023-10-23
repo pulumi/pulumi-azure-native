@@ -401,6 +401,8 @@ def get_scaling_plan_personal_schedule(resource_group_name: Optional[str] = None
     Get a ScalingPlanPersonalSchedule.
     Azure REST API version: 2023-07-07-preview.
 
+    Other available API versions: 2023-09-05.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scaling_plan_name: The name of the scaling plan.
@@ -454,6 +456,8 @@ def get_scaling_plan_personal_schedule_output(resource_group_name: Optional[pulu
     """
     Get a ScalingPlanPersonalSchedule.
     Azure REST API version: 2023-07-07-preview.
+
+    Other available API versions: 2023-09-05.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

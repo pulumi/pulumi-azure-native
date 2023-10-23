@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Get a msixpackage.
         /// Azure REST API version: 2022-09-09.
+        /// 
+        /// Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
         /// </summary>
         public static Task<GetMSIXPackageResult> InvokeAsync(GetMSIXPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMSIXPackageResult>("azure-native:desktopvirtualization:getMSIXPackage", args ?? new GetMSIXPackageArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Get a msixpackage.
         /// Azure REST API version: 2022-09-09.
+        /// 
+        /// Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
         /// </summary>
         public static Output<GetMSIXPackageResult> Invoke(GetMSIXPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMSIXPackageResult>("azure-native:desktopvirtualization:getMSIXPackage", args ?? new GetMSIXPackageInvokeArgs(), options.WithDefaults());

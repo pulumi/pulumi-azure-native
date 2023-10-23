@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get the ProactiveDetection configuration for this configuration id.
  * Azure REST API version: 2018-05-01-preview.
+ *
+ * Other available API versions: 2015-05-01.
  */
 export function getProactiveDetectionConfiguration(args: GetProactiveDetectionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetProactiveDetectionConfigurationResult> {
 
@@ -80,6 +82,8 @@ export interface GetProactiveDetectionConfigurationResult {
 /**
  * Get the ProactiveDetection configuration for this configuration id.
  * Azure REST API version: 2018-05-01-preview.
+ *
+ * Other available API versions: 2015-05-01.
  */
 export function getProactiveDetectionConfigurationOutput(args: GetProactiveDetectionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProactiveDetectionConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getProactiveDetectionConfiguration(a, opts))

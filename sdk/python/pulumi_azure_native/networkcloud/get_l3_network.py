@@ -303,6 +303,8 @@ def get_l3_network(l3_network_name: Optional[str] = None,
     Get properties of the provided layer 3 (L3) network.
     Azure REST API version: 2023-05-01-preview.
 
+    Other available API versions: 2023-07-01.
+
 
     :param str l3_network_name: The name of the L3 network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -345,6 +347,8 @@ def get_l3_network_output(l3_network_name: Optional[pulumi.Input[str]] = None,
     """
     Get properties of the provided layer 3 (L3) network.
     Azure REST API version: 2023-05-01-preview.
+
+    Other available API versions: 2023-07-01.
 
 
     :param str l3_network_name: The name of the L3 network.

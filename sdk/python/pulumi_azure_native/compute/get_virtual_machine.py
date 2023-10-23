@@ -473,6 +473,8 @@ def get_virtual_machine(expand: Optional[str] = None,
     Retrieves information about the model view or the instance view of a virtual machine.
     Azure REST API version: 2023-03-01.
 
+    Other available API versions: 2023-07-01.
+
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. 'UserData' retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation.
     :param str resource_group_name: The name of the resource group.
@@ -532,6 +534,8 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     """
     Retrieves information about the model view or the instance view of a virtual machine.
     Azure REST API version: 2023-03-01.
+
+    Other available API versions: 2023-07-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. 'UserData' retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation.

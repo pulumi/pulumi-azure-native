@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified Azure Firewall.
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01.
  */
 export function getAzureFirewall(args: GetAzureFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureFirewallResult> {
 
@@ -119,6 +121,8 @@ export interface GetAzureFirewallResult {
 /**
  * Gets the specified Azure Firewall.
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01.
  */
 export function getAzureFirewallOutput(args: GetAzureFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureFirewallResult> {
     return pulumi.output(args).apply((a: any) => getAzureFirewall(a, opts))

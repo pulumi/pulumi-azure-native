@@ -172,6 +172,8 @@ def get_ip_community(ip_community_name: Optional[str] = None,
     Implements an IP Community GET method.
     Azure REST API version: 2023-02-01-preview.
 
+    Other available API versions: 2023-06-15.
+
 
     :param str ip_community_name: Name of the IP Community.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -203,6 +205,8 @@ def get_ip_community_output(ip_community_name: Optional[pulumi.Input[str]] = Non
     """
     Implements an IP Community GET method.
     Azure REST API version: 2023-02-01-preview.
+
+    Other available API versions: 2023-06-15.
 
 
     :param str ip_community_name: Name of the IP Community.

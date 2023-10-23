@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a Traffic Manager endpoint.
         /// Azure REST API version: 2022-04-01.
+        /// 
+        /// Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:network:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a Traffic Manager endpoint.
         /// Azure REST API version: 2022-04-01.
+        /// 
+        /// Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:network:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());

@@ -220,6 +220,8 @@ def get_orchestrator_instance_service_details(resource_group_name: Optional[str]
     Gets details about the orchestrator instance.
     Azure REST API version: 2021-03-15.
 
+    Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
@@ -255,6 +257,8 @@ def get_orchestrator_instance_service_details_output(resource_group_name: Option
     """
     Gets details about the orchestrator instance.
     Azure REST API version: 2021-03-15.
+
+    Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

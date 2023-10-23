@@ -65,6 +65,8 @@ def get_deployment_remote_debugging_config(app_name: Optional[str] = None,
     Get remote debugging config.
     Azure REST API version: 2023-05-01-preview.
 
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
 
     :param str app_name: The name of the App resource.
     :param str deployment_name: The name of the Deployment resource.
@@ -93,6 +95,8 @@ def get_deployment_remote_debugging_config_output(app_name: Optional[pulumi.Inpu
     """
     Get remote debugging config.
     Azure REST API version: 2023-05-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str app_name: The name of the App resource.

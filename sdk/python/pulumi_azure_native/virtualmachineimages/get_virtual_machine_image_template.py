@@ -268,6 +268,8 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
     Get information about a virtual machine image template
     Azure REST API version: 2022-07-01.
 
+    Other available API versions: 2018-02-01-preview, 2019-05-01-preview.
+
 
     :param str image_template_name: The name of the image Template
     :param str resource_group_name: The name of the resource group.
@@ -307,6 +309,8 @@ def get_virtual_machine_image_template_output(image_template_name: Optional[pulu
     """
     Get information about a virtual machine image template
     Azure REST API version: 2022-07-01.
+
+    Other available API versions: 2018-02-01-preview, 2019-05-01-preview.
 
 
     :param str image_template_name: The name of the image Template

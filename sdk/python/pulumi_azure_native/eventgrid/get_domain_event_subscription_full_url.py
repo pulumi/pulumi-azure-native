@@ -52,6 +52,8 @@ def get_domain_event_subscription_full_url(domain_name: Optional[str] = None,
     Get the full endpoint URL for an event subscription for domain.
     Azure REST API version: 2022-06-15.
 
+    Other available API versions: 2023-06-01-preview.
+
 
     :param str domain_name: Name of the domain topic.
     :param str event_subscription_name: Name of the event subscription.
@@ -76,6 +78,8 @@ def get_domain_event_subscription_full_url_output(domain_name: Optional[pulumi.I
     """
     Get the full endpoint URL for an event subscription for domain.
     Azure REST API version: 2022-06-15.
+
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str domain_name: Name of the domain topic.

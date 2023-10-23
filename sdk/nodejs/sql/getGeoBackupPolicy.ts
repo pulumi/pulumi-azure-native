@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a Geo backup policy for the given database resource.
  * Azure REST API version: 2021-11-01.
+ *
+ * Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
  */
 export function getGeoBackupPolicy(args: GetGeoBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetGeoBackupPolicyResult> {
 
@@ -74,6 +76,8 @@ export interface GetGeoBackupPolicyResult {
 /**
  * Gets a Geo backup policy for the given database resource.
  * Azure REST API version: 2021-11-01.
+ *
+ * Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
  */
 export function getGeoBackupPolicyOutput(args: GetGeoBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeoBackupPolicyResult> {
     return pulumi.output(args).apply((a: any) => getGeoBackupPolicy(a, opts))

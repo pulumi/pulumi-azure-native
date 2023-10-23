@@ -53,6 +53,8 @@ def list_managed_cluster_monitoring_user_credentials(resource_group_name: Option
     The list credential result response.
     Azure REST API version: 2023-04-01.
 
+    Other available API versions: 2021-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the managed cluster resource.
@@ -77,6 +79,8 @@ def list_managed_cluster_monitoring_user_credentials_output(resource_group_name:
     """
     The list credential result response.
     Azure REST API version: 2023-04-01.
+
+    Other available API versions: 2021-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

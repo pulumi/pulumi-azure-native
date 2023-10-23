@@ -370,6 +370,8 @@ class Update(pulumi.CustomResource):
         Update details
         Azure REST API version: 2023-03-01.
 
+        Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] additional_properties: Extensible KV pairs serialized as a string. This is currently used to report the stamp OEM family and hardware model information when an update is flagged as Invalid for the stamp based on OEM type.
@@ -402,6 +404,8 @@ class Update(pulumi.CustomResource):
         """
         Update details
         Azure REST API version: 2023-03-01.
+
+        Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01.
 
         :param str resource_name: The name of the resource.
         :param UpdateArgs args: The arguments to use to populate this resource's properties.

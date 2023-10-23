@@ -220,6 +220,8 @@ def get_video_analyzer(account_name: Optional[str] = None,
     Get the details of the specified Video Analyzer account
     Azure REST API version: 2021-11-01-preview.
 
+    Other available API versions: 2021-05-01-preview.
+
 
     :param str account_name: The Video Analyzer account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -255,6 +257,8 @@ def get_video_analyzer_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Get the details of the specified Video Analyzer account
     Azure REST API version: 2021-11-01-preview.
+
+    Other available API versions: 2021-05-01-preview.
 
 
     :param str account_name: The Video Analyzer account name.

@@ -146,7 +146,9 @@ class B2CTenant(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2019-01-01-preview
+        Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2019-01-01-preview.
+
+        Other available API versions: 2019-01-01-preview, 2023-01-18-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +167,9 @@ class B2CTenant(pulumi.CustomResource):
                  args: B2CTenantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2019-01-01-preview
+        Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2019-01-01-preview.
+
+        Other available API versions: 2019-01-01-preview, 2023-01-18-preview.
 
         :param str resource_name: The name of the resource.
         :param B2CTenantArgs args: The arguments to use to populate this resource's properties.

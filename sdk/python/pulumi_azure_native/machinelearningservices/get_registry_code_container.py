@@ -101,6 +101,8 @@ def get_registry_code_container(code_name: Optional[str] = None,
     Azure Resource Manager resource envelope.
     Azure REST API version: 2023-04-01.
 
+    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
 
     :param str code_name: Container name.
     :param str registry_name: Name of Azure Machine Learning registry. This is case-insensitive
@@ -129,6 +131,8 @@ def get_registry_code_container_output(code_name: Optional[pulumi.Input[str]] = 
     """
     Azure Resource Manager resource envelope.
     Azure REST API version: 2023-04-01.
+
+    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str code_name: Container name.

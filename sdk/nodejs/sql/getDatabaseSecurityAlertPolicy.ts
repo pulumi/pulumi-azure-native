@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a database's security alert policy.
  * Azure REST API version: 2021-11-01.
+ *
+ * Other available API versions: 2018-06-01-preview, 2022-11-01-preview, 2023-02-01-preview.
  */
 export function getDatabaseSecurityAlertPolicy(args: GetDatabaseSecurityAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseSecurityAlertPolicyResult> {
 
@@ -97,6 +99,8 @@ export interface GetDatabaseSecurityAlertPolicyResult {
 /**
  * Gets a database's security alert policy.
  * Azure REST API version: 2021-11-01.
+ *
+ * Other available API versions: 2018-06-01-preview, 2022-11-01-preview, 2023-02-01-preview.
  */
 export function getDatabaseSecurityAlertPolicyOutput(args: GetDatabaseSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseSecurityAlertPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseSecurityAlertPolicy(a, opts))

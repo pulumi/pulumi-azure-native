@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Implements virtual machine template GET method.
  * Azure REST API version: 2022-07-15-preview.
+ *
+ * Other available API versions: 2023-03-01-preview, 2023-10-01.
  */
 export function getVirtualMachineTemplate(args: GetVirtualMachineTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineTemplateResult> {
 
@@ -149,6 +151,8 @@ export interface GetVirtualMachineTemplateResult {
 /**
  * Implements virtual machine template GET method.
  * Azure REST API version: 2022-07-15-preview.
+ *
+ * Other available API versions: 2023-03-01-preview, 2023-10-01.
  */
 export function getVirtualMachineTemplateOutput(args: GetVirtualMachineTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineTemplateResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineTemplate(a, opts))

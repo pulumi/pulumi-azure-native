@@ -101,6 +101,8 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     Get private endpoint connection properties for the given private endpoint.
     Azure REST API version: 2023-01-31.
 
+    Other available API versions: 2020-12-01.
+
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
@@ -129,6 +131,8 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     """
     Get private endpoint connection properties for the given private endpoint.
     Azure REST API version: 2023-01-31.
+
+    Other available API versions: 2020-12-01.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.

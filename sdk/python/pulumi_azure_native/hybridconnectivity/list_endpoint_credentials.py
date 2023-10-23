@@ -114,6 +114,8 @@ def list_endpoint_credentials(endpoint_name: Optional[str] = None,
     Gets the endpoint access credentials to the resource.
     Azure REST API version: 2023-03-15.
 
+    Other available API versions: 2022-05-01-preview.
+
 
     :param str endpoint_name: The endpoint name.
     :param int expiresin: The is how long the endpoint access token is valid (in seconds).
@@ -146,6 +148,8 @@ def list_endpoint_credentials_output(endpoint_name: Optional[pulumi.Input[str]] 
     """
     Gets the endpoint access credentials to the resource.
     Azure REST API version: 2023-03-15.
+
+    Other available API versions: 2022-05-01-preview.
 
 
     :param str endpoint_name: The endpoint name.

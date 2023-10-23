@@ -173,6 +173,8 @@ def get_extension(data_manager_for_agriculture_resource_name: Optional[str] = No
     Get installed extension details by extension id.
     Azure REST API version: 2023-06-01-preview.
 
+    Other available API versions: 2021-09-01-preview.
+
 
     :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param str extension_id: Id of extension resource.
@@ -207,6 +209,8 @@ def get_extension_output(data_manager_for_agriculture_resource_name: Optional[pu
     """
     Get installed extension details by extension id.
     Azure REST API version: 2023-06-01-preview.
+
+    Other available API versions: 2021-09-01-preview.
 
 
     :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.

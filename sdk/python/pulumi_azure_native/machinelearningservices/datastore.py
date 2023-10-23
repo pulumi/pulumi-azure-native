@@ -114,6 +114,8 @@ class Datastore(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         Azure REST API version: 2023-04-01.
 
+        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['AzureBlobDatastoreArgs'], pulumi.InputType['AzureDataLakeGen1DatastoreArgs'], pulumi.InputType['AzureDataLakeGen2DatastoreArgs'], pulumi.InputType['AzureFileDatastoreArgs']]] datastore_properties: [Required] Additional attributes of the entity.
@@ -131,6 +133,8 @@ class Datastore(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
         Azure REST API version: 2023-04-01.
+
+        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DatastoreArgs args: The arguments to use to populate this resource's properties.

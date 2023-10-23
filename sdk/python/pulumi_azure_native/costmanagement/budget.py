@@ -309,6 +309,8 @@ class Budget(pulumi.CustomResource):
         A budget resource.
         Azure REST API version: 2023-04-01-preview.
 
+        Other available API versions: 2019-04-01-preview, 2023-08-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget.
@@ -394,6 +396,8 @@ class Budget(pulumi.CustomResource):
         """
         A budget resource.
         Azure REST API version: 2023-04-01-preview.
+
+        Other available API versions: 2019-04-01-preview, 2023-08-01.
 
         :param str resource_name: The name of the resource.
         :param BudgetArgs args: The arguments to use to populate this resource's properties.

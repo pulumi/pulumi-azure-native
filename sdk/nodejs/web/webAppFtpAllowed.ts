@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Publishing Credentials Policies parameters.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01.
  */
 export class WebAppFtpAllowed extends pulumi.CustomResource {
     /**

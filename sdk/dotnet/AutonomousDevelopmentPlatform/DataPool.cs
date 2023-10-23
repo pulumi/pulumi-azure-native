@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
 {
     /// <summary>
     /// ADP Data Pool
-    /// Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
+    /// Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:autonomousdevelopmentplatform:DataPool")]
     public partial class DataPool : global::Pulumi.CustomResource

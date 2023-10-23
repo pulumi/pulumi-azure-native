@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The marketplace gallery image resource definition.
  * Azure REST API version: 2022-12-15-preview.
+ *
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
  */
 export class MarketplaceGalleryImage extends pulumi.CustomResource {
     /**

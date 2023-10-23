@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified ExpressRouteConnection.
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getExpressRouteConnection(args: GetExpressRouteConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteConnectionResult> {
 
@@ -84,6 +86,8 @@ export interface GetExpressRouteConnectionResult {
 /**
  * Gets the specified ExpressRouteConnection.
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getExpressRouteConnectionOutput(args: GetExpressRouteConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteConnectionResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteConnection(a, opts))

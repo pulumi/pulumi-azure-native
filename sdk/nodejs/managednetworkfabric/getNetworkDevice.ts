@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get the Network Device resource details.
  * Azure REST API version: 2023-02-01-preview.
+ *
+ * Other available API versions: 2023-06-15.
  */
 export function getNetworkDevice(args: GetNetworkDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkDeviceResult> {
 
@@ -95,6 +97,8 @@ export interface GetNetworkDeviceResult {
 /**
  * Get the Network Device resource details.
  * Azure REST API version: 2023-02-01-preview.
+ *
+ * Other available API versions: 2023-06-15.
  */
 export function getNetworkDeviceOutput(args: GetNetworkDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkDeviceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkDevice(a, opts))

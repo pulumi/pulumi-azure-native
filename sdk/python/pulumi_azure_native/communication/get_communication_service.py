@@ -196,6 +196,8 @@ def get_communication_service(communication_service_name: Optional[str] = None,
     Get the CommunicationService and its properties.
     Azure REST API version: 2023-03-31.
 
+    Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
+
 
     :param str communication_service_name: The name of the CommunicationService resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -229,6 +231,8 @@ def get_communication_service_output(communication_service_name: Optional[pulumi
     """
     Get the CommunicationService and its properties.
     Azure REST API version: 2023-03-31.
+
+    Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a single workbook by its resourceName.
  * Azure REST API version: 2022-04-01.
+ *
+ * Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
  */
 export function getWorkbook(args: GetWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookResult> {
 
@@ -120,6 +122,8 @@ export interface GetWorkbookResult {
 /**
  * Get a single workbook by its resourceName.
  * Azure REST API version: 2022-04-01.
+ *
+ * Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
  */
 export function getWorkbookOutput(args: GetWorkbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookResult> {
     return pulumi.output(args).apply((a: any) => getWorkbook(a, opts))

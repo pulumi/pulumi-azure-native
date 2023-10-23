@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get the specified shared private link resource
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getSignalRSharedPrivateLinkResource(args: GetSignalRSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRSharedPrivateLinkResourceResult> {
 
@@ -80,6 +82,8 @@ export interface GetSignalRSharedPrivateLinkResourceResult {
 /**
  * Get the specified shared private link resource
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getSignalRSharedPrivateLinkResourceOutput(args: GetSignalRSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRSharedPrivateLinkResourceResult> {
     return pulumi.output(args).apply((a: any) => getSignalRSharedPrivateLinkResource(a, opts))

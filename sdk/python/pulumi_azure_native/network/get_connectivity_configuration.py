@@ -197,6 +197,8 @@ def get_connectivity_configuration(configuration_name: Optional[str] = None,
     Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01.
+
 
     :param str configuration_name: The name of the network manager connectivity configuration.
     :param str network_manager_name: The name of the network manager.
@@ -233,6 +235,8 @@ def get_connectivity_configuration_output(configuration_name: Optional[pulumi.In
     """
     Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01.
 
 
     :param str configuration_name: The name of the network manager connectivity configuration.

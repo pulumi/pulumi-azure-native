@@ -124,6 +124,8 @@ def get_cache(cache_id: Optional[str] = None,
     Gets the details of the Cache specified by its identifier.
     Azure REST API version: 2022-08-01.
 
+    Other available API versions: 2019-12-01-preview, 2022-09-01-preview, 2023-03-01-preview.
+
 
     :param str cache_id: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -154,6 +156,8 @@ def get_cache_output(cache_id: Optional[pulumi.Input[str]] = None,
     """
     Gets the details of the Cache specified by its identifier.
     Azure REST API version: 2022-08-01.
+
+    Other available API versions: 2019-12-01-preview, 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str cache_id: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).

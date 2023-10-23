@@ -161,6 +161,8 @@ def get_image(expand: Optional[str] = None,
     Gets an image.
     Azure REST API version: 2023-03-01.
 
+    Other available API versions: 2023-07-01.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str image_name: The name of the image.
@@ -194,6 +196,8 @@ def get_image_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Gets an image.
     Azure REST API version: 2023-03-01.
+
+    Other available API versions: 2023-07-01.
 
 
     :param str expand: The expand expression to apply on the operation.

@@ -402,7 +402,9 @@ class Watchlist(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a Watchlist in Azure Security Insights.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
+
+        Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-10-01-preview, 2022-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -439,7 +441,9 @@ class Watchlist(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Watchlist in Azure Security Insights.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
+
+        Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-10-01-preview, 2022-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WatchlistArgs args: The arguments to use to populate this resource's properties.

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Implements L2 Isolation Domain GET method.
         /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-15.
         /// </summary>
         public static Task<GetL2IsolationDomainResult> InvokeAsync(GetL2IsolationDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetL2IsolationDomainResult>("azure-native:managednetworkfabric:getL2IsolationDomain", args ?? new GetL2IsolationDomainArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Implements L2 Isolation Domain GET method.
         /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-15.
         /// </summary>
         public static Output<GetL2IsolationDomainResult> Invoke(GetL2IsolationDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetL2IsolationDomainResult>("azure-native:managednetworkfabric:getL2IsolationDomain", args ?? new GetL2IsolationDomainInvokeArgs(), options.WithDefaults());

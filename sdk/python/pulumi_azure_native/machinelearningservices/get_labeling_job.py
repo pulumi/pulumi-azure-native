@@ -103,6 +103,8 @@ def get_labeling_job(id: Optional[str] = None,
     Azure Resource Manager resource envelope.
     Azure REST API version: 2023-04-01-preview.
 
+    Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
 
     :param str id: The name and identifier for the LabelingJob.
     :param bool include_job_instructions: Boolean value to indicate whether to include JobInstructions in response.
@@ -137,6 +139,8 @@ def get_labeling_job_output(id: Optional[pulumi.Input[str]] = None,
     """
     Azure Resource Manager resource envelope.
     Azure REST API version: 2023-04-01-preview.
+
+    Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str id: The name and identifier for the LabelingJob.

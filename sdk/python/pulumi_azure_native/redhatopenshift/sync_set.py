@@ -96,6 +96,8 @@ class SyncSet(pulumi.CustomResource):
         SyncSet represents a SyncSet for an Azure Red Hat OpenShift Cluster.
         Azure REST API version: 2022-09-04.
 
+        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] child_resource_name: The name of the SyncSet resource.
@@ -112,6 +114,8 @@ class SyncSet(pulumi.CustomResource):
         """
         SyncSet represents a SyncSet for an Azure Red Hat OpenShift Cluster.
         Azure REST API version: 2022-09-04.
+
+        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04.
 
         :param str resource_name: The name of the resource.
         :param SyncSetArgs args: The arguments to use to populate this resource's properties.

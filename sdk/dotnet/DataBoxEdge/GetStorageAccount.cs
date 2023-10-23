@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Represents a Storage Account on the  Data Box Edge/Gateway device.
         /// Azure REST API version: 2022-03-01.
+        /// 
+        /// Other available API versions: 2020-05-01-preview, 2023-01-01-preview, 2023-07-01.
         /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:databoxedge:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Represents a Storage Account on the  Data Box Edge/Gateway device.
         /// Azure REST API version: 2022-03-01.
+        /// 
+        /// Other available API versions: 2020-05-01-preview, 2023-01-01-preview, 2023-07-01.
         /// </summary>
         public static Output<GetStorageAccountResult> Invoke(GetStorageAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageAccountResult>("azure-native:databoxedge:getStorageAccount", args ?? new GetStorageAccountInvokeArgs(), options.WithDefaults());

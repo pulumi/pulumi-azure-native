@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the capacity reservation group that the capacity reservations should be assigned to. Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
- * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-04-01
+ * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-04-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export class CapacityReservationGroup extends pulumi.CustomResource {
     /**

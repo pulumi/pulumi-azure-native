@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a specific project.
         /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:devcenter:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a specific project.
         /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:devcenter:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());

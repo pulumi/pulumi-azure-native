@@ -125,6 +125,8 @@ def get_private_endpoint_connection_by_host_pool(host_pool_name: Optional[str] =
     Get a private endpoint connection.
     Azure REST API version: 2022-10-14-preview.
 
+    Other available API versions: 2023-07-07-preview, 2023-09-05.
+
 
     :param str host_pool_name: The name of the host pool within the specified resource group
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -155,6 +157,8 @@ def get_private_endpoint_connection_by_host_pool_output(host_pool_name: Optional
     """
     Get a private endpoint connection.
     Azure REST API version: 2022-10-14-preview.
+
+    Other available API versions: 2023-07-07-preview, 2023-09-05.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

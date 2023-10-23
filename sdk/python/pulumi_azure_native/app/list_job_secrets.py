@@ -52,6 +52,8 @@ def list_job_secrets(job_name: Optional[str] = None,
     Container Apps Job Secrets Collection ARM resource.
     Azure REST API version: 2023-04-01-preview.
 
+    Other available API versions: 2023-05-01, 2023-05-02-preview.
+
 
     :param str job_name: Job Name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -73,6 +75,8 @@ def list_job_secrets_output(job_name: Optional[pulumi.Input[str]] = None,
     """
     Container Apps Job Secrets Collection ARM resource.
     Azure REST API version: 2023-04-01-preview.
+
+    Other available API versions: 2023-05-01, 2023-05-02-preview.
 
 
     :param str job_name: Job Name

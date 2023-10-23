@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieves information about the model view or the instance view of a virtual machine.
  * Azure REST API version: 2023-03-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
 
@@ -188,6 +190,8 @@ export interface GetVirtualMachineResult {
 /**
  * Retrieves information about the model view or the instance view of a virtual machine.
  * Azure REST API version: 2023-03-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))

@@ -148,6 +148,8 @@ def get_global_reach_connection(global_reach_connection_name: Optional[str] = No
     A global reach connection resource
     Azure REST API version: 2022-05-01.
 
+    Other available API versions: 2023-03-01.
+
 
     :param str global_reach_connection_name: Name of the global reach connection in the private cloud
     :param str private_cloud_name: Name of the private cloud
@@ -180,6 +182,8 @@ def get_global_reach_connection_output(global_reach_connection_name: Optional[pu
     """
     A global reach connection resource
     Azure REST API version: 2022-05-01.
+
+    Other available API versions: 2023-03-01.
 
 
     :param str global_reach_connection_name: Name of the global reach connection in the private cloud

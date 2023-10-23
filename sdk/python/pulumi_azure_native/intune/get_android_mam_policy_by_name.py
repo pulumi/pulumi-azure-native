@@ -280,6 +280,8 @@ def get_android_mam_policy_by_name(host_name: Optional[str] = None,
     Returns AndroidMAMPolicy with given name.
     Azure REST API version: 2015-01-14-preview.
 
+    Other available API versions: 2015-01-14-privatepreview.
+
 
     :param str host_name: Location hostName for the tenant
     :param str policy_name: Unique name for the policy
@@ -328,6 +330,8 @@ def get_android_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]]
     """
     Returns AndroidMAMPolicy with given name.
     Azure REST API version: 2015-01-14-preview.
+
+    Other available API versions: 2015-01-14-privatepreview.
 
 
     :param str host_name: Location hostName for the tenant

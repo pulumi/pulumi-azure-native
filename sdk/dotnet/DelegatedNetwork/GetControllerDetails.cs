@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// <summary>
         /// Gets details about the specified dnc controller.
         /// Azure REST API version: 2021-03-15.
+        /// 
+        /// Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
         /// </summary>
         public static Task<GetControllerDetailsResult> InvokeAsync(GetControllerDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetControllerDetailsResult>("azure-native:delegatednetwork:getControllerDetails", args ?? new GetControllerDetailsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// <summary>
         /// Gets details about the specified dnc controller.
         /// Azure REST API version: 2021-03-15.
+        /// 
+        /// Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
         /// </summary>
         public static Output<GetControllerDetailsResult> Invoke(GetControllerDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetControllerDetailsResult>("azure-native:delegatednetwork:getControllerDetails", args ?? new GetControllerDetailsInvokeArgs(), options.WithDefaults());

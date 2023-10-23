@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// Hybrid connection authorization rule for a hybrid connection by name.
         /// Azure REST API version: 2021-11-01.
+        /// 
+        /// Other available API versions: 2017-04-01.
         /// </summary>
         public static Task<GetHybridConnectionAuthorizationRuleResult> InvokeAsync(GetHybridConnectionAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionAuthorizationRuleResult>("azure-native:relay:getHybridConnectionAuthorizationRule", args ?? new GetHybridConnectionAuthorizationRuleArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// Hybrid connection authorization rule for a hybrid connection by name.
         /// Azure REST API version: 2021-11-01.
+        /// 
+        /// Other available API versions: 2017-04-01.
         /// </summary>
         public static Output<GetHybridConnectionAuthorizationRuleResult> Invoke(GetHybridConnectionAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridConnectionAuthorizationRuleResult>("azure-native:relay:getHybridConnectionAuthorizationRule", args ?? new GetHybridConnectionAuthorizationRuleInvokeArgs(), options.WithDefaults());

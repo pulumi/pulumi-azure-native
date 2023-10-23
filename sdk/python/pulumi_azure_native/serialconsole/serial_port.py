@@ -126,7 +126,7 @@ class SerialPort(pulumi.CustomResource):
                  __props__=None):
         """
         Represents the serial port of the parent resource.
-        Azure REST API version: 2018-05-01. Prior API version in Azure Native 1.x: 2018-05-01
+        Azure REST API version: 2018-05-01. Prior API version in Azure Native 1.x: 2018-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +145,7 @@ class SerialPort(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents the serial port of the parent resource.
-        Azure REST API version: 2018-05-01. Prior API version in Azure Native 1.x: 2018-05-01
+        Azure REST API version: 2018-05-01. Prior API version in Azure Native 1.x: 2018-05-01.
 
         :param str resource_name: The name of the resource.
         :param SerialPortArgs args: The arguments to use to populate this resource's properties.

@@ -148,6 +148,8 @@ def get_ip_prefix(ip_prefix_name: Optional[str] = None,
     Implements IP Prefix GET method.
     Azure REST API version: 2023-02-01-preview.
 
+    Other available API versions: 2023-06-15.
+
 
     :param str ip_prefix_name: Name of the IP Prefix
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -177,6 +179,8 @@ def get_ip_prefix_output(ip_prefix_name: Optional[pulumi.Input[str]] = None,
     """
     Implements IP Prefix GET method.
     Azure REST API version: 2023-02-01-preview.
+
+    Other available API versions: 2023-06-15.
 
 
     :param str ip_prefix_name: Name of the IP Prefix

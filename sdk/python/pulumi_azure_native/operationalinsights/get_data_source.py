@@ -124,6 +124,8 @@ def get_data_source(data_source_name: Optional[str] = None,
     Gets a datasource instance.
     Azure REST API version: 2020-08-01.
 
+    Other available API versions: 2015-11-01-preview.
+
 
     :param str data_source_name: Name of the datasource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -154,6 +156,8 @@ def get_data_source_output(data_source_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a datasource instance.
     Azure REST API version: 2020-08-01.
+
+    Other available API versions: 2015-11-01-preview.
 
 
     :param str data_source_name: Name of the datasource

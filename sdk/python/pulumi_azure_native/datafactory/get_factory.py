@@ -220,6 +220,8 @@ def get_factory(factory_name: Optional[str] = None,
     Gets a factory.
     Azure REST API version: 2018-06-01.
 
+    Other available API versions: 2017-09-01-preview.
+
 
     :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.
@@ -255,6 +257,8 @@ def get_factory_output(factory_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a factory.
     Azure REST API version: 2018-06-01.
+
+    Other available API versions: 2017-09-01-preview.
 
 
     :param str factory_name: The factory name.

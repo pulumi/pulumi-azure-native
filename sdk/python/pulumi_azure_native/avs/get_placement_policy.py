@@ -90,6 +90,8 @@ def get_placement_policy(cluster_name: Optional[str] = None,
     A vSphere Distributed Resource Scheduler (DRS) placement policy
     Azure REST API version: 2022-05-01.
 
+    Other available API versions: 2023-03-01.
+
 
     :param str cluster_name: Name of the cluster in the private cloud
     :param str placement_policy_name: Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy
@@ -120,6 +122,8 @@ def get_placement_policy_output(cluster_name: Optional[pulumi.Input[str]] = None
     """
     A vSphere Distributed Resource Scheduler (DRS) placement policy
     Azure REST API version: 2022-05-01.
+
+    Other available API versions: 2023-03-01.
 
 
     :param str cluster_name: Name of the cluster in the private cloud

@@ -113,6 +113,8 @@ class PrivateResolverVirtualNetworkLink(pulumi.CustomResource):
         Describes a virtual network link.
         Azure REST API version: 2022-07-01.
 
+        Other available API versions: 2020-04-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
@@ -130,6 +132,8 @@ class PrivateResolverVirtualNetworkLink(pulumi.CustomResource):
         """
         Describes a virtual network link.
         Azure REST API version: 2022-07-01.
+
+        Other available API versions: 2020-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateResolverVirtualNetworkLinkArgs args: The arguments to use to populate this resource's properties.

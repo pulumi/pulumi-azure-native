@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets all deployments for a remediation at resource scope.
  * Azure REST API version: 2021-10-01.
+ *
+ * Other available API versions: 2018-07-01-preview.
  */
 export function listRemediationDeploymentsAtResource(args: ListRemediationDeploymentsAtResourceArgs, opts?: pulumi.InvokeOptions): Promise<ListRemediationDeploymentsAtResourceResult> {
 
@@ -52,6 +54,8 @@ export interface ListRemediationDeploymentsAtResourceResult {
 /**
  * Gets all deployments for a remediation at resource scope.
  * Azure REST API version: 2021-10-01.
+ *
+ * Other available API versions: 2018-07-01-preview.
  */
 export function listRemediationDeploymentsAtResourceOutput(args: ListRemediationDeploymentsAtResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRemediationDeploymentsAtResourceResult> {
     return pulumi.output(args).apply((a: any) => listRemediationDeploymentsAtResource(a, opts))

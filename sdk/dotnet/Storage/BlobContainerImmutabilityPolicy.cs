@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
+    /// 
+    /// Other available API versions: 2019-04-01, 2023-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:BlobContainerImmutabilityPolicy")]
     public partial class BlobContainerImmutabilityPolicy : global::Pulumi.CustomResource

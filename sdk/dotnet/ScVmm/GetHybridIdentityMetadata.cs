@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Implements HybridIdentityMetadata GET method.
         /// Azure REST API version: 2022-05-21-preview.
+        /// 
+        /// Other available API versions: 2023-04-01-preview.
         /// </summary>
         public static Task<GetHybridIdentityMetadataResult> InvokeAsync(GetHybridIdentityMetadataArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridIdentityMetadataResult>("azure-native:scvmm:getHybridIdentityMetadata", args ?? new GetHybridIdentityMetadataArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Implements HybridIdentityMetadata GET method.
         /// Azure REST API version: 2022-05-21-preview.
+        /// 
+        /// Other available API versions: 2023-04-01-preview.
         /// </summary>
         public static Output<GetHybridIdentityMetadataResult> Invoke(GetHybridIdentityMetadataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridIdentityMetadataResult>("azure-native:scvmm:getHybridIdentityMetadata", args ?? new GetHybridIdentityMetadataInvokeArgs(), options.WithDefaults());

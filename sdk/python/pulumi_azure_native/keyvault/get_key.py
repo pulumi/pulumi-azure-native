@@ -206,6 +206,8 @@ def get_key(key_name: Optional[str] = None,
     Gets the current version of the specified key from the specified key vault.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2023-07-01.
+
 
     :param str key_name: The name of the key to be retrieved.
     :param str resource_group_name: The name of the resource group which contains the specified key vault.
@@ -243,6 +245,8 @@ def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the current version of the specified key from the specified key vault.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2023-07-01.
 
 
     :param str key_name: The name of the key to be retrieved.

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get schedule.
  * Azure REST API version: 2018-09-15.
+ *
+ * Other available API versions: 2016-05-15.
  */
 export function getVirtualMachineSchedule(args: GetVirtualMachineScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScheduleResult> {
 
@@ -118,6 +120,8 @@ export interface GetVirtualMachineScheduleResult {
 /**
  * Get schedule.
  * Azure REST API version: 2018-09-15.
+ *
+ * Other available API versions: 2016-05-15.
  */
 export function getVirtualMachineScheduleOutput(args: GetVirtualMachineScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScheduleResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineSchedule(a, opts))

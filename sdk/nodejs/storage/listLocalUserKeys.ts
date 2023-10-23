@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * List SSH authorized keys and shared key of the local user.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2023-01-01.
  */
 export function listLocalUserKeys(args: ListLocalUserKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListLocalUserKeysResult> {
 
@@ -52,6 +54,8 @@ export interface ListLocalUserKeysResult {
 /**
  * List SSH authorized keys and shared key of the local user.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2023-01-01.
  */
 export function listLocalUserKeysOutput(args: ListLocalUserKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalUserKeysResult> {
     return pulumi.output(args).apply((a: any) => listLocalUserKeys(a, opts))

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// **Gets an access token for live metrics stream data.**
         /// Azure REST API version: 2021-10-14.
+        /// 
+        /// Other available API versions: 2020-06-02-preview.
         /// </summary>
         public static Task<GetLiveTokenResult> InvokeAsync(GetLiveTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLiveTokenResult>("azure-native:insights:getLiveToken", args ?? new GetLiveTokenArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// **Gets an access token for live metrics stream data.**
         /// Azure REST API version: 2021-10-14.
+        /// 
+        /// Other available API versions: 2020-06-02-preview.
         /// </summary>
         public static Output<GetLiveTokenResult> Invoke(GetLiveTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLiveTokenResult>("azure-native:insights:getLiveToken", args ?? new GetLiveTokenInvokeArgs(), options.WithDefaults());

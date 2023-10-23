@@ -99,6 +99,8 @@ def get_web_app_scm_allowed(name: Optional[str] = None,
     Description for Returns whether Scm basic auth is allowed on the site or not.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
@@ -124,6 +126,8 @@ def get_web_app_scm_allowed_output(name: Optional[pulumi.Input[str]] = None,
     """
     Description for Returns whether Scm basic auth is allowed on the site or not.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01.
 
 
     :param str name: Name of the app.

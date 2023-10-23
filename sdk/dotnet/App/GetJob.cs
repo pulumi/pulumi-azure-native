@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Container App Job
         /// Azure REST API version: 2023-04-01-preview.
+        /// 
+        /// Other available API versions: 2023-05-01, 2023-05-02-preview.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:app:getJob", args ?? new GetJobArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Container App Job
         /// Azure REST API version: 2023-04-01-preview.
+        /// 
+        /// Other available API versions: 2023-05-01, 2023-05-02-preview.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:app:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());

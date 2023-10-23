@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Customer creates a contact resource for a spacecraft resource.
  * Azure REST API version: 2022-11-01.
+ *
+ * Other available API versions: 2022-03-01.
  */
 export class Contact extends pulumi.CustomResource {
     /**

@@ -232,6 +232,8 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
     Gets a gallery image
     Azure REST API version: 2022-12-15-preview.
 
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
 
     :param str gallery_image_name: Name of the gallery image
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -268,6 +270,8 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = N
     """
     Gets a gallery image
     Azure REST API version: 2022-12-15-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str gallery_image_name: Name of the gallery image

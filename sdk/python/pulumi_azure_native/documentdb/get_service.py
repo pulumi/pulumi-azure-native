@@ -89,6 +89,8 @@ def get_service(account_name: Optional[str] = None,
     Gets the status of service.
     Azure REST API version: 2023-04-15.
 
+    Other available API versions: 2023-09-15, 2023-09-15-preview.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -116,6 +118,8 @@ def get_service_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the status of service.
     Azure REST API version: 2023-04-15.
+
+    Other available API versions: 2023-09-15, 2023-09-15-preview.
 
 
     :param str account_name: Cosmos DB database account name.

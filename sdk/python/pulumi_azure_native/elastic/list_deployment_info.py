@@ -112,6 +112,8 @@ def list_deployment_info(monitor_name: Optional[str] = None,
     The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
     Azure REST API version: 2023-06-01.
 
+    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
+
 
     :param str monitor_name: Monitor resource name
     :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
@@ -138,6 +140,8 @@ def list_deployment_info_output(monitor_name: Optional[pulumi.Input[str]] = None
     """
     The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
     Azure REST API version: 2023-06-01.
+
+    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name

@@ -376,6 +376,8 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
     Retrieve an scheduled query rule definition.
     Azure REST API version: 2023-03-15-preview.
 
+    Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The name of the rule.
@@ -424,6 +426,8 @@ def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[s
     """
     Retrieve an scheduled query rule definition.
     Azure REST API version: 2023-03-15-preview.
+
+    Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

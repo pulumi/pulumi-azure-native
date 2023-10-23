@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Metadata resource definition.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
+ *
+ * Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
  */
 export class Metadata extends pulumi.CustomResource {
     /**

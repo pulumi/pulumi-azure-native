@@ -180,7 +180,7 @@ class Gen2Environment(pulumi.CustomResource):
                  __props__=None):
         """
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
-        Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15
+        Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,7 +203,7 @@ class Gen2Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
-        Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15
+        Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
 
         :param str resource_name: The name of the resource.
         :param Gen2EnvironmentArgs args: The arguments to use to populate this resource's properties.

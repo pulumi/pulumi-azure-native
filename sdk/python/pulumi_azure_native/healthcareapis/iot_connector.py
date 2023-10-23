@@ -164,7 +164,7 @@ class IotConnector(pulumi.CustomResource):
                  __props__=None):
         """
         IoT Connector definition.
-        Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15
+        Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +185,7 @@ class IotConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         IoT Connector definition.
-        Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15
+        Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
 
         :param str resource_name: The name of the resource.
         :param IotConnectorArgs args: The arguments to use to populate this resource's properties.

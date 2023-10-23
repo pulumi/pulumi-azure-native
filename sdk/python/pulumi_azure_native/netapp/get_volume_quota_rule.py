@@ -163,6 +163,8 @@ def get_volume_quota_rule(account_name: Optional[str] = None,
     Get details of the specified quota rule
     Azure REST API version: 2022-11-01.
 
+    Other available API versions: 2022-11-01-preview, 2023-05-01.
+
 
     :param str account_name: The name of the NetApp account
     :param str pool_name: The name of the capacity pool
@@ -202,6 +204,8 @@ def get_volume_quota_rule_output(account_name: Optional[pulumi.Input[str]] = Non
     """
     Get details of the specified quota rule
     Azure REST API version: 2022-11-01.
+
+    Other available API versions: 2022-11-01-preview, 2023-05-01.
 
 
     :param str account_name: The name of the NetApp account

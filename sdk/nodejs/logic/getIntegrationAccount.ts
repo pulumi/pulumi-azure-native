@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets an integration account.
  * Azure REST API version: 2019-05-01.
+ *
+ * Other available API versions: 2015-08-01-preview.
  */
 export function getIntegrationAccount(args: GetIntegrationAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountResult> {
 
@@ -71,6 +73,8 @@ export interface GetIntegrationAccountResult {
 /**
  * Gets an integration account.
  * Azure REST API version: 2019-05-01.
+ *
+ * Other available API versions: 2015-08-01-preview.
  */
 export function getIntegrationAccountOutput(args: GetIntegrationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccount(a, opts))

@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets information about the specified application package.
  * Azure REST API version: 2023-05-01.
+ *
+ * Other available API versions: 2017-09-01.
  */
 export function getApplicationPackage(args: GetApplicationPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationPackageResult> {
 
@@ -82,6 +84,8 @@ export interface GetApplicationPackageResult {
 /**
  * Gets information about the specified application package.
  * Azure REST API version: 2023-05-01.
+ *
+ * Other available API versions: 2017-09-01.
  */
 export function getApplicationPackageOutput(args: GetApplicationPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationPackageResult> {
     return pulumi.output(args).apply((a: any) => getApplicationPackage(a, opts))

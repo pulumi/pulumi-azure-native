@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Profile of a lab user.
- * Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15
+ * Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+ *
+ * Other available API versions: 2016-05-15.
  */
 export class User extends pulumi.CustomResource {
     /**

@@ -244,6 +244,8 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
     This operation retrieves a single policy assignment, given its name and the scope it was created at.
     Azure REST API version: 2022-06-01.
 
+    Other available API versions: 2016-04-01, 2016-12-01, 2019-06-01, 2020-03-01, 2023-04-01.
+
 
     :param str policy_assignment_name: The name of the policy assignment to get.
     :param str scope: The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
@@ -281,6 +283,8 @@ def get_policy_assignment_output(policy_assignment_name: Optional[pulumi.Input[s
     """
     This operation retrieves a single policy assignment, given its name and the scope it was created at.
     Azure REST API version: 2022-06-01.
+
+    Other available API versions: 2016-04-01, 2016-12-01, 2019-06-01, 2020-03-01, 2023-04-01.
 
 
     :param str policy_assignment_name: The name of the policy assignment to get.

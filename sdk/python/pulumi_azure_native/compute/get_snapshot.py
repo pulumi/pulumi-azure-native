@@ -412,6 +412,8 @@ def get_snapshot(resource_group_name: Optional[str] = None,
     Gets information about a snapshot.
     Azure REST API version: 2022-07-02.
 
+    Other available API versions: 2016-04-30-preview, 2017-03-30, 2018-06-01, 2023-01-02, 2023-04-02.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
@@ -463,6 +465,8 @@ def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about a snapshot.
     Azure REST API version: 2022-07-02.
+
+    Other available API versions: 2016-04-30-preview, 2017-03-30, 2018-06-01, 2023-01-02, 2023-04-02.
 
 
     :param str resource_group_name: The name of the resource group.

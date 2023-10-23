@@ -171,6 +171,8 @@ def get_service(device_name: Optional[str] = None,
     Get the non-security related metadata of a Windows IoT Device Service.
     Azure REST API version: 2019-06-01.
 
+    Other available API versions: 2018-02-16-preview.
+
 
     :param str device_name: The name of the Windows IoT Device Service.
     :param str resource_group_name: The name of the resource group that contains the Windows IoT Device Service.
@@ -202,6 +204,8 @@ def get_service_output(device_name: Optional[pulumi.Input[str]] = None,
     """
     Get the non-security related metadata of a Windows IoT Device Service.
     Azure REST API version: 2019-06-01.
+
+    Other available API versions: 2018-02-16-preview.
 
 
     :param str device_name: The name of the Windows IoT Device Service.

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get an event subscription.
  * Azure REST API version: 2022-06-15.
+ *
+ * Other available API versions: 2023-06-01-preview.
  */
 export function getSystemTopicEventSubscription(args: GetSystemTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicEventSubscriptionResult> {
 
@@ -108,6 +110,8 @@ export interface GetSystemTopicEventSubscriptionResult {
 /**
  * Get an event subscription.
  * Azure REST API version: 2022-06-15.
+ *
+ * Other available API versions: 2023-06-01-preview.
  */
 export function getSystemTopicEventSubscriptionOutput(args: GetSystemTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getSystemTopicEventSubscription(a, opts))

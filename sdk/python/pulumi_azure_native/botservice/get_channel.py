@@ -161,6 +161,8 @@ def get_channel(channel_name: Optional[str] = None,
     Returns a BotService Channel registration specified by the parameters.
     Azure REST API version: 2022-09-15.
 
+    Other available API versions: 2023-09-15-preview.
+
 
     :param str channel_name: The name of the Bot resource.
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
@@ -194,6 +196,8 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
     """
     Returns a BotService Channel registration specified by the parameters.
     Azure REST API version: 2022-09-15.
+
+    Other available API versions: 2023-09-15-preview.
 
 
     :param str channel_name: The name of the Bot resource.

@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Service resource
-    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01.
+    /// 
+    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:Service")]
     public partial class Service : global::Pulumi.CustomResource

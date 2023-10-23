@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Management
         /// Get the details of the management group.
         /// 
         /// Azure REST API version: 2021-04-01.
+        /// 
+        /// Other available API versions: 2017-11-01-preview, 2020-02-01, 2023-04-01.
         /// </summary>
         public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure-native:management:getManagementGroup", args ?? new GetManagementGroupArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Management
         /// Get the details of the management group.
         /// 
         /// Azure REST API version: 2021-04-01.
+        /// 
+        /// Other available API versions: 2017-11-01-preview, 2020-02-01, 2023-04-01.
         /// </summary>
         public static Output<GetManagementGroupResult> Invoke(GetManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementGroupResult>("azure-native:management:getManagementGroup", args ?? new GetManagementGroupInvokeArgs(), options.WithDefaults());

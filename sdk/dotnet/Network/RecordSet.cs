@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type).
-    /// Azure REST API version: 2018-05-01. Prior API version in Azure Native 1.x: 2018-05-01
+    /// Azure REST API version: 2018-05-01. Prior API version in Azure Native 1.x: 2018-05-01.
+    /// 
+    /// Other available API versions: 2015-05-04-preview, 2016-04-01, 2023-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:RecordSet")]
     public partial class RecordSet : global::Pulumi.CustomResource

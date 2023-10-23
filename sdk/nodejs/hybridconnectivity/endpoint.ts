@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The endpoint for the target resource.
- * Azure REST API version: 2023-03-15. Prior API version in Azure Native 1.x: 2022-05-01-preview
+ * Azure REST API version: 2023-03-15. Prior API version in Azure Native 1.x: 2022-05-01-preview.
+ *
+ * Other available API versions: 2022-05-01-preview.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**

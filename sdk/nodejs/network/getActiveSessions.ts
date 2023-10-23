@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Returns the list of currently active sessions on the Bastion.
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getActiveSessions(args: GetActiveSessionsArgs, opts?: pulumi.InvokeOptions): Promise<GetActiveSessionsResult> {
 
@@ -47,6 +49,8 @@ export interface GetActiveSessionsResult {
 /**
  * Returns the list of currently active sessions on the Bastion.
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getActiveSessionsOutput(args: GetActiveSessionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveSessionsResult> {
     return pulumi.output(args).apply((a: any) => getActiveSessions(a, opts))

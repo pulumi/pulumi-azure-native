@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * List the primary and secondary keys for a provisioning service.
  * Azure REST API version: 2022-12-12.
+ *
+ * Other available API versions: 2020-09-01-preview, 2023-03-01-preview.
  */
 export function listIotDpsResourceKeys(args: ListIotDpsResourceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIotDpsResourceKeysResult> {
 
@@ -47,6 +49,8 @@ export interface ListIotDpsResourceKeysResult {
 /**
  * List the primary and secondary keys for a provisioning service.
  * Azure REST API version: 2022-12-12.
+ *
+ * Other available API versions: 2020-09-01-preview, 2023-03-01-preview.
  */
 export function listIotDpsResourceKeysOutput(args: ListIotDpsResourceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotDpsResourceKeysResult> {
     return pulumi.output(args).apply((a: any) => listIotDpsResourceKeys(a, opts))

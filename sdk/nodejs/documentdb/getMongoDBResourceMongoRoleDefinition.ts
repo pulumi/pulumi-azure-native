@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieves the properties of an existing Azure Cosmos DB Mongo Role Definition with the given Id.
  * Azure REST API version: 2023-04-15.
+ *
+ * Other available API versions: 2023-03-01-preview, 2023-09-15, 2023-09-15-preview.
  */
 export function getMongoDBResourceMongoRoleDefinition(args: GetMongoDBResourceMongoRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoRoleDefinitionResult> {
 
@@ -72,6 +74,8 @@ export interface GetMongoDBResourceMongoRoleDefinitionResult {
 /**
  * Retrieves the properties of an existing Azure Cosmos DB Mongo Role Definition with the given Id.
  * Azure REST API version: 2023-04-15.
+ *
+ * Other available API versions: 2023-03-01-preview, 2023-09-15, 2023-09-15-preview.
  */
 export function getMongoDBResourceMongoRoleDefinitionOutput(args: GetMongoDBResourceMongoRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoRoleDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getMongoDBResourceMongoRoleDefinition(a, opts))

@@ -352,6 +352,8 @@ def get_application(application_name: Optional[str] = None,
     Gets the managed application.
     Azure REST API version: 2021-07-01.
 
+    Other available API versions: 2017-12-01, 2018-06-01.
+
 
     :param str application_name: The name of the managed application.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -398,6 +400,8 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the managed application.
     Azure REST API version: 2021-07-01.
+
+    Other available API versions: 2017-12-01, 2018-06-01.
 
 
     :param str application_name: The name of the managed application.

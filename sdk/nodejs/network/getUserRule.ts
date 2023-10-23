@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a user rule.
  * Azure REST API version: 2022-04-01-preview.
+ *
+ * Other available API versions: 2021-05-01-preview.
  */
 export function getUserRule(args: GetUserRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetUserRuleResult> {
 
@@ -111,6 +113,8 @@ export interface GetUserRuleResult {
 /**
  * Gets a user rule.
  * Azure REST API version: 2022-04-01-preview.
+ *
+ * Other available API versions: 2021-05-01-preview.
  */
 export function getUserRuleOutput(args: GetUserRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserRuleResult> {
     return pulumi.output(args).apply((a: any) => getUserRule(a, opts))

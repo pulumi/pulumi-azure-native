@@ -306,6 +306,8 @@ def get_file_share(account_name: Optional[str] = None,
     Gets properties of a specified share.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2023-01-01.
+
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param str expand: Optional, used to expand the properties within share's properties. Valid values are: stats. Should be passed as a string with delimiter ','.
@@ -354,6 +356,8 @@ def get_file_share_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets properties of a specified share.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2023-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

@@ -171,6 +171,8 @@ def get_policy_definition(policy_definition_name: Optional[str] = None,
     This operation retrieves the policy definition in the given subscription with the given name.
     Azure REST API version: 2021-06-01.
 
+    Other available API versions: 2016-04-01, 2018-05-01, 2019-06-01, 2023-04-01.
+
 
     :param str policy_definition_name: The name of the policy definition to get.
     """
@@ -199,6 +201,8 @@ def get_policy_definition_output(policy_definition_name: Optional[pulumi.Input[s
     """
     This operation retrieves the policy definition in the given subscription with the given name.
     Azure REST API version: 2021-06-01.
+
+    Other available API versions: 2016-04-01, 2018-05-01, 2019-06-01, 2023-04-01.
 
 
     :param str policy_definition_name: The name of the policy definition to get.

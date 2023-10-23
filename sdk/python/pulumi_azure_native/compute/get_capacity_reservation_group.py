@@ -149,6 +149,8 @@ def get_capacity_reservation_group(capacity_reservation_group_name: Optional[str
     The operation that retrieves information about a capacity reservation group.
     Azure REST API version: 2023-03-01.
 
+    Other available API versions: 2023-07-01.
+
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the capacity reservations under the capacity reservation group which is a snapshot of the runtime properties of a capacity reservation that is managed by the platform and can change outside of control plane operations.
@@ -181,6 +183,8 @@ def get_capacity_reservation_group_output(capacity_reservation_group_name: Optio
     """
     The operation that retrieves information about a capacity reservation group.
     Azure REST API version: 2023-03-01.
+
+    Other available API versions: 2023-07-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.

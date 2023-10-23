@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Software update configuration properties.
- * Azure REST API version: 2019-06-01. Prior API version in Azure Native 1.x: 2019-06-01
+ * Azure REST API version: 2019-06-01. Prior API version in Azure Native 1.x: 2019-06-01.
+ *
+ * Other available API versions: 2017-05-15-preview.
  */
 export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
     /**

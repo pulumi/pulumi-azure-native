@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataShare
 {
     /// <summary>
     /// A type of trigger based on schedule
-    /// Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01
+    /// Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:ScheduledTrigger")]
     public partial class ScheduledTrigger : global::Pulumi.CustomResource

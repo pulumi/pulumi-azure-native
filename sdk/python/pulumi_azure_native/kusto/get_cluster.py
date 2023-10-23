@@ -436,6 +436,8 @@ def get_cluster(cluster_name: Optional[str] = None,
     Gets a Kusto cluster.
     Azure REST API version: 2022-12-29.
 
+    Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
+
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
@@ -489,6 +491,8 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a Kusto cluster.
     Azure REST API version: 2022-12-29.
+
+    Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
 
 
     :param str cluster_name: The name of the Kusto cluster.

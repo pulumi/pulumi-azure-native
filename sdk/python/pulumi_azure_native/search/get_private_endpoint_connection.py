@@ -89,6 +89,8 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     Gets the details of the private endpoint connection to the search service in the given resource group.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2019-10-01-preview, 2023-11-01.
+
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -116,6 +118,8 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     """
     Gets the details of the private endpoint connection to the search service in the given resource group.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2019-10-01-preview, 2023-11-01.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.

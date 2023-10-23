@@ -352,6 +352,8 @@ def get_private_cloud(private_cloud_name: Optional[str] = None,
     A private cloud resource
     Azure REST API version: 2022-05-01.
 
+    Other available API versions: 2023-03-01.
+
 
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -398,6 +400,8 @@ def get_private_cloud_output(private_cloud_name: Optional[pulumi.Input[str]] = N
     """
     A private cloud resource
     Azure REST API version: 2022-05-01.
+
+    Other available API versions: 2023-03-01.
 
 
     :param str private_cloud_name: Name of the private cloud

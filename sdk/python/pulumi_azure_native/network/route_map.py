@@ -149,6 +149,8 @@ class RouteMap(pulumi.CustomResource):
         The RouteMap child resource of a Virtual hub.
         Azure REST API version: 2023-02-01.
 
+        Other available API versions: 2023-04-01, 2023-05-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] associated_inbound_connections: List of connections which have this RoutMap associated for inbound traffic.
@@ -168,6 +170,8 @@ class RouteMap(pulumi.CustomResource):
         """
         The RouteMap child resource of a Virtual hub.
         Azure REST API version: 2023-02-01.
+
+        Other available API versions: 2023-04-01, 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param RouteMapArgs args: The arguments to use to populate this resource's properties.

@@ -125,6 +125,8 @@ def get_firewall_policy_rule_collection_group(firewall_policy_name: Optional[str
     Gets the specified FirewallPolicyRuleCollectionGroup.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2023-04-01, 2023-05-01.
+
 
     :param str firewall_policy_name: The name of the Firewall Policy.
     :param str resource_group_name: The name of the resource group.
@@ -155,6 +157,8 @@ def get_firewall_policy_rule_collection_group_output(firewall_policy_name: Optio
     """
     Gets the specified FirewallPolicyRuleCollectionGroup.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.

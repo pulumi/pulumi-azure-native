@@ -101,6 +101,8 @@ def get_sql_pool_transparent_data_encryption(resource_group_name: Optional[str] 
     Get a SQL pool's transparent data encryption configuration.
     Azure REST API version: 2021-06-01.
 
+    Other available API versions: 2021-06-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sql_pool_name: SQL pool name
@@ -132,6 +134,8 @@ def get_sql_pool_transparent_data_encryption_output(resource_group_name: Optiona
     """
     Get a SQL pool's transparent data encryption configuration.
     Azure REST API version: 2021-06-01.
+
+    Other available API versions: 2021-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

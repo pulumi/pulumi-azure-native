@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Chaos
         /// <summary>
         /// Get a Target resource that extends a tracked regional resource.
         /// Azure REST API version: 2023-04-15-preview.
+        /// 
+        /// Other available API versions: 2023-09-01-preview.
         /// </summary>
         public static Task<GetTargetResult> InvokeAsync(GetTargetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTargetResult>("azure-native:chaos:getTarget", args ?? new GetTargetArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Chaos
         /// <summary>
         /// Get a Target resource that extends a tracked regional resource.
         /// Azure REST API version: 2023-04-15-preview.
+        /// 
+        /// Other available API versions: 2023-09-01-preview.
         /// </summary>
         public static Output<GetTargetResult> Invoke(GetTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTargetResult>("azure-native:chaos:getTarget", args ?? new GetTargetInvokeArgs(), options.WithDefaults());

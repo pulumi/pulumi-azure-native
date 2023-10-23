@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// Lists the user credentials of a Fleet.
         /// Azure REST API version: 2023-03-15-preview.
+        /// 
+        /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview.
         /// </summary>
         public static Task<ListFleetCredentialsResult> InvokeAsync(ListFleetCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListFleetCredentialsResult>("azure-native:containerservice:listFleetCredentials", args ?? new ListFleetCredentialsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// Lists the user credentials of a Fleet.
         /// Azure REST API version: 2023-03-15-preview.
+        /// 
+        /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview.
         /// </summary>
         public static Output<ListFleetCredentialsResult> Invoke(ListFleetCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListFleetCredentialsResult>("azure-native:containerservice:listFleetCredentials", args ?? new ListFleetCredentialsInvokeArgs(), options.WithDefaults());

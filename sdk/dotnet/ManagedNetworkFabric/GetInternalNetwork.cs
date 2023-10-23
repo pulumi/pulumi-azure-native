@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Gets a InternalNetworks.
         /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-15.
         /// </summary>
         public static Task<GetInternalNetworkResult> InvokeAsync(GetInternalNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInternalNetworkResult>("azure-native:managednetworkfabric:getInternalNetwork", args ?? new GetInternalNetworkArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Gets a InternalNetworks.
         /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-15.
         /// </summary>
         public static Output<GetInternalNetworkResult> Invoke(GetInternalNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInternalNetworkResult>("azure-native:managednetworkfabric:getInternalNetwork", args ?? new GetInternalNetworkInvokeArgs(), options.WithDefaults());

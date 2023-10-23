@@ -97,6 +97,8 @@ class DppResourceGuardProxy(pulumi.CustomResource):
         ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
         Azure REST API version: 2023-01-01.
 
+        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ResourceGuardProxyBaseArgs']] properties: ResourceGuardProxyBaseResource properties
@@ -113,6 +115,8 @@ class DppResourceGuardProxy(pulumi.CustomResource):
         """
         ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
         Azure REST API version: 2023-01-01.
+
+        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DppResourceGuardProxyArgs args: The arguments to use to populate this resource's properties.

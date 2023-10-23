@@ -52,6 +52,8 @@ def list_compute_keys(compute_name: Optional[str] = None,
     Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).
     Azure REST API version: 2023-04-01.
 
+    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
 
     :param str compute_name: Name of the Azure Machine Learning compute.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -76,6 +78,8 @@ def list_compute_keys_output(compute_name: Optional[pulumi.Input[str]] = None,
     """
     Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).
     Azure REST API version: 2023-04-01.
+
+    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str compute_name: Name of the Azure Machine Learning compute.

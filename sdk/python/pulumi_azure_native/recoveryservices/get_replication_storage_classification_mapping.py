@@ -103,6 +103,8 @@ def get_replication_storage_classification_mapping(fabric_name: Optional[str] = 
     Gets the details of the specified storage classification mapping.
     Azure REST API version: 2023-04-01.
 
+    Other available API versions: 2023-06-01.
+
 
     :param str fabric_name: Fabric name.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
@@ -137,6 +139,8 @@ def get_replication_storage_classification_mapping_output(fabric_name: Optional[
     """
     Gets the details of the specified storage classification mapping.
     Azure REST API version: 2023-04-01.
+
+    Other available API versions: 2023-06-01.
 
 
     :param str fabric_name: Fabric name.

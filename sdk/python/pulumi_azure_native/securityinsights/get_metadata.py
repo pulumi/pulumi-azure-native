@@ -329,6 +329,8 @@ def get_metadata(metadata_name: Optional[str] = None,
     Get a Metadata.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+
 
     :param str metadata_name: The Metadata name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -376,6 +378,8 @@ def get_metadata_output(metadata_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Metadata.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
 
     :param str metadata_name: The Metadata name.

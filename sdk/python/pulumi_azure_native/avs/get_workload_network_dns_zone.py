@@ -160,6 +160,8 @@ def get_workload_network_dns_zone(dns_zone_id: Optional[str] = None,
     NSX DNS Zone
     Azure REST API version: 2022-05-01.
 
+    Other available API versions: 2023-03-01.
+
 
     :param str dns_zone_id: NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
     :param str private_cloud_name: Name of the private cloud
@@ -193,6 +195,8 @@ def get_workload_network_dns_zone_output(dns_zone_id: Optional[pulumi.Input[str]
     """
     NSX DNS Zone
     Azure REST API version: 2022-05-01.
+
+    Other available API versions: 2023-03-01.
 
 
     :param str dns_zone_id: NSX DNS Zone identifier. Generally the same as the DNS Zone's display name

@@ -137,6 +137,8 @@ def get_private_endpoint_connection(elastic_san_name: Optional[str] = None,
     Gets the specified private endpoint connection associated with the Elastic San
     Azure REST API version: 2022-12-01-preview.
 
+    Other available API versions: 2023-01-01.
+
 
     :param str elastic_san_name: The name of the ElasticSan.
     :param str private_endpoint_connection_name: The name of the Private Endpoint connection.
@@ -168,6 +170,8 @@ def get_private_endpoint_connection_output(elastic_san_name: Optional[pulumi.Inp
     """
     Gets the specified private endpoint connection associated with the Elastic San
     Azure REST API version: 2022-12-01-preview.
+
+    Other available API versions: 2023-01-01.
 
 
     :param str elastic_san_name: The name of the ElasticSan.

@@ -125,6 +125,8 @@ def get_deployment(account_name: Optional[str] = None,
     Gets the specified deployments associated with the Cognitive Services account.
     Azure REST API version: 2023-05-01.
 
+    Other available API versions: 2023-10-01-preview.
+
 
     :param str account_name: The name of Cognitive Services account.
     :param str deployment_name: The name of the deployment associated with the Cognitive Services Account
@@ -155,6 +157,8 @@ def get_deployment_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the specified deployments associated with the Cognitive Services account.
     Azure REST API version: 2023-05-01.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str account_name: The name of Cognitive Services account.

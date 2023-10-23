@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets an existing remediation at resource scope.
  * Azure REST API version: 2021-10-01.
+ *
+ * Other available API versions: 2018-07-01-preview.
  */
 export function getRemediationAtResource(args: GetRemediationAtResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtResourceResult> {
 
@@ -107,6 +109,8 @@ export interface GetRemediationAtResourceResult {
 /**
  * Gets an existing remediation at resource scope.
  * Azure REST API version: 2021-10-01.
+ *
+ * Other available API versions: 2018-07-01-preview.
  */
 export function getRemediationAtResourceOutput(args: GetRemediationAtResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtResourceResult> {
     return pulumi.output(args).apply((a: any) => getRemediationAtResource(a, opts))

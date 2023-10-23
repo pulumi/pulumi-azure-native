@@ -52,6 +52,8 @@ def get_partner_topic_event_subscription_full_url(event_subscription_name: Optio
     Get the full endpoint URL for an event subscription of a partner topic.
     Azure REST API version: 2022-06-15.
 
+    Other available API versions: 2023-06-01-preview.
+
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
     :param str partner_topic_name: Name of the partner topic.
@@ -76,6 +78,8 @@ def get_partner_topic_event_subscription_full_url_output(event_subscription_name
     """
     Get the full endpoint URL for an event subscription of a partner topic.
     Azure REST API version: 2022-06-15.
+
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.

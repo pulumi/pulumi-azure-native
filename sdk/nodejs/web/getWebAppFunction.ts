@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Description for Get function information by its ID for web site, or a deployment slot.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2016-08-01, 2020-10-01.
  */
 export function getWebAppFunction(args: GetWebAppFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppFunctionResult> {
 
@@ -109,6 +111,8 @@ export interface GetWebAppFunctionResult {
 /**
  * Description for Get function information by its ID for web site, or a deployment slot.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2016-08-01, 2020-10-01.
  */
 export function getWebAppFunctionOutput(args: GetWebAppFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppFunctionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppFunction(a, opts))

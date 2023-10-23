@@ -160,6 +160,8 @@ def get_product(product_id: Optional[str] = None,
     Gets the details of the product specified by its identifier.
     Azure REST API version: 2022-08-01.
 
+    Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview.
+
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -193,6 +195,8 @@ def get_product_output(product_id: Optional[pulumi.Input[str]] = None,
     """
     Gets the details of the product specified by its identifier.
     Azure REST API version: 2022-08-01.
+
+    Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.

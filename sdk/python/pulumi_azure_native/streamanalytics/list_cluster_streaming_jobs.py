@@ -64,6 +64,8 @@ def list_cluster_streaming_jobs(cluster_name: Optional[str] = None,
     Lists all of the streaming jobs in the given cluster.
     Azure REST API version: 2020-03-01.
 
+    Other available API versions: 2020-03-01-preview.
+
 
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -86,6 +88,8 @@ def list_cluster_streaming_jobs_output(cluster_name: Optional[pulumi.Input[str]]
     """
     Lists all of the streaming jobs in the given cluster.
     Azure REST API version: 2020-03-01.
+
+    Other available API versions: 2020-03-01-preview.
 
 
     :param str cluster_name: The name of the cluster.

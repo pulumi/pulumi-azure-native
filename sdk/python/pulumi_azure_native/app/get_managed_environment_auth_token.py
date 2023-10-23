@@ -136,6 +136,8 @@ def get_managed_environment_auth_token(environment_name: Optional[str] = None,
     Checks if resource name is available.
     Azure REST API version: 2022-10-01.
 
+    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+
 
     :param str environment_name: Name of the Managed Environment.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -164,6 +166,8 @@ def get_managed_environment_auth_token_output(environment_name: Optional[pulumi.
     """
     Checks if resource name is available.
     Azure REST API version: 2022-10-01.
+
+    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
 
 
     :param str environment_name: Name of the Managed Environment.

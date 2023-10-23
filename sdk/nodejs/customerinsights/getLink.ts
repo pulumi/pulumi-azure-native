@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a link in the hub.
  * Azure REST API version: 2017-04-26.
+ *
+ * Other available API versions: 2017-01-01.
  */
 export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkResult> {
 
@@ -108,6 +110,8 @@ export interface GetLinkResult {
 /**
  * Gets a link in the hub.
  * Azure REST API version: 2017-04-26.
+ *
+ * Other available API versions: 2017-01-01.
  */
 export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkResult> {
     return pulumi.output(args).apply((a: any) => getLink(a, opts))

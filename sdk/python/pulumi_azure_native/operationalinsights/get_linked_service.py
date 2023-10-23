@@ -124,6 +124,8 @@ def get_linked_service(linked_service_name: Optional[str] = None,
     Gets a linked service instance.
     Azure REST API version: 2020-08-01.
 
+    Other available API versions: 2015-11-01-preview.
+
 
     :param str linked_service_name: Name of the linked service.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -154,6 +156,8 @@ def get_linked_service_output(linked_service_name: Optional[pulumi.Input[str]] =
     """
     Gets a linked service instance.
     Azure REST API version: 2020-08-01.
+
+    Other available API versions: 2015-11-01-preview.
 
 
     :param str linked_service_name: Name of the linked service.

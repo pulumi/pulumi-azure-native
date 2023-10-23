@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// The operation to get the extension.
         /// Azure REST API version: 2022-05-21-preview.
+        /// 
+        /// Other available API versions: 2023-04-01-preview.
         /// </summary>
         public static Task<GetMachineExtensionResult> InvokeAsync(GetMachineExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-native:scvmm:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// The operation to get the extension.
         /// Azure REST API version: 2022-05-21-preview.
+        /// 
+        /// Other available API versions: 2023-04-01-preview.
         /// </summary>
         public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:scvmm:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithDefaults());

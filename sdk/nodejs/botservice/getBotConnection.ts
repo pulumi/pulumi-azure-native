@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a Connection Setting registration for a Bot Service
  * Azure REST API version: 2022-09-15.
+ *
+ * Other available API versions: 2023-09-15-preview.
  */
 export function getBotConnection(args: GetBotConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetBotConnectionResult> {
 
@@ -84,6 +86,8 @@ export interface GetBotConnectionResult {
 /**
  * Get a Connection Setting registration for a Bot Service
  * Azure REST API version: 2022-09-15.
+ *
+ * Other available API versions: 2023-09-15-preview.
  */
 export function getBotConnectionOutput(args: GetBotConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotConnectionResult> {
     return pulumi.output(args).apply((a: any) => getBotConnection(a, opts))

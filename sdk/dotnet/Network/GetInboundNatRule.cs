@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified load balancer inbound NAT rule.
         /// Azure REST API version: 2023-02-01.
+        /// 
+        /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetInboundNatRuleResult> InvokeAsync(GetInboundNatRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInboundNatRuleResult>("azure-native:network:getInboundNatRule", args ?? new GetInboundNatRuleArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified load balancer inbound NAT rule.
         /// Azure REST API version: 2023-02-01.
+        /// 
+        /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetInboundNatRuleResult> Invoke(GetInboundNatRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInboundNatRuleResult>("azure-native:network:getInboundNatRule", args ?? new GetInboundNatRuleInvokeArgs(), options.WithDefaults());

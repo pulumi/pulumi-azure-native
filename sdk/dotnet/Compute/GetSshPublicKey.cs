@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Retrieves information about an SSH public key.
         /// Azure REST API version: 2023-03-01.
+        /// 
+        /// Other available API versions: 2023-07-01.
         /// </summary>
         public static Task<GetSshPublicKeyResult> InvokeAsync(GetSshPublicKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSshPublicKeyResult>("azure-native:compute:getSshPublicKey", args ?? new GetSshPublicKeyArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Retrieves information about an SSH public key.
         /// Azure REST API version: 2023-03-01.
+        /// 
+        /// Other available API versions: 2023-07-01.
         /// </summary>
         public static Output<GetSshPublicKeyResult> Invoke(GetSshPublicKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSshPublicKeyResult>("azure-native:compute:getSshPublicKey", args ?? new GetSshPublicKeyInvokeArgs(), options.WithDefaults());

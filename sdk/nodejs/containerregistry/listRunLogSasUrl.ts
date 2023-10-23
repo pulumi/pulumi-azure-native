@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a link to download the run logs.
  * Azure REST API version: 2019-06-01-preview.
+ *
+ * Other available API versions: 2018-09-01, 2019-04-01.
  */
 export function listRunLogSasUrl(args: ListRunLogSasUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListRunLogSasUrlResult> {
 
@@ -49,6 +51,8 @@ export interface ListRunLogSasUrlResult {
 /**
  * Gets a link to download the run logs.
  * Azure REST API version: 2019-06-01-preview.
+ *
+ * Other available API versions: 2018-09-01, 2019-04-01.
  */
 export function listRunLogSasUrlOutput(args: ListRunLogSasUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRunLogSasUrlResult> {
     return pulumi.output(args).apply((a: any) => listRunLogSasUrl(a, opts))

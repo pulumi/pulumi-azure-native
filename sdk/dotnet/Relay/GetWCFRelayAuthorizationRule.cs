@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// Get authorizationRule for a WCF relay by name.
         /// Azure REST API version: 2021-11-01.
+        /// 
+        /// Other available API versions: 2017-04-01.
         /// </summary>
         public static Task<GetWCFRelayAuthorizationRuleResult> InvokeAsync(GetWCFRelayAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayAuthorizationRuleResult>("azure-native:relay:getWCFRelayAuthorizationRule", args ?? new GetWCFRelayAuthorizationRuleArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// Get authorizationRule for a WCF relay by name.
         /// Azure REST API version: 2021-11-01.
+        /// 
+        /// Other available API versions: 2017-04-01.
         /// </summary>
         public static Output<GetWCFRelayAuthorizationRuleResult> Invoke(GetWCFRelayAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWCFRelayAuthorizationRuleResult>("azure-native:relay:getWCFRelayAuthorizationRule", args ?? new GetWCFRelayAuthorizationRuleInvokeArgs(), options.WithDefaults());

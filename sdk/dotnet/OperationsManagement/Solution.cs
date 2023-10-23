@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.OperationsManagement
 {
     /// <summary>
     /// The container for solution.
-    /// Azure REST API version: 2015-11-01-preview. Prior API version in Azure Native 1.x: 2015-11-01-preview
+    /// Azure REST API version: 2015-11-01-preview. Prior API version in Azure Native 1.x: 2015-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationsmanagement:Solution")]
     public partial class Solution : global::Pulumi.CustomResource

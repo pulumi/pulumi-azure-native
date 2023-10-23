@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get schedule.
  * Azure REST API version: 2018-09-15.
+ *
+ * Other available API versions: 2016-05-15.
  */
 export function getGlobalSchedule(args: GetGlobalScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalScheduleResult> {
 
@@ -108,6 +110,8 @@ export interface GetGlobalScheduleResult {
 /**
  * Get schedule.
  * Azure REST API version: 2018-09-15.
+ *
+ * Other available API versions: 2016-05-15.
  */
 export function getGlobalScheduleOutput(args: GetGlobalScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalScheduleResult> {
     return pulumi.output(args).apply((a: any) => getGlobalSchedule(a, opts))

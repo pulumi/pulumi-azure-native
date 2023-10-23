@@ -148,6 +148,8 @@ def get_grafana(resource_group_name: Optional[str] = None,
     The grafana resource type.
     Azure REST API version: 2022-08-01.
 
+    Other available API versions: 2021-09-01-preview, 2022-10-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The workspace name of Azure Managed Grafana.
@@ -177,6 +179,8 @@ def get_grafana_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     The grafana resource type.
     Azure REST API version: 2022-08-01.
+
+    Other available API versions: 2021-09-01-preview, 2022-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -194,6 +194,8 @@ def get_metrics_configuration(cluster_name: Optional[str] = None,
     Get metrics configuration of the provided cluster.
     Azure REST API version: 2023-05-01-preview.
 
+    Other available API versions: 2023-07-01.
+
 
     :param str cluster_name: The name of the cluster.
     :param str metrics_configuration_name: The name of the metrics configuration for the cluster.
@@ -230,6 +232,8 @@ def get_metrics_configuration_output(cluster_name: Optional[pulumi.Input[str]] =
     """
     Get metrics configuration of the provided cluster.
     Azure REST API version: 2023-05-01-preview.
+
+    Other available API versions: 2023-07-01.
 
 
     :param str cluster_name: The name of the cluster.

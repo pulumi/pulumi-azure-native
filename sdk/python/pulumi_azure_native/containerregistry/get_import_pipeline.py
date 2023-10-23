@@ -161,6 +161,8 @@ def get_import_pipeline(import_pipeline_name: Optional[str] = None,
     Gets the properties of the import pipeline.
     Azure REST API version: 2023-01-01-preview.
 
+    Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+
 
     :param str import_pipeline_name: The name of the import pipeline.
     :param str registry_name: The name of the container registry.
@@ -194,6 +196,8 @@ def get_import_pipeline_output(import_pipeline_name: Optional[pulumi.Input[str]]
     """
     Gets the properties of the import pipeline.
     Azure REST API version: 2023-01-01-preview.
+
+    Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str import_pipeline_name: The name of the import pipeline.

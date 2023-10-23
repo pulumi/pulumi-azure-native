@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// Marketplace Subscription and Organization details to which resource gets billed into.
         /// Azure REST API version: 2023-07-01-preview.
+        /// 
+        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Task<GetBillingInfoResult> InvokeAsync(GetBillingInfoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingInfoResult>("azure-native:elastic:getBillingInfo", args ?? new GetBillingInfoArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// Marketplace Subscription and Organization details to which resource gets billed into.
         /// Azure REST API version: 2023-07-01-preview.
+        /// 
+        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetBillingInfoResult> Invoke(GetBillingInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingInfoResult>("azure-native:elastic:getBillingInfo", args ?? new GetBillingInfoInvokeArgs(), options.WithDefaults());

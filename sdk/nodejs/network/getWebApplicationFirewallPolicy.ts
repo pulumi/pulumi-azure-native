@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieve protection policy with specified name within a resource group.
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01.
  */
 export function getWebApplicationFirewallPolicy(args: GetWebApplicationFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetWebApplicationFirewallPolicyResult> {
 
@@ -95,6 +97,8 @@ export interface GetWebApplicationFirewallPolicyResult {
 /**
  * Retrieve protection policy with specified name within a resource group.
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01.
  */
 export function getWebApplicationFirewallPolicyOutput(args: GetWebApplicationFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebApplicationFirewallPolicyResult> {
     return pulumi.output(args).apply((a: any) => getWebApplicationFirewallPolicy(a, opts))

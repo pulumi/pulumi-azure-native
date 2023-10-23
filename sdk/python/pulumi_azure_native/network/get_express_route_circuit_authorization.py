@@ -124,6 +124,8 @@ def get_express_route_circuit_authorization(authorization_name: Optional[str] = 
     Gets the specified authorization from the specified express route circuit.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
+
 
     :param str authorization_name: The name of the authorization.
     :param str circuit_name: The name of the express route circuit.
@@ -154,6 +156,8 @@ def get_express_route_circuit_authorization_output(authorization_name: Optional[
     """
     Gets the specified authorization from the specified express route circuit.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
 
 
     :param str authorization_name: The name of the authorization.

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The operation that retrieves information about the capacity reservation.
  * Azure REST API version: 2023-03-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export function getCapacityReservation(args: GetCapacityReservationArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationResult> {
 
@@ -105,6 +107,8 @@ export interface GetCapacityReservationResult {
 /**
  * The operation that retrieves information about the capacity reservation.
  * Azure REST API version: 2023-03-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationResult> {
     return pulumi.output(args).apply((a: any) => getCapacityReservation(a, opts))

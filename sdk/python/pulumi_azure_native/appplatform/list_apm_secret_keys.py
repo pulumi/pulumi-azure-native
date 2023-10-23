@@ -52,6 +52,8 @@ def list_apm_secret_keys(apm_name: Optional[str] = None,
     List keys of APM sensitive properties.
     Azure REST API version: 2023-05-01-preview.
 
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
 
     :param str apm_name: The name of the APM
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -76,6 +78,8 @@ def list_apm_secret_keys_output(apm_name: Optional[pulumi.Input[str]] = None,
     """
     List keys of APM sensitive properties.
     Azure REST API version: 2023-05-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str apm_name: The name of the APM

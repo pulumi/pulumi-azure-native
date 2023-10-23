@@ -353,6 +353,8 @@ def get_content_package(package_id: Optional[str] = None,
     Gets an installed packages by its id.
     Azure REST API version: 2023-06-01-preview.
 
+    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+
 
     :param str package_id: package Id
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -402,6 +404,8 @@ def get_content_package_output(package_id: Optional[pulumi.Input[str]] = None,
     """
     Gets an installed packages by its id.
     Azure REST API version: 2023-06-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
 
     :param str package_id: package Id

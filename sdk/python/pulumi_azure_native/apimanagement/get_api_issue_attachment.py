@@ -114,6 +114,8 @@ def get_api_issue_attachment(api_id: Optional[str] = None,
     Gets the details of the issue Attachment for an API specified by its identifier.
     Azure REST API version: 2022-08-01.
 
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
     :param str attachment_id: Attachment identifier within an Issue. Must be unique in the current Issue.
@@ -149,6 +151,8 @@ def get_api_issue_attachment_output(api_id: Optional[pulumi.Input[str]] = None,
     """
     Gets the details of the issue Attachment for an API specified by its identifier.
     Azure REST API version: 2022-08-01.
+
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.

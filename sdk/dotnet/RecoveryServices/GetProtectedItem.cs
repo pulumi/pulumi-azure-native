@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
         /// call the GetItemOperationResult API.
         /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Other available API versions: 2016-06-01.
         /// </summary>
         public static Task<GetProtectedItemResult> InvokeAsync(GetProtectedItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProtectedItemResult>("azure-native:recoveryservices:getProtectedItem", args ?? new GetProtectedItemArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
         /// call the GetItemOperationResult API.
         /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Other available API versions: 2016-06-01.
         /// </summary>
         public static Output<GetProtectedItemResult> Invoke(GetProtectedItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectedItemResult>("azure-native:recoveryservices:getProtectedItem", args ?? new GetProtectedItemInvokeArgs(), options.WithDefaults());

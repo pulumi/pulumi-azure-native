@@ -144,6 +144,8 @@ class AuthorizationAccessPolicy(pulumi.CustomResource):
         Authorization access policy contract.
         Azure REST API version: 2022-08-01.
 
+        Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_access_policy_id: Identifier of the authorization access policy.
@@ -163,6 +165,8 @@ class AuthorizationAccessPolicy(pulumi.CustomResource):
         """
         Authorization access policy contract.
         Azure REST API version: 2022-08-01.
+
+        Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AuthorizationAccessPolicyArgs args: The arguments to use to populate this resource's properties.

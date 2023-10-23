@@ -209,6 +209,8 @@ def get_sim(resource_group_name: Optional[str] = None,
     Gets information about the specified SIM.
     Azure REST API version: 2023-06-01.
 
+    Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sim_group_name: The name of the SIM Group.
@@ -246,6 +248,8 @@ def get_sim_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about the specified SIM.
     Azure REST API version: 2023-06-01.
+
+    Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

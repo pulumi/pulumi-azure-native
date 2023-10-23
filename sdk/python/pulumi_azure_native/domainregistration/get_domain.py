@@ -290,6 +290,8 @@ def get_domain(domain_name: Optional[str] = None,
     Description for Get a domain.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2020-10-01.
+
 
     :param str domain_name: Name of the domain.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
@@ -331,6 +333,8 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     """
     Description for Get a domain.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2020-10-01.
 
 
     :param str domain_name: Name of the domain.

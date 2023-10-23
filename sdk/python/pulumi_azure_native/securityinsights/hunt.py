@@ -219,6 +219,8 @@ class Hunt(pulumi.CustomResource):
         Represents a Hunt in Azure Security Insights.
         Azure REST API version: 2023-06-01-preview.
 
+        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]] attack_tactics: A list of mitre attack tactics the hunt is associated with
@@ -242,6 +244,8 @@ class Hunt(pulumi.CustomResource):
         """
         Represents a Hunt in Azure Security Insights.
         Azure REST API version: 2023-06-01-preview.
+
+        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param HuntArgs args: The arguments to use to populate this resource's properties.

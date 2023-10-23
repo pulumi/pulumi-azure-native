@@ -93,7 +93,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
                  __props__=None):
         """
         Linked storage accounts top level resource container.
-        Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01
+        Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,7 +110,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Linked storage accounts top level resource container.
-        Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01
+        Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param LinkedStorageAccountArgs args: The arguments to use to populate this resource's properties.

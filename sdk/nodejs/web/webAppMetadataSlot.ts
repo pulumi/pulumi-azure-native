@@ -6,7 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * String dictionary resource.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+ * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
+ *
+ * Other available API versions: 2020-10-01.
  */
 export class WebAppMetadataSlot extends pulumi.CustomResource {
     /**

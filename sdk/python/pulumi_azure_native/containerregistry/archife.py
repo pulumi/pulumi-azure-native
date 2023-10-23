@@ -144,6 +144,8 @@ class Archife(pulumi.CustomResource):
         An object that represents a archive for a container registry.
         Azure REST API version: 2023-06-01-preview.
 
+        Other available API versions: 2023-08-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] archive_name: The name of the archive resource.
@@ -162,6 +164,8 @@ class Archife(pulumi.CustomResource):
         """
         An object that represents a archive for a container registry.
         Azure REST API version: 2023-06-01-preview.
+
+        Other available API versions: 2023-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ArchifeArgs args: The arguments to use to populate this resource's properties.

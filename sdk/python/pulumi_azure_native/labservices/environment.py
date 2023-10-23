@@ -195,7 +195,7 @@ class Environment(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an environment instance
-        Azure REST API version: 2018-10-15. Prior API version in Azure Native 1.x: 2018-10-15
+        Azure REST API version: 2018-10-15. Prior API version in Azure Native 1.x: 2018-10-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,7 +218,7 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an environment instance
-        Azure REST API version: 2018-10-15. Prior API version in Azure Native 1.x: 2018-10-15
+        Azure REST API version: 2018-10-15. Prior API version in Azure Native 1.x: 2018-10-15.
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

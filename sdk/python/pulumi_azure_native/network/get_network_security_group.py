@@ -209,6 +209,8 @@ def get_network_security_group(expand: Optional[str] = None,
     Gets the specified network security group.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2015-05-01-preview, 2016-03-30, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
+
 
     :param str expand: Expands referenced resources.
     :param str network_security_group_name: The name of the network security group.
@@ -246,6 +248,8 @@ def get_network_security_group_output(expand: Optional[pulumi.Input[Optional[str
     """
     Gets the specified network security group.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2015-05-01-preview, 2016-03-30, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
 
 
     :param str expand: Expands referenced resources.

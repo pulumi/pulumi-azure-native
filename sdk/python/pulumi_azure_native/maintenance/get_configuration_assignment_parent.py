@@ -129,6 +129,8 @@ def get_configuration_assignment_parent(configuration_assignment_name: Optional[
     Get configuration for resource.
     Azure REST API version: 2022-11-01-preview.
 
+    Other available API versions: 2023-04-01.
+
 
     :param str configuration_assignment_name: Configuration assignment name
     :param str provider_name: Resource provider name
@@ -171,6 +173,8 @@ def get_configuration_assignment_parent_output(configuration_assignment_name: Op
     """
     Get configuration for resource.
     Azure REST API version: 2022-11-01-preview.
+
+    Other available API versions: 2023-04-01.
 
 
     :param str configuration_assignment_name: Configuration assignment name

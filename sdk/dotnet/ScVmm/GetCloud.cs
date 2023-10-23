@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Implements Cloud GET method.
         /// Azure REST API version: 2022-05-21-preview.
+        /// 
+        /// Other available API versions: 2023-04-01-preview.
         /// </summary>
         public static Task<GetCloudResult> InvokeAsync(GetCloudArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudResult>("azure-native:scvmm:getCloud", args ?? new GetCloudArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Implements Cloud GET method.
         /// Azure REST API version: 2022-05-21-preview.
+        /// 
+        /// Other available API versions: 2023-04-01-preview.
         /// </summary>
         public static Output<GetCloudResult> Invoke(GetCloudInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudResult>("azure-native:scvmm:getCloud", args ?? new GetCloudInvokeArgs(), options.WithDefaults());

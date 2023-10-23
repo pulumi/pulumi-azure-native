@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// Get installed extension details by extension id.
         /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2021-09-01-preview.
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:agfoodplatform:getExtension", args ?? new GetExtensionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// Get installed extension details by extension id.
         /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2021-09-01-preview.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:agfoodplatform:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());

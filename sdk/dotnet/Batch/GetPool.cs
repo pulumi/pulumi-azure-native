@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Batch
         /// <summary>
         /// Gets information about the specified pool.
         /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Other available API versions: 2020-05-01.
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:batch:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Batch
         /// <summary>
         /// Gets information about the specified pool.
         /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Other available API versions: 2020-05-01.
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:batch:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());

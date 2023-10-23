@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.DBforMariaDB
 {
     /// <summary>
     /// Represents a server.
-    /// Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01
+    /// Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
+    /// 
+    /// Other available API versions: 2018-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb:Server")]
     public partial class Server : global::Pulumi.CustomResource

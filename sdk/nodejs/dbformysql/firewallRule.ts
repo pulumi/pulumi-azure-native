@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a server firewall rule.
- * Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01
+ * Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
+ *
+ * Other available API versions: 2017-12-01, 2023-06-01-preview.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * NSX DNS Service
  * Azure REST API version: 2022-05-01.
+ *
+ * Other available API versions: 2023-03-01.
  */
 export function getWorkloadNetworkDnsService(args: GetWorkloadNetworkDnsServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDnsServiceResult> {
 
@@ -85,6 +87,8 @@ export interface GetWorkloadNetworkDnsServiceResult {
 /**
  * NSX DNS Service
  * Azure REST API version: 2022-05-01.
+ *
+ * Other available API versions: 2023-03-01.
  */
 export function getWorkloadNetworkDnsServiceOutput(args: GetWorkloadNetworkDnsServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDnsServiceResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadNetworkDnsService(a, opts))

@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A database security alert policy.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
+    /// 
+    /// Other available API versions: 2018-06-01-preview, 2022-11-01-preview, 2023-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:DatabaseSecurityAlertPolicy")]
     public partial class DatabaseSecurityAlertPolicy : global::Pulumi.CustomResource

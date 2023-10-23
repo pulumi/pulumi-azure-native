@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Sql
     /// <summary>
     /// A long term retention policy.
     /// Azure REST API version: 2022-11-01-preview.
+    /// 
+    /// Other available API versions: 2023-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ManagedInstanceLongTermRetentionPolicy")]
     public partial class ManagedInstanceLongTermRetentionPolicy : global::Pulumi.CustomResource

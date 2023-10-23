@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a Job Definition resource.
  * Azure REST API version: 2023-03-01.
+ *
+ * Other available API versions: 2023-07-01-preview, 2023-10-01.
  */
 export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
 
@@ -121,6 +123,8 @@ export interface GetJobDefinitionResult {
 /**
  * Gets a Job Definition resource.
  * Azure REST API version: 2023-03-01.
+ *
+ * Other available API versions: 2023-07-01-preview, 2023-10-01.
  */
 export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getJobDefinition(a, opts))

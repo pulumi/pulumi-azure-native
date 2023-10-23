@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single item in a List or Get VirtualNetworkRules operation
- * Azure REST API version: 2018-01-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview
+ * Azure REST API version: 2018-01-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
  */
 export class NamespaceVirtualNetworkRule extends pulumi.CustomResource {
     /**

@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10.
+ *
+ * Other available API versions: 2021-03-01, 2023-06-01.
  */
 export class ReplicationNetworkMapping extends pulumi.CustomResource {
     /**

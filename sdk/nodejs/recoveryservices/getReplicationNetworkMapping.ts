@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of an ASR network mapping.
  * Azure REST API version: 2023-04-01.
+ *
+ * Other available API versions: 2021-03-01, 2023-06-01.
  */
 export function getReplicationNetworkMapping(args: GetReplicationNetworkMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationNetworkMappingResult> {
 
@@ -74,6 +76,8 @@ export interface GetReplicationNetworkMappingResult {
 /**
  * Gets the details of an ASR network mapping.
  * Azure REST API version: 2023-04-01.
+ *
+ * Other available API versions: 2021-03-01, 2023-06-01.
  */
 export function getReplicationNetworkMappingOutput(args: GetReplicationNetworkMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationNetworkMappingResult> {
     return pulumi.output(args).apply((a: any) => getReplicationNetworkMapping(a, opts))

@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * EventGrid Domain.
- * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01
+ * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
+ *
+ * Other available API versions: 2020-04-01-preview, 2023-06-01-preview.
  */
 export class Domain extends pulumi.CustomResource {
     /**

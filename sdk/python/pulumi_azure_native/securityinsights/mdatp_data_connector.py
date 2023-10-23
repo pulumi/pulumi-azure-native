@@ -131,7 +131,7 @@ class MDATPDataConnector(pulumi.CustomResource):
                  __props__=None):
         """
         Represents MDATP (Microsoft Defender Advanced Threat Protection) data connector.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,7 +151,7 @@ class MDATPDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents MDATP (Microsoft Defender Advanced Threat Protection) data connector.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01.
 
         :param str resource_name: The name of the resource.
         :param MDATPDataConnectorArgs args: The arguments to use to populate this resource's properties.

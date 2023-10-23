@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Properties of the PrivateEndpointConnection.
-    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview
+    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
+    /// 
+    /// Other available API versions: 2022-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

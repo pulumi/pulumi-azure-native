@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Get the policy configuration at the API Operation level.
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Task<GetWorkspaceApiOperationPolicyResult> InvokeAsync(GetWorkspaceApiOperationPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceApiOperationPolicyResult>("azure-native:apimanagement:getWorkspaceApiOperationPolicy", args ?? new GetWorkspaceApiOperationPolicyArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Get the policy configuration at the API Operation level.
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Output<GetWorkspaceApiOperationPolicyResult> Invoke(GetWorkspaceApiOperationPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceApiOperationPolicyResult>("azure-native:apimanagement:getWorkspaceApiOperationPolicy", args ?? new GetWorkspaceApiOperationPolicyInvokeArgs(), options.WithDefaults());

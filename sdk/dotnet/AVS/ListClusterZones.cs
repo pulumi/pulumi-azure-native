@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// List of all zones and associated hosts for a cluster
         /// Azure REST API version: 2022-05-01.
+        /// 
+        /// Other available API versions: 2023-03-01.
         /// </summary>
         public static Task<ListClusterZonesResult> InvokeAsync(ListClusterZonesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListClusterZonesResult>("azure-native:avs:listClusterZones", args ?? new ListClusterZonesArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// List of all zones and associated hosts for a cluster
         /// Azure REST API version: 2022-05-01.
+        /// 
+        /// Other available API versions: 2023-03-01.
         /// </summary>
         public static Output<ListClusterZonesResult> Invoke(ListClusterZonesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListClusterZonesResult>("azure-native:avs:listClusterZones", args ?? new ListClusterZonesInvokeArgs(), options.WithDefaults());

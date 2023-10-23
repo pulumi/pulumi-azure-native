@@ -220,6 +220,8 @@ def get_vmm_server(resource_group_name: Optional[str] = None,
     Implements VMMServer GET method.
     Azure REST API version: 2022-05-21-preview.
 
+    Other available API versions: 2023-04-01-preview.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str vmm_server_name: Name of the VMMServer.
@@ -255,6 +257,8 @@ def get_vmm_server_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     """
     Implements VMMServer GET method.
     Azure REST API version: 2022-05-21-preview.
+
+    Other available API versions: 2023-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group.

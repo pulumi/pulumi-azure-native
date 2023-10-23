@@ -124,6 +124,8 @@ def get_managed_instance_key(key_name: Optional[str] = None,
     Gets a managed instance key.
     Azure REST API version: 2021-11-01.
 
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+
 
     :param str key_name: The name of the managed instance key to be retrieved.
     :param str managed_instance_name: The name of the managed instance.
@@ -154,6 +156,8 @@ def get_managed_instance_key_output(key_name: Optional[pulumi.Input[str]] = None
     """
     Gets a managed instance key.
     Azure REST API version: 2021-11-01.
+
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str key_name: The name of the managed instance key to be retrieved.

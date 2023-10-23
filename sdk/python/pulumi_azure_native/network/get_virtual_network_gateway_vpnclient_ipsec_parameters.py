@@ -135,6 +135,8 @@ def get_virtual_network_gateway_vpnclient_ipsec_parameters(resource_group_name: 
     The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_name: The virtual network gateway name.
@@ -163,6 +165,8 @@ def get_virtual_network_gateway_vpnclient_ipsec_parameters_output(resource_group
     """
     The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
 
 
     :param str resource_group_name: The name of the resource group.

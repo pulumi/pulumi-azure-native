@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Partner configuration information
- * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-10-15-preview
+ * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-10-15-preview.
+ *
+ * Other available API versions: 2023-06-01-preview.
  */
 export class PartnerConfiguration extends pulumi.CustomResource {
     /**

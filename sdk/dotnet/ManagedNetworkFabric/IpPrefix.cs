@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     /// <summary>
     /// The IPPrefix resource definition.
     /// Azure REST API version: 2023-02-01-preview.
+    /// 
+    /// Other available API versions: 2023-06-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:IpPrefix")]
     public partial class IpPrefix : global::Pulumi.CustomResource

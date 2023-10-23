@@ -129,6 +129,8 @@ def get_recovery_point_access_token(container_name: Optional[str] = None,
     """
     Azure REST API version: 2023-01-15.
 
+    Other available API versions: 2018-12-20, 2021-11-15.
+
 
     :param str container_name: Name of the container.
     :param str e_tag: Optional ETag.
@@ -179,6 +181,8 @@ def get_recovery_point_access_token_output(container_name: Optional[pulumi.Input
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecoveryPointAccessTokenResult]:
     """
     Azure REST API version: 2023-01-15.
+
+    Other available API versions: 2018-12-20, 2021-11-15.
 
 
     :param str container_name: Name of the container.

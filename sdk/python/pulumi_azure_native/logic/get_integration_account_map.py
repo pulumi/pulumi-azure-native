@@ -197,6 +197,8 @@ def get_integration_account_map(integration_account_name: Optional[str] = None,
     Gets an integration account map.
     Azure REST API version: 2019-05-01.
 
+    Other available API versions: 2015-08-01-preview.
+
 
     :param str integration_account_name: The integration account name.
     :param str map_name: The integration account map name.
@@ -233,6 +235,8 @@ def get_integration_account_map_output(integration_account_name: Optional[pulumi
     """
     Gets an integration account map.
     Azure REST API version: 2019-05-01.
+
+    Other available API versions: 2015-08-01-preview.
 
 
     :param str integration_account_name: The integration account name.

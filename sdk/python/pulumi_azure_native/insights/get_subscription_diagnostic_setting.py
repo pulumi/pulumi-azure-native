@@ -171,6 +171,8 @@ def get_subscription_diagnostic_setting(name: Optional[str] = None,
     Gets the active subscription diagnostic settings for the specified resource.
     Azure REST API version: 2021-05-01-preview.
 
+    Other available API versions: 2017-05-01-preview.
+
 
     :param str name: The name of the diagnostic setting.
     """
@@ -199,6 +201,8 @@ def get_subscription_diagnostic_setting_output(name: Optional[pulumi.Input[str]]
     """
     Gets the active subscription diagnostic settings for the specified resource.
     Azure REST API version: 2021-05-01-preview.
+
+    Other available API versions: 2017-05-01-preview.
 
 
     :param str name: The name of the diagnostic setting.

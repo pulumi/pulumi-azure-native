@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * List the authorization keys associated with this account.
  * Azure REST API version: 2021-12-01.
+ *
+ * Other available API versions: 2020-12-01-preview, 2021-07-01.
  */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
 
@@ -44,6 +46,8 @@ export interface ListAccountKeysResult {
 /**
  * List the authorization keys associated with this account.
  * Azure REST API version: 2021-12-01.
+ *
+ * Other available API versions: 2020-12-01-preview, 2021-07-01.
  */
 export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listAccountKeys(a, opts))

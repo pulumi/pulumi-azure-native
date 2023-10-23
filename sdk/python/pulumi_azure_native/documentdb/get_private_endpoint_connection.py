@@ -125,6 +125,8 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
     Gets a private endpoint connection.
     Azure REST API version: 2023-04-15.
 
+    Other available API versions: 2023-09-15, 2023-09-15-preview.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
@@ -155,6 +157,8 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
     """
     Gets a private endpoint connection.
     Azure REST API version: 2023-04-15.
+
+    Other available API versions: 2023-09-15, 2023-09-15-preview.
 
 
     :param str account_name: Cosmos DB database account name.

@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.Resources
 {
     /// <summary>
     /// Deployment information.
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
+    /// 
+    /// Other available API versions: 2023-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:DeploymentAtSubscriptionScope")]
     public partial class DeploymentAtSubscriptionScope : global::Pulumi.CustomResource

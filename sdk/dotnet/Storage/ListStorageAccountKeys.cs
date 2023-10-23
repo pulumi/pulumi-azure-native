@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01.
         /// </summary>
         public static Task<ListStorageAccountKeysResult> InvokeAsync(ListStorageAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountKeysResult>("azure-native:storage:listStorageAccountKeys", args ?? new ListStorageAccountKeysArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01.
         /// </summary>
         public static Output<ListStorageAccountKeysResult> Invoke(ListStorageAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStorageAccountKeysResult>("azure-native:storage:listStorageAccountKeys", args ?? new ListStorageAccountKeysInvokeArgs(), options.WithDefaults());

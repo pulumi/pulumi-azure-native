@@ -75,6 +75,8 @@ def get_application_gateway_backend_health_on_demand(application_gateway_name: O
     Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
+
 
     :param str application_gateway_name: The name of the application gateway.
     :param pulumi.InputType['SubResource'] backend_address_pool: Reference to backend pool of application gateway to which probe request will be sent.
@@ -124,6 +126,8 @@ def get_application_gateway_backend_health_on_demand_output(application_gateway_
     """
     Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
 
 
     :param str application_gateway_name: The name of the application gateway.

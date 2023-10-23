@@ -137,6 +137,8 @@ def get_application_group(application_group_name: Optional[str] = None,
     Gets an ApplicationGroup for a Namespace.
     Azure REST API version: 2022-10-01-preview.
 
+    Other available API versions: 2023-01-01-preview.
+
 
     :param str application_group_name: The Application Group name 
     :param str namespace_name: The Namespace name
@@ -168,6 +170,8 @@ def get_application_group_output(application_group_name: Optional[pulumi.Input[s
     """
     Gets an ApplicationGroup for a Namespace.
     Azure REST API version: 2022-10-01-preview.
+
+    Other available API versions: 2023-01-01-preview.
 
 
     :param str application_group_name: The Application Group name 

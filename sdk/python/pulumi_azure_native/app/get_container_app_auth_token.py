@@ -136,6 +136,8 @@ def get_container_app_auth_token(container_app_name: Optional[str] = None,
     Container App Auth Token.
     Azure REST API version: 2022-10-01.
 
+    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+
 
     :param str container_app_name: Name of the Container App.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -164,6 +166,8 @@ def get_container_app_auth_token_output(container_app_name: Optional[pulumi.Inpu
     """
     Container App Auth Token.
     Azure REST API version: 2022-10-01.
+
+    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
 
 
     :param str container_app_name: Name of the Container App.

@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.DocumentDB
     /// <summary>
     /// Represents a mongo cluster firewall rule.
     /// Azure REST API version: 2023-03-15-preview.
+    /// 
+    /// Other available API versions: 2023-09-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:MongoClusterFirewallRule")]
     public partial class MongoClusterFirewallRule : global::Pulumi.CustomResource

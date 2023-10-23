@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Custom Locations definition.
- * Azure REST API version: 2021-08-15. Prior API version in Azure Native 1.x: 2021-03-15-preview
+ * Azure REST API version: 2021-08-15. Prior API version in Azure Native 1.x: 2021-03-15-preview.
+ *
+ * Other available API versions: 2021-08-31-preview.
  */
 export class CustomLocation extends pulumi.CustomResource {
     /**

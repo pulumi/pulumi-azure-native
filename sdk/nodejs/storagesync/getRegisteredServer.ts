@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a given registered server.
  * Azure REST API version: 2022-06-01.
+ *
+ * Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2022-09-01.
  */
 export function getRegisteredServer(args: GetRegisteredServerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredServerResult> {
 
@@ -152,6 +154,8 @@ export interface GetRegisteredServerResult {
 /**
  * Get a given registered server.
  * Azure REST API version: 2022-06-01.
+ *
+ * Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2022-09-01.
  */
 export function getRegisteredServerOutput(args: GetRegisteredServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredServerResult> {
     return pulumi.output(args).apply((a: any) => getRegisteredServer(a, opts))

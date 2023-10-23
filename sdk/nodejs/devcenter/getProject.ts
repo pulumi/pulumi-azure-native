@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a specific project.
  * Azure REST API version: 2023-04-01.
+ *
+ * Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
 
@@ -83,6 +85,8 @@ export interface GetProjectResult {
 /**
  * Gets a specific project.
  * Azure REST API version: 2023-04-01.
+ *
+ * Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
     return pulumi.output(args).apply((a: any) => getProject(a, opts))

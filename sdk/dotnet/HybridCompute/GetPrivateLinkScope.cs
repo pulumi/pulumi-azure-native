@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// Returns a Azure Arc PrivateLinkScope.
         /// Azure REST API version: 2022-12-27.
+        /// 
+        /// Other available API versions: 2020-08-15-preview, 2023-06-20-preview.
         /// </summary>
         public static Task<GetPrivateLinkScopeResult> InvokeAsync(GetPrivateLinkScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopeResult>("azure-native:hybridcompute:getPrivateLinkScope", args ?? new GetPrivateLinkScopeArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// Returns a Azure Arc PrivateLinkScope.
         /// Azure REST API version: 2022-12-27.
+        /// 
+        /// Other available API versions: 2020-08-15-preview, 2023-06-20-preview.
         /// </summary>
         public static Output<GetPrivateLinkScopeResult> Invoke(GetPrivateLinkScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkScopeResult>("azure-native:hybridcompute:getPrivateLinkScope", args ?? new GetPrivateLinkScopeInvokeArgs(), options.WithDefaults());

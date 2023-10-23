@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * The operation returns the admin kubeconfig.
  * Azure REST API version: 2022-09-04.
+ *
+ * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04.
  */
 export function listOpenShiftClusterAdminCredentials(args: ListOpenShiftClusterAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListOpenShiftClusterAdminCredentialsResult> {
 
@@ -40,6 +42,8 @@ export interface ListOpenShiftClusterAdminCredentialsResult {
 /**
  * The operation returns the admin kubeconfig.
  * Azure REST API version: 2022-09-04.
+ *
+ * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04.
  */
 export function listOpenShiftClusterAdminCredentialsOutput(args: ListOpenShiftClusterAdminCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOpenShiftClusterAdminCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listOpenShiftClusterAdminCredentials(a, opts))

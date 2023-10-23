@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets an Event Hubs description for the specified Event Hub.
  * Azure REST API version: 2022-10-01-preview.
+ *
+ * Other available API versions: 2015-08-01, 2023-01-01-preview.
  */
 export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubResult> {
 
@@ -96,6 +98,8 @@ export interface GetEventHubResult {
 /**
  * Gets an Event Hubs description for the specified Event Hub.
  * Azure REST API version: 2022-10-01-preview.
+ *
+ * Other available API versions: 2015-08-01, 2023-01-01-preview.
  */
 export function getEventHubOutput(args: GetEventHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubResult> {
     return pulumi.output(args).apply((a: any) => getEventHub(a, opts))

@@ -55,6 +55,8 @@ def get_user_shared_access_token(expiry: Optional[str] = None,
     Gets the Shared Access Authorization Token for the User.
     Azure REST API version: 2022-08-01.
 
+    Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview.
+
 
     :param str expiry: The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
     :param 'KeyType' key_type: The Key to be used to generate token for user.
@@ -85,6 +87,8 @@ def get_user_shared_access_token_output(expiry: Optional[pulumi.Input[str]] = No
     """
     Gets the Shared Access Authorization Token for the User.
     Azure REST API version: 2022-08-01.
+
+    Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str expiry: The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.

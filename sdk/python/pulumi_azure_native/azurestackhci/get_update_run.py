@@ -246,6 +246,8 @@ def get_update_run(cluster_name: Optional[str] = None,
     Get the Update run for a specified update
     Azure REST API version: 2023-03-01.
 
+    Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01.
+
 
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -289,6 +291,8 @@ def get_update_run_output(cluster_name: Optional[pulumi.Input[str]] = None,
     """
     Get the Update run for a specified update
     Azure REST API version: 2023-03-01.
+
+    Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01.
 
 
     :param str cluster_name: The name of the cluster.

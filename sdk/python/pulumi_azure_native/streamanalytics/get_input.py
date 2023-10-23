@@ -89,6 +89,8 @@ def get_input(input_name: Optional[str] = None,
     Gets details about the specified input.
     Azure REST API version: 2020-03-01.
 
+    Other available API versions: 2021-10-01-preview.
+
 
     :param str input_name: The name of the input.
     :param str job_name: The name of the streaming job.
@@ -116,6 +118,8 @@ def get_input_output(input_name: Optional[pulumi.Input[str]] = None,
     """
     Gets details about the specified input.
     Azure REST API version: 2020-03-01.
+
+    Other available API versions: 2021-10-01-preview.
 
 
     :param str input_name: The name of the input.

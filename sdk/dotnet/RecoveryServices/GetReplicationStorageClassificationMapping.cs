@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Gets the details of the specified storage classification mapping.
         /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Other available API versions: 2023-06-01.
         /// </summary>
         public static Task<GetReplicationStorageClassificationMappingResult> InvokeAsync(GetReplicationStorageClassificationMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationStorageClassificationMappingResult>("azure-native:recoveryservices:getReplicationStorageClassificationMapping", args ?? new GetReplicationStorageClassificationMappingArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Gets the details of the specified storage classification mapping.
         /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Other available API versions: 2023-06-01.
         /// </summary>
         public static Output<GetReplicationStorageClassificationMappingResult> Invoke(GetReplicationStorageClassificationMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationStorageClassificationMappingResult>("azure-native:recoveryservices:getReplicationStorageClassificationMapping", args ?? new GetReplicationStorageClassificationMappingInvokeArgs(), options.WithDefaults());

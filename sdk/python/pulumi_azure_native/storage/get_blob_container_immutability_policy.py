@@ -137,6 +137,8 @@ def get_blob_container_immutability_policy(account_name: Optional[str] = None,
     Gets the existing immutability policy along with the corresponding ETag in response headers and body.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2019-04-01, 2023-01-01.
+
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param str container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
@@ -171,6 +173,8 @@ def get_blob_container_immutability_policy_output(account_name: Optional[pulumi.
     """
     Gets the existing immutability policy along with the corresponding ETag in response headers and body.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2019-04-01, 2023-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

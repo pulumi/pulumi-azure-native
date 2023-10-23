@@ -94,6 +94,8 @@ def get_workspace_connection(connection_name: Optional[str] = None,
     """
     Azure REST API version: 2023-04-01.
 
+    Other available API versions: 2021-04-01, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
 
     :param str connection_name: Friendly name of the workspace connection
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -121,6 +123,8 @@ def get_workspace_connection_output(connection_name: Optional[pulumi.Input[str]]
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceConnectionResult]:
     """
     Azure REST API version: 2023-04-01.
+
+    Other available API versions: 2021-04-01, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str connection_name: Friendly name of the workspace connection

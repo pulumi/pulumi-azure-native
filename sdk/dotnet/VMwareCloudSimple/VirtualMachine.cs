@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
 {
     /// <summary>
     /// Virtual machine model
-    /// Azure REST API version: 2019-04-01. Prior API version in Azure Native 1.x: 2019-04-01
+    /// Azure REST API version: 2019-04-01. Prior API version in Azure Native 1.x: 2019-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:vmwarecloudsimple:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource

@@ -112,6 +112,8 @@ def get_virtual_network_rule(resource_group_name: Optional[str] = None,
     Gets a virtual network rule.
     Azure REST API version: 2018-06-01.
 
+    Other available API versions: 2018-06-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
@@ -141,6 +143,8 @@ def get_virtual_network_rule_output(resource_group_name: Optional[pulumi.Input[s
     """
     Gets a virtual network rule.
     Azure REST API version: 2018-06-01.
+
+    Other available API versions: 2018-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

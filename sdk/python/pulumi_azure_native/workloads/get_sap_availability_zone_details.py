@@ -55,6 +55,8 @@ def get_sap_availability_zone_details(app_location: Optional[str] = None,
     Get the recommended SAP Availability Zone Pair Details for your region.
     Azure REST API version: 2023-04-01.
 
+    Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
+
 
     :param str app_location: The geo-location where the SAP resources will be created.
     :param Union[str, 'SAPDatabaseType'] database_type: The database type. Eg: HANA, DB2, etc
@@ -82,6 +84,8 @@ def get_sap_availability_zone_details_output(app_location: Optional[pulumi.Input
     """
     Get the recommended SAP Availability Zone Pair Details for your region.
     Azure REST API version: 2023-04-01.
+
+    Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
 
 
     :param str app_location: The geo-location where the SAP resources will be created.

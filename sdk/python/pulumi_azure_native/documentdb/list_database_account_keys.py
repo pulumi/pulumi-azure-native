@@ -87,6 +87,8 @@ def list_database_account_keys(account_name: Optional[str] = None,
     Lists the access keys for the specified Azure Cosmos DB database account.
     Azure REST API version: 2023-04-15.
 
+    Other available API versions: 2020-03-01, 2020-06-01-preview, 2020-09-01, 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -111,6 +113,8 @@ def list_database_account_keys_output(account_name: Optional[pulumi.Input[str]] 
     """
     Lists the access keys for the specified Azure Cosmos DB database account.
     Azure REST API version: 2023-04-15.
+
+    Other available API versions: 2020-03-01, 2020-06-01-preview, 2020-09-01, 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
 
 
     :param str account_name: Cosmos DB database account name.

@@ -232,6 +232,8 @@ def get_operationalization_cluster(cluster_name: Optional[str] = None,
     Gets the operationalization cluster resource view. Note that the credentials are not returned by this call. Call ListKeys to get them.
     Azure REST API version: 2017-08-01-preview.
 
+    Other available API versions: 2017-06-01-preview.
+
 
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: Name of the resource group in which the cluster is located.
@@ -268,6 +270,8 @@ def get_operationalization_cluster_output(cluster_name: Optional[pulumi.Input[st
     """
     Gets the operationalization cluster resource view. Note that the credentials are not returned by this call. Call ListKeys to get them.
     Azure REST API version: 2017-08-01-preview.
+
+    Other available API versions: 2017-06-01-preview.
 
 
     :param str cluster_name: The name of the cluster.

@@ -101,6 +101,8 @@ def get_domain_topic(domain_name: Optional[str] = None,
     Get properties of a domain topic.
     Azure REST API version: 2022-06-15.
 
+    Other available API versions: 2023-06-01-preview.
+
 
     :param str domain_name: Name of the domain.
     :param str domain_topic_name: Name of the topic.
@@ -129,6 +131,8 @@ def get_domain_topic_output(domain_name: Optional[pulumi.Input[str]] = None,
     """
     Get properties of a domain topic.
     Azure REST API version: 2022-06-15.
+
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str domain_name: Name of the domain.

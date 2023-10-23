@@ -276,6 +276,8 @@ def get_server_blob_auditing_policy(blob_auditing_policy_name: Optional[str] = N
     Gets a server's blob auditing policy.
     Azure REST API version: 2021-11-01.
 
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+
 
     :param str blob_auditing_policy_name: The name of the blob auditing policy.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -312,6 +314,8 @@ def get_server_blob_auditing_policy_output(blob_auditing_policy_name: Optional[p
     """
     Gets a server's blob auditing policy.
     Azure REST API version: 2021-11-01.
+
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str blob_auditing_policy_name: The name of the blob auditing policy.

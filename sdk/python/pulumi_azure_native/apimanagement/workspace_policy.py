@@ -130,6 +130,8 @@ class WorkspacePolicy(pulumi.CustomResource):
         Policy Contract details.
         Azure REST API version: 2022-09-01-preview.
 
+        Other available API versions: 2023-03-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'PolicyContentFormat']] format: Format of the policyContent.
@@ -148,6 +150,8 @@ class WorkspacePolicy(pulumi.CustomResource):
         """
         Policy Contract details.
         Azure REST API version: 2022-09-01-preview.
+
+        Other available API versions: 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspacePolicyArgs args: The arguments to use to populate this resource's properties.

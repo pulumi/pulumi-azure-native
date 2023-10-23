@@ -186,6 +186,8 @@ def get_managed_cluster_application(application_name: Optional[str] = None,
     Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
     Azure REST API version: 2023-03-01-preview.
 
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
 
     :param str application_name: The name of the application resource.
     :param str cluster_name: The name of the cluster resource.
@@ -221,6 +223,8 @@ def get_managed_cluster_application_output(application_name: Optional[pulumi.Inp
     """
     Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
     Azure REST API version: 2023-03-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str application_name: The name of the application resource.

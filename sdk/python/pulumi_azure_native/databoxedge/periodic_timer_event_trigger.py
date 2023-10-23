@@ -145,7 +145,7 @@ class PeriodicTimerEventTrigger(pulumi.CustomResource):
                  __props__=None):
         """
         Trigger details.
-        Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
+        Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,7 +166,7 @@ class PeriodicTimerEventTrigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Trigger details.
-        Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
+        Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param PeriodicTimerEventTriggerArgs args: The arguments to use to populate this resource's properties.

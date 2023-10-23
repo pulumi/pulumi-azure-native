@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a Disk pool.
  * Azure REST API version: 2021-08-01.
+ *
+ * Other available API versions: 2020-03-15-preview.
  */
 export function getDiskPool(args: GetDiskPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskPoolResult> {
 
@@ -99,6 +101,8 @@ export interface GetDiskPoolResult {
 /**
  * Get a Disk pool.
  * Azure REST API version: 2021-08-01.
+ *
+ * Other available API versions: 2020-03-15-preview.
  */
 export function getDiskPoolOutput(args: GetDiskPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskPoolResult> {
     return pulumi.output(args).apply((a: any) => getDiskPool(a, opts))

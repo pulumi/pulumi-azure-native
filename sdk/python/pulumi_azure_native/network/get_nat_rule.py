@@ -173,6 +173,8 @@ def get_nat_rule(gateway_name: Optional[str] = None,
     Retrieves the details of a nat ruleGet.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2023-04-01, 2023-05-01.
+
 
     :param str gateway_name: The name of the gateway.
     :param str nat_rule_name: The name of the nat rule.
@@ -207,6 +209,8 @@ def get_nat_rule_output(gateway_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieves the details of a nat ruleGet.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str gateway_name: The name of the gateway.

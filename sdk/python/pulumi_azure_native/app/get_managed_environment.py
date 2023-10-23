@@ -282,6 +282,8 @@ def get_managed_environment(environment_name: Optional[str] = None,
     Get the properties of a Managed Environment used to host container apps.
     Azure REST API version: 2022-10-01.
 
+    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+
 
     :param str environment_name: Name of the Environment.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -322,6 +324,8 @@ def get_managed_environment_output(environment_name: Optional[pulumi.Input[str]]
     """
     Get the properties of a Managed Environment used to host container apps.
     Azure REST API version: 2022-10-01.
+
+    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
 
 
     :param str environment_name: Name of the Environment.

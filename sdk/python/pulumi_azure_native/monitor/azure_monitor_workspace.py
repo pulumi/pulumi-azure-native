@@ -95,7 +95,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure Monitor Workspace definition
-        Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2021-06-03-preview
+        Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2021-06-03-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +112,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Monitor Workspace definition
-        Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2021-06-03-preview
+        Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2021-06-03-preview.
 
         :param str resource_name: The name of the resource.
         :param AzureMonitorWorkspaceArgs args: The arguments to use to populate this resource's properties.

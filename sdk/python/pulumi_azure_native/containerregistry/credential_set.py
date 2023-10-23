@@ -134,6 +134,8 @@ class CredentialSet(pulumi.CustomResource):
         An object that represents a credential set resource for a container registry.
         Azure REST API version: 2023-01-01-preview.
 
+        Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthCredentialArgs']]]] auth_credentials: List of authentication credentials stored for an upstream.
@@ -153,6 +155,8 @@ class CredentialSet(pulumi.CustomResource):
         """
         An object that represents a credential set resource for a container registry.
         Azure REST API version: 2023-01-01-preview.
+
+        Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CredentialSetArgs args: The arguments to use to populate this resource's properties.

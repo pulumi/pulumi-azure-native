@@ -100,6 +100,8 @@ def list_web_app_function_keys(function_name: Optional[str] = None,
     Description for Get function keys for a function in a web site, or a deployment slot.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2020-10-01.
+
 
     :param str function_name: Function name.
     :param str name: Site name.
@@ -128,6 +130,8 @@ def list_web_app_function_keys_output(function_name: Optional[pulumi.Input[str]]
     """
     Description for Get function keys for a function in a web site, or a deployment slot.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2020-10-01.
 
 
     :param str function_name: Function name.

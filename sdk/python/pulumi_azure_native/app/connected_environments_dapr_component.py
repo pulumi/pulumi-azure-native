@@ -218,6 +218,8 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
         Dapr Component.
         Azure REST API version: 2022-10-01.
 
+        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] component_name: Name of the Dapr Component.
@@ -241,6 +243,8 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
         """
         Dapr Component.
         Azure REST API version: 2022-10-01.
+
+        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
 
         :param str resource_name: The name of the resource.
         :param ConnectedEnvironmentsDaprComponentArgs args: The arguments to use to populate this resource's properties.

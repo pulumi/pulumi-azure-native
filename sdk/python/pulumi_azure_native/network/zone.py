@@ -150,7 +150,9 @@ class Zone(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a DNS zone.
-        Azure REST API version: 2018-05-01. Prior API version in Azure Native 1.x: 2018-05-01
+        Azure REST API version: 2018-05-01. Prior API version in Azure Native 1.x: 2018-05-01.
+
+        Other available API versions: 2015-05-04-preview, 2016-04-01, 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,7 +172,9 @@ class Zone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a DNS zone.
-        Azure REST API version: 2018-05-01. Prior API version in Azure Native 1.x: 2018-05-01
+        Azure REST API version: 2018-05-01. Prior API version in Azure Native 1.x: 2018-05-01.
+
+        Other available API versions: 2015-05-04-preview, 2016-04-01, 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ZoneArgs args: The arguments to use to populate this resource's properties.

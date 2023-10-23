@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HealthcareApis
 {
     /// <summary>
     /// Workspace resource.
-    /// Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15
+    /// Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

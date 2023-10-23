@@ -149,6 +149,8 @@ def get_sql_pool_workload_group(resource_group_name: Optional[str] = None,
     Get a Sql pool's workload group.
     Azure REST API version: 2021-06-01.
 
+    Other available API versions: 2021-06-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sql_pool_name: SQL pool name
@@ -184,6 +186,8 @@ def get_sql_pool_workload_group_output(resource_group_name: Optional[pulumi.Inpu
     """
     Get a Sql pool's workload group.
     Azure REST API version: 2021-06-01.
+
+    Other available API versions: 2021-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

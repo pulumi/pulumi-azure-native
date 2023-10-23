@@ -299,7 +299,9 @@ class ViewByScope(pulumi.CustomResource):
                  __props__=None):
         """
         States and configurations of Cost Analysis.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2019-11-01
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2019-11-01.
+
+        Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -328,7 +330,9 @@ class ViewByScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         States and configurations of Cost Analysis.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2019-11-01
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2019-11-01.
+
+        Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-08-01.
 
         :param str resource_name: The name of the resource.
         :param ViewByScopeArgs args: The arguments to use to populate this resource's properties.

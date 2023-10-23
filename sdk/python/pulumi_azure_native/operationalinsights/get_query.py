@@ -197,6 +197,8 @@ def get_query(id: Optional[str] = None,
     Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
     Azure REST API version: 2019-09-01.
 
+    Other available API versions: 2019-09-01-preview.
+
 
     :param str id: The id of a specific query defined in the Log Analytics QueryPack
     :param str query_pack_name: The name of the Log Analytics QueryPack resource.
@@ -233,6 +235,8 @@ def get_query_output(id: Optional[pulumi.Input[str]] = None,
     """
     Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
     Azure REST API version: 2019-09-01.
+
+    Other available API versions: 2019-09-01-preview.
 
 
     :param str id: The id of a specific query defined in the Log Analytics QueryPack

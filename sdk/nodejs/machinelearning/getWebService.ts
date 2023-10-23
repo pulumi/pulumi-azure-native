@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
  * Azure REST API version: 2017-01-01.
+ *
+ * Other available API versions: 2016-05-01-preview.
  */
 export function getWebService(args: GetWebServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetWebServiceResult> {
 
@@ -68,6 +70,8 @@ export interface GetWebServiceResult {
 /**
  * Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
  * Azure REST API version: 2017-01-01.
+ *
+ * Other available API versions: 2016-05-01-preview.
  */
 export function getWebServiceOutput(args: GetWebServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebServiceResult> {
     return pulumi.output(args).apply((a: any) => getWebService(a, opts))

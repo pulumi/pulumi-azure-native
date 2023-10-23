@@ -522,6 +522,8 @@ def get_virtual_machine(expand: Optional[str] = None,
     Get virtual machine.
     Azure REST API version: 2018-09-15.
 
+    Other available API versions: 2016-05-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'
     :param str lab_name: The name of the lab.
@@ -588,6 +590,8 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     """
     Get virtual machine.
     Azure REST API version: 2018-09-15.
+
+    Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'

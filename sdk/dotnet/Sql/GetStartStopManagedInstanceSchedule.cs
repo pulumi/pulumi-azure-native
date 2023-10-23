@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets the managed instance's Start/Stop schedule.
         /// Azure REST API version: 2022-11-01-preview.
+        /// 
+        /// Other available API versions: 2023-02-01-preview.
         /// </summary>
         public static Task<GetStartStopManagedInstanceScheduleResult> InvokeAsync(GetStartStopManagedInstanceScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStartStopManagedInstanceScheduleResult>("azure-native:sql:getStartStopManagedInstanceSchedule", args ?? new GetStartStopManagedInstanceScheduleArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets the managed instance's Start/Stop schedule.
         /// Azure REST API version: 2022-11-01-preview.
+        /// 
+        /// Other available API versions: 2023-02-01-preview.
         /// </summary>
         public static Output<GetStartStopManagedInstanceScheduleResult> Invoke(GetStartStopManagedInstanceScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStartStopManagedInstanceScheduleResult>("azure-native:sql:getStartStopManagedInstanceSchedule", args ?? new GetStartStopManagedInstanceScheduleInvokeArgs(), options.WithDefaults());

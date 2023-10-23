@@ -161,6 +161,8 @@ def list_bot_connection_with_secrets(connection_name: Optional[str] = None,
     Get a Connection Setting registration for a Bot Service
     Azure REST API version: 2022-09-15.
 
+    Other available API versions: 2023-09-15-preview.
+
 
     :param str connection_name: The name of the Bot Service Connection Setting resource.
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
@@ -194,6 +196,8 @@ def list_bot_connection_with_secrets_output(connection_name: Optional[pulumi.Inp
     """
     Get a Connection Setting registration for a Bot Service
     Azure REST API version: 2022-09-15.
+
+    Other available API versions: 2023-09-15-preview.
 
 
     :param str connection_name: The name of the Bot Service Connection Setting resource.

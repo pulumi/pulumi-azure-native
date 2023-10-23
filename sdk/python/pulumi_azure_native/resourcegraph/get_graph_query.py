@@ -172,6 +172,8 @@ def get_graph_query(resource_group_name: Optional[str] = None,
     Get a single graph query by its resourceName.
     Azure REST API version: 2020-04-01-preview.
 
+    Other available API versions: 2018-09-01-preview.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the Graph Query resource.
@@ -203,6 +205,8 @@ def get_graph_query_output(resource_group_name: Optional[pulumi.Input[str]] = No
     """
     Get a single graph query by its resourceName.
     Azure REST API version: 2020-04-01-preview.
+
+    Other available API versions: 2018-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group.

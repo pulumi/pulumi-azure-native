@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An ADLS Gen 2 file data set.
- * Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01
+ * Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01.
  */
 export class ADLSGen2FileDataSet extends pulumi.CustomResource {
     /**

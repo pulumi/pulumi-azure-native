@@ -126,6 +126,8 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         Response to an operation on access policy assignment
         Azure REST API version: 2023-05-01-preview.
 
+        Other available API versions: 2023-08-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policy_assignment_name: The name of the access policy assignment.
@@ -144,6 +146,8 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         """
         Response to an operation on access policy assignment
         Azure REST API version: 2023-05-01-preview.
+
+        Other available API versions: 2023-08-01.
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

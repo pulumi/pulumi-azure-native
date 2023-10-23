@@ -244,6 +244,8 @@ def get_lab(lab_name: Optional[str] = None,
     Returns the properties of a lab resource.
     Azure REST API version: 2022-08-01.
 
+    Other available API versions: 2018-10-15, 2023-06-07.
+
 
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -281,6 +283,8 @@ def get_lab_output(lab_name: Optional[pulumi.Input[str]] = None,
     """
     Returns the properties of a lab resource.
     Azure REST API version: 2022-08-01.
+
+    Other available API versions: 2018-10-15, 2023-06-07.
 
 
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.

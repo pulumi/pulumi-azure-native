@@ -47,6 +47,7 @@ type ResourceDeprecation struct {
 type Versioning interface {
 	ShouldInclude(provider string, version string, typeName, token string) bool
 	GetDeprecation(token string) (ResourceDeprecation, bool)
+	GetAllVersions(openapi.ProviderName, openapi.ResourceName) []openapi.ApiVersion
 }
 
 type GenerationResult struct {
@@ -227,7 +228,9 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 			gen := packageGenerator{
 				pkg:                &pkg,
 				metadata:           &metadata,
+				provider:           providerName,
 				apiVersion:         version,
+				allApiVersions:     versions,
 				examples:           exampleMap,
 				versioning:         versioning,
 				caseSensitiveTypes: caseSensitiveTypes,
@@ -235,7 +238,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 			}
 
 			// Populate C#, Java, Python and Go module mapping.
-			module := gen.providerToModule(providerName)
+			module := gen.moduleName()
 			csharpNamespaces[strings.ToLower(providerName)] = providerName
 			javaPackages[module] = strings.ToLower(providerName)
 			if version != "" {
@@ -257,7 +260,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 			for _, typeName := range resources {
 				resource := items.Resources[typeName]
 				nestedResourceBodyRefs := findNestedResourceBodyRefs(resource, items.Resources)
-				err := gen.genResources(providerName, typeName, resource, nestedResourceBodyRefs)
+				err := gen.genResources(typeName, resource, nestedResourceBodyRefs)
 				if err != nil {
 					return nil, err
 				}
@@ -272,7 +275,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 
 			for _, typeName := range invokes {
 				invoke := items.Invokes[typeName]
-				gen.genPostFunctions(providerName, typeName, invoke.Path, invoke.PathItem, invoke.Swagger)
+				gen.genPostFunctions(typeName, invoke.Path, invoke.PathItem, invoke.Swagger)
 			}
 			warnings = append(warnings, gen.warnings...)
 		}
@@ -490,8 +493,10 @@ const (
 type packageGenerator struct {
 	pkg                *pschema.PackageSpec
 	metadata           *resources.AzureAPIMetadata
+	provider           string
 	examples           map[string][]resources.AzureAPIExample
 	apiVersion         string
+	allApiVersions     []openapi.ApiVersion
 	versioning         Versioning
 	caseSensitiveTypes caseSensitiveTokens
 	warnings           []string
@@ -499,7 +504,7 @@ type packageGenerator struct {
 	rootDir string
 }
 
-func (g *packageGenerator) genResources(prov, typeName string, resource *openapi.ResourceSpec, nestedResourceBodyRefs []string) error {
+func (g *packageGenerator) genResources(typeName string, resource *openapi.ResourceSpec, nestedResourceBodyRefs []string) error {
 	// Resource names should consistently start with upper case.
 	// We need to alias the previous, lowercase name so users can upgrade to v2 without replacement.
 	// These aliases will not be required anymore with v3; their removal is tracked by #2411.
@@ -515,11 +520,11 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	// per each union case. We call them "variants" in the code below.
 	variants, err := g.findResourceVariants(resource)
 	if err != nil {
-		return errors.Wrapf(err, "resource %s.%s", prov, titleCasedTypeName)
+		return errors.Wrapf(err, "resource %s.%s", g.provider, titleCasedTypeName)
 	}
 
 	for _, v := range variants {
-		err = g.genResourceVariant(prov, resource, v, nestedResourceBodyRefs, typeNameAliases...)
+		err = g.genResourceVariant(resource, v, nestedResourceBodyRefs, typeNameAliases...)
 		if err != nil {
 			return err
 		}
@@ -537,7 +542,7 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	if resource.DeprecationMessage != "" {
 		mainResource.deprecationMessage = resource.DeprecationMessage
 	}
-	return g.genResourceVariant(prov, resource, mainResource, nestedResourceBodyRefs, typeNameAliases...)
+	return g.genResourceVariant(resource, mainResource, nestedResourceBodyRefs, typeNameAliases...)
 }
 
 // resourceVariant points to request body's and response's schemas of a resource which is one of the variants
@@ -626,18 +631,18 @@ func (g *packageGenerator) findResourceVariants(resource *openapi.ResourceSpec) 
 	return result, nil
 }
 
-func (g *packageGenerator) makeTypeAlias(prov, alias, apiVersion string) pschema.AliasSpec {
-	fqAlias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, providerApiToModule(prov, apiVersion), alias)
+func (g *packageGenerator) makeTypeAlias(alias, apiVersion string) pschema.AliasSpec {
+	fqAlias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, g.providerApiToModule(apiVersion), alias)
 	return pschema.AliasSpec{Type: &fqAlias}
 }
 
-func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.ResourceSpec, resource *resourceVariant, nestedResourceBodyRefs []string, typeNameAliases ...string) error {
-	module := g.providerToModule(prov)
+func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, resource *resourceVariant, nestedResourceBodyRefs []string, typeNameAliases ...string) error {
+	module := g.moduleName()
 	swagger := resource.Swagger
 	path := resource.PathItem
 
 	resourceTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, resource.typeName)
-	if !g.versioning.ShouldInclude(prov, g.apiVersion, resource.typeName, resourceTok) {
+	if !g.versioning.ShouldInclude(g.provider, g.apiVersion, resource.typeName, resourceTok) {
 		return nil
 	}
 
@@ -646,7 +651,7 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 		pkg:                    g.pkg,
 		metadata:               g.metadata,
 		module:                 module,
-		prov:                   prov,
+		prov:                   g.provider,
 		resourceName:           resource.typeName,
 		resourceToken:          resourceTok,
 		visitedTypes:           make(map[string]bool),
@@ -702,21 +707,21 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Description: g.formatDescription(resourceResponse.description, swagger.Info, apiSpec, additionalDocs),
+			Description: g.formatDescription(resourceResponse.description, resource.typeName, swagger.Info.Version, apiSpec.PreviousVersion, additionalDocs),
 			Type:        "object",
 			Properties:  resourceResponse.specs,
 			Required:    resourceResponse.requiredSpecs.SortedValues(),
 		},
 		InputProperties:    resourceRequest.specs,
 		RequiredInputs:     resourceRequest.requiredSpecs.SortedValues(),
-		Aliases:            g.generateAliases(prov, resource, typeNameAliases...),
+		Aliases:            g.generateAliases(resource, typeNameAliases...),
 		DeprecationMessage: resource.deprecationMessage,
 	}
 	g.pkg.Resources[resourceTok] = resourceSpec
 
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:get%s`, g.pkg.Name, module, resource.typeName)
-	if g.versioning.ShouldInclude(prov, g.apiVersion, resource.typeName, functionTok) {
+	if g.versioning.ShouldInclude(g.provider, g.apiVersion, resource.typeName, functionTok) {
 		var readOp *spec.Operation
 		switch {
 		case resource.PathItemList != nil:
@@ -743,7 +748,7 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 
 		if path.Get != nil && responseFunction != nil {
 			functionSpec := pschema.FunctionSpec{
-				Description:        g.formatFunctionDescription(readOp, resourceResponse, swagger.Info),
+				Description:        g.formatFunctionDescription(readOp, resource.typeName, resourceResponse, swagger.Info),
 				DeprecationMessage: resource.deprecationMessage,
 				Inputs: &pschema.ObjectTypeSpec{
 					Description: requestFunction.description,
@@ -801,19 +806,19 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 	return nil
 }
 
-func (g *packageGenerator) generateAliases(prov string, resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {
+func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {
 	var aliases []pschema.AliasSpec
 
 	for _, alias := range typeNameAliases {
-		aliases = append(aliases, g.makeTypeAlias(prov, alias, g.apiVersion))
+		aliases = append(aliases, g.makeTypeAlias(alias, g.apiVersion))
 	}
 
 	// Add an alias for each API version that has the same path in it.
 	for _, version := range resource.CompatibleVersions {
-		aliases = append(aliases, g.makeTypeAlias(prov, resource.typeName, version))
+		aliases = append(aliases, g.makeTypeAlias(resource.typeName, version))
 
 		for _, alias := range typeNameAliases {
-			aliases = append(aliases, g.makeTypeAlias(prov, alias, version))
+			aliases = append(aliases, g.makeTypeAlias(alias, version))
 		}
 	}
 
@@ -877,14 +882,14 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 
 // genPostFunctions defines functions for list* (listKeys, listSecrets, etc.)
 // and get* (getFullUrl, getBastionShareableLink, etc.) POST endpoints.
-func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathItem *spec.PathItem, swagger *openapi.Spec) {
-	module := g.providerToModule(prov)
+func (g *packageGenerator) genPostFunctions(typeName, path string, pathItem *spec.PathItem, swagger *openapi.Spec) {
+	module := g.moduleName()
 	gen := moduleGenerator{
 		pkg:                g.pkg,
 		metadata:           g.metadata,
 		module:             module,
 		resourceToken:      fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName),
-		prov:               prov,
+		prov:               g.provider,
 		resourceName:       typeName,
 		visitedTypes:       make(map[string]bool),
 		caseSensitiveTypes: g.caseSensitiveTypes,
@@ -892,8 +897,8 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 	}
 
 	// Generate the function to get this resource.
-	functionTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName)
-	if !g.versioning.ShouldInclude(prov, g.apiVersion, typeName, functionTok) {
+	functionTok := g.generateTok(typeName, g.apiVersion)
+	if !g.shouldInclude(typeName, functionTok, g.apiVersion) {
 		return
 	}
 
@@ -915,7 +920,7 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 	}
 
 	functionSpec := pschema.FunctionSpec{
-		Description: g.formatFunctionDescription(pathItem.Post, response, swagger.Info),
+		Description: g.formatFunctionDescription(pathItem.Post, typeName, response, swagger.Info),
 		Inputs: &pschema.ObjectTypeSpec{
 			Description: request.description,
 			Type:        "object",
@@ -940,37 +945,68 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 	g.metadata.Invokes[functionTok] = f
 }
 
-// providerToModule produces the module name from the provider name and the API version (e.g. (`Compute`, `2020-07-01` => `compute/v20200701`).
-func (g *packageGenerator) providerToModule(prov string) string {
-	return providerApiToModule(prov, g.apiVersion)
-}
-func providerApiToModule(prov, apiVersion string) string {
-	if apiVersion == "" {
-		return strings.ToLower(prov)
-	}
-	return fmt.Sprintf("%s/%s", strings.ToLower(prov), apiVersion)
+// moduleName produces the module name from the provider name and the API version (e.g. (`Compute`, `2020-07-01` => `compute/v20200701`).
+func (g *packageGenerator) moduleName() string {
+	return g.providerApiToModule(g.apiVersion)
 }
 
-func (g *packageGenerator) formatFunctionDescription(op *spec.Operation, response *propertyBag, info *spec.Info) string {
+func (g *packageGenerator) providerApiToModule(apiVersion string) string {
+	if apiVersion == "" {
+		return strings.ToLower(g.provider)
+	}
+	return fmt.Sprintf("%s/%s", strings.ToLower(g.provider), apiVersion)
+}
+
+func (g *packageGenerator) generateTok(typeName string, apiVersion string) string {
+	return fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, g.providerApiToModule(apiVersion), typeName)
+}
+
+func (g *packageGenerator) shouldInclude(typeName, tok, version string) bool {
+	return g.versioning.ShouldInclude(g.provider, version, typeName, tok)
+}
+
+func (g *packageGenerator) formatFunctionDescription(op *spec.Operation, typeName string, response *propertyBag, info *spec.Info) string {
 	desc := response.description
 	if op.Description != "" {
 		desc = op.Description
 	}
-	return g.formatDescription(desc, info, nil, nil)
+	return g.formatDescription(desc, typeName, info.Version, "", nil)
 }
 
-func (g *packageGenerator) formatDescription(desc string, info *spec.Info, resourceSpec *openapi.ResourceSpec, additionalDocs *string) string {
-	description := desc
+func (g *packageGenerator) formatDescription(desc string, typeName string, defaultVersion, previousDefaultVersion string, additionalDocs *string) string {
+	var b strings.Builder
+	b.WriteString(desc)
+
 	if g.apiVersion == "" {
-		description = fmt.Sprintf("%s\nAzure REST API version: %s.", description, info.Version)
+		fmt.Fprintf(&b, "\nAzure REST API version: %s.", defaultVersion)
+		if previousDefaultVersion != "" {
+			fmt.Fprintf(&b, " Prior API version in Azure Native 1.x: %s.", previousDefaultVersion)
+		}
+
+		// List other available API versions, if any.
+		allVersions := g.versioning.GetAllVersions(g.provider, typeName)
+		includedVersions := []openapi.ApiVersion{}
+		for _, v := range allVersions {
+			// Don't list the default version twice.
+			if v == defaultVersion {
+				continue
+			}
+			tok := g.generateTok(typeName, openapi.ApiToSdkVersion(v))
+			if g.shouldInclude(typeName, tok, v) {
+				includedVersions = append(includedVersions, v)
+			}
+		}
+
+		if len(includedVersions) > 0 {
+			fmt.Fprintf(&b, "\n\nOther available API versions: %s.", strings.Join(includedVersions, ", "))
+		}
 	}
-	if resourceSpec != nil && resourceSpec.PreviousVersion != "" {
-		description = fmt.Sprintf("%s Prior API version in Azure Native 1.x: %s", description, resourceSpec.PreviousVersion)
-	}
+
 	if additionalDocs != nil {
-		description = fmt.Sprintf("%s\n\n%s", description, *additionalDocs)
+		fmt.Fprintf(&b, "\n\n%s", *additionalDocs)
 	}
-	return description
+
+	return b.String()
 }
 
 func (g *packageGenerator) getAsyncStyle(op *spec.Operation) string {

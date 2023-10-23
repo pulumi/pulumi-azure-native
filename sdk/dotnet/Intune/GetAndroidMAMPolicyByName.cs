@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Intune
         /// <summary>
         /// Returns AndroidMAMPolicy with given name.
         /// Azure REST API version: 2015-01-14-preview.
+        /// 
+        /// Other available API versions: 2015-01-14-privatepreview.
         /// </summary>
         public static Task<GetAndroidMAMPolicyByNameResult> InvokeAsync(GetAndroidMAMPolicyByNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAndroidMAMPolicyByNameResult>("azure-native:intune:getAndroidMAMPolicyByName", args ?? new GetAndroidMAMPolicyByNameArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Intune
         /// <summary>
         /// Returns AndroidMAMPolicy with given name.
         /// Azure REST API version: 2015-01-14-preview.
+        /// 
+        /// Other available API versions: 2015-01-14-privatepreview.
         /// </summary>
         public static Output<GetAndroidMAMPolicyByNameResult> Invoke(GetAndroidMAMPolicyByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAndroidMAMPolicyByNameResult>("azure-native:intune:getAndroidMAMPolicyByName", args ?? new GetAndroidMAMPolicyByNameInvokeArgs(), options.WithDefaults());

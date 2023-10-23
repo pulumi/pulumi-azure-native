@@ -196,6 +196,8 @@ def get_l2_isolation_domain(l2_isolation_domain_name: Optional[str] = None,
     Implements L2 Isolation Domain GET method.
     Azure REST API version: 2023-02-01-preview.
 
+    Other available API versions: 2023-06-15.
+
 
     :param str l2_isolation_domain_name: Name of the L2 Isolation Domain
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -229,6 +231,8 @@ def get_l2_isolation_domain_output(l2_isolation_domain_name: Optional[pulumi.Inp
     """
     Implements L2 Isolation Domain GET method.
     Azure REST API version: 2023-02-01-preview.
+
+    Other available API versions: 2023-06-15.
 
 
     :param str l2_isolation_domain_name: Name of the L2 Isolation Domain

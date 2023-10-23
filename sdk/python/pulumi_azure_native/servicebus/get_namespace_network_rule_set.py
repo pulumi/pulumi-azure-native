@@ -160,6 +160,8 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
     Gets NetworkRuleSet for a Namespace.
     Azure REST API version: 2022-01-01-preview.
 
+    Other available API versions: 2022-10-01-preview.
+
 
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
@@ -190,6 +192,8 @@ def get_namespace_network_rule_set_output(namespace_name: Optional[pulumi.Input[
     """
     Gets NetworkRuleSet for a Namespace.
     Azure REST API version: 2022-01-01-preview.
+
+    Other available API versions: 2022-10-01-preview.
 
 
     :param str namespace_name: The namespace name

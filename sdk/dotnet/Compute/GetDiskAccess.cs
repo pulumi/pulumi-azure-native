@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Gets information about a disk access resource.
         /// Azure REST API version: 2022-07-02.
+        /// 
+        /// Other available API versions: 2023-01-02, 2023-04-02.
         /// </summary>
         public static Task<GetDiskAccessResult> InvokeAsync(GetDiskAccessArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessResult>("azure-native:compute:getDiskAccess", args ?? new GetDiskAccessArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Gets information about a disk access resource.
         /// Azure REST API version: 2022-07-02.
+        /// 
+        /// Other available API versions: 2023-01-02, 2023-04-02.
         /// </summary>
         public static Output<GetDiskAccessResult> Invoke(GetDiskAccessInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskAccessResult>("azure-native:compute:getDiskAccess", args ?? new GetDiskAccessInvokeArgs(), options.WithDefaults());

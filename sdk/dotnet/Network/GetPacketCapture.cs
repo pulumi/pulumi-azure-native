@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a packet capture session by name.
         /// Azure REST API version: 2023-02-01.
+        /// 
+        /// Other available API versions: 2018-01-01, 2020-06-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetPacketCaptureResult> InvokeAsync(GetPacketCaptureArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPacketCaptureResult>("azure-native:network:getPacketCapture", args ?? new GetPacketCaptureArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a packet capture session by name.
         /// Azure REST API version: 2023-02-01.
+        /// 
+        /// Other available API versions: 2018-01-01, 2020-06-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetPacketCaptureResult> Invoke(GetPacketCaptureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCaptureResult>("azure-native:network:getPacketCapture", args ?? new GetPacketCaptureInvokeArgs(), options.WithDefaults());

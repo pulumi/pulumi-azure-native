@@ -221,6 +221,8 @@ def get_machine_extension(extension_name: Optional[str] = None,
     The operation to get the extension.
     Azure REST API version: 2022-05-21-preview.
 
+    Other available API versions: 2023-04-01-preview.
+
 
     :param str extension_name: The name of the machine extension.
     :param str resource_group_name: The name of the resource group.
@@ -259,6 +261,8 @@ def get_machine_extension_output(extension_name: Optional[pulumi.Input[str]] = N
     """
     The operation to get the extension.
     Azure REST API version: 2022-05-21-preview.
+
+    Other available API versions: 2023-04-01-preview.
 
 
     :param str extension_name: The name of the machine extension.

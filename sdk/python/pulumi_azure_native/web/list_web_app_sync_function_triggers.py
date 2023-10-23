@@ -63,6 +63,8 @@ def list_web_app_sync_function_triggers(name: Optional[str] = None,
     Description for This is to allow calling via powershell and ARM template.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
@@ -85,6 +87,8 @@ def list_web_app_sync_function_triggers_output(name: Optional[pulumi.Input[str]]
     """
     Description for This is to allow calling via powershell and ARM template.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
 
 
     :param str name: Name of the app.

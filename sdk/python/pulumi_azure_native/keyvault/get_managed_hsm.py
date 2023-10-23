@@ -136,6 +136,8 @@ def get_managed_hsm(name: Optional[str] = None,
     Gets the specified managed HSM Pool.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2023-07-01.
+
 
     :param str name: The name of the managed HSM Pool.
     :param str resource_group_name: Name of the resource group that contains the managed HSM pool.
@@ -164,6 +166,8 @@ def get_managed_hsm_output(name: Optional[pulumi.Input[str]] = None,
     """
     Gets the specified managed HSM Pool.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2023-07-01.
 
 
     :param str name: The name of the managed HSM Pool.

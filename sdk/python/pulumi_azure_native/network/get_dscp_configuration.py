@@ -244,6 +244,8 @@ def get_dscp_configuration(dscp_configuration_name: Optional[str] = None,
     Gets a DSCP Configuration.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2023-04-01, 2023-05-01.
+
 
     :param str dscp_configuration_name: The name of the resource.
     :param str resource_group_name: The name of the resource group.
@@ -281,6 +283,8 @@ def get_dscp_configuration_output(dscp_configuration_name: Optional[pulumi.Input
     """
     Gets a DSCP Configuration.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str dscp_configuration_name: The name of the resource.

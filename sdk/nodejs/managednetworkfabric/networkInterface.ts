@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the NetworkInterface resource.
- * Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview
+ * Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
+ *
+ * Other available API versions: 2023-06-15.
  */
 export class NetworkInterface extends pulumi.CustomResource {
     /**

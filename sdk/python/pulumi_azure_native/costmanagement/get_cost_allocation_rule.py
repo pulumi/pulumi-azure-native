@@ -88,6 +88,8 @@ def get_cost_allocation_rule(billing_account_id: Optional[str] = None,
     Get a cost allocation rule by rule name and billing account or enterprise enrollment.
     Azure REST API version: 2020-03-01-preview.
 
+    Other available API versions: 2023-08-01.
+
 
     :param str billing_account_id: BillingAccount ID
     :param str rule_name: Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
@@ -112,6 +114,8 @@ def get_cost_allocation_rule_output(billing_account_id: Optional[pulumi.Input[st
     """
     Get a cost allocation rule by rule name and billing account or enterprise enrollment.
     Azure REST API version: 2020-03-01-preview.
+
+    Other available API versions: 2023-08-01.
 
 
     :param str billing_account_id: BillingAccount ID

@@ -304,6 +304,8 @@ def get_network_fabric(network_fabric_name: Optional[str] = None,
     Get Network Fabric resource details.
     Azure REST API version: 2023-02-01-preview.
 
+    Other available API versions: 2023-06-15.
+
 
     :param str network_fabric_name: Name of the Network Fabric
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -346,6 +348,8 @@ def get_network_fabric_output(network_fabric_name: Optional[pulumi.Input[str]] =
     """
     Get Network Fabric resource details.
     Azure REST API version: 2023-02-01-preview.
+
+    Other available API versions: 2023-06-15.
 
 
     :param str network_fabric_name: Name of the Network Fabric

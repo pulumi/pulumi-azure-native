@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// <summary>
     /// The commitment plan association.
     /// Azure REST API version: 2023-05-01.
+    /// 
+    /// Other available API versions: 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:CommitmentPlanAssociation")]
     public partial class CommitmentPlanAssociation : global::Pulumi.CustomResource

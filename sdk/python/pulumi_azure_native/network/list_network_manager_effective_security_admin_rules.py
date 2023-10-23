@@ -66,6 +66,8 @@ def list_network_manager_effective_security_admin_rules(resource_group_name: Opt
     List all effective security admin rules applied on a virtual network.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2021-05-01-preview, 2022-02-01-preview, 2022-04-01-preview, 2023-04-01, 2023-05-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str skip_token: When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
@@ -94,6 +96,8 @@ def list_network_manager_effective_security_admin_rules_output(resource_group_na
     """
     List all effective security admin rules applied on a virtual network.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2021-05-01-preview, 2022-02-01-preview, 2022-04-01-preview, 2023-04-01, 2023-05-01.
 
 
     :param str resource_group_name: The name of the resource group.

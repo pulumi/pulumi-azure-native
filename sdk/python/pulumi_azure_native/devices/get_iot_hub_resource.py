@@ -160,6 +160,8 @@ def get_iot_hub_resource(resource_group_name: Optional[str] = None,
     Get the non-security related metadata of an IoT hub.
     Azure REST API version: 2022-04-30-preview.
 
+    Other available API versions: 2017-07-01, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+
 
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.
@@ -190,6 +192,8 @@ def get_iot_hub_resource_output(resource_group_name: Optional[pulumi.Input[str]]
     """
     Get the non-security related metadata of an IoT hub.
     Azure REST API version: 2022-04-30-preview.
+
+    Other available API versions: 2017-07-01, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the IoT hub.

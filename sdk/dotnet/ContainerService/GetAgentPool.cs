@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// Agent Pool.
         /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Other available API versions: 2019-02-01, 2019-04-01, 2020-06-01, 2021-02-01, 2021-08-01, 2022-04-02-preview, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview.
         /// </summary>
         public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-native:containerservice:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// Agent Pool.
         /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Other available API versions: 2019-02-01, 2019-04-01, 2020-06-01, 2021-02-01, 2021-08-01, 2022-04-02-preview, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview.
         /// </summary>
         public static Output<GetAgentPoolResult> Invoke(GetAgentPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentPoolResult>("azure-native:containerservice:getAgentPool", args ?? new GetAgentPoolInvokeArgs(), options.WithDefaults());

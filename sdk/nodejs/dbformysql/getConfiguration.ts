@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets information about a configuration of server.
  * Azure REST API version: 2022-01-01.
+ *
+ * Other available API versions: 2017-12-01, 2020-07-01-privatepreview, 2023-06-01-preview.
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
 
@@ -104,6 +106,8 @@ export interface GetConfigurationResult {
 /**
  * Gets information about a configuration of server.
  * Azure REST API version: 2022-01-01.
+ *
+ * Other available API versions: 2017-12-01, 2020-07-01-privatepreview, 2023-06-01-preview.
  */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getConfiguration(a, opts))

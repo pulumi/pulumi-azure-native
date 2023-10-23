@@ -229,6 +229,8 @@ class KubernetesCluster(pulumi.CustomResource):
         """
         Azure REST API version: 2023-05-01-preview.
 
+        Other available API versions: 2023-07-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AadConfigurationArgs']] aad_configuration: The Azure Active Directory Integration properties.
@@ -252,6 +254,8 @@ class KubernetesCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure REST API version: 2023-05-01-preview.
+
+        Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param KubernetesClusterArgs args: The arguments to use to populate this resource's properties.

@@ -75,6 +75,8 @@ def get_cluster_gateway_settings(cluster_name: Optional[str] = None,
     Gets the gateway settings for the specified cluster.
     Azure REST API version: 2021-06-01.
 
+    Other available API versions: 2023-04-15-preview, 2023-08-15-preview.
+
 
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group.
@@ -98,6 +100,8 @@ def get_cluster_gateway_settings_output(cluster_name: Optional[pulumi.Input[str]
     """
     Gets the gateway settings for the specified cluster.
     Azure REST API version: 2021-06-01.
+
+    Other available API versions: 2023-04-15-preview, 2023-08-15-preview.
 
 
     :param str cluster_name: The name of the cluster.

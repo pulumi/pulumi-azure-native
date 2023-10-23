@@ -136,6 +136,8 @@ def get_experiment(experiment_name: Optional[str] = None,
     Get a Experiment resource.
     Azure REST API version: 2023-04-15-preview.
 
+    Other available API versions: 2023-09-01-preview.
+
 
     :param str experiment_name: String that represents a Experiment resource name.
     :param str resource_group_name: String that represents an Azure resource group.
@@ -164,6 +166,8 @@ def get_experiment_output(experiment_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Experiment resource.
     Azure REST API version: 2023-04-15-preview.
+
+    Other available API versions: 2023-09-01-preview.
 
 
     :param str experiment_name: String that represents a Experiment resource name.

@@ -174,6 +174,8 @@ def get_express_route_circuit_connection(circuit_name: Optional[str] = None,
     Gets the specified Express Route Circuit Connection from the specified express route circuit.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2023-04-01, 2023-05-01.
+
 
     :param str circuit_name: The name of the express route circuit.
     :param str connection_name: The name of the express route circuit connection.
@@ -211,6 +213,8 @@ def get_express_route_circuit_connection_output(circuit_name: Optional[pulumi.In
     """
     Gets the specified Express Route Circuit Connection from the specified express route circuit.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str circuit_name: The name of the express route circuit.

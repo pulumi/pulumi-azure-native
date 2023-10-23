@@ -138,6 +138,8 @@ def get_static_member(network_group_name: Optional[str] = None,
     Gets the specified static member.
     Azure REST API version: 2023-02-01.
 
+    Other available API versions: 2023-04-01, 2023-05-01.
+
 
     :param str network_group_name: The name of the network group.
     :param str network_manager_name: The name of the network manager.
@@ -172,6 +174,8 @@ def get_static_member_output(network_group_name: Optional[pulumi.Input[str]] = N
     """
     Gets the specified static member.
     Azure REST API version: 2023-02-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str network_group_name: The name of the network group.

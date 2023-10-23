@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get properties of a partner topic.
  * Azure REST API version: 2022-06-15.
+ *
+ * Other available API versions: 2023-06-01-preview.
  */
 export function getPartnerTopic(args: GetPartnerTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicResult> {
 
@@ -101,6 +103,8 @@ export interface GetPartnerTopicResult {
 /**
  * Get properties of a partner topic.
  * Azure REST API version: 2022-06-15.
+ *
+ * Other available API versions: 2023-06-01-preview.
  */
 export function getPartnerTopicOutput(args: GetPartnerTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicResult> {
     return pulumi.output(args).apply((a: any) => getPartnerTopic(a, opts))

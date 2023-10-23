@@ -196,6 +196,8 @@ def get_storage_sync_service(resource_group_name: Optional[str] = None,
     Get a given StorageSyncService.
     Azure REST API version: 2022-06-01.
 
+    Other available API versions: 2017-06-05-preview, 2019-10-01, 2022-09-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
@@ -229,6 +231,8 @@ def get_storage_sync_service_output(resource_group_name: Optional[pulumi.Input[s
     """
     Get a given StorageSyncService.
     Azure REST API version: 2022-06-01.
+
+    Other available API versions: 2017-06-05-preview, 2019-10-01, 2022-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

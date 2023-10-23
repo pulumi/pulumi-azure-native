@@ -125,6 +125,8 @@ def get_diagnostics_package(diagnostics_package_name: Optional[str] = None,
     Gets information about the specified diagnostics package.
     Azure REST API version: 2023-06-01.
 
+    Other available API versions: 2023-09-01.
+
 
     :param str diagnostics_package_name: The name of the diagnostics package.
     :param str packet_core_control_plane_name: The name of the packet core control plane.
@@ -155,6 +157,8 @@ def get_diagnostics_package_output(diagnostics_package_name: Optional[pulumi.Inp
     """
     Gets information about the specified diagnostics package.
     Azure REST API version: 2023-06-01.
+
+    Other available API versions: 2023-09-01.
 
 
     :param str diagnostics_package_name: The name of the diagnostics package.

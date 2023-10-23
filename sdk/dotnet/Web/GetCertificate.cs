@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Get a certificate.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2015-08-01, 2016-03-01, 2020-10-01.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:web:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Get a certificate.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2015-08-01, 2016-03-01, 2020-10-01.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:web:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());

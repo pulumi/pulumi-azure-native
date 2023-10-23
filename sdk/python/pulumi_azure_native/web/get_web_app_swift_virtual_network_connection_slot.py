@@ -112,6 +112,8 @@ def get_web_app_swift_virtual_network_connection_slot(name: Optional[str] = None
     Description for Gets a Swift Virtual Network connection.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
@@ -141,6 +143,8 @@ def get_web_app_swift_virtual_network_connection_slot_output(name: Optional[pulu
     """
     Description for Gets a Swift Virtual Network connection.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2020-10-01.
 
 
     :param str name: Name of the app.

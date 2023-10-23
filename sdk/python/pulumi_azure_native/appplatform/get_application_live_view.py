@@ -101,6 +101,8 @@ def get_application_live_view(application_live_view_name: Optional[str] = None,
     Get the Application Live  and its properties.
     Azure REST API version: 2023-05-01-preview.
 
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
 
     :param str application_live_view_name: The name of Application Live View.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -129,6 +131,8 @@ def get_application_live_view_output(application_live_view_name: Optional[pulumi
     """
     Get the Application Live  and its properties.
     Azure REST API version: 2023-05-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str application_live_view_name: The name of Application Live View.

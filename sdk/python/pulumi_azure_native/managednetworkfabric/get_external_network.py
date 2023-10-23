@@ -209,6 +209,8 @@ def get_external_network(external_network_name: Optional[str] = None,
     Implements ExternalNetworks GET method.
     Azure REST API version: 2023-02-01-preview.
 
+    Other available API versions: 2023-06-15.
+
 
     :param str external_network_name: Name of the ExternalNetwork
     :param str l3_isolation_domain_name: Name of the L3IsolationDomain
@@ -246,6 +248,8 @@ def get_external_network_output(external_network_name: Optional[pulumi.Input[str
     """
     Implements ExternalNetworks GET method.
     Azure REST API version: 2023-02-01-preview.
+
+    Other available API versions: 2023-06-15.
 
 
     :param str external_network_name: Name of the ExternalNetwork

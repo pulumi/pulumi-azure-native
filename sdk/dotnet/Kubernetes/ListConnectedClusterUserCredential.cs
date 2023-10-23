@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Kubernetes
         /// <summary>
         /// Gets cluster user credentials of the connected cluster with a specified resource group and name.
         /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Other available API versions: 2022-10-01-preview.
         /// </summary>
         public static Task<ListConnectedClusterUserCredentialResult> InvokeAsync(ListConnectedClusterUserCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListConnectedClusterUserCredentialResult>("azure-native:kubernetes:listConnectedClusterUserCredential", args ?? new ListConnectedClusterUserCredentialArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Kubernetes
         /// <summary>
         /// Gets cluster user credentials of the connected cluster with a specified resource group and name.
         /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Other available API versions: 2022-10-01-preview.
         /// </summary>
         public static Output<ListConnectedClusterUserCredentialResult> Invoke(ListConnectedClusterUserCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListConnectedClusterUserCredentialResult>("azure-native:kubernetes:listConnectedClusterUserCredential", args ?? new ListConnectedClusterUserCredentialInvokeArgs(), options.WithDefaults());

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Implements NetworkToNetworkInterconnects GET method.
  * Azure REST API version: 2023-02-01-preview.
+ *
+ * Other available API versions: 2023-06-15.
  */
 export function getNetworkToNetworkInterconnect(args: GetNetworkToNetworkInterconnectArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkToNetworkInterconnectResult> {
 
@@ -88,6 +90,8 @@ export interface GetNetworkToNetworkInterconnectResult {
 /**
  * Implements NetworkToNetworkInterconnects GET method.
  * Azure REST API version: 2023-02-01-preview.
+ *
+ * Other available API versions: 2023-06-15.
  */
 export function getNetworkToNetworkInterconnectOutput(args: GetNetworkToNetworkInterconnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkToNetworkInterconnectResult> {
     return pulumi.output(args).apply((a: any) => getNetworkToNetworkInterconnect(a, opts))

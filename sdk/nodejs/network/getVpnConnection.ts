@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieves the details of a vpn connection.
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2018-04-01, 2018-07-01, 2023-04-01, 2023-05-01.
  */
 export function getVpnConnection(args: GetVpnConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnConnectionResult> {
 
@@ -132,6 +134,8 @@ export interface GetVpnConnectionResult {
 /**
  * Retrieves the details of a vpn connection.
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2018-04-01, 2018-07-01, 2023-04-01, 2023-05-01.
  */
 export function getVpnConnectionOutput(args: GetVpnConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnConnectionResult> {
     return pulumi.output(args).apply((a: any) => getVpnConnection(a, opts))

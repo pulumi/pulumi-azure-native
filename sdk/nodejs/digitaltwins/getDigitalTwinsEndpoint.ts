@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get DigitalTwinsInstances Endpoint.
  * Azure REST API version: 2023-01-31.
+ *
+ * Other available API versions: 2020-03-01-preview.
  */
 export function getDigitalTwinsEndpoint(args: GetDigitalTwinsEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinsEndpointResult> {
 
@@ -64,6 +66,8 @@ export interface GetDigitalTwinsEndpointResult {
 /**
  * Get DigitalTwinsInstances Endpoint.
  * Azure REST API version: 2023-01-31.
+ *
+ * Other available API versions: 2020-03-01-preview.
  */
 export function getDigitalTwinsEndpointOutput(args: GetDigitalTwinsEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinsEndpointResult> {
     return pulumi.output(args).apply((a: any) => getDigitalTwinsEndpoint(a, opts))

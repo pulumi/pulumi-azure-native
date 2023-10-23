@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.ApiManagement
     /// <summary>
     /// Global Schema Contract details.
     /// Azure REST API version: 2022-09-01-preview.
+    /// 
+    /// Other available API versions: 2023-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceGlobalSchema")]
     public partial class WorkspaceGlobalSchema : global::Pulumi.CustomResource

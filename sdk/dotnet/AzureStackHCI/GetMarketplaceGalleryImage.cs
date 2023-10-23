@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets a marketplace gallery image
         /// Azure REST API version: 2022-12-15-preview.
+        /// 
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Task<GetMarketplaceGalleryImageResult> InvokeAsync(GetMarketplaceGalleryImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMarketplaceGalleryImageResult>("azure-native:azurestackhci:getMarketplaceGalleryImage", args ?? new GetMarketplaceGalleryImageArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets a marketplace gallery image
         /// Azure REST API version: 2022-12-15-preview.
+        /// 
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Output<GetMarketplaceGalleryImageResult> Invoke(GetMarketplaceGalleryImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMarketplaceGalleryImageResult>("azure-native:azurestackhci:getMarketplaceGalleryImage", args ?? new GetMarketplaceGalleryImageInvokeArgs(), options.WithDefaults());

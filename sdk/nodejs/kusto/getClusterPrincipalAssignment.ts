@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a Kusto cluster principalAssignment.
  * Azure REST API version: 2022-12-29.
+ *
+ * Other available API versions: 2023-05-02, 2023-08-15.
  */
 export function getClusterPrincipalAssignment(args: GetClusterPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterPrincipalAssignmentResult> {
 
@@ -85,6 +87,8 @@ export interface GetClusterPrincipalAssignmentResult {
 /**
  * Gets a Kusto cluster principalAssignment.
  * Azure REST API version: 2022-12-29.
+ *
+ * Other available API versions: 2023-05-02, 2023-08-15.
  */
 export function getClusterPrincipalAssignmentOutput(args: GetClusterPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterPrincipalAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getClusterPrincipalAssignment(a, opts))

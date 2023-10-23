@@ -221,6 +221,8 @@ def get_backup_policy(account_name: Optional[str] = None,
     Get a particular backup Policy
     Azure REST API version: 2022-11-01.
 
+    Other available API versions: 2021-04-01, 2021-04-01-preview, 2022-11-01-preview, 2023-05-01.
+
 
     :param str account_name: The name of the NetApp account
     :param str backup_policy_name: Backup policy Name which uniquely identify backup policy.
@@ -259,6 +261,8 @@ def get_backup_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Get a particular backup Policy
     Azure REST API version: 2022-11-01.
+
+    Other available API versions: 2021-04-01, 2021-04-01-preview, 2022-11-01-preview, 2023-05-01.
 
 
     :param str account_name: The name of the NetApp account

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Response of a list operation.
  * Azure REST API version: 2022-06-01.
+ *
+ * Other available API versions: 2022-08-01, 2023-01-01.
  */
 export function listMonitorHosts(args: ListMonitorHostsArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorHostsResult> {
 
@@ -47,6 +49,8 @@ export interface ListMonitorHostsResult {
 /**
  * Response of a list operation.
  * Azure REST API version: 2022-06-01.
+ *
+ * Other available API versions: 2022-08-01, 2023-01-01.
  */
 export function listMonitorHostsOutput(args: ListMonitorHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorHostsResult> {
     return pulumi.output(args).apply((a: any) => listMonitorHosts(a, opts))

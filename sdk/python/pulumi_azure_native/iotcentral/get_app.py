@@ -184,6 +184,8 @@ def get_app(resource_group_name: Optional[str] = None,
     Get the metadata of an IoT Central application.
     Azure REST API version: 2021-06-01.
 
+    Other available API versions: 2018-09-01, 2021-11-01-preview.
+
 
     :param str resource_group_name: The name of the resource group that contains the IoT Central application.
     :param str resource_name: The ARM resource name of the IoT Central application.
@@ -216,6 +218,8 @@ def get_app_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Get the metadata of an IoT Central application.
     Azure REST API version: 2021-06-01.
+
+    Other available API versions: 2018-09-01, 2021-11-01-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the IoT Central application.

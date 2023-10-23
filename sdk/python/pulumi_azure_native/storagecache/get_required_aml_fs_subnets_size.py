@@ -52,6 +52,8 @@ def get_required_aml_fs_subnets_size(sku: Optional[pulumi.InputType['SkuName']] 
     Get the number of available IP addresses needed for the AML file system information provided.
     Azure REST API version: 2023-05-01.
 
+    Other available API versions: 2023-03-01-preview.
+
 
     :param pulumi.InputType['SkuName'] sku: SKU for the resource.
     :param float storage_capacity_ti_b: The size of the AML file system, in TiB.
@@ -73,6 +75,8 @@ def get_required_aml_fs_subnets_size_output(sku: Optional[pulumi.Input[Optional[
     """
     Get the number of available IP addresses needed for the AML file system information provided.
     Azure REST API version: 2023-05-01.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param pulumi.InputType['SkuName'] sku: SKU for the resource.

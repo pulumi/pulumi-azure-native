@@ -153,6 +153,8 @@ class PacketCapture(pulumi.CustomResource):
         Packet capture session resource.
         Azure REST API version: 2023-06-01.
 
+        Other available API versions: 2023-09-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] bytes_to_capture_per_packet: Number of bytes captured per packet, the remaining bytes are truncated. The default "0" means the entire packet is captured.
@@ -172,6 +174,8 @@ class PacketCapture(pulumi.CustomResource):
         """
         Packet capture session resource.
         Azure REST API version: 2023-06-01.
+
+        Other available API versions: 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param PacketCaptureArgs args: The arguments to use to populate this resource's properties.

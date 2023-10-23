@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AzureStack
         /// <summary>
         /// Returns the properties of an Azure Stack registration.
         /// Azure REST API version: 2022-06-01.
+        /// 
+        /// Other available API versions: 2020-06-01-preview.
         /// </summary>
         public static Task<GetRegistrationResult> InvokeAsync(GetRegistrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationResult>("azure-native:azurestack:getRegistration", args ?? new GetRegistrationArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AzureStack
         /// <summary>
         /// Returns the properties of an Azure Stack registration.
         /// Azure REST API version: 2022-06-01.
+        /// 
+        /// Other available API versions: 2020-06-01-preview.
         /// </summary>
         public static Output<GetRegistrationResult> Invoke(GetRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationResult>("azure-native:azurestack:getRegistration", args ?? new GetRegistrationInvokeArgs(), options.WithDefaults());

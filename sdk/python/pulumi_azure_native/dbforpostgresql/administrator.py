@@ -131,6 +131,8 @@ class Administrator(pulumi.CustomResource):
         Represents an Active Directory administrator.
         Azure REST API version: 2022-12-01.
 
+        Other available API versions: 2023-03-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] object_id: Guid of the objectId for the administrator.
@@ -149,6 +151,8 @@ class Administrator(pulumi.CustomResource):
         """
         Represents an Active Directory administrator.
         Azure REST API version: 2022-12-01.
+
+        Other available API versions: 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AdministratorArgs args: The arguments to use to populate this resource's properties.

@@ -102,6 +102,8 @@ def get_binding(app_name: Optional[str] = None,
     Get a Binding and its properties.
     Azure REST API version: 2023-05-01-preview.
 
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
 
     :param str app_name: The name of the App resource.
     :param str binding_name: The name of the Binding resource.
@@ -133,6 +135,8 @@ def get_binding_output(app_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Binding and its properties.
     Azure REST API version: 2023-05-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str app_name: The name of the App resource.

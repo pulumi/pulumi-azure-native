@@ -119,6 +119,8 @@ def get_table_resource_table(account_name: Optional[str] = None,
     Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
     Azure REST API version: 2023-04-15.
 
+    Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -149,6 +151,8 @@ def get_table_resource_table_output(account_name: Optional[pulumi.Input[str]] = 
     """
     Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
     Azure REST API version: 2023-04-15.
+
+    Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
 
 
     :param str account_name: Cosmos DB database account name.

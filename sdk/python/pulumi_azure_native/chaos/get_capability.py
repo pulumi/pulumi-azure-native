@@ -104,6 +104,8 @@ def get_capability(capability_name: Optional[str] = None,
     Get a Capability resource that extends a Target resource.
     Azure REST API version: 2023-04-15-preview.
 
+    Other available API versions: 2023-09-01-preview.
+
 
     :param str capability_name: String that represents a Capability resource name.
     :param str parent_provider_namespace: String that represents a resource provider namespace.
@@ -141,6 +143,8 @@ def get_capability_output(capability_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Capability resource that extends a Target resource.
     Azure REST API version: 2023-04-15-preview.
+
+    Other available API versions: 2023-09-01-preview.
 
 
     :param str capability_name: String that represents a Capability resource name.

@@ -70,6 +70,8 @@ def list_featureset_version_materialization_jobs(feature_window_end: Optional[st
     A paginated list of FeaturesetJob entities.
     Azure REST API version: 2023-04-01-preview.
 
+    Other available API versions: 2023-06-01-preview.
+
 
     :param str feature_window_end: End time of the feature window to filter materialization jobs.
     :param str feature_window_start: Start time of the feature window to filter materialization jobs.
@@ -110,6 +112,8 @@ def list_featureset_version_materialization_jobs_output(feature_window_end: Opti
     """
     A paginated list of FeaturesetJob entities.
     Azure REST API version: 2023-04-01-preview.
+
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str feature_window_end: End time of the feature window to filter materialization jobs.

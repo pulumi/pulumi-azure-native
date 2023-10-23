@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the Wiki for an API specified by its identifier.
  * Azure REST API version: 2022-08-01.
+ *
+ * Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getApiWiki(args: GetApiWikiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiWikiResult> {
 
@@ -60,6 +62,8 @@ export interface GetApiWikiResult {
 /**
  * Gets the details of the Wiki for an API specified by its identifier.
  * Azure REST API version: 2022-08-01.
+ *
+ * Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getApiWikiOutput(args: GetApiWikiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiWikiResult> {
     return pulumi.output(args).apply((a: any) => getApiWiki(a, opts))

@@ -115,6 +115,8 @@ def get_target(parent_provider_namespace: Optional[str] = None,
     Get a Target resource that extends a tracked regional resource.
     Azure REST API version: 2023-04-15-preview.
 
+    Other available API versions: 2023-09-01-preview.
+
 
     :param str parent_provider_namespace: String that represents a resource provider namespace.
     :param str parent_resource_name: String that represents a resource name.
@@ -150,6 +152,8 @@ def get_target_output(parent_provider_namespace: Optional[pulumi.Input[str]] = N
     """
     Get a Target resource that extends a tracked regional resource.
     Azure REST API version: 2023-04-15-preview.
+
+    Other available API versions: 2023-09-01-preview.
 
 
     :param str parent_provider_namespace: String that represents a resource provider namespace.

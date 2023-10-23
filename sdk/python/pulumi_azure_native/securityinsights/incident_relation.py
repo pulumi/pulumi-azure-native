@@ -109,7 +109,9 @@ class IncidentRelation(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a relation between two resources
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
+
+        Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +129,9 @@ class IncidentRelation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a relation between two resources
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
+
+        Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param IncidentRelationArgs args: The arguments to use to populate this resource's properties.

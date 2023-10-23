@@ -110,6 +110,8 @@ class ProductApiLink(pulumi.CustomResource):
         Product-API link details.
         Azure REST API version: 2022-09-01-preview.
 
+        Other available API versions: 2023-03-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: Full resource Id of an API.
@@ -127,6 +129,8 @@ class ProductApiLink(pulumi.CustomResource):
         """
         Product-API link details.
         Azure REST API version: 2022-09-01-preview.
+
+        Other available API versions: 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ProductApiLinkArgs args: The arguments to use to populate this resource's properties.

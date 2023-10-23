@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// A private endpoint connection
-    /// Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-15
+    /// Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-15.
+    /// 
+    /// Other available API versions: 2023-09-15, 2023-09-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

@@ -90,6 +90,8 @@ def get_workspace_tag_operation_link(operation_link_id: Optional[str] = None,
     Gets the operation link for the tag.
     Azure REST API version: 2022-09-01-preview.
 
+    Other available API versions: 2023-03-01-preview.
+
 
     :param str operation_link_id: Tag-operation link identifier. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -123,6 +125,8 @@ def get_workspace_tag_operation_link_output(operation_link_id: Optional[pulumi.I
     """
     Gets the operation link for the tag.
     Azure REST API version: 2022-09-01-preview.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param str operation_link_id: Tag-operation link identifier. Must be unique in the current API Management service instance.

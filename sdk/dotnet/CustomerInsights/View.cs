@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CustomerInsights
 {
     /// <summary>
     /// The view resource format.
-    /// Azure REST API version: 2017-04-26. Prior API version in Azure Native 1.x: 2017-04-26
+    /// Azure REST API version: 2017-04-26. Prior API version in Azure Native 1.x: 2017-04-26.
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights:View")]
     public partial class View : global::Pulumi.CustomResource

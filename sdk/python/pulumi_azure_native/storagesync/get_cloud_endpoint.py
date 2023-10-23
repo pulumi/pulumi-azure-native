@@ -210,6 +210,8 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
     Get a given CloudEndpoint.
     Azure REST API version: 2022-06-01.
 
+    Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2018-10-01, 2022-09-01.
+
 
     :param str cloud_endpoint_name: Name of Cloud Endpoint object.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -250,6 +252,8 @@ def get_cloud_endpoint_output(cloud_endpoint_name: Optional[pulumi.Input[str]] =
     """
     Get a given CloudEndpoint.
     Azure REST API version: 2022-06-01.
+
+    Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2018-10-01, 2022-09-01.
 
 
     :param str cloud_endpoint_name: Name of Cloud Endpoint object.

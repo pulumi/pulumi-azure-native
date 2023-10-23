@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the active management group diagnostic settings for the specified resource.
  * Azure REST API version: 2021-05-01-preview.
+ *
+ * Other available API versions: 2020-01-01-preview.
  */
 export function getManagementGroupDiagnosticSetting(args: GetManagementGroupDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupDiagnosticSettingResult> {
 
@@ -83,6 +85,8 @@ export interface GetManagementGroupDiagnosticSettingResult {
 /**
  * Gets the active management group diagnostic settings for the specified resource.
  * Azure REST API version: 2021-05-01-preview.
+ *
+ * Other available API versions: 2020-01-01-preview.
  */
 export function getManagementGroupDiagnosticSettingOutput(args: GetManagementGroupDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupDiagnosticSettingResult> {
     return pulumi.output(args).apply((a: any) => getManagementGroupDiagnosticSetting(a, opts))

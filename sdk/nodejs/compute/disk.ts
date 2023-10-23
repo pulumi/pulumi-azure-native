@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Disk resource.
- * Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01
+ * Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01.
+ *
+ * Other available API versions: 2016-04-30-preview, 2018-06-01, 2019-07-01, 2023-01-02, 2023-04-02.
  */
 export class Disk extends pulumi.CustomResource {
     /**

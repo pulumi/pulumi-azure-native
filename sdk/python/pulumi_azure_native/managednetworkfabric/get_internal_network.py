@@ -269,6 +269,8 @@ def get_internal_network(internal_network_name: Optional[str] = None,
     Gets a InternalNetworks.
     Azure REST API version: 2023-02-01-preview.
 
+    Other available API versions: 2023-06-15.
+
 
     :param str internal_network_name: Name of the InternalNetwork
     :param str l3_isolation_domain_name: Name of the L3IsolationDomain
@@ -311,6 +313,8 @@ def get_internal_network_output(internal_network_name: Optional[pulumi.Input[str
     """
     Gets a InternalNetworks.
     Azure REST API version: 2023-02-01-preview.
+
+    Other available API versions: 2023-06-15.
 
 
     :param str internal_network_name: Name of the InternalNetwork

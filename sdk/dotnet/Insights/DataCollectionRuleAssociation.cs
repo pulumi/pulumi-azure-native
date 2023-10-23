@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// Definition of generic ARM proxy resource.
-    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2019-11-01-preview
+    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2019-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:DataCollectionRuleAssociation")]
     public partial class DataCollectionRuleAssociation : global::Pulumi.CustomResource

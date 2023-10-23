@@ -182,7 +182,9 @@ class SecurityConnector(pulumi.CustomResource):
                  __props__=None):
         """
         The security connector resource.
-        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview
+        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview.
+
+        Other available API versions: 2021-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,7 +206,9 @@ class SecurityConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The security connector resource.
-        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview
+        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview.
+
+        Other available API versions: 2021-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SecurityConnectorArgs args: The arguments to use to populate this resource's properties.

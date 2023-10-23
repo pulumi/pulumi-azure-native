@@ -125,6 +125,8 @@ def get_managed_instance_long_term_retention_policy(database_name: Optional[str]
     Gets a managed database's long term retention policy.
     Azure REST API version: 2022-11-01-preview.
 
+    Other available API versions: 2023-02-01-preview.
+
 
     :param str database_name: The name of the database.
     :param str managed_instance_name: The name of the managed instance.
@@ -158,6 +160,8 @@ def get_managed_instance_long_term_retention_policy_output(database_name: Option
     """
     Gets a managed database's long term retention policy.
     Azure REST API version: 2022-11-01-preview.
+
+    Other available API versions: 2023-02-01-preview.
 
 
     :param str database_name: The name of the database.

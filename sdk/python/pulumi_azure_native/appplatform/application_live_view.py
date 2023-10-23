@@ -79,6 +79,8 @@ class ApplicationLiveView(pulumi.CustomResource):
         Application Live View resource
         Azure REST API version: 2023-05-01-preview.
 
+        Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_live_view_name: The name of Application Live View.
@@ -94,6 +96,8 @@ class ApplicationLiveView(pulumi.CustomResource):
         """
         Application Live View resource
         Azure REST API version: 2023-05-01-preview.
+
+        Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ApplicationLiveViewArgs args: The arguments to use to populate this resource's properties.

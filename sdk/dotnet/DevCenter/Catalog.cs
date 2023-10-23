@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents a catalog.
-    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+    /// 
+    /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Catalog")]
     public partial class Catalog : global::Pulumi.CustomResource

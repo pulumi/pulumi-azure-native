@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified network profile in a specified resource group.
         /// Azure REST API version: 2023-02-01.
+        /// 
+        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetNetworkProfileResult> InvokeAsync(GetNetworkProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkProfileResult>("azure-native:network:getNetworkProfile", args ?? new GetNetworkProfileArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified network profile in a specified resource group.
         /// Azure REST API version: 2023-02-01.
+        /// 
+        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetNetworkProfileResult> Invoke(GetNetworkProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkProfileResult>("azure-native:network:getNetworkProfile", args ?? new GetNetworkProfileInvokeArgs(), options.WithDefaults());

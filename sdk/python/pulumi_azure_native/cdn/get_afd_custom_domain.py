@@ -206,6 +206,8 @@ def get_afd_custom_domain(custom_domain_name: Optional[str] = None,
     Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
     Azure REST API version: 2023-05-01.
 
+    Other available API versions: 2023-07-01-preview.
+
 
     :param str custom_domain_name: Name of the domain under the profile which is unique globally.
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
@@ -243,6 +245,8 @@ def get_afd_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]]
     """
     Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
     Azure REST API version: 2023-05-01.
+
+    Other available API versions: 2023-07-01-preview.
 
 
     :param str custom_domain_name: Name of the domain under the profile which is unique globally.

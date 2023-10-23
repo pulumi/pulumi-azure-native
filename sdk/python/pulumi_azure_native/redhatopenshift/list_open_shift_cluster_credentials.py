@@ -63,6 +63,8 @@ def list_open_shift_cluster_credentials(resource_group_name: Optional[str] = Non
     The operation returns the credentials.
     Azure REST API version: 2022-09-04.
 
+    Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the OpenShift cluster resource.
@@ -85,6 +87,8 @@ def list_open_shift_cluster_credentials_output(resource_group_name: Optional[pul
     """
     The operation returns the credentials.
     Azure REST API version: 2022-09-04.
+
+    Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

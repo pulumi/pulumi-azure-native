@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets a virtual hard disk
         /// Azure REST API version: 2022-12-15-preview.
+        /// 
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Task<GetVirtualHardDiskResult> InvokeAsync(GetVirtualHardDiskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHardDiskResult>("azure-native:azurestackhci:getVirtualHardDisk", args ?? new GetVirtualHardDiskArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets a virtual hard disk
         /// Azure REST API version: 2022-12-15-preview.
+        /// 
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Output<GetVirtualHardDiskResult> Invoke(GetVirtualHardDiskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHardDiskResult>("azure-native:azurestackhci:getVirtualHardDisk", args ?? new GetVirtualHardDiskInvokeArgs(), options.WithDefaults());

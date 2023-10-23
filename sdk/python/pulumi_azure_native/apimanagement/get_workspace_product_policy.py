@@ -103,6 +103,8 @@ def get_workspace_product_policy(format: Optional[str] = None,
     Get the policy configuration at the Product level.
     Azure REST API version: 2022-09-01-preview.
 
+    Other available API versions: 2023-03-01-preview.
+
 
     :param str format: Policy Export Format.
     :param str policy_id: The identifier of the Policy.
@@ -140,6 +142,8 @@ def get_workspace_product_policy_output(format: Optional[pulumi.Input[Optional[s
     """
     Get the policy configuration at the Product level.
     Azure REST API version: 2022-09-01-preview.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param str format: Policy Export Format.

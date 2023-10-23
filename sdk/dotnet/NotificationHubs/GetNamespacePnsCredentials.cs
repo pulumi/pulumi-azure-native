@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
         /// PNS credentials.
         /// Azure REST API version: 2023-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-01.
         /// </summary>
         public static Task<GetNamespacePnsCredentialsResult> InvokeAsync(GetNamespacePnsCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespacePnsCredentialsResult>("azure-native:notificationhubs:getNamespacePnsCredentials", args ?? new GetNamespacePnsCredentialsArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
         /// PNS credentials.
         /// Azure REST API version: 2023-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-01.
         /// </summary>
         public static Output<GetNamespacePnsCredentialsResult> Invoke(GetNamespacePnsCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespacePnsCredentialsResult>("azure-native:notificationhubs:getNamespacePnsCredentials", args ?? new GetNamespacePnsCredentialsInvokeArgs(), options.WithDefaults());

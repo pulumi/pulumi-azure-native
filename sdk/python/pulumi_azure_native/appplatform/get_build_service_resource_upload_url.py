@@ -64,6 +64,8 @@ def get_build_service_resource_upload_url(build_service_name: Optional[str] = No
     Get an resource upload URL for build service, which may be artifacts or source archive.
     Azure REST API version: 2023-05-01-preview.
 
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
 
     :param str build_service_name: The name of the build service resource.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -89,6 +91,8 @@ def get_build_service_resource_upload_url_output(build_service_name: Optional[pu
     """
     Get an resource upload URL for build service, which may be artifacts or source archive.
     Azure REST API version: 2023-05-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str build_service_name: The name of the build service resource.

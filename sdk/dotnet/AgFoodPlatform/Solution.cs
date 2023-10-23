@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     /// <summary>
     /// Solution resource.
     /// Azure REST API version: 2023-06-01-preview.
+    /// 
+    /// Other available API versions: 2021-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:Solution")]
     public partial class Solution : global::Pulumi.CustomResource

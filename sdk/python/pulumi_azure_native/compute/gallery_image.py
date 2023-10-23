@@ -348,7 +348,7 @@ class GalleryImage(pulumi.CustomResource):
                  __props__=None):
         """
         Specifies information about the gallery image definition that you want to create or update.
-        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30
+        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -380,7 +380,7 @@ class GalleryImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the gallery image definition that you want to create or update.
-        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30
+        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
 
         :param str resource_name: The name of the resource.
         :param GalleryImageArgs args: The arguments to use to populate this resource's properties.

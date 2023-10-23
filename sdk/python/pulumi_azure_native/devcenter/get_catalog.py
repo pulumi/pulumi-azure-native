@@ -149,6 +149,8 @@ def get_catalog(catalog_name: Optional[str] = None,
     Gets a catalog
     Azure REST API version: 2023-04-01.
 
+    Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
+
 
     :param str catalog_name: The name of the Catalog.
     :param str dev_center_name: The name of the devcenter.
@@ -181,6 +183,8 @@ def get_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a catalog
     Azure REST API version: 2023-04-01.
+
+    Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
 
 
     :param str catalog_name: The name of the Catalog.

@@ -173,6 +173,8 @@ def get_database_principal_assignment(cluster_name: Optional[str] = None,
     Gets a Kusto cluster database principalAssignment.
     Azure REST API version: 2022-12-29.
 
+    Other available API versions: 2023-05-02, 2023-08-15.
+
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str database_name: The name of the database in the Kusto cluster.
@@ -210,6 +212,8 @@ def get_database_principal_assignment_output(cluster_name: Optional[pulumi.Input
     """
     Gets a Kusto cluster database principalAssignment.
     Azure REST API version: 2022-12-29.
+
+    Other available API versions: 2023-05-02, 2023-08-15.
 
 
     :param str cluster_name: The name of the Kusto cluster.

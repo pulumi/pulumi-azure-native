@@ -235,6 +235,8 @@ def get_virtual_hard_disk(resource_group_name: Optional[str] = None,
     Gets a virtual hard disk
     Azure REST API version: 2022-12-15-preview.
 
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str virtual_hard_disk_name: Name of the virtual hard disk
@@ -272,6 +274,8 @@ def get_virtual_hard_disk_output(resource_group_name: Optional[pulumi.Input[str]
     """
     Gets a virtual hard disk
     Azure REST API version: 2022-12-15-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

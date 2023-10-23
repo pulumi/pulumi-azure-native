@@ -51,6 +51,8 @@ def get_event_subscription_full_url(event_subscription_name: Optional[str] = Non
     Get the full endpoint URL for an event subscription.
     Azure REST API version: 2022-06-15.
 
+    Other available API versions: 2017-06-15-preview, 2023-06-01-preview.
+
 
     :param str event_subscription_name: Name of the event subscription.
     :param str scope: The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
@@ -72,6 +74,8 @@ def get_event_subscription_full_url_output(event_subscription_name: Optional[pul
     """
     Get the full endpoint URL for an event subscription.
     Azure REST API version: 2022-06-15.
+
+    Other available API versions: 2017-06-15-preview, 2023-06-01-preview.
 
 
     :param str event_subscription_name: Name of the event subscription.

@@ -113,6 +113,8 @@ def get_dps_certificate(certificate_name: Optional[str] = None,
     Get the certificate from the provisioning service.
     Azure REST API version: 2022-12-12.
 
+    Other available API versions: 2021-10-15, 2023-03-01-preview.
+
 
     :param str certificate_name: Name of the certificate to retrieve.
     :param str provisioning_service_name: Name of the provisioning service the certificate is associated with.
@@ -142,6 +144,8 @@ def get_dps_certificate_output(certificate_name: Optional[pulumi.Input[str]] = N
     """
     Get the certificate from the provisioning service.
     Azure REST API version: 2022-12-12.
+
+    Other available API versions: 2021-10-15, 2023-03-01-preview.
 
 
     :param str certificate_name: Name of the certificate to retrieve.

@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the service.
- * Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15
+ * Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
+ *
+ * Other available API versions: 2020-03-15.
  */
 export class Service extends pulumi.CustomResource {
     /**

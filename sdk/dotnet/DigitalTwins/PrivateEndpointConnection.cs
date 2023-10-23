@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.DigitalTwins
 {
     /// <summary>
     /// The private endpoint connection of a Digital Twin.
-    /// Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2020-12-01
+    /// Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2020-12-01.
+    /// 
+    /// Other available API versions: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

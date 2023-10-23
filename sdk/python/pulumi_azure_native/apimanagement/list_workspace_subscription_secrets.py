@@ -65,6 +65,8 @@ def list_workspace_subscription_secrets(resource_group_name: Optional[str] = Non
     Gets the specified Subscription keys.
     Azure REST API version: 2022-09-01-preview.
 
+    Other available API versions: 2023-03-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
@@ -93,6 +95,8 @@ def list_workspace_subscription_secrets_output(resource_group_name: Optional[pul
     """
     Gets the specified Subscription keys.
     Azure REST API version: 2022-09-01-preview.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

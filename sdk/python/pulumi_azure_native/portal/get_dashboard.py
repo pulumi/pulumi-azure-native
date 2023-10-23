@@ -124,6 +124,8 @@ def get_dashboard(dashboard_name: Optional[str] = None,
     Gets the Dashboard.
     Azure REST API version: 2020-09-01-preview.
 
+    Other available API versions: 2019-01-01-preview.
+
 
     :param str dashboard_name: The name of the dashboard.
     :param str resource_group_name: The name of the resource group.
@@ -151,6 +153,8 @@ def get_dashboard_output(dashboard_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the Dashboard.
     Azure REST API version: 2020-09-01-preview.
+
+    Other available API versions: 2019-01-01-preview.
 
 
     :param str dashboard_name: The name of the dashboard.

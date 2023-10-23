@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.Resources
 {
     /// <summary>
     /// Template Spec Version object.
-    /// Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2022-02-01
+    /// Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2022-02-01.
+    /// 
+    /// Other available API versions: 2019-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:TemplateSpecVersion")]
     public partial class TemplateSpecVersion : global::Pulumi.CustomResource

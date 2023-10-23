@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Retrieves the details of specified NVA connection.
         /// Azure REST API version: 2023-02-01.
+        /// 
+        /// Other available API versions: 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetNetworkVirtualApplianceConnectionResult> InvokeAsync(GetNetworkVirtualApplianceConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkVirtualApplianceConnectionResult>("azure-native:network:getNetworkVirtualApplianceConnection", args ?? new GetNetworkVirtualApplianceConnectionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Retrieves the details of specified NVA connection.
         /// Azure REST API version: 2023-02-01.
+        /// 
+        /// Other available API versions: 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetNetworkVirtualApplianceConnectionResult> Invoke(GetNetworkVirtualApplianceConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkVirtualApplianceConnectionResult>("azure-native:network:getNetworkVirtualApplianceConnection", args ?? new GetNetworkVirtualApplianceConnectionInvokeArgs(), options.WithDefaults());

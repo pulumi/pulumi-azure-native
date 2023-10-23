@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified network profile in a specified resource group.
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
  */
 export function getNetworkProfile(args: GetNetworkProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkProfileResult> {
 
@@ -84,6 +86,8 @@ export interface GetNetworkProfileResult {
 /**
  * Gets the specified network profile in a specified resource group.
  * Azure REST API version: 2023-02-01.
+ *
+ * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
  */
 export function getNetworkProfileOutput(args: GetNetworkProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkProfileResult> {
     return pulumi.output(args).apply((a: any) => getNetworkProfile(a, opts))
