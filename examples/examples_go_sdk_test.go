@@ -33,13 +33,6 @@ func TestAccSimpleGoSdk(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestFunctionScmFtpDeletion(t *testing.T) {
-	skipIfShort(t)
-	test := getGoBaseOptionsSdk(t, testDir(t, "go-function-scm-ftp-deletion"))
-
-	integration.ProgramTest(t, &test)
-}
-
 func TestAccClientConfigGoSdk(t *testing.T) {
 	test := getGoBaseOptionsSdk(t, testDir(t, "go-clientconfig"))
 
@@ -58,21 +51,6 @@ func TestAccUserAssignedIdentitySdk(t *testing.T) {
 func TestAccAksGoSdk(t *testing.T) {
 	t.Skip("Disabled due to https://github.com/pulumi/pulumi-azure-native/issues/304")
 	test := getGoBaseOptionsSdk(t, testDir(t, "go-aks"))
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestServicebusRecreateSdk(t *testing.T) {
-	skipIfShort(t)
-	test := getGoBaseOptionsSdk(t, testDir(t, "go-servicebus-recreate", "step1")).
-		With(integration.ProgramTestOptions{
-			EditDirs: []integration.EditDir{
-				{
-					Dir:      testDir(t, "go-servicebus-recreate", "step2"),
-					Additive: true,
-				},
-			},
-		})
 
 	integration.ProgramTest(t, &test)
 }

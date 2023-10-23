@@ -29,6 +29,14 @@ func TestApi(t *testing.T) {
 	runTestProgram(t, "api")
 }
 
+func TestServiceBusRecreate(t *testing.T) {
+	runTestProgram(t, "servicebus-recreate-1", "service-bus-recreate-2")
+}
+
+func TestFunctionScmFtpDeletion(t *testing.T) {
+	runTestProgram(t, "function-scm-ftp-deletion")
+}
+
 // runTestProgram runs an example from ./examples/<initialDir>
 // Any editDirs are applied in order, and the program is run after each edit. e.g. ./examples/<editDir>
 func runTestProgram(t *testing.T, initialDir string, editDirs ...string) {
@@ -69,7 +77,8 @@ func getTestOptions(initialDir string, editDirs []string, port int) (*integratio
 	}
 	for _, editDir := range editDirs {
 		test.EditDirs = append(test.EditDirs, integration.EditDir{
-			Dir: filepath.Join(cwd, "test-programs", editDir),
+			Dir:      filepath.Join(cwd, "test-programs", editDir),
+			Additive: true,
 		})
 	}
 	return &test, nil
