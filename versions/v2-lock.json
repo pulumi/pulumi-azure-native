@@ -57,7 +57,14 @@
     "listServerGatewayStatus": "2017-08-01"
   },
   "ApiCenter": {
-    "Service": "2023-07-01-preview"
+    "Api": "2024-03-01",
+    "ApiDefinition": "2024-03-01",
+    "ApiVersion": "2024-03-01",
+    "Deployment": "2024-03-01",
+    "Environment": "2024-03-01",
+    "MetadataSchema": "2024-03-01",
+    "Service": "2023-07-01-preview",
+    "Workspace": "2024-03-01"
   },
   "ApiManagement": {
     "Api": "2022-08-01",
@@ -522,7 +529,13 @@
     "ManagedCCF": "2023-01-26-preview"
   },
   "Confluent": {
-    "Organization": "2021-12-01"
+    "Organization": "2021-12-01",
+    "listAccessClusters": "2023-08-22",
+    "listAccessEnvironments": "2023-08-22",
+    "listAccessInvitations": "2023-08-22",
+    "listAccessRoleBindings": "2023-08-22",
+    "listAccessServiceAccounts": "2023-08-22",
+    "listAccessUsers": "2023-08-22"
   },
   "ConnectedVMwarevSphere": {
     "Cluster": "2022-07-15-preview",
@@ -863,6 +876,10 @@
     "listScheduleApplicable": "2018-09-15",
     "listServiceFabricApplicableSchedules": "2018-09-15",
     "listVirtualMachineApplicableSchedules": "2018-09-15"
+  },
+  "DeviceRegistry": {
+    "Asset": "2023-11-01-preview",
+    "AssetEndpointProfile": "2023-11-01-preview"
   },
   "DeviceUpdate": {
     "Account": "2023-07-01",
@@ -1499,9 +1516,14 @@
   },
   "Migrate": {
     "Assessment": "2019-10-01",
+    "AssessmentProjectsOperation": "2023-03-15",
+    "AvsAssessmentsOperation": "2023-03-15",
     "Group": "2019-10-01",
+    "GroupsOperation": "2023-03-15",
     "HyperVCollector": "2019-10-01",
+    "HypervCollectorsOperation": "2023-03-15",
     "ImportCollector": "2019-10-01",
+    "ImportCollectorsOperation": "2023-03-15",
     "MigrateAgent": "2022-05-01-preview",
     "MigrateProject": "2018-09-01-preview",
     "MigrateProjectsControllerMigrateProject": "2020-05-01",
@@ -1510,12 +1532,17 @@
     "MoveResource": "2022-08-01",
     "PrivateEndpointConnection": "2019-10-01",
     "PrivateEndpointConnectionControllerPrivateEndpointConnection": "2020-05-01",
+    "PrivateEndpointConnectionOperation": "2023-03-15",
     "PrivateEndpointConnectionProxyController": "2023-01-01",
     "Project": "2019-10-01",
     "ServerCollector": "2019-10-01",
+    "ServerCollectorsOperation": "2023-03-15",
     "Solution": "2018-09-01-preview",
     "SolutionsControllerSolution": "2023-01-01",
+    "SqlAssessmentV2Operation": "2023-03-15",
+    "SqlCollectorOperation": "2023-03-15",
     "VMwareCollector": "2019-10-01",
+    "VmwareCollectorsOperation": "2023-03-15",
     "WorkloadDeployment": "2022-05-01-preview",
     "WorkloadInstance": "2022-05-01-preview",
     "getProjectKeys": "2018-02-02",
@@ -2022,7 +2049,6 @@
     "DeviceSecurityGroup": "2019-08-01",
     "GovernanceAssignment": "2022-01-01-preview",
     "GovernanceRule": "2022-01-01-preview",
-    "IngestionSetting": "2021-01-15-preview",
     "IotSecuritySolution": "2019-08-01",
     "JitNetworkAccessPolicy": "2020-01-01",
     "SecurityConnector": "2023-03-01-preview",
@@ -2037,9 +2063,7 @@
     "listAzureDevOpsOrgAvailable": "2023-09-01-preview",
     "listGitHubOwnerAvailable": "2023-09-01-preview",
     "listGitLabGroupAvailable": "2023-09-01-preview",
-    "listGitLabSubgroup": "2023-09-01-preview",
-    "listIngestionSettingConnectionStrings": "2021-01-15-preview",
-    "listIngestionSettingTokens": "2021-01-15-preview"
+    "listGitLabSubgroup": "2023-09-01-preview"
   },
   "SecurityAndCompliance": {
     "PrivateEndpointConnectionsAdtAPI": "2021-03-08",
@@ -2545,6 +2569,8 @@
   },
   "WorkloadMonitor": {},
   "Workloads": {
+    "ACSSBackupConnection": "2023-10-01-preview",
+    "Connector": "2023-10-01-preview",
     "ProviderInstance": "2023-04-01",
     "SAPApplicationServerInstance": "2023-04-01",
     "SAPCentralInstance": "2023-04-01",

@@ -26,6 +26,14 @@ AnalysisServices:
     tracking: "2017-08-01"
 ApiCenter:
     tracking: 2023-07-01-preview
+    additions:
+        Api: "2024-03-01"
+        ApiDefinition: "2024-03-01"
+        ApiVersion: "2024-03-01"
+        Deployment: "2024-03-01"
+        Environment: "2024-03-01"
+        MetadataSchema: "2024-03-01"
+        Workspace: "2024-03-01"
 ApiManagement:
     tracking: "2022-08-01"
     additions:
@@ -248,6 +256,13 @@ ConfidentialLedger:
         ManagedCCF: 2023-01-26-preview
 Confluent:
     tracking: "2021-12-01"
+    additions:
+        listAccessClusters: "2023-08-22"
+        listAccessEnvironments: "2023-08-22"
+        listAccessInvitations: "2023-08-22"
+        listAccessRoleBindings: "2023-08-22"
+        listAccessServiceAccounts: "2023-08-22"
+        listAccessUsers: "2023-08-22"
 ConnectedVMwarevSphere:
     tracking: 2022-07-15-preview
     additions:
@@ -417,8 +432,20 @@ DBforMySQL:
           resourcename: Server
           detail: version 2023-06-01-preview is greater than 2017-12-01
         - provider: DBforMySQL
+          resourcename: Configuration
+          detail: version 2023-06-30 is greater than 2017-12-01
+        - provider: DBforMySQL
+          resourcename: Database
+          detail: version 2023-06-30 is greater than 2017-12-01
+        - provider: DBforMySQL
+          resourcename: FirewallRule
+          detail: version 2023-06-30 is greater than 2017-12-01
+        - provider: DBforMySQL
           resourcename: PrivateEndpointConnection
           detail: version 2023-06-30 is greater than 2018-06-01
+        - provider: DBforMySQL
+          resourcename: Server
+          detail: version 2023-06-30 is greater than 2017-12-01
 DBforPostgreSQL:
     tracking: "2022-12-01"
     additions:
@@ -601,6 +628,8 @@ DevSpaces:
     tracking: "2019-04-01"
 DevTestLab:
     tracking: "2018-09-15"
+DeviceRegistry:
+    tracking: 2023-11-01-preview
 DeviceUpdate:
     tracking: "2023-07-01"
 Devices:
@@ -939,9 +968,14 @@ Media:
 Migrate:
     additions:
         Assessment: "2019-10-01"
+        AssessmentProjectsOperation: "2023-03-15"
+        AvsAssessmentsOperation: "2023-03-15"
         Group: "2019-10-01"
+        GroupsOperation: "2023-03-15"
         HyperVCollector: "2019-10-01"
+        HypervCollectorsOperation: "2023-03-15"
         ImportCollector: "2019-10-01"
+        ImportCollectorsOperation: "2023-03-15"
         MigrateAgent: 2022-05-01-preview
         MigrateProject: 2018-09-01-preview
         MigrateProjectsControllerMigrateProject: "2020-05-01"
@@ -950,12 +984,17 @@ Migrate:
         MoveResource: "2022-08-01"
         PrivateEndpointConnection: "2019-10-01"
         PrivateEndpointConnectionControllerPrivateEndpointConnection: "2020-05-01"
+        PrivateEndpointConnectionOperation: "2023-03-15"
         PrivateEndpointConnectionProxyController: "2023-01-01"
         Project: "2019-10-01"
         ServerCollector: "2019-10-01"
+        ServerCollectorsOperation: "2023-03-15"
         Solution: 2018-09-01-preview
         SolutionsControllerSolution: "2023-01-01"
+        SqlAssessmentV2Operation: "2023-03-15"
+        SqlCollectorOperation: "2023-03-15"
         VMwareCollector: "2019-10-01"
+        VmwareCollectorsOperation: "2023-03-15"
         WorkloadDeployment: 2022-05-01-preview
         WorkloadInstance: 2022-05-01-preview
         getProjectKeys: "2018-02-02"
@@ -1307,7 +1346,6 @@ Security:
         DeviceSecurityGroup: "2019-08-01"
         GovernanceAssignment: 2022-01-01-preview
         GovernanceRule: 2022-01-01-preview
-        IngestionSetting: 2021-01-15-preview
         IotSecuritySolution: "2019-08-01"
         JitNetworkAccessPolicy: "2020-01-01"
         SecurityConnector: 2023-03-01-preview
@@ -1323,8 +1361,6 @@ Security:
         listGitHubOwnerAvailable: 2023-09-01-preview
         listGitLabGroupAvailable: 2023-09-01-preview
         listGitLabSubgroup: 2023-09-01-preview
-        listIngestionSettingConnectionStrings: 2021-01-15-preview
-        listIngestionSettingTokens: 2021-01-15-preview
 SecurityAndCompliance:
     tracking: "2021-03-08"
 SecurityDevOps:
@@ -1574,3 +1610,6 @@ WindowsIoT:
 WorkloadMonitor: {}
 Workloads:
     tracking: "2023-04-01"
+    additions:
+        ACSSBackupConnection: 2023-10-01-preview
+        Connector: 2023-10-01-preview

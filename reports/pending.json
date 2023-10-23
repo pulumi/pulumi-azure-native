@@ -26,7 +26,9 @@
   "AnalysisServices": [
     "2017-08-01-beta"
   ],
-  "ApiCenter": [],
+  "ApiCenter": [
+    "2024-03-01"
+  ],
   "ApiManagement": [
     "2021-08-01",
     "2021-12-01-preview",
@@ -155,7 +157,9 @@
     "2023-01-26-preview",
     "2023-06-28-preview"
   ],
-  "Confluent": [],
+  "Confluent": [
+    "2023-08-22"
+  ],
   "ConnectedVMwarevSphere": [
     "2023-03-01-preview",
     "2023-10-01"
@@ -235,7 +239,9 @@
     "2023-07-02-preview",
     "2023-08-01",
     "2023-08-02-preview",
-    "2023-08-15-preview"
+    "2023-08-15-preview",
+    "2023-09-01",
+    "2023-10-15"
   ],
   "ContainerStorage": [],
   "CostManagement": [
@@ -326,10 +332,13 @@
     "2023-08-01-preview",
     "2023-10-01-preview"
   ],
-  "DevHub": [],
+  "DevHub": [
+    "2023-08-01"
+  ],
   "DevOps": [],
   "DevSpaces": [],
   "DevTestLab": [],
+  "DeviceRegistry": [],
   "DeviceUpdate": [],
   "Devices": [
     "2022-11-15-preview",
@@ -481,7 +490,8 @@
   "Kubernetes": [
     "2021-10-01",
     "2022-05-01-preview",
-    "2022-10-01-preview"
+    "2022-10-01-preview",
+    "2023-11-01-preview"
   ],
   "KubernetesConfiguration": [
     "2022-07-01",
@@ -546,10 +556,12 @@
     "2023-04-01",
     "2023-04-01-preview",
     "2023-06-01-preview",
-    "2023-08-01-preview"
+    "2023-08-01-preview",
+    "2023-10-01"
   ],
   "Maintenance": [
-    "2023-04-01"
+    "2023-04-01",
+    "2023-09-01-preview"
   ],
   "ManagedIdentity": [
     "2023-01-31"
@@ -599,6 +611,7 @@
     "2022-05-01-preview",
     "2022-08-01",
     "2023-01-01",
+    "2023-03-15",
     "2023-08-01"
   ],
   "MixedReality": [
@@ -746,7 +759,8 @@
   ],
   "SaaS": [],
   "ScVmm": [
-    "2023-04-01-preview"
+    "2023-04-01-preview",
+    "2023-10-07"
   ],
   "Scheduler": [],
   "Scom": [],
@@ -760,7 +774,6 @@
     "2020-01-01",
     "2020-01-01-preview",
     "2020-07-01-preview",
-    "2021-01-15-preview",
     "2021-06-01",
     "2021-07-01-preview",
     "2021-08-01-preview",
@@ -870,7 +883,9 @@
   ],
   "VMwareCloudSimple": [],
   "VideoAnalyzer": [],
-  "VideoIndexer": [],
+  "VideoIndexer": [
+    "2024-01-01"
+  ],
   "VirtualMachineImages": [],
   "VisualStudio": [],
   "VoiceServices": [

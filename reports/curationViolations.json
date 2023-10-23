@@ -4,6 +4,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "ApiCenter",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "AppPlatform",
     "Detail": "expected tracking stable but found preview"
   },
@@ -44,6 +48,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "Confluent",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "ConnectedVMwarevSphere",
     "Detail": "expected no additions but found some"
   },
@@ -70,6 +78,10 @@
   {
     "Provider": "DevCenter",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "DeviceRegistry",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "Provider": "EdgeOrder",
@@ -205,6 +217,10 @@
   },
   {
     "Provider": "ServiceFabric",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "Workloads",
     "Detail": "expected no additions but found some"
   }
 ]
