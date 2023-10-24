@@ -13,6 +13,7 @@ from ._enums import *
 
 __all__ = [
     'AFDDomainHttpsParametersResponse',
+    'AFDDomainReferencedRoutePathResponse',
     'ActivatedResourceReferenceResponse',
     'AfdRouteCacheConfigurationResponse',
     'AzureFirstPartyManagedCertificateParametersResponse',
@@ -180,6 +181,58 @@ class AFDDomainHttpsParametersResponse(dict):
         Resource reference to the secret. ie. subs/rg/profile/secret
         """
         return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class AFDDomainReferencedRoutePathResponse(dict):
+    """
+    route configuration of the shared custom domain.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "routeId":
+            suggest = "route_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AFDDomainReferencedRoutePathResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AFDDomainReferencedRoutePathResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AFDDomainReferencedRoutePathResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 paths: Optional[Sequence[str]] = None,
+                 route_id: Optional['outputs.ResourceReferenceResponse'] = None):
+        """
+        route configuration of the shared custom domain.
+        :param Sequence[str] paths: List of paths of the route.
+        :param 'ResourceReferenceResponse' route_id: Resource reference to the route.
+        """
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+        if route_id is not None:
+            pulumi.set(__self__, "route_id", route_id)
+
+    @property
+    @pulumi.getter
+    def paths(self) -> Optional[Sequence[str]]:
+        """
+        List of paths of the route.
+        """
+        return pulumi.get(self, "paths")
+
+    @property
+    @pulumi.getter(name="routeId")
+    def route_id(self) -> Optional['outputs.ResourceReferenceResponse']:
+        """
+        Resource reference to the route.
+        """
+        return pulumi.get(self, "route_id")
 
 
 @pulumi.output_type

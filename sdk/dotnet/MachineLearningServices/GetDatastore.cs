@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Azure Resource Manager resource envelope.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01.
         /// </summary>
         public static Task<GetDatastoreResult> InvokeAsync(GetDatastoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("azure-native:machinelearningservices:getDatastore", args ?? new GetDatastoreArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Azure Resource Manager resource envelope.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01.
         /// </summary>
         public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("azure-native:machinelearningservices:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());

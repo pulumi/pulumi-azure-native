@@ -234,6 +234,7 @@ class AFDCustomDomain(pulumi.CustomResource):
             __props__.__dict__["domain_validation_state"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["referenced_route_paths"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["validation_properties"] = None
@@ -270,6 +271,7 @@ class AFDCustomDomain(pulumi.CustomResource):
         __props__.__dict__["pre_validated_custom_domain_resource_id"] = None
         __props__.__dict__["profile_name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["referenced_route_paths"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tls_settings"] = None
         __props__.__dict__["type"] = None
@@ -344,6 +346,14 @@ class AFDCustomDomain(pulumi.CustomResource):
         Provisioning status
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="referencedRoutePaths")
+    def referenced_route_paths(self) -> pulumi.Output[Sequence['outputs.AFDDomainReferencedRoutePathResponse']]:
+        """
+        The JSON object list that contains the overall picture of how routes are used for the shared custom domain across different profiles.
+        """
+        return pulumi.get(self, "referenced_route_paths")
 
     @property
     @pulumi.getter(name="systemData")

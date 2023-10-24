@@ -119,6 +119,10 @@ namespace Pulumi.AzureNative.Cdn.V20230701Preview
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The JSON object list that contains the overall picture of how routes are used for the shared custom domain across different profiles.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AFDDomainReferencedRoutePathResponse> ReferencedRoutePaths;
+        /// <summary>
         /// Read only system data
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -157,6 +161,8 @@ namespace Pulumi.AzureNative.Cdn.V20230701Preview
 
             string provisioningState,
 
+            ImmutableArray<Outputs.AFDDomainReferencedRoutePathResponse> referencedRoutePaths,
+
             Outputs.SystemDataResponse systemData,
 
             Outputs.AFDDomainHttpsParametersResponse? tlsSettings,
@@ -175,6 +181,7 @@ namespace Pulumi.AzureNative.Cdn.V20230701Preview
             PreValidatedCustomDomainResourceId = preValidatedCustomDomainResourceId;
             ProfileName = profileName;
             ProvisioningState = provisioningState;
+            ReferencedRoutePaths = referencedRoutePaths;
             SystemData = systemData;
             TlsSettings = tlsSettings;
             Type = type;

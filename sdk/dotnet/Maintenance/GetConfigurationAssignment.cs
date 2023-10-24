@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Maintenance
         /// Get configuration for resource.
         /// Azure REST API version: 2022-11-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01.
+        /// Other available API versions: 2023-04-01, 2023-09-01-preview.
         /// </summary>
         public static Task<GetConfigurationAssignmentResult> InvokeAsync(GetConfigurationAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentResult>("azure-native:maintenance:getConfigurationAssignment", args ?? new GetConfigurationAssignmentArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Maintenance
         /// Get configuration for resource.
         /// Azure REST API version: 2022-11-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01.
+        /// Other available API versions: 2023-04-01, 2023-09-01-preview.
         /// </summary>
         public static Output<GetConfigurationAssignmentResult> Invoke(GetConfigurationAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentResult>("azure-native:maintenance:getConfigurationAssignment", args ?? new GetConfigurationAssignmentInvokeArgs(), options.WithDefaults());

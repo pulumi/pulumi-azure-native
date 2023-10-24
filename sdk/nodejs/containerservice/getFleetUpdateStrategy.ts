@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a FleetUpdateStrategy
  * Azure REST API version: 2023-08-15-preview.
+ *
+ * Other available API versions: 2023-10-15.
  */
 export function getFleetUpdateStrategy(args: GetFleetUpdateStrategyArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetUpdateStrategyResult> {
 
@@ -72,6 +74,8 @@ export interface GetFleetUpdateStrategyResult {
 /**
  * Get a FleetUpdateStrategy
  * Azure REST API version: 2023-08-15-preview.
+ *
+ * Other available API versions: 2023-10-15.
  */
 export function getFleetUpdateStrategyOutput(args: GetFleetUpdateStrategyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetUpdateStrategyResult> {
     return pulumi.output(args).apply((a: any) => getFleetUpdateStrategy(a, opts))

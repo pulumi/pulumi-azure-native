@@ -12,10 +12,274 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApiDefinitionPropertiesResponseSpecification',
+    'ContactResponse',
+    'DeploymentServerResponse',
+    'EnvironmentServerResponse',
+    'ExternalDocumentationResponse',
+    'LicenseResponse',
     'ManagedServiceIdentityResponse',
+    'MetadataAssignmentResponse',
+    'OnboardingResponse',
     'SystemDataResponse',
+    'TermsOfServiceResponse',
     'UserAssignedIdentityResponse',
 ]
+
+@pulumi.output_type
+class ApiDefinitionPropertiesResponseSpecification(dict):
+    """
+    API specification details.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        API specification details.
+        :param str name: Specification name.
+        :param str version: Specification version.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Specification name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Specification version.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ContactResponse(dict):
+    def __init__(__self__, *,
+                 email: Optional[str] = None,
+                 name: Optional[str] = None,
+                 url: Optional[str] = None):
+        """
+        :param str email: Email address of the contact.
+        :param str name: Name of the contact.
+        :param str url: URL for the contact.
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        Email address of the contact.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the contact.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        URL for the contact.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class DeploymentServerResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "runtimeUri":
+            suggest = "runtime_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentServerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentServerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentServerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 runtime_uri: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] runtime_uri: Base runtime URLs for this deployment.
+        """
+        if runtime_uri is not None:
+            pulumi.set(__self__, "runtime_uri", runtime_uri)
+
+    @property
+    @pulumi.getter(name="runtimeUri")
+    def runtime_uri(self) -> Optional[Sequence[str]]:
+        """
+        Base runtime URLs for this deployment.
+        """
+        return pulumi.get(self, "runtime_uri")
+
+
+@pulumi.output_type
+class EnvironmentServerResponse(dict):
+    """
+    Server information of the environment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managementPortalUri":
+            suggest = "management_portal_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentServerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentServerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentServerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 management_portal_uri: Optional[Sequence[str]] = None,
+                 type: Optional[str] = None):
+        """
+        Server information of the environment.
+        :param str type: Type of the server that represents the environment.
+        """
+        if management_portal_uri is not None:
+            pulumi.set(__self__, "management_portal_uri", management_portal_uri)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="managementPortalUri")
+    def management_portal_uri(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "management_portal_uri")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the server that represents the environment.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ExternalDocumentationResponse(dict):
+    """
+    Additional, external documentation for the API.
+    """
+    def __init__(__self__, *,
+                 url: str,
+                 description: Optional[str] = None,
+                 title: Optional[str] = None):
+        """
+        Additional, external documentation for the API.
+        :param str url: URL pointing to the documentation.
+        :param str description: Description of the documentation.
+        :param str title: Title of the documentation.
+        """
+        pulumi.set(__self__, "url", url)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        URL pointing to the documentation.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the documentation.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        Title of the documentation.
+        """
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class LicenseResponse(dict):
+    """
+    The license information for the API.
+    """
+    def __init__(__self__, *,
+                 identifier: Optional[str] = None,
+                 name: Optional[str] = None,
+                 url: Optional[str] = None):
+        """
+        The license information for the API.
+        :param str identifier: SPDX license information for the API. The identifier field is mutually exclusive of the URL field.
+        :param str name: Name of the license.
+        :param str url: URL pointing to the license details. The URL field is mutually exclusive of the identifier field.
+        """
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[str]:
+        """
+        SPDX license information for the API. The identifier field is mutually exclusive of the URL field.
+        """
+        return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the license.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        URL pointing to the license details. The URL field is mutually exclusive of the identifier field.
+        """
+        return pulumi.get(self, "url")
+
 
 @pulumi.output_type
 class ManagedServiceIdentityResponse(dict):
@@ -92,6 +356,85 @@ class ManagedServiceIdentityResponse(dict):
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class MetadataAssignmentResponse(dict):
+    def __init__(__self__, *,
+                 deprecated: Optional[bool] = None,
+                 entity: Optional[str] = None,
+                 required: Optional[bool] = None):
+        """
+        :param str entity: The entities this metadata schema component gets applied to.
+        """
+        if deprecated is not None:
+            pulumi.set(__self__, "deprecated", deprecated)
+        if entity is not None:
+            pulumi.set(__self__, "entity", entity)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter
+    def deprecated(self) -> Optional[bool]:
+        return pulumi.get(self, "deprecated")
+
+    @property
+    @pulumi.getter
+    def entity(self) -> Optional[str]:
+        """
+        The entities this metadata schema component gets applied to.
+        """
+        return pulumi.get(self, "entity")
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[bool]:
+        return pulumi.get(self, "required")
+
+
+@pulumi.output_type
+class OnboardingResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "developerPortalUri":
+            suggest = "developer_portal_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnboardingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnboardingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnboardingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 developer_portal_uri: Optional[Sequence[str]] = None,
+                 instructions: Optional[str] = None):
+        """
+        :param str instructions: Onboarding guide.
+        """
+        if developer_portal_uri is not None:
+            pulumi.set(__self__, "developer_portal_uri", developer_portal_uri)
+        if instructions is not None:
+            pulumi.set(__self__, "instructions", instructions)
+
+    @property
+    @pulumi.getter(name="developerPortalUri")
+    def developer_portal_uri(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "developer_portal_uri")
+
+    @property
+    @pulumi.getter
+    def instructions(self) -> Optional[str]:
+        """
+        Onboarding guide.
+        """
+        return pulumi.get(self, "instructions")
 
 
 @pulumi.output_type
@@ -202,6 +545,28 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TermsOfServiceResponse(dict):
+    """
+    Terms of service for the API.
+    """
+    def __init__(__self__, *,
+                 url: str):
+        """
+        Terms of service for the API.
+        :param str url: URL pointing to the terms of service.
+        """
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        URL pointing to the terms of service.
+        """
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type

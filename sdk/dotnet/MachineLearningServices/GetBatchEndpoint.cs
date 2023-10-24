@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// 
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01.
         /// </summary>
         public static Task<GetBatchEndpointResult> InvokeAsync(GetBatchEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBatchEndpointResult>("azure-native:machinelearningservices:getBatchEndpoint", args ?? new GetBatchEndpointArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// 
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01.
         /// </summary>
         public static Output<GetBatchEndpointResult> Invoke(GetBatchEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBatchEndpointResult>("azure-native:machinelearningservices:getBatchEndpoint", args ?? new GetBatchEndpointInvokeArgs(), options.WithDefaults());

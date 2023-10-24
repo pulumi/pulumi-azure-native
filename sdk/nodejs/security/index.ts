@@ -185,11 +185,6 @@ export const getGovernanceRule: typeof import("./getGovernanceRule").getGovernan
 export const getGovernanceRuleOutput: typeof import("./getGovernanceRule").getGovernanceRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getGovernanceRule","getGovernanceRuleOutput"], () => require("./getGovernanceRule"));
 
-export { GetIngestionSettingArgs, GetIngestionSettingResult, GetIngestionSettingOutputArgs } from "./getIngestionSetting";
-export const getIngestionSetting: typeof import("./getIngestionSetting").getIngestionSetting = null as any;
-export const getIngestionSettingOutput: typeof import("./getIngestionSetting").getIngestionSettingOutput = null as any;
-utilities.lazyLoad(exports, ["getIngestionSetting","getIngestionSettingOutput"], () => require("./getIngestionSetting"));
-
 export { GetIotSecuritySolutionArgs, GetIotSecuritySolutionResult, GetIotSecuritySolutionOutputArgs } from "./getIotSecuritySolution";
 export const getIotSecuritySolution: typeof import("./getIotSecuritySolution").getIotSecuritySolution = null as any;
 export const getIotSecuritySolutionOutput: typeof import("./getIotSecuritySolution").getIotSecuritySolutionOutput = null as any;
@@ -250,11 +245,6 @@ export type GovernanceRule = import("./governanceRule").GovernanceRule;
 export const GovernanceRule: typeof import("./governanceRule").GovernanceRule = null as any;
 utilities.lazyLoad(exports, ["GovernanceRule"], () => require("./governanceRule"));
 
-export { IngestionSettingArgs } from "./ingestionSetting";
-export type IngestionSetting = import("./ingestionSetting").IngestionSetting;
-export const IngestionSetting: typeof import("./ingestionSetting").IngestionSetting = null as any;
-utilities.lazyLoad(exports, ["IngestionSetting"], () => require("./ingestionSetting"));
-
 export { IotSecuritySolutionArgs } from "./iotSecuritySolution";
 export type IotSecuritySolution = import("./iotSecuritySolution").IotSecuritySolution;
 export const IotSecuritySolution: typeof import("./iotSecuritySolution").IotSecuritySolution = null as any;
@@ -284,16 +274,6 @@ export { ListGitLabSubgroupArgs, ListGitLabSubgroupResult, ListGitLabSubgroupOut
 export const listGitLabSubgroup: typeof import("./listGitLabSubgroup").listGitLabSubgroup = null as any;
 export const listGitLabSubgroupOutput: typeof import("./listGitLabSubgroup").listGitLabSubgroupOutput = null as any;
 utilities.lazyLoad(exports, ["listGitLabSubgroup","listGitLabSubgroupOutput"], () => require("./listGitLabSubgroup"));
-
-export { ListIngestionSettingConnectionStringsArgs, ListIngestionSettingConnectionStringsResult, ListIngestionSettingConnectionStringsOutputArgs } from "./listIngestionSettingConnectionStrings";
-export const listIngestionSettingConnectionStrings: typeof import("./listIngestionSettingConnectionStrings").listIngestionSettingConnectionStrings = null as any;
-export const listIngestionSettingConnectionStringsOutput: typeof import("./listIngestionSettingConnectionStrings").listIngestionSettingConnectionStringsOutput = null as any;
-utilities.lazyLoad(exports, ["listIngestionSettingConnectionStrings","listIngestionSettingConnectionStringsOutput"], () => require("./listIngestionSettingConnectionStrings"));
-
-export { ListIngestionSettingTokensArgs, ListIngestionSettingTokensResult, ListIngestionSettingTokensOutputArgs } from "./listIngestionSettingTokens";
-export const listIngestionSettingTokens: typeof import("./listIngestionSettingTokens").listIngestionSettingTokens = null as any;
-export const listIngestionSettingTokensOutput: typeof import("./listIngestionSettingTokens").listIngestionSettingTokensOutput = null as any;
-utilities.lazyLoad(exports, ["listIngestionSettingTokens","listIngestionSettingTokensOutput"], () => require("./listIngestionSettingTokens"));
 
 export { SecurityConnectorArgs } from "./securityConnector";
 export type SecurityConnector = import("./securityConnector").SecurityConnector;
@@ -346,7 +326,6 @@ import * as v20190101preview from "./v20190101preview";
 import * as v20190801 from "./v20190801";
 import * as v20200101 from "./v20200101";
 import * as v20200101preview from "./v20200101preview";
-import * as v20210115preview from "./v20210115preview";
 import * as v20210601 from "./v20210601";
 import * as v20210701preview from "./v20210701preview";
 import * as v20210801preview from "./v20210801preview";
@@ -367,7 +346,6 @@ export {
     v20190801,
     v20200101,
     v20200101preview,
-    v20210115preview,
     v20210601,
     v20210701preview,
     v20210801preview,
@@ -424,8 +402,6 @@ const _module = {
                 return new GovernanceAssignment(name, <any>undefined, { urn })
             case "azure-native:security:GovernanceRule":
                 return new GovernanceRule(name, <any>undefined, { urn })
-            case "azure-native:security:IngestionSetting":
-                return new IngestionSetting(name, <any>undefined, { urn })
             case "azure-native:security:IotSecuritySolution":
                 return new IotSecuritySolution(name, <any>undefined, { urn })
             case "azure-native:security:JitNetworkAccessPolicy":

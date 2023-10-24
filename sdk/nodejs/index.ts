@@ -85,6 +85,7 @@ import * as deploymentmanager from "./deploymentmanager";
 import * as desktopvirtualization from "./desktopvirtualization";
 import * as devcenter from "./devcenter";
 import * as devhub from "./devhub";
+import * as deviceregistry from "./deviceregistry";
 import * as devices from "./devices";
 import * as deviceupdate from "./deviceupdate";
 import * as devspaces from "./devspaces";
@@ -301,6 +302,7 @@ export {
     desktopvirtualization,
     devcenter,
     devhub,
+    deviceregistry,
     devices,
     deviceupdate,
     devspaces,

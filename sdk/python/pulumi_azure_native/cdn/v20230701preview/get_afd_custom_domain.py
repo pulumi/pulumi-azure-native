@@ -22,7 +22,7 @@ class GetAFDCustomDomainResult:
     """
     Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     """
-    def __init__(__self__, azure_dns_zone=None, deployment_status=None, domain_validation_state=None, extended_properties=None, host_name=None, id=None, name=None, pre_validated_custom_domain_resource_id=None, profile_name=None, provisioning_state=None, system_data=None, tls_settings=None, type=None, validation_properties=None):
+    def __init__(__self__, azure_dns_zone=None, deployment_status=None, domain_validation_state=None, extended_properties=None, host_name=None, id=None, name=None, pre_validated_custom_domain_resource_id=None, profile_name=None, provisioning_state=None, referenced_route_paths=None, system_data=None, tls_settings=None, type=None, validation_properties=None):
         if azure_dns_zone and not isinstance(azure_dns_zone, dict):
             raise TypeError("Expected argument 'azure_dns_zone' to be a dict")
         pulumi.set(__self__, "azure_dns_zone", azure_dns_zone)
@@ -53,6 +53,9 @@ class GetAFDCustomDomainResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if referenced_route_paths and not isinstance(referenced_route_paths, list):
+            raise TypeError("Expected argument 'referenced_route_paths' to be a list")
+        pulumi.set(__self__, "referenced_route_paths", referenced_route_paths)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -144,6 +147,14 @@ class GetAFDCustomDomainResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="referencedRoutePaths")
+    def referenced_route_paths(self) -> Sequence['outputs.AFDDomainReferencedRoutePathResponse']:
+        """
+        The JSON object list that contains the overall picture of how routes are used for the shared custom domain across different profiles.
+        """
+        return pulumi.get(self, "referenced_route_paths")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -192,6 +203,7 @@ class AwaitableGetAFDCustomDomainResult(GetAFDCustomDomainResult):
             pre_validated_custom_domain_resource_id=self.pre_validated_custom_domain_resource_id,
             profile_name=self.profile_name,
             provisioning_state=self.provisioning_state,
+            referenced_route_paths=self.referenced_route_paths,
             system_data=self.system_data,
             tls_settings=self.tls_settings,
             type=self.type,
@@ -228,6 +240,7 @@ def get_afd_custom_domain(custom_domain_name: Optional[str] = None,
         pre_validated_custom_domain_resource_id=pulumi.get(__ret__, 'pre_validated_custom_domain_resource_id'),
         profile_name=pulumi.get(__ret__, 'profile_name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        referenced_route_paths=pulumi.get(__ret__, 'referenced_route_paths'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tls_settings=pulumi.get(__ret__, 'tls_settings'),
         type=pulumi.get(__ret__, 'type'),

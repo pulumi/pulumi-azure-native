@@ -27,10 +27,12 @@ export * from "../types/enums/devhub";
 // Export sub-modules:
 import * as v20220401preview from "./v20220401preview";
 import * as v20221011preview from "./v20221011preview";
+import * as v20230801 from "./v20230801";
 
 export {
     v20220401preview,
     v20221011preview,
+    v20230801,
 };
 
 const _module = {

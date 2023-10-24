@@ -2,6 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const BackupType = {
+    VM: "VM",
+    SQL: "SQL",
+    HANA: "HANA",
+} as const;
+
+/**
+ * The type of backup, VM, SQL or HANA.
+ */
+export type BackupType = (typeof BackupType)[keyof typeof BackupType];
+
 export const ConfigurationType = {
     Skip: "Skip",
     CreateAndMount: "CreateAndMount",
@@ -12,6 +23,18 @@ export const ConfigurationType = {
  * The type of file share config.
  */
 export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
+
+export const DayOfWeek = {
+    Sunday: "Sunday",
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+} as const;
+
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
 export const DiskSkuName = {
     Standard_LRS: "Standard_LRS",
@@ -27,6 +50,17 @@ export const DiskSkuName = {
  * Defines the disk sku name.
  */
 export type DiskSkuName = (typeof DiskSkuName)[keyof typeof DiskSkuName];
+
+export const IAASVMPolicyType = {
+    Invalid: "Invalid",
+    V1: "V1",
+    V2: "V2",
+} as const;
+
+/**
+ * The policy type.
+ */
+export type IAASVMPolicyType = (typeof IAASVMPolicyType)[keyof typeof IAASVMPolicyType];
 
 export const ManagedResourcesNetworkAccessType = {
     Public: "Public",
@@ -48,6 +82,24 @@ export const ManagedServiceIdentityType = {
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
+export const MonthOfYear = {
+    Invalid: "Invalid",
+    January: "January",
+    February: "February",
+    March: "March",
+    April: "April",
+    May: "May",
+    June: "June",
+    July: "July",
+    August: "August",
+    September: "September",
+    October: "October",
+    November: "November",
+    December: "December",
+} as const;
+
+export type MonthOfYear = (typeof MonthOfYear)[keyof typeof MonthOfYear];
+
 export const NamingPatternType = {
     FullResourceName: "FullResourceName",
 } as const;
@@ -66,6 +118,47 @@ export const OSType = {
  * The OS Type
  */
 export type OSType = (typeof OSType)[keyof typeof OSType];
+
+export const PolicyType = {
+    Invalid: "Invalid",
+    Full: "Full",
+    Differential: "Differential",
+    Log: "Log",
+    CopyOnlyFull: "CopyOnlyFull",
+    Incremental: "Incremental",
+    SnapshotFull: "SnapshotFull",
+    SnapshotCopyOnlyFull: "SnapshotCopyOnlyFull",
+} as const;
+
+/**
+ * Type of backup policy type
+ */
+export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
+
+export const RetentionDurationType = {
+    Invalid: "Invalid",
+    Days: "Days",
+    Weeks: "Weeks",
+    Months: "Months",
+    Years: "Years",
+} as const;
+
+/**
+ * Retention duration type: days/weeks/months/years
+ * Used only if TieringMode is set to TierAfter
+ */
+export type RetentionDurationType = (typeof RetentionDurationType)[keyof typeof RetentionDurationType];
+
+export const RetentionScheduleFormat = {
+    Invalid: "Invalid",
+    Daily: "Daily",
+    Weekly: "Weekly",
+} as const;
+
+/**
+ * Retention schedule format for yearly retention policy.
+ */
+export type RetentionScheduleFormat = (typeof RetentionScheduleFormat)[keyof typeof RetentionScheduleFormat];
 
 export const SAPConfigurationType = {
     Deployment: "Deployment",
@@ -148,3 +241,85 @@ export const SAPSoftwareInstallationType = {
  * The SAP software installation Type.
  */
 export type SAPSoftwareInstallationType = (typeof SAPSoftwareInstallationType)[keyof typeof SAPSoftwareInstallationType];
+
+export const ScheduleRunType = {
+    Invalid: "Invalid",
+    Daily: "Daily",
+    Weekly: "Weekly",
+    Hourly: "Hourly",
+} as const;
+
+/**
+ * Frequency of the schedule operation of this policy.
+ */
+export type ScheduleRunType = (typeof ScheduleRunType)[keyof typeof ScheduleRunType];
+
+export const SslCryptoProvider = {
+    Commoncrypto: "commoncrypto",
+    Openssl: "openssl",
+} as const;
+
+/**
+ * Specify the crypto provider being used (commoncrypto/openssl). If this argument is not provided, it is automatically determined by searching in the configuration files.
+ */
+export type SslCryptoProvider = (typeof SslCryptoProvider)[keyof typeof SslCryptoProvider];
+
+export const TieringMode = {
+    Invalid: "Invalid",
+    TierRecommended: "TierRecommended",
+    TierAfter: "TierAfter",
+    DoNotTier: "DoNotTier",
+} as const;
+
+/**
+ * Tiering Mode to control automatic tiering of recovery points. Supported values are:
+ * 1. TierRecommended: Tier all recovery points recommended to be tiered
+ * 2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+ * 3. DoNotTier: Do not tier any recovery points
+ */
+export type TieringMode = (typeof TieringMode)[keyof typeof TieringMode];
+
+export const VaultType = {
+    Existing: "Existing",
+    New: "New",
+} as const;
+
+/**
+ * The vault type, whether it is existing or has to be created.
+ */
+export type VaultType = (typeof VaultType)[keyof typeof VaultType];
+
+export const WeekOfMonth = {
+    First: "First",
+    Second: "Second",
+    Third: "Third",
+    Fourth: "Fourth",
+    Last: "Last",
+    Invalid: "Invalid",
+} as const;
+
+export type WeekOfMonth = (typeof WeekOfMonth)[keyof typeof WeekOfMonth];
+
+export const WorkloadType = {
+    Invalid: "Invalid",
+    VM: "VM",
+    FileFolder: "FileFolder",
+    AzureSqlDb: "AzureSqlDb",
+    SQLDB: "SQLDB",
+    Exchange: "Exchange",
+    Sharepoint: "Sharepoint",
+    VMwareVM: "VMwareVM",
+    SystemState: "SystemState",
+    Client: "Client",
+    GenericDataSource: "GenericDataSource",
+    SQLDataBase: "SQLDataBase",
+    AzureFileShare: "AzureFileShare",
+    SAPHanaDatabase: "SAPHanaDatabase",
+    SAPAseDatabase: "SAPAseDatabase",
+    SAPHanaDBInstance: "SAPHanaDBInstance",
+} as const;
+
+/**
+ * Type of workload for the backup management
+ */
+export type WorkloadType = (typeof WorkloadType)[keyof typeof WorkloadType];

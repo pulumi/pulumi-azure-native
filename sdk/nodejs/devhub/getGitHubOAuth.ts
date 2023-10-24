@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * URL used to authorize the Developer Hub GitHub App
  * Azure REST API version: 2022-10-11-preview.
  *
- * Other available API versions: 2022-04-01-preview.
+ * Other available API versions: 2022-04-01-preview, 2023-08-01.
  */
 export function getGitHubOAuth(args: GetGitHubOAuthArgs, opts?: pulumi.InvokeOptions): Promise<GetGitHubOAuthResult> {
 
@@ -47,7 +47,7 @@ export interface GetGitHubOAuthResult {
  * URL used to authorize the Developer Hub GitHub App
  * Azure REST API version: 2022-10-11-preview.
  *
- * Other available API versions: 2022-04-01-preview.
+ * Other available API versions: 2022-04-01-preview, 2023-08-01.
  */
 export function getGitHubOAuthOutput(args: GetGitHubOAuthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGitHubOAuthResult> {
     return pulumi.output(args).apply((a: any) => getGitHubOAuth(a, opts))

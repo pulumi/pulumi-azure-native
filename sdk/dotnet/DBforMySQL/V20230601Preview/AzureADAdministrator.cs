@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20230601Preview
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql:AzureADAdministrator"},
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20211201preview:AzureADAdministrator"},
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20220101:AzureADAdministrator"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20230630:AzureADAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
 
@@ -67,7 +67,7 @@ export interface GetJobResult {
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01.
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply((a: any) => getJob(a, opts))

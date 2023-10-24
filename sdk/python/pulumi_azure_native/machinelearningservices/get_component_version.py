@@ -102,7 +102,7 @@ def get_component_version(name: Optional[str] = None,
     Azure Resource Manager resource envelope.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+    Other available API versions: 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01.
 
 
     :param str name: Container name.
@@ -136,7 +136,7 @@ def get_component_version_output(name: Optional[pulumi.Input[str]] = None,
     Azure Resource Manager resource envelope.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+    Other available API versions: 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01.
 
 
     :param str name: Container name.

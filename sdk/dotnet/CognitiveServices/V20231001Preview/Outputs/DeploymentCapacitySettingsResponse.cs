@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20231001Preview.Outputs
 {
 
     /// <summary>
-    /// The maps to reserved Capacity for fungible deployments (MSS).
+    /// Internal use only.
     /// </summary>
     [OutputType]
     public sealed class DeploymentCapacitySettingsResponse

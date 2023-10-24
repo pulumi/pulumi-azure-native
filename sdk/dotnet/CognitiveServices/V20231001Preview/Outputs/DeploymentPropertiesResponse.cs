@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20231001Preview.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Capabilities;
         /// <summary>
-        /// The maps to reserved Capacity for fungible deployments (MSS).
+        /// Internal use only.
         /// </summary>
         public readonly Outputs.DeploymentCapacitySettingsResponse? CapacitySettings;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20231001Preview.Outputs
         public readonly string? RaiPolicyName;
         public readonly ImmutableArray<Outputs.ThrottlingRuleResponse> RateLimits;
         /// <summary>
-        /// Properties of Cognitive Services account deployment model.
+        /// Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         /// </summary>
         public readonly Outputs.DeploymentScaleSettingsResponse? ScaleSettings;
         /// <summary>

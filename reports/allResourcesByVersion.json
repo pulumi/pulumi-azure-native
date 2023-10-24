@@ -282,6 +282,16 @@
   "ApiCenter": {
     "2023-07-01-preview": [
       "Service"
+    ],
+    "2024-03-01": [
+      "Api",
+      "ApiDefinition",
+      "ApiVersion",
+      "Deployment",
+      "Environment",
+      "MetadataSchema",
+      "Service",
+      "Workspace"
     ]
   },
   "ApiManagement": {
@@ -3910,6 +3920,15 @@
     ],
     "2021-12-01": [
       "Organization"
+    ],
+    "2023-08-22": [
+      "Organization",
+      "listAccessClusters",
+      "listAccessEnvironments",
+      "listAccessInvitations",
+      "listAccessRoleBindings",
+      "listAccessServiceAccounts",
+      "listAccessUsers"
     ]
   },
   "ConnectedVMwarevSphere": {
@@ -4986,6 +5005,24 @@
       "FleetUpdateStrategy",
       "UpdateRun",
       "listFleetCredentials"
+    ],
+    "2023-09-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2023-10-15": [
+      "Fleet",
+      "FleetMember",
+      "FleetUpdateStrategy",
+      "UpdateRun",
+      "listFleetCredentials"
     ]
   },
   "ContainerStorage": {
@@ -5267,7 +5304,13 @@
       "getGetPrivateDnsZoneSuffixExecute"
     ],
     "2023-06-30": [
-      "PrivateEndpointConnection"
+      "AzureADAdministrator",
+      "Configuration",
+      "Database",
+      "FirewallRule",
+      "PrivateEndpointConnection",
+      "Server",
+      "getGetPrivateDnsZoneSuffixExecute"
     ]
   },
   "DBforPostgreSQL": {
@@ -6462,6 +6505,10 @@
     "2022-10-11-preview": [
       "Workflow",
       "getGitHubOAuth"
+    ],
+    "2023-08-01": [
+      "Workflow",
+      "getGitHubOAuth"
     ]
   },
   "DevOps": {
@@ -6530,6 +6577,12 @@
       "listScheduleApplicable",
       "listServiceFabricApplicableSchedules",
       "listVirtualMachineApplicableSchedules"
+    ]
+  },
+  "DeviceRegistry": {
+    "2023-11-01-preview": [
+      "Asset",
+      "AssetEndpointProfile"
     ]
   },
   "DeviceUpdate": {
@@ -9258,6 +9311,10 @@
     "2022-10-01-preview": [
       "ConnectedCluster",
       "listConnectedClusterUserCredential"
+    ],
+    "2023-11-01-preview": [
+      "ConnectedCluster",
+      "listConnectedClusterUserCredential"
     ]
   },
   "KubernetesConfiguration": {
@@ -10429,6 +10486,56 @@
       "listWorkspaceNotebookAccessToken",
       "listWorkspaceNotebookKeys",
       "listWorkspaceStorageAccountKeys"
+    ],
+    "2023-10-01": [
+      "BatchDeployment",
+      "BatchEndpoint",
+      "CodeContainer",
+      "CodeVersion",
+      "ComponentContainer",
+      "ComponentVersion",
+      "Compute",
+      "DataContainer",
+      "DataVersion",
+      "Datastore",
+      "EnvironmentContainer",
+      "EnvironmentVersion",
+      "FeaturesetContainerEntity",
+      "FeaturesetVersion",
+      "FeaturestoreEntityContainerEntity",
+      "FeaturestoreEntityVersion",
+      "Job",
+      "ManagedNetworkSettingsRule",
+      "ModelContainer",
+      "ModelVersion",
+      "OnlineDeployment",
+      "OnlineEndpoint",
+      "PrivateEndpointConnection",
+      "Registry",
+      "RegistryCodeContainer",
+      "RegistryCodeVersion",
+      "RegistryComponentContainer",
+      "RegistryComponentVersion",
+      "RegistryDataContainer",
+      "RegistryDataVersion",
+      "RegistryEnvironmentContainer",
+      "RegistryEnvironmentVersion",
+      "RegistryModelContainer",
+      "RegistryModelVersion",
+      "Schedule",
+      "Workspace",
+      "WorkspaceConnection",
+      "getOnlineDeploymentLogs",
+      "getOnlineEndpointToken",
+      "listBatchEndpointKeys",
+      "listComputeKeys",
+      "listComputeNodes",
+      "listDatastoreSecrets",
+      "listOnlineEndpointKeys",
+      "listWorkspaceKeys",
+      "listWorkspaceNotebookAccessToken",
+      "listWorkspaceNotebookKeys",
+      "listWorkspaceStorageAccountKeys"
     ]
   },
   "Maintenance": {
@@ -10465,6 +10572,13 @@
       "MaintenanceConfiguration"
     ],
     "2023-04-01": [
+      "ConfigurationAssignment",
+      "ConfigurationAssignmentParent",
+      "ConfigurationAssignmentsForResourceGroup",
+      "ConfigurationAssignmentsForSubscription",
+      "MaintenanceConfiguration"
+    ],
+    "2023-09-01-preview": [
       "ConfigurationAssignment",
       "ConfigurationAssignmentParent",
       "ConfigurationAssignmentsForResourceGroup",
@@ -10976,6 +11090,19 @@
       "PrivateEndpointConnectionProxyController",
       "SolutionsControllerSolution",
       "getSolutionsControllerConfig"
+    ],
+    "2023-03-15": [
+      "AssessmentProjectsOperation",
+      "AssessmentsOperation",
+      "AvsAssessmentsOperation",
+      "GroupsOperation",
+      "HypervCollectorsOperation",
+      "ImportCollectorsOperation",
+      "PrivateEndpointConnectionOperation",
+      "ServerCollectorsOperation",
+      "SqlAssessmentV2Operation",
+      "SqlCollectorOperation",
+      "VmwareCollectorsOperation"
     ],
     "2023-08-01": [
       "MoveCollection",
@@ -16006,6 +16133,16 @@
       "VirtualMachineTemplate",
       "VirtualNetwork",
       "VmmServer"
+    ],
+    "2023-10-07": [
+      "AvailabilitySet",
+      "Cloud",
+      "InventoryItem",
+      "VMInstanceGuestAgent",
+      "VirtualMachineInstance",
+      "VirtualMachineTemplate",
+      "VirtualNetwork",
+      "VmmServer"
     ]
   },
   "Scheduler": {
@@ -16125,11 +16262,6 @@
     ],
     "2020-07-01-preview": [
       "SqlVulnerabilityAssessmentBaselineRule"
-    ],
-    "2021-01-15-preview": [
-      "IngestionSetting",
-      "listIngestionSettingConnectionStrings",
-      "listIngestionSettingTokens"
     ],
     "2021-06-01": [
       "Assessment",
@@ -19184,6 +19316,9 @@
     ],
     "2022-08-01": [
       "Account"
+    ],
+    "2024-01-01": [
+      "Account"
     ]
   },
   "VirtualMachineImages": {
@@ -20725,6 +20860,8 @@
       "monitor"
     ],
     "2023-10-01-preview": [
+      "ACSSBackupConnection",
+      "Connector",
       "SAPApplicationServerInstance",
       "SAPCentralInstance",
       "SAPDatabaseInstance",

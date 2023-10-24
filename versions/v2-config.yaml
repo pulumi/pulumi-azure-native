@@ -451,6 +451,9 @@ Media:
     Each version contain just small bits of the API - better to be explicit
 Migrate:
   explicit: true
+  exclusions:
+    # This references the type VmUptimeResponse already defined by a previous API version, but which changes a property hoursPerDay from being a number to an integer which is a breaking change.
+    AssessmentsOperation: "2023-03-15"
   notes: |
     Each version contain just small bits of the API - better to be explicit
     https://learn.microsoft.com/en-us/rest/api/migrate/

@@ -67,6 +67,12 @@ namespace Pulumi.AzureNative.Cdn.V20230701Preview
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// The JSON object list that contains the overall picture of how routes are used for the shared custom domain across different profiles.
+        /// </summary>
+        [Output("referencedRoutePaths")]
+        public Output<ImmutableArray<Outputs.AFDDomainReferencedRoutePathResponse>> ReferencedRoutePaths { get; private set; } = null!;
+
+        /// <summary>
         /// Read only system data
         /// </summary>
         [Output("systemData")]

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Maintenance configuration record type
  * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-04-01.
  *
- * Other available API versions: 2023-04-01.
+ * Other available API versions: 2023-04-01, 2023-09-01-preview.
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**
@@ -156,7 +156,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             resourceInputs["visibility"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:maintenance/v20180601preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20200401:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20200701preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210401preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210501:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210901preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20220701preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20221101preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20230401:MaintenanceConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maintenance/v20180601preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20200401:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20200701preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210401preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210501:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210901preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20220701preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20221101preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20230401:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20230901preview:MaintenanceConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MaintenanceConfiguration.__pulumiType, name, resourceInputs, opts);
     }

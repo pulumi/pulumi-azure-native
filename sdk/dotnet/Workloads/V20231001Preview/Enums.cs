@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.Workloads.V20231001Preview
 {
     /// <summary>
+    /// The type of backup, VM, SQL or HANA.
+    /// </summary>
+    [EnumType]
+    public readonly struct BackupType : IEquatable<BackupType>
+    {
+        private readonly string _value;
+
+        private BackupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackupType VM { get; } = new BackupType("VM");
+        public static BackupType SQL { get; } = new BackupType("SQL");
+        public static BackupType HANA { get; } = new BackupType("HANA");
+
+        public static bool operator ==(BackupType left, BackupType right) => left.Equals(right);
+        public static bool operator !=(BackupType left, BackupType right) => !left.Equals(right);
+
+        public static explicit operator string(BackupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackupType other && Equals(other);
+        public bool Equals(BackupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of file share config.
     /// </summary>
     [EnumType]
@@ -32,6 +64,39 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConfigurationType other && Equals(other);
         public bool Equals(ConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DayOfWeek : IEquatable<DayOfWeek>
+    {
+        private readonly string _value;
+
+        private DayOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DayOfWeek Sunday { get; } = new DayOfWeek("Sunday");
+        public static DayOfWeek Monday { get; } = new DayOfWeek("Monday");
+        public static DayOfWeek Tuesday { get; } = new DayOfWeek("Tuesday");
+        public static DayOfWeek Wednesday { get; } = new DayOfWeek("Wednesday");
+        public static DayOfWeek Thursday { get; } = new DayOfWeek("Thursday");
+        public static DayOfWeek Friday { get; } = new DayOfWeek("Friday");
+        public static DayOfWeek Saturday { get; } = new DayOfWeek("Saturday");
+
+        public static bool operator ==(DayOfWeek left, DayOfWeek right) => left.Equals(right);
+        public static bool operator !=(DayOfWeek left, DayOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(DayOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DayOfWeek other && Equals(other);
+        public bool Equals(DayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -68,6 +133,38 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DiskSkuName other && Equals(other);
         public bool Equals(DiskSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The policy type.
+    /// </summary>
+    [EnumType]
+    public readonly struct IAASVMPolicyType : IEquatable<IAASVMPolicyType>
+    {
+        private readonly string _value;
+
+        private IAASVMPolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IAASVMPolicyType Invalid { get; } = new IAASVMPolicyType("Invalid");
+        public static IAASVMPolicyType V1 { get; } = new IAASVMPolicyType("V1");
+        public static IAASVMPolicyType V2 { get; } = new IAASVMPolicyType("V2");
+
+        public static bool operator ==(IAASVMPolicyType left, IAASVMPolicyType right) => left.Equals(right);
+        public static bool operator !=(IAASVMPolicyType left, IAASVMPolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(IAASVMPolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IAASVMPolicyType other && Equals(other);
+        public bool Equals(IAASVMPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -137,6 +234,45 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct MonthOfYear : IEquatable<MonthOfYear>
+    {
+        private readonly string _value;
+
+        private MonthOfYear(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MonthOfYear Invalid { get; } = new MonthOfYear("Invalid");
+        public static MonthOfYear January { get; } = new MonthOfYear("January");
+        public static MonthOfYear February { get; } = new MonthOfYear("February");
+        public static MonthOfYear March { get; } = new MonthOfYear("March");
+        public static MonthOfYear April { get; } = new MonthOfYear("April");
+        public static MonthOfYear May { get; } = new MonthOfYear("May");
+        public static MonthOfYear June { get; } = new MonthOfYear("June");
+        public static MonthOfYear July { get; } = new MonthOfYear("July");
+        public static MonthOfYear August { get; } = new MonthOfYear("August");
+        public static MonthOfYear September { get; } = new MonthOfYear("September");
+        public static MonthOfYear October { get; } = new MonthOfYear("October");
+        public static MonthOfYear November { get; } = new MonthOfYear("November");
+        public static MonthOfYear December { get; } = new MonthOfYear("December");
+
+        public static bool operator ==(MonthOfYear left, MonthOfYear right) => left.Equals(right);
+        public static bool operator !=(MonthOfYear left, MonthOfYear right) => !left.Equals(right);
+
+        public static explicit operator string(MonthOfYear value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MonthOfYear other && Equals(other);
+        public bool Equals(MonthOfYear other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The pattern type to be used for resource naming.
     /// </summary>
@@ -191,6 +327,110 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OSType other && Equals(other);
         public bool Equals(OSType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of backup policy type
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicyType : IEquatable<PolicyType>
+    {
+        private readonly string _value;
+
+        private PolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyType Invalid { get; } = new PolicyType("Invalid");
+        public static PolicyType Full { get; } = new PolicyType("Full");
+        public static PolicyType Differential { get; } = new PolicyType("Differential");
+        public static PolicyType Log { get; } = new PolicyType("Log");
+        public static PolicyType CopyOnlyFull { get; } = new PolicyType("CopyOnlyFull");
+        public static PolicyType Incremental { get; } = new PolicyType("Incremental");
+        public static PolicyType SnapshotFull { get; } = new PolicyType("SnapshotFull");
+        public static PolicyType SnapshotCopyOnlyFull { get; } = new PolicyType("SnapshotCopyOnlyFull");
+
+        public static bool operator ==(PolicyType left, PolicyType right) => left.Equals(right);
+        public static bool operator !=(PolicyType left, PolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyType other && Equals(other);
+        public bool Equals(PolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Retention duration type: days/weeks/months/years
+    /// Used only if TieringMode is set to TierAfter
+    /// </summary>
+    [EnumType]
+    public readonly struct RetentionDurationType : IEquatable<RetentionDurationType>
+    {
+        private readonly string _value;
+
+        private RetentionDurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RetentionDurationType Invalid { get; } = new RetentionDurationType("Invalid");
+        public static RetentionDurationType Days { get; } = new RetentionDurationType("Days");
+        public static RetentionDurationType Weeks { get; } = new RetentionDurationType("Weeks");
+        public static RetentionDurationType Months { get; } = new RetentionDurationType("Months");
+        public static RetentionDurationType Years { get; } = new RetentionDurationType("Years");
+
+        public static bool operator ==(RetentionDurationType left, RetentionDurationType right) => left.Equals(right);
+        public static bool operator !=(RetentionDurationType left, RetentionDurationType right) => !left.Equals(right);
+
+        public static explicit operator string(RetentionDurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RetentionDurationType other && Equals(other);
+        public bool Equals(RetentionDurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Retention schedule format for yearly retention policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct RetentionScheduleFormat : IEquatable<RetentionScheduleFormat>
+    {
+        private readonly string _value;
+
+        private RetentionScheduleFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RetentionScheduleFormat Invalid { get; } = new RetentionScheduleFormat("Invalid");
+        public static RetentionScheduleFormat Daily { get; } = new RetentionScheduleFormat("Daily");
+        public static RetentionScheduleFormat Weekly { get; } = new RetentionScheduleFormat("Weekly");
+
+        public static bool operator ==(RetentionScheduleFormat left, RetentionScheduleFormat right) => left.Equals(right);
+        public static bool operator !=(RetentionScheduleFormat left, RetentionScheduleFormat right) => !left.Equals(right);
+
+        public static explicit operator string(RetentionScheduleFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RetentionScheduleFormat other && Equals(other);
+        public bool Equals(RetentionScheduleFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -441,6 +681,214 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SAPSoftwareInstallationType other && Equals(other);
         public bool Equals(SAPSoftwareInstallationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Frequency of the schedule operation of this policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScheduleRunType : IEquatable<ScheduleRunType>
+    {
+        private readonly string _value;
+
+        private ScheduleRunType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScheduleRunType Invalid { get; } = new ScheduleRunType("Invalid");
+        public static ScheduleRunType Daily { get; } = new ScheduleRunType("Daily");
+        public static ScheduleRunType Weekly { get; } = new ScheduleRunType("Weekly");
+        public static ScheduleRunType Hourly { get; } = new ScheduleRunType("Hourly");
+
+        public static bool operator ==(ScheduleRunType left, ScheduleRunType right) => left.Equals(right);
+        public static bool operator !=(ScheduleRunType left, ScheduleRunType right) => !left.Equals(right);
+
+        public static explicit operator string(ScheduleRunType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScheduleRunType other && Equals(other);
+        public bool Equals(ScheduleRunType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specify the crypto provider being used (commoncrypto/openssl). If this argument is not provided, it is automatically determined by searching in the configuration files.
+    /// </summary>
+    [EnumType]
+    public readonly struct SslCryptoProvider : IEquatable<SslCryptoProvider>
+    {
+        private readonly string _value;
+
+        private SslCryptoProvider(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SslCryptoProvider Commoncrypto { get; } = new SslCryptoProvider("commoncrypto");
+        public static SslCryptoProvider Openssl { get; } = new SslCryptoProvider("openssl");
+
+        public static bool operator ==(SslCryptoProvider left, SslCryptoProvider right) => left.Equals(right);
+        public static bool operator !=(SslCryptoProvider left, SslCryptoProvider right) => !left.Equals(right);
+
+        public static explicit operator string(SslCryptoProvider value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SslCryptoProvider other && Equals(other);
+        public bool Equals(SslCryptoProvider other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Tiering Mode to control automatic tiering of recovery points. Supported values are:
+    /// 1. TierRecommended: Tier all recovery points recommended to be tiered
+    /// 2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+    /// 3. DoNotTier: Do not tier any recovery points
+    /// </summary>
+    [EnumType]
+    public readonly struct TieringMode : IEquatable<TieringMode>
+    {
+        private readonly string _value;
+
+        private TieringMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TieringMode Invalid { get; } = new TieringMode("Invalid");
+        public static TieringMode TierRecommended { get; } = new TieringMode("TierRecommended");
+        public static TieringMode TierAfter { get; } = new TieringMode("TierAfter");
+        public static TieringMode DoNotTier { get; } = new TieringMode("DoNotTier");
+
+        public static bool operator ==(TieringMode left, TieringMode right) => left.Equals(right);
+        public static bool operator !=(TieringMode left, TieringMode right) => !left.Equals(right);
+
+        public static explicit operator string(TieringMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TieringMode other && Equals(other);
+        public bool Equals(TieringMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The vault type, whether it is existing or has to be created.
+    /// </summary>
+    [EnumType]
+    public readonly struct VaultType : IEquatable<VaultType>
+    {
+        private readonly string _value;
+
+        private VaultType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VaultType Existing { get; } = new VaultType("Existing");
+        public static VaultType New { get; } = new VaultType("New");
+
+        public static bool operator ==(VaultType left, VaultType right) => left.Equals(right);
+        public static bool operator !=(VaultType left, VaultType right) => !left.Equals(right);
+
+        public static explicit operator string(VaultType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VaultType other && Equals(other);
+        public bool Equals(VaultType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct WeekOfMonth : IEquatable<WeekOfMonth>
+    {
+        private readonly string _value;
+
+        private WeekOfMonth(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WeekOfMonth First { get; } = new WeekOfMonth("First");
+        public static WeekOfMonth Second { get; } = new WeekOfMonth("Second");
+        public static WeekOfMonth Third { get; } = new WeekOfMonth("Third");
+        public static WeekOfMonth Fourth { get; } = new WeekOfMonth("Fourth");
+        public static WeekOfMonth Last { get; } = new WeekOfMonth("Last");
+        public static WeekOfMonth Invalid { get; } = new WeekOfMonth("Invalid");
+
+        public static bool operator ==(WeekOfMonth left, WeekOfMonth right) => left.Equals(right);
+        public static bool operator !=(WeekOfMonth left, WeekOfMonth right) => !left.Equals(right);
+
+        public static explicit operator string(WeekOfMonth value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WeekOfMonth other && Equals(other);
+        public bool Equals(WeekOfMonth other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of workload for the backup management
+    /// </summary>
+    [EnumType]
+    public readonly struct WorkloadType : IEquatable<WorkloadType>
+    {
+        private readonly string _value;
+
+        private WorkloadType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkloadType Invalid { get; } = new WorkloadType("Invalid");
+        public static WorkloadType VM { get; } = new WorkloadType("VM");
+        public static WorkloadType FileFolder { get; } = new WorkloadType("FileFolder");
+        public static WorkloadType AzureSqlDb { get; } = new WorkloadType("AzureSqlDb");
+        public static WorkloadType SQLDB { get; } = new WorkloadType("SQLDB");
+        public static WorkloadType Exchange { get; } = new WorkloadType("Exchange");
+        public static WorkloadType Sharepoint { get; } = new WorkloadType("Sharepoint");
+        public static WorkloadType VMwareVM { get; } = new WorkloadType("VMwareVM");
+        public static WorkloadType SystemState { get; } = new WorkloadType("SystemState");
+        public static WorkloadType Client { get; } = new WorkloadType("Client");
+        public static WorkloadType GenericDataSource { get; } = new WorkloadType("GenericDataSource");
+        public static WorkloadType SQLDataBase { get; } = new WorkloadType("SQLDataBase");
+        public static WorkloadType AzureFileShare { get; } = new WorkloadType("AzureFileShare");
+        public static WorkloadType SAPHanaDatabase { get; } = new WorkloadType("SAPHanaDatabase");
+        public static WorkloadType SAPAseDatabase { get; } = new WorkloadType("SAPAseDatabase");
+        public static WorkloadType SAPHanaDBInstance { get; } = new WorkloadType("SAPHanaDBInstance");
+
+        public static bool operator ==(WorkloadType left, WorkloadType right) => left.Equals(right);
+        public static bool operator !=(WorkloadType left, WorkloadType right) => !left.Equals(right);
+
+        public static explicit operator string(WorkloadType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkloadType other && Equals(other);
+        public bool Equals(WorkloadType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

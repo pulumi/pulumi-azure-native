@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.ScVmm.V20230401Preview
                     new global::Pulumi.Alias { Type = "azure-native:scvmm:InventoryItem"},
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:InventoryItem"},
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:InventoryItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20231007:InventoryItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

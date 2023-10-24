@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20231001Preview.Inputs
 {
 
     /// <summary>
-    /// The maps to reserved Capacity for fungible deployments (MSS).
+    /// Internal use only.
     /// </summary>
     public sealed class DeploymentCapacitySettingsArgs : global::Pulumi.ResourceArgs
     {

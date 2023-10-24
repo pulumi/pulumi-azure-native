@@ -95,7 +95,7 @@ export class ConfigurationAssignmentsForSubscription extends pulumi.CustomResour
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:maintenance:ConfigurationAssignmentsForSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maintenance:ConfigurationAssignmentsForSubscription" }, { type: "azure-native:maintenance/v20230901preview:ConfigurationAssignmentsForSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationAssignmentsForSubscription.__pulumiType, name, resourceInputs, opts);
     }

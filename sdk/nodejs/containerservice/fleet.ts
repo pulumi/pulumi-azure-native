@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Fleet resource.
  * Azure REST API version: 2023-03-15-preview.
  *
- * Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview.
+ * Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15.
  */
 export class Fleet extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220602preview:Fleet" }, { type: "azure-native:containerservice/v20220702preview:Fleet" }, { type: "azure-native:containerservice/v20220902preview:Fleet" }, { type: "azure-native:containerservice/v20230315preview:Fleet" }, { type: "azure-native:containerservice/v20230615preview:Fleet" }, { type: "azure-native:containerservice/v20230815preview:Fleet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220602preview:Fleet" }, { type: "azure-native:containerservice/v20220702preview:Fleet" }, { type: "azure-native:containerservice/v20220902preview:Fleet" }, { type: "azure-native:containerservice/v20230315preview:Fleet" }, { type: "azure-native:containerservice/v20230615preview:Fleet" }, { type: "azure-native:containerservice/v20230815preview:Fleet" }, { type: "azure-native:containerservice/v20231015:Fleet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
     }

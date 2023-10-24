@@ -125,6 +125,8 @@ def get_fleet_update_strategy(fleet_name: Optional[str] = None,
     Get a FleetUpdateStrategy
     Azure REST API version: 2023-08-15-preview.
 
+    Other available API versions: 2023-10-15.
+
 
     :param str fleet_name: The name of the Fleet resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -155,6 +157,8 @@ def get_fleet_update_strategy_output(fleet_name: Optional[pulumi.Input[str]] = N
     """
     Get a FleetUpdateStrategy
     Azure REST API version: 2023-08-15-preview.
+
+    Other available API versions: 2023-10-15.
 
 
     :param str fleet_name: The name of the Fleet resource.

@@ -187,6 +187,7 @@ namespace Pulumi.AzureNative.ScVmm.V20230401Preview
                     new global::Pulumi.Alias { Type = "azure-native:scvmm:VirtualMachineTemplate"},
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:VirtualMachineTemplate"},
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:VirtualMachineTemplate"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20231007:VirtualMachineTemplate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

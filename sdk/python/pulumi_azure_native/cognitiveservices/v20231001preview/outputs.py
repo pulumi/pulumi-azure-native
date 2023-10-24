@@ -1039,7 +1039,7 @@ class CommitmentQuotaResponse(dict):
 @pulumi.output_type
 class DeploymentCapacitySettingsResponse(dict):
     """
-    The maps to reserved Capacity for fungible deployments (MSS).
+    Internal use only.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1062,7 +1062,7 @@ class DeploymentCapacitySettingsResponse(dict):
                  designated_capacity: Optional[int] = None,
                  priority: Optional[int] = None):
         """
-        The maps to reserved Capacity for fungible deployments (MSS).
+        Internal use only.
         :param int designated_capacity: The designated capacity.
         :param int priority: The priority of this capacity setting.
         """
@@ -1231,11 +1231,11 @@ class DeploymentPropertiesResponse(dict):
         :param Mapping[str, str] capabilities: The capabilities.
         :param bool dynamic_throttling_enabled: If the dynamic throttling is enabled.
         :param str provisioning_state: Gets the status of the resource at the time the operation was called.
-        :param 'DeploymentCapacitySettingsResponse' capacity_settings: The maps to reserved Capacity for fungible deployments (MSS).
+        :param 'DeploymentCapacitySettingsResponse' capacity_settings: Internal use only.
         :param int current_capacity: The current capacity.
         :param 'DeploymentModelResponse' model: Properties of Cognitive Services account deployment model.
         :param str rai_policy_name: The name of RAI policy.
-        :param 'DeploymentScaleSettingsResponse' scale_settings: Properties of Cognitive Services account deployment model.
+        :param 'DeploymentScaleSettingsResponse' scale_settings: Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         :param str version_upgrade_option: Deployment model version upgrade option.
         """
         pulumi.set(__self__, "call_rate_limit", call_rate_limit)
@@ -1297,7 +1297,7 @@ class DeploymentPropertiesResponse(dict):
     @pulumi.getter(name="capacitySettings")
     def capacity_settings(self) -> Optional['outputs.DeploymentCapacitySettingsResponse']:
         """
-        The maps to reserved Capacity for fungible deployments (MSS).
+        Internal use only.
         """
         return pulumi.get(self, "capacity_settings")
 
@@ -1329,7 +1329,7 @@ class DeploymentPropertiesResponse(dict):
     @pulumi.getter(name="scaleSettings")
     def scale_settings(self) -> Optional['outputs.DeploymentScaleSettingsResponse']:
         """
-        Properties of Cognitive Services account deployment model.
+        Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         """
         return pulumi.get(self, "scale_settings")
 
@@ -1345,7 +1345,7 @@ class DeploymentPropertiesResponse(dict):
 @pulumi.output_type
 class DeploymentScaleSettingsResponse(dict):
     """
-    Properties of Cognitive Services account deployment model.
+    Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1371,7 +1371,7 @@ class DeploymentScaleSettingsResponse(dict):
                  capacity: Optional[int] = None,
                  scale_type: Optional[str] = None):
         """
-        Properties of Cognitive Services account deployment model.
+        Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         :param int active_capacity: Deployment active capacity. This value might be different from `capacity` if customer recently updated `capacity`.
         :param int capacity: Deployment capacity.
         :param str scale_type: Deployment scale type.

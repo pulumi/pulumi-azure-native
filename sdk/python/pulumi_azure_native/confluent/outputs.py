@@ -8,12 +8,796 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'ClusterByokEntityResponse',
+    'ClusterConfigEntityResponse',
+    'ClusterEnvironmentEntityResponse',
+    'ClusterNetworkEntityResponse',
+    'ClusterRecordResponse',
+    'ClusterSpecEntityResponse',
+    'ClusterStatusEntityResponse',
+    'ConfluentListMetadataResponse',
+    'EnvironmentRecordResponse',
+    'InvitationRecordResponse',
+    'MetadataEntityResponse',
     'OfferDetailResponse',
+    'RoleBindingRecordResponse',
+    'ServiceAccountRecordResponse',
     'SystemDataResponse',
     'UserDetailResponse',
+    'UserRecordResponse',
 ]
+
+@pulumi.output_type
+class ClusterByokEntityResponse(dict):
+    """
+    The network associated with this object
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 related: Optional[str] = None,
+                 resource_name: Optional[str] = None):
+        """
+        The network associated with this object
+        :param str id: ID of the referred resource
+        :param str related: API URL for accessing or modifying the referred object
+        :param str resource_name: CRN reference to the referred resource
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if related is not None:
+            pulumi.set(__self__, "related", related)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        ID of the referred resource
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def related(self) -> Optional[str]:
+        """
+        API URL for accessing or modifying the referred object
+        """
+        return pulumi.get(self, "related")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[str]:
+        """
+        CRN reference to the referred resource
+        """
+        return pulumi.get(self, "resource_name")
+
+
+@pulumi.output_type
+class ClusterConfigEntityResponse(dict):
+    """
+    The configuration of the Kafka cluster
+    """
+    def __init__(__self__, *,
+                 kind: Optional[str] = None):
+        """
+        The configuration of the Kafka cluster
+        :param str kind: The lifecycle phase of the cluster
+        """
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The lifecycle phase of the cluster
+        """
+        return pulumi.get(self, "kind")
+
+
+@pulumi.output_type
+class ClusterEnvironmentEntityResponse(dict):
+    """
+    The environment to which cluster belongs
+    """
+    def __init__(__self__, *,
+                 environment: Optional[str] = None,
+                 id: Optional[str] = None,
+                 related: Optional[str] = None,
+                 resource_name: Optional[str] = None):
+        """
+        The environment to which cluster belongs
+        :param str environment: Environment of the referred resource
+        :param str id: ID of the referred resource
+        :param str related: API URL for accessing or modifying the referred object
+        :param str resource_name: CRN reference to the referred resource
+        """
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if related is not None:
+            pulumi.set(__self__, "related", related)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[str]:
+        """
+        Environment of the referred resource
+        """
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        ID of the referred resource
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def related(self) -> Optional[str]:
+        """
+        API URL for accessing or modifying the referred object
+        """
+        return pulumi.get(self, "related")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[str]:
+        """
+        CRN reference to the referred resource
+        """
+        return pulumi.get(self, "resource_name")
+
+
+@pulumi.output_type
+class ClusterNetworkEntityResponse(dict):
+    """
+    The network associated with this object
+    """
+    def __init__(__self__, *,
+                 environment: Optional[str] = None,
+                 id: Optional[str] = None,
+                 related: Optional[str] = None,
+                 resource_name: Optional[str] = None):
+        """
+        The network associated with this object
+        :param str environment: Environment of the referred resource
+        :param str id: ID of the referred resource
+        :param str related: API URL for accessing or modifying the referred object
+        :param str resource_name: CRN reference to the referred resource
+        """
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if related is not None:
+            pulumi.set(__self__, "related", related)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[str]:
+        """
+        Environment of the referred resource
+        """
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        ID of the referred resource
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def related(self) -> Optional[str]:
+        """
+        API URL for accessing or modifying the referred object
+        """
+        return pulumi.get(self, "related")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[str]:
+        """
+        CRN reference to the referred resource
+        """
+        return pulumi.get(self, "resource_name")
+
+
+@pulumi.output_type
+class ClusterRecordResponse(dict):
+    """
+    Record of the environment
+    """
+    def __init__(__self__, *,
+                 display_name: Optional[str] = None,
+                 id: Optional[str] = None,
+                 kind: Optional[str] = None,
+                 metadata: Optional['outputs.MetadataEntityResponse'] = None,
+                 spec: Optional['outputs.ClusterSpecEntityResponse'] = None,
+                 status: Optional['outputs.ClusterStatusEntityResponse'] = None):
+        """
+        Record of the environment
+        :param str display_name: Display name of the user
+        :param str id: Id of the environment
+        :param str kind: Type of environment
+        :param 'MetadataEntityResponse' metadata: Metadata of the record
+        :param 'ClusterSpecEntityResponse' spec: Specification of the cluster
+        :param 'ClusterStatusEntityResponse' status: Specification of the cluster
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if spec is not None:
+            pulumi.set(__self__, "spec", spec)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Display name of the user
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id of the environment
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Type of environment
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.MetadataEntityResponse']:
+        """
+        Metadata of the record
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def spec(self) -> Optional['outputs.ClusterSpecEntityResponse']:
+        """
+        Specification of the cluster
+        """
+        return pulumi.get(self, "spec")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['outputs.ClusterStatusEntityResponse']:
+        """
+        Specification of the cluster
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ClusterSpecEntityResponse(dict):
+    """
+    Spec of the cluster record
+    """
+    def __init__(__self__, *,
+                 api_endpoint: Optional[str] = None,
+                 availability: Optional[str] = None,
+                 byok: Optional['outputs.ClusterByokEntityResponse'] = None,
+                 cloud: Optional[str] = None,
+                 config: Optional['outputs.ClusterConfigEntityResponse'] = None,
+                 display_name: Optional[str] = None,
+                 environment: Optional['outputs.ClusterEnvironmentEntityResponse'] = None,
+                 http_endpoint: Optional[str] = None,
+                 kafka_bootstrap_endpoint: Optional[str] = None,
+                 network: Optional['outputs.ClusterNetworkEntityResponse'] = None,
+                 region: Optional[str] = None,
+                 zone: Optional[str] = None):
+        """
+        Spec of the cluster record
+        :param str api_endpoint: The Kafka API cluster endpoint
+        :param str availability: The availability zone configuration of the cluster
+        :param 'ClusterByokEntityResponse' byok: Specification of the cluster
+        :param str cloud: The cloud service provider 
+        :param 'ClusterConfigEntityResponse' config: Specification of the cluster
+        :param str display_name: The name of the cluster
+        :param 'ClusterEnvironmentEntityResponse' environment: Specification of the cluster
+        :param str http_endpoint: The cluster HTTP request URL.
+        :param str kafka_bootstrap_endpoint: The bootstrap endpoint used by Kafka clients to connect to the cluster
+        :param 'ClusterNetworkEntityResponse' network: Specification of the cluster
+        :param str region: The cloud service provider region
+        :param str zone: type of zone availability
+        """
+        if api_endpoint is not None:
+            pulumi.set(__self__, "api_endpoint", api_endpoint)
+        if availability is not None:
+            pulumi.set(__self__, "availability", availability)
+        if byok is not None:
+            pulumi.set(__self__, "byok", byok)
+        if cloud is not None:
+            pulumi.set(__self__, "cloud", cloud)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if http_endpoint is not None:
+            pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if kafka_bootstrap_endpoint is not None:
+            pulumi.set(__self__, "kafka_bootstrap_endpoint", kafka_bootstrap_endpoint)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if zone is not None:
+            pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter(name="apiEndpoint")
+    def api_endpoint(self) -> Optional[str]:
+        """
+        The Kafka API cluster endpoint
+        """
+        return pulumi.get(self, "api_endpoint")
+
+    @property
+    @pulumi.getter
+    def availability(self) -> Optional[str]:
+        """
+        The availability zone configuration of the cluster
+        """
+        return pulumi.get(self, "availability")
+
+    @property
+    @pulumi.getter
+    def byok(self) -> Optional['outputs.ClusterByokEntityResponse']:
+        """
+        Specification of the cluster
+        """
+        return pulumi.get(self, "byok")
+
+    @property
+    @pulumi.getter
+    def cloud(self) -> Optional[str]:
+        """
+        The cloud service provider 
+        """
+        return pulumi.get(self, "cloud")
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional['outputs.ClusterConfigEntityResponse']:
+        """
+        Specification of the cluster
+        """
+        return pulumi.get(self, "config")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The name of the cluster
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional['outputs.ClusterEnvironmentEntityResponse']:
+        """
+        Specification of the cluster
+        """
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="httpEndpoint")
+    def http_endpoint(self) -> Optional[str]:
+        """
+        The cluster HTTP request URL.
+        """
+        return pulumi.get(self, "http_endpoint")
+
+    @property
+    @pulumi.getter(name="kafkaBootstrapEndpoint")
+    def kafka_bootstrap_endpoint(self) -> Optional[str]:
+        """
+        The bootstrap endpoint used by Kafka clients to connect to the cluster
+        """
+        return pulumi.get(self, "kafka_bootstrap_endpoint")
+
+    @property
+    @pulumi.getter
+    def network(self) -> Optional['outputs.ClusterNetworkEntityResponse']:
+        """
+        Specification of the cluster
+        """
+        return pulumi.get(self, "network")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        The cloud service provider region
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> Optional[str]:
+        """
+        type of zone availability
+        """
+        return pulumi.get(self, "zone")
+
+
+@pulumi.output_type
+class ClusterStatusEntityResponse(dict):
+    """
+    Status of the cluster record
+    """
+    def __init__(__self__, *,
+                 cku: Optional[int] = None,
+                 phase: Optional[str] = None):
+        """
+        Status of the cluster record
+        :param int cku: The number of Confluent Kafka Units 
+        :param str phase: The lifecycle phase of the cluster
+        """
+        if cku is not None:
+            pulumi.set(__self__, "cku", cku)
+        if phase is not None:
+            pulumi.set(__self__, "phase", phase)
+
+    @property
+    @pulumi.getter
+    def cku(self) -> Optional[int]:
+        """
+        The number of Confluent Kafka Units 
+        """
+        return pulumi.get(self, "cku")
+
+    @property
+    @pulumi.getter
+    def phase(self) -> Optional[str]:
+        """
+        The lifecycle phase of the cluster
+        """
+        return pulumi.get(self, "phase")
+
+
+@pulumi.output_type
+class ConfluentListMetadataResponse(dict):
+    """
+    Metadata of the list
+    """
+    def __init__(__self__, *,
+                 first: Optional[str] = None,
+                 last: Optional[str] = None,
+                 next: Optional[str] = None,
+                 prev: Optional[str] = None,
+                 total_size: Optional[int] = None):
+        """
+        Metadata of the list
+        :param str first: First page of the list
+        :param str last: Last page of the list
+        :param str next: Next page of the list
+        :param str prev: Previous page of the list
+        :param int total_size: Total size of the list
+        """
+        if first is not None:
+            pulumi.set(__self__, "first", first)
+        if last is not None:
+            pulumi.set(__self__, "last", last)
+        if next is not None:
+            pulumi.set(__self__, "next", next)
+        if prev is not None:
+            pulumi.set(__self__, "prev", prev)
+        if total_size is not None:
+            pulumi.set(__self__, "total_size", total_size)
+
+    @property
+    @pulumi.getter
+    def first(self) -> Optional[str]:
+        """
+        First page of the list
+        """
+        return pulumi.get(self, "first")
+
+    @property
+    @pulumi.getter
+    def last(self) -> Optional[str]:
+        """
+        Last page of the list
+        """
+        return pulumi.get(self, "last")
+
+    @property
+    @pulumi.getter
+    def next(self) -> Optional[str]:
+        """
+        Next page of the list
+        """
+        return pulumi.get(self, "next")
+
+    @property
+    @pulumi.getter
+    def prev(self) -> Optional[str]:
+        """
+        Previous page of the list
+        """
+        return pulumi.get(self, "prev")
+
+    @property
+    @pulumi.getter(name="totalSize")
+    def total_size(self) -> Optional[int]:
+        """
+        Total size of the list
+        """
+        return pulumi.get(self, "total_size")
+
+
+@pulumi.output_type
+class EnvironmentRecordResponse(dict):
+    """
+    Record of the environment
+    """
+    def __init__(__self__, *,
+                 display_name: Optional[str] = None,
+                 id: Optional[str] = None,
+                 kind: Optional[str] = None,
+                 metadata: Optional['outputs.MetadataEntityResponse'] = None):
+        """
+        Record of the environment
+        :param str display_name: Display name of the user
+        :param str id: Id of the environment
+        :param str kind: Type of environment
+        :param 'MetadataEntityResponse' metadata: Metadata of the record
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Display name of the user
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id of the environment
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Type of environment
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.MetadataEntityResponse']:
+        """
+        Metadata of the record
+        """
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class InvitationRecordResponse(dict):
+    """
+    Record of the invitation
+    """
+    def __init__(__self__, *,
+                 accepted_at: Optional[str] = None,
+                 auth_type: Optional[str] = None,
+                 email: Optional[str] = None,
+                 expires_at: Optional[str] = None,
+                 id: Optional[str] = None,
+                 kind: Optional[str] = None,
+                 metadata: Optional['outputs.MetadataEntityResponse'] = None,
+                 status: Optional[str] = None):
+        """
+        Record of the invitation
+        :param str accepted_at: Accepted date time of the invitation
+        :param str auth_type: Auth type of the user
+        :param str email: Email of the user
+        :param str expires_at: Expiration date time of the invitation
+        :param str id: Id of the invitation
+        :param str kind: Type of account
+        :param 'MetadataEntityResponse' metadata: Metadata of the record
+        :param str status: Status of the invitation
+        """
+        if accepted_at is not None:
+            pulumi.set(__self__, "accepted_at", accepted_at)
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if expires_at is not None:
+            pulumi.set(__self__, "expires_at", expires_at)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="acceptedAt")
+    def accepted_at(self) -> Optional[str]:
+        """
+        Accepted date time of the invitation
+        """
+        return pulumi.get(self, "accepted_at")
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional[str]:
+        """
+        Auth type of the user
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        Email of the user
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="expiresAt")
+    def expires_at(self) -> Optional[str]:
+        """
+        Expiration date time of the invitation
+        """
+        return pulumi.get(self, "expires_at")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id of the invitation
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Type of account
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.MetadataEntityResponse']:
+        """
+        Metadata of the record
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Status of the invitation
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class MetadataEntityResponse(dict):
+    """
+    Metadata of the data record
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 deleted_at: Optional[str] = None,
+                 resource_name: Optional[str] = None,
+                 self: Optional[str] = None,
+                 updated_at: Optional[str] = None):
+        """
+        Metadata of the data record
+        :param str created_at: Created Date Time
+        :param str deleted_at: Deleted Date time
+        :param str resource_name: Resource name of the record
+        :param str self: Self lookup url
+        :param str updated_at: Updated Date time
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if deleted_at is not None:
+            pulumi.set(__self__, "deleted_at", deleted_at)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+        if self is not None:
+            pulumi.set(__self__, "self", self)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        Created Date Time
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="deletedAt")
+    def deleted_at(self) -> Optional[str]:
+        """
+        Deleted Date time
+        """
+        return pulumi.get(self, "deleted_at")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[str]:
+        """
+        Resource name of the record
+        """
+        return pulumi.get(self, "resource_name")
+
+    @property
+    @pulumi.getter
+    def self(self) -> Optional[str]:
+        """
+        Self lookup url
+        """
+        return pulumi.get(self, "self")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[str]:
+        """
+        Updated Date time
+        """
+        return pulumi.get(self, "updated_at")
+
 
 @pulumi.output_type
 class OfferDetailResponse(dict):
@@ -113,6 +897,160 @@ class OfferDetailResponse(dict):
         Offer Plan Term unit
         """
         return pulumi.get(self, "term_unit")
+
+
+@pulumi.output_type
+class RoleBindingRecordResponse(dict):
+    """
+    Record of the environment
+    """
+    def __init__(__self__, *,
+                 crn_pattern: Optional[str] = None,
+                 id: Optional[str] = None,
+                 kind: Optional[str] = None,
+                 metadata: Optional['outputs.MetadataEntityResponse'] = None,
+                 principal: Optional[str] = None,
+                 role_name: Optional[str] = None):
+        """
+        Record of the environment
+        :param str crn_pattern: A CRN that specifies the scope and resource patterns necessary for the role to bind
+        :param str id: Id of the role
+        :param str kind: The type of the resource.
+        :param 'MetadataEntityResponse' metadata: Metadata of the record
+        :param str principal: The principal User or Group to bind the role to
+        :param str role_name: The name of the role to bind to the principal
+        """
+        if crn_pattern is not None:
+            pulumi.set(__self__, "crn_pattern", crn_pattern)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if principal is not None:
+            pulumi.set(__self__, "principal", principal)
+        if role_name is not None:
+            pulumi.set(__self__, "role_name", role_name)
+
+    @property
+    @pulumi.getter(name="crnPattern")
+    def crn_pattern(self) -> Optional[str]:
+        """
+        A CRN that specifies the scope and resource patterns necessary for the role to bind
+        """
+        return pulumi.get(self, "crn_pattern")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id of the role
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.MetadataEntityResponse']:
+        """
+        Metadata of the record
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def principal(self) -> Optional[str]:
+        """
+        The principal User or Group to bind the role to
+        """
+        return pulumi.get(self, "principal")
+
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> Optional[str]:
+        """
+        The name of the role to bind to the principal
+        """
+        return pulumi.get(self, "role_name")
+
+
+@pulumi.output_type
+class ServiceAccountRecordResponse(dict):
+    """
+    Record of the service account
+    """
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 id: Optional[str] = None,
+                 kind: Optional[str] = None,
+                 metadata: Optional['outputs.MetadataEntityResponse'] = None):
+        """
+        Record of the service account
+        :param str description: Description of the service account
+        :param str display_name: Name of the service account
+        :param str id: Id of the service account
+        :param str kind: Type of account
+        :param 'MetadataEntityResponse' metadata: Metadata of the record
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the service account
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Name of the service account
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id of the service account
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Type of account
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.MetadataEntityResponse']:
+        """
+        Metadata of the record
+        """
+        return pulumi.get(self, "metadata")
 
 
 @pulumi.output_type
@@ -290,5 +1228,88 @@ class UserDetailResponse(dict):
         Last name
         """
         return pulumi.get(self, "last_name")
+
+
+@pulumi.output_type
+class UserRecordResponse(dict):
+    """
+    Record of the user
+    """
+    def __init__(__self__, *,
+                 auth_type: Optional[str] = None,
+                 email: Optional[str] = None,
+                 full_name: Optional[str] = None,
+                 id: Optional[str] = None,
+                 kind: Optional[str] = None,
+                 metadata: Optional['outputs.MetadataEntityResponse'] = None):
+        """
+        Record of the user
+        :param str auth_type: Auth type of the user
+        :param str email: Email of the user
+        :param str full_name: Name of the user
+        :param str id: Id of the user
+        :param str kind: Type of account
+        :param 'MetadataEntityResponse' metadata: Metadata of the record
+        """
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if full_name is not None:
+            pulumi.set(__self__, "full_name", full_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional[str]:
+        """
+        Auth type of the user
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        Email of the user
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="fullName")
+    def full_name(self) -> Optional[str]:
+        """
+        Name of the user
+        """
+        return pulumi.get(self, "full_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id of the user
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Type of account
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.MetadataEntityResponse']:
+        """
+        Metadata of the record
+        """
+        return pulumi.get(self, "metadata")
 
 

@@ -6,6 +6,10 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .acss_backup_connection import *
+from .connector import *
+from .get_acss_backup_connection import *
+from .get_connector import *
 from .get_sap_application_server_instance import *
 from .get_sap_availability_zone_details import *
 from .get_sap_central_instance import *

@@ -166,6 +166,8 @@ class VirtualMachineInstance(pulumi.CustomResource):
         Define the virtualMachineInstance.
         Azure REST API version: 2023-04-01-preview.
 
+        Other available API versions: 2023-10-07.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineInstancePropertiesAvailabilitySetsArgs']]]] availability_sets: Availability Sets in vm.
@@ -186,6 +188,8 @@ class VirtualMachineInstance(pulumi.CustomResource):
         """
         Define the virtualMachineInstance.
         Azure REST API version: 2023-04-01-preview.
+
+        Other available API versions: 2023-10-07.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -236,7 +240,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20230401preview:VirtualMachineInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20230401preview:VirtualMachineInstance"), pulumi.Alias(type_="azure-native:scvmm/v20231007:VirtualMachineInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineInstance, __self__).__init__(
             'azure-native:scvmm:VirtualMachineInstance',

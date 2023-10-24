@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2023-04-01-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01.
  */
 export class FeaturesetContainerEntity extends pulumi.CustomResource {
     /**
@@ -90,7 +90,7 @@ export class FeaturesetContainerEntity extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230201preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230401preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230601preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230801preview:FeaturesetContainerEntity" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230201preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230401preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230601preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230801preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20231001:FeaturesetContainerEntity" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FeaturesetContainerEntity.__pulumiType, name, resourceInputs, opts);
     }

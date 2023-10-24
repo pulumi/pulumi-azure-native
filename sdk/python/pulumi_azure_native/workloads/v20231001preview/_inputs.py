@@ -16,43 +16,76 @@ __all__ = [
     'CentralServerConfigurationArgs',
     'CentralServerFullResourceNamesArgs',
     'CreateAndMountFileShareConfigurationArgs',
+    'DBBackupPolicyPropertiesArgs',
+    'DailyRetentionFormatArgs',
+    'DailyRetentionScheduleArgs',
+    'DailyScheduleArgs',
     'DatabaseConfigurationArgs',
     'DatabaseServerFullResourceNamesArgs',
+    'DayArgs',
     'DeployerVmPackagesArgs',
     'DeploymentConfigurationArgs',
     'DeploymentWithOSConfigurationArgs',
     'DiscoveryConfigurationArgs',
     'DiskConfigurationArgs',
+    'DiskExclusionPropertiesArgs',
     'DiskSkuArgs',
     'DiskVolumeConfigurationArgs',
+    'ExistingRecoveryServicesVaultArgs',
     'ExternalInstallationSoftwareConfigurationArgs',
+    'HanaBackupDataArgs',
     'HighAvailabilityConfigurationArgs',
     'HighAvailabilitySoftwareConfigurationArgs',
+    'HourlyScheduleArgs',
     'ImageReferenceArgs',
+    'InstantRPAdditionalDetailsArgs',
     'LinuxConfigurationArgs',
     'LoadBalancerResourceNamesArgs',
+    'LogSchedulePolicyArgs',
+    'LongTermRetentionPolicyArgs',
+    'LongTermSchedulePolicyArgs',
     'ManagedRGConfigurationArgs',
+    'MonthlyRetentionScheduleArgs',
     'MountFileShareConfigurationArgs',
     'NetworkConfigurationArgs',
     'NetworkInterfaceResourceNamesArgs',
+    'NewRecoveryServicesVaultArgs',
     'OSProfileArgs',
     'OsSapConfigurationArgs',
+    'RetentionDurationArgs',
     'SAPInstallWithoutOSConfigSoftwareConfigurationArgs',
+    'SSLConfigurationArgs',
     'ServiceInitiatedSoftwareConfigurationArgs',
+    'SettingsArgs',
     'SharedStorageResourceNamesArgs',
+    'SimpleRetentionPolicyArgs',
+    'SimpleSchedulePolicyV2Args',
+    'SimpleSchedulePolicyArgs',
     'SingleServerConfigurationArgs',
     'SingleServerFullResourceNamesArgs',
     'SkipFileShareConfigurationArgs',
+    'SnapshotBackupAdditionalDetailsArgs',
+    'SqlBackupDataArgs',
     'SshConfigurationArgs',
     'SshKeyPairArgs',
     'SshPublicKeyArgs',
     'StorageConfigurationArgs',
+    'SubProtectionPolicyArgs',
     'ThreeTierConfigurationArgs',
     'ThreeTierFullResourceNamesArgs',
+    'TieringPolicyArgs',
+    'UserAssignedIdentityPropertiesArgs',
+    'UserAssignedManagedIdentityDetailsArgs',
     'UserAssignedServiceIdentityArgs',
+    'VMBackupDataArgs',
+    'VMBackupPolicyPropertiesArgs',
     'VirtualMachineConfigurationArgs',
     'VirtualMachineResourceNamesArgs',
+    'WeeklyRetentionFormatArgs',
+    'WeeklyRetentionScheduleArgs',
+    'WeeklyScheduleArgs',
     'WindowsConfigurationArgs',
+    'YearlyRetentionScheduleArgs',
 ]
 
 @pulumi.input_type
@@ -315,6 +348,230 @@ class CreateAndMountFileShareConfigurationArgs:
 
 
 @pulumi.input_type
+class DBBackupPolicyPropertiesArgs:
+    def __init__(__self__, *,
+                 backup_management_type: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 make_policy_consistent: Optional[pulumi.Input[bool]] = None,
+                 protected_items_count: Optional[pulumi.Input[int]] = None,
+                 resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 settings: Optional[pulumi.Input['SettingsArgs']] = None,
+                 sub_protection_policy: Optional[pulumi.Input[Sequence[pulumi.Input['SubProtectionPolicyArgs']]]] = None,
+                 work_load_type: Optional[pulumi.Input[Union[str, 'WorkloadType']]] = None):
+        """
+        Defines the policy properties for database backup.
+        :param pulumi.Input[str] backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'AzureWorkload'.
+        :param pulumi.Input[str] name: The name of the DB backup policy.
+        :param pulumi.Input[bool] make_policy_consistent: Fix the policy inconsistency
+        :param pulumi.Input[int] protected_items_count: Number of items associated with this policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuard Operation Requests
+        :param pulumi.Input['SettingsArgs'] settings: Common settings for the backup management
+        :param pulumi.Input[Sequence[pulumi.Input['SubProtectionPolicyArgs']]] sub_protection_policy: List of sub-protection policies which includes schedule and retention
+        :param pulumi.Input[Union[str, 'WorkloadType']] work_load_type: Type of workload for the backup management
+        """
+        pulumi.set(__self__, "backup_management_type", 'AzureWorkload')
+        pulumi.set(__self__, "name", name)
+        if make_policy_consistent is not None:
+            pulumi.set(__self__, "make_policy_consistent", make_policy_consistent)
+        if protected_items_count is not None:
+            pulumi.set(__self__, "protected_items_count", protected_items_count)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+        if sub_protection_policy is not None:
+            pulumi.set(__self__, "sub_protection_policy", sub_protection_policy)
+        if work_load_type is not None:
+            pulumi.set(__self__, "work_load_type", work_load_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> pulumi.Input[str]:
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'AzureWorkload'.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @backup_management_type.setter
+    def backup_management_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "backup_management_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the DB backup policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="makePolicyConsistent")
+    def make_policy_consistent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Fix the policy inconsistency
+        """
+        return pulumi.get(self, "make_policy_consistent")
+
+    @make_policy_consistent.setter
+    def make_policy_consistent(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "make_policy_consistent", value)
+
+    @property
+    @pulumi.getter(name="protectedItemsCount")
+    def protected_items_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of items associated with this policy.
+        """
+        return pulumi.get(self, "protected_items_count")
+
+    @protected_items_count.setter
+    def protected_items_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "protected_items_count", value)
+
+    @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        ResourceGuard Operation Requests
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @resource_guard_operation_requests.setter
+    def resource_guard_operation_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_guard_operation_requests", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input['SettingsArgs']]:
+        """
+        Common settings for the backup management
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input['SettingsArgs']]):
+        pulumi.set(self, "settings", value)
+
+    @property
+    @pulumi.getter(name="subProtectionPolicy")
+    def sub_protection_policy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubProtectionPolicyArgs']]]]:
+        """
+        List of sub-protection policies which includes schedule and retention
+        """
+        return pulumi.get(self, "sub_protection_policy")
+
+    @sub_protection_policy.setter
+    def sub_protection_policy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubProtectionPolicyArgs']]]]):
+        pulumi.set(self, "sub_protection_policy", value)
+
+    @property
+    @pulumi.getter(name="workLoadType")
+    def work_load_type(self) -> Optional[pulumi.Input[Union[str, 'WorkloadType']]]:
+        """
+        Type of workload for the backup management
+        """
+        return pulumi.get(self, "work_load_type")
+
+    @work_load_type.setter
+    def work_load_type(self, value: Optional[pulumi.Input[Union[str, 'WorkloadType']]]):
+        pulumi.set(self, "work_load_type", value)
+
+
+@pulumi.input_type
+class DailyRetentionFormatArgs:
+    def __init__(__self__, *,
+                 days_of_the_month: Optional[pulumi.Input[Sequence[pulumi.Input['DayArgs']]]] = None):
+        """
+        Daily retention format.
+        :param pulumi.Input[Sequence[pulumi.Input['DayArgs']]] days_of_the_month: List of days of the month.
+        """
+        if days_of_the_month is not None:
+            pulumi.set(__self__, "days_of_the_month", days_of_the_month)
+
+    @property
+    @pulumi.getter(name="daysOfTheMonth")
+    def days_of_the_month(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DayArgs']]]]:
+        """
+        List of days of the month.
+        """
+        return pulumi.get(self, "days_of_the_month")
+
+    @days_of_the_month.setter
+    def days_of_the_month(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DayArgs']]]]):
+        pulumi.set(self, "days_of_the_month", value)
+
+
+@pulumi.input_type
+class DailyRetentionScheduleArgs:
+    def __init__(__self__, *,
+                 retention_duration: Optional[pulumi.Input['RetentionDurationArgs']] = None,
+                 retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Daily retention schedule.
+        :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration of retention Policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] retention_times: Retention times of retention policy.
+        """
+        if retention_duration is not None:
+            pulumi.set(__self__, "retention_duration", retention_duration)
+        if retention_times is not None:
+            pulumi.set(__self__, "retention_times", retention_times)
+
+    @property
+    @pulumi.getter(name="retentionDuration")
+    def retention_duration(self) -> Optional[pulumi.Input['RetentionDurationArgs']]:
+        """
+        Retention duration of retention Policy.
+        """
+        return pulumi.get(self, "retention_duration")
+
+    @retention_duration.setter
+    def retention_duration(self, value: Optional[pulumi.Input['RetentionDurationArgs']]):
+        pulumi.set(self, "retention_duration", value)
+
+    @property
+    @pulumi.getter(name="retentionTimes")
+    def retention_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Retention times of retention policy.
+        """
+        return pulumi.get(self, "retention_times")
+
+    @retention_times.setter
+    def retention_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "retention_times", value)
+
+
+@pulumi.input_type
+class DailyScheduleArgs:
+    def __init__(__self__, *,
+                 schedule_run_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Daily schedule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] schedule_run_times: List of times of day this schedule has to be run.
+        """
+        if schedule_run_times is not None:
+            pulumi.set(__self__, "schedule_run_times", schedule_run_times)
+
+    @property
+    @pulumi.getter(name="scheduleRunTimes")
+    def schedule_run_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of times of day this schedule has to be run.
+        """
+        return pulumi.get(self, "schedule_run_times")
+
+    @schedule_run_times.setter
+    def schedule_run_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "schedule_run_times", value)
+
+
+@pulumi.input_type
 class DatabaseConfigurationArgs:
     def __init__(__self__, *,
                  instance_count: pulumi.Input[float],
@@ -453,6 +710,46 @@ class DatabaseServerFullResourceNamesArgs:
     @virtual_machines.setter
     def virtual_machines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]]]):
         pulumi.set(self, "virtual_machines", value)
+
+
+@pulumi.input_type
+class DayArgs:
+    def __init__(__self__, *,
+                 date: Optional[pulumi.Input[int]] = None,
+                 is_last: Optional[pulumi.Input[bool]] = None):
+        """
+        Day of the week.
+        :param pulumi.Input[int] date: Date of the month
+        :param pulumi.Input[bool] is_last: Whether Date is last date of month
+        """
+        if date is not None:
+            pulumi.set(__self__, "date", date)
+        if is_last is not None:
+            pulumi.set(__self__, "is_last", is_last)
+
+    @property
+    @pulumi.getter
+    def date(self) -> Optional[pulumi.Input[int]]:
+        """
+        Date of the month
+        """
+        return pulumi.get(self, "date")
+
+    @date.setter
+    def date(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "date", value)
+
+    @property
+    @pulumi.getter(name="isLast")
+    def is_last(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Date is last date of month
+        """
+        return pulumi.get(self, "is_last")
+
+    @is_last.setter
+    def is_last(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_last", value)
 
 
 @pulumi.input_type
@@ -739,6 +1036,44 @@ class DiskConfigurationArgs:
 
 
 @pulumi.input_type
+class DiskExclusionPropertiesArgs:
+    def __init__(__self__, *,
+                 disk_lun_list: pulumi.Input[Sequence[pulumi.Input[int]]],
+                 is_inclusion_list: pulumi.Input[bool]):
+        """
+        Defines the disk exclusion properties for virtual machine backup.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] disk_lun_list: List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
+        :param pulumi.Input[bool] is_inclusion_list: Flag to indicate whether DiskLunList is to be included/ excluded from backup.
+        """
+        pulumi.set(__self__, "disk_lun_list", disk_lun_list)
+        pulumi.set(__self__, "is_inclusion_list", is_inclusion_list)
+
+    @property
+    @pulumi.getter(name="diskLunList")
+    def disk_lun_list(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+        """
+        List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
+        """
+        return pulumi.get(self, "disk_lun_list")
+
+    @disk_lun_list.setter
+    def disk_lun_list(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(self, "disk_lun_list", value)
+
+    @property
+    @pulumi.getter(name="isInclusionList")
+    def is_inclusion_list(self) -> pulumi.Input[bool]:
+        """
+        Flag to indicate whether DiskLunList is to be included/ excluded from backup.
+        """
+        return pulumi.get(self, "is_inclusion_list")
+
+    @is_inclusion_list.setter
+    def is_inclusion_list(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_inclusion_list", value)
+
+
+@pulumi.input_type
 class DiskSkuArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[Union[str, 'DiskSkuName']]] = None):
@@ -819,6 +1154,46 @@ class DiskVolumeConfigurationArgs:
 
 
 @pulumi.input_type
+class ExistingRecoveryServicesVaultArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 vault_type: pulumi.Input[str]):
+        """
+        Existing recovery services vault.
+        :param pulumi.Input[str] id: The resource ID of the recovery services vault that has been created.
+        :param pulumi.Input[str] vault_type: The vault type, whether it is existing or has to be created.
+               Expected value is 'Existing'.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "vault_type", 'Existing')
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the recovery services vault that has been created.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="vaultType")
+    def vault_type(self) -> pulumi.Input[str]:
+        """
+        The vault type, whether it is existing or has to be created.
+        Expected value is 'Existing'.
+        """
+        return pulumi.get(self, "vault_type")
+
+    @vault_type.setter
+    def vault_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vault_type", value)
+
+
+@pulumi.input_type
 class ExternalInstallationSoftwareConfigurationArgs:
     def __init__(__self__, *,
                  software_installation_type: pulumi.Input[str],
@@ -857,6 +1232,124 @@ class ExternalInstallationSoftwareConfigurationArgs:
     @central_server_vm_id.setter
     def central_server_vm_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "central_server_vm_id", value)
+
+
+@pulumi.input_type
+class HanaBackupDataArgs:
+    def __init__(__self__, *,
+                 backup_policy: pulumi.Input['DBBackupPolicyPropertiesArgs'],
+                 backup_type: pulumi.Input[str],
+                 hdbuserstore_key_name: pulumi.Input[str],
+                 recovery_services_vault: pulumi.Input[Union['ExistingRecoveryServicesVaultArgs', 'NewRecoveryServicesVaultArgs']],
+                 db_instance_snapshot_backup_policy: Optional[pulumi.Input['DBBackupPolicyPropertiesArgs']] = None,
+                 instance_number: Optional[pulumi.Input[str]] = None,
+                 ssl_configuration: Optional[pulumi.Input['SSLConfigurationArgs']] = None):
+        """
+        Defines the HANA Backup data for a virtual instance for SAP.
+        :param pulumi.Input['DBBackupPolicyPropertiesArgs'] backup_policy: Defines the policy properties for database backup.
+        :param pulumi.Input[str] backup_type: The type of backup, VM, SQL or HANA.
+               Expected value is 'HANA'.
+        :param pulumi.Input[str] hdbuserstore_key_name: Name of the HANA Database User Store Key.
+        :param pulumi.Input[Union['ExistingRecoveryServicesVaultArgs', 'NewRecoveryServicesVaultArgs']] recovery_services_vault: The properties of the recovery services vault used for backup.
+        :param pulumi.Input['DBBackupPolicyPropertiesArgs'] db_instance_snapshot_backup_policy: Defines the policy properties for database backup.
+        :param pulumi.Input[str] instance_number: Gets or sets the database instance number.
+        :param pulumi.Input['SSLConfigurationArgs'] ssl_configuration: Path of the SSL key store.
+        """
+        pulumi.set(__self__, "backup_policy", backup_policy)
+        pulumi.set(__self__, "backup_type", 'HANA')
+        pulumi.set(__self__, "hdbuserstore_key_name", hdbuserstore_key_name)
+        pulumi.set(__self__, "recovery_services_vault", recovery_services_vault)
+        if db_instance_snapshot_backup_policy is not None:
+            pulumi.set(__self__, "db_instance_snapshot_backup_policy", db_instance_snapshot_backup_policy)
+        if instance_number is not None:
+            pulumi.set(__self__, "instance_number", instance_number)
+        if ssl_configuration is not None:
+            pulumi.set(__self__, "ssl_configuration", ssl_configuration)
+
+    @property
+    @pulumi.getter(name="backupPolicy")
+    def backup_policy(self) -> pulumi.Input['DBBackupPolicyPropertiesArgs']:
+        """
+        Defines the policy properties for database backup.
+        """
+        return pulumi.get(self, "backup_policy")
+
+    @backup_policy.setter
+    def backup_policy(self, value: pulumi.Input['DBBackupPolicyPropertiesArgs']):
+        pulumi.set(self, "backup_policy", value)
+
+    @property
+    @pulumi.getter(name="backupType")
+    def backup_type(self) -> pulumi.Input[str]:
+        """
+        The type of backup, VM, SQL or HANA.
+        Expected value is 'HANA'.
+        """
+        return pulumi.get(self, "backup_type")
+
+    @backup_type.setter
+    def backup_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "backup_type", value)
+
+    @property
+    @pulumi.getter(name="hdbuserstoreKeyName")
+    def hdbuserstore_key_name(self) -> pulumi.Input[str]:
+        """
+        Name of the HANA Database User Store Key.
+        """
+        return pulumi.get(self, "hdbuserstore_key_name")
+
+    @hdbuserstore_key_name.setter
+    def hdbuserstore_key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "hdbuserstore_key_name", value)
+
+    @property
+    @pulumi.getter(name="recoveryServicesVault")
+    def recovery_services_vault(self) -> pulumi.Input[Union['ExistingRecoveryServicesVaultArgs', 'NewRecoveryServicesVaultArgs']]:
+        """
+        The properties of the recovery services vault used for backup.
+        """
+        return pulumi.get(self, "recovery_services_vault")
+
+    @recovery_services_vault.setter
+    def recovery_services_vault(self, value: pulumi.Input[Union['ExistingRecoveryServicesVaultArgs', 'NewRecoveryServicesVaultArgs']]):
+        pulumi.set(self, "recovery_services_vault", value)
+
+    @property
+    @pulumi.getter(name="dbInstanceSnapshotBackupPolicy")
+    def db_instance_snapshot_backup_policy(self) -> Optional[pulumi.Input['DBBackupPolicyPropertiesArgs']]:
+        """
+        Defines the policy properties for database backup.
+        """
+        return pulumi.get(self, "db_instance_snapshot_backup_policy")
+
+    @db_instance_snapshot_backup_policy.setter
+    def db_instance_snapshot_backup_policy(self, value: Optional[pulumi.Input['DBBackupPolicyPropertiesArgs']]):
+        pulumi.set(self, "db_instance_snapshot_backup_policy", value)
+
+    @property
+    @pulumi.getter(name="instanceNumber")
+    def instance_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the database instance number.
+        """
+        return pulumi.get(self, "instance_number")
+
+    @instance_number.setter
+    def instance_number(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_number", value)
+
+    @property
+    @pulumi.getter(name="sslConfiguration")
+    def ssl_configuration(self) -> Optional[pulumi.Input['SSLConfigurationArgs']]:
+        """
+        Path of the SSL key store.
+        """
+        return pulumi.get(self, "ssl_configuration")
+
+    @ssl_configuration.setter
+    def ssl_configuration(self, value: Optional[pulumi.Input['SSLConfigurationArgs']]):
+        pulumi.set(self, "ssl_configuration", value)
 
 
 @pulumi.input_type
@@ -918,6 +1411,64 @@ class HighAvailabilitySoftwareConfigurationArgs:
     @fencing_client_password.setter
     def fencing_client_password(self, value: pulumi.Input[str]):
         pulumi.set(self, "fencing_client_password", value)
+
+
+@pulumi.input_type
+class HourlyScheduleArgs:
+    def __init__(__self__, *,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 schedule_window_duration: Optional[pulumi.Input[int]] = None,
+                 schedule_window_start_time: Optional[pulumi.Input[str]] = None):
+        """
+        Hourly schedule.
+        :param pulumi.Input[int] interval: Interval at which backup needs to be triggered. For hourly the value
+                can be 4/6/8/12
+        :param pulumi.Input[int] schedule_window_duration: To specify duration of the backup window
+        :param pulumi.Input[str] schedule_window_start_time: To specify start time of the backup window
+        """
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if schedule_window_duration is not None:
+            pulumi.set(__self__, "schedule_window_duration", schedule_window_duration)
+        if schedule_window_start_time is not None:
+            pulumi.set(__self__, "schedule_window_start_time", schedule_window_start_time)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Interval at which backup needs to be triggered. For hourly the value
+         can be 4/6/8/12
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="scheduleWindowDuration")
+    def schedule_window_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        To specify duration of the backup window
+        """
+        return pulumi.get(self, "schedule_window_duration")
+
+    @schedule_window_duration.setter
+    def schedule_window_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "schedule_window_duration", value)
+
+    @property
+    @pulumi.getter(name="scheduleWindowStartTime")
+    def schedule_window_start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        To specify start time of the backup window
+        """
+        return pulumi.get(self, "schedule_window_start_time")
+
+    @schedule_window_start_time.setter
+    def schedule_window_start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule_window_start_time", value)
 
 
 @pulumi.input_type
@@ -1006,6 +1557,46 @@ class ImageReferenceArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class InstantRPAdditionalDetailsArgs:
+    def __init__(__self__, *,
+                 azure_backup_rg_name_prefix: Optional[pulumi.Input[str]] = None,
+                 azure_backup_rg_name_suffix: Optional[pulumi.Input[str]] = None):
+        """
+        Instant recovery point additional details.
+        :param pulumi.Input[str] azure_backup_rg_name_prefix: Azure backup resource group name prefix.
+        :param pulumi.Input[str] azure_backup_rg_name_suffix: Azure backup resource group name suffix.
+        """
+        if azure_backup_rg_name_prefix is not None:
+            pulumi.set(__self__, "azure_backup_rg_name_prefix", azure_backup_rg_name_prefix)
+        if azure_backup_rg_name_suffix is not None:
+            pulumi.set(__self__, "azure_backup_rg_name_suffix", azure_backup_rg_name_suffix)
+
+    @property
+    @pulumi.getter(name="azureBackupRGNamePrefix")
+    def azure_backup_rg_name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure backup resource group name prefix.
+        """
+        return pulumi.get(self, "azure_backup_rg_name_prefix")
+
+    @azure_backup_rg_name_prefix.setter
+    def azure_backup_rg_name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azure_backup_rg_name_prefix", value)
+
+    @property
+    @pulumi.getter(name="azureBackupRGNameSuffix")
+    def azure_backup_rg_name_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure backup resource group name suffix.
+        """
+        return pulumi.get(self, "azure_backup_rg_name_suffix")
+
+    @azure_backup_rg_name_suffix.setter
+    def azure_backup_rg_name_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azure_backup_rg_name_suffix", value)
 
 
 @pulumi.input_type
@@ -1154,6 +1745,161 @@ class LoadBalancerResourceNamesArgs:
 
 
 @pulumi.input_type
+class LogSchedulePolicyArgs:
+    def __init__(__self__, *,
+                 schedule_policy_type: pulumi.Input[str],
+                 schedule_frequency_in_mins: Optional[pulumi.Input[int]] = None):
+        """
+        Log policy schedule.
+        :param pulumi.Input[str] schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'LogSchedulePolicy'.
+        :param pulumi.Input[int] schedule_frequency_in_mins: Frequency of the log schedule operation of this policy in minutes.
+        """
+        pulumi.set(__self__, "schedule_policy_type", 'LogSchedulePolicy')
+        if schedule_frequency_in_mins is not None:
+            pulumi.set(__self__, "schedule_frequency_in_mins", schedule_frequency_in_mins)
+
+    @property
+    @pulumi.getter(name="schedulePolicyType")
+    def schedule_policy_type(self) -> pulumi.Input[str]:
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'LogSchedulePolicy'.
+        """
+        return pulumi.get(self, "schedule_policy_type")
+
+    @schedule_policy_type.setter
+    def schedule_policy_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schedule_policy_type", value)
+
+    @property
+    @pulumi.getter(name="scheduleFrequencyInMins")
+    def schedule_frequency_in_mins(self) -> Optional[pulumi.Input[int]]:
+        """
+        Frequency of the log schedule operation of this policy in minutes.
+        """
+        return pulumi.get(self, "schedule_frequency_in_mins")
+
+    @schedule_frequency_in_mins.setter
+    def schedule_frequency_in_mins(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "schedule_frequency_in_mins", value)
+
+
+@pulumi.input_type
+class LongTermRetentionPolicyArgs:
+    def __init__(__self__, *,
+                 retention_policy_type: pulumi.Input[str],
+                 daily_schedule: Optional[pulumi.Input['DailyRetentionScheduleArgs']] = None,
+                 monthly_schedule: Optional[pulumi.Input['MonthlyRetentionScheduleArgs']] = None,
+                 weekly_schedule: Optional[pulumi.Input['WeeklyRetentionScheduleArgs']] = None,
+                 yearly_schedule: Optional[pulumi.Input['YearlyRetentionScheduleArgs']] = None):
+        """
+        Long term retention policy.
+        :param pulumi.Input[str] retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'LongTermRetentionPolicy'.
+        :param pulumi.Input['DailyRetentionScheduleArgs'] daily_schedule: Daily retention schedule of the protection policy.
+        :param pulumi.Input['MonthlyRetentionScheduleArgs'] monthly_schedule: Monthly retention schedule of the protection policy.
+        :param pulumi.Input['WeeklyRetentionScheduleArgs'] weekly_schedule: Weekly retention schedule of the protection policy.
+        :param pulumi.Input['YearlyRetentionScheduleArgs'] yearly_schedule: Yearly retention schedule of the protection policy.
+        """
+        pulumi.set(__self__, "retention_policy_type", 'LongTermRetentionPolicy')
+        if daily_schedule is not None:
+            pulumi.set(__self__, "daily_schedule", daily_schedule)
+        if monthly_schedule is not None:
+            pulumi.set(__self__, "monthly_schedule", monthly_schedule)
+        if weekly_schedule is not None:
+            pulumi.set(__self__, "weekly_schedule", weekly_schedule)
+        if yearly_schedule is not None:
+            pulumi.set(__self__, "yearly_schedule", yearly_schedule)
+
+    @property
+    @pulumi.getter(name="retentionPolicyType")
+    def retention_policy_type(self) -> pulumi.Input[str]:
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'LongTermRetentionPolicy'.
+        """
+        return pulumi.get(self, "retention_policy_type")
+
+    @retention_policy_type.setter
+    def retention_policy_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "retention_policy_type", value)
+
+    @property
+    @pulumi.getter(name="dailySchedule")
+    def daily_schedule(self) -> Optional[pulumi.Input['DailyRetentionScheduleArgs']]:
+        """
+        Daily retention schedule of the protection policy.
+        """
+        return pulumi.get(self, "daily_schedule")
+
+    @daily_schedule.setter
+    def daily_schedule(self, value: Optional[pulumi.Input['DailyRetentionScheduleArgs']]):
+        pulumi.set(self, "daily_schedule", value)
+
+    @property
+    @pulumi.getter(name="monthlySchedule")
+    def monthly_schedule(self) -> Optional[pulumi.Input['MonthlyRetentionScheduleArgs']]:
+        """
+        Monthly retention schedule of the protection policy.
+        """
+        return pulumi.get(self, "monthly_schedule")
+
+    @monthly_schedule.setter
+    def monthly_schedule(self, value: Optional[pulumi.Input['MonthlyRetentionScheduleArgs']]):
+        pulumi.set(self, "monthly_schedule", value)
+
+    @property
+    @pulumi.getter(name="weeklySchedule")
+    def weekly_schedule(self) -> Optional[pulumi.Input['WeeklyRetentionScheduleArgs']]:
+        """
+        Weekly retention schedule of the protection policy.
+        """
+        return pulumi.get(self, "weekly_schedule")
+
+    @weekly_schedule.setter
+    def weekly_schedule(self, value: Optional[pulumi.Input['WeeklyRetentionScheduleArgs']]):
+        pulumi.set(self, "weekly_schedule", value)
+
+    @property
+    @pulumi.getter(name="yearlySchedule")
+    def yearly_schedule(self) -> Optional[pulumi.Input['YearlyRetentionScheduleArgs']]:
+        """
+        Yearly retention schedule of the protection policy.
+        """
+        return pulumi.get(self, "yearly_schedule")
+
+    @yearly_schedule.setter
+    def yearly_schedule(self, value: Optional[pulumi.Input['YearlyRetentionScheduleArgs']]):
+        pulumi.set(self, "yearly_schedule", value)
+
+
+@pulumi.input_type
+class LongTermSchedulePolicyArgs:
+    def __init__(__self__, *,
+                 schedule_policy_type: pulumi.Input[str]):
+        """
+        Long term policy schedule.
+        :param pulumi.Input[str] schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'LongTermSchedulePolicy'.
+        """
+        pulumi.set(__self__, "schedule_policy_type", 'LongTermSchedulePolicy')
+
+    @property
+    @pulumi.getter(name="schedulePolicyType")
+    def schedule_policy_type(self) -> pulumi.Input[str]:
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'LongTermSchedulePolicy'.
+        """
+        return pulumi.get(self, "schedule_policy_type")
+
+    @schedule_policy_type.setter
+    def schedule_policy_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schedule_policy_type", value)
+
+
+@pulumi.input_type
 class ManagedRGConfigurationArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
@@ -1175,6 +1921,94 @@ class ManagedRGConfigurationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class MonthlyRetentionScheduleArgs:
+    def __init__(__self__, *,
+                 retention_duration: Optional[pulumi.Input['RetentionDurationArgs']] = None,
+                 retention_schedule_daily: Optional[pulumi.Input['DailyRetentionFormatArgs']] = None,
+                 retention_schedule_format_type: Optional[pulumi.Input[Union[str, 'RetentionScheduleFormat']]] = None,
+                 retention_schedule_weekly: Optional[pulumi.Input['WeeklyRetentionFormatArgs']] = None,
+                 retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Monthly retention schedule.
+        :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration of retention Policy.
+        :param pulumi.Input['DailyRetentionFormatArgs'] retention_schedule_daily: Daily retention format for monthly retention policy.
+        :param pulumi.Input[Union[str, 'RetentionScheduleFormat']] retention_schedule_format_type: Retention schedule format type for monthly retention policy.
+        :param pulumi.Input['WeeklyRetentionFormatArgs'] retention_schedule_weekly: Weekly retention format for monthly retention policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] retention_times: Retention times of retention policy.
+        """
+        if retention_duration is not None:
+            pulumi.set(__self__, "retention_duration", retention_duration)
+        if retention_schedule_daily is not None:
+            pulumi.set(__self__, "retention_schedule_daily", retention_schedule_daily)
+        if retention_schedule_format_type is not None:
+            pulumi.set(__self__, "retention_schedule_format_type", retention_schedule_format_type)
+        if retention_schedule_weekly is not None:
+            pulumi.set(__self__, "retention_schedule_weekly", retention_schedule_weekly)
+        if retention_times is not None:
+            pulumi.set(__self__, "retention_times", retention_times)
+
+    @property
+    @pulumi.getter(name="retentionDuration")
+    def retention_duration(self) -> Optional[pulumi.Input['RetentionDurationArgs']]:
+        """
+        Retention duration of retention Policy.
+        """
+        return pulumi.get(self, "retention_duration")
+
+    @retention_duration.setter
+    def retention_duration(self, value: Optional[pulumi.Input['RetentionDurationArgs']]):
+        pulumi.set(self, "retention_duration", value)
+
+    @property
+    @pulumi.getter(name="retentionScheduleDaily")
+    def retention_schedule_daily(self) -> Optional[pulumi.Input['DailyRetentionFormatArgs']]:
+        """
+        Daily retention format for monthly retention policy.
+        """
+        return pulumi.get(self, "retention_schedule_daily")
+
+    @retention_schedule_daily.setter
+    def retention_schedule_daily(self, value: Optional[pulumi.Input['DailyRetentionFormatArgs']]):
+        pulumi.set(self, "retention_schedule_daily", value)
+
+    @property
+    @pulumi.getter(name="retentionScheduleFormatType")
+    def retention_schedule_format_type(self) -> Optional[pulumi.Input[Union[str, 'RetentionScheduleFormat']]]:
+        """
+        Retention schedule format type for monthly retention policy.
+        """
+        return pulumi.get(self, "retention_schedule_format_type")
+
+    @retention_schedule_format_type.setter
+    def retention_schedule_format_type(self, value: Optional[pulumi.Input[Union[str, 'RetentionScheduleFormat']]]):
+        pulumi.set(self, "retention_schedule_format_type", value)
+
+    @property
+    @pulumi.getter(name="retentionScheduleWeekly")
+    def retention_schedule_weekly(self) -> Optional[pulumi.Input['WeeklyRetentionFormatArgs']]:
+        """
+        Weekly retention format for monthly retention policy.
+        """
+        return pulumi.get(self, "retention_schedule_weekly")
+
+    @retention_schedule_weekly.setter
+    def retention_schedule_weekly(self, value: Optional[pulumi.Input['WeeklyRetentionFormatArgs']]):
+        pulumi.set(self, "retention_schedule_weekly", value)
+
+    @property
+    @pulumi.getter(name="retentionTimes")
+    def retention_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Retention times of retention policy.
+        """
+        return pulumi.get(self, "retention_times")
+
+    @retention_times.setter
+    def retention_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "retention_times", value)
 
 
 @pulumi.input_type
@@ -1283,6 +2117,61 @@ class NetworkInterfaceResourceNamesArgs:
 
 
 @pulumi.input_type
+class NewRecoveryServicesVaultArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 vault_type: pulumi.Input[str]):
+        """
+        New recovery services vault.
+        :param pulumi.Input[str] name: The name of the recovery services vault has to be created.
+        :param pulumi.Input[str] resource_group: The name of the resource group where the recovery services vault has to be created.
+        :param pulumi.Input[str] vault_type: The vault type, whether it is existing or has to be created.
+               Expected value is 'New'.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "vault_type", 'New')
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the recovery services vault has to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group where the recovery services vault has to be created.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="vaultType")
+    def vault_type(self) -> pulumi.Input[str]:
+        """
+        The vault type, whether it is existing or has to be created.
+        Expected value is 'New'.
+        """
+        return pulumi.get(self, "vault_type")
+
+    @vault_type.setter
+    def vault_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vault_type", value)
+
+
+@pulumi.input_type
 class OSProfileArgs:
     def __init__(__self__, *,
                  admin_password: Optional[pulumi.Input[str]] = None,
@@ -1379,6 +2268,48 @@ class OsSapConfigurationArgs:
 
 
 @pulumi.input_type
+class RetentionDurationArgs:
+    def __init__(__self__, *,
+                 count: Optional[pulumi.Input[int]] = None,
+                 duration_type: Optional[pulumi.Input[Union[str, 'RetentionDurationType']]] = None):
+        """
+        Retention duration.
+        :param pulumi.Input[int] count: Count of duration types. Retention duration is obtained by the counting the duration type Count times.
+               For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
+        :param pulumi.Input[Union[str, 'RetentionDurationType']] duration_type: Retention duration type of retention policy.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if duration_type is not None:
+            pulumi.set(__self__, "duration_type", duration_type)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Count of duration types. Retention duration is obtained by the counting the duration type Count times.
+        For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter(name="durationType")
+    def duration_type(self) -> Optional[pulumi.Input[Union[str, 'RetentionDurationType']]]:
+        """
+        Retention duration type of retention policy.
+        """
+        return pulumi.get(self, "duration_type")
+
+    @duration_type.setter
+    def duration_type(self, value: Optional[pulumi.Input[Union[str, 'RetentionDurationType']]]):
+        pulumi.set(self, "duration_type", value)
+
+
+@pulumi.input_type
 class SAPInstallWithoutOSConfigSoftwareConfigurationArgs:
     def __init__(__self__, *,
                  bom_url: pulumi.Input[str],
@@ -1462,6 +2393,78 @@ class SAPInstallWithoutOSConfigSoftwareConfigurationArgs:
     @high_availability_software_configuration.setter
     def high_availability_software_configuration(self, value: Optional[pulumi.Input['HighAvailabilitySoftwareConfigurationArgs']]):
         pulumi.set(self, "high_availability_software_configuration", value)
+
+
+@pulumi.input_type
+class SSLConfigurationArgs:
+    def __init__(__self__, *,
+                 ssl_crypto_provider: Optional[pulumi.Input[Union[str, 'SslCryptoProvider']]] = None,
+                 ssl_host_name_in_certificate: Optional[pulumi.Input[str]] = None,
+                 ssl_key_store: Optional[pulumi.Input[str]] = None,
+                 ssl_trust_store: Optional[pulumi.Input[str]] = None):
+        """
+        Specify the HANA database TLS/SSL properties which will be used for enabling Azure Backup for this database. You need to specify these details if you have enabled secure communication for your HANA database.
+        :param pulumi.Input[Union[str, 'SslCryptoProvider']] ssl_crypto_provider: Specify the crypto provider being used (commoncrypto/openssl). If this argument is not provided, it is automatically determined by searching in the configuration files.
+        :param pulumi.Input[str] ssl_host_name_in_certificate: Specify the hostname as mentioned in the SSL certificate. If this argument is not provided, it is automatically determined by searching in the SSL certificate.
+        :param pulumi.Input[str] ssl_key_store: Specify the name of the keystore file that contains the client's identity (eg. sapsrv.pse). The script will search for the file in the appropriate directory depending on the crypto provider mentioned. If this argument is not provided, it is automatically determined by searching in the configuration files.
+        :param pulumi.Input[str] ssl_trust_store: Specify the name of the trust store file that contains the server’s public certificates (eg. sapsrv.pse). The script will search for the file in the appropriate directory depending on the crypto provider mentioned. If this argument is not provided, it is automatically determined by searching in the configuration files.
+        """
+        if ssl_crypto_provider is not None:
+            pulumi.set(__self__, "ssl_crypto_provider", ssl_crypto_provider)
+        if ssl_host_name_in_certificate is not None:
+            pulumi.set(__self__, "ssl_host_name_in_certificate", ssl_host_name_in_certificate)
+        if ssl_key_store is not None:
+            pulumi.set(__self__, "ssl_key_store", ssl_key_store)
+        if ssl_trust_store is not None:
+            pulumi.set(__self__, "ssl_trust_store", ssl_trust_store)
+
+    @property
+    @pulumi.getter(name="sslCryptoProvider")
+    def ssl_crypto_provider(self) -> Optional[pulumi.Input[Union[str, 'SslCryptoProvider']]]:
+        """
+        Specify the crypto provider being used (commoncrypto/openssl). If this argument is not provided, it is automatically determined by searching in the configuration files.
+        """
+        return pulumi.get(self, "ssl_crypto_provider")
+
+    @ssl_crypto_provider.setter
+    def ssl_crypto_provider(self, value: Optional[pulumi.Input[Union[str, 'SslCryptoProvider']]]):
+        pulumi.set(self, "ssl_crypto_provider", value)
+
+    @property
+    @pulumi.getter(name="sslHostNameInCertificate")
+    def ssl_host_name_in_certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the hostname as mentioned in the SSL certificate. If this argument is not provided, it is automatically determined by searching in the SSL certificate.
+        """
+        return pulumi.get(self, "ssl_host_name_in_certificate")
+
+    @ssl_host_name_in_certificate.setter
+    def ssl_host_name_in_certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_host_name_in_certificate", value)
+
+    @property
+    @pulumi.getter(name="sslKeyStore")
+    def ssl_key_store(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the name of the keystore file that contains the client's identity (eg. sapsrv.pse). The script will search for the file in the appropriate directory depending on the crypto provider mentioned. If this argument is not provided, it is automatically determined by searching in the configuration files.
+        """
+        return pulumi.get(self, "ssl_key_store")
+
+    @ssl_key_store.setter
+    def ssl_key_store(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_key_store", value)
+
+    @property
+    @pulumi.getter(name="sslTrustStore")
+    def ssl_trust_store(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the name of the trust store file that contains the server’s public certificates (eg. sapsrv.pse). The script will search for the file in the appropriate directory depending on the crypto provider mentioned. If this argument is not provided, it is automatically determined by searching in the configuration files.
+        """
+        return pulumi.get(self, "ssl_trust_store")
+
+    @ssl_trust_store.setter
+    def ssl_trust_store(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_trust_store", value)
 
 
 @pulumi.input_type
@@ -1581,6 +2584,64 @@ class ServiceInitiatedSoftwareConfigurationArgs:
 
 
 @pulumi.input_type
+class SettingsArgs:
+    def __init__(__self__, *,
+                 is_compression: Optional[pulumi.Input[bool]] = None,
+                 issqlcompression: Optional[pulumi.Input[bool]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        Common settings field for backup management
+        :param pulumi.Input[bool] is_compression: Workload compression flag. This has been added so that 'isSqlCompression'
+               will be deprecated once clients upgrade to consider this flag.
+        :param pulumi.Input[bool] issqlcompression: SQL compression flag
+        :param pulumi.Input[str] time_zone: TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+        """
+        if is_compression is not None:
+            pulumi.set(__self__, "is_compression", is_compression)
+        if issqlcompression is not None:
+            pulumi.set(__self__, "issqlcompression", issqlcompression)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="isCompression")
+    def is_compression(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Workload compression flag. This has been added so that 'isSqlCompression'
+        will be deprecated once clients upgrade to consider this flag.
+        """
+        return pulumi.get(self, "is_compression")
+
+    @is_compression.setter
+    def is_compression(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_compression", value)
+
+    @property
+    @pulumi.getter
+    def issqlcompression(self) -> Optional[pulumi.Input[bool]]:
+        """
+        SQL compression flag
+        """
+        return pulumi.get(self, "issqlcompression")
+
+    @issqlcompression.setter
+    def issqlcompression(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "issqlcompression", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
 class SharedStorageResourceNamesArgs:
     def __init__(__self__, *,
                  shared_storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -1618,6 +2679,241 @@ class SharedStorageResourceNamesArgs:
     @shared_storage_account_private_end_point_name.setter
     def shared_storage_account_private_end_point_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "shared_storage_account_private_end_point_name", value)
+
+
+@pulumi.input_type
+class SimpleRetentionPolicyArgs:
+    def __init__(__self__, *,
+                 retention_policy_type: pulumi.Input[str],
+                 retention_duration: Optional[pulumi.Input['RetentionDurationArgs']] = None):
+        """
+        Simple policy retention.
+        :param pulumi.Input[str] retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'SimpleRetentionPolicy'.
+        :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration of the protection policy.
+        """
+        pulumi.set(__self__, "retention_policy_type", 'SimpleRetentionPolicy')
+        if retention_duration is not None:
+            pulumi.set(__self__, "retention_duration", retention_duration)
+
+    @property
+    @pulumi.getter(name="retentionPolicyType")
+    def retention_policy_type(self) -> pulumi.Input[str]:
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'SimpleRetentionPolicy'.
+        """
+        return pulumi.get(self, "retention_policy_type")
+
+    @retention_policy_type.setter
+    def retention_policy_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "retention_policy_type", value)
+
+    @property
+    @pulumi.getter(name="retentionDuration")
+    def retention_duration(self) -> Optional[pulumi.Input['RetentionDurationArgs']]:
+        """
+        Retention duration of the protection policy.
+        """
+        return pulumi.get(self, "retention_duration")
+
+    @retention_duration.setter
+    def retention_duration(self, value: Optional[pulumi.Input['RetentionDurationArgs']]):
+        pulumi.set(self, "retention_duration", value)
+
+
+@pulumi.input_type
+class SimpleSchedulePolicyV2Args:
+    def __init__(__self__, *,
+                 schedule_policy_type: pulumi.Input[str],
+                 daily_schedule: Optional[pulumi.Input['DailyScheduleArgs']] = None,
+                 hourly_schedule: Optional[pulumi.Input['HourlyScheduleArgs']] = None,
+                 schedule_run_frequency: Optional[pulumi.Input[Union[str, 'ScheduleRunType']]] = None,
+                 weekly_schedule: Optional[pulumi.Input['WeeklyScheduleArgs']] = None):
+        """
+        The V2 policy schedule for IaaS that supports hourly backups.
+        :param pulumi.Input[str] schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'SimpleSchedulePolicyV2'.
+        :param pulumi.Input['DailyScheduleArgs'] daily_schedule: Daily schedule of this policy
+        :param pulumi.Input['HourlyScheduleArgs'] hourly_schedule: hourly schedule of this policy
+        :param pulumi.Input[Union[str, 'ScheduleRunType']] schedule_run_frequency: Frequency of the schedule operation of this policy.
+        :param pulumi.Input['WeeklyScheduleArgs'] weekly_schedule: Weekly schedule of this policy
+        """
+        pulumi.set(__self__, "schedule_policy_type", 'SimpleSchedulePolicyV2')
+        if daily_schedule is not None:
+            pulumi.set(__self__, "daily_schedule", daily_schedule)
+        if hourly_schedule is not None:
+            pulumi.set(__self__, "hourly_schedule", hourly_schedule)
+        if schedule_run_frequency is not None:
+            pulumi.set(__self__, "schedule_run_frequency", schedule_run_frequency)
+        if weekly_schedule is not None:
+            pulumi.set(__self__, "weekly_schedule", weekly_schedule)
+
+    @property
+    @pulumi.getter(name="schedulePolicyType")
+    def schedule_policy_type(self) -> pulumi.Input[str]:
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'SimpleSchedulePolicyV2'.
+        """
+        return pulumi.get(self, "schedule_policy_type")
+
+    @schedule_policy_type.setter
+    def schedule_policy_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schedule_policy_type", value)
+
+    @property
+    @pulumi.getter(name="dailySchedule")
+    def daily_schedule(self) -> Optional[pulumi.Input['DailyScheduleArgs']]:
+        """
+        Daily schedule of this policy
+        """
+        return pulumi.get(self, "daily_schedule")
+
+    @daily_schedule.setter
+    def daily_schedule(self, value: Optional[pulumi.Input['DailyScheduleArgs']]):
+        pulumi.set(self, "daily_schedule", value)
+
+    @property
+    @pulumi.getter(name="hourlySchedule")
+    def hourly_schedule(self) -> Optional[pulumi.Input['HourlyScheduleArgs']]:
+        """
+        hourly schedule of this policy
+        """
+        return pulumi.get(self, "hourly_schedule")
+
+    @hourly_schedule.setter
+    def hourly_schedule(self, value: Optional[pulumi.Input['HourlyScheduleArgs']]):
+        pulumi.set(self, "hourly_schedule", value)
+
+    @property
+    @pulumi.getter(name="scheduleRunFrequency")
+    def schedule_run_frequency(self) -> Optional[pulumi.Input[Union[str, 'ScheduleRunType']]]:
+        """
+        Frequency of the schedule operation of this policy.
+        """
+        return pulumi.get(self, "schedule_run_frequency")
+
+    @schedule_run_frequency.setter
+    def schedule_run_frequency(self, value: Optional[pulumi.Input[Union[str, 'ScheduleRunType']]]):
+        pulumi.set(self, "schedule_run_frequency", value)
+
+    @property
+    @pulumi.getter(name="weeklySchedule")
+    def weekly_schedule(self) -> Optional[pulumi.Input['WeeklyScheduleArgs']]:
+        """
+        Weekly schedule of this policy
+        """
+        return pulumi.get(self, "weekly_schedule")
+
+    @weekly_schedule.setter
+    def weekly_schedule(self, value: Optional[pulumi.Input['WeeklyScheduleArgs']]):
+        pulumi.set(self, "weekly_schedule", value)
+
+
+@pulumi.input_type
+class SimpleSchedulePolicyArgs:
+    def __init__(__self__, *,
+                 schedule_policy_type: pulumi.Input[str],
+                 hourly_schedule: Optional[pulumi.Input['HourlyScheduleArgs']] = None,
+                 schedule_run_days: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]] = None,
+                 schedule_run_frequency: Optional[pulumi.Input[Union[str, 'ScheduleRunType']]] = None,
+                 schedule_run_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 schedule_weekly_frequency: Optional[pulumi.Input[int]] = None):
+        """
+        Simple policy schedule.
+        :param pulumi.Input[str] schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'SimpleSchedulePolicy'.
+        :param pulumi.Input['HourlyScheduleArgs'] hourly_schedule: Hourly Schedule of this Policy
+        :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] schedule_run_days: List of days of week this schedule has to be run.
+        :param pulumi.Input[Union[str, 'ScheduleRunType']] schedule_run_frequency: Frequency of the schedule operation of this policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] schedule_run_times: List of times of day this schedule has to be run.
+        :param pulumi.Input[int] schedule_weekly_frequency: At every number weeks this schedule has to be run.
+        """
+        pulumi.set(__self__, "schedule_policy_type", 'SimpleSchedulePolicy')
+        if hourly_schedule is not None:
+            pulumi.set(__self__, "hourly_schedule", hourly_schedule)
+        if schedule_run_days is not None:
+            pulumi.set(__self__, "schedule_run_days", schedule_run_days)
+        if schedule_run_frequency is not None:
+            pulumi.set(__self__, "schedule_run_frequency", schedule_run_frequency)
+        if schedule_run_times is not None:
+            pulumi.set(__self__, "schedule_run_times", schedule_run_times)
+        if schedule_weekly_frequency is not None:
+            pulumi.set(__self__, "schedule_weekly_frequency", schedule_weekly_frequency)
+
+    @property
+    @pulumi.getter(name="schedulePolicyType")
+    def schedule_policy_type(self) -> pulumi.Input[str]:
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'SimpleSchedulePolicy'.
+        """
+        return pulumi.get(self, "schedule_policy_type")
+
+    @schedule_policy_type.setter
+    def schedule_policy_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schedule_policy_type", value)
+
+    @property
+    @pulumi.getter(name="hourlySchedule")
+    def hourly_schedule(self) -> Optional[pulumi.Input['HourlyScheduleArgs']]:
+        """
+        Hourly Schedule of this Policy
+        """
+        return pulumi.get(self, "hourly_schedule")
+
+    @hourly_schedule.setter
+    def hourly_schedule(self, value: Optional[pulumi.Input['HourlyScheduleArgs']]):
+        pulumi.set(self, "hourly_schedule", value)
+
+    @property
+    @pulumi.getter(name="scheduleRunDays")
+    def schedule_run_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]:
+        """
+        List of days of week this schedule has to be run.
+        """
+        return pulumi.get(self, "schedule_run_days")
+
+    @schedule_run_days.setter
+    def schedule_run_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]):
+        pulumi.set(self, "schedule_run_days", value)
+
+    @property
+    @pulumi.getter(name="scheduleRunFrequency")
+    def schedule_run_frequency(self) -> Optional[pulumi.Input[Union[str, 'ScheduleRunType']]]:
+        """
+        Frequency of the schedule operation of this policy.
+        """
+        return pulumi.get(self, "schedule_run_frequency")
+
+    @schedule_run_frequency.setter
+    def schedule_run_frequency(self, value: Optional[pulumi.Input[Union[str, 'ScheduleRunType']]]):
+        pulumi.set(self, "schedule_run_frequency", value)
+
+    @property
+    @pulumi.getter(name="scheduleRunTimes")
+    def schedule_run_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of times of day this schedule has to be run.
+        """
+        return pulumi.get(self, "schedule_run_times")
+
+    @schedule_run_times.setter
+    def schedule_run_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "schedule_run_times", value)
+
+    @property
+    @pulumi.getter(name="scheduleWeeklyFrequency")
+    def schedule_weekly_frequency(self) -> Optional[pulumi.Input[int]]:
+        """
+        At every number weeks this schedule has to be run.
+        """
+        return pulumi.get(self, "schedule_weekly_frequency")
+
+    @schedule_weekly_frequency.setter
+    def schedule_weekly_frequency(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "schedule_weekly_frequency", value)
 
 
 @pulumi.input_type
@@ -1821,6 +3117,117 @@ class SkipFileShareConfigurationArgs:
 
 
 @pulumi.input_type
+class SnapshotBackupAdditionalDetailsArgs:
+    def __init__(__self__, *,
+                 instant_rp_details: Optional[pulumi.Input[str]] = None,
+                 instant_rp_retention_range_in_days: Optional[pulumi.Input[int]] = None,
+                 user_assigned_managed_identity_details: Optional[pulumi.Input['UserAssignedManagedIdentityDetailsArgs']] = None):
+        """
+        Snapshot Backup related fields for WorkloadType SAP Hana system
+        :param pulumi.Input[str] instant_rp_details: Instant RP details for the snapshot.
+        :param pulumi.Input[int] instant_rp_retention_range_in_days: Retention range for instant Rp in days.
+        :param pulumi.Input['UserAssignedManagedIdentityDetailsArgs'] user_assigned_managed_identity_details: User Assigned managed identity details used for snapshot policy.
+        """
+        if instant_rp_details is not None:
+            pulumi.set(__self__, "instant_rp_details", instant_rp_details)
+        if instant_rp_retention_range_in_days is not None:
+            pulumi.set(__self__, "instant_rp_retention_range_in_days", instant_rp_retention_range_in_days)
+        if user_assigned_managed_identity_details is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_details", user_assigned_managed_identity_details)
+
+    @property
+    @pulumi.getter(name="instantRPDetails")
+    def instant_rp_details(self) -> Optional[pulumi.Input[str]]:
+        """
+        Instant RP details for the snapshot.
+        """
+        return pulumi.get(self, "instant_rp_details")
+
+    @instant_rp_details.setter
+    def instant_rp_details(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instant_rp_details", value)
+
+    @property
+    @pulumi.getter(name="instantRpRetentionRangeInDays")
+    def instant_rp_retention_range_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Retention range for instant Rp in days.
+        """
+        return pulumi.get(self, "instant_rp_retention_range_in_days")
+
+    @instant_rp_retention_range_in_days.setter
+    def instant_rp_retention_range_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instant_rp_retention_range_in_days", value)
+
+    @property
+    @pulumi.getter(name="userAssignedManagedIdentityDetails")
+    def user_assigned_managed_identity_details(self) -> Optional[pulumi.Input['UserAssignedManagedIdentityDetailsArgs']]:
+        """
+        User Assigned managed identity details used for snapshot policy.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_details")
+
+    @user_assigned_managed_identity_details.setter
+    def user_assigned_managed_identity_details(self, value: Optional[pulumi.Input['UserAssignedManagedIdentityDetailsArgs']]):
+        pulumi.set(self, "user_assigned_managed_identity_details", value)
+
+
+@pulumi.input_type
+class SqlBackupDataArgs:
+    def __init__(__self__, *,
+                 backup_policy: pulumi.Input['DBBackupPolicyPropertiesArgs'],
+                 backup_type: pulumi.Input[str],
+                 recovery_services_vault: pulumi.Input[Union['ExistingRecoveryServicesVaultArgs', 'NewRecoveryServicesVaultArgs']]):
+        """
+        Defines the SQL Backup data for a virtual instance for SAP.
+        :param pulumi.Input['DBBackupPolicyPropertiesArgs'] backup_policy: Defines the policy properties for database backup.
+        :param pulumi.Input[str] backup_type: The type of backup, VM, SQL or HANA.
+               Expected value is 'SQL'.
+        :param pulumi.Input[Union['ExistingRecoveryServicesVaultArgs', 'NewRecoveryServicesVaultArgs']] recovery_services_vault: The properties of the recovery services vault used for backup.
+        """
+        pulumi.set(__self__, "backup_policy", backup_policy)
+        pulumi.set(__self__, "backup_type", 'SQL')
+        pulumi.set(__self__, "recovery_services_vault", recovery_services_vault)
+
+    @property
+    @pulumi.getter(name="backupPolicy")
+    def backup_policy(self) -> pulumi.Input['DBBackupPolicyPropertiesArgs']:
+        """
+        Defines the policy properties for database backup.
+        """
+        return pulumi.get(self, "backup_policy")
+
+    @backup_policy.setter
+    def backup_policy(self, value: pulumi.Input['DBBackupPolicyPropertiesArgs']):
+        pulumi.set(self, "backup_policy", value)
+
+    @property
+    @pulumi.getter(name="backupType")
+    def backup_type(self) -> pulumi.Input[str]:
+        """
+        The type of backup, VM, SQL or HANA.
+        Expected value is 'SQL'.
+        """
+        return pulumi.get(self, "backup_type")
+
+    @backup_type.setter
+    def backup_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "backup_type", value)
+
+    @property
+    @pulumi.getter(name="recoveryServicesVault")
+    def recovery_services_vault(self) -> pulumi.Input[Union['ExistingRecoveryServicesVaultArgs', 'NewRecoveryServicesVaultArgs']]:
+        """
+        The properties of the recovery services vault used for backup.
+        """
+        return pulumi.get(self, "recovery_services_vault")
+
+    @recovery_services_vault.setter
+    def recovery_services_vault(self, value: pulumi.Input[Union['ExistingRecoveryServicesVaultArgs', 'NewRecoveryServicesVaultArgs']]):
+        pulumi.set(self, "recovery_services_vault", value)
+
+
+@pulumi.input_type
 class SshConfigurationArgs:
     def __init__(__self__, *,
                  public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None):
@@ -1930,6 +3337,98 @@ class StorageConfigurationArgs:
     @transport_file_share_configuration.setter
     def transport_file_share_configuration(self, value: Optional[pulumi.Input[Union['CreateAndMountFileShareConfigurationArgs', 'MountFileShareConfigurationArgs', 'SkipFileShareConfigurationArgs']]]):
         pulumi.set(self, "transport_file_share_configuration", value)
+
+
+@pulumi.input_type
+class SubProtectionPolicyArgs:
+    def __init__(__self__, *,
+                 policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
+                 retention_policy: Optional[pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]] = None,
+                 schedule_policy: Optional[pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs', 'SimpleSchedulePolicyV2Args']]] = None,
+                 snapshot_backup_additional_details: Optional[pulumi.Input['SnapshotBackupAdditionalDetailsArgs']] = None,
+                 tiering_policy: Optional[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgs']]]] = None):
+        """
+        Sub-protection policy which includes schedule and retention
+        :param pulumi.Input[Union[str, 'PolicyType']] policy_type: Type of backup policy type
+        :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] retention_policy: Retention policy with the details on backup copy retention ranges.
+        :param pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs', 'SimpleSchedulePolicyV2Args']] schedule_policy: Backup schedule specified as part of backup policy.
+        :param pulumi.Input['SnapshotBackupAdditionalDetailsArgs'] snapshot_backup_additional_details: Hana DB instance snapshot backup additional details.
+        :param pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgs']]] tiering_policy: Tiering policy to automatically move RPs to another tier.
+               Key is Target Tier, defined in RecoveryPointTierType enum.
+               Tiering policy specifies the criteria to move RP to the target tier.
+        """
+        if policy_type is not None:
+            pulumi.set(__self__, "policy_type", policy_type)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if schedule_policy is not None:
+            pulumi.set(__self__, "schedule_policy", schedule_policy)
+        if snapshot_backup_additional_details is not None:
+            pulumi.set(__self__, "snapshot_backup_additional_details", snapshot_backup_additional_details)
+        if tiering_policy is not None:
+            pulumi.set(__self__, "tiering_policy", tiering_policy)
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> Optional[pulumi.Input[Union[str, 'PolicyType']]]:
+        """
+        Type of backup policy type
+        """
+        return pulumi.get(self, "policy_type")
+
+    @policy_type.setter
+    def policy_type(self, value: Optional[pulumi.Input[Union[str, 'PolicyType']]]):
+        pulumi.set(self, "policy_type", value)
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional[pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]]:
+        """
+        Retention policy with the details on backup copy retention ranges.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @retention_policy.setter
+    def retention_policy(self, value: Optional[pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]]):
+        pulumi.set(self, "retention_policy", value)
+
+    @property
+    @pulumi.getter(name="schedulePolicy")
+    def schedule_policy(self) -> Optional[pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs', 'SimpleSchedulePolicyV2Args']]]:
+        """
+        Backup schedule specified as part of backup policy.
+        """
+        return pulumi.get(self, "schedule_policy")
+
+    @schedule_policy.setter
+    def schedule_policy(self, value: Optional[pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs', 'SimpleSchedulePolicyV2Args']]]):
+        pulumi.set(self, "schedule_policy", value)
+
+    @property
+    @pulumi.getter(name="snapshotBackupAdditionalDetails")
+    def snapshot_backup_additional_details(self) -> Optional[pulumi.Input['SnapshotBackupAdditionalDetailsArgs']]:
+        """
+        Hana DB instance snapshot backup additional details.
+        """
+        return pulumi.get(self, "snapshot_backup_additional_details")
+
+    @snapshot_backup_additional_details.setter
+    def snapshot_backup_additional_details(self, value: Optional[pulumi.Input['SnapshotBackupAdditionalDetailsArgs']]):
+        pulumi.set(self, "snapshot_backup_additional_details", value)
+
+    @property
+    @pulumi.getter(name="tieringPolicy")
+    def tiering_policy(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgs']]]]:
+        """
+        Tiering policy to automatically move RPs to another tier.
+        Key is Target Tier, defined in RecoveryPointTierType enum.
+        Tiering policy specifies the criteria to move RP to the target tier.
+        """
+        return pulumi.get(self, "tiering_policy")
+
+    @tiering_policy.setter
+    def tiering_policy(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgs']]]]):
+        pulumi.set(self, "tiering_policy", value)
 
 
 @pulumi.input_type
@@ -2171,6 +3670,153 @@ class ThreeTierFullResourceNamesArgs:
 
 
 @pulumi.input_type
+class TieringPolicyArgs:
+    def __init__(__self__, *,
+                 duration: Optional[pulumi.Input[int]] = None,
+                 duration_type: Optional[pulumi.Input[Union[str, 'RetentionDurationType']]] = None,
+                 tiering_mode: Optional[pulumi.Input[Union[str, 'TieringMode']]] = None):
+        """
+        Tiering Policy for a target tier.
+        If the policy is not specified for a given target tier, service retains the existing configured tiering policy for that tier
+        :param pulumi.Input[int] duration: Number of days/weeks/months/years to retain backups in current tier before tiering.
+               Used only if TieringMode is set to TierAfter
+        :param pulumi.Input[Union[str, 'RetentionDurationType']] duration_type: Retention duration type: days/weeks/months/years
+               Used only if TieringMode is set to TierAfter
+        :param pulumi.Input[Union[str, 'TieringMode']] tiering_mode: Tiering Mode to control automatic tiering of recovery points. Supported values are:
+               1. TierRecommended: Tier all recovery points recommended to be tiered
+               2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+               3. DoNotTier: Do not tier any recovery points
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if duration_type is not None:
+            pulumi.set(__self__, "duration_type", duration_type)
+        if tiering_mode is not None:
+            pulumi.set(__self__, "tiering_mode", tiering_mode)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of days/weeks/months/years to retain backups in current tier before tiering.
+        Used only if TieringMode is set to TierAfter
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "duration", value)
+
+    @property
+    @pulumi.getter(name="durationType")
+    def duration_type(self) -> Optional[pulumi.Input[Union[str, 'RetentionDurationType']]]:
+        """
+        Retention duration type: days/weeks/months/years
+        Used only if TieringMode is set to TierAfter
+        """
+        return pulumi.get(self, "duration_type")
+
+    @duration_type.setter
+    def duration_type(self, value: Optional[pulumi.Input[Union[str, 'RetentionDurationType']]]):
+        pulumi.set(self, "duration_type", value)
+
+    @property
+    @pulumi.getter(name="tieringMode")
+    def tiering_mode(self) -> Optional[pulumi.Input[Union[str, 'TieringMode']]]:
+        """
+        Tiering Mode to control automatic tiering of recovery points. Supported values are:
+        1. TierRecommended: Tier all recovery points recommended to be tiered
+        2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+        3. DoNotTier: Do not tier any recovery points
+        """
+        return pulumi.get(self, "tiering_mode")
+
+    @tiering_mode.setter
+    def tiering_mode(self, value: Optional[pulumi.Input[Union[str, 'TieringMode']]]):
+        pulumi.set(self, "tiering_mode", value)
+
+
+@pulumi.input_type
+class UserAssignedIdentityPropertiesArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None):
+        """
+        User assigned managed identity properties.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+
+@pulumi.input_type
+class UserAssignedManagedIdentityDetailsArgs:
+    def __init__(__self__, *,
+                 identity_arm_id: Optional[pulumi.Input[str]] = None,
+                 identity_name: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_properties: Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']] = None):
+        """
+        User assigned managed identity details.
+        :param pulumi.Input['UserAssignedIdentityPropertiesArgs'] user_assigned_identity_properties: User assigned managed identity properties.
+        """
+        if identity_arm_id is not None:
+            pulumi.set(__self__, "identity_arm_id", identity_arm_id)
+        if identity_name is not None:
+            pulumi.set(__self__, "identity_name", identity_name)
+        if user_assigned_identity_properties is not None:
+            pulumi.set(__self__, "user_assigned_identity_properties", user_assigned_identity_properties)
+
+    @property
+    @pulumi.getter(name="identityArmId")
+    def identity_arm_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "identity_arm_id")
+
+    @identity_arm_id.setter
+    def identity_arm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_arm_id", value)
+
+    @property
+    @pulumi.getter(name="identityName")
+    def identity_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "identity_name")
+
+    @identity_name.setter
+    def identity_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_name", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityProperties")
+    def user_assigned_identity_properties(self) -> Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']]:
+        """
+        User assigned managed identity properties.
+        """
+        return pulumi.get(self, "user_assigned_identity_properties")
+
+    @user_assigned_identity_properties.setter
+    def user_assigned_identity_properties(self, value: Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']]):
+        pulumi.set(self, "user_assigned_identity_properties", value)
+
+
+@pulumi.input_type
 class UserAssignedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
@@ -2207,6 +3853,265 @@ class UserAssignedServiceIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class VMBackupDataArgs:
+    def __init__(__self__, *,
+                 backup_policy: pulumi.Input['VMBackupPolicyPropertiesArgs'],
+                 backup_type: pulumi.Input[str],
+                 recovery_services_vault: pulumi.Input[Union['ExistingRecoveryServicesVaultArgs', 'NewRecoveryServicesVaultArgs']],
+                 disk_exclusion_properties: Optional[pulumi.Input['DiskExclusionPropertiesArgs']] = None):
+        """
+        Defines the VM Backup data for a virtual instance for SAP.
+        :param pulumi.Input['VMBackupPolicyPropertiesArgs'] backup_policy: Defines the policy properties for virtual machine backup.
+        :param pulumi.Input[str] backup_type: The type of backup, VM, SQL or HANA.
+               Expected value is 'VM'.
+        :param pulumi.Input[Union['ExistingRecoveryServicesVaultArgs', 'NewRecoveryServicesVaultArgs']] recovery_services_vault: The properties of the recovery services vault used for backup.
+        :param pulumi.Input['DiskExclusionPropertiesArgs'] disk_exclusion_properties: Defines the disk exclusion properties for virtual machine backup.
+        """
+        pulumi.set(__self__, "backup_policy", backup_policy)
+        pulumi.set(__self__, "backup_type", 'VM')
+        pulumi.set(__self__, "recovery_services_vault", recovery_services_vault)
+        if disk_exclusion_properties is not None:
+            pulumi.set(__self__, "disk_exclusion_properties", disk_exclusion_properties)
+
+    @property
+    @pulumi.getter(name="backupPolicy")
+    def backup_policy(self) -> pulumi.Input['VMBackupPolicyPropertiesArgs']:
+        """
+        Defines the policy properties for virtual machine backup.
+        """
+        return pulumi.get(self, "backup_policy")
+
+    @backup_policy.setter
+    def backup_policy(self, value: pulumi.Input['VMBackupPolicyPropertiesArgs']):
+        pulumi.set(self, "backup_policy", value)
+
+    @property
+    @pulumi.getter(name="backupType")
+    def backup_type(self) -> pulumi.Input[str]:
+        """
+        The type of backup, VM, SQL or HANA.
+        Expected value is 'VM'.
+        """
+        return pulumi.get(self, "backup_type")
+
+    @backup_type.setter
+    def backup_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "backup_type", value)
+
+    @property
+    @pulumi.getter(name="recoveryServicesVault")
+    def recovery_services_vault(self) -> pulumi.Input[Union['ExistingRecoveryServicesVaultArgs', 'NewRecoveryServicesVaultArgs']]:
+        """
+        The properties of the recovery services vault used for backup.
+        """
+        return pulumi.get(self, "recovery_services_vault")
+
+    @recovery_services_vault.setter
+    def recovery_services_vault(self, value: pulumi.Input[Union['ExistingRecoveryServicesVaultArgs', 'NewRecoveryServicesVaultArgs']]):
+        pulumi.set(self, "recovery_services_vault", value)
+
+    @property
+    @pulumi.getter(name="diskExclusionProperties")
+    def disk_exclusion_properties(self) -> Optional[pulumi.Input['DiskExclusionPropertiesArgs']]:
+        """
+        Defines the disk exclusion properties for virtual machine backup.
+        """
+        return pulumi.get(self, "disk_exclusion_properties")
+
+    @disk_exclusion_properties.setter
+    def disk_exclusion_properties(self, value: Optional[pulumi.Input['DiskExclusionPropertiesArgs']]):
+        pulumi.set(self, "disk_exclusion_properties", value)
+
+
+@pulumi.input_type
+class VMBackupPolicyPropertiesArgs:
+    def __init__(__self__, *,
+                 backup_management_type: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 instant_rp_details: Optional[pulumi.Input['InstantRPAdditionalDetailsArgs']] = None,
+                 instant_rp_retention_range_in_days: Optional[pulumi.Input[int]] = None,
+                 policy_type: Optional[pulumi.Input[Union[str, 'IAASVMPolicyType']]] = None,
+                 protected_items_count: Optional[pulumi.Input[int]] = None,
+                 resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 retention_policy: Optional[pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]] = None,
+                 schedule_policy: Optional[pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs', 'SimpleSchedulePolicyV2Args']]] = None,
+                 tiering_policy: Optional[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgs']]]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the policy properties for virtual machine backup.
+        :param pulumi.Input[str] backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'AzureIaasVM'.
+        :param pulumi.Input[str] name: The name of the VM Backup policy.
+        :param pulumi.Input['InstantRPAdditionalDetailsArgs'] instant_rp_details: Instant recovery point additional details.
+        :param pulumi.Input[int] instant_rp_retention_range_in_days: Instant RP retention policy range in days
+        :param pulumi.Input[Union[str, 'IAASVMPolicyType']] policy_type: The policy type.
+        :param pulumi.Input[int] protected_items_count: Number of items associated with this policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuard Operation Requests
+        :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] retention_policy: Retention policy with the details on backup copy retention ranges.
+        :param pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs', 'SimpleSchedulePolicyV2Args']] schedule_policy: Backup schedule specified as part of backup policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgs']]] tiering_policy: Tiering policy to automatically move RPs to another tier
+               Key is Target Tier, defined in RecoveryPointTierType enum.
+               Tiering policy specifies the criteria to move RP to the target tier.
+        :param pulumi.Input[str] time_zone: Time zone optional input as string. For example: "Pacific Standard Time".
+        """
+        pulumi.set(__self__, "backup_management_type", 'AzureIaasVM')
+        pulumi.set(__self__, "name", name)
+        if instant_rp_details is not None:
+            pulumi.set(__self__, "instant_rp_details", instant_rp_details)
+        if instant_rp_retention_range_in_days is not None:
+            pulumi.set(__self__, "instant_rp_retention_range_in_days", instant_rp_retention_range_in_days)
+        if policy_type is not None:
+            pulumi.set(__self__, "policy_type", policy_type)
+        if protected_items_count is not None:
+            pulumi.set(__self__, "protected_items_count", protected_items_count)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if schedule_policy is not None:
+            pulumi.set(__self__, "schedule_policy", schedule_policy)
+        if tiering_policy is not None:
+            pulumi.set(__self__, "tiering_policy", tiering_policy)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> pulumi.Input[str]:
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'AzureIaasVM'.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @backup_management_type.setter
+    def backup_management_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "backup_management_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the VM Backup policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="instantRPDetails")
+    def instant_rp_details(self) -> Optional[pulumi.Input['InstantRPAdditionalDetailsArgs']]:
+        """
+        Instant recovery point additional details.
+        """
+        return pulumi.get(self, "instant_rp_details")
+
+    @instant_rp_details.setter
+    def instant_rp_details(self, value: Optional[pulumi.Input['InstantRPAdditionalDetailsArgs']]):
+        pulumi.set(self, "instant_rp_details", value)
+
+    @property
+    @pulumi.getter(name="instantRpRetentionRangeInDays")
+    def instant_rp_retention_range_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Instant RP retention policy range in days
+        """
+        return pulumi.get(self, "instant_rp_retention_range_in_days")
+
+    @instant_rp_retention_range_in_days.setter
+    def instant_rp_retention_range_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instant_rp_retention_range_in_days", value)
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> Optional[pulumi.Input[Union[str, 'IAASVMPolicyType']]]:
+        """
+        The policy type.
+        """
+        return pulumi.get(self, "policy_type")
+
+    @policy_type.setter
+    def policy_type(self, value: Optional[pulumi.Input[Union[str, 'IAASVMPolicyType']]]):
+        pulumi.set(self, "policy_type", value)
+
+    @property
+    @pulumi.getter(name="protectedItemsCount")
+    def protected_items_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of items associated with this policy.
+        """
+        return pulumi.get(self, "protected_items_count")
+
+    @protected_items_count.setter
+    def protected_items_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "protected_items_count", value)
+
+    @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        ResourceGuard Operation Requests
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @resource_guard_operation_requests.setter
+    def resource_guard_operation_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_guard_operation_requests", value)
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional[pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]]:
+        """
+        Retention policy with the details on backup copy retention ranges.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @retention_policy.setter
+    def retention_policy(self, value: Optional[pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]]):
+        pulumi.set(self, "retention_policy", value)
+
+    @property
+    @pulumi.getter(name="schedulePolicy")
+    def schedule_policy(self) -> Optional[pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs', 'SimpleSchedulePolicyV2Args']]]:
+        """
+        Backup schedule specified as part of backup policy.
+        """
+        return pulumi.get(self, "schedule_policy")
+
+    @schedule_policy.setter
+    def schedule_policy(self, value: Optional[pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs', 'SimpleSchedulePolicyV2Args']]]):
+        pulumi.set(self, "schedule_policy", value)
+
+    @property
+    @pulumi.getter(name="tieringPolicy")
+    def tiering_policy(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgs']]]]:
+        """
+        Tiering policy to automatically move RPs to another tier
+        Key is Target Tier, defined in RecoveryPointTierType enum.
+        Tiering policy specifies the criteria to move RP to the target tier.
+        """
+        return pulumi.get(self, "tiering_policy")
+
+    @tiering_policy.setter
+    def tiering_policy(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgs']]]]):
+        pulumi.set(self, "tiering_policy", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time zone optional input as string. For example: "Pacific Standard Time".
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
 
 
 @pulumi.input_type
@@ -2351,6 +4256,142 @@ class VirtualMachineResourceNamesArgs:
 
 
 @pulumi.input_type
+class WeeklyRetentionFormatArgs:
+    def __init__(__self__, *,
+                 days_of_the_week: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]] = None,
+                 weeks_of_the_month: Optional[pulumi.Input[Sequence[pulumi.Input['WeekOfMonth']]]] = None):
+        """
+        Weekly retention format.
+        :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] days_of_the_week: List of days of the week.
+        :param pulumi.Input[Sequence[pulumi.Input['WeekOfMonth']]] weeks_of_the_month: List of weeks of month.
+        """
+        if days_of_the_week is not None:
+            pulumi.set(__self__, "days_of_the_week", days_of_the_week)
+        if weeks_of_the_month is not None:
+            pulumi.set(__self__, "weeks_of_the_month", weeks_of_the_month)
+
+    @property
+    @pulumi.getter(name="daysOfTheWeek")
+    def days_of_the_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]:
+        """
+        List of days of the week.
+        """
+        return pulumi.get(self, "days_of_the_week")
+
+    @days_of_the_week.setter
+    def days_of_the_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]):
+        pulumi.set(self, "days_of_the_week", value)
+
+    @property
+    @pulumi.getter(name="weeksOfTheMonth")
+    def weeks_of_the_month(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WeekOfMonth']]]]:
+        """
+        List of weeks of month.
+        """
+        return pulumi.get(self, "weeks_of_the_month")
+
+    @weeks_of_the_month.setter
+    def weeks_of_the_month(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WeekOfMonth']]]]):
+        pulumi.set(self, "weeks_of_the_month", value)
+
+
+@pulumi.input_type
+class WeeklyRetentionScheduleArgs:
+    def __init__(__self__, *,
+                 days_of_the_week: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]] = None,
+                 retention_duration: Optional[pulumi.Input['RetentionDurationArgs']] = None,
+                 retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Weekly retention schedule.
+        :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] days_of_the_week: List of days of week for weekly retention policy.
+        :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration of retention Policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] retention_times: Retention times of retention policy.
+        """
+        if days_of_the_week is not None:
+            pulumi.set(__self__, "days_of_the_week", days_of_the_week)
+        if retention_duration is not None:
+            pulumi.set(__self__, "retention_duration", retention_duration)
+        if retention_times is not None:
+            pulumi.set(__self__, "retention_times", retention_times)
+
+    @property
+    @pulumi.getter(name="daysOfTheWeek")
+    def days_of_the_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]:
+        """
+        List of days of week for weekly retention policy.
+        """
+        return pulumi.get(self, "days_of_the_week")
+
+    @days_of_the_week.setter
+    def days_of_the_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]):
+        pulumi.set(self, "days_of_the_week", value)
+
+    @property
+    @pulumi.getter(name="retentionDuration")
+    def retention_duration(self) -> Optional[pulumi.Input['RetentionDurationArgs']]:
+        """
+        Retention duration of retention Policy.
+        """
+        return pulumi.get(self, "retention_duration")
+
+    @retention_duration.setter
+    def retention_duration(self, value: Optional[pulumi.Input['RetentionDurationArgs']]):
+        pulumi.set(self, "retention_duration", value)
+
+    @property
+    @pulumi.getter(name="retentionTimes")
+    def retention_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Retention times of retention policy.
+        """
+        return pulumi.get(self, "retention_times")
+
+    @retention_times.setter
+    def retention_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "retention_times", value)
+
+
+@pulumi.input_type
+class WeeklyScheduleArgs:
+    def __init__(__self__, *,
+                 schedule_run_days: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]] = None,
+                 schedule_run_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Weekly schedule.
+        :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] schedule_run_days: Schedule run days.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] schedule_run_times: List of times of day this schedule has to be run.
+        """
+        if schedule_run_days is not None:
+            pulumi.set(__self__, "schedule_run_days", schedule_run_days)
+        if schedule_run_times is not None:
+            pulumi.set(__self__, "schedule_run_times", schedule_run_times)
+
+    @property
+    @pulumi.getter(name="scheduleRunDays")
+    def schedule_run_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]:
+        """
+        Schedule run days.
+        """
+        return pulumi.get(self, "schedule_run_days")
+
+    @schedule_run_days.setter
+    def schedule_run_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]):
+        pulumi.set(self, "schedule_run_days", value)
+
+    @property
+    @pulumi.getter(name="scheduleRunTimes")
+    def schedule_run_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of times of day this schedule has to be run.
+        """
+        return pulumi.get(self, "schedule_run_times")
+
+    @schedule_run_times.setter
+    def schedule_run_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "schedule_run_times", value)
+
+
+@pulumi.input_type
 class WindowsConfigurationArgs:
     def __init__(__self__, *,
                  os_type: pulumi.Input[str]):
@@ -2373,5 +4414,109 @@ class WindowsConfigurationArgs:
     @os_type.setter
     def os_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "os_type", value)
+
+
+@pulumi.input_type
+class YearlyRetentionScheduleArgs:
+    def __init__(__self__, *,
+                 months_of_year: Optional[pulumi.Input[Sequence[pulumi.Input['MonthOfYear']]]] = None,
+                 retention_duration: Optional[pulumi.Input['RetentionDurationArgs']] = None,
+                 retention_schedule_daily: Optional[pulumi.Input['DailyRetentionFormatArgs']] = None,
+                 retention_schedule_format_type: Optional[pulumi.Input[Union[str, 'RetentionScheduleFormat']]] = None,
+                 retention_schedule_weekly: Optional[pulumi.Input['WeeklyRetentionFormatArgs']] = None,
+                 retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Yearly retention schedule.
+        :param pulumi.Input[Sequence[pulumi.Input['MonthOfYear']]] months_of_year: List of months of year of yearly retention policy.
+        :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration of retention Policy.
+        :param pulumi.Input['DailyRetentionFormatArgs'] retention_schedule_daily: Daily retention format for yearly retention policy.
+        :param pulumi.Input[Union[str, 'RetentionScheduleFormat']] retention_schedule_format_type: Retention schedule format for yearly retention policy.
+        :param pulumi.Input['WeeklyRetentionFormatArgs'] retention_schedule_weekly: Weekly retention format for yearly retention policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] retention_times: Retention times of retention policy.
+        """
+        if months_of_year is not None:
+            pulumi.set(__self__, "months_of_year", months_of_year)
+        if retention_duration is not None:
+            pulumi.set(__self__, "retention_duration", retention_duration)
+        if retention_schedule_daily is not None:
+            pulumi.set(__self__, "retention_schedule_daily", retention_schedule_daily)
+        if retention_schedule_format_type is not None:
+            pulumi.set(__self__, "retention_schedule_format_type", retention_schedule_format_type)
+        if retention_schedule_weekly is not None:
+            pulumi.set(__self__, "retention_schedule_weekly", retention_schedule_weekly)
+        if retention_times is not None:
+            pulumi.set(__self__, "retention_times", retention_times)
+
+    @property
+    @pulumi.getter(name="monthsOfYear")
+    def months_of_year(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonthOfYear']]]]:
+        """
+        List of months of year of yearly retention policy.
+        """
+        return pulumi.get(self, "months_of_year")
+
+    @months_of_year.setter
+    def months_of_year(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonthOfYear']]]]):
+        pulumi.set(self, "months_of_year", value)
+
+    @property
+    @pulumi.getter(name="retentionDuration")
+    def retention_duration(self) -> Optional[pulumi.Input['RetentionDurationArgs']]:
+        """
+        Retention duration of retention Policy.
+        """
+        return pulumi.get(self, "retention_duration")
+
+    @retention_duration.setter
+    def retention_duration(self, value: Optional[pulumi.Input['RetentionDurationArgs']]):
+        pulumi.set(self, "retention_duration", value)
+
+    @property
+    @pulumi.getter(name="retentionScheduleDaily")
+    def retention_schedule_daily(self) -> Optional[pulumi.Input['DailyRetentionFormatArgs']]:
+        """
+        Daily retention format for yearly retention policy.
+        """
+        return pulumi.get(self, "retention_schedule_daily")
+
+    @retention_schedule_daily.setter
+    def retention_schedule_daily(self, value: Optional[pulumi.Input['DailyRetentionFormatArgs']]):
+        pulumi.set(self, "retention_schedule_daily", value)
+
+    @property
+    @pulumi.getter(name="retentionScheduleFormatType")
+    def retention_schedule_format_type(self) -> Optional[pulumi.Input[Union[str, 'RetentionScheduleFormat']]]:
+        """
+        Retention schedule format for yearly retention policy.
+        """
+        return pulumi.get(self, "retention_schedule_format_type")
+
+    @retention_schedule_format_type.setter
+    def retention_schedule_format_type(self, value: Optional[pulumi.Input[Union[str, 'RetentionScheduleFormat']]]):
+        pulumi.set(self, "retention_schedule_format_type", value)
+
+    @property
+    @pulumi.getter(name="retentionScheduleWeekly")
+    def retention_schedule_weekly(self) -> Optional[pulumi.Input['WeeklyRetentionFormatArgs']]:
+        """
+        Weekly retention format for yearly retention policy.
+        """
+        return pulumi.get(self, "retention_schedule_weekly")
+
+    @retention_schedule_weekly.setter
+    def retention_schedule_weekly(self, value: Optional[pulumi.Input['WeeklyRetentionFormatArgs']]):
+        pulumi.set(self, "retention_schedule_weekly", value)
+
+    @property
+    @pulumi.getter(name="retentionTimes")
+    def retention_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Retention times of retention policy.
+        """
+        return pulumi.get(self, "retention_times")
+
+    @retention_times.setter
+    def retention_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "retention_times", value)
 
 

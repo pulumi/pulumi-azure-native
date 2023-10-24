@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Maintenance configuration record type
  * Azure REST API version: 2022-11-01-preview.
  *
- * Other available API versions: 2023-04-01.
+ * Other available API versions: 2023-04-01, 2023-09-01-preview.
  */
 export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceConfigurationResult> {
 
@@ -110,7 +110,7 @@ export interface GetMaintenanceConfigurationResult {
  * Maintenance configuration record type
  * Azure REST API version: 2022-11-01-preview.
  *
- * Other available API versions: 2023-04-01.
+ * Other available API versions: 2023-04-01, 2023-09-01-preview.
  */
 export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getMaintenanceConfiguration(a, opts))

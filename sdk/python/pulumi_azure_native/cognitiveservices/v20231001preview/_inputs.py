@@ -574,7 +574,7 @@ class DeploymentCapacitySettingsArgs:
                  designated_capacity: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[int]] = None):
         """
-        The maps to reserved Capacity for fungible deployments (MSS).
+        Internal use only.
         :param pulumi.Input[int] designated_capacity: The designated capacity.
         :param pulumi.Input[int] priority: The priority of this capacity setting.
         """
@@ -691,11 +691,11 @@ class DeploymentPropertiesArgs:
                  version_upgrade_option: Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]] = None):
         """
         Properties of Cognitive Services account deployment.
-        :param pulumi.Input['DeploymentCapacitySettingsArgs'] capacity_settings: The maps to reserved Capacity for fungible deployments (MSS).
+        :param pulumi.Input['DeploymentCapacitySettingsArgs'] capacity_settings: Internal use only.
         :param pulumi.Input[int] current_capacity: The current capacity.
         :param pulumi.Input['DeploymentModelArgs'] model: Properties of Cognitive Services account deployment model.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
-        :param pulumi.Input['DeploymentScaleSettingsArgs'] scale_settings: Properties of Cognitive Services account deployment model.
+        :param pulumi.Input['DeploymentScaleSettingsArgs'] scale_settings: Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         :param pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']] version_upgrade_option: Deployment model version upgrade option.
         """
         if capacity_settings is not None:
@@ -715,7 +715,7 @@ class DeploymentPropertiesArgs:
     @pulumi.getter(name="capacitySettings")
     def capacity_settings(self) -> Optional[pulumi.Input['DeploymentCapacitySettingsArgs']]:
         """
-        The maps to reserved Capacity for fungible deployments (MSS).
+        Internal use only.
         """
         return pulumi.get(self, "capacity_settings")
 
@@ -763,7 +763,7 @@ class DeploymentPropertiesArgs:
     @pulumi.getter(name="scaleSettings")
     def scale_settings(self) -> Optional[pulumi.Input['DeploymentScaleSettingsArgs']]:
         """
-        Properties of Cognitive Services account deployment model.
+        Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         """
         return pulumi.get(self, "scale_settings")
 
@@ -790,7 +790,7 @@ class DeploymentScaleSettingsArgs:
                  capacity: Optional[pulumi.Input[int]] = None,
                  scale_type: Optional[pulumi.Input[Union[str, 'DeploymentScaleType']]] = None):
         """
-        Properties of Cognitive Services account deployment model.
+        Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         :param pulumi.Input[int] capacity: Deployment capacity.
         :param pulumi.Input[Union[str, 'DeploymentScaleType']] scale_type: Deployment scale type.
         """
