@@ -2002,9 +2002,11 @@ func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{
 	return object
 }
 
-// parseCheckpointObject returns inputs that are saved in the `__inputs` field of the state.
+// parseCheckpointObject returns the old inputs either from the RPC request or that are saved in the `__inputs` field of the state.
 func parseCheckpointObject(reqOldInputs *structpb.Struct, obj resource.PropertyMap, label string) (resource.PropertyMap, error) {
-	// Prefer the old inputs from the RPC request if available.
+	// Prefer the old inputs from the RPC request if available because these are much easier for a user to edit in the state file.
+	// In the next major version of the provider, we'll remove the `__inputs` field from the state and require that the user is on
+	// a version of the CLI that includes the old inputs in the RPC request. See https://github.com/pulumi/pulumi-azure-native/issues/2686
 	if reqOldInputs != nil {
 		oldInputs, err := plugin.UnmarshalProperties(reqOldInputs, plugin.MarshalOptions{
 			Label: fmt.Sprintf("%s.oldInputs", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
