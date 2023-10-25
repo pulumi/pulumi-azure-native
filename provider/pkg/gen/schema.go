@@ -786,6 +786,8 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		readMethod = "HEAD"
 	}
 
+	requiredContainers := additionalRequiredContainers(resourceTok)
+
 	r := resources.AzureAPIResource{
 		APIVersion:           swagger.Info.Version,
 		Path:                 resource.Path,
@@ -799,6 +801,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		ReadMethod:           readMethod,
 		ReadPath:             readPath,
 		AutoLocationDisabled: resources.AutoLocationDisabled(resource.Path),
+		RequiredContainers:   requiredContainers,
 	}
 	g.metadata.Resources[resourceTok] = r
 
