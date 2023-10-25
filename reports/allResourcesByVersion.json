@@ -1942,6 +1942,44 @@
       "listGatewayEnvSecrets",
       "listServiceGloballyEnabledApms",
       "listServiceTestKeys"
+    ],
+    "2023-11-01-preview": [
+      "ApiPortal",
+      "ApiPortalCustomDomain",
+      "Apm",
+      "App",
+      "ApplicationAccelerator",
+      "ApplicationLiveView",
+      "Binding",
+      "BuildServiceAgentPool",
+      "BuildServiceBuild",
+      "BuildServiceBuilder",
+      "BuildpackBinding",
+      "Certificate",
+      "ConfigServer",
+      "ConfigurationService",
+      "ContainerRegistry",
+      "CustomDomain",
+      "CustomizedAccelerator",
+      "Deployment",
+      "DevToolPortal",
+      "Gateway",
+      "GatewayCustomDomain",
+      "GatewayRouteConfig",
+      "MonitoringSetting",
+      "Service",
+      "ServiceRegistry",
+      "Storage",
+      "getAppResourceUploadUrl",
+      "getBuildServiceBuildResultLog",
+      "getBuildServiceResourceUploadUrl",
+      "getDeploymentLogFileUrl",
+      "getDeploymentRemoteDebuggingConfig",
+      "listApmSecretKeys",
+      "listBuildServiceBuilderDeployments",
+      "listGatewayEnvSecrets",
+      "listServiceGloballyEnabledApms",
+      "listServiceTestKeys"
     ]
   },
   "Attestation": {
@@ -2354,6 +2392,9 @@
       "SqlServer",
       "SqlServerRegistration"
     ]
+  },
+  "AzureLargeInstance": {
+    "": []
   },
   "AzurePlaywrightService": {
     "2023-10-01-preview": [
@@ -3242,6 +3283,11 @@
       "Target"
     ],
     "2023-09-01-preview": [
+      "Capability",
+      "Experiment",
+      "Target"
+    ],
+    "2023-10-27-preview": [
       "Capability",
       "Experiment",
       "Target"
@@ -7857,6 +7903,11 @@
       "Workspace"
     ]
   },
+  "EdgeMarketplace": {
+    "2023-08-01-preview": [
+      "getOfferAccessToken"
+    ]
+  },
   "EdgeOrder": {
     "2020-12-01-preview": [
       "AddressByName",
@@ -9155,6 +9206,17 @@
     ],
     "2023-06-01": [
       "Workbook"
+    ]
+  },
+  "IntegrationSpaces": {
+    "2023-11-14-preview": [
+      "Application",
+      "ApplicationResource",
+      "BusinessProcess",
+      "InfrastructureResource",
+      "Space",
+      "getApplicationBusinessProcessDevelopmentArtifact",
+      "listApplicationBusinessProcessDevelopmentArtifacts"
     ]
   },
   "Intune": {
@@ -14732,9 +14794,21 @@
     ],
     "2023-07-01-preview": [
       "DnssecConfig",
+      "NetworkSecurityPerimeter",
+      "NspAccessRule",
+      "NspAssociation",
+      "NspLink",
+      "NspProfile",
       "RecordSet",
       "Zone",
       "getDnsResourceReferenceByTarResources"
+    ],
+    "2023-08-01-preview": [
+      "NetworkSecurityPerimeter",
+      "NspAccessRule",
+      "NspAssociation",
+      "NspLink",
+      "NspProfile"
     ]
   },
   "NetworkAnalytics": {
@@ -17384,6 +17458,11 @@
       "TrafficControllerInterface"
     ],
     "2023-05-01-preview": [
+      "AssociationsInterface",
+      "FrontendsInterface",
+      "TrafficControllerInterface"
+    ],
+    "2023-11-01": [
       "AssociationsInterface",
       "FrontendsInterface",
       "TrafficControllerInterface"
