@@ -24,9 +24,9 @@ class SharedPrivateLinkResourceArgs:
         """
         The set of arguments for constructing a SharedPrivateLinkResource resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
-        :param pulumi.Input['SharedPrivateLinkResourcePropertiesArgs'] properties: Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
-        :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+        :param pulumi.Input[str] search_service_name: The name of the search service associated with the specified resource group.
+        :param pulumi.Input['SharedPrivateLinkResourcePropertiesArgs'] properties: Describes the properties of a Shared Private Link Resource managed by the search service.
+        :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource managed by the search service within the specified resource group.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "search_service_name", search_service_name)
@@ -51,7 +51,7 @@ class SharedPrivateLinkResourceArgs:
     @pulumi.getter(name="searchServiceName")
     def search_service_name(self) -> pulumi.Input[str]:
         """
-        The name of the Azure Cognitive Search service associated with the specified resource group.
+        The name of the search service associated with the specified resource group.
         """
         return pulumi.get(self, "search_service_name")
 
@@ -63,7 +63,7 @@ class SharedPrivateLinkResourceArgs:
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]:
         """
-        Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        Describes the properties of a Shared Private Link Resource managed by the search service.
         """
         return pulumi.get(self, "properties")
 
@@ -75,7 +75,7 @@ class SharedPrivateLinkResourceArgs:
     @pulumi.getter(name="sharedPrivateLinkResourceName")
     def shared_private_link_resource_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+        The name of the shared private link resource managed by the search service within the specified resource group.
         """
         return pulumi.get(self, "shared_private_link_resource_name")
 
@@ -95,14 +95,14 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                  shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        Describes a Shared Private Link Resource managed by the search service.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']] properties: Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        :param pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']] properties: Describes the properties of a Shared Private Link Resource managed by the search service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
-        :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+        :param pulumi.Input[str] search_service_name: The name of the search service associated with the specified resource group.
+        :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource managed by the search service within the specified resource group.
         """
         ...
     @overload
@@ -111,7 +111,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                  args: SharedPrivateLinkResourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        Describes a Shared Private Link Resource managed by the search service.
 
         :param str resource_name: The name of the resource.
         :param SharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.
@@ -192,7 +192,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.SharedPrivateLinkResourcePropertiesResponse']:
         """
-        Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        Describes the properties of a Shared Private Link Resource managed by the search service.
         """
         return pulumi.get(self, "properties")
 

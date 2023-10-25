@@ -208,6 +208,8 @@ def get_nsp_link(link_name: Optional[str] = None,
     Gets the specified NSP link resource.
     Azure REST API version: 2021-02-01-preview.
 
+    Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+
 
     :param str link_name: The name of the NSP link.
     :param str network_security_perimeter_name: The name of the network security perimeter.
@@ -245,6 +247,8 @@ def get_nsp_link_output(link_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the specified NSP link resource.
     Azure REST API version: 2021-02-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
 
 
     :param str link_name: The name of the NSP link.

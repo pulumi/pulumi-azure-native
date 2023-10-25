@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The NSP access rule resource
  * Azure REST API version: 2021-02-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+ *
+ * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
  */
 export class NspAccessRule extends pulumi.CustomResource {
     /**
@@ -139,7 +141,7 @@ export class NspAccessRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NspAccessRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NspAccessRule" }, { type: "azure-native:network/v20230701preview:NspAccessRule" }, { type: "azure-native:network/v20230801preview:NspAccessRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NspAccessRule.__pulumiType, name, resourceInputs, opts);
     }

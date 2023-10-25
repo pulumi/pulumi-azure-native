@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetServiceResult:
     """
-    Describes an Azure Cognitive Search service and its current state.
+    Describes a search service and its current state.
     """
     def __init__(__self__, auth_options=None, disable_local_auth=None, encryption_with_cmk=None, hosting_mode=None, id=None, identity=None, location=None, name=None, network_rule_set=None, partition_count=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, replica_count=None, semantic_search=None, shared_private_link_resources=None, sku=None, status=None, status_details=None, tags=None, type=None):
         if auth_options and not isinstance(auth_options, dict):
@@ -155,7 +155,7 @@ class GetServiceResult:
     @pulumi.getter(name="networkRuleSet")
     def network_rule_set(self) -> Optional['outputs.NetworkRuleSetResponse']:
         """
-        Network specific rules that determine how the Azure Cognitive Search service may be reached.
+        Network-specific rules that determine how the search service may be reached.
         """
         return pulumi.get(self, "network_rule_set")
 
@@ -171,7 +171,7 @@ class GetServiceResult:
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
-        The list of private endpoint connections to the Azure Cognitive Search service.
+        The list of private endpoint connections to the search service.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -203,7 +203,7 @@ class GetServiceResult:
     @pulumi.getter(name="semanticSearch")
     def semantic_search(self) -> Optional[str]:
         """
-        Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
+        Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
         """
         return pulumi.get(self, "semantic_search")
 
@@ -211,7 +211,7 @@ class GetServiceResult:
     @pulumi.getter(name="sharedPrivateLinkResources")
     def shared_private_link_resources(self) -> Sequence['outputs.SharedPrivateLinkResourceResponse']:
         """
-        The list of shared private link resources managed by the Azure Cognitive Search service.
+        The list of shared private link resources managed by the search service.
         """
         return pulumi.get(self, "shared_private_link_resources")
 
@@ -219,7 +219,7 @@ class GetServiceResult:
     @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
-        The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
+        The SKU of the search service, which determines billing rate and capacity limits. This property is required when creating a new search service.
         """
         return pulumi.get(self, "sku")
 
@@ -227,7 +227,7 @@ class GetServiceResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. If your service is in the degraded, disabled, or error states, it means the Azure Cognitive Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
+        The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. If your service is in the degraded, disabled, or error states, Microsoft is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
         """
         return pulumi.get(self, "status")
 
@@ -293,7 +293,7 @@ def get_service(resource_group_name: Optional[str] = None,
 
 
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
+    :param str search_service_name: The name of the search service associated with the specified resource group.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -334,6 +334,6 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
 
 
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
+    :param str search_service_name: The name of the search service associated with the specified resource group.
     """
     ...

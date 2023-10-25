@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Search.V20231101
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Cognitive Search service associated with the specified resource group.
+        /// The name of the search service associated with the specified resource group.
         /// </summary>
         [Input("searchServiceName", required: true)]
         public string SearchServiceName { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.Search.V20231101
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Cognitive Search service associated with the specified resource group.
+        /// The name of the search service associated with the specified resource group.
         /// </summary>
         [Input("searchServiceName", required: true)]
         public Input<string> SearchServiceName { get; set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.Search.V20231101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Network specific rules that determine how the Azure Cognitive Search service may be reached.
+        /// Network-specific rules that determine how the search service may be reached.
         /// </summary>
         public readonly Outputs.NetworkRuleSetResponse? NetworkRuleSet;
         /// <summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Search.V20231101
         /// </summary>
         public readonly int? PartitionCount;
         /// <summary>
-        /// The list of private endpoint connections to the Azure Cognitive Search service.
+        /// The list of private endpoint connections to the search service.
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
@@ -126,19 +126,19 @@ namespace Pulumi.AzureNative.Search.V20231101
         /// </summary>
         public readonly int? ReplicaCount;
         /// <summary>
-        /// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
+        /// Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
         /// </summary>
         public readonly string? SemanticSearch;
         /// <summary>
-        /// The list of shared private link resources managed by the Azure Cognitive Search service.
+        /// The list of shared private link resources managed by the search service.
         /// </summary>
         public readonly ImmutableArray<Outputs.SharedPrivateLinkResourceResponse> SharedPrivateLinkResources;
         /// <summary>
-        /// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
+        /// The SKU of the search service, which determines billing rate and capacity limits. This property is required when creating a new search service.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
-        /// The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. If your service is in the degraded, disabled, or error states, it means the Azure Cognitive Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
+        /// The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. If your service is in the degraded, disabled, or error states, Microsoft is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
         /// </summary>
         public readonly string Status;
         /// <summary>

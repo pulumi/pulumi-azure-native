@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Search.V20231101.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
+        /// Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
         /// </summary>
         public readonly string? Status;
 

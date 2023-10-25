@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// The NSP resource association resource
     /// Azure REST API version: 2021-02-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+    /// 
+    /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NspAssociation")]
     public partial class NspAssociation : global::Pulumi.CustomResource
@@ -96,6 +98,8 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspAssociation"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NspAssociation"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NspAssociation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

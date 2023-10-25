@@ -175,6 +175,8 @@ if typing.TYPE_CHECKING:
     dynamics365fraudprotection = __dynamics365fraudprotection
     import pulumi_azure_native.easm as __easm
     easm = __easm
+    import pulumi_azure_native.edgemarketplace as __edgemarketplace
+    edgemarketplace = __edgemarketplace
     import pulumi_azure_native.edgeorder as __edgeorder
     edgeorder = __edgeorder
     import pulumi_azure_native.education as __education
@@ -227,6 +229,8 @@ if typing.TYPE_CHECKING:
     importexport = __importexport
     import pulumi_azure_native.insights as __insights
     insights = __insights
+    import pulumi_azure_native.integrationspaces as __integrationspaces
+    integrationspaces = __integrationspaces
     import pulumi_azure_native.intune as __intune
     intune = __intune
     import pulumi_azure_native.iotcentral as __iotcentral
@@ -521,6 +525,7 @@ else:
     domainregistration = _utilities.lazy_import('pulumi_azure_native.domainregistration')
     dynamics365fraudprotection = _utilities.lazy_import('pulumi_azure_native.dynamics365fraudprotection')
     easm = _utilities.lazy_import('pulumi_azure_native.easm')
+    edgemarketplace = _utilities.lazy_import('pulumi_azure_native.edgemarketplace')
     edgeorder = _utilities.lazy_import('pulumi_azure_native.edgeorder')
     education = _utilities.lazy_import('pulumi_azure_native.education')
     elastic = _utilities.lazy_import('pulumi_azure_native.elastic')
@@ -547,6 +552,7 @@ else:
     hybridnetwork = _utilities.lazy_import('pulumi_azure_native.hybridnetwork')
     importexport = _utilities.lazy_import('pulumi_azure_native.importexport')
     insights = _utilities.lazy_import('pulumi_azure_native.insights')
+    integrationspaces = _utilities.lazy_import('pulumi_azure_native.integrationspaces')
     intune = _utilities.lazy_import('pulumi_azure_native.intune')
     iotcentral = _utilities.lazy_import('pulumi_azure_native.iotcentral')
     iotfirmwaredefense = _utilities.lazy_import('pulumi_azure_native.iotfirmwaredefense')
@@ -1633,6 +1639,39 @@ _utilities.register(
    "azure-native:appplatform/v20230901preview:Service": "Service",
    "azure-native:appplatform/v20230901preview:ServiceRegistry": "ServiceRegistry",
    "azure-native:appplatform/v20230901preview:Storage": "Storage"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "appplatform/v20231101preview",
+  "fqn": "pulumi_azure_native.appplatform.v20231101preview",
+  "classes": {
+   "azure-native:appplatform/v20231101preview:ApiPortal": "ApiPortal",
+   "azure-native:appplatform/v20231101preview:ApiPortalCustomDomain": "ApiPortalCustomDomain",
+   "azure-native:appplatform/v20231101preview:Apm": "Apm",
+   "azure-native:appplatform/v20231101preview:App": "App",
+   "azure-native:appplatform/v20231101preview:ApplicationAccelerator": "ApplicationAccelerator",
+   "azure-native:appplatform/v20231101preview:ApplicationLiveView": "ApplicationLiveView",
+   "azure-native:appplatform/v20231101preview:Binding": "Binding",
+   "azure-native:appplatform/v20231101preview:BuildServiceAgentPool": "BuildServiceAgentPool",
+   "azure-native:appplatform/v20231101preview:BuildServiceBuild": "BuildServiceBuild",
+   "azure-native:appplatform/v20231101preview:BuildServiceBuilder": "BuildServiceBuilder",
+   "azure-native:appplatform/v20231101preview:BuildpackBinding": "BuildpackBinding",
+   "azure-native:appplatform/v20231101preview:Certificate": "Certificate",
+   "azure-native:appplatform/v20231101preview:ConfigServer": "ConfigServer",
+   "azure-native:appplatform/v20231101preview:ConfigurationService": "ConfigurationService",
+   "azure-native:appplatform/v20231101preview:ContainerRegistry": "ContainerRegistry",
+   "azure-native:appplatform/v20231101preview:CustomDomain": "CustomDomain",
+   "azure-native:appplatform/v20231101preview:CustomizedAccelerator": "CustomizedAccelerator",
+   "azure-native:appplatform/v20231101preview:Deployment": "Deployment",
+   "azure-native:appplatform/v20231101preview:DevToolPortal": "DevToolPortal",
+   "azure-native:appplatform/v20231101preview:Gateway": "Gateway",
+   "azure-native:appplatform/v20231101preview:GatewayCustomDomain": "GatewayCustomDomain",
+   "azure-native:appplatform/v20231101preview:GatewayRouteConfig": "GatewayRouteConfig",
+   "azure-native:appplatform/v20231101preview:MonitoringSetting": "MonitoringSetting",
+   "azure-native:appplatform/v20231101preview:Service": "Service",
+   "azure-native:appplatform/v20231101preview:ServiceRegistry": "ServiceRegistry",
+   "azure-native:appplatform/v20231101preview:Storage": "Storage"
   }
  },
  {
@@ -2832,6 +2871,16 @@ _utilities.register(
    "azure-native:chaos/v20230901preview:Capability": "Capability",
    "azure-native:chaos/v20230901preview:Experiment": "Experiment",
    "azure-native:chaos/v20230901preview:Target": "Target"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "chaos/v20231027preview",
+  "fqn": "pulumi_azure_native.chaos.v20231027preview",
+  "classes": {
+   "azure-native:chaos/v20231027preview:Capability": "Capability",
+   "azure-native:chaos/v20231027preview:Experiment": "Experiment",
+   "azure-native:chaos/v20231027preview:Target": "Target"
   }
  },
  {
@@ -6686,6 +6735,30 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "integrationspaces",
+  "fqn": "pulumi_azure_native.integrationspaces",
+  "classes": {
+   "azure-native:integrationspaces:Application": "Application",
+   "azure-native:integrationspaces:ApplicationResource": "ApplicationResource",
+   "azure-native:integrationspaces:BusinessProcess": "BusinessProcess",
+   "azure-native:integrationspaces:InfrastructureResource": "InfrastructureResource",
+   "azure-native:integrationspaces:Space": "Space"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "integrationspaces/v20231114preview",
+  "fqn": "pulumi_azure_native.integrationspaces.v20231114preview",
+  "classes": {
+   "azure-native:integrationspaces/v20231114preview:Application": "Application",
+   "azure-native:integrationspaces/v20231114preview:ApplicationResource": "ApplicationResource",
+   "azure-native:integrationspaces/v20231114preview:BusinessProcess": "BusinessProcess",
+   "azure-native:integrationspaces/v20231114preview:InfrastructureResource": "InfrastructureResource",
+   "azure-native:integrationspaces/v20231114preview:Space": "Space"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "intune",
   "fqn": "pulumi_azure_native.intune",
   "classes": {
@@ -9242,8 +9315,25 @@ _utilities.register(
   "fqn": "pulumi_azure_native.network.v20230701preview",
   "classes": {
    "azure-native:network/v20230701preview:DnssecConfig": "DnssecConfig",
+   "azure-native:network/v20230701preview:NetworkSecurityPerimeter": "NetworkSecurityPerimeter",
+   "azure-native:network/v20230701preview:NspAccessRule": "NspAccessRule",
+   "azure-native:network/v20230701preview:NspAssociation": "NspAssociation",
+   "azure-native:network/v20230701preview:NspLink": "NspLink",
+   "azure-native:network/v20230701preview:NspProfile": "NspProfile",
    "azure-native:network/v20230701preview:RecordSet": "RecordSet",
    "azure-native:network/v20230701preview:Zone": "Zone"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "network/v20230801preview",
+  "fqn": "pulumi_azure_native.network.v20230801preview",
+  "classes": {
+   "azure-native:network/v20230801preview:NetworkSecurityPerimeter": "NetworkSecurityPerimeter",
+   "azure-native:network/v20230801preview:NspAccessRule": "NspAccessRule",
+   "azure-native:network/v20230801preview:NspAssociation": "NspAssociation",
+   "azure-native:network/v20230801preview:NspLink": "NspLink",
+   "azure-native:network/v20230801preview:NspProfile": "NspProfile"
   }
  },
  {
@@ -11445,6 +11535,16 @@ _utilities.register(
    "azure-native:servicenetworking/v20230501preview:AssociationsInterface": "AssociationsInterface",
    "azure-native:servicenetworking/v20230501preview:FrontendsInterface": "FrontendsInterface",
    "azure-native:servicenetworking/v20230501preview:TrafficControllerInterface": "TrafficControllerInterface"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicenetworking/v20231101",
+  "fqn": "pulumi_azure_native.servicenetworking.v20231101",
+  "classes": {
+   "azure-native:servicenetworking/v20231101:AssociationsInterface": "AssociationsInterface",
+   "azure-native:servicenetworking/v20231101:FrontendsInterface": "FrontendsInterface",
+   "azure-native:servicenetworking/v20231101:TrafficControllerInterface": "TrafficControllerInterface"
   }
  },
  {

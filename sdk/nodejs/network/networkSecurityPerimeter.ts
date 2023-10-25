@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * The Network Security Perimeter resource
  * Azure REST API version: 2021-03-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
  *
- * Other available API versions: 2021-02-01-preview.
+ * Other available API versions: 2021-02-01-preview, 2023-07-01-preview, 2023-08-01-preview.
  */
 export class NetworkSecurityPerimeter extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class NetworkSecurityPerimeter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeter" }, { type: "azure-native:network/v20210301preview:NetworkSecurityPerimeter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeter" }, { type: "azure-native:network/v20210301preview:NetworkSecurityPerimeter" }, { type: "azure-native:network/v20230701preview:NetworkSecurityPerimeter" }, { type: "azure-native:network/v20230801preview:NetworkSecurityPerimeter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkSecurityPerimeter.__pulumiType, name, resourceInputs, opts);
     }

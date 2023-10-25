@@ -19,30 +19,6 @@ namespace Pulumi.AzureNative.HybridCompute
     public partial class MachineExtension : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-        /// </summary>
-        [Output("autoUpgradeMinorVersion")]
-        public Output<bool?> AutoUpgradeMinorVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
-        /// </summary>
-        [Output("enableAutomaticUpgrade")]
-        public Output<bool?> EnableAutomaticUpgrade { get; private set; } = null!;
-
-        /// <summary>
-        /// How the extension handler should be forced to update even if the extension configuration has not changed.
-        /// </summary>
-        [Output("forceUpdateTag")]
-        public Output<string?> ForceUpdateTag { get; private set; } = null!;
-
-        /// <summary>
-        /// The machine extension instance view.
-        /// </summary>
-        [Output("instanceView")]
-        public Output<Outputs.MachineExtensionInstanceViewResponse?> InstanceView { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -55,28 +31,10 @@ namespace Pulumi.AzureNative.HybridCompute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        /// Describes Machine Extension Properties.
         /// </summary>
-        [Output("protectedSettings")]
-        public Output<object?> ProtectedSettings { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state, which only appears in the response.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the extension handler publisher.
-        /// </summary>
-        [Output("publisher")]
-        public Output<string?> Publisher { get; private set; } = null!;
-
-        /// <summary>
-        /// Json formatted public settings for the extension.
-        /// </summary>
-        [Output("settings")]
-        public Output<object?> Settings { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.MachineExtensionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -95,12 +53,6 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the version of the script handler.
-        /// </summary>
-        [Output("typeHandlerVersion")]
-        public Output<string?> TypeHandlerVersion { get; private set; } = null!;
 
 
         /// <summary>
@@ -171,34 +123,10 @@ namespace Pulumi.AzureNative.HybridCompute
     public sealed class MachineExtensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-        /// </summary>
-        [Input("autoUpgradeMinorVersion")]
-        public Input<bool>? AutoUpgradeMinorVersion { get; set; }
-
-        /// <summary>
-        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
-        /// </summary>
-        [Input("enableAutomaticUpgrade")]
-        public Input<bool>? EnableAutomaticUpgrade { get; set; }
-
-        /// <summary>
         /// The name of the machine extension.
         /// </summary>
         [Input("extensionName")]
         public Input<string>? ExtensionName { get; set; }
-
-        /// <summary>
-        /// How the extension handler should be forced to update even if the extension configuration has not changed.
-        /// </summary>
-        [Input("forceUpdateTag")]
-        public Input<string>? ForceUpdateTag { get; set; }
-
-        /// <summary>
-        /// The machine extension instance view.
-        /// </summary>
-        [Input("instanceView")]
-        public Input<Inputs.MachineExtensionInstanceViewArgs>? InstanceView { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -213,28 +141,16 @@ namespace Pulumi.AzureNative.HybridCompute
         public Input<string> MachineName { get; set; } = null!;
 
         /// <summary>
-        /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        /// Describes Machine Extension Properties.
         /// </summary>
-        [Input("protectedSettings")]
-        public Input<object>? ProtectedSettings { get; set; }
-
-        /// <summary>
-        /// The name of the extension handler publisher.
-        /// </summary>
-        [Input("publisher")]
-        public Input<string>? Publisher { get; set; }
+        [Input("properties")]
+        public Input<Inputs.MachineExtensionPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Json formatted public settings for the extension.
-        /// </summary>
-        [Input("settings")]
-        public Input<object>? Settings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -247,18 +163,6 @@ namespace Pulumi.AzureNative.HybridCompute
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Specifies the type of the extension; an example is "CustomScriptExtension".
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        /// <summary>
-        /// Specifies the version of the script handler.
-        /// </summary>
-        [Input("typeHandlerVersion")]
-        public Input<string>? TypeHandlerVersion { get; set; }
 
         public MachineExtensionArgs()
         {

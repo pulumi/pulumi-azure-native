@@ -34,13 +34,13 @@ namespace Pulumi.AzureNative.Search.V20231101
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Cognitive Search service associated with the specified resource group.
+        /// The name of the search service associated with the specified resource group.
         /// </summary>
         [Input("searchServiceName", required: true)]
         public string SearchServiceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+        /// The name of the shared private link resource managed by the search service within the specified resource group.
         /// </summary>
         [Input("sharedPrivateLinkResourceName", required: true)]
         public string SharedPrivateLinkResourceName { get; set; } = null!;
@@ -60,13 +60,13 @@ namespace Pulumi.AzureNative.Search.V20231101
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Cognitive Search service associated with the specified resource group.
+        /// The name of the search service associated with the specified resource group.
         /// </summary>
         [Input("searchServiceName", required: true)]
         public Input<string> SearchServiceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+        /// The name of the shared private link resource managed by the search service within the specified resource group.
         /// </summary>
         [Input("sharedPrivateLinkResourceName", required: true)]
         public Input<string> SharedPrivateLinkResourceName { get; set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Search.V20231101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        /// Describes the properties of a Shared Private Link Resource managed by the search service.
         /// </summary>
         public readonly Outputs.SharedPrivateLinkResourcePropertiesResponse Properties;
         /// <summary>

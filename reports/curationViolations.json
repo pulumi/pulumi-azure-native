@@ -84,6 +84,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "EdgeMarketplace",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "Provider": "EdgeOrder",
     "Detail": "expected no additions but found some"
   },
@@ -129,6 +133,10 @@
   },
   {
     "Provider": "HybridNetwork",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "IntegrationSpaces",
     "Detail": "expected tracking stable but found preview"
   },
   {

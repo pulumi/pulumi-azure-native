@@ -26,17 +26,17 @@ export interface GetSharedPrivateLinkResourceArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the Azure Cognitive Search service associated with the specified resource group.
+     * The name of the search service associated with the specified resource group.
      */
     searchServiceName: string;
     /**
-     * The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+     * The name of the shared private link resource managed by the search service within the specified resource group.
      */
     sharedPrivateLinkResourceName: string;
 }
 
 /**
- * Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+ * Describes a Shared Private Link Resource managed by the search service.
  */
 export interface GetSharedPrivateLinkResourceResult {
     /**
@@ -48,7 +48,7 @@ export interface GetSharedPrivateLinkResourceResult {
      */
     readonly name: string;
     /**
-     * Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+     * Describes the properties of a Shared Private Link Resource managed by the search service.
      */
     readonly properties: outputs.search.v20231101.SharedPrivateLinkResourcePropertiesResponse;
     /**
@@ -69,11 +69,11 @@ export interface GetSharedPrivateLinkResourceOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Azure Cognitive Search service associated with the specified resource group.
+     * The name of the search service associated with the specified resource group.
      */
     searchServiceName: pulumi.Input<string>;
     /**
-     * The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+     * The name of the shared private link resource managed by the search service within the specified resource group.
      */
     sharedPrivateLinkResourceName: pulumi.Input<string>;
 }

@@ -8,6 +8,69 @@ using Pulumi;
 namespace Pulumi.AzureNative.Network.V20230701Preview
 {
     /// <summary>
+    /// Direction that specifies whether the access rules is inbound/outbound.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessRuleDirection : IEquatable<AccessRuleDirection>
+    {
+        private readonly string _value;
+
+        private AccessRuleDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessRuleDirection Inbound { get; } = new AccessRuleDirection("Inbound");
+        public static AccessRuleDirection Outbound { get; } = new AccessRuleDirection("Outbound");
+
+        public static bool operator ==(AccessRuleDirection left, AccessRuleDirection right) => left.Equals(right);
+        public static bool operator !=(AccessRuleDirection left, AccessRuleDirection right) => !left.Equals(right);
+
+        public static explicit operator string(AccessRuleDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessRuleDirection other && Equals(other);
+        public bool Equals(AccessRuleDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Access mode on the association.
+    /// </summary>
+    [EnumType]
+    public readonly struct AssociationAccessMode : IEquatable<AssociationAccessMode>
+    {
+        private readonly string _value;
+
+        private AssociationAccessMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssociationAccessMode Learning { get; } = new AssociationAccessMode("Learning");
+        public static AssociationAccessMode Enforced { get; } = new AssociationAccessMode("Enforced");
+        public static AssociationAccessMode Audit { get; } = new AssociationAccessMode("Audit");
+
+        public static bool operator ==(AssociationAccessMode left, AssociationAccessMode right) => left.Equals(right);
+        public static bool operator !=(AssociationAccessMode left, AssociationAccessMode right) => !left.Equals(right);
+
+        public static explicit operator string(AssociationAccessMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssociationAccessMode other && Equals(other);
+        public bool Equals(AssociationAccessMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of this DNS zone (Public or Private).
     /// </summary>
     [EnumType]

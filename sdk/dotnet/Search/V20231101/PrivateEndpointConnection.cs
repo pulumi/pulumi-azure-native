@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Search.V20231101
 {
     /// <summary>
-    /// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+    /// Describes an existing private endpoint connection to the search service.
     /// </summary>
     [AzureNativeResourceType("azure-native:search/v20231101:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Search.V20231101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        /// Describes the properties of an existing private endpoint connection to the search service.
         /// </summary>
         [Output("properties")]
         public Output<Outputs.PrivateEndpointConnectionPropertiesResponse> Properties { get; private set; } = null!;
@@ -89,13 +89,13 @@ namespace Pulumi.AzureNative.Search.V20231101
     public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
+        /// The name of the private endpoint connection to the search service with the specified resource group.
         /// </summary>
         [Input("privateEndpointConnectionName")]
         public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
-        /// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        /// Describes the properties of an existing private endpoint connection to the search service.
         /// </summary>
         [Input("properties")]
         public Input<Inputs.PrivateEndpointConnectionPropertiesArgs>? Properties { get; set; }
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Search.V20231101
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Cognitive Search service associated with the specified resource group.
+        /// The name of the search service associated with the specified resource group.
         /// </summary>
         [Input("searchServiceName", required: true)]
         public Input<string> SearchServiceName { get; set; } = null!;

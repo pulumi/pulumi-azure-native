@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified NSP access rule by name.
         /// Azure REST API version: 2021-02-01-preview.
+        /// 
+        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
         /// </summary>
         public static Task<GetNspAccessRuleResult> InvokeAsync(GetNspAccessRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNspAccessRuleResult>("azure-native:network:getNspAccessRule", args ?? new GetNspAccessRuleArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified NSP access rule by name.
         /// Azure REST API version: 2021-02-01-preview.
+        /// 
+        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
         /// </summary>
         public static Output<GetNspAccessRuleResult> Invoke(GetNspAccessRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNspAccessRuleResult>("azure-native:network:getNspAccessRule", args ?? new GetNspAccessRuleInvokeArgs(), options.WithDefaults());

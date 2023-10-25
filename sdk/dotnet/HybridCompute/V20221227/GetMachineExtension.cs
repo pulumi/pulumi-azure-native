@@ -82,25 +82,9 @@ namespace Pulumi.AzureNative.HybridCompute.V20221227
     public sealed class GetMachineExtensionResult
     {
         /// <summary>
-        /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-        /// </summary>
-        public readonly bool? AutoUpgradeMinorVersion;
-        /// <summary>
-        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
-        /// </summary>
-        public readonly bool? EnableAutomaticUpgrade;
-        /// <summary>
-        /// How the extension handler should be forced to update even if the extension configuration has not changed.
-        /// </summary>
-        public readonly string? ForceUpdateTag;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The machine extension instance view.
-        /// </summary>
-        public readonly Outputs.MachineExtensionInstanceViewResponse? InstanceView;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -110,21 +94,9 @@ namespace Pulumi.AzureNative.HybridCompute.V20221227
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        /// Describes Machine Extension Properties.
         /// </summary>
-        public readonly object? ProtectedSettings;
-        /// <summary>
-        /// The provisioning state, which only appears in the response.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The name of the extension handler publisher.
-        /// </summary>
-        public readonly string? Publisher;
-        /// <summary>
-        /// Json formatted public settings for the extension.
-        /// </summary>
-        public readonly object? Settings;
+        public readonly Outputs.MachineExtensionPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -137,58 +109,30 @@ namespace Pulumi.AzureNative.HybridCompute.V20221227
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Specifies the version of the script handler.
-        /// </summary>
-        public readonly string? TypeHandlerVersion;
 
         [OutputConstructor]
         private GetMachineExtensionResult(
-            bool? autoUpgradeMinorVersion,
-
-            bool? enableAutomaticUpgrade,
-
-            string? forceUpdateTag,
-
             string id,
-
-            Outputs.MachineExtensionInstanceViewResponse? instanceView,
 
             string location,
 
             string name,
 
-            object? protectedSettings,
-
-            string provisioningState,
-
-            string? publisher,
-
-            object? settings,
+            Outputs.MachineExtensionPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string? typeHandlerVersion)
+            string type)
         {
-            AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
-            EnableAutomaticUpgrade = enableAutomaticUpgrade;
-            ForceUpdateTag = forceUpdateTag;
             Id = id;
-            InstanceView = instanceView;
             Location = location;
             Name = name;
-            ProtectedSettings = protectedSettings;
-            ProvisioningState = provisioningState;
-            Publisher = publisher;
-            Settings = settings;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            TypeHandlerVersion = typeHandlerVersion;
         }
     }
 }

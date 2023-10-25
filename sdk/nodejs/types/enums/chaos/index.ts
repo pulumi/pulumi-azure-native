@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20230415preview from "./v20230415preview";
 import * as v20230901preview from "./v20230901preview";
+import * as v20231027preview from "./v20231027preview";
 
 export {
     v20230415preview,
     v20230901preview,
+    v20231027preview,
 };
 
 export const FilterType = {

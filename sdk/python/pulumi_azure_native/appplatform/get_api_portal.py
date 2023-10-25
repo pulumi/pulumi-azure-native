@@ -113,7 +113,7 @@ def get_api_portal(api_portal_name: Optional[str] = None,
     Get the API portal and its properties.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
 
 
     :param str api_portal_name: The name of API portal.
@@ -145,7 +145,7 @@ def get_api_portal_output(api_portal_name: Optional[pulumi.Input[str]] = None,
     Get the API portal and its properties.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
 
 
     :param str api_portal_name: The name of API portal.

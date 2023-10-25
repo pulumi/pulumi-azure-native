@@ -5,8 +5,27 @@
 from enum import Enum
 
 __all__ = [
+    'AccessRuleDirection',
+    'AssociationAccessMode',
     'ZoneType',
 ]
+
+
+class AccessRuleDirection(str, Enum):
+    """
+    Direction that specifies whether the access rules is inbound/outbound.
+    """
+    INBOUND = "Inbound"
+    OUTBOUND = "Outbound"
+
+
+class AssociationAccessMode(str, Enum):
+    """
+    Access mode on the association.
+    """
+    LEARNING = "Learning"
+    ENFORCED = "Enforced"
+    AUDIT = "Audit"
 
 
 class ZoneType(str, Enum):

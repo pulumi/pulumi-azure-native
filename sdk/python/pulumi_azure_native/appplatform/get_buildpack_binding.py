@@ -103,7 +103,7 @@ def get_buildpack_binding(build_service_name: Optional[str] = None,
     Get a buildpack binding by name.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
 
 
     :param str build_service_name: The name of the build service resource.
@@ -140,7 +140,7 @@ def get_buildpack_binding_output(build_service_name: Optional[pulumi.Input[str]]
     Get a buildpack binding by name.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
 
 
     :param str build_service_name: The name of the build service resource.

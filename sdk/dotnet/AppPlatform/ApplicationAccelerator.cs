@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform
     /// Application accelerator resource
     /// Azure REST API version: 2023-05-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:ApplicationAccelerator")]
     public partial class ApplicationAccelerator : global::Pulumi.CustomResource
@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.AppPlatform
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:ApplicationAccelerator"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230701preview:ApplicationAccelerator"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230901preview:ApplicationAccelerator"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231101preview:ApplicationAccelerator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

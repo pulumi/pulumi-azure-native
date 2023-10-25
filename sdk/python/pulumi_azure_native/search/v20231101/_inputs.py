@@ -29,8 +29,8 @@ class DataPlaneAadOrApiKeyAuthOptionArgs:
     def __init__(__self__, *,
                  aad_auth_failure_mode: Optional[pulumi.Input['AadAuthFailureMode']] = None):
         """
-        Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
-        :param pulumi.Input['AadAuthFailureMode'] aad_auth_failure_mode: Describes what response the data plane API of a Search service would send for requests that failed authentication.
+        Indicates that either the API key or an access token from a Microsoft Entra ID tenant can be used for authentication.
+        :param pulumi.Input['AadAuthFailureMode'] aad_auth_failure_mode: Describes what response the data plane API of a search service would send for requests that failed authentication.
         """
         if aad_auth_failure_mode is not None:
             pulumi.set(__self__, "aad_auth_failure_mode", aad_auth_failure_mode)
@@ -39,7 +39,7 @@ class DataPlaneAadOrApiKeyAuthOptionArgs:
     @pulumi.getter(name="aadAuthFailureMode")
     def aad_auth_failure_mode(self) -> Optional[pulumi.Input['AadAuthFailureMode']]:
         """
-        Describes what response the data plane API of a Search service would send for requests that failed authentication.
+        Describes what response the data plane API of a search service would send for requests that failed authentication.
         """
         return pulumi.get(self, "aad_auth_failure_mode")
 
@@ -54,9 +54,9 @@ class DataPlaneAuthOptionsArgs:
                  aad_or_api_key: Optional[pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgs']] = None,
                  api_key_only: Optional[Any] = None):
         """
-        Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
-        :param pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgs'] aad_or_api_key: Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
-        :param Any api_key_only: Indicates that only the API key needs to be used for authentication.
+        Defines the options for how the search service authenticates a data plane request. This cannot be set if 'disableLocalAuth' is set to true.
+        :param pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgs'] aad_or_api_key: Indicates that either the API key or an access token from a Microsoft Entra ID tenant can be used for authentication.
+        :param Any api_key_only: Indicates that only the API key can be used for authentication.
         """
         if aad_or_api_key is not None:
             pulumi.set(__self__, "aad_or_api_key", aad_or_api_key)
@@ -67,7 +67,7 @@ class DataPlaneAuthOptionsArgs:
     @pulumi.getter(name="aadOrApiKey")
     def aad_or_api_key(self) -> Optional[pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgs']]:
         """
-        Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
+        Indicates that either the API key or an access token from a Microsoft Entra ID tenant can be used for authentication.
         """
         return pulumi.get(self, "aad_or_api_key")
 
@@ -79,7 +79,7 @@ class DataPlaneAuthOptionsArgs:
     @pulumi.getter(name="apiKeyOnly")
     def api_key_only(self) -> Optional[Any]:
         """
-        Indicates that only the API key needs to be used for authentication.
+        Indicates that only the API key can be used for authentication.
         """
         return pulumi.get(self, "api_key_only")
 
@@ -93,8 +93,8 @@ class EncryptionWithCmkArgs:
     def __init__(__self__, *,
                  enforcement: Optional[pulumi.Input['SearchEncryptionWithCmk']] = None):
         """
-        Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.
-        :param pulumi.Input['SearchEncryptionWithCmk'] enforcement: Describes how a search service should enforce having one or more non customer encrypted resources.
+        Describes a policy that determines how resources within the search service are to be encrypted with customer=managed keys.
+        :param pulumi.Input['SearchEncryptionWithCmk'] enforcement: Describes how a search service should enforce having one or more non-customer-encrypted resources.
         """
         if enforcement is not None:
             pulumi.set(__self__, "enforcement", enforcement)
@@ -103,7 +103,7 @@ class EncryptionWithCmkArgs:
     @pulumi.getter
     def enforcement(self) -> Optional[pulumi.Input['SearchEncryptionWithCmk']]:
         """
-        Describes how a search service should enforce having one or more non customer encrypted resources.
+        Describes how a search service should enforce having one or more non-customer-encrypted resources.
         """
         return pulumi.get(self, "enforcement")
 
@@ -140,8 +140,8 @@ class IpRuleArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        The IP restriction rule of the Azure Cognitive Search service.
-        :param pulumi.Input[str] value: Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
+        The IP restriction rule of the search service.
+        :param pulumi.Input[str] value: Value corresponding to a single IPv4 address (for example, 123.1.2.3) or an IP range in CIDR format (for example, 123.1.2.3/24) to be allowed.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -150,7 +150,7 @@ class IpRuleArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
+        Value corresponding to a single IPv4 address (for example, 123.1.2.3) or an IP range in CIDR format (for example, 123.1.2.3/24) to be allowed.
         """
         return pulumi.get(self, "value")
 
@@ -164,8 +164,8 @@ class NetworkRuleSetArgs:
     def __init__(__self__, *,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]]] = None):
         """
-        Network specific rules that determine how the Azure Cognitive Search service may be reached.
-        :param pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]] ip_rules: A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
+        Network-specific rules that determine how the search service can be reached.
+        :param pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]] ip_rules: A list of IP restriction rules used for an IP firewall. Any IPs that do not match the rules are blocked by the firewall. These rules are only applied when the 'publicNetworkAccess' of the search service is 'enabled'.
         """
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
@@ -174,7 +174,7 @@ class NetworkRuleSetArgs:
     @pulumi.getter(name="ipRules")
     def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]]]:
         """
-        A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
+        A list of IP restriction rules used for an IP firewall. Any IPs that do not match the rules are blocked by the firewall. These rules are only applied when the 'publicNetworkAccess' of the search service is 'enabled'.
         """
         return pulumi.get(self, "ip_rules")
 
@@ -217,7 +217,7 @@ class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
         Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
         :param pulumi.Input[str] actions_required: A description of any extra actions that may be required.
         :param pulumi.Input[str] description: The description for the private link service connection state.
-        :param pulumi.Input['PrivateLinkServiceConnectionStatus'] status: Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
+        :param pulumi.Input['PrivateLinkServiceConnectionStatus'] status: Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
         """
         if actions_required is None:
             actions_required = 'None'
@@ -256,7 +256,7 @@ class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStatus']]:
         """
-        Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
+        Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
         """
         return pulumi.get(self, "status")
 
@@ -273,11 +273,11 @@ class PrivateEndpointConnectionPropertiesArgs:
                  private_link_service_connection_state: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionProvisioningState']]] = None):
         """
-        Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        Describes the properties of an existing Private Endpoint connection to the search service.
         :param pulumi.Input[str] group_id: The group id from the provider of resource the private link service connection is for.
         :param pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgs'] private_endpoint: The private endpoint resource from Microsoft.Network provider.
         :param pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
-        :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionProvisioningState']] provisioning_state: The provisioning state of the private link service connection. Can be Updating, Deleting, Failed, Succeeded, or Incomplete
+        :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionProvisioningState']] provisioning_state: The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, or Incomplete
         """
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
@@ -328,7 +328,7 @@ class PrivateEndpointConnectionPropertiesArgs:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionProvisioningState']]]:
         """
-        The provisioning state of the private link service connection. Can be Updating, Deleting, Failed, Succeeded, or Incomplete
+        The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, or Incomplete
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -347,13 +347,13 @@ class SharedPrivateLinkResourcePropertiesArgs:
                  resource_region: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['SharedPrivateLinkResourceStatus']] = None):
         """
-        Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
+        Describes the properties of an existing Shared Private Link Resource managed by the search service.
         :param pulumi.Input[str] group_id: The group id from the provider of resource the shared private link resource is for.
         :param pulumi.Input[str] private_link_resource_id: The resource id of the resource the shared private link resource is for.
-        :param pulumi.Input['SharedPrivateLinkResourceProvisioningState'] provisioning_state: The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
+        :param pulumi.Input['SharedPrivateLinkResourceProvisioningState'] provisioning_state: The provisioning state of the shared private link resource. Valid values are Updating, Deleting, Failed, Succeeded or Incomplete.
         :param pulumi.Input[str] request_message: The request message for requesting approval of the shared private link resource.
         :param pulumi.Input[str] resource_region: Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
-        :param pulumi.Input['SharedPrivateLinkResourceStatus'] status: Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
+        :param pulumi.Input['SharedPrivateLinkResourceStatus'] status: Status of the shared private link resource. Valid values are Pending, Approved, Rejected or Disconnected.
         """
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
@@ -396,7 +396,7 @@ class SharedPrivateLinkResourcePropertiesArgs:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[pulumi.Input['SharedPrivateLinkResourceProvisioningState']]:
         """
-        The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
+        The provisioning state of the shared private link resource. Valid values are Updating, Deleting, Failed, Succeeded or Incomplete.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -432,7 +432,7 @@ class SharedPrivateLinkResourcePropertiesArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['SharedPrivateLinkResourceStatus']]:
         """
-        Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
+        Status of the shared private link resource. Valid values are Pending, Approved, Rejected or Disconnected.
         """
         return pulumi.get(self, "status")
 
@@ -446,7 +446,7 @@ class SkuArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input['SkuName']] = None):
         """
-        Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
+        Defines the SKU of a search service, which determines billing rate and capacity limits.
         :param pulumi.Input['SkuName'] name: The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
         """
         if name is not None:

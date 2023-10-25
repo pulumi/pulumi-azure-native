@@ -97,7 +97,7 @@ class TrafficControllerInterface(pulumi.CustomResource):
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
         Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview.
 
-        Other available API versions: 2022-10-01-preview.
+        Other available API versions: 2022-10-01-preview, 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,7 +116,7 @@ class TrafficControllerInterface(pulumi.CustomResource):
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
         Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview.
 
-        Other available API versions: 2022-10-01-preview.
+        Other available API versions: 2022-10-01-preview, 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param TrafficControllerInterfaceArgs args: The arguments to use to populate this resource's properties.
@@ -159,7 +159,7 @@ class TrafficControllerInterface(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicenetworking/v20221001preview:TrafficControllerInterface"), pulumi.Alias(type_="azure-native:servicenetworking/v20230501preview:TrafficControllerInterface")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicenetworking/v20221001preview:TrafficControllerInterface"), pulumi.Alias(type_="azure-native:servicenetworking/v20230501preview:TrafficControllerInterface"), pulumi.Alias(type_="azure-native:servicenetworking/v20231101:TrafficControllerInterface")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TrafficControllerInterface, __self__).__init__(
             'azure-native:servicenetworking:TrafficControllerInterface',

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Spring Cloud Gateway resource
  * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
  */
 export class Gateway extends pulumi.CustomResource {
     /**
@@ -94,7 +94,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:Gateway" }, { type: "azure-native:appplatform/v20220301preview:Gateway" }, { type: "azure-native:appplatform/v20220501preview:Gateway" }, { type: "azure-native:appplatform/v20220901preview:Gateway" }, { type: "azure-native:appplatform/v20221101preview:Gateway" }, { type: "azure-native:appplatform/v20221201:Gateway" }, { type: "azure-native:appplatform/v20230101preview:Gateway" }, { type: "azure-native:appplatform/v20230301preview:Gateway" }, { type: "azure-native:appplatform/v20230501preview:Gateway" }, { type: "azure-native:appplatform/v20230701preview:Gateway" }, { type: "azure-native:appplatform/v20230901preview:Gateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:Gateway" }, { type: "azure-native:appplatform/v20220301preview:Gateway" }, { type: "azure-native:appplatform/v20220501preview:Gateway" }, { type: "azure-native:appplatform/v20220901preview:Gateway" }, { type: "azure-native:appplatform/v20221101preview:Gateway" }, { type: "azure-native:appplatform/v20221201:Gateway" }, { type: "azure-native:appplatform/v20230101preview:Gateway" }, { type: "azure-native:appplatform/v20230301preview:Gateway" }, { type: "azure-native:appplatform/v20230501preview:Gateway" }, { type: "azure-native:appplatform/v20230701preview:Gateway" }, { type: "azure-native:appplatform/v20230901preview:Gateway" }, { type: "azure-native:appplatform/v20231101preview:Gateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gateway.__pulumiType, name, resourceInputs, opts);
     }

@@ -14,7 +14,7 @@ export const AadAuthFailureMode = {
 } as const;
 
 /**
- * Describes what response the data plane API of a Search service would send for requests that failed authentication.
+ * Describes what response the data plane API of a search service would send for requests that failed authentication.
  */
 export type AadAuthFailureMode = (typeof AadAuthFailureMode)[keyof typeof AadAuthFailureMode];
 
@@ -72,7 +72,7 @@ export const PrivateLinkServiceConnectionProvisioningState = {
 } as const;
 
 /**
- * The provisioning state of the private link service connection. Can be Updating, Deleting, Failed, Succeeded, or Incomplete
+ * The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, or Incomplete
  */
 export type PrivateLinkServiceConnectionProvisioningState = (typeof PrivateLinkServiceConnectionProvisioningState)[keyof typeof PrivateLinkServiceConnectionProvisioningState];
 
@@ -96,7 +96,7 @@ export const PrivateLinkServiceConnectionStatus = {
 } as const;
 
 /**
- * Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
+ * Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
  */
 export type PrivateLinkServiceConnectionStatus = (typeof PrivateLinkServiceConnectionStatus)[keyof typeof PrivateLinkServiceConnectionStatus];
 
@@ -112,11 +112,11 @@ export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof Publ
 
 export const SearchEncryptionWithCmk = {
     /**
-     * No enforcement will be made and the search service can have non customer encrypted resources.
+     * No enforcement will be made and the search service can have non-customer-encrypted resources.
      */
     Disabled: "Disabled",
     /**
-     * Search service will be marked as non-compliant if there are one or more non customer encrypted resources.
+     * Search service will be marked as non-compliant if there are one or more non-customer-encrypted resources.
      */
     Enabled: "Enabled",
     /**
@@ -126,27 +126,27 @@ export const SearchEncryptionWithCmk = {
 } as const;
 
 /**
- * Describes how a search service should enforce having one or more non customer encrypted resources.
+ * Describes how a search service should enforce having one or more non-customer-encrypted resources.
  */
 export type SearchEncryptionWithCmk = (typeof SearchEncryptionWithCmk)[keyof typeof SearchEncryptionWithCmk];
 
 export const SearchSemanticSearch = {
     /**
-     * Indicates that semantic search is disabled for the search service.
+     * Indicates that semantic ranking is disabled for the search service.
      */
     Disabled: "disabled",
     /**
-     * Enables semantic search on a search service and indicates that it is to be used within the limits of the free tier. This would cap the volume of semantic search requests and is offered at no extra charge. This is the default for newly provisioned search services.
+     * Enables semantic ranking on a search service and indicates that it is to be used within the limits of the free tier. This would cap the volume of semantic ranking requests and is offered at no extra charge. This is the default for newly provisioned search services.
      */
     Free: "free",
     /**
-     * Enables semantic search on a search service as a billable feature, with higher throughput and volume of semantic search queries.
+     * Enables semantic ranking on a search service as a billable feature, with higher throughput and volume of semantic ranking requests.
      */
     Standard: "standard",
 } as const;
 
 /**
- * Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
+ * Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
  */
 export type SearchSemanticSearch = (typeof SearchSemanticSearch)[keyof typeof SearchSemanticSearch];
 
@@ -159,7 +159,7 @@ export const SharedPrivateLinkResourceProvisioningState = {
 } as const;
 
 /**
- * The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
+ * The provisioning state of the shared private link resource. Valid values are Updating, Deleting, Failed, Succeeded or Incomplete.
  */
 export type SharedPrivateLinkResourceProvisioningState = (typeof SharedPrivateLinkResourceProvisioningState)[keyof typeof SharedPrivateLinkResourceProvisioningState];
 
@@ -171,21 +171,21 @@ export const SharedPrivateLinkResourceStatus = {
 } as const;
 
 /**
- * Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
+ * Status of the shared private link resource. Valid values are Pending, Approved, Rejected or Disconnected.
  */
 export type SharedPrivateLinkResourceStatus = (typeof SharedPrivateLinkResourceStatus)[keyof typeof SharedPrivateLinkResourceStatus];
 
 export const SkuName = {
     /**
-     * Free tier, with no SLA guarantees and a subset of features offered to paid tiers.
+     * Free tier, with no SLA guarantees and a subset of the features offered on billable tiers.
      */
     Free: "free",
     /**
-     * Paid tier dedicated service with up to 3 replicas.
+     * Billable tier for a dedicated service having up to 3 replicas.
      */
     Basic: "basic",
     /**
-     * Paid tier dedicated service with up to 12 partitions and 12 replicas.
+     * Billable tier for a dedicated service having up to 12 partitions and 12 replicas.
      */
     Standard: "standard",
     /**
@@ -197,11 +197,11 @@ export const SkuName = {
      */
     Standard3: "standard3",
     /**
-     * Paid tier dedicated service that supports 1TB per partition, up to 12 partitions.
+     * Billable tier for a dedicated service that supports 1TB per partition, up to 12 partitions.
      */
     StorageOptimizedL1: "storage_optimized_l1",
     /**
-     * Paid tier dedicated service that supports 2TB per partition, up to 12 partitions.
+     * Billable tier for a dedicated service that supports 2TB per partition, up to 12 partitions.
      */
     StorageOptimizedL2: "storage_optimized_l2",
 } as const;

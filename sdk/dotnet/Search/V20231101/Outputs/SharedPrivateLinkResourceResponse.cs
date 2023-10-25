@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Search.V20231101.Outputs
 {
 
     /// <summary>
-    /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+    /// Describes a Shared Private Link Resource managed by the search service.
     /// </summary>
     [OutputType]
     public sealed class SharedPrivateLinkResourceResponse
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Search.V20231101.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        /// Describes the properties of a Shared Private Link Resource managed by the search service.
         /// </summary>
         public readonly Outputs.SharedPrivateLinkResourcePropertiesResponse? Properties;
         /// <summary>

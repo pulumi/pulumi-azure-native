@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Search.V20231101
     public static class ListAdminKey
     {
         /// <summary>
-        /// Gets the primary and secondary admin API keys for the specified Azure Cognitive Search service.
+        /// Gets the primary and secondary admin API keys for the specified search service.
         /// </summary>
         public static Task<ListAdminKeyResult> InvokeAsync(ListAdminKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAdminKeyResult>("azure-native:search/v20231101:listAdminKey", args ?? new ListAdminKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the primary and secondary admin API keys for the specified Azure Cognitive Search service.
+        /// Gets the primary and secondary admin API keys for the specified search service.
         /// </summary>
         public static Output<ListAdminKeyResult> Invoke(ListAdminKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAdminKeyResult>("azure-native:search/v20231101:listAdminKey", args ?? new ListAdminKeyInvokeArgs(), options.WithDefaults());
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Search.V20231101
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Cognitive Search service associated with the specified resource group.
+        /// The name of the search service associated with the specified resource group.
         /// </summary>
         [Input("searchServiceName", required: true)]
         public string SearchServiceName { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.Search.V20231101
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Cognitive Search service associated with the specified resource group.
+        /// The name of the search service associated with the specified resource group.
         /// </summary>
         [Input("searchServiceName", required: true)]
         public Input<string> SearchServiceName { get; set; } = null!;

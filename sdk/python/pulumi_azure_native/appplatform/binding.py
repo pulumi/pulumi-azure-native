@@ -113,7 +113,7 @@ class Binding(pulumi.CustomResource):
         Binding resource payload
         Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,7 +133,7 @@ class Binding(pulumi.CustomResource):
         Binding resource payload
         Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param BindingArgs args: The arguments to use to populate this resource's properties.
@@ -178,7 +178,7 @@ class Binding(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20200701:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220401:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20221201:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20230301preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20230501preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20230701preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20230901preview:Binding")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20200701:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220401:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20221201:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20230301preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20230501preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20230701preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20230901preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20231101preview:Binding")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Binding, __self__).__init__(
             'azure-native:appplatform:Binding',

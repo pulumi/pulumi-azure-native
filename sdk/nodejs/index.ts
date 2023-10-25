@@ -95,6 +95,7 @@ import * as documentdb from "./documentdb";
 import * as domainregistration from "./domainregistration";
 import * as dynamics365fraudprotection from "./dynamics365fraudprotection";
 import * as easm from "./easm";
+import * as edgemarketplace from "./edgemarketplace";
 import * as edgeorder from "./edgeorder";
 import * as education from "./education";
 import * as elastic from "./elastic";
@@ -121,6 +122,7 @@ import * as hybriddata from "./hybriddata";
 import * as hybridnetwork from "./hybridnetwork";
 import * as importexport from "./importexport";
 import * as insights from "./insights";
+import * as integrationspaces from "./integrationspaces";
 import * as intune from "./intune";
 import * as iotcentral from "./iotcentral";
 import * as iotfirmwaredefense from "./iotfirmwaredefense";
@@ -312,6 +314,7 @@ export {
     domainregistration,
     dynamics365fraudprotection,
     easm,
+    edgemarketplace,
     edgeorder,
     education,
     elastic,
@@ -338,6 +341,7 @@ export {
     hybridnetwork,
     importexport,
     insights,
+    integrationspaces,
     intune,
     iotcentral,
     iotfirmwaredefense,

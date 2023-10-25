@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Search.V20231101
     public static class ListQueryKeyBySearchService
     {
         /// <summary>
-        /// Returns the list of query API keys for the given Azure Cognitive Search service.
+        /// Returns the list of query API keys for the given search service.
         /// </summary>
         public static Task<ListQueryKeyBySearchServiceResult> InvokeAsync(ListQueryKeyBySearchServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListQueryKeyBySearchServiceResult>("azure-native:search/v20231101:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Returns the list of query API keys for the given Azure Cognitive Search service.
+        /// Returns the list of query API keys for the given search service.
         /// </summary>
         public static Output<ListQueryKeyBySearchServiceResult> Invoke(ListQueryKeyBySearchServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListQueryKeyBySearchServiceResult>("azure-native:search/v20231101:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceInvokeArgs(), options.WithDefaults());
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Search.V20231101
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Cognitive Search service associated with the specified resource group.
+        /// The name of the search service associated with the specified resource group.
         /// </summary>
         [Input("searchServiceName", required: true)]
         public string SearchServiceName { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.Search.V20231101
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Cognitive Search service associated with the specified resource group.
+        /// The name of the search service associated with the specified resource group.
         /// </summary>
         [Input("searchServiceName", required: true)]
         public Input<string> SearchServiceName { get; set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.Search.V20231101
         /// </summary>
         public readonly string NextLink;
         /// <summary>
-        /// The query keys for the Azure Cognitive Search service.
+        /// The query keys for the search service.
         /// </summary>
         public readonly ImmutableArray<Outputs.QueryKeyResponse> Value;
 

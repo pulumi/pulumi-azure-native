@@ -23,6 +23,7 @@ __all__ = [
     'LocationDataResponse',
     'MachineExtensionInstanceViewResponse',
     'MachineExtensionInstanceViewResponseStatus',
+    'MachineExtensionPropertiesResponse',
     'MachineExtensionResponse',
     'OSProfileResponse',
     'OSProfileResponseLinuxConfiguration',
@@ -827,17 +828,15 @@ class MachineExtensionInstanceViewResponseStatus(dict):
 
 
 @pulumi.output_type
-class MachineExtensionResponse(dict):
+class MachineExtensionPropertiesResponse(dict):
     """
-    Describes a Machine Extension.
+    Describes the properties of a Machine Extension.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "systemData":
-            suggest = "system_data"
         elif key == "autoUpgradeMinorVersion":
             suggest = "auto_upgrade_minor_version"
         elif key == "enableAutomaticUpgrade":
@@ -852,23 +851,18 @@ class MachineExtensionResponse(dict):
             suggest = "type_handler_version"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MachineExtensionResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MachineExtensionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MachineExtensionResponse.__key_warning(key)
+        MachineExtensionPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MachineExtensionResponse.__key_warning(key)
+        MachineExtensionPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 id: str,
-                 location: str,
-                 name: str,
                  provisioning_state: str,
-                 system_data: 'outputs.SystemDataResponse',
-                 type: str,
                  auto_upgrade_minor_version: Optional[bool] = None,
                  enable_automatic_upgrade: Optional[bool] = None,
                  force_update_tag: Optional[str] = None,
@@ -876,16 +870,11 @@ class MachineExtensionResponse(dict):
                  protected_settings: Optional[Any] = None,
                  publisher: Optional[str] = None,
                  settings: Optional[Any] = None,
-                 tags: Optional[Mapping[str, str]] = None,
+                 type: Optional[str] = None,
                  type_handler_version: Optional[str] = None):
         """
-        Describes a Machine Extension.
-        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        :param str location: The geo-location where the resource lives
-        :param str name: The name of the resource
+        Describes the properties of a Machine Extension.
         :param str provisioning_state: The provisioning state, which only appears in the response.
-        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param bool enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
         :param str force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
@@ -893,15 +882,10 @@ class MachineExtensionResponse(dict):
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param str publisher: The name of the extension handler publisher.
         :param Any settings: Json formatted public settings for the extension.
-        :param Mapping[str, str] tags: Resource tags.
+        :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
         if enable_automatic_upgrade is not None:
@@ -916,34 +900,10 @@ class MachineExtensionResponse(dict):
             pulumi.set(__self__, "publisher", publisher)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
         if type_handler_version is not None:
             pulumi.set(__self__, "type_handler_version", type_handler_version)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def location(self) -> str:
-        """
-        The geo-location where the resource lives
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the resource
-        """
-        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -952,22 +912,6 @@ class MachineExtensionResponse(dict):
         The provisioning state, which only appears in the response.
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="autoUpgradeMinorVersion")
@@ -1027,11 +971,11 @@ class MachineExtensionResponse(dict):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def type(self) -> Optional[str]:
         """
-        Resource tags.
+        Specifies the type of the extension; an example is "CustomScriptExtension".
         """
-        return pulumi.get(self, "tags")
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="typeHandlerVersion")
@@ -1040,6 +984,113 @@ class MachineExtensionResponse(dict):
         Specifies the version of the script handler.
         """
         return pulumi.get(self, "type_handler_version")
+
+
+@pulumi.output_type
+class MachineExtensionResponse(dict):
+    """
+    Describes a Machine Extension.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemData":
+            suggest = "system_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MachineExtensionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MachineExtensionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MachineExtensionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 location: str,
+                 name: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 properties: Optional['outputs.MachineExtensionPropertiesResponse'] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Describes a Machine Extension.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str location: The geo-location where the resource lives
+        :param str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'MachineExtensionPropertiesResponse' properties: Describes Machine Extension Properties.
+        :param Mapping[str, str] tags: Resource tags.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.MachineExtensionPropertiesResponse']:
+        """
+        Describes Machine Extension Properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

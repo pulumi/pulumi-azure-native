@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Returns the list of query API keys for the given Azure Cognitive Search service.
+ * Returns the list of query API keys for the given search service.
  */
 export function listQueryKeyBySearchService(args: ListQueryKeyBySearchServiceArgs, opts?: pulumi.InvokeOptions): Promise<ListQueryKeyBySearchServiceResult> {
 
@@ -25,13 +25,13 @@ export interface ListQueryKeyBySearchServiceArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the Azure Cognitive Search service associated with the specified resource group.
+     * The name of the search service associated with the specified resource group.
      */
     searchServiceName: string;
 }
 
 /**
- * Response containing the query API keys for a given Azure Cognitive Search service.
+ * Response containing the query API keys for a given search service.
  */
 export interface ListQueryKeyBySearchServiceResult {
     /**
@@ -39,12 +39,12 @@ export interface ListQueryKeyBySearchServiceResult {
      */
     readonly nextLink: string;
     /**
-     * The query keys for the Azure Cognitive Search service.
+     * The query keys for the search service.
      */
     readonly value: outputs.search.v20231101.QueryKeyResponse[];
 }
 /**
- * Returns the list of query API keys for the given Azure Cognitive Search service.
+ * Returns the list of query API keys for the given search service.
  */
 export function listQueryKeyBySearchServiceOutput(args: ListQueryKeyBySearchServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQueryKeyBySearchServiceResult> {
     return pulumi.output(args).apply((a: any) => listQueryKeyBySearchService(a, opts))
@@ -56,7 +56,7 @@ export interface ListQueryKeyBySearchServiceOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Azure Cognitive Search service associated with the specified resource group.
+     * The name of the search service associated with the specified resource group.
      */
     searchServiceName: pulumi.Input<string>;
 }
