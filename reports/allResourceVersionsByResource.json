@@ -3611,6 +3611,7 @@
       "2022-07-01-preview",
       "2023-03-01-preview",
       "2023-03-31",
+      "2023-04-01",
       "2023-04-01-preview",
       "2023-06-01-preview"
     ],
@@ -3619,6 +3620,7 @@
       "2022-07-01-preview",
       "2023-03-01-preview",
       "2023-03-31",
+      "2023-04-01",
       "2023-04-01-preview",
       "2023-06-01-preview"
     ],
@@ -3627,12 +3629,14 @@
       "2022-07-01-preview",
       "2023-03-01-preview",
       "2023-03-31",
+      "2023-04-01",
       "2023-04-01-preview",
       "2023-06-01-preview"
     ],
     "SenderUsername": [
       "2023-03-01-preview",
       "2023-03-31",
+      "2023-04-01",
       "2023-04-01-preview",
       "2023-06-01-preview"
     ],
@@ -3649,6 +3653,7 @@
       "2022-07-01-preview",
       "2023-03-01-preview",
       "2023-03-31",
+      "2023-04-01",
       "2023-04-01-preview",
       "2023-06-01-preview"
     ],
@@ -3657,6 +3662,7 @@
       "2022-07-01-preview",
       "2023-03-01-preview",
       "2023-03-31",
+      "2023-04-01",
       "2023-04-01-preview",
       "2023-06-01-preview"
     ]
@@ -4631,7 +4637,8 @@
       "2023-07-02-preview",
       "2023-08-01",
       "2023-08-02-preview",
-      "2023-09-01"
+      "2023-09-01",
+      "2023-09-02-preview"
     ],
     "ContainerService": [
       "2015-11-01-preview",
@@ -4707,7 +4714,8 @@
       "2023-07-02-preview",
       "2023-08-01",
       "2023-08-02-preview",
-      "2023-09-01"
+      "2023-09-01",
+      "2023-09-02-preview"
     ],
     "ManagedCluster": [
       "2017-08-31",
@@ -4772,7 +4780,8 @@
       "2023-07-02-preview",
       "2023-08-01",
       "2023-08-02-preview",
-      "2023-09-01"
+      "2023-09-01",
+      "2023-09-02-preview"
     ],
     "ManagedClusterSnapshot": [
       "2022-02-02-preview",
@@ -4793,7 +4802,8 @@
       "2023-05-02-preview",
       "2023-06-02-preview",
       "2023-07-02-preview",
-      "2023-08-02-preview"
+      "2023-08-02-preview",
+      "2023-09-02-preview"
     ],
     "OpenShiftManagedCluster": [
       "2018-09-30-preview",
@@ -4851,7 +4861,8 @@
       "2023-07-02-preview",
       "2023-08-01",
       "2023-08-02-preview",
-      "2023-09-01"
+      "2023-09-01",
+      "2023-09-02-preview"
     ],
     "Snapshot": [
       "2021-08-01",
@@ -4894,7 +4905,8 @@
       "2023-07-02-preview",
       "2023-08-01",
       "2023-08-02-preview",
-      "2023-09-01"
+      "2023-09-01",
+      "2023-09-02-preview"
     ],
     "TrustedAccessRoleBinding": [
       "2022-04-02-preview",
@@ -4914,7 +4926,8 @@
       "2023-06-02-preview",
       "2023-07-02-preview",
       "2023-08-02-preview",
-      "2023-09-01"
+      "2023-09-01",
+      "2023-09-02-preview"
     ],
     "UpdateRun": [
       "2023-03-15-preview",
@@ -5007,7 +5020,8 @@
       "2023-07-02-preview",
       "2023-08-01",
       "2023-08-02-preview",
-      "2023-09-01"
+      "2023-09-01",
+      "2023-09-02-preview"
     ],
     "listManagedClusterMonitoringUserCredentials": [
       "2019-10-01",
@@ -5065,7 +5079,8 @@
       "2023-07-02-preview",
       "2023-08-01",
       "2023-08-02-preview",
-      "2023-09-01"
+      "2023-09-01",
+      "2023-09-02-preview"
     ],
     "listManagedClusterUserCredentials": [
       "2018-03-31",
@@ -5129,7 +5144,8 @@
       "2023-07-02-preview",
       "2023-08-01",
       "2023-08-02-preview",
-      "2023-09-01"
+      "2023-09-01",
+      "2023-09-02-preview"
     ]
   },
   "ContainerStorage": {
@@ -9096,6 +9112,18 @@
     ]
   },
   "HybridNetwork": {
+    "ArtifactManifest": [
+      "2023-09-01"
+    ],
+    "ArtifactStore": [
+      "2023-09-01"
+    ],
+    "ConfigurationGroupSchema": [
+      "2023-09-01"
+    ],
+    "ConfigurationGroupValue": [
+      "2023-09-01"
+    ],
     "Device": [
       "2020-01-01-preview",
       "2021-05-01",
@@ -9104,7 +9132,29 @@
     "NetworkFunction": [
       "2020-01-01-preview",
       "2021-05-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2023-09-01"
+    ],
+    "NetworkFunctionDefinitionGroup": [
+      "2023-09-01"
+    ],
+    "NetworkFunctionDefinitionVersion": [
+      "2023-09-01"
+    ],
+    "NetworkServiceDesignGroup": [
+      "2023-09-01"
+    ],
+    "NetworkServiceDesignVersion": [
+      "2023-09-01"
+    ],
+    "Publisher": [
+      "2023-09-01"
+    ],
+    "Site": [
+      "2023-09-01"
+    ],
+    "SiteNetworkService": [
+      "2023-09-01"
     ],
     "Vendor": [
       "2020-01-01-preview",
@@ -9120,6 +9170,9 @@
       "2020-01-01-preview",
       "2021-05-01",
       "2022-01-01-preview"
+    ],
+    "listArtifactManifestCredential": [
+      "2023-09-01"
     ],
     "listDeviceRegistrationKey": [
       "2020-01-01-preview",

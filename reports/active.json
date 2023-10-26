@@ -2748,7 +2748,8 @@
       "2021-07-01-preview",
       "2021-09-01-preview",
       "2022-12-15-preview",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-09-01-preview"
     ],
     "operations": [
       "2020-03-01-preview",
@@ -14094,7 +14095,9 @@
       "2023-03-15-preview",
       "2023-04-15",
       "2023-09-15",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15",
+      "2023-11-15-preview"
     ],
     "cassandraclusters": [
       "2021-03-01-preview",
@@ -14116,7 +14119,9 @@
       "2023-03-15-preview",
       "2023-04-15",
       "2023-09-15",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15",
+      "2023-11-15-preview"
     ],
     "databaseaccountnames": [
       "2014-04-01",
@@ -14155,7 +14160,9 @@
       "2023-03-15-preview",
       "2023-04-15",
       "2023-09-15",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15",
+      "2023-11-15-preview"
     ],
     "databaseaccounts": [
       "2014-04-01",
@@ -14194,7 +14201,9 @@
       "2023-03-15-preview",
       "2023-04-15",
       "2023-09-15",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15",
+      "2023-11-15-preview"
     ],
     "databaseaccounts/encryptionscopes": [
       "2021-03-01-preview",
@@ -14216,7 +14225,9 @@
       "2023-03-15-preview",
       "2023-04-15",
       "2023-09-15",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15",
+      "2023-11-15-preview"
     ],
     "locations": [
       "2014-04-01",
@@ -14255,13 +14266,16 @@
       "2023-03-15-preview",
       "2023-04-15",
       "2023-09-15",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15",
+      "2023-11-15-preview"
     ],
     "locations/checkmongoclusternameavailability": [
       "2022-10-15-preview",
       "2023-03-01-preview",
       "2023-03-15-preview",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15-preview"
     ],
     "locations/deletevirtualnetworkorsubnets": [
       "2014-04-01",
@@ -14300,19 +14314,23 @@
       "2023-03-15-preview",
       "2023-04-15",
       "2023-09-15",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15",
+      "2023-11-15-preview"
     ],
     "locations/mongoclusterazureasyncoperation": [
       "2022-10-15-preview",
       "2023-03-01-preview",
       "2023-03-15-preview",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15-preview"
     ],
     "locations/mongoclusteroperationresults": [
       "2022-10-15-preview",
       "2023-03-01-preview",
       "2023-03-15-preview",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15-preview"
     ],
     "locations/notifynetworksecurityperimeterupdatesavailable": [
       "2022-08-15",
@@ -14324,7 +14342,9 @@
       "2023-03-15-preview",
       "2023-04-15",
       "2023-09-15",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15",
+      "2023-11-15-preview"
     ],
     "locations/operationresults": [
       "2014-04-01",
@@ -14363,7 +14383,9 @@
       "2023-03-15-preview",
       "2023-04-15",
       "2023-09-15",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15",
+      "2023-11-15-preview"
     ],
     "locations/operationsstatus": [
       "2014-04-01",
@@ -14402,7 +14424,9 @@
       "2023-03-15-preview",
       "2023-04-15",
       "2023-09-15",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15",
+      "2023-11-15-preview"
     ],
     "locations/restorabledatabaseaccounts": [
       "2020-06-01-preview",
@@ -14426,13 +14450,16 @@
       "2023-03-15-preview",
       "2023-04-15",
       "2023-09-15",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15",
+      "2023-11-15-preview"
     ],
     "mongoclusters": [
       "2022-10-15-preview",
       "2023-03-01-preview",
       "2023-03-15-preview",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15-preview"
     ],
     "operationresults": [
       "2014-04-01",
@@ -14471,7 +14498,9 @@
       "2023-03-15-preview",
       "2023-04-15",
       "2023-09-15",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15",
+      "2023-11-15-preview"
     ],
     "operations": [
       "2014-04-01",
@@ -14510,7 +14539,9 @@
       "2023-03-15-preview",
       "2023-04-15",
       "2023-09-15",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15",
+      "2023-11-15-preview"
     ],
     "operationsstatus": [
       "2014-04-01",
@@ -14549,7 +14580,9 @@
       "2023-03-15-preview",
       "2023-04-15",
       "2023-09-15",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15",
+      "2023-11-15-preview"
     ],
     "restorabledatabaseaccounts": [
       "2020-06-01-preview",
@@ -14573,7 +14606,9 @@
       "2023-03-15-preview",
       "2023-04-15",
       "2023-09-15",
-      "2023-09-15-preview"
+      "2023-09-15-preview",
+      "2023-11-15",
+      "2023-11-15-preview"
     ]
   },
   "domainregistration": {

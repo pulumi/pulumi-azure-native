@@ -1153,11 +1153,23 @@
     "JobDefinition": "2019-06-01"
   },
   "HybridNetwork": {
+    "ArtifactManifest": "2023-09-01",
+    "ArtifactStore": "2023-09-01",
+    "ConfigurationGroupSchema": "2023-09-01",
+    "ConfigurationGroupValue": "2023-09-01",
     "Device": "2022-01-01-preview",
     "NetworkFunction": "2022-01-01-preview",
+    "NetworkFunctionDefinitionGroup": "2023-09-01",
+    "NetworkFunctionDefinitionVersion": "2023-09-01",
+    "NetworkServiceDesignGroup": "2023-09-01",
+    "NetworkServiceDesignVersion": "2023-09-01",
+    "Publisher": "2023-09-01",
+    "Site": "2023-09-01",
+    "SiteNetworkService": "2023-09-01",
     "Vendor": "2022-01-01-preview",
     "VendorSkuPreview": "2022-01-01-preview",
     "VendorSkus": "2022-01-01-preview",
+    "listArtifactManifestCredential": "2023-09-01",
     "listDeviceRegistrationKey": "2022-01-01-preview",
     "listVendorSkusCredential": "2022-01-01-preview"
   },

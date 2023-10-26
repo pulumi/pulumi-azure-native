@@ -136,6 +136,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "HybridNetwork",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "IntegrationSpaces",
     "Detail": "expected tracking stable but found preview"
   },
