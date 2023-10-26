@@ -37,7 +37,10 @@ type propertyBag struct {
 	properties         map[string]resources.AzureAPIProperty
 	requiredSpecs      codegen.StringSet
 	requiredProperties codegen.StringSet
+	requiredContainers requiredContainers
 }
+
+type requiredContainers [][]string
 
 func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput, isType bool) (*propertyBag, error) {
 	result := newPropertyBag()
@@ -101,6 +104,17 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				newProperties[n] = value
 			}
 			bag.properties = newProperties
+
+			newRequiredContainers := make(requiredContainers, 0, len(bag.requiredContainers))
+			for i, containers := range bag.requiredContainers {
+				newRequiredContainers[i] = append([]string{name}, containers...)
+			}
+			for _, requiredName := range resolvedSchema.Required {
+				if requiredName == name {
+					newRequiredContainers = append(newRequiredContainers, []string{name})
+				}
+			}
+			bag.requiredContainers = newRequiredContainers
 
 			result.merge(bag)
 			continue
@@ -335,6 +349,7 @@ func (bag *propertyBag) merge(other *propertyBag) {
 	for key := range other.requiredProperties {
 		bag.requiredProperties.Add(key)
 	}
+	bag.requiredContainers = append(bag.requiredContainers, other.requiredContainers...)
 }
 
 // forceNew return true if a property with a given name requires a replacement in the resource

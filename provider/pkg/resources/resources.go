@@ -106,7 +106,7 @@ type AzureAPIResource struct {
 	// group or the configured value. AutoLocationDisabled can override this default behavior.
 	AutoLocationDisabled bool `json:"autoLocationDisabled,omitempty"`
 	// Containers within the request body that are required even if no properties are set within it.
-	RequiredContainers []string `json:"requiredContainers,omitempty"`
+	RequiredContainers [][]string `json:"requiredContainers,omitempty"`
 }
 
 func (res *AzureAPIResource) LookupProperty(key string) (AzureAPIProperty, bool) {
