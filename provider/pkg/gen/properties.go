@@ -105,7 +105,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			}
 			bag.properties = newProperties
 
-			newRequiredContainers := make(requiredContainers, 0, len(bag.requiredContainers))
+			newRequiredContainers := make(requiredContainers, len(bag.requiredContainers))
 			for i, containers := range bag.requiredContainers {
 				newRequiredContainers[i] = append([]string{name}, containers...)
 			}
