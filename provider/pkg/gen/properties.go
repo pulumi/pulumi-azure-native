@@ -37,10 +37,10 @@ type propertyBag struct {
 	properties         map[string]resources.AzureAPIProperty
 	requiredSpecs      codegen.StringSet
 	requiredProperties codegen.StringSet
-	requiredContainers requiredContainers
+	requiredContainers RequiredContainers
 }
 
-type requiredContainers [][]string
+type RequiredContainers [][]string
 
 func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput, isType bool) (*propertyBag, error) {
 	result := newPropertyBag()
@@ -105,7 +105,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			}
 			bag.properties = newProperties
 
-			newRequiredContainers := make(requiredContainers, len(bag.requiredContainers))
+			newRequiredContainers := make(RequiredContainers, len(bag.requiredContainers))
 			for i, containers := range bag.requiredContainers {
 				newRequiredContainers[i] = append([]string{name}, containers...)
 			}

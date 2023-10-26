@@ -1337,7 +1337,7 @@ type parameterBag struct {
 	specs              map[string]pschema.PropertySpec
 	parameters         []resources.AzureAPIParameter
 	requiredSpecs      codegen.StringSet
-	requiredContainers requiredContainers
+	requiredContainers RequiredContainers
 }
 
 func newParameterBag() *parameterBag {
